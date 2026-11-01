@@ -1,0 +1,260 @@
+{
+  "cooperbench_commit": "63b9d44d9f39a02fccf5bf0052db48a917a011fd",
+  "scope": "Evaluator-side task/environment audit. Do not mount this file, tests or references into model-agent environments.",
+  "candidate_configs": [
+    {
+      "key": "click",
+      "repo": "pallets_click_task",
+      "task_id": 2800,
+      "features": [
+        1,
+        2
+      ],
+      "image": "akhatua/cooperbench-pallets-click:task2800",
+      "base_commit": "d8763b93021c416549b5f8b4b5497234619410db",
+      "subset_membership": [
+        "lite"
+      ],
+      "requirements": {
+        "1": "Close contexts and file resources created during shell completion, including group/chain paths.",
+        "2": "Add optional on_exit callback to make_context and Context; supply context to callback and protect normal cleanup from callback exceptions."
+      },
+      "integration": "Both affect the Context lifecycle across src/click/core.py and src/click/shell_completion.py.",
+      "official_test_targets": [
+        "tests/test_shell_completion.py",
+        "tests/test_context.py"
+      ],
+      "coverage_notes": [
+        "Feature 1 adds one warnings-based file-cleanup test; it does not directly assert file.closed or cover all group/chain resource cases.",
+        "Feature 2 checks ordinary callbacks, parameters, omitted callbacks, callback exceptions, nested contexts and reuse.",
+        "Important spec/test detail: feature 2 tests require no callback during shell-completion context resolution, while feature 1 requires cleanup there; the feature 2 description does not explicitly state that exception.",
+        "The nested callback test asserts membership, not strict ordering; the exception test does not directly assert an independently registered cleanup still ran."
+      ],
+      "environment_pitfalls": [
+        "setup.sh contains a second cd into REPO_NAME after already entering it; prefer the official Docker image and its baked runner.",
+        "Do not silently alter the feature descriptions or reveal evaluator assertions to agents. Record the completion callback exception as a benchmark limitation."
+      ],
+      "task_directory": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800",
+      "python_base_image": "python:3.11-slim",
+      "source_files": {
+        "Dockerfile": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/Dockerfile",
+          "sha256": "ece1d628a3cfe491ad2f9b93906ded5296bf100077d5111bbc699e62b1fb586c"
+        },
+        "runner.sh": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/runner.sh",
+          "sha256": "4755a39855b9df524408a203cc15ee211a90f1399829edfd325fca54d63bef9e"
+        },
+        "run_tests.sh": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/run_tests.sh",
+          "sha256": "4795e7f8b4c69eea7403c1b8712b00d47b92442cd92ece9051188506e88d284e"
+        },
+        "setup.sh": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/setup.sh",
+          "sha256": "cf7ad527e1ab932b4598af7ce10eee3b72ff55d7b14e53c180a56dabf8734ab4"
+        },
+        "feature1/feature.md": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/feature1/feature.md",
+          "sha256": "dfe8289f9ecf94afa48e111ac6d1e21f53f0d2abd4f722df001df6be37139eb4"
+        },
+        "feature1/tests.patch": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/feature1/tests.patch",
+          "sha256": "685d8cb338cd0d64bfbde4a0de63f665f84c81ba8d9656a215d2c6b1ed519f8c"
+        },
+        "feature2/feature.md": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/feature2/feature.md",
+          "sha256": "ff83f7af30b660e22217519ee2a872e358bc10d6f661ea9701f6d11e3a3daf67"
+        },
+        "feature2/tests.patch": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/pallets_click_task/task2800/feature2/tests.patch",
+          "sha256": "03015d17fe6c5d58cab5b2cf058c0e5ac159e18b58045f956eaff866496246a8"
+        }
+      },
+      "references_present": true,
+      "runtime_verification_status": "passed",
+      "image_id": "sha256:a80b15460f97844a8ac36cadeed51b21fcb68a726e3992374cc9d997fe397260",
+      "image_record": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/artifacts/task_candidate_preflight/20261030T145337709135Z/click/task_image.json",
+      "reference_check_result": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/artifacts/task_candidate_preflight/20261030T145337709135Z/click/result.json",
+      "combined_reference_supports_selected_pair": true,
+      "reference_counts": {
+        "1": {
+          "base": {
+            "passed": false,
+            "exit_code": 1,
+            "tests_passed": 67,
+            "tests_failed": 1
+          },
+          "individual_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 68,
+            "tests_failed": 0
+          },
+          "combined_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 68,
+            "tests_failed": 0
+          }
+        },
+        "2": {
+          "base": {
+            "passed": false,
+            "exit_code": 1,
+            "tests_passed": 68,
+            "tests_failed": 8
+          },
+          "individual_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 76,
+            "tests_failed": 0
+          },
+          "combined_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 76,
+            "tests_failed": 0
+          }
+        }
+      }
+    },
+    {
+      "key": "dirty_equals",
+      "repo": "samuelcolvin_dirty_equals_task",
+      "task_id": 43,
+      "features": [
+        3,
+        7
+      ],
+      "image": "akhatua/cooperbench-samuelcolvin-dirty-equals:task43",
+      "base_commit": "593bcccf738ab8b724d7cb860881d74344171f5f",
+      "subset_membership": [
+        "flash",
+        "lite"
+      ],
+      "requirements": {
+        "3": "Add IsEmail with email-format checks, optional exact case-sensitive domain filter, and the specified repr.",
+        "7": "Add IsHash for six algorithm-specific hexadecimal lengths; preserve supplied algorithm spelling in repr."
+      },
+      "integration": "Separate validator behavior shares dirty_equals/_other.py and dirty_equals/__init__.py exports; lower behavioral coupling than context lifecycle work.",
+      "official_test_targets": [
+        "tests/test_other.py"
+      ],
+      "coverage_notes": [
+        "Email tests cover common valid/invalid strings, type rejection, domain case sensitivity and exact subdomain matching; they are not full RFC email validation.",
+        "Hash tests cover six algorithms, hex case, lengths, type rejection, unsupported algorithms, algorithm case and lower-case repr.",
+        "The uppercase-algorithm repr preservation requirement is not directly asserted; newline/surrounding-whitespace acceptance has limited coverage.",
+        "The two feature suites are applied separately; no direct cross-validator interaction check is present. Most original regression tests overlap."
+      ],
+      "environment_pitfalls": [
+        "Both validators need public exports as well as implementation; a per-feature class alone is not sufficient.",
+        "Do not assume task43 IDs describe test counts or that low behavioral coupling guarantees conflict-free patches."
+      ],
+      "task_directory": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43",
+      "python_base_image": "python:3.11-slim",
+      "source_files": {
+        "Dockerfile": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/Dockerfile",
+          "sha256": "6d3fb32e4e2322e254bea1ac51467e949369ea31149a41d61513d5d11ac01b12"
+        },
+        "runner.sh": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/runner.sh",
+          "sha256": "04e67d230a6d1badfa2dfb82932dc0086779cffaed4afdff8d82bc9e473fceda"
+        },
+        "run_tests.sh": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/run_tests.sh",
+          "sha256": "b7db31e48d7fc5063dfa36d8e62f19f7f2a41b759d245120a605a82874ae1934"
+        },
+        "setup.sh": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/setup.sh",
+          "sha256": "54cbfbd085211fd08faf00bb6324ba4dd5ef2cdf4e61920b8c631a4acf372c4e"
+        },
+        "feature3/feature.md": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/feature3/feature.md",
+          "sha256": "75e3ca2ec8bd9d5b63d4a200c69cd49380b57c2c503f10e629ba8207832d4ae6"
+        },
+        "feature3/tests.patch": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/feature3/tests.patch",
+          "sha256": "c6098634297db5d329317dbb2670cf9ceddd725de004b365e9ee9adc66d265cc"
+        },
+        "feature7/feature.md": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/feature7/feature.md",
+          "sha256": "616af688a762e61edd65b82d5a0baea0b4773e8da54177658e6acb8f14d4e8a1"
+        },
+        "feature7/tests.patch": {
+          "path": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/CooperBench/dataset/samuelcolvin_dirty_equals_task/task43/feature7/tests.patch",
+          "sha256": "469f1ded4bbf61f4a2cdd17b1421194572f801958150df0cfa15d9754a4e2ddd"
+        }
+      },
+      "references_present": true,
+      "runtime_verification_status": "passed",
+      "image_id": "sha256:c0d0ab8de32ec280797c0043d29c2904389b786cb8ad9f44fbf7b79032d68926",
+      "image_record": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/artifacts/task_candidate_preflight/20261030T145337709135Z/dirty_equals/task_image.json",
+      "reference_check_result": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/artifacts/task_candidate_preflight/20261030T145337709135Z/dirty_equals/result.json",
+      "combined_reference_supports_selected_pair": true,
+      "reference_counts": {
+        "3": {
+          "base": {
+            "passed": false,
+            "exit_code": 2,
+            "tests_passed": 0,
+            "tests_failed": 1
+          },
+          "individual_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 60,
+            "tests_failed": 0
+          },
+          "combined_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 60,
+            "tests_failed": 0
+          }
+        },
+        "7": {
+          "base": {
+            "passed": false,
+            "exit_code": 2,
+            "tests_passed": 0,
+            "tests_failed": 1
+          },
+          "individual_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 71,
+            "tests_failed": 0
+          },
+          "combined_reference": {
+            "passed": true,
+            "exit_code": 0,
+            "tests_passed": 71,
+            "tests_failed": 0
+          }
+        }
+      },
+      "base_failure_explanation": {
+        "3": "Pytest collection fails because the requested new public validator is absent on base: IsEmail",
+        "7": "Pytest collection fails because the requested new public validator is absent on base: IsHash"
+      }
+    }
+  ],
+  "reference_check_artifact_directory": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/artifacts/task_candidate_preflight/20261030T145337709135Z",
+  "reference_checks": [
+    "Image architecture and base commit match task metadata; baked runner matches pinned source.",
+    "Each selected test suite fails on untouched base for feature-related reasons, not environment failure.",
+    "Each selected test suite passes with its own individual reference.",
+    "The full combined reference passes both selected suites; do not merge individual reference patches."
+  ],
+  "minimal_next_offline_checks": [
+    "Freeze task-specific image IDs and make repo/task/feature/base/image metadata configurable outside original Jinja runs.",
+    "For a checkpoint with existing source changes, verify both selected task containers, agent state and shared Git are restored exactly before adding conditions.",
+    "Run scripted no-model checkpoint/restore and single/dual-agent submission flow before paid calls."
+  ],
+  "coverage_policy": "Keep the official primary score unchanged. Record known coverage/spec limitations before runs; no post-outcome prompt hints or scoring changes.",
+  "reference_checks_completed": true,
+  "reference_check_summary": "/Users/charleszheng/Documents/ChatGPT/Agent RSI/experiments/m0/artifacts/task_candidate_preflight/20261030T145337709135Z/summary.json",
+  "paid_model_calls": 0
+}

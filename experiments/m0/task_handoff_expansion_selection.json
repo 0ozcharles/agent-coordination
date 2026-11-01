@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "status": "selected_pending_environment_validation",
+  "dataset_commit": "63b9d44d9f39a02fccf5bf0052db48a917a011fd",
+  "evidence_path_root": "experiments/m0",
+  "source_path_root": "the benchmark task repository at its declared base commit",
+  "selection_rule": {
+    "basis": "原始 feature.md 的功能要求、明确列出的修改模块与 Dockerfile；在新任务运行前确定名单。",
+    "requirements": [
+      "恰好三个不同 repository 的新任务组，每组两个 feature。",
+      "两项功能需要配合使用或共同修改同一段处理逻辑，不仅依据文件重叠推断难度。",
+      "Python 源码范围明确；可沿用现有源码修改 checkpoint 观察方式。",
+      "不读取参考实现、隐藏测试或历史成绩，也不根据试跑成功率挑选任务。"
+    ],
+    "reference_or_hidden_test_content_read": false,
+    "historical_scores_used": false,
+    "model_calls": 0,
+    "image_pulls": 0,
+    "formal_runs": 0
+  },
+  "planned_design": {
+    "conditions": ["strongshare", "consolidate", "solo"],
+    "repetitions_per_condition_per_task": 3,
+    "formal_runs": 27,
+    "common_prefixes": 3,
+    "note": "这里只固定任务选择；环境、参考评分与执行协议由主流程另行验证。"
+  },
+  "selected_tasks": [
+    {
+      "task_key": "llama_index17070_f1_f3",
+      "repo": "llama_index_task",
+      "task_id": 17070,
+      "features": [1, 3],
+      "status": "selected_pending_environment_validation",
+      "base_commit": "0417380ada935e277d686aef941b84032e67c57a",
+      "image": "akhatua/cooperbench-llama-index:task17070",
+      "code_roots": ["llama-index-core/llama_index/core/evaluation/retrieval"],
+      "source_files_named_in_requirements": ["llama-index-core/llama_index/core/evaluation/retrieval/metrics.py"],
+      "description_zh": "修正 NDCG 的理想得分计算，并支持不同相关文档具有不同权重。",
+      "features_evidence": [
+        {
+          "feature": 1,
+          "path": "CooperBench/dataset/llama_index_task/task17070/feature1/feature.md",
+          "sha256": "60ff020294eb2b8ecd9fbcd9be54504441f9847d5bd504c1da7b9e588dc342d3",
+          "quote": "The fix redefines the IDCG calculation to iterate over the number of expected relevant documents",
+          "explicit_requirement": "IDCG 按期望相关文档数量计算，而不是按检索结果数量计算。"
+        },
+        {
+          "feature": 3,
+          "path": "CooperBench/dataset/llama_index_task/task17070/feature3/feature.md",
+          "sha256": "00a1e1c7e9f1771493fdb5d667b2b8179c64644e9b4c943ab5338b85d27c5dcc",
+          "quote": "During computation, these scores are used to calculate both discounted gains and ideal gains.",
+          "explicit_requirement": "compute 接收 relevance_scores；权重用于实际得分和理想得分，未提供时保留默认二值相关度行为。"
+        }
+      ],
+      "selection_reason": "两项都明确修改同一个 NDCG 的 ideal gains/IDCG，组合目标与修改位置直接写在题面中；范围集中于一个数值计算模块。",
+      "inferred_interaction": "当期望文档数不同于检索结果数且文档权重不等时，两人的实现需要采用一致的理想排序与归一化规则。该组合例不是已核查的官方测试。",
+      "known_limits": [
+        "题面未完整指定缺失权重项、负权重、重复 ID 等边界；不能把自行补充的约定冒充原始要求。",
+        "实现可能很短；不保证能在任一 agent 提交前取得双方都有代码修改且未完成的 checkpoint。",
+        "官方评分是否覆盖两项功能同时启用的情况尚未核查。"
+      ],
+      "environment": {
+        "dockerfile": "CooperBench/dataset/llama_index_task/task17070/Dockerfile",
+        "dockerfile_sha256": "9e9f2bab9f8cd91ec9393543cf62cd9167a7ac2ae7327d95f653bd7916c70424",
+        "python": "3.10",
+        "declared_install": ["llama-index-core editable", "pytest", "pytest-xdist", "openai"],
+        "gpu_or_service_declared": false,
+        "validation_pending": "镜像身份、实际源码目录、离线依赖、原生评分及 checkpoint 恢复。"
+      }
+    },
+    {
+      "task_key": "hf_datasets3997_f2_f3",
+      "repo": "huggingface_datasets_task",
+      "task_id": 3997,
+      "features": [2, 3],
+      "status": "selected_pending_environment_validation",
+      "base_commit": "e229fade6d1a5b8eedb02370b5e6605b9b8b44aa",
+      "image": "akhatua/cooperbench-huggingface-datasets:task3997",
+      "code_roots": ["src/datasets/features"],
+      "source_files_named_in_requirements": ["src/datasets/features/features.py"],
+      "description_zh": "允许自定义字段是否需要解码的规则，并缓存判断结果。",
+      "features_evidence": [
+        {
+          "feature": 2,
+          "path": "CooperBench/dataset/huggingface_datasets_task/task3997/feature2/feature.md",
+          "sha256": "f76c87c1f61a7f0d3b80cfe3479493f65ae820ba0d75447825e026b314793bdb",
+          "quote": "def set_custom_decoding_criteria(self, custom_criteria: Optional[callable] = None): ...",
+          "explicit_requirement": "Features 提供自定义解码规则入口；传入 None 恢复默认行为。"
+        },
+        {
+          "feature": 3,
+          "path": "CooperBench/dataset/huggingface_datasets_task/task3997/feature3/feature.md",
+          "sha256": "4eb90edba580a39769a43a322856d52e26dd71a0f82f4a2edf33e22629e37ed9",
+          "quote": "The criteria set this way participate in the caching described below.",
+          "explicit_requirement": "缓存 require_decoding 的检查结果；同一入口设置的自定义规则参与缓存，并兼容 keep_features_dicts_synced。"
+        }
+      ],
+      "selection_reason": "缓存题面直接引用自定义规则接口，配合关系明确；两项共同修改 features.py，适合观察状态与接口如何整合。",
+      "inferred_interaction": "设置、替换或清除自定义规则后，缓存不能继续返回已不适用的旧判断；缓存键与失效机制是实现选择，并非题面规定的唯一算法。",
+      "known_limits": [
+        "缓存作用域、键、容量和失效时机没有全部写明，语义完整度低于另两组；仅据原始要求评价，不追加隐藏约定。",
+        "官方评分对规则变化与缓存组合情形的覆盖尚未核查。",
+        "尚未确认 PyArrow 与历史 datasets 版本的运行兼容性，也未验证 checkpoint 可取得。"
+      ],
+      "environment": {
+        "dockerfile": "CooperBench/dataset/huggingface_datasets_task/task3997/Dockerfile",
+        "dockerfile_sha256": "5de4bfb7c5865f47ad800b2d2217c917240212eed53fa8bd97c8b82045694555",
+        "python": "3.12",
+        "declared_install": ["datasets editable", "pyarrow==20.0.0", "pytest", "pytest-xdist"],
+        "gpu_or_service_declared": false,
+        "validation_pending": "镜像身份、实际源码目录、PyArrow 兼容性、原生评分及 checkpoint 恢复。"
+      }
+    },
+    {
+      "task_key": "pillow68_f1_f2",
+      "repo": "pillow_task",
+      "task_id": 68,
+      "features": [1, 2],
+      "status": "selected_pending_environment_validation",
+      "base_commit": "5d52ede584c5137f3a0b00be97dea8764404306b",
+      "image": "akhatua/cooperbench-pillow:task68",
+      "code_roots": ["src/PIL"],
+      "source_files_named_in_requirements": ["src/PIL/ImageOps.py"],
+      "description_zh": "修复图像方向校正对 tuple 格式 XMP 的处理，并增加校正后删除全部 metadata 的选项。",
+      "features_evidence": [
+        {
+          "feature": 1,
+          "path": "CooperBench/dataset/pillow_task/task68/feature1/feature.md",
+          "sha256": "9292698ac0657ff65a31f0697a2c8b4107c3bf4e65cb6fe213625b4c3266e32d",
+          "quote": "It now properly handles cases where XMP is stored as a tuple",
+          "explicit_requirement": "exif_transpose 能处理以 tuple 保存的 XMP，避免把 tuple 直接交给正则操作导致 TypeError。"
+        },
+        {
+          "feature": 2,
+          "path": "CooperBench/dataset/pillow_task/task68/feature2/feature.md",
+          "sha256": "b6afc6a11fba0d40cb27ede35a33b16dbdfcc34350ff56f0f857d5355acdcbb4",
+          "quote": "removes all metadata from the image after performing the transpose operation.",
+          "explicit_requirement": "新增 strip_metadata 参数；True 时先完成方向校正，再删除全部 metadata；默认参数保留原行为。"
+        }
+      ],
+      "selection_reason": "两项共同修改 exif_transpose 的 metadata 路径；先校正、后清除的顺序明确，优于原候选 dry_run 与 backup 的未定义优先级。",
+      "inferred_interaction": "含 tuple XMP 的图像在默认路径中需要正常处理，在 strip_metadata=True 路径中也应先完成校正后清除 metadata；实际是否发生代码冲突仍取决于实现。",
+      "known_limits": [
+        "题面没有详尽规定各种 XMP tuple 元素类型以及全部 metadata 容器的边界；不把额外边界假设当作既定答案。",
+        "题面列出共同函数，不能据此断言一定发生 merge conflict 或组织调整一定有帮助。",
+        "Pillow 原生图像库与 arm64 镜像可用性、官方组合覆盖及 checkpoint 可取得性均待验证。"
+      ],
+      "environment": {
+        "dockerfile": "CooperBench/dataset/pillow_task/task68/Dockerfile",
+        "dockerfile_sha256": "2461b692c8ccfbf3252bb6afd9fb9a277fbec359e2b34c3fdc10e99dea699415",
+        "python": "3.11",
+        "declared_install": ["Pillow editable", "native image codec libraries", "pytest", "pytest-xdist", "numpy"],
+        "gpu_or_service_declared": false,
+        "validation_pending": "镜像身份、实际源码目录、图像库可用性、原生评分及 checkpoint 恢复。"
+      }
+    }
+  ],
+  "replaced_candidate": {
+    "task_key": "pillow25_f3_f4",
+    "reason": "原题分别要求 dry_run 不写输出文件、backup 在覆盖前创建备份，但没有明确同时启用时的备份副作用优先级；不宜把这一未定义组合用作主要协作依据。",
+    "replacement": "pillow68_f1_f2",
+    "decision_uses_observed_scores": false
+  },
+  "interpretation_limits": [
+    "这三组是依据明确的功能关系选出的研究样本，不代表随机抽取的全部编程任务。",
+    "原生评分能否检验组合行为，需要后续独立核查；不能把两个 feature 各自通过直接解释为所有组合情形正确。",
+    "同一任务的三次运行仍共享题目与公共 prefix，不能按二十七个独立任务解释结果。"
+  ]
+}

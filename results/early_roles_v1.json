@@ -1,0 +1,400 @@
+{
+  "schema": "agent_rsi_shareable_results_v1",
+  "source_summary": "experiments/m0/artifacts/early_role_runs/luna_early_roles_v1/summary.json",
+  "study": "luna_early_roles_v1",
+  "completed_executions": 8,
+  "actual_new_usage": {
+    "requests": 251,
+    "known_cost_usd": 0.13321271,
+    "unknown_usage_requests": 2,
+    "prompt_tokens": 4915721,
+    "completion_tokens": 58405
+  },
+  "comparison_groups": [
+    {
+      "task": "llama_index17070_f1_f3",
+      "condition": "strongshare",
+      "n": 2,
+      "scored": 2,
+      "successes": 2,
+      "remaining_known_cost_mean": 0.014058867499999999,
+      "full_task_known_cost_mean": 0.0171431825,
+      "unknown_usage_requests": 0
+    },
+    {
+      "task": "llama_index17070_f1_f3",
+      "condition": "integrator",
+      "n": 2,
+      "scored": 2,
+      "successes": 2,
+      "remaining_known_cost_mean": 0.013444125000000001,
+      "full_task_known_cost_mean": 0.01652844,
+      "unknown_usage_requests": 0
+    },
+    {
+      "task": "click2068_f4_f10",
+      "condition": "strongshare",
+      "n": 2,
+      "scored": 2,
+      "successes": 2,
+      "remaining_known_cost_mean": 0.0271510025,
+      "full_task_known_cost_mean": 0.0299113975,
+      "unknown_usage_requests": 2
+    },
+    {
+      "task": "click2068_f4_f10",
+      "condition": "integrator",
+      "n": 2,
+      "scored": 2,
+      "successes": 2,
+      "remaining_known_cost_mean": 0.011952359999999999,
+      "full_task_known_cost_mean": 0.014712755000000001,
+      "unknown_usage_requests": 0
+    }
+  ],
+  "rows": [
+    {
+      "task": "llama_index17070_f1_f3",
+      "condition": "strongshare",
+      "repeat": 1,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 25,
+        "known_cost_usd": 0.012637215,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 435466,
+        "completion_tokens": 6269
+      },
+      "all_attempt_usage": {
+        "requests": 25,
+        "known_cost_usd": 0.012637215,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 435466,
+        "completion_tokens": 6269
+      },
+      "remaining_known_cost_usd": 0.012637215,
+      "full_task_known_cost_usd": 0.01572153,
+      "feature_results": {
+        "1": {
+          "passed": true,
+          "tests_passed": 43,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "3": {
+          "passed": true,
+          "tests_passed": 44,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    },
+    {
+      "task": "llama_index17070_f1_f3",
+      "condition": "integrator",
+      "repeat": 1,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 20,
+        "known_cost_usd": 0.012467135,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 384716,
+        "completion_tokens": 6464
+      },
+      "all_attempt_usage": {
+        "requests": 20,
+        "known_cost_usd": 0.012467135,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 384716,
+        "completion_tokens": 6464
+      },
+      "remaining_known_cost_usd": 0.012467135,
+      "full_task_known_cost_usd": 0.015551450000000001,
+      "feature_results": {
+        "1": {
+          "passed": true,
+          "tests_passed": 43,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "3": {
+          "passed": true,
+          "tests_passed": 44,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    },
+    {
+      "task": "llama_index17070_f1_f3",
+      "condition": "integrator",
+      "repeat": 2,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 26,
+        "known_cost_usd": 0.014421115,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 507893,
+        "completion_tokens": 7154
+      },
+      "all_attempt_usage": {
+        "requests": 26,
+        "known_cost_usd": 0.014421115,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 507893,
+        "completion_tokens": 7154
+      },
+      "remaining_known_cost_usd": 0.014421115,
+      "full_task_known_cost_usd": 0.01750543,
+      "feature_results": {
+        "1": {
+          "passed": true,
+          "tests_passed": 43,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "3": {
+          "passed": true,
+          "tests_passed": 44,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    },
+    {
+      "task": "llama_index17070_f1_f3",
+      "condition": "strongshare",
+      "repeat": 2,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 30,
+        "known_cost_usd": 0.01548052,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 565952,
+        "completion_tokens": 8043
+      },
+      "all_attempt_usage": {
+        "requests": 30,
+        "known_cost_usd": 0.01548052,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 565952,
+        "completion_tokens": 8043
+      },
+      "remaining_known_cost_usd": 0.01548052,
+      "full_task_known_cost_usd": 0.018564835,
+      "feature_results": {
+        "1": {
+          "passed": true,
+          "tests_passed": 43,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "3": {
+          "passed": true,
+          "tests_passed": 44,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    },
+    {
+      "task": "click2068_f4_f10",
+      "condition": "strongshare",
+      "repeat": 1,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 29,
+        "known_cost_usd": 0.015588005,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 633713,
+        "completion_tokens": 6346
+      },
+      "all_attempt_usage": {
+        "requests": 63,
+        "known_cost_usd": 0.03363569,
+        "unknown_usage_requests": 2,
+        "prompt_tokens": 1191118,
+        "completion_tokens": 13241
+      },
+      "remaining_known_cost_usd": 0.03363569,
+      "full_task_known_cost_usd": 0.036396085,
+      "feature_results": {
+        "4": {
+          "passed": true,
+          "tests_passed": 68,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "10": {
+          "passed": true,
+          "tests_passed": 65,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    },
+    {
+      "task": "click2068_f4_f10",
+      "condition": "integrator",
+      "repeat": 1,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 28,
+        "known_cost_usd": 0.012260855,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 488557,
+        "completion_tokens": 5486
+      },
+      "all_attempt_usage": {
+        "requests": 28,
+        "known_cost_usd": 0.012260855,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 488557,
+        "completion_tokens": 5486
+      },
+      "remaining_known_cost_usd": 0.012260855,
+      "full_task_known_cost_usd": 0.01502125,
+      "feature_results": {
+        "4": {
+          "passed": true,
+          "tests_passed": 68,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "10": {
+          "passed": true,
+          "tests_passed": 65,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    },
+    {
+      "task": "click2068_f4_f10",
+      "condition": "integrator",
+      "repeat": 2,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 24,
+        "known_cost_usd": 0.011643865,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 434990,
+        "completion_tokens": 4837
+      },
+      "all_attempt_usage": {
+        "requests": 24,
+        "known_cost_usd": 0.011643865,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 434990,
+        "completion_tokens": 4837
+      },
+      "remaining_known_cost_usd": 0.011643865,
+      "full_task_known_cost_usd": 0.01440426,
+      "feature_results": {
+        "4": {
+          "passed": true,
+          "tests_passed": 68,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "10": {
+          "passed": true,
+          "tests_passed": 65,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    },
+    {
+      "task": "click2068_f4_f10",
+      "condition": "strongshare",
+      "repeat": 2,
+      "model": "gpt-6-luna",
+      "official_success": true,
+      "scored": true,
+      "accepted_usage": {
+        "requests": 35,
+        "known_cost_usd": 0.020666315,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 907029,
+        "completion_tokens": 6911
+      },
+      "all_attempt_usage": {
+        "requests": 35,
+        "known_cost_usd": 0.020666315,
+        "unknown_usage_requests": 0,
+        "prompt_tokens": 907029,
+        "completion_tokens": 6911
+      },
+      "remaining_known_cost_usd": 0.020666315,
+      "full_task_known_cost_usd": 0.02342671,
+      "feature_results": {
+        "4": {
+          "passed": true,
+          "tests_passed": 68,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        },
+        "10": {
+          "passed": true,
+          "tests_passed": 65,
+          "tests_failed": 0,
+          "exit_code": null,
+          "counts_source": "pytest_summary"
+        }
+      },
+      "submission_policy": "authoritative_agent1_only",
+      "authoritative_agent": "agent1"
+    }
+  ],
+  "historical_prefix_rebilled": false,
+  "notes": [
+    "Two tasks, one shared early checkpoint per task, two repetitions per condition.",
+    "Both conditions grade only agent1 published complete code.",
+    "Actual new spend includes interrupted requests; unknown usage remains unknown.",
+    "This is experimental API cost, not Codex conversation usage."
+  ]
+}

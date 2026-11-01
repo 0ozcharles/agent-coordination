@@ -1,0 +1,33 @@
+# Local experiment data, provider responses, checkpoints and generated documents
+/experiments/m0/artifacts/
+/experiments/m0/CooperBench/
+/experiments/m0/downloads/
+/experiments/m0/config/
+/experiments/m0/swift-module-cache/
+/experiments/m0/credential_ocr*
+/experiments/m0/env.sh
+/experiments/m0/audit_luna_early_roles.py
+/output/
+/tmp/
+/runs/
+
+# Credentials and machine configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+.coverage
+htmlcov/
+.idea/
+.vscode/
+

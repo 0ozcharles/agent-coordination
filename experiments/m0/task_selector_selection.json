@@ -1,0 +1,449 @@
+{
+  "schema": "selector_task_selection_v1",
+  "status": "selection_fixed_before_reference_checks",
+  "selected_at_utc": "2026-10-31T20:58:45.213021+00:00",
+  "cooperbench_commit": "63b9d44d9f39a02fccf5bf0052db48a917a011fd",
+  "selection_basis": [
+    "Exclude all previously used task identities: Jinja1621, Click2800, dirty-equals43, Llama17070, HF3997 and Pillow68.",
+    "Prefer clear, bounded Python requirements and variation between shared-function changes and more separate stages or API layers.",
+    "Use only public feature requirements, Dockerfile/setup/runner declarations and read-only registry architecture information; no solution, hidden test or model outcomes."
+  ],
+  "reference_or_hidden_test_contents_read_before_selection": false,
+  "historical_scores_used_for_selection": false,
+  "model_api_calls_before_selection": 0,
+  "image_pulls_before_selection": 0,
+  "task_specs": {
+    "path": "selector_task_specs.py",
+    "sha256": "0e661d918604c530a7d69f272128a578dceccc7d5d5c03ae3c91ee6988167312",
+    "bytes": 1307
+  },
+  "registry_inspection": {
+    "path": "artifacts/selector_candidate_screening_v1/registry_manifests.json",
+    "sha256": "6493192d31845b54bb78c54d6fad022b1234dbf69c4ed9c09735cf37134a5304",
+    "bytes": 15697
+  },
+  "selected_tasks": [
+    {
+      "key": "dspy8563_f2_f3",
+      "repo": "dspy_task",
+      "task_id": 8563,
+      "features": [
+        2,
+        3
+      ],
+      "image": "akhatua/cooperbench-dspy:task8563",
+      "base": "80412ce96d70fdb64dcf2c63940f511d6f89ca44",
+      "code_roots": [
+        "dspy/adapters/types"
+      ],
+      "description": "DSPy organizes language-model programs. Parse Python-style tool-call text safely, and separately coerce tool arguments before schema validation.",
+      "requirements": [
+        "A public AST-only parser normalizes top-level keyword-only calls containing literals into tool_calls, preserving order without executing code.",
+        "Before Tool validation, schema-guided coercion handles string numbers, booleans, durations and sizes while preserving string-typed fields."
+      ],
+      "source_files": [
+        "dspy/adapters/types/tool.py"
+      ],
+      "overlap": "same_file_separate_classes_and_stages",
+      "explicit": "Both requirements name tool.py; feature 2 targets ToolCalls.validate_input/parse_python_calls and feature 3 targets Tool._validate_and_parse_args/coerce_args.",
+      "inference": "The stages can compose when parsed calls are passed to Tool, but parsing itself is not responsible for execution. Shared imports/helpers may still overlap.",
+      "limits": [
+        "Relatively separate functions, not disjoint files.",
+        "Integer schemas with fractional duration values require care; no additional acceptance rule is invented."
+      ],
+      "environment_risks": [
+        "Python 3.11 with substantial DSPy dev dependencies.",
+        "Dockerfile pins litellm 1.77.1; verify actual image and evaluation without real model calls."
+      ],
+      "status": "fixed_pending_environment_validation",
+      "feature_evidence": [
+        {
+          "feature": 2,
+          "path": "CooperBench/dataset/dspy_task/task8563/feature2/feature.md",
+          "sha256": "a5066cabea0d7cff7f3fb63cc7a1be2850a6d0abdf4ca97ff554200b4247cc06",
+          "bytes": 2574,
+          "requirement_summary": "A public AST-only parser normalizes top-level keyword-only calls containing literals into tool_calls, preserving order without executing code."
+        },
+        {
+          "feature": 3,
+          "path": "CooperBench/dataset/dspy_task/task8563/feature3/feature.md",
+          "sha256": "79142628855d85c98446a2990fd3c6e25798046dff4833eadc6b0b2cff3d20a4",
+          "bytes": 2704,
+          "requirement_summary": "Before Tool validation, schema-guided coercion handles string numbers, booleans, durations and sizes while preserving string-typed fields."
+        }
+      ],
+      "dockerfile": {
+        "path": "CooperBench/dataset/dspy_task/task8563/Dockerfile",
+        "sha256": "99bd0c1ce99ed5c30133300a0ddf3792011e4403fb8450a9a157de46fe2b0c07",
+        "bytes": 1231
+      },
+      "setup": {
+        "path": "CooperBench/dataset/dspy_task/task8563/setup.sh",
+        "sha256": "eb673ab08d87625edf71132ada863c687d11623593c78bc209558caecd5f7bf1",
+        "bytes": 1308
+      },
+      "runner": {
+        "path": "CooperBench/dataset/dspy_task/task8563/runner.sh",
+        "sha256": "ed3d157d2cc39f12a06aadf9837eb2fb6b8e5dfcb07ddea1b7d0adb5b78fcc74",
+        "bytes": 3172
+      },
+      "registry_platforms": [
+        {
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          },
+          "digest": "sha256:a6631c075b0a93f9075a98d62dd4fc3f719e294d1ef24d2a525a26d409d19a7d"
+        },
+        {
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          },
+          "digest": "sha256:bbf821d974f6c035284ce2ee993b279e123acd04e5c7f52bbbd300a7c4607cec"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:fb1a11429a7c0291a96ba35bb6cc077111cb128a0edb8b7f70281e8105fb0f8b"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:7013b1e3d6a50917a895cef8e6b0a6699739f381d4b9add9f58c5601bee91cb3"
+        }
+      ],
+      "local_image_cached_at_screening": false
+    },
+    {
+      "key": "outlines1371_f1_f2",
+      "repo": "dottxt_ai_outlines_task",
+      "task_id": 1371,
+      "features": [
+        1,
+        2
+      ],
+      "image": "akhatua/cooperbench-dottxt-ai-outlines:task1371",
+      "base": "7149a5e613b9c2bb3c2ed3ee5b7c9228772504b1",
+      "code_roots": [
+        "outlines"
+      ],
+      "description": "Outlines builds prompts from templates. Add per-template custom filters and a reusable global filter registry.",
+      "requirements": [
+        "prompt and Prompt.from_str/from_file accept filters, with create_jinja_env centralizing registration.",
+        "register_filter/unregister_filter manage global filters; local filters explicitly take precedence over global filters."
+      ],
+      "source_files": [
+        "outlines/prompts.py"
+      ],
+      "overlap": "same_module_shared_environment_and_precedence",
+      "explicit": "Both name prompts.py and feature 2 explicitly defines local-over-global precedence.",
+      "inference": "Environment creation, local argument plumbing and registry state must be integrated consistently.",
+      "limits": [
+        "Lifetime semantics for already-created Prompt objects after registry changes are not fully specified.",
+        "Same-file changes do not prove merge conflicts will occur."
+      ],
+      "environment_risks": [
+        "Python 3.11; test extras may introduce substantial model-related dependencies.",
+        "The task concerns template processing and declares no GPU or model API requirement; package imports still need validation."
+      ],
+      "status": "fixed_pending_environment_validation",
+      "feature_evidence": [
+        {
+          "feature": 1,
+          "path": "CooperBench/dataset/dottxt_ai_outlines_task/task1371/feature1/feature.md",
+          "sha256": "c987f8fd03ee1d2cb13c40b975ada15b408278e7084812757ceffef8330dbb57",
+          "bytes": 1675,
+          "requirement_summary": "prompt and Prompt.from_str/from_file accept filters, with create_jinja_env centralizing registration."
+        },
+        {
+          "feature": 2,
+          "path": "CooperBench/dataset/dottxt_ai_outlines_task/task1371/feature2/feature.md",
+          "sha256": "1957dbbea9403e1fecebad5e615a242d7d23dc50ad40afe5e0164e0d6cd368d8",
+          "bytes": 2082,
+          "requirement_summary": "register_filter/unregister_filter manage global filters; local filters explicitly take precedence over global filters."
+        }
+      ],
+      "dockerfile": {
+        "path": "CooperBench/dataset/dottxt_ai_outlines_task/task1371/Dockerfile",
+        "sha256": "dbc86a1d69b61385ce623a63be3e3731a5d71ef1d2eea8c436a96857a4f8489c",
+        "bytes": 850
+      },
+      "setup": {
+        "path": "CooperBench/dataset/dottxt_ai_outlines_task/task1371/setup.sh",
+        "sha256": "b31064b440562b8523ce4c7834ce9ba0ae9123cafe0917384956fc38466cb907",
+        "bytes": 1260
+      },
+      "runner": {
+        "path": "CooperBench/dataset/dottxt_ai_outlines_task/task1371/runner.sh",
+        "sha256": "39f137bd6397ff267c170afa7a327813a99a299dfccd1dba57046cfaa9bd848b",
+        "bytes": 3087
+      },
+      "registry_platforms": [
+        {
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          },
+          "digest": "sha256:0bab9577132c1df9dcb489ca4f81c94226a0eab771ecc8973b2c7b310e1d24ad"
+        },
+        {
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          },
+          "digest": "sha256:a90e736bcc737110dc0c6a02881f7b62ba76a30c61dd511eafc5ed6494f53f43"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:78f2d960d806c11085386108eb6ac75f08f978e4afc6fca3422ffde626e32f8d"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:489e823d33db6e02a5d659755efd6dfc7de9fe8371343888206c907d197803e4"
+        }
+      ],
+      "local_image_cached_at_screening": false
+    },
+    {
+      "key": "click2068_f4_f10",
+      "repo": "pallets_click_task",
+      "task_id": 2068,
+      "features": [
+        4,
+        10
+      ],
+      "image": "akhatua/cooperbench-pallets-click:task2068",
+      "base": "d791537317947448a3960662d00acf160eff2602",
+      "code_roots": [
+        "src/click"
+      ],
+      "description": "Click builds command-line programs. Let click.edit pass extra editor arguments and choose the editor process working directory.",
+      "requirements": [
+        "editor_args are inserted between the editor command and filename with proper shell quoting; default None preserves existing behavior.",
+        "working_dir passes through the public edit API and underlying editor launch; default None, with errors for invalid/inaccessible directories."
+      ],
+      "source_files": [
+        "src/click/termui.py",
+        "src/click/_termui_impl.py"
+      ],
+      "overlap": "two_shared_modules_independent_parameters",
+      "explicit": "Both requirements name the public termui API and underlying Editor implementation.",
+      "inference": "Independent parameters must both survive the API/constructor/subprocess chain; interaction is cross-layer plumbing rather than one algorithm.",
+      "limits": [
+        "The filename interpretation when a relative filename and working_dir are combined is not fully specified.",
+        "A Linux headless run cannot establish behavior for GUI editors or Windows."
+      ],
+      "environment_risks": [
+        "Python 3.11 and relatively small dependency set.",
+        "Use a noninteractive stand-in editor for environment checks; avoid launching a GUI or waiting for user interaction."
+      ],
+      "status": "fixed_pending_environment_validation",
+      "feature_evidence": [
+        {
+          "feature": 4,
+          "path": "CooperBench/dataset/pallets_click_task/task2068/feature4/feature.md",
+          "sha256": "106d13664decfbba17d373b5f38bf1fab025072541cdac74d7a68fb7d261c27a",
+          "bytes": 2785,
+          "requirement_summary": "editor_args are inserted between the editor command and filename with proper shell quoting; default None preserves existing behavior."
+        },
+        {
+          "feature": 10,
+          "path": "CooperBench/dataset/pallets_click_task/task2068/feature10/feature.md",
+          "sha256": "dbc931039f8a439a3a14aa1f505909020c907c35e26d39e833a8d025dc1455b9",
+          "bytes": 1975,
+          "requirement_summary": "working_dir passes through the public edit API and underlying editor launch; default None, with errors for invalid/inaccessible directories."
+        }
+      ],
+      "dockerfile": {
+        "path": "CooperBench/dataset/pallets_click_task/task2068/Dockerfile",
+        "sha256": "4b3cbaa3089aa5b784ef1f8b317c4f3c5b1dd6690473fd79bb305612ecc5bab7",
+        "bytes": 839
+      },
+      "setup": {
+        "path": "CooperBench/dataset/pallets_click_task/task2068/setup.sh",
+        "sha256": "0f77868a475977332a67848b5e96216eafc83c94f8537c8af394899080b104f4",
+        "bytes": 1245
+      },
+      "runner": {
+        "path": "CooperBench/dataset/pallets_click_task/task2068/runner.sh",
+        "sha256": "ed67cd097a75040cbba6ebc5c7496c2ec483fdafb17bdefa0007496340e37bc4",
+        "bytes": 1728
+      },
+      "registry_platforms": [
+        {
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          },
+          "digest": "sha256:ccc68eebb563aa84296fe49e5dbd70556ed18c9bc799dc5681e4c30b159ce48f"
+        },
+        {
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          },
+          "digest": "sha256:f0421bc4dd764fa44bc4ea5bb1fbd23c6a241aa061673fa494f765c12974bed9"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:d0a5a9e6ba15c82dee092656ffc191e7eadc7471abe4d92b18d94ba895ee678c"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:af56402cbaf0645a7aea0b74dee6af076642ce7e5b20b13691c6bbb3f19a0a54"
+        }
+      ],
+      "local_image_cached_at_screening": false
+    },
+    {
+      "key": "jinja1465_f1_f2",
+      "repo": "pallets_jinja_task",
+      "task_id": 1465,
+      "features": [
+        1,
+        2
+      ],
+      "image": "akhatua/cooperbench-pallets-jinja:task1465",
+      "base": "20eb7f5e33120f1717b78bdf85540ab75631187a",
+      "code_roots": [
+        "src/jinja2"
+      ],
+      "description": "Jinja renders templates. Add case-insensitive grouping and descending group order to groupby, including its async path.",
+      "requirements": [
+        "case_sensitive defaults to False; normalized keys govern sorting/grouping, while the first item supplies the displayed key spelling.",
+        "reverse defaults to False and allows descending group order."
+      ],
+      "source_files": [
+        "src/jinja2/filters.py"
+      ],
+      "overlap": "same_function_shared_sort_and_group_keys",
+      "explicit": "Both modify filters.py groupby; feature 1 explicitly includes synchronous and asynchronous variants.",
+      "inference": "Case normalization and reverse must use a consistent sorting key in the same grouping pipeline.",
+      "limits": [
+        "The new default case_sensitive=False changes older grouping behavior; do not repeat the broad backward-compatibility claim as unchanged output.",
+        "A short implementation may finish before both agents have unsubmitted code; checkpoint feasibility remains unverified."
+      ],
+      "environment_risks": [
+        "Python 3.11 and small dependency set; no GPU or external service declared.",
+        "Both sync and async entry points need environment validation."
+      ],
+      "status": "fixed_pending_environment_validation",
+      "feature_evidence": [
+        {
+          "feature": 1,
+          "path": "CooperBench/dataset/pallets_jinja_task/task1465/feature1/feature.md",
+          "sha256": "996f9626cf60287ca1b99277c2dd3acdd4f7d06b0b3fd97c37b85a8d17d3f7d6",
+          "bytes": 1643,
+          "requirement_summary": "case_sensitive defaults to False; normalized keys govern sorting/grouping, while the first item supplies the displayed key spelling."
+        },
+        {
+          "feature": 2,
+          "path": "CooperBench/dataset/pallets_jinja_task/task1465/feature2/feature.md",
+          "sha256": "04b563486caae8c7d485dce459df098073c86ab64835628e68ae3ed0f6b31ff1",
+          "bytes": 1627,
+          "requirement_summary": "reverse defaults to False and allows descending group order."
+        }
+      ],
+      "dockerfile": {
+        "path": "CooperBench/dataset/pallets_jinja_task/task1465/Dockerfile",
+        "sha256": "22b8face43e316e394c86fd7c18c98d452bcc8018518d9f35bb7c14469ed7252",
+        "bytes": 839
+      },
+      "setup": {
+        "path": "CooperBench/dataset/pallets_jinja_task/task1465/setup.sh",
+        "sha256": "84f27f120cf84e94e78fe7d6445060df075966f999636ce20cda7f29ad61b005",
+        "bytes": 1245
+      },
+      "runner": {
+        "path": "CooperBench/dataset/pallets_jinja_task/task1465/runner.sh",
+        "sha256": "83e52fdde51b8eaac6d7917aef40efe25218eda47feddf4f04cc47286cc26e33",
+        "bytes": 1757
+      },
+      "registry_platforms": [
+        {
+          "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+          },
+          "digest": "sha256:83fe4800d91ebd4a41a3cc2f039dd0bb76ba0ad5d34551cc2f181c596ae50e3c"
+        },
+        {
+          "platform": {
+            "architecture": "arm64",
+            "os": "linux"
+          },
+          "digest": "sha256:ebfbffaff5685f64a4d9cc47c28de61b0cf1258cf94105a360dc0ecba93052d7"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:12560a2e9a6026a69de0c80de85faac7d0df599fb94cf839c016f638084babb4"
+        },
+        {
+          "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+          },
+          "digest": "sha256:febcaed17cdad9cf7bac323a51c0b091ebd84c866c309568c70f3a1bd929c57b"
+        }
+      ],
+      "local_image_cached_at_screening": false
+    }
+  ],
+  "screened_reserves_not_selected": [
+    {
+      "repo": "openai_tiktoken_task",
+      "task_id": 0,
+      "features": [
+        3,
+        7
+      ],
+      "description": "Token frequency analysis and post-encoding validators.",
+      "reason_not_primary": "Rust extension and encoder resources; combined return/validation sequencing is not fully specified. Start with four simpler environments.",
+      "base": "4560a8896f5fb1d35c6f8fd6eee0399f9a1a27ca",
+      "image": "akhatua/cooperbench-openai-tiktoken:task0"
+    },
+    {
+      "repo": "huggingface_datasets_task",
+      "task_id": 6252,
+      "features": [
+        3,
+        6
+      ],
+      "description": "Clamp decoded image dimensions and convert CMYK to RGB.",
+      "reason_not_primary": "Heavy TensorFlow/Torch/JAX/NumPy/SciPy/PyArrow environment and incompletely specified max_resolution type boundaries.",
+      "base": "0b55ec53e980855d71ae22f8b3d12b2a0d476a51",
+      "image": "akhatua/cooperbench-huggingface-datasets:task6252"
+    }
+  ],
+  "next_validation_policy": [
+    "After selection is frozen, reference/tests may be used only for evaluator environment checks, never exposed to agents.",
+    "Base must reach tests and show a feature failure; each individual reference must pass its own feature tests.",
+    "Report combined reference compatibility separately; do not replace tasks based on scores or repair answers.",
+    "An ARM64 registry manifest is not proof of a working runtime; separately record actual image ID, base, baked runner and scores."
+  ],
+  "limits": [
+    "All four groups still come from one benchmark, CooperBench.",
+    "Purposive small sample, not representative of all coding tasks.",
+    "There is no completely disjoint-file pair here; DSPy supplies relative separation between classes/stages."
+  ]
+}

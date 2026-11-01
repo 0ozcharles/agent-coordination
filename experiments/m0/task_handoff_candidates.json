@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "status": "proposed_not_run",
+  "purpose": "为现有 handoff pilot 之后的跨任务验证准备候选，不改变当前实验。",
+  "dataset_commit": "63b9d44d9f39a02fccf5bf0052db48a917a011fd",
+  "evidence_path_root": "experiments/m0",
+  "selection_rule": {
+    "declared_before_new_task_runs": true,
+    "criteria": [
+      "排除已经运行的 Jinja task1621、Click task2800、dirty-equals task43。",
+      "选三个不同 repository，以原始 feature.md 中的共享模块和功能组合关系为依据。",
+      "优先范围明确的 Python 修改，可继续使用现有 Python 源码进度观察方式。",
+      "覆盖数值计算、可变状态与缓存、文件输出副作用三类配合问题。",
+      "不根据参考答案、隐藏测试、历史成绩或候选试跑成功率选择任务。"
+    ],
+    "sources_used": ["original feature.md", "dataset README.md", "task Dockerfile", "image naming utility metadata"],
+    "reference_or_test_patch_content_read": false,
+    "historical_score_artifacts_read": false,
+    "image_pulls": 0,
+    "model_api_calls": 0,
+    "task_runs": 0
+  },
+  "candidates": [
+    {
+      "priority": 1,
+      "status": "proposed_not_run",
+      "task_key": "llama_index17070_f1_f3",
+      "repo": "llama_index_task",
+      "task_id": 17070,
+      "features": [1, 3],
+      "description_zh": "修改检索排序指标 NDCG：一项修正理想得分的计算依据，另一项允许不同文档具有不同相关度权重。",
+      "requirements": [
+        {
+          "feature": 1,
+          "path": "CooperBench/dataset/llama_index_task/task17070/feature1/feature.md",
+          "title": "Fix Incorrect Ideal DCG Calculation in NDCG Metric",
+          "quote": "The fix redefines the IDCG calculation to iterate over the number of expected relevant documents",
+          "paraphrase_zh": "计算理想 DCG 时，应以期望的相关文档数量为依据，而不是已检索文档的数量。"
+        },
+        {
+          "feature": 3,
+          "path": "CooperBench/dataset/llama_index_task/task17070/feature3/feature.md",
+          "title": "Add Support for Graded Relevance in NDCG Metric",
+          "quote": "During computation, these scores are used to calculate both discounted gains and ideal gains.",
+          "paraphrase_zh": "NDCG.compute 接收 relevance_scores，将文档权重同时用于实际得分和理想得分；未提供权重时保留二值相关度行为。"
+        }
+      ],
+      "shared_module_from_requirements": "llama-index-core/llama_index/core/evaluation/retrieval/metrics.py",
+      "likely_interaction": {
+        "type": "shared numerical calculation",
+        "basis": "两项需求都明确修改 NDCG 的 ideal gains/IDCG；有权重和无权重两条路径必须采用一致的归一化依据。",
+        "inference_not_verified": true,
+        "composition_example": "期望相关文档多于检索结果，且不同相关文档权重不同；两项改动需要在同一次 NDCG 计算中共同生效。"
+      },
+      "environment_from_dockerfile": {
+        "path": "CooperBench/dataset/llama_index_task/task17070/Dockerfile",
+        "python": "3.10",
+        "base_commit": "0417380ada935e277d686aef941b84032e67c57a",
+        "image_tag_from_official_naming_rule": "akhatua/cooperbench-llama-index:task17070",
+        "dependencies": ["editable llama-index-core", "pytest", "pytest-xdist", "openai"],
+        "gpu_or_external_service_declared": false,
+        "code_roots_to_verify": ["llama-index-core/llama_index/core/evaluation/retrieval"]
+      },
+      "known_unknowns": [
+        "尚未拉取镜像或验证 arm64 镜像身份、安装依赖及离线评分是否正常。",
+        "需求未充分规定缺失 relevance_scores 项、负权重及并列权重等边界；需在运行前整理题面含义，不能从隐藏测试反推并提示 agent。",
+        "尚不确定官方评分是否覆盖两项功能同时启用的组合情形。",
+        "任务可能较短；尚不确定是否能在任何一方提交前取得双方均有源码修改的 checkpoint。"
+      ]
+    },
+    {
+      "priority": 2,
+      "status": "proposed_not_run",
+      "task_key": "hf_datasets3997_f2_f3",
+      "repo": "huggingface_datasets_task",
+      "task_id": 3997,
+      "features": [2, 3],
+      "description_zh": "为数据集字段的解码判断增加自定义规则，并缓存判断结果以避免重复计算。",
+      "requirements": [
+        {
+          "feature": 2,
+          "path": "CooperBench/dataset/huggingface_datasets_task/task3997/feature2/feature.md",
+          "title": "Custom require_decoding Criteria",
+          "quote": "def set_custom_decoding_criteria(self, custom_criteria: Optional[callable] = None): ...",
+          "paraphrase_zh": "Features 提供自定义解码规则入口；传入 None 恢复默认判断，同时保持 Features 行为一致。"
+        },
+        {
+          "feature": 3,
+          "path": "CooperBench/dataset/huggingface_datasets_task/task3997/feature3/feature.md",
+          "title": "Caching for require_decoding",
+          "quote": "The criteria set this way participate in the caching described below.",
+          "paraphrase_zh": "缓存每个 feature 的解码判断，自定义规则也参与缓存，并兼容 keep_features_dicts_synced 的同步行为。"
+        }
+      ],
+      "shared_module_from_requirements": "src/datasets/features/features.py",
+      "likely_interaction": {
+        "type": "custom policy and cached mutable state",
+        "basis": "Feature 3 明确引用 Feature 2 的同名入口，自定义规则会改变被缓存的判断结果；两人的实现必须约定缓存如何识别当前规则及字段状态。",
+        "inference_not_verified": true,
+        "composition_example": "同一字段先按默认规则判断，再设置自定义规则或恢复默认规则；缓存不能让调用继续使用不适用的旧判断。该例是组合语义推断，不是已核查的测试要求。"
+      },
+      "environment_from_dockerfile": {
+        "path": "CooperBench/dataset/huggingface_datasets_task/task3997/Dockerfile",
+        "python": "3.12",
+        "base_commit": "e229fade6d1a5b8eedb02370b5e6605b9b8b44aa",
+        "image_tag_from_official_naming_rule": "akhatua/cooperbench-huggingface-datasets:task3997",
+        "dependencies": ["editable datasets", "pyarrow==20.0.0", "pytest", "pytest-xdist"],
+        "gpu_or_external_service_declared": false,
+        "code_roots_to_verify": ["src/datasets/features"]
+      },
+      "known_unknowns": [
+        "尚未拉取镜像或核实 PyArrow 与该历史 datasets 版本在当前评分环境中的兼容性。",
+        "题面没有完整定义缓存键、缓存作用域和失效策略；这些实现选择需要与明确可读的需求区分。",
+        "尚不确定官方评分对缓存与自定义规则组合行为的覆盖程度。",
+        "尚未验证双方有代码修改的 checkpoint、恢复和原生评分在此任务上可用。"
+      ]
+    },
+    {
+      "priority": 3,
+      "status": "proposed_not_run",
+      "task_key": "pillow25_f3_f4",
+      "repo": "pillow_task",
+      "task_id": 25,
+      "features": [3, 4],
+      "description_zh": "扩展图像保存：支持只验证保存流程而不写文件的 dry_run，以及真正覆盖已有文件前自动备份。",
+      "requirements": [
+        {
+          "feature": 3,
+          "path": "CooperBench/dataset/pillow_task/task25/feature3/feature.md",
+          "title": "Add dry_run option to test saving without writing to disk",
+          "quote": "the image is fully processed for saving (including format conversion, compression, etc.) but the file is not actually written to disk.",
+          "paraphrase_zh": "dry_run 仍执行保存所需处理并保留正常错误检查，但不把输出图像写入磁盘。"
+        },
+        {
+          "feature": 4,
+          "path": "CooperBench/dataset/pillow_task/task25/feature4/feature.md",
+          "title": "Add automatic backup functionality when overwriting existing files",
+          "quote": "PIL will automatically create a backup of the existing file before overwriting it.",
+          "paraphrase_zh": "backup=True 时，在覆盖已有文件之前创建备份；backup_suffix 可指定备份文件后缀。"
+        }
+      ],
+      "shared_module_from_requirements": "src/PIL/Image.py",
+      "likely_interaction": {
+        "type": "shared save control flow and filesystem side effects",
+        "basis": "两项功能都进入 Image.save：一项改变是否实际写入，另一项在写入前增加文件副作用，因此需要协调处理顺序和参数流转。",
+        "inference_not_verified": true,
+        "composition_example": "对已存在的目标同时指定 dry_run=True 和 backup=True，需要明确是否以及何时产生备份。原题没有明确这个组合的优先级，不能假定官方评分已规定某个答案。"
+      },
+      "environment_from_dockerfile": {
+        "path": "CooperBench/dataset/pillow_task/task25/Dockerfile",
+        "python": "3.11",
+        "base_commit": "869aa5843c79c092db074b17234e792682eada41",
+        "image_tag_from_official_naming_rule": "akhatua/cooperbench-pillow:task25",
+        "dependencies": ["editable Pillow", "JPEG/PNG/TIFF/WebP and other image codec libraries", "pytest", "pytest-xdist", "numpy"],
+        "gpu_or_external_service_declared": false,
+        "code_roots_to_verify": ["src/PIL"]
+      },
+      "known_unknowns": [
+        "Pillow 依赖原生图像库；尚未验证 arm64 镜像、格式支持和当前资源限制下的启动及评分。",
+        "dry_run 与 backup 同时启用时的副作用优先级没有在题面明确说明；若作为额外组合检查，必须先固定独立说明并与官方分数分开报告。",
+        "官方评分是否覆盖文件对象、失败的编码和自定义备份后缀等边界尚未核查。",
+        "尚未验证双方有源码修改的 checkpoint 及恢复流程。"
+      ]
+    }
+  ],
+  "execution_gate": "仅提出候选。等待当前 handoff pilot 结果后，再决定是否进行环境、原生评分与 checkpoint 可行性检查；当前不注册任务、不拉镜像、不调用模型。"
+}
