@@ -16,21 +16,21 @@ Each cause calls for a different fix. We first measure how often each cause occu
 | Stage | Question | Status |
 |---|---|---|
 | M0 Exploration | Build the experiment pipeline | Done, see [M0 retrospective](docs/M0_RETROSPECTIVE.md) |
-| S1 Failure census | Which causes produce failures, and how often? | In progress: screening done, main run pending |
-| S2 Targeted interventions | Does a fix matched to the cause beat other fixes? | After S1 |
+| S1 Failure census | Which causes produce failures, and how often? | Done: integration is the main cause |
+| S2 Targeted interventions | Does a fix matched to the cause beat other fixes? | Next |
 | S3 Online diagnosis | Can we detect the cause mid-run and pick a fix? | After S2 |
 
 The full design is in the [research plan](docs/RESEARCH_PLAN.md).
 
 ## Findings so far
 
-S1 screening: gpt-6-luna, 58 tasks, 2 coop and 2 solo runs each, 232 runs in total, $1.93.
+S1 main run: gpt-6-luna, 53 tasks, 3 coop and 3 solo runs each, 318 runs in total, $2.32.
 
-- Coop passed 32 / 116. Of the 84 failures, 58 were integration failures, and 55 of those were git merge conflicts: both agents wrote correct code but edited the same lines.
-- Capability caused 15 failures and context caused 10. Reading the traces showed that 12 of these 25 were handoffs: to avoid merge conflicts, an agent left part of its feature to the partner, and the combined work failed.
-- Solo officially passed only 25 / 116, but another 44 runs wrote correct code and never opened a PR. CooperBench only grades submitted code.
+- Coop passed 35 / 159. Of the 124 failures, 84 (68%) were integration failures, and 82 of those were git merge conflicts: both agents wrote correct code but edited the same lines. If each feature counted as passed whenever its own patch passed, coop would pass 85 / 159.
+- Capability caused 18 failures (15%) and context 21. A secondary handoff label moves 13 of these 39: to avoid merge conflicts, an agent left part of its feature to its partner, and the combined work failed.
+- Solo officially passed only 27 / 159, but another 62 runs wrote correct code and never opened a PR. CooperBench only grades submitted code.
 
-Each task ran only twice, so these numbers are preliminary until the main run. Per-run data is in [results/s1_screen_rows.csv](results/s1_screen_rows.csv). M0 pointed in the same direction, but its sample was too small to draw conclusions.
+The pre-registered condition for continuing (non-capability causes ≥ 30% of failures) is met at 86%. Details, confidence intervals and the go_chi/typst caveat are in the [research plan](docs/RESEARCH_PLAN.md#s1-main-run-2026-11-02). Per-run data is in [results/s1_main_rows.csv](results/s1_main_rows.csv), and screening data is in [results/s1_screen_rows.csv](results/s1_screen_rows.csv).
 
 ## Quick start
 
@@ -38,7 +38,7 @@ These commands need only Python 3.9+, with no Docker or API key:
 
 ```bash
 python3 scripts/project.py census                               # failure causes in M0 runs
-python3 scripts/project.py s1 configs/s1_screen.json --report   # S1 screening results (needs local run logs)
+python3 scripts/project.py s1 configs/s1_main.json --report     # S1 main results (needs local run logs)
 python3 -m unittest discover -s tests
 ```
 

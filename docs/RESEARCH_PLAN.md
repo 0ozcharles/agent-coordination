@@ -8,7 +8,7 @@ The work has three stages, each with a standalone result:
 
 | Stage | Question | Condition to continue |
 |---|---|---|
-| S1 Failure census | Which causes produce failures, and how often? | Non-capability causes account for at least 30% of failures |
+| S1 Failure census | Which causes produce failures, and how often? | Non-capability causes account for at least 30% of failures (met: 86%) |
 | S2 Targeted interventions | Does an intervention matched to the cause beat other interventions? | At least one cause has a clearly better matched intervention |
 | S3 Online diagnosis | Can mid-run signals identify the cause and select an intervention? | — |
 
@@ -96,8 +96,28 @@ We read 5 screening coop failures in full and checked simple indicators across a
 
 Screening results for go_chi and typst will be reported separately because of problem 2.
 
+### S1 main run (2026-11-02)
+
+53 tasks × {coop, solo} × 3 runs = 318 runs, $2.32, no infrastructure errors. Go and cargo worked in all go_chi and typst trajectories. Per-run data: [results/s1_main_rows.csv](../results/s1_main_rows.csv). Intervals are 95% bootstrap intervals clustered by task.
+
+| | Official pass | Failures |
+|---|---|---|
+| Coop | 35 / 159 | Integration 84, context 21, capability 18, submission 1 |
+| Solo | 27 / 159 | 62 runs wrote correct code but did not submit it; counting those, 89 / 159 |
+
+**Decision rule.** Non-capability causes account for 86% of coop failures [77%, 93%], well above the 30% threshold, so S1 passes and S2 goes ahead. Counting failing features instead of runs (a run can fail both features), capability is 51 of 219 (23%).
+
+Main results:
+
+1. **Integration is the dominant cause:** 84 of 124 failures, 68% [57%, 78%]. 82 of the 84 are git merge conflicts. The other 2 are runs where one agent published nothing and the scorer skipped the merge. No failure came from a clean merge that then failed tests. If each feature counted as passed whenever its own patch passed, coop would pass 85 / 159 instead of 35, close to solo's 89 with unsubmitted code included.
+2. **Capability and context are small:** 18 (15% [7%, 23%]) and 21 (17%). With the handoff label, 13 runs move: 12 from context and 1 from capability. Failures then read integration 84, capability 17, handoff 13, context 9, submission 1. We have not yet read the main run's handoff cases.
+3. **Integration depends on the task:** 39 of 53 tasks had an integration failure in at least one run, and 18 had one in all three. By repository, it ranges from 15 of 15 coop runs (dirty_equals) to 0 of 15 (jinja, where coop passed 10).
+4. **Sensitivity.** Using only same-pair solo runs as the reference changes 3 of 84 context or capability feature labels, all from context to capability.
+
+**go_chi and typst**, reported separately because their tasks were selected using the broken screening runs: 8 tasks, coop passed 9 / 24, and the 15 failures are integration 12 and context 3 (all 3 are handoffs). Without these two repos, integration is 72 of 109 failures (66%) and capability 18 (17%), so the conclusion does not depend on them.
+
 ## Next steps
 
-1. S1 main run: 53 tasks × {coop, solo} × 3 runs, 318 runs, about $2.7. Running.
-2. Check the handoff label's recall: read failures still labeled context or capability.
-3. Test better merge methods offline: re-merge existing patch pairs with function-level or model-assisted merging and measure how many integration failures are recovered. This does not require re-running agents.
+1. Test better merge methods offline: re-merge the patch pairs from the 84 integration runs with function-level or model-assisted merging, and count recovered features. The upper bound is 85 / 159. This does not require re-running agents.
+2. Read the main run's 13 handoff runs, and sample the remaining context and capability runs to check what the handoff rule misses.
+3. Design S2 around integration. Candidate conditions: a better automatic merge, one agent owning the merge, and agreeing on interfaces before starting, each compared against solo at the same budget. Write the config and decision rule before running.

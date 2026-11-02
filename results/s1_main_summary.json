@@ -1,0 +1,22 @@
+{
+  "study": "s1_main",
+  "question": "What share of coop failures is integration, context, or capability?",
+  "model": "gpt-6-luna",
+  "runs": 318,
+  "coop_labels": {
+    "passed": 35,
+    "context": 21,
+    "integration": 84,
+    "capability": 18,
+    "submission": 1
+  },
+  "refined_coop_labels": {
+    "passed": 35,
+    "context": 9,
+    "integration": 84,
+    "capability": 17,
+    "submission": 1,
+    "handoff": 13
+  },
+  "known_cost_usd": 2.318957
+}
