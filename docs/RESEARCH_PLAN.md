@@ -1,90 +1,90 @@
-# 研究计划
+# Research Plan
 
-## 问题
+## Question
 
-多个 agent 合作写代码失败时，原因是什么？针对每种原因，什么干预在同样的计算预算下最有效？能否在运行中途就判断出原因？
+When a team of agents fails at a coding task, what caused the failure? For each cause, which intervention works best under the same compute budget? Can the cause be identified while the run is still in progress?
 
-研究分三个阶段，每个阶段都有独立的成果：
+The work has three stages, each with a standalone result:
 
-| 阶段 | 要回答的问题 | 进入下一阶段的条件 |
+| Stage | Question | Condition to continue |
 |---|---|---|
-| S1 失败普查 | 失败由哪些原因造成，各占多少 | 能力以外的原因占失败的 30% 以上 |
-| S2 对症干预 | 针对某个原因的干预，是否比其他干预更有效 | 至少一个原因有明显更好的对症方案 |
-| S3 在线诊断 | 能否根据运行中途的信号判断原因、选择干预 | — |
+| S1 Failure census | Which causes produce failures, and how often? | Non-capability causes account for at least 30% of failures |
+| S2 Targeted interventions | Does an intervention matched to the cause beat other interventions? | At least one cause has a clearly better matched intervention |
+| S3 Online diagnosis | Can mid-run signals identify the cause and select an intervention? | — |
 
-S1 本身就是完整的结果。已有工作（如 MAST）给出了失败分类，但没有用对照的方法区分原因。
+S1 is a complete result on its own. Prior work such as MAST provides failure taxonomies, but does not separate causes with controlled comparisons.
 
-## 怎么判断失败原因
+## Labeling failure causes
 
-在 coop 设置中，两个 agent 各负责一个 feature。CooperBench 的官方评分是把两份代码合并后跑测试。我们另外做三件事：单独测试每个 agent 自己的代码；记录 agent 本地写出、但不一定提交了的代码；用同一任务的 solo 运行作参照。这些测试不调用模型，几乎不增加成本。
+In the coop setting, two agents each own one feature. CooperBench's official score merges the two patches and runs the tests. We add three measurements: each agent's own patch is tested alone; each agent's local code is recorded, whether or not it was submitted; and a solo run on the same task serves as a reference. None of these call the model, so they add almost no cost.
 
-| 原因 | 判断方法 |
+| Cause | Rule |
 |---|---|
-| 合并失败（integration） | 两个 agent 的代码各自都通过，合并后失败 |
-| 没有提交（submission） | agent 提交的代码没通过，但它本地写的代码通过了 |
-| 上下文不够（context） | agent 没做出自己的 feature，但 solo 能做出来 |
-| 能力不够（capability） | agent 没做出来，solo 也做不出来 |
-| 协调问题（coordination，附加标记） | 两份代码完全相同，或者一个 agent 做了对方的 feature |
+| Integration | Each agent's own patch passes its feature, but the merged result fails |
+| Submission | The agent's submitted patch fails, but its local code passes |
+| Context | The agent fails its feature, but solo can do it |
+| Capability | The agent fails its feature, and solo cannot do it either |
+| Coordination (extra flag) | The two patches are identical, or one agent implemented the other's feature |
 
-- 一次运行有多个原因时，按表中顺序取第一个。
-- “solo 能做出来”指 solo 的重复运行中至少一半通过，避免单次随机结果的影响。
-- context 和 coordination 的判断比较粗，会人工检查 20 条运行记录来验证。
+- When a run has several causes, the first one in table order is used.
+- "Solo can do it" means solo passed in at least half of its repeated runs, which reduces the effect of a single random outcome.
+- The context and coordination rules are coarse. We will check them against 20 manually reviewed runs.
 
-## 三个阶段
+## Stages
 
-### S1 失败普查
+### S1 Failure census
 
-从 CooperBench lite 中按仓库分层抽 58 个任务（每个任务是一对 feature）。先每个任务跑 2 次 coop 和 2 次 solo 做预筛，去掉总是通过或从不通过的任务；剩下的任务每个跑 3 次。整个阶段只用一个模型（gpt-6-luna）。
+Sample 58 tasks (each a pair of features) from CooperBench lite, stratified by repository. Screen each task with 2 coop and 2 solo runs, drop tasks that always pass or never pass, then run each remaining task 3 times. The whole stage uses one model (gpt-6-luna).
 
-### S2 对症干预
+### S2 Targeted interventions
 
-只针对 S1 中占比高的原因设计干预：
+Interventions are designed only for causes that are common in S1:
 
-| 原因 | 干预 |
+| Cause | Intervention |
 |---|---|
-| 合并失败 | 指定一个 agent 负责合并；或者用更好的方法重新合并已有代码 |
-| 协调问题 | 开工前约定接口，按文件或函数认领 |
-| 上下文不够 | 让 agent 能看到对方的进度和代码 |
-| 能力不够 | 换更强的模型或增加预算（作为对照，预计改变组织方式无效） |
+| Integration | One agent owns the merge; or re-merge existing patches with a better method |
+| Coordination | Agree on interfaces before starting; claim files or functions |
+| Context | Let each agent see the other's progress and code |
+| Capability | Use a stronger model or a larger budget (a control: organizational changes should not help) |
 
-主要检验：对某个原因导致的失败，对症干预是否比其他干预挽回得更多。所有条件预算相同，并且都要和 solo 比较。
+Main test: for failures caused by X, does the intervention for X recover more of them than other interventions? All conditions get the same budget and are compared against solo.
 
-### S3 在线诊断
+### S3 Online diagnosis
 
-在运行中途，根据文件重叠、自测结果、消息记录等信号预测失败原因，再选择干预。沿用原 Proposal 中的 checkpoint 分叉和 V(o,a) 框架。对比基线：固定使用最好的单一干预、总是用 solo、直接让 LLM 选择。
+Predict the failure cause mid-run from signals such as file overlap, self-test results, and messages, then choose an intervention. This stage reuses the checkpoint branching and V(o,a) framework from the original proposal. Baselines: the best single fixed intervention, always solo, and letting an LLM choose directly.
 
-## 实验规则
+## Experiment rules
 
-M0 阶段中途改条件、换模型，导致结果很难解释。之后的实验遵守以下规则：
+In M0, conditions and models changed mid-study, which made results hard to interpret. All later studies follow these rules:
 
-- 运行前写好要回答的问题和判断规则，放进配置。
-- 一个实验只用一个模型、一套评分规则。
-- 每个实验都包含 solo。
-- 实验进行中不加新条件。
-- 少于 20 个任务不下结论；置信区间按任务计算。
-- 总是通过或总是失败的任务单独报告，不参与比较。
+- Write the question and decision rule into the config before running.
+- One model and one scoring rule per study.
+- Every study includes solo.
+- No new conditions while a study is running.
+- No conclusions from fewer than 20 tasks; confidence intervals are clustered by task.
+- Tasks that always pass or always fail are reported separately and excluded from comparisons.
 
-## 进展
+## Progress
 
-### S1 预筛（2026-11-01）
+### S1 screening (2026-11-01)
 
-58 个任务 × {coop, solo} × 2 次，共 232 次运行，费用 $1.93，全部正常完成。逐行数据见 [results/s1_screen_rows.csv](../results/s1_screen_rows.csv)。
+58 tasks × {coop, solo} × 2 runs = 232 runs, $1.93, all completed without infrastructure errors. Per-run data: [results/s1_screen_rows.csv](../results/s1_screen_rows.csv).
 
-| | 官方通过 | 失败情况 |
+| | Official pass | Failures |
 |---|---|---|
-| coop | 32 / 116 | 合并失败 58，能力不够 15，上下文不够 10，没有提交 1 |
-| solo | 25 / 116 | 44 次写对了但没有提交；算上这些是 69 / 116 |
+| Coop | 32 / 116 | Integration 58, capability 15, context 10, submission 1 |
+| Solo | 25 / 116 | 44 runs wrote correct code but did not submit it; counting those, 69 / 116 |
 
-初步观察（每个任务只跑了 2 次，需要主实验确认）：
+Preliminary observations (each task ran only twice; the main run must confirm them):
 
-1. 合并失败占 coop 失败的 69%，其中 55 次是 git 冲突：两个 agent 都写对了，只是改了同一段代码。如果能完美合并，coop 最多能通过约 90 / 116。
-2. 能力和上下文问题合计只占 coop 失败的 30%。
-3. CooperBench 只给提交了 PR 的代码打分。solo 近一半的失败其实是写对了没提交，所以官方分数明显低估了 solo。
+1. Integration accounts for 69% of coop failures, and 55 of those 58 are git merge conflicts: both agents wrote correct code but edited the same lines. With a perfect merge, coop could pass up to about 90 / 116.
+2. Capability and context together account for only 30% of coop failures.
+3. CooperBench only grades code submitted through a PR. Almost half of solo's failures are correct code that was never submitted, so the official score substantially underestimates solo.
 
-按事先定好的规则，53 个任务进入主实验（去掉 3 个从不通过、2 个总是通过的），列表见 [configs/s1_main.json](../configs/s1_main.json)。
+Following the pre-registered rule, 53 tasks go into the main run (3 never passed and 2 always passed). The list is in [configs/s1_main.json](../configs/s1_main.json).
 
-## 下一步
+## Next steps
 
-1. S1 主实验：53 个任务 × {coop, solo} × 3 次，共 318 次运行，预计约 $2.7。
-2. 人工检查 20 条 coop 运行记录，验证 context 和 coordination 的判断是否准确。
-3. 离线测试更好的合并方法：用按函数合并或模型辅助的方式，重新合并已有的两份代码，看能挽回多少合并失败。这一步不需要重跑 agent。
+1. S1 main run: 53 tasks × {coop, solo} × 3 runs, 318 runs, about $2.7.
+2. Manually review 20 coop runs to check the context and coordination labels.
+3. Test better merge methods offline: re-merge existing patch pairs with function-level or model-assisted merging and measure how many integration failures are recovered. This does not require re-running agents.

@@ -1,18 +1,18 @@
-# 开发与运行
+# Development
 
-## 日常命令
+## Everyday commands
 
-只依赖 Python 3.9+ 标准库：
+These use only the Python 3.9+ standard library:
 
 ```bash
-python3 scripts/project.py census                # M0 运行的失败原因统计
-python3 scripts/project.py census --export       # 用本地 M0 数据重新导出 results/m0_runs.csv
-python3 -m unittest discover -s tests            # 测试不运行 Docker 或模型 API
+python3 scripts/project.py census                # failure causes in M0 runs
+python3 scripts/project.py census --export       # re-export results/m0_runs.csv from local M0 data
+python3 -m unittest discover -s tests            # tests do not run Docker or call model APIs
 ```
 
-## 环境准备
+## Setup
 
-需要 Git、uv、Python 3.12 和 Docker。CooperBench 固定在以下版本：
+You need Git, uv, Python 3.12, and Docker. CooperBench is pinned to this commit:
 
 ```bash
 git clone https://github.com/cooperbench/CooperBench.git experiments/m0/CooperBench
@@ -21,67 +21,67 @@ cd experiments/m0/CooperBench
 uv sync --locked --python 3.12
 ```
 
-实验使用 `experiments/m0/CooperBench/.venv/bin/python`。
+Experiments run with `experiments/m0/CooperBench/.venv/bin/python`.
 
-API key 写在仓库根目录的 `.env` 中（已被 gitignore）：
+Put the API key in `.env` at the repository root (it is gitignored):
 
 ```text
 OPENAI_API_KEY=...
 ```
 
-不要把 key 写进配置、脚本或 commit。
+Never put keys in configs, scripts, or commits.
 
-## 运行 S1
+## Running S1
 
-1. 启动 Redis（coop 模式下 agent 之间发消息需要）：
+1. Start Redis (coop agents use it to message each other):
 
    ```bash
    docker run -d --name cooperbench-redis -p 6379:6379 redis:7
    ```
 
-2. 预览：显示任务数、已完成数和将要执行的命令，不会运行。
+2. Preview: shows the job count, how many are done, and the command. Nothing runs.
 
    ```bash
    python3 scripts/project.py s1 configs/s1_main.json
    ```
 
-3. 运行（调用付费 API）。`--workers` 是并行数，Docker 内存 8 GB 时建议 4。
+3. Run (calls a paid API). `--workers` sets parallelism; 4 is a good choice with 8 GB of Docker memory.
 
    ```bash
    python3 scripts/project.py s1 configs/s1_main.json --execute --workers 4
    ```
 
-4. 重新统计结果，不运行 Docker：
+4. Re-tally results without running Docker:
 
    ```bash
    python3 scripts/project.py s1 configs/s1_main.json --report
    ```
 
-Docker 镜像（`akhatua/cooperbench-<repo>:task<id>`，每个 1–3 GB）首次运行时会自动拉取。
+Docker images (`akhatua/cooperbench-<repo>:task<id>`, 1–3 GB each) are pulled automatically on first use.
 
-结果写入配置中的 `output` 目录（`runs/` 已被 gitignore），包括 CooperBench 原始日志、每个 agent 的单独评分，以及汇总的 `rows.csv` 和 `summary.json`。已完成的任务会跳过，中断后重新执行即可继续；因 API 报错失败的任务会重试。
+Results go to the config's `output` directory (`runs/` is gitignored): raw CooperBench logs, per-agent scores, and the aggregated `rows.csv` and `summary.json`. Finished jobs are skipped, so an interrupted run can simply be restarted. Jobs that failed because of API errors are retried.
 
-预筛完成后，用配置里写好的规则生成主实验任务列表：
+After screening, build the main task list with the rule written in the screening config:
 
 ```bash
 python3 scripts/project.py s1 configs/s1_screen.json --freeze configs/s1_main.json
 ```
 
-长时间运行时，电脑睡眠会让任务卡住。可以用 `caffeinate -is` 包住运行命令，并保持插电。
+If the computer sleeps during a long run, jobs hang. On macOS, wrap the command in `caffeinate -is` and keep the machine plugged in.
 
-## 注意事项
+## Notes
 
-- gpt-6-luna 的调用参数在 `configs/agents/luna_mini_swe.yaml`，与 M0 一致。`reasoning_effort` 必须通过 `extra_body` 传递，否则 litellm 会把它去掉，API 会拒绝带工具的请求。
-- CooperBench 的一个问题：coop agent 没提交 PR 就结束时，会被提醒继续提交，但对话里留下的 `exit` 消息会让下一次 API 调用失败。S1 runner 在发送请求前修正这条消息（`s1.api_messages`），没有修改 CooperBench 代码。
-- `experiments/m0/` 的代码与已完成的批次绑定，不要修改。新代码写在 `src/agent_coordination/`。
+- gpt-6-luna call parameters are in `configs/agents/luna_mini_swe.yaml` and match M0. `reasoning_effort` must be passed through `extra_body`; otherwise litellm drops it and the API rejects requests that include tools.
+- CooperBench issue: when a coop agent finishes without opening a PR, it is told to keep going and submit, but the `exit` message left in its history makes the next API call fail. The S1 runner fixes that message before each request (`s1.api_messages`) without modifying CooperBench.
+- Code in `experiments/m0/` is tied to completed batches; do not modify it. New code goes in `src/agent_coordination/`.
 
-## 恢复 M0 批次
+## Resuming M0 batches
 
-M0 批次依赖本机的历史 artifacts 和 Docker 快照，只能在原机器上恢复。默认只打印命令：
+M0 batches depend on local artifacts and Docker snapshots, so they can only be resumed on the original machine. By default the commands only print what they would do:
 
 ```bash
 python3 scripts/project.py show early-roles
 python3 scripts/project.py run early-roles
 ```
 
-确认要继续一个中断的批次时，加 `--execute`。这只会补跑未完成的部分，不会产生新的重复。加 `--mode offline` 可以不调用模型 API，只恢复状态并评分。
+Add `--execute` to continue an interrupted batch. This runs only the unfinished parts and never adds new repeats. Add `--mode offline` to restore state and score without calling a model API.

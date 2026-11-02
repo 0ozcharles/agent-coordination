@@ -6,26 +6,26 @@
   },
   "studies": {
     "early-roles": {
-      "title": "统一交付后的 StrongShare / Integrator 对照",
+      "title": "StrongShare vs. Integrator under a shared submission rule",
       "entrypoint": "experiments/m0/run_luna_early_roles.py",
       "suite": "experiments/m0/artifacts/early_role_runs/luna_early_roles_v1",
       "snapshot": "results/early_roles_v1.json",
       "needs_historical_checkpoints": true
     },
     "publication": {
-      "title": "Click 提交提醒与 baseline 复验",
+      "title": "Click submission reminder and baseline recheck",
       "entrypoint": "experiments/m0/run_luna_publication.py",
       "suite": "experiments/m0/artifacts/publication_runs/luna_publication_v1",
       "needs_historical_checkpoints": true
     },
     "selector": {
-      "title": "按改动位置选择 StrongShare / Integrator",
+      "title": "Choose StrongShare or Integrator by where changes land",
       "entrypoint": "experiments/m0/run_luna_selector.py",
       "suite": "experiments/m0/artifacts/selector_runs/luna_selector_v1",
       "needs_historical_checkpoints": true
     },
     "integrator": {
-      "title": "原始 Integrator 对照（交付方式不同）",
+      "title": "Original Integrator comparison (different submission rule)",
       "entrypoint": "experiments/m0/run_luna_integrator.py",
       "suite": "experiments/m0/artifacts/handoff_expansion_runs/luna_integrator_v1",
       "needs_historical_checkpoints": true

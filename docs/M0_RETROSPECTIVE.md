@@ -1,55 +1,55 @@
-# M0 回顾
+# M0 Retrospective
 
-M0 是 2026-10-29 到 11-01 的探索阶段，共 13 批实验、115 次有效运行。数据见 [results/m0_runs.csv](../results/m0_runs.csv)，可以用 `python3 scripts/project.py census` 重新统计。
+M0 was the exploration phase from 2026-10-29 to 11-01: 13 batches and 115 scored runs. The data is in [results/m0_runs.csv](../results/m0_runs.csv) and can be re-tallied with `python3 scripts/project.py census`.
 
-## 结论
+## Conclusion
 
-协作失败的主要原因是合并：两份代码冲突，或者两个 agent 提交了同一份代码。只要由一个 agent 负责最终代码（Consolidate、Integrator），这类失败就会消失，剩下的基本是能力问题。
+The main cause of failure was integration: the two patches conflicted, or both agents submitted the same patch. When a single agent owned the final code (Consolidate, Integrator), these failures disappeared, and what remained was mostly capability.
 
-不过这只基于 10 个“模型 × 任务”组合，其中只有 6 个能区分不同条件，不足以下结论。
+This rests on only 10 model × task combinations, of which only 6 distinguish between conditions. It is not enough to draw a conclusion.
 
-## 失败原因统计
+## Failure causes
 
-| 结果 | 含义 | Consolidate | Integrator | Keep | Solo | StrongShare |
+| Outcome | Meaning | Consolidate | Integrator | Keep | Solo | StrongShare |
 |---|---|---|---|---|---|---|
-| 通过 | 两个 feature 都通过 | 20 | 16 | 0 | 16 | 31 |
-| 合并冲突 | 两份代码无法合并 | 0 | 0 | 2 | 0 | 6 |
-| 重复提交 | 两个 agent 交了同一份代码，且失败 | 0 | 0 | 0 | 0 | 2 |
-| 能力不够 | 失败的 feature 在同模型同任务的任何运行中都没通过过 | 2 | 2 | 2 | 4 | 3 |
-| 偶然失败 | 失败的 feature 在其他运行中通过过 | 4 | 0 | 0 | 4 | 1 |
+| Passed | Both features pass | 20 | 16 | 0 | 16 | 31 |
+| Merge conflict | The two patches cannot be merged | 0 | 0 | 2 | 0 | 6 |
+| Duplicate patch | Both agents submitted the same patch, and it fails | 0 | 0 | 0 | 0 | 2 |
+| Capability gap | The failed feature never passed in any run with the same model and task | 2 | 2 | 2 | 4 | 3 |
+| Recoverable | The failed feature passed in some other run | 4 | 0 | 0 | 4 | 1 |
 
-M0 的数据没有单独测试每个 agent 的代码，所以无法判断“上下文不够”这类原因。这是 S1 要补上的。
+M0 did not test each agent's patch separately, so it cannot identify context failures. S1 adds this.
 
-## 问题在哪
+## What went wrong
 
-1. 每个条件只跑 2 次，2/2 和 1/2 在统计上分不出来。
-2. 很多任务要么全过、要么全挂，区分不了条件的好坏。
-3. 中途换过 4 种评分规则，同一个条件名在不同批次里衡量的东西不一样。
-4. 中途把模型从 Qwen3.5-9B 换成了 gpt-6-luna。
-5. 条件是边跑边加的（Integrator、提交提醒、自动选择策略）。
-6. 没有先弄清失败原因，就直接测试干预。
+1. Each condition ran only twice; 2/2 and 1/2 are statistically indistinguishable.
+2. Many tasks always passed or always failed, so they could not separate conditions.
+3. The scoring rule changed four times, so the same condition name measured different things in different batches.
+4. The model changed mid-study, from Qwen3.5-9B to gpt-6-luna.
+5. Conditions were added along the way (Integrator, submission reminders, automatic strategy selection).
+6. Interventions were tested before the causes of failure were understood.
 
-费用不是瓶颈，gpt-6-luna 每次运行约 $0.004–0.03。真正拖慢进度的是每个实验都依赖历史 checkpoint 和 Docker 快照。
+Cost was not the bottleneck: a gpt-6-luna run costs about $0.004–0.03. What slowed progress was that every experiment depended on saved checkpoints and Docker snapshots.
 
-## 批次记录
+## Batches
 
-| 批次 | 模型 | 要回答的问题 | 结果 |
+| Batch | Model | Question | Result |
 |---|---|---|---|
-| baseline / consolidate smoke | Qwen | 分开写再合并能不能行 | Keep 合并冲突；Consolidate 通过（n=1） |
-| expansion_wip_v1 | Qwen | 3 个条件在新任务上的表现 | Keep 0/4；click2800 所有条件都失败 |
-| solo_controls_v1 | Qwen | Solo 参照 | click2800 0/2，dirty_equals 2/2 |
-| handoff_dirty_v1 | Qwen | 交接代码后 StrongShare 和 Consolidate 谁好 | 4/4 全过，分不出 |
-| cross_handoff_v1 | Qwen | 3 个任务上比较 StrongShare / Consolidate / Solo | StrongShare 的失败都是合并冲突或重复提交 |
-| luna_solo_v1 | luna | 换模型后的 Solo | 4/4 |
-| luna_collaboration_v1 | luna | StrongShare 和 Consolidate | 7/8，唯一的失败是合并冲突 |
-| luna_timing_v1 | luna | 早介入还是晚介入 | 只有一组失败，原因同样是合并冲突 |
-| luna_integrator_v1 | luna | 指定一个 agent 负责合并 | Integrator 8/8，StrongShare 6/8 |
-| luna_selector_v1 | luna | 按改动位置自动选策略 | dspy 全部失败，没有可比较的差异 |
-| luna_conflict_v1 | luna | 出现冲突时介入 | 没有出现冲突，无数据 |
-| luna_publication_v1 | luna | 提醒 agent 提交 | 6/6 |
-| luna_early_roles_v1 | luna | 统一提交规则后比较 StrongShare 和 Integrator | 8/8 全部通过 |
+| baseline / consolidate smoke | Qwen | Does writing separately and merging work? | Keep hit a merge conflict; Consolidate passed (n=1) |
+| expansion_wip_v1 | Qwen | Three conditions on new tasks | Keep 0/4; click2800 failed under every condition |
+| solo_controls_v1 | Qwen | Solo reference | click2800 0/2, dirty_equals 2/2 |
+| handoff_dirty_v1 | Qwen | StrongShare vs. Consolidate after a code handoff | 4/4 passed; no difference |
+| cross_handoff_v1 | Qwen | StrongShare / Consolidate / Solo on 3 tasks | All StrongShare failures were merge conflicts or duplicate patches |
+| luna_solo_v1 | luna | Solo after switching models | 4/4 |
+| luna_collaboration_v1 | luna | StrongShare vs. Consolidate | 7/8; the only failure was a merge conflict |
+| luna_timing_v1 | luna | Early vs. late intervention | One failing cell, again a merge conflict |
+| luna_integrator_v1 | luna | One agent owns the merge | Integrator 8/8, StrongShare 6/8 |
+| luna_selector_v1 | luna | Choose a strategy by where changes land | dspy failed everywhere; nothing to compare |
+| luna_conflict_v1 | luna | Intervene when a conflict appears | No conflicts occurred; no data |
+| luna_publication_v1 | luna | Remind agents to submit | 6/6 |
+| luna_early_roles_v1 | luna | StrongShare vs. Integrator under the same submission rule | 8/8 passed |
 
-## 保留下来的
+## What we keep
 
-- checkpoint 分叉、费用记录、官方评分接入，S3 会继续使用。
-- `experiments/m0/` 的代码保持不变，历史批次仍可复现。
+- Checkpoint branching, cost accounting, and the official scoring integration, which S3 will reuse.
+- The code in `experiments/m0/` stays unchanged so past batches remain reproducible.

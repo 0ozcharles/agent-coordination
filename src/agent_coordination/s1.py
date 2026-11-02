@@ -19,10 +19,10 @@ ROW_COLUMNS = ["setting", "repeat", "repo", "task_id", "features", "success", "m
                "merged_passed", "own_passed", "cross_passed", "local_passed", "patches_identical",
                "shared_files", "messages_sent", "cost_usd", "feature_labels", "label"]
 CAUSES = {
-    "integration": "每个 agent 自己的 patch 都通过了自己的 feature，合并后失败",
-    "submission": "agent 本地写出了能通过的代码，但没有按规则发布（PR / push），官方评分拿不到",
-    "context": "agent 自己的 feature 没做出来，但同任务的 Solo 能做出来",
-    "capability": "agent 自己的 feature 没做出来，Solo 也做不出来",
+    "integration": "each agent's own patch passes its feature, but the merged result fails",
+    "submission": "the agent wrote passing code locally but never published it (PR / push), so the official score misses it",
+    "context": "the agent failed its feature, but solo on the same task can do it",
+    "capability": "the agent failed its feature, and solo cannot do it either",
 }
 
 

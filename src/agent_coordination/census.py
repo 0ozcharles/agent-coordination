@@ -17,12 +17,12 @@ COLUMNS = ["batch", "model", "task", "condition", "timing", "repeat", "success",
 
 # Checked in this order; the first that applies becomes the run's label.
 LABELS = {
-    "passed": "两项 feature 都通过",
-    "infra_error": "评分未完成，不能算作 agent 失败",
-    "merge_conflict": "两份 patch 无法自动合并：集成失败",
-    "duplicate_patch": "两名 agent 提交了相同 patch 且未通过：重复劳动",
-    "capability_gap": "失败的 feature 在同模型、同任务的任何条件下都没通过过：组织调整大概率无效",
-    "recoverable": "失败的 feature 在同模型、同任务的其他运行中通过过：换一种组织方式可能救回",
+    "passed": "both features pass",
+    "infra_error": "scoring did not finish; not an agent failure",
+    "merge_conflict": "the two patches cannot be merged automatically: integration failure",
+    "duplicate_patch": "both agents submitted the same failing patch: duplicated work",
+    "capability_gap": "the failed feature never passed under any condition with the same model and task: reorganizing is unlikely to help",
+    "recoverable": "the failed feature passed in another run with the same model and task: a different organization might recover it",
 }
 
 
