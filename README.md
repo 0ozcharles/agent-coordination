@@ -2,8 +2,6 @@
 
 多个 LLM agent 合作写代码时，为什么会失败？每种失败原因，用什么办法修最划算？
 
-> 项目原名 Agent RSI，2026-11 更名。研究内容是多 agent 协作，与 recursive self-improvement 无关。
-
 ## 研究内容
 
 两个 agent 各负责一个 feature，最后把代码合并。失败可能来自四类原因：
