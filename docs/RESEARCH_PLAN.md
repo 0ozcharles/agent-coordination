@@ -50,6 +50,22 @@ Interventions are designed only for causes that are common in S1:
 
 Main test: for failures caused by X, does the intervention for X recover more of them than other interventions? All conditions get the same budget and are compared against solo.
 
+**Draft design after S1 (2026-11-02, not yet run).** The merge test settles integration: an automatic merge recovers 84% of it, so it becomes part of scoring instead of an intervention arm. The handoff check (below) suggests the main remaining non-capability failures come from two features of the setup. First, CooperBench's coop prompt lists "both patches merge cleanly with zero conflicts" as a success condition. Second, agents cannot see each other's code. Draft config: [configs/s2.json](../configs/s2.json).
+
+| Arm | Change from S1 coop | Targets |
+|---|---|---|
+| coop baseline | none | — |
+| coop own-feature | Prompt: overlapping edits are merged automatically, so implement your whole feature yourself, including shared files, and use messages only to agree on interfaces | Handoff |
+| coop shared-git | CooperBench's shared git remote is enabled, so agents can fetch and test each other's branches | Context |
+| solo | none | Reference |
+
+- **Tasks and budget:** the 53 S1 main tasks, 3 runs per arm, 636 runs in total. That is about $5.5 and about 19 hours with 4 workers.
+- **Scoring:** every coop run is scored with CooperBench's official score and with the llm re-merge. The re-merge score is primary.
+- **Primary comparison:** each arm against the baseline, paired by task.
+- **Secondary comparison:** failure counts by cause in each arm.
+
+The matched-intervention test is underpowered: the baseline had only 13 handoff and 9 context failures in S1.
+
 ### S3 Online diagnosis
 
 Predict the failure cause mid-run from signals such as file overlap, self-test results, and messages, then choose an intervention. This stage reuses the checkpoint branching and V(o,a) framework from the original proposal. Baselines: the best single fixed intervention, always solo, and letting an LLM choose directly.
@@ -141,8 +157,19 @@ Details:
 2. **Regressions.** All 4 regressions come from two go_chi runs, and both methods have them. The official score passed these runs through CooperBench's fallback, which tests agent 1's patch alone when the merge conflicts. Both agents had written the same helper function outside the conflict block, so the merged code defines it twice and does not compile.
 3. **What remains after the merge.** 81 coop runs still fail: capability 39, context 21, integration 20, submission 1. With the handoff label, the split is capability 38, integration 20, handoff 13, context 9, submission 1. Capability more than doubles from 18 runs because many integration runs also had a second feature that failed for another reason, which the label order used to hide. After the merge, non-capability causes are about half of the remaining failures.
 
+### Handoff check on the main run (2026-11-02)
+
+We read the messages and patches of every main-run feature labeled handoff: 15 features in 15 runs, 13 of them labeled handoff at run level.
+
+- **Precision: 14 of 15 are correct.** The exception is react_hook_form 85 (run 3), where the agent chose a different implementation path rather than leaving work to its partner.
+- **Kinds of handoff:**
+  - 8 are layer splits: one agent writes the public API wrapper and the other implements the behavior behind it.
+  - 3 hand over a whole feature, with an empty own patch. In one of these, both agents wrongly believed they had the same task.
+  - In 3, the partner never implemented the part it was asked to do.
+- **Recall.** We read 13 of the 26 runs still labeled context or capability: every run where the failing agent asked its partner to take work or had a very small patch, plus a sample of the rest. We found 4 more handoffs the rule misses: 2 split work inside a single file, which the file-based rule cannot see, and in 2 the partner published nothing. We also found 2 runs with mutual dependencies: each agent's patch calls code its partner was supposed to write, so its own patch fails when tested alone. The rule therefore catches roughly three quarters of handoffs, with few false positives.
+- **Why handoffs happen.** CooperBench's coop prompt tells agents that their work succeeds only if "both patches merge cleanly with zero conflicts". So agents divide shared files by layer and code against interfaces their partner promised, but they work in separate workspaces and can never run the combined code. 11 of the 15 handoff runs merged cleanly, so the merge test did not change them; the combined code itself is wrong or incomplete.
+
 ## Next steps
 
-1. Decide S2's focus with the post-merge numbers: about half of the remaining coop failures are capability, which organizational interventions should not fix, and the rest is split among integration that the merge cannot fix (20), handoff (13), and context (9).
-2. Read the main run's 13 handoff runs, and sample the remaining context and capability runs to check what the handoff rule misses.
-3. Make the llm merge a standard post-processing step for coop runs, reported next to CooperBench's official score.
+1. Review the draft S2 design above, then implement it: arms in the runner, an automatic llm re-merge after every coop run, and the own-feature prompt. Freeze the config before running.
+2. Make the llm merge a standard post-processing step for coop runs, reported next to CooperBench's official score (part of step 1).

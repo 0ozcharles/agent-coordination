@@ -17,7 +17,7 @@ Each cause calls for a different fix. We first measure how often each cause occu
 |---|---|---|
 | M0 Exploration | Build the experiment pipeline | Done, see [M0 retrospective](docs/M0_RETROSPECTIVE.md) |
 | S1 Failure census | Which causes produce failures, and how often? | Done: integration is the main cause |
-| S2 Targeted interventions | Does a fix matched to the cause beat other fixes? | Next |
+| S2 Targeted interventions | Does a fix matched to the cause beat other fixes? | Design drafted |
 | S3 Online diagnosis | Can we detect the cause mid-run and pick a fix? | After S2 |
 
 The full design is in the [research plan](docs/RESEARCH_PLAN.md).
