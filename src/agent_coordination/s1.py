@@ -17,13 +17,18 @@ PRICES = {"gpt-6-luna": {"input_cost_per_token": 0.10e-6, "output_cost_per_token
                          "cache_read_input_token_cost": 0.01e-6}}
 ROW_COLUMNS = ["setting", "repeat", "repo", "task_id", "features", "success", "merge_status",
                "merged_passed", "own_passed", "cross_passed", "local_passed", "patches_identical",
-               "shared_files", "messages_sent", "cost_usd", "feature_labels", "label"]
+               "shared_files", "handoff", "messages_sent", "cost_usd", "feature_labels", "label",
+               "refined_feature_labels", "refined_label"]
 CAUSES = {
     "integration": "each agent's own patch passes its feature, but the merged result fails",
     "submission": "the agent wrote passing code locally but never published it (PR / push), so the official score misses it",
     "context": "the agent failed its feature, but solo on the same task can do it",
     "capability": "the agent failed its feature, and solo cannot do it either",
 }
+# Secondary label, reported next to the pre-registered ones: it replaces context or capability.
+HANDOFF = "part of the feature was left to the partner (or done by both), and the combined work still fails it"
+REFINED_ORDER = ("integration", "submission", "handoff", "context", "capability", "unknown")
+DATASET = Path(__file__).resolve().parents[2] / "experiments/m0/CooperBench/dataset"
 
 
 def load_config(path):
@@ -311,7 +316,26 @@ def read_json(path):
     return json.loads(path.read_text()) if path.is_file() else {}
 
 
-def collect(config, output):
+def handoffs(row, job, texts, dataset_dir):
+    """Features whose agent left them to the partner.
+
+    Agents often split the work by file or function instead of by feature, so an agent's own
+    patch can be incomplete by design. Feature f counts as handed off when the partner's patch
+    passes f, or when f's patch skips a file the reference solution changes and the partner's
+    patch edits that file.
+    """
+    f1, f2 = row["features"].split()
+    found = []
+    for feature, partner in ((f1, f2), (f2, f1)):
+        reference = Path(dataset_dir) / job["repo"] / f"task{job['task_id']}" / f"feature{feature}" / "feature.patch"
+        needed = patch_files(reference.read_text()) if reference.is_file() else set()
+        skipped = needed - patch_files(texts[feature])
+        if partner in row["cross_passed"].split() or skipped & patch_files(texts[partner]):
+            found.append(feature)
+    return " ".join(found)
+
+
+def collect(config, output, dataset_dir=DATASET):
     rows = []
     for job in plan(config):
         job_dir = log_dir(output, job)
@@ -328,7 +352,7 @@ def collect(config, output):
                "eval_error": evaluation.get("error"), "cost_usd": result.get("total_cost"),
                "messages_sent": result.get("messages_sent", ""), "own_passed": "",
                "cross_passed": "", "local_passed": "", "patches_identical": "", "shared_files": "",
-               "agents_scored": False,
+               "handoff": "", "agents_scored": False,
                "agent_errors": " ".join(agent_errors(job_dir))}
         row["local_passed"] = local_passed(job_dir, job, row)
         if job["setting"] == "coop":
@@ -342,6 +366,8 @@ def collect(config, output):
                 texts = [p.read_text() for p in patches]
                 row["patches_identical"] = bool(texts[0].strip()) and texts[0] == texts[1]
                 row["shared_files"] = len(patch_files(texts[0]) & patch_files(texts[1]))
+                if agents:
+                    row["handoff"] = handoffs(row, job, dict(zip((f1, f2), texts)), dataset_dir)
         rows.append(row)
     return rows
 
@@ -378,6 +404,8 @@ def diagnose(rows, solo_threshold=0.5):
     rates = solo_rates(rows)
     for row in rows:
         row["feature_labels"] = ""
+        row.pop("refined_feature_labels", None)
+        row.pop("refined_label", None)
         if row.get("eval_error") or row.get("agent_errors"):
             row["label"] = "infra_error"
         elif row["success"]:
@@ -407,6 +435,13 @@ def diagnose(rows, solo_threshold=0.5):
             found = set(labels.values())
             row["label"] = next((c for c in ("integration", "submission", "context", "capability", "unknown")
                                  if c in found), "unknown")
+            handed = set(row.get("handoff", "").split())
+            refined = {f: "handoff" if c in ("context", "capability") and f in handed else c
+                       for f, c in labels.items()}
+            row["refined_feature_labels"] = " ".join(f"{f}:{c}" for f, c in refined.items())
+            row["refined_label"] = next((c for c in REFINED_ORDER if c in set(refined.values())), "unknown")
+        row.setdefault("refined_feature_labels", row["feature_labels"])
+        row.setdefault("refined_label", row["label"])
     return rows
 
 
@@ -416,8 +451,9 @@ def write_outputs(config, output, rows):
         writer.writeheader()
         writer.writerows(rows)
     labels = Counter(r["label"] for r in rows if r["setting"] == "coop")
+    refined = Counter(r["refined_label"] for r in rows if r["setting"] == "coop")
     summary = {"study": config["study"], "question": config["question"], "model": config["model"],
-               "runs": len(rows), "coop_labels": dict(labels),
+               "runs": len(rows), "coop_labels": dict(labels), "refined_coop_labels": dict(refined),
                "known_cost_usd": round(sum(r["cost_usd"] or 0 for r in rows), 6)}
     (output / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=2))
 
@@ -437,6 +473,11 @@ def report(rows):
         print(f"  {name:12} {labels[name]:4}  {meaning}")
     for name in sorted(set(labels) - set(CAUSES) - {"passed"}):
         print(f"  {name:12} {labels[name]:4}")
+    refined = Counter(r["refined_label"] for r in rows if r["setting"] == "coop")
+    print("\nWith the secondary handoff label")
+    for name in REFINED_ORDER:
+        if refined[name] or name in CAUSES:
+            print(f"  {name:12} {refined[name]:4}" + (f"  {HANDOFF}" if name == "handoff" else ""))
     flags = [r for r in rows if r["setting"] == "coop" and (r["patches_identical"] is True or r["cross_passed"])]
     print(f"\nCoordination flags (identical patches or an agent passing its partner's feature): {len(flags)} runs")
     cost = sum(r["cost_usd"] or 0 for r in rows)

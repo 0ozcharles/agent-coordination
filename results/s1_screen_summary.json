@@ -10,5 +10,13 @@
     "capability": 15,
     "submission": 1
   },
+  "refined_coop_labels": {
+    "passed": 32,
+    "integration": 58,
+    "handoff": 12,
+    "capability": 8,
+    "submission": 1,
+    "context": 5
+  },
   "known_cost_usd": 1.926986
 }

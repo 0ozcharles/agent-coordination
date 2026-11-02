@@ -25,10 +25,11 @@ In the coop setting, two agents each own one feature. CooperBench's official sco
 | Context | The agent fails its feature, but solo can do it |
 | Capability | The agent fails its feature, and solo cannot do it either |
 | Coordination (extra flag) | The two patches are identical, or one agent implemented the other's feature |
+| Handoff (secondary) | Replaces context or capability when part of the feature was left to the partner: the partner's patch passes the feature, or the agent's patch skips a file the reference solution changes and the partner's patch edits it |
 
 - When a run has several causes, the first one in table order is used.
 - "Solo can do it" means solo passed in at least half of its repeated runs, which reduces the effect of a single random outcome.
-- The context and coordination rules are coarse. We will check them against 20 manually reviewed runs.
+- The handoff label was added after the screening label check (below). It is reported next to the pre-registered labels, not instead of them.
 
 ## Stages
 
@@ -91,13 +92,12 @@ We read 5 screening coop failures in full and checked simple indicators across a
 2. **Go and Rust toolchains were missing for agents.** CooperBench runs agent commands in a login shell, which resets PATH and drops Go (go_chi) and cargo (typst). Agents on these two repos could not build or test: 28 of 39 go_chi and 39 of 41 typst trajectories mention it. These repos are 22 of 116 coop runs but account for 9 of 24 context and 10 of 39 capability feature labels. The main run uses a non-login shell, which fixes both repos and leaves the other images unchanged. Screening results and task selection for these two repos were affected.
 3. **The solo reference pools pairs.** "Solo can do feature f" uses solo runs from every pair that contains f. Restricting it to the same pair changes 1 of 34 labels. We keep the pre-registered rule and report the same-pair version as a sensitivity check.
 
-Planned analysis changes, reported next to the pre-registered labels:
+**Handoff label.** Following problem 1, we added a secondary handoff label (rule in the table above). On screening it moves 12 of the 84 failed coop runs: 5 from context and 7 from capability. Coop failures then read integration 58, handoff 12, capability 8, context 5, submission 1. We read the messages and patches of all 12: 9 are explicit handoffs (in 3 the agent published nothing and the partner implemented both features), 2 are agents cutting their own scope to stay out of files the partner was editing, and 1 is both agents implementing the same feature. None was a false positive. We have not yet checked how many handoffs the rule misses.
 
-- Add a handoff label: the failing agent's own patch is empty or incomplete and its messages assign the feature to the partner. The feature is then judged on the merged result.
-- Report screening results for go_chi and typst separately.
+Screening results for go_chi and typst will be reported separately because of problem 2.
 
 ## Next steps
 
 1. S1 main run: 53 tasks × {coop, solo} × 3 runs, 318 runs, about $2.7. Running.
-2. Implement the handoff label and validate it on more manually read runs.
+2. Check the handoff label's recall: read failures still labeled context or capability.
 3. Test better merge methods offline: re-merge existing patch pairs with function-level or model-assisted merging and measure how many integration failures are recovered. This does not require re-running agents.

@@ -27,7 +27,7 @@ The full design is in the [research plan](docs/RESEARCH_PLAN.md).
 S1 screening: gpt-6-luna, 58 tasks, 2 coop and 2 solo runs each, 232 runs in total, $1.93.
 
 - Coop passed 32 / 116. Of the 84 failures, 58 were integration failures, and 55 of those were git merge conflicts: both agents wrote correct code but edited the same lines.
-- Capability caused 15 failures and context caused 10.
+- Capability caused 15 failures and context caused 10. Reading the traces showed that 12 of these 25 were handoffs: to avoid merge conflicts, an agent left part of its feature to the partner, and the combined work failed.
 - Solo officially passed only 25 / 116, but another 44 runs wrote correct code and never opened a PR. CooperBench only grades submitted code.
 
 Each task ran only twice, so these numbers are preliminary until the main run. Per-run data is in [results/s1_screen_rows.csv](results/s1_screen_rows.csv). M0 pointed in the same direction, but its sample was too small to draw conclusions.

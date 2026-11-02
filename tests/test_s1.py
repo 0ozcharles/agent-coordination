@@ -84,6 +84,31 @@ class S1Tests(unittest.TestCase):
             self.assertEqual(labels, {("coop", 1): "submission", ("solo", 2): "submission",
                                       ("coop", 2): "context"})
 
+    def test_handoff_refines_context_and_capability(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output, dataset = Path(directory) / "out", Path(directory) / "data"
+            for task in (1, 2, 3):
+                for fid, name in (("1", "a"), ("2", "b")):
+                    ref = dataset / "r" / f"task{task}" / f"feature{fid}"
+                    ref.mkdir(parents=True)
+                    (ref / "feature.patch").write_text(PATCH.format(name))
+                self.write(output, 1, "solo", task, "")
+            # Task 1: agent 2 wrote nothing and agent 1 edited the file feature 2 needs -> handoff.
+            self.write(output, 1, "coop", 1, "1", own={"1": "1", "2": ""},
+                       patches={"1": PATCH.format("a") + PATCH.format("b"), "2": ""})
+            # Task 2: agent 2 edited its own file and still failed -> stays capability.
+            self.write(output, 1, "coop", 2, "1", own={"1": "1", "2": ""},
+                       patches={"1": PATCH.format("a"), "2": PATCH.format("b")})
+            # Task 3: agent 1's patch passes feature 2 although agent 2 did its own file -> handoff.
+            self.write(output, 1, "coop", 3, "", own={"1": "2", "2": ""},
+                       patches={"1": PATCH.format("b"), "2": PATCH.format("b")})
+            rows = [r for r in s1.diagnose(s1.collect(config([1, 2, 3]), output, dataset_dir=dataset))
+                    if r["setting"] == "coop"]
+            got = {r["task_id"]: (r["label"], r["refined_label"], r["handoff"]) for r in rows}
+            self.assertEqual(got, {1: ("capability", "handoff", "2"), 2: ("capability", "capability", ""),
+                                   3: ("capability", "handoff", "2")})
+            self.assertEqual(rows[2]["refined_feature_labels"], "1:capability 2:handoff")
+
     def test_screen_keeps_only_pairs_with_varying_outcomes(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)
