@@ -159,6 +159,28 @@ def accept_nudged_agents():
     LitellmModel._s1_exit_fix = True
 
 
+def keep_image_path():
+    """Run agent commands in a non-login shell so the image's PATH survives.
+
+    CooperBench runs every command with `bash -lc`. The login shell reloads /etc/profile,
+    which resets PATH and drops toolchains installed via Docker ENV: Go in the go_chi
+    images and cargo in the typst image. Agents there could not build or test at all.
+    For the other images the two shells give the same PATH and variables.
+    """
+    from cooperbench.agents.mini_swe_agent_v2.environments.docker import DockerEnvironment
+    if getattr(DockerEnvironment, "_s1_path_fix", False):
+        return
+    original = DockerEnvironment.__init__
+
+    def init(self, *args, **kwargs):
+        original(self, *args, **kwargs)
+        if list(self.config.interpreter) == ["bash", "-lc"]:
+            self.config.interpreter = ["bash", "-c"]
+
+    DockerEnvironment.__init__ = init
+    DockerEnvironment._s1_path_fix = True
+
+
 def agent_features(job_dir):
     """Map CooperBench agent ids (agent1, agent2, solo) to their feature ids."""
     result = read_json(job_dir / "result.json")
@@ -230,6 +252,7 @@ def execute(config, root, shard=(0, 1)):
     from cooperbench import run
     capture_local_work()
     accept_nudged_agents()
+    keep_image_path()
     global CURRENT_JOB_DIR
     output = root / config["output"]
     dataset_dir = str(root / "experiments/m0/CooperBench/dataset")

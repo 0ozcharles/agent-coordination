@@ -73,6 +73,7 @@ If the computer sleeps during a long run, jobs hang. On macOS, wrap the command 
 
 - gpt-6-luna call parameters are in `configs/agents/luna_mini_swe.yaml` and match M0. `reasoning_effort` must be passed through `extra_body`; otherwise litellm drops it and the API rejects requests that include tools.
 - CooperBench issue: when a coop agent finishes without opening a PR, it is told to keep going and submit, but the `exit` message left in its history makes the next API call fail. The S1 runner fixes that message before each request (`s1.api_messages`) without modifying CooperBench.
+- CooperBench runs agent commands with `bash -lc`. The login shell resets PATH and drops Go and cargo in the go_chi and typst images, so agents there could not build or test. The S1 runner switches agents to `bash -c` (`s1.keep_image_path`); other images get the same environment either way. The fix applies from the S1 main run on; screening ran without it.
 - Code in `experiments/m0/` is tied to completed batches; do not modify it. New code goes in `src/agent_coordination/`.
 
 ## Resuming M0 batches

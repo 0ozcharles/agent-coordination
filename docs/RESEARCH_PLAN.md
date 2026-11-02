@@ -83,8 +83,21 @@ Preliminary observations (each task ran only twice; the main run must confirm th
 
 Following the pre-registered rule, 53 tasks go into the main run (3 never passed and 2 always passed). The list is in [configs/s1_main.json](../configs/s1_main.json).
 
+### Label check (2026-11-02)
+
+We read 5 screening coop failures in full and checked simple indicators across all 84. Three problems came up.
+
+1. **Agents often re-split the work by file or function instead of by feature.** To avoid merge conflicts, one agent hands its feature, or part of it, to the partner, for example "please implement both parameters in the shared function". Its own patch is then empty or incomplete by design, so a failing own patch no longer means the agent could not do its feature. In 8 of the 24 features labeled context, the own patch was empty, skipped files the reference solution changes, or the partner's patch passed the feature; all 4 context cases read in full were handoffs. The context label therefore mixes missing information with handoff failures, such as the delegating agent giving its partner a wrong spec.
+2. **Go and Rust toolchains were missing for agents.** CooperBench runs agent commands in a login shell, which resets PATH and drops Go (go_chi) and cargo (typst). Agents on these two repos could not build or test: 28 of 39 go_chi and 39 of 41 typst trajectories mention it. These repos are 22 of 116 coop runs but account for 9 of 24 context and 10 of 39 capability feature labels. The main run uses a non-login shell, which fixes both repos and leaves the other images unchanged. Screening results and task selection for these two repos were affected.
+3. **The solo reference pools pairs.** "Solo can do feature f" uses solo runs from every pair that contains f. Restricting it to the same pair changes 1 of 34 labels. We keep the pre-registered rule and report the same-pair version as a sensitivity check.
+
+Planned analysis changes, reported next to the pre-registered labels:
+
+- Add a handoff label: the failing agent's own patch is empty or incomplete and its messages assign the feature to the partner. The feature is then judged on the merged result.
+- Report screening results for go_chi and typst separately.
+
 ## Next steps
 
-1. S1 main run: 53 tasks × {coop, solo} × 3 runs, 318 runs, about $2.7.
-2. Manually review 20 coop runs to check the context and coordination labels.
+1. S1 main run: 53 tasks × {coop, solo} × 3 runs, 318 runs, about $2.7. Running.
+2. Implement the handoff label and validate it on more manually read runs.
 3. Test better merge methods offline: re-merge existing patch pairs with function-level or model-assisted merging and measure how many integration failures are recovered. This does not require re-running agents.
