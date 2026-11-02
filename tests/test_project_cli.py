@@ -8,7 +8,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-from agent_rsi.cli import execution_command, main, project_path, read_results
+from agent_coordination.cli import execution_command, main, project_path, read_results
 
 
 class ProjectCliTests(unittest.TestCase):
@@ -24,7 +24,7 @@ class ProjectCliTests(unittest.TestCase):
             self.assertEqual(read_results(root, {"suite": "missing", "snapshot": "result.json"})[0], {"newer": True})
 
     def test_run_preview_never_launches_a_process(self):
-        with patch("agent_rsi.cli.subprocess.call") as launch, contextlib.redirect_stdout(io.StringIO()) as output:
+        with patch("agent_coordination.cli.subprocess.call") as launch, contextlib.redirect_stdout(io.StringIO()) as output:
             self.assertEqual(main(["run", "early-roles"]), 0)
             launch.assert_not_called()
             self.assertIn("Preview only", output.getvalue())

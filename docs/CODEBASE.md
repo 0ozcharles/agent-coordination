@@ -14,7 +14,7 @@ checkpoint：代码、完整 history、工具状态和通信状态
 继续执行 → 实际发表的代码 → 官方测试 → 结果与费用
 ```
 
-`experiments/m0/` 里的代码按研究批次逐步增加，因此同一个功能有多个历史版本。当前先保留这些文件，把统一入口和后续开发放到 `src/agent_rsi/`，不通过移动文件破坏旧实验路径。
+`experiments/m0/` 里的代码按研究批次逐步增加，因此同一个功能有多个历史版本。当前先保留这些文件，把统一入口和后续开发放到 `src/agent_coordination/`，不通过移动文件破坏旧实验路径。
 
 ## 一次最新实验的调用关系
 
@@ -34,9 +34,11 @@ checkpoint：代码、完整 history、工具状态和通信状态
 
 ## 已完成和待开发
 
+研究方向已调整为"先诊断失败原因，再对症干预"，见 [RESEARCH_PLAN.md](RESEARCH_PLAN.md)。下表中的"自动选择动作"推迟到 S3。
+
 | 组件 | 当前状态 | 后续改动位置 |
 | --- | --- | --- |
-| 任务定义 | 已有，分散在3个 registry | 提取为 `src/agent_rsi/tasks.py`，由配置选择 |
+| 任务定义 | 已有，分散在3个 registry | 提取为 `src/agent_coordination/tasks.py`，由配置选择 |
 | 两 agent 执行 | 已跑通，仍与历史实验耦合 | 提取可独立使用的 runner |
 | 固定动作 | Keep、StrongShare、Consolidate、Integrator 已有历史实现 | 从当前对照使用的语义开始，逐个接入新 runner |
 | 自动选择动作 | 只有简单重叠规则，未显示优势 | 等具体问题明确后再实现 manager |

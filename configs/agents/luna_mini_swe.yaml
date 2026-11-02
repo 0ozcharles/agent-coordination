@@ -1,0 +1,12 @@
+# Sampling settings for gpt-6-luna, matching the M0 Luna transport (experiments/m0/luna_model.py).
+# gpt-6-luna rejects function tools on /v1/chat/completions unless reasoning_effort is "none".
+# litellm does not know this model and drop_params strips a top-level reasoning_effort,
+# so it is sent through extra_body.
+config:
+  model:
+    model_kwargs:
+      drop_params: true
+      temperature: 0.7
+      top_p: 0.8
+      extra_body:
+        reasoning_effort: "none"

@@ -1,0 +1,14 @@
+{
+  "study": "s1_screen",
+  "question": "Which lite pairs are informative (outcomes vary) for the S1 failure census?",
+  "model": "gpt-6-luna",
+  "runs": 232,
+  "coop_labels": {
+    "passed": 32,
+    "integration": 58,
+    "context": 10,
+    "capability": 15,
+    "submission": 1
+  },
+  "known_cost_usd": 1.926986
+}

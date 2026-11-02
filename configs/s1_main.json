@@ -1,0 +1,442 @@
+{
+  "study": "s1_main",
+  "question": "What share of coop failures is integration, context, or capability?",
+  "model": "gpt-6-luna",
+  "agent": "mini_swe_agent_v2",
+  "agent_config": "configs/agents/luna_mini_swe.yaml",
+  "settings": [
+    "coop",
+    "solo"
+  ],
+  "repeats": 3,
+  "messaging": true,
+  "git": false,
+  "tasks": [
+    {
+      "repo": "dottxt_ai_outlines_task",
+      "task_id": 1655,
+      "features": [
+        6,
+        7
+      ]
+    },
+    {
+      "repo": "dottxt_ai_outlines_task",
+      "task_id": 1706,
+      "features": [
+        5,
+        8
+      ]
+    },
+    {
+      "repo": "dottxt_ai_outlines_task",
+      "task_id": 1655,
+      "features": [
+        7,
+        10
+      ]
+    },
+    {
+      "repo": "dottxt_ai_outlines_task",
+      "task_id": 1706,
+      "features": [
+        5,
+        6
+      ]
+    },
+    {
+      "repo": "dottxt_ai_outlines_task",
+      "task_id": 1706,
+      "features": [
+        4,
+        6
+      ]
+    },
+    {
+      "repo": "dspy_task",
+      "task_id": 8394,
+      "features": [
+        3,
+        4
+      ]
+    },
+    {
+      "repo": "dspy_task",
+      "task_id": 8587,
+      "features": [
+        1,
+        4
+      ]
+    },
+    {
+      "repo": "dspy_task",
+      "task_id": 8394,
+      "features": [
+        4,
+        5
+      ]
+    },
+    {
+      "repo": "dspy_task",
+      "task_id": 8587,
+      "features": [
+        5,
+        6
+      ]
+    },
+    {
+      "repo": "dspy_task",
+      "task_id": 8394,
+      "features": [
+        3,
+        5
+      ]
+    },
+    {
+      "repo": "dspy_task",
+      "task_id": 8587,
+      "features": [
+        2,
+        3
+      ]
+    },
+    {
+      "repo": "go_chi_task",
+      "task_id": 56,
+      "features": [
+        2,
+        3
+      ]
+    },
+    {
+      "repo": "go_chi_task",
+      "task_id": 26,
+      "features": [
+        1,
+        2
+      ]
+    },
+    {
+      "repo": "go_chi_task",
+      "task_id": 27,
+      "features": [
+        2,
+        4
+      ]
+    },
+    {
+      "repo": "go_chi_task",
+      "task_id": 26,
+      "features": [
+        2,
+        4
+      ]
+    },
+    {
+      "repo": "huggingface_datasets_task",
+      "task_id": 3997,
+      "features": [
+        2,
+        4
+      ]
+    },
+    {
+      "repo": "huggingface_datasets_task",
+      "task_id": 3997,
+      "features": [
+        1,
+        2
+      ]
+    },
+    {
+      "repo": "huggingface_datasets_task",
+      "task_id": 6252,
+      "features": [
+        4,
+        6
+      ]
+    },
+    {
+      "repo": "llama_index_task",
+      "task_id": 18813,
+      "features": [
+        1,
+        5
+      ]
+    },
+    {
+      "repo": "llama_index_task",
+      "task_id": 17244,
+      "features": [
+        2,
+        6
+      ]
+    },
+    {
+      "repo": "llama_index_task",
+      "task_id": 18813,
+      "features": [
+        2,
+        5
+      ]
+    },
+    {
+      "repo": "openai_tiktoken_task",
+      "task_id": 0,
+      "features": [
+        1,
+        5
+      ]
+    },
+    {
+      "repo": "openai_tiktoken_task",
+      "task_id": 0,
+      "features": [
+        2,
+        4
+      ]
+    },
+    {
+      "repo": "openai_tiktoken_task",
+      "task_id": 0,
+      "features": [
+        2,
+        9
+      ]
+    },
+    {
+      "repo": "openai_tiktoken_task",
+      "task_id": 0,
+      "features": [
+        6,
+        8
+      ]
+    },
+    {
+      "repo": "openai_tiktoken_task",
+      "task_id": 0,
+      "features": [
+        3,
+        6
+      ]
+    },
+    {
+      "repo": "pallets_click_task",
+      "task_id": 2068,
+      "features": [
+        6,
+        7
+      ]
+    },
+    {
+      "repo": "pallets_click_task",
+      "task_id": 2068,
+      "features": [
+        5,
+        7
+      ]
+    },
+    {
+      "repo": "pallets_click_task",
+      "task_id": 2068,
+      "features": [
+        7,
+        10
+      ]
+    },
+    {
+      "repo": "pallets_click_task",
+      "task_id": 2068,
+      "features": [
+        9,
+        11
+      ]
+    },
+    {
+      "repo": "pallets_click_task",
+      "task_id": 2068,
+      "features": [
+        2,
+        8
+      ]
+    },
+    {
+      "repo": "pallets_jinja_task",
+      "task_id": 1621,
+      "features": [
+        4,
+        10
+      ]
+    },
+    {
+      "repo": "pallets_jinja_task",
+      "task_id": 1559,
+      "features": [
+        1,
+        10
+      ]
+    },
+    {
+      "repo": "pallets_jinja_task",
+      "task_id": 1559,
+      "features": [
+        4,
+        7
+      ]
+    },
+    {
+      "repo": "pallets_jinja_task",
+      "task_id": 1559,
+      "features": [
+        4,
+        8
+      ]
+    },
+    {
+      "repo": "pallets_jinja_task",
+      "task_id": 1621,
+      "features": [
+        6,
+        7
+      ]
+    },
+    {
+      "repo": "pillow_task",
+      "task_id": 290,
+      "features": [
+        4,
+        5
+      ]
+    },
+    {
+      "repo": "pillow_task",
+      "task_id": 290,
+      "features": [
+        3,
+        5
+      ]
+    },
+    {
+      "repo": "pillow_task",
+      "task_id": 25,
+      "features": [
+        2,
+        5
+      ]
+    },
+    {
+      "repo": "pillow_task",
+      "task_id": 68,
+      "features": [
+        1,
+        5
+      ]
+    },
+    {
+      "repo": "pillow_task",
+      "task_id": 25,
+      "features": [
+        1,
+        4
+      ]
+    },
+    {
+      "repo": "pillow_task",
+      "task_id": 25,
+      "features": [
+        2,
+        3
+      ]
+    },
+    {
+      "repo": "react_hook_form_task",
+      "task_id": 85,
+      "features": [
+        3,
+        4
+      ]
+    },
+    {
+      "repo": "react_hook_form_task",
+      "task_id": 153,
+      "features": [
+        1,
+        3
+      ]
+    },
+    {
+      "repo": "samuelcolvin_dirty_equals_task",
+      "task_id": 43,
+      "features": [
+        6,
+        7
+      ]
+    },
+    {
+      "repo": "samuelcolvin_dirty_equals_task",
+      "task_id": 43,
+      "features": [
+        2,
+        4
+      ]
+    },
+    {
+      "repo": "samuelcolvin_dirty_equals_task",
+      "task_id": 43,
+      "features": [
+        7,
+        9
+      ]
+    },
+    {
+      "repo": "samuelcolvin_dirty_equals_task",
+      "task_id": 43,
+      "features": [
+        3,
+        7
+      ]
+    },
+    {
+      "repo": "samuelcolvin_dirty_equals_task",
+      "task_id": 43,
+      "features": [
+        2,
+        3
+      ]
+    },
+    {
+      "repo": "typst_task",
+      "task_id": 6554,
+      "features": [
+        5,
+        9
+      ]
+    },
+    {
+      "repo": "typst_task",
+      "task_id": 6554,
+      "features": [
+        8,
+        9
+      ]
+    },
+    {
+      "repo": "typst_task",
+      "task_id": 6554,
+      "features": [
+        1,
+        3
+      ]
+    },
+    {
+      "repo": "typst_task",
+      "task_id": 6554,
+      "features": [
+        1,
+        9
+      ]
+    }
+  ],
+  "output": "runs/s1_main",
+  "screened_from": "s1_screen"
+}

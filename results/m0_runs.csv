@@ -1,0 +1,116 @@
+batch,model,task,condition,timing,repeat,success,features_passed,features_total,passed_features,failed_features,merge_status,scoring,cost_usd,label
+luna_early_roles_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,,1,True,2,2,1 3,,not_applicable,single_artifact,0.012637,passed
+luna_early_roles_v1,gpt-6-luna,llama_index17070_f1_f3,integrator,,1,True,2,2,1 3,,not_applicable,single_artifact,0.012467,passed
+luna_early_roles_v1,gpt-6-luna,llama_index17070_f1_f3,integrator,,2,True,2,2,1 3,,not_applicable,single_artifact,0.014421,passed
+luna_early_roles_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,,2,True,2,2,1 3,,not_applicable,single_artifact,0.015481,passed
+luna_early_roles_v1,gpt-6-luna,click2068_f4_f10,strongshare,,1,True,2,2,10 4,,not_applicable,single_artifact,0.015588,passed
+luna_early_roles_v1,gpt-6-luna,click2068_f4_f10,integrator,,1,True,2,2,10 4,,not_applicable,single_artifact,0.012261,passed
+luna_early_roles_v1,gpt-6-luna,click2068_f4_f10,integrator,,2,True,2,2,10 4,,not_applicable,single_artifact,0.011644,passed
+luna_early_roles_v1,gpt-6-luna,click2068_f4_f10,strongshare,,2,True,2,2,10 4,,not_applicable,single_artifact,0.020666,passed
+expansion_wip_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,keep,,1,False,1,2,1,2,clean,merged_naive,0.548178,capability_gap
+expansion_wip_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,strongshare,,1,False,1,2,1,2,clean,merged_naive,0.782105,capability_gap
+expansion_wip_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,consolidate,,1,False,1,2,1,2,not_applicable,single_artifact,0.218103,capability_gap
+expansion_wip_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,consolidate,,2,False,1,2,1,2,not_applicable,single_artifact,0.265501,capability_gap
+expansion_wip_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,keep,,2,False,1,2,1,2,clean,merged_naive,3.771362,capability_gap
+expansion_wip_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,strongshare,,2,False,1,2,1,2,clean,merged_naive,0.852724,capability_gap
+expansion_wip_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,keep,,1,False,0,2,,3 7,conflicts,merged_naive,2.218165,merge_conflict
+expansion_wip_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,strongshare,,1,True,2,2,3 7,,identical,identical_skip,1.927656,passed
+expansion_wip_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,consolidate,,1,True,2,2,3 7,,not_applicable,single_artifact,0.200191,passed
+expansion_wip_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,consolidate,,2,False,1,2,3,7,not_applicable,single_artifact,0.21486,recoverable
+expansion_wip_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,keep,,2,False,0,2,,3 7,conflicts,merged_naive,2.212784,merge_conflict
+expansion_wip_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,strongshare,,2,True,2,2,3 7,,conflicts,lead_patch_fallback,2.978008,passed
+handoff_dirty_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,strongshare,,1,True,2,2,3 7,,conflicts,lead_patch_fallback,1.476979,passed
+handoff_dirty_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,consolidate,,1,True,2,2,3 7,,not_applicable,single_artifact,0.519559,passed
+handoff_dirty_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,consolidate,,2,True,2,2,3 7,,not_applicable,single_artifact,0.318803,passed
+handoff_dirty_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,strongshare,,2,True,2,2,3 7,,identical,identical_skip,1.294712,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,strongshare,,1,False,0,2,,1 3,conflicts,merged_naive,4.322016,merge_conflict
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,consolidate,,1,True,2,2,1 3,,not_applicable,single_artifact,0.365773,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,solo,,1,True,2,2,1 3,,not_applicable,single_artifact,0.247635,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,consolidate,,2,True,2,2,1 3,,not_applicable,single_artifact,0.234196,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,solo,,2,False,1,2,1,3,not_applicable,single_artifact,0.882844,recoverable
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,strongshare,,2,True,2,2,1 3,,identical,identical_skip,1.72401,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,solo,,3,True,2,2,1 3,,not_applicable,single_artifact,0.250277,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,strongshare,,3,True,2,2,1 3,,identical,identical_skip,1.221014,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,llama_index17070_f1_f3,consolidate,,3,True,2,2,1 3,,not_applicable,single_artifact,0.353914,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,strongshare,,1,False,0,2,,2 3,identical,identical_skip,0.715263,duplicate_patch
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,consolidate,,1,True,2,2,2 3,,not_applicable,single_artifact,7.343534,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,solo,,1,True,2,2,2 3,,not_applicable,single_artifact,0.374142,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,consolidate,,2,True,2,2,2 3,,not_applicable,single_artifact,0.343268,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,solo,,2,True,2,2,2 3,,not_applicable,single_artifact,0.287591,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,strongshare,,2,True,2,2,2 3,,conflicts,lead_patch_fallback,10.135065,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,solo,,3,False,0,2,,2 3,not_applicable,single_artifact,0.374895,recoverable
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,strongshare,,3,False,0,2,,2 3,identical,identical_skip,1.556521,duplicate_patch
+cross_handoff_v1,Qwen/Qwen3.5-9B,hf_datasets3997_f2_f3,consolidate,,3,False,0,2,,2 3,not_applicable,single_artifact,0.269458,recoverable
+cross_handoff_v1,Qwen/Qwen3.5-9B,pillow68_f1_f2,strongshare,,1,True,2,2,1 2,,identical,identical_skip,1.628628,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,pillow68_f1_f2,consolidate,,1,False,1,2,2,1,not_applicable,single_artifact,0.592958,recoverable
+cross_handoff_v1,Qwen/Qwen3.5-9B,pillow68_f1_f2,solo,,1,True,2,2,1 2,,not_applicable,single_artifact,0.403658,passed
+cross_handoff_v1,Qwen/Qwen3.5-9B,pillow68_f1_f2,consolidate,,2,False,1,2,2,1,not_applicable,single_artifact,0.929511,recoverable
+cross_handoff_v1,Qwen/Qwen3.5-9B,pillow68_f1_f2,solo,,2,True,2,2,1 2,,not_applicable,single_artifact,1.610523,passed
+luna_collaboration_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,,1,True,2,2,1 3,,conflicts,lead_patch_fallback,0.015761,passed
+luna_collaboration_v1,gpt-6-luna,llama_index17070_f1_f3,consolidate,,1,True,2,2,1 3,,not_applicable,single_artifact,0.006884,passed
+luna_collaboration_v1,gpt-6-luna,llama_index17070_f1_f3,consolidate,,2,True,2,2,1 3,,not_applicable,single_artifact,0.006762,passed
+luna_collaboration_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,,2,False,0,2,,1 3,conflicts,merged_naive,0.016144,merge_conflict
+luna_collaboration_v1,gpt-6-luna,pillow68_f1_f2,strongshare,,1,True,2,2,1 2,,clean,merged_naive,0.012045,passed
+luna_collaboration_v1,gpt-6-luna,pillow68_f1_f2,consolidate,,1,True,2,2,1 2,,not_applicable,single_artifact,0.014231,passed
+luna_collaboration_v1,gpt-6-luna,pillow68_f1_f2,consolidate,,2,True,2,2,1 2,,not_applicable,single_artifact,0.007842,passed
+luna_collaboration_v1,gpt-6-luna,pillow68_f1_f2,strongshare,,2,True,2,2,1 2,,clean,merged_naive,0.009672,passed
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,early,1,False,0,2,,1 3,conflicts,merged_naive,0.01262,merge_conflict
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,integrator,early,1,True,2,2,1 3,,not_applicable,single_artifact,0.013506,passed
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,integrator,late,1,True,2,2,1 3,,not_applicable,single_artifact,0.019174,passed
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,late,1,True,2,2,1 3,,conflicts,lead_patch_fallback,0.022459,passed
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,late,2,False,0,2,,1 3,conflicts,merged_naive,0.016398,merge_conflict
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,integrator,late,2,True,2,2,1 3,,not_applicable,single_artifact,0.016445,passed
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,integrator,early,2,True,2,2,1 3,,not_applicable,single_artifact,0.01361,passed
+luna_integrator_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,early,2,True,2,2,1 3,,clean,merged_naive,0.021663,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,strongshare,early,1,True,2,2,1 2,,clean,merged_naive,0.010587,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,integrator,early,1,True,2,2,1 2,,not_applicable,single_artifact,0.017089,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,integrator,late,1,True,2,2,1 2,,not_applicable,single_artifact,0.016615,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,strongshare,late,1,True,2,2,1 2,,clean,merged_naive,0.028284,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,strongshare,late,2,True,2,2,1 2,,clean,merged_naive,0.026694,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,integrator,late,2,True,2,2,1 2,,not_applicable,single_artifact,0.016575,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,integrator,early,2,True,2,2,1 2,,not_applicable,single_artifact,0.01492,passed
+luna_integrator_v1,gpt-6-luna,pillow68_f1_f2,strongshare,early,2,True,2,2,1 2,,clean,merged_naive,0.01683,passed
+luna_solo_v1,gpt-6-luna,llama_index17070_f1_f3,solo,,1,True,2,2,1 3,,not_applicable,single_artifact,0.004959,passed
+luna_solo_v1,gpt-6-luna,pillow68_f1_f2,solo,,1,True,2,2,1 2,,not_applicable,single_artifact,0.00367,passed
+luna_solo_v1,gpt-6-luna,llama_index17070_f1_f3,solo,,2,True,2,2,1 3,,not_applicable,single_artifact,0.006043,passed
+luna_solo_v1,gpt-6-luna,pillow68_f1_f2,solo,,2,True,2,2,1 2,,not_applicable,single_artifact,0.004692,passed
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,early,1,True,2,2,1 3,,clean,merged_naive,0.030133,passed
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,consolidate,late,1,True,2,2,1 3,,not_applicable,single_artifact,0.008585,passed
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,late,1,False,0,2,,1 3,conflicts,merged_naive,0.013217,merge_conflict
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,consolidate,early,1,True,2,2,1 3,,not_applicable,single_artifact,0.009105,passed
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,consolidate,early,2,True,2,2,1 3,,not_applicable,single_artifact,0.009795,passed
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,late,2,False,0,2,,1 3,conflicts,merged_naive,0.026578,merge_conflict
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,consolidate,late,2,True,2,2,1 3,,not_applicable,single_artifact,0.004513,passed
+luna_timing_v1,gpt-6-luna,llama_index17070_f1_f3,strongshare,early,2,True,2,2,1 3,,clean,merged_naive,0.012778,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,strongshare,early,1,True,2,2,1 2,,clean,merged_naive,0.012868,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,consolidate,late,1,True,2,2,1 2,,not_applicable,single_artifact,0.009254,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,strongshare,late,1,True,2,2,1 2,,clean,merged_naive,0.011854,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,consolidate,early,1,True,2,2,1 2,,not_applicable,single_artifact,0.019012,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,consolidate,early,2,True,2,2,1 2,,not_applicable,single_artifact,0.011945,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,strongshare,late,2,True,2,2,1 2,,clean,merged_naive,0.007755,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,consolidate,late,2,True,2,2,1 2,,not_applicable,single_artifact,0.012448,passed
+luna_timing_v1,gpt-6-luna,pillow68_f1_f2,strongshare,early,2,True,2,2,1 2,,clean,merged_naive,0.014855,passed
+luna_publication_v1,gpt-6-luna,click2068_f4_f10,strongshare,,1,True,2,2,10 4,,clean,merged_naive,0.0184,passed
+luna_publication_v1,gpt-6-luna,click2068_f4_f10,integrator,,1,True,2,2,10 4,,not_applicable,single_artifact,0.012284,passed
+luna_publication_v1,gpt-6-luna,click2068_f4_f10,solo,,1,True,2,2,10 4,,not_applicable,single_artifact,0.004335,passed
+luna_publication_v1,gpt-6-luna,click2068_f4_f10,solo,,2,True,2,2,10 4,,not_applicable,single_artifact,0.003933,passed
+luna_publication_v1,gpt-6-luna,click2068_f4_f10,integrator,,2,True,2,2,10 4,,not_applicable,single_artifact,0.01285,passed
+luna_publication_v1,gpt-6-luna,click2068_f4_f10,strongshare,,2,True,2,2,10 4,,conflicts,lead_patch_fallback,0.024997,passed
+luna_selector_v1,gpt-6-luna,dspy8563_f2_f3,strongshare,,1,False,0,2,,2 3,clean,merged_naive,0.018713,recoverable
+luna_selector_v1,gpt-6-luna,dspy8563_f2_f3,integrator,,1,False,1,2,2,3,not_applicable,single_artifact,0.019679,capability_gap
+luna_selector_v1,gpt-6-luna,dspy8563_f2_f3,solo,,1,False,1,2,2,3,not_applicable,single_artifact,0.006827,capability_gap
+luna_selector_v1,gpt-6-luna,dspy8563_f2_f3,solo,,2,False,1,2,2,3,not_applicable,single_artifact,0.007258,capability_gap
+luna_selector_v1,gpt-6-luna,dspy8563_f2_f3,integrator,,2,False,1,2,2,3,not_applicable,single_artifact,0.025323,capability_gap
+luna_selector_v1,gpt-6-luna,dspy8563_f2_f3,strongshare,,2,False,1,2,2,3,clean,merged_naive,0.0178,capability_gap
+luna_selector_v1,gpt-6-luna,click2068_f4_f10,strongshare,,1,True,2,2,10 4,,conflicts,lead_patch_fallback,0.019389,passed
+luna_selector_v1,gpt-6-luna,click2068_f4_f10,integrator,,1,True,2,2,10 4,,not_applicable,single_artifact,0.014035,passed
+luna_selector_v1,gpt-6-luna,click2068_f4_f10,solo,,1,False,0,2,,10 4,not_applicable,single_artifact,0.003867,recoverable
+luna_selector_v1,gpt-6-luna,click2068_f4_f10,solo,,2,False,0,2,,10 4,not_applicable,single_artifact,0.003002,recoverable
+luna_selector_v1,gpt-6-luna,click2068_f4_f10,integrator,,2,True,2,2,10 4,,not_applicable,single_artifact,0.015178,passed
+luna_selector_v1,gpt-6-luna,click2068_f4_f10,strongshare,,2,True,2,2,10 4,,clean,merged_naive,0.015934,passed
+luna_selector_v1,gpt-6-luna,jinja1465_f1_f2,solo,,1,True,2,2,1 2,,not_applicable,single_artifact,0.004778,passed
+luna_selector_v1,gpt-6-luna,jinja1465_f1_f2,solo,,2,True,2,2,1 2,,not_applicable,single_artifact,0.004926,passed
+solo_controls_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,solo,,1,False,1,2,1,2,not_applicable,single_artifact,0.770198,capability_gap
+solo_controls_v1,Qwen/Qwen3.5-9B,click2800_f1_f2,solo,,2,False,1,2,1,2,not_applicable,single_artifact,0.366743,capability_gap
+solo_controls_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,solo,,1,True,2,2,3 7,,not_applicable,single_artifact,0.212132,passed
+solo_controls_v1,Qwen/Qwen3.5-9B,dirty_equals43_f3_f7,solo,,2,True,2,2,3 7,,not_applicable,single_artifact,0.272842,passed

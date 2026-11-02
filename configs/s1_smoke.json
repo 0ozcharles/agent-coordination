@@ -1,0 +1,25 @@
+{
+  "study": "s1_smoke",
+  "question": "Does the fresh runner produce merged, per-agent and solo scores that the S1 labels can use?",
+  "model": "gpt-6-luna",
+  "agent": "mini_swe_agent_v2",
+  "agent_config": "configs/agents/luna_mini_swe.yaml",
+  "settings": [
+    "coop",
+    "solo"
+  ],
+  "repeats": 1,
+  "messaging": true,
+  "git": false,
+  "tasks": [
+    {
+      "repo": "llama_index_task",
+      "task_id": 17070,
+      "features": [
+        1,
+        3
+      ]
+    }
+  ],
+  "output": "runs/s1_smoke"
+}

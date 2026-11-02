@@ -1,0 +1,233 @@
+setting,repeat,repo,task_id,features,success,merge_status,merged_passed,own_passed,cross_passed,local_passed,patches_identical,shared_files,messages_sent,cost_usd,feature_labels,label
+coop,1,dottxt_ai_outlines_task,1655,6 7,True,clean,6 7,6 7,,,False,1,7,0.008155889999999999,,passed
+coop,1,dottxt_ai_outlines_task,1706,5 8,False,conflicts,,5 8,,,False,1,9,0.012703820000000001,5:integration 8:integration,integration
+coop,1,dottxt_ai_outlines_task,1655,7 10,True,clean,7 10,7 10,,,False,1,5,0.00412507,,passed
+coop,1,dottxt_ai_outlines_task,1706,5 6,False,conflicts,,5 6,,,False,1,8,0.00890532,5:integration 6:integration,integration
+coop,1,dottxt_ai_outlines_task,1706,4 6,False,conflicts,,4 6,,,False,1,3,0.00621587,4:integration 6:integration,integration
+coop,1,dspy_task,8394,3 4,True,clean,3 4,3,,,False,0,6,0.01231757,,passed
+coop,1,dspy_task,8587,1 4,False,conflicts,,1,,,False,1,5,0.01257922,1:integration 4:capability,integration
+coop,1,dspy_task,8394,4 5,False,clean,4,4,,,False,0,8,0.015963909999999998,5:context,context
+coop,1,dspy_task,8587,5 6,True,clean,5 6,5,5,,False,0,13,0.009178539999999999,,passed
+coop,1,dspy_task,8394,3 5,True,clean,3 5,3,,,False,0,14,0.014328689999999998,,passed
+coop,1,dspy_task,8587,2 3,False,clean,2,,,,False,0,7,0.0075378899999999985,3:capability,capability
+coop,1,go_chi_task,56,1 5,False,clean,,,,,False,1,11,0.01995498,1:capability 5:capability,capability
+coop,1,go_chi_task,56,2 3,False,clean,3,3,,,False,0,9,0.01819947,2:capability,capability
+coop,1,go_chi_task,26,1 2,True,clean,1 2,,,,False,0,8,0.010866659999999998,,passed
+coop,1,go_chi_task,27,2 4,True,conflicts,2 4,2 4,2 4,,False,2,10,0.02600538,,passed
+coop,1,go_chi_task,26,2 4,False,clean,2,2,,4,False,0,7,0.05077105999999998,4:submission,submission
+coop,1,huggingface_datasets_task,3997,2 4,False,clean,2,2,,,False,1,5,0.00665076,4:capability,capability
+coop,1,huggingface_datasets_task,3997,1 2,False,conflicts,,1 2,,,False,1,10,0.014650469999999999,1:integration 2:integration,integration
+coop,1,huggingface_datasets_task,6252,4 6,True,clean,4 6,4 6,,,False,1,5,0.00548481,,passed
+coop,1,llama_index_task,18813,1 5,False,conflicts,,1,,,False,1,11,0.0077610199999999996,1:integration 5:capability,integration
+coop,1,llama_index_task,17244,2 6,False,conflicts,,2,,,False,2,10,0.005440550000000001,2:integration 6:context,integration
+coop,1,llama_index_task,18813,2 5,False,clean,2,2,,,False,0,17,0.00974251,5:capability,capability
+coop,1,openai_tiktoken_task,0,1 5,False,conflicts,,1 5,,,False,1,13,0.008080420000000001,1:integration 5:integration,integration
+coop,1,openai_tiktoken_task,0,2 4,False,conflicts,,2 4,,,False,1,14,0.01960325,2:integration 4:integration,integration
+coop,1,openai_tiktoken_task,0,2 9,False,clean,2,2,,,False,1,15,0.017568799999999996,9:capability,capability
+coop,1,openai_tiktoken_task,0,6 8,False,conflicts,,6 8,,,False,1,7,0.006062919999999999,6:integration 8:integration,integration
+coop,1,openai_tiktoken_task,0,3 6,False,conflicts,,3 6,,,False,1,9,0.010941629999999999,3:integration 6:integration,integration
+coop,1,pallets_click_task,2068,6 7,False,conflicts,,6 7,,,False,2,8,0.01335251,6:integration 7:integration,integration
+coop,1,pallets_click_task,2068,5 7,False,clean,,,,,False,1,13,0.011447559999999999,5:context 7:context,context
+coop,1,pallets_click_task,2068,7 10,False,conflicts,,7 10,,,False,2,5,0.007120759999999999,7:integration 10:integration,integration
+coop,1,pallets_click_task,2068,9 11,False,conflicts,,11,,,False,1,12,0.012189970000000001,9:capability 11:integration,integration
+coop,1,pallets_click_task,2068,1 4,True,clean,1 4,1,1,,False,1,13,0.01067372,,passed
+coop,1,pallets_click_task,2068,2 8,False,clean,2,2,,,False,0,7,0.007198119999999999,8:capability,capability
+coop,1,pallets_jinja_task,1621,4 10,False,clean,10,10,,,False,1,5,0.007551779999999999,4:capability,capability
+coop,1,pallets_jinja_task,1559,1 10,True,clean,1 10,1 10,,,False,1,6,0.008177960000000001,,passed
+coop,1,pallets_jinja_task,1559,5 8,True,clean,5 8,5 8,,,False,1,4,0.014877369999999997,,passed
+coop,1,pallets_jinja_task,1559,4 7,True,clean,4 7,4 7,,,False,1,4,0.01110492,,passed
+coop,1,pallets_jinja_task,1559,4 8,True,clean,4 8,4 8,,,False,1,4,0.03285483000000001,,passed
+coop,1,pallets_jinja_task,1621,6 7,True,clean,6 7,6 7,,,False,2,6,0.011038929999999999,,passed
+coop,1,pillow_task,290,4 5,False,conflicts,,5,,,False,2,11,0.015057230000000001,4:capability 5:integration,integration
+coop,1,pillow_task,290,3 5,False,conflicts,,5,,,False,2,10,0.0132819,3:context 5:integration,integration
+coop,1,pillow_task,25,2 5,True,clean,2 5,2 5,,,False,2,9,0.00926303,,passed
+coop,1,pillow_task,68,1 5,False,clean,1,1,,,False,2,6,0.00769899,5:capability,capability
+coop,1,pillow_task,25,1 4,True,clean,1 4,1 4,,,False,2,5,0.00764692,,passed
+coop,1,pillow_task,25,2 3,False,conflicts,,2 3,,,False,2,11,0.009727449999999999,2:integration 3:integration,integration
+coop,1,react_hook_form_task,85,3 4,False,missing_input,,4,,,False,4,8,0.015014940000000001,3:capability 4:integration,integration
+coop,1,react_hook_form_task,153,1 3,False,conflicts,,1 3,3,,False,1,7,0.0084549,1:integration 3:integration,integration
+coop,1,samuelcolvin_dirty_equals_task,43,6 7,False,conflicts,,7,,,False,2,7,0.007314829999999999,6:capability 7:integration,integration
+coop,1,samuelcolvin_dirty_equals_task,43,2 4,False,conflicts,,2 4,,,False,2,5,0.00763601,2:integration 4:integration,integration
+coop,1,samuelcolvin_dirty_equals_task,43,7 9,False,conflicts,,7,,,False,2,5,0.00851559,7:integration 9:context,integration
+coop,1,samuelcolvin_dirty_equals_task,43,3 7,False,conflicts,,7,,,False,2,4,0.006452579999999999,3:capability 7:integration,integration
+coop,1,samuelcolvin_dirty_equals_task,43,2 3,False,conflicts,,2,,,False,2,5,0.00699581,2:integration 3:capability,integration
+coop,1,typst_task,6554,5 9,False,clean,5,5,,,False,0,10,0.007668739999999999,9:context,context
+coop,1,typst_task,6554,7 8,False,conflicts,,7 8,,,False,2,11,0.021443530000000002,7:integration 8:integration,integration
+coop,1,typst_task,6554,8 9,False,conflicts,,8,,,False,1,8,0.0067196800000000004,8:integration 9:context,integration
+coop,1,typst_task,6554,1 3,False,clean,,3,,,False,0,12,0.00488366,1:context 3:integration,integration
+coop,1,typst_task,6554,1 9,False,conflicts,,,,,False,1,13,0.00717805,1:context 9:context,context
+coop,1,typst_task,6554,6 10,False,conflicts,,6,,,False,1,21,0.010577419999999999,6:integration 10:capability,integration
+solo,1,dottxt_ai_outlines_task,1655,6 7,False,,,,,6 7,,,,0.0024357500000000004,,submission
+solo,1,dottxt_ai_outlines_task,1706,5 8,False,,,,,5 8,,,,0.00600083,,submission
+solo,1,dottxt_ai_outlines_task,1655,7 10,True,,7 10,,,,,,,0.0021783999999999996,,passed
+solo,1,dottxt_ai_outlines_task,1706,5 6,False,,,,,5 6,,,,0.005266749999999999,,submission
+solo,1,dottxt_ai_outlines_task,1706,4 6,True,,4 6,,,,,,,0.00452335,,passed
+solo,1,dspy_task,8394,3 4,False,,,,,3 4,,,,0.01069839,,submission
+solo,1,dspy_task,8587,1 4,False,,1,,,,,,,0.004516179999999999,,solo_failed
+solo,1,dspy_task,8394,4 5,False,,,,,,,,,0.014666040000000002,,solo_failed
+solo,1,dspy_task,8587,5 6,False,,,,,5 6,,,,0.0040472,,submission
+solo,1,dspy_task,8394,3 5,False,,,,,3 5,,,,0.005631819999999999,,submission
+solo,1,dspy_task,8587,2 3,False,,,,,2,,,,0.00600269,,solo_failed
+solo,1,go_chi_task,56,1 5,False,,,,,,,,,0.010143239999999998,,solo_failed
+solo,1,go_chi_task,56,2 3,False,,3,,,,,,,0.012011740000000002,,solo_failed
+solo,1,go_chi_task,26,1 2,False,,,,,1 2,,,,0.00342999,,submission
+solo,1,go_chi_task,27,2 4,False,,,,,2 4,,,,0.004562439999999999,,submission
+solo,1,go_chi_task,26,2 4,False,,,,,2 4,,,,0.01005603,,submission
+solo,1,huggingface_datasets_task,3997,2 4,False,,,,,,,,,0.0036248599999999997,,solo_failed
+solo,1,huggingface_datasets_task,3997,1 2,False,,,,,1 2,,,,0.00322498,,submission
+solo,1,huggingface_datasets_task,6252,4 6,True,,4 6,,,,,,,0.00329978,,passed
+solo,1,llama_index_task,18813,1 5,False,,1,,,,,,,0.00332187,,solo_failed
+solo,1,llama_index_task,17244,2 6,False,,,,,2 6,,,,0.0018533799999999997,,submission
+solo,1,llama_index_task,18813,2 5,False,,,,,2,,,,0.00500672,,solo_failed
+solo,1,openai_tiktoken_task,0,1 5,True,,1 5,,,,,,,0.00231604,,passed
+solo,1,openai_tiktoken_task,0,2 4,True,,2 4,,,,,,,0.01033044,,passed
+solo,1,openai_tiktoken_task,0,2 9,False,,2,,,,,,,0.0056637300000000005,,solo_failed
+solo,1,openai_tiktoken_task,0,6 8,False,,,,,6 8,,,,0.003962189999999999,,submission
+solo,1,openai_tiktoken_task,0,3 6,True,,3 6,,,,,,,0.0049126,,passed
+solo,1,pallets_click_task,2068,6 7,False,,,,,6 7,,,,0.00369473,,submission
+solo,1,pallets_click_task,2068,5 7,False,,,,,5 7,,,,0.00438922,,submission
+solo,1,pallets_click_task,2068,7 10,False,,,,,10 7,,,,0.003395479999999999,,submission
+solo,1,pallets_click_task,2068,9 11,False,,,,,11,,,,0.0036324400000000002,,solo_failed
+solo,1,pallets_click_task,2068,1 4,True,,1 4,,,,,,,0.00680378,,passed
+solo,1,pallets_click_task,2068,2 8,False,,,,,2,,,,0.0030584600000000003,,solo_failed
+solo,1,pallets_jinja_task,1621,4 10,False,,,,,10,,,,0.00362957,,solo_failed
+solo,1,pallets_jinja_task,1559,1 10,False,,,,,1 10,,,,0.0028014199999999998,,submission
+solo,1,pallets_jinja_task,1559,5 8,True,,5 8,,,,,,,0.018120210000000005,,passed
+solo,1,pallets_jinja_task,1559,4 7,True,,4 7,,,,,,,0.0060966399999999995,,passed
+solo,1,pallets_jinja_task,1559,4 8,False,,,,,4 8,,,,0.00732065,,submission
+solo,1,pallets_jinja_task,1621,6 7,True,,6 7,,,,,,,0.00947526,,passed
+solo,1,pillow_task,290,4 5,False,,,,,5,,,,0.0030224600000000003,,solo_failed
+solo,1,pillow_task,290,3 5,False,,,,,3 5,,,,0.00380673,,submission
+solo,1,pillow_task,25,2 5,False,,,,,2,,,,0.00429748,,solo_failed
+solo,1,pillow_task,68,1 5,False,,,,,,,,,0.007344209999999999,,solo_failed
+solo,1,pillow_task,25,1 4,True,,1 4,,,,,,,0.0045616400000000005,,passed
+solo,1,pillow_task,25,2 3,True,,2 3,,,,,,,0.0038807499999999997,,passed
+solo,1,react_hook_form_task,85,3 4,False,,,,,,,,,0.005455789999999999,,solo_failed
+solo,1,react_hook_form_task,153,1 3,False,,,,,1 3,,,,0.006537779999999999,,submission
+solo,1,samuelcolvin_dirty_equals_task,43,6 7,False,,,,,7,,,,0.0024487899999999997,,solo_failed
+solo,1,samuelcolvin_dirty_equals_task,43,2 4,False,,,,,2 4,,,,0.0028567599999999994,,submission
+solo,1,samuelcolvin_dirty_equals_task,43,7 9,False,,,,,7,,,,0.00360526,,solo_failed
+solo,1,samuelcolvin_dirty_equals_task,43,3 7,False,,,,,3 7,,,,0.0038696299999999998,,submission
+solo,1,samuelcolvin_dirty_equals_task,43,2 3,False,,,,,2,,,,0.00287772,,solo_failed
+solo,1,typst_task,6554,5 9,True,,5 9,,,,,,,0.004004199999999999,,passed
+solo,1,typst_task,6554,7 8,False,,,,,,,,,0.0038273599999999997,,solo_failed
+solo,1,typst_task,6554,8 9,False,,,,,,,,,0.00245677,,solo_failed
+solo,1,typst_task,6554,1 3,False,,,,,1 3,,,,0.0039572900000000005,,submission
+solo,1,typst_task,6554,1 9,False,,,,,1 9,,,,0.0036186399999999994,,submission
+solo,1,typst_task,6554,6 10,False,,,,,,,,,0.00302975,,solo_failed
+coop,2,dottxt_ai_outlines_task,1655,6 7,True,clean,6 7,6 7,,,False,1,5,0.00690593,,passed
+coop,2,dottxt_ai_outlines_task,1706,5 8,True,clean,5 8,,,,False,0,5,0.013405879999999998,,passed
+coop,2,dottxt_ai_outlines_task,1655,7 10,True,clean,7 10,7 10,,,False,1,5,0.00378473,,passed
+coop,2,dottxt_ai_outlines_task,1706,5 6,False,conflicts,,,,,False,1,6,0.01142017,5:context 6:context,context
+coop,2,dottxt_ai_outlines_task,1706,4 6,False,conflicts,,4 6,,,False,1,5,0.007045659999999999,4:integration 6:integration,integration
+coop,2,dspy_task,8394,3 4,False,conflicts,,3 4,,,False,1,8,0.015450189999999999,3:integration 4:integration,integration
+coop,2,dspy_task,8587,1 4,False,clean,1,,,,False,0,9,0.011704410000000002,4:capability,capability
+coop,2,dspy_task,8394,4 5,False,conflicts,,4,,,False,1,9,0.01945721,4:integration 5:context,integration
+coop,2,dspy_task,8587,5 6,False,conflicts,,6,,,False,1,12,0.01165828,5:context 6:integration,integration
+coop,2,dspy_task,8394,3 5,True,clean,3 5,3,,,False,0,8,0.010580570000000001,,passed
+coop,2,dspy_task,8587,2 3,False,conflicts,,2,,,False,2,10,0.01352599,2:integration 3:capability,integration
+coop,2,go_chi_task,56,1 5,False,clean,,,,,False,0,12,0.021471419999999998,1:capability 5:capability,capability
+coop,2,go_chi_task,56,2 3,False,conflicts,,3,,,False,2,13,0.017151229999999996,2:capability 3:integration,integration
+coop,2,go_chi_task,26,1 2,False,conflicts,,1 2,,,False,1,5,0.008021249999999999,1:integration 2:integration,integration
+coop,2,go_chi_task,27,2 4,True,clean,2 4,2,2,,False,0,15,0.010275179999999998,,passed
+coop,2,go_chi_task,26,2 4,False,conflicts,,2 4,,,False,1,6,0.017329909999999997,2:integration 4:integration,integration
+coop,2,huggingface_datasets_task,3997,2 4,False,clean,,,,,False,2,5,0.0068413300000000005,2:context 4:capability,context
+coop,2,huggingface_datasets_task,3997,1 2,False,conflicts,,1,,,False,1,7,0.00695758,1:integration 2:context,integration
+coop,2,huggingface_datasets_task,6252,4 6,True,clean,4 6,4 6,,,False,1,5,0.005380299999999999,,passed
+coop,2,llama_index_task,18813,1 5,False,conflicts,,1,,,False,2,9,0.00921236,1:integration 5:capability,integration
+coop,2,llama_index_task,17244,2 6,True,clean,2 6,2 6,,,False,2,5,0.005991680000000001,,passed
+coop,2,llama_index_task,18813,2 5,False,conflicts,,2,,,False,2,12,0.01055107,2:integration 5:capability,integration
+coop,2,openai_tiktoken_task,0,1 5,False,conflicts,,1 5,,,False,1,16,0.013066360000000003,1:integration 5:integration,integration
+coop,2,openai_tiktoken_task,0,2 4,False,conflicts,,2 4,,,False,1,21,0.014058240000000001,2:integration 4:integration,integration
+coop,2,openai_tiktoken_task,0,2 9,False,conflicts,,2,,,False,1,11,0.01338088,2:integration 9:capability,integration
+coop,2,openai_tiktoken_task,0,6 8,True,clean,6 8,6,,,False,1,15,0.008267169999999997,,passed
+coop,2,openai_tiktoken_task,0,3 6,True,clean,3 6,3,3,,False,0,11,0.00680041,,passed
+coop,2,pallets_click_task,2068,6 7,False,conflicts,,6 7,,,False,2,8,0.009233420000000003,6:integration 7:integration,integration
+coop,2,pallets_click_task,2068,5 7,False,conflicts,,7,,,False,2,8,0.01081293,5:context 7:integration,integration
+coop,2,pallets_click_task,2068,7 10,False,conflicts,,7 10,,,False,3,7,0.008299299999999999,7:integration 10:integration,integration
+coop,2,pallets_click_task,2068,9 11,False,clean,11,,,,False,0,20,0.013550889999999998,9:capability,capability
+coop,2,pallets_click_task,2068,1 4,True,conflicts,1 4,1 4,1,,False,3,20,0.01548499,,passed
+coop,2,pallets_click_task,2068,2 8,False,conflicts,,2 8,,,False,3,9,0.012676390000000001,2:integration 8:integration,integration
+coop,2,pallets_jinja_task,1621,4 10,False,clean,10,10,,,False,1,4,0.00824206,4:capability,capability
+coop,2,pallets_jinja_task,1559,1 10,True,clean,1 10,1 10,,,False,1,5,0.0068835499999999996,,passed
+coop,2,pallets_jinja_task,1559,5 8,True,clean,5 8,5 8,,,False,1,4,0.013275249999999999,,passed
+coop,2,pallets_jinja_task,1559,4 7,True,clean,4 7,4 7,,,False,1,5,0.00788245,,passed
+coop,2,pallets_jinja_task,1559,4 8,True,clean,4 8,4 8,,,False,1,5,0.02027516,,passed
+coop,2,pallets_jinja_task,1621,6 7,True,clean,6 7,6,6,,False,0,7,0.01241548,,passed
+coop,2,pillow_task,290,4 5,False,conflicts,,,,,False,2,13,0.014970090000000002,4:capability 5:context,context
+coop,2,pillow_task,290,3 5,False,conflicts,,3 5,,,False,2,9,0.01960207,3:integration 5:integration,integration
+coop,2,pillow_task,25,2 5,True,clean,2 5,2 5,,,False,2,6,0.00752916,,passed
+coop,2,pillow_task,68,1 5,False,clean,1,1,,,False,2,8,0.008409259999999998,5:capability,capability
+coop,2,pillow_task,25,1 4,False,conflicts,,1 4,,,False,2,8,0.00888773,1:integration 4:integration,integration
+coop,2,pillow_task,25,2 3,False,conflicts,,2 3,,,False,2,11,0.010922409999999997,2:integration 3:integration,integration
+coop,2,react_hook_form_task,85,3 4,False,missing_input,,4,,,False,3,5,0.0132871,3:capability 4:integration,integration
+coop,2,react_hook_form_task,153,1 3,False,conflicts,,1 3,,,False,2,7,0.01027474,1:integration 3:integration,integration
+coop,2,samuelcolvin_dirty_equals_task,43,6 7,False,clean,7,7,,,False,1,7,0.00860298,6:capability,capability
+coop,2,samuelcolvin_dirty_equals_task,43,2 4,False,conflicts,,2 4,,,False,2,3,0.00836287,2:integration 4:integration,integration
+coop,2,samuelcolvin_dirty_equals_task,43,7 9,False,conflicts,,7,,,False,2,6,0.01034735,7:integration 9:context,integration
+coop,2,samuelcolvin_dirty_equals_task,43,3 7,False,conflicts,,7,,,False,3,8,0.009529969999999999,3:capability 7:integration,integration
+coop,2,samuelcolvin_dirty_equals_task,43,2 3,False,conflicts,,2,,,False,2,5,0.0075698399999999996,2:integration 3:capability,integration
+coop,2,typst_task,6554,5 9,False,conflicts,,,9,,False,1,16,0.009452540000000002,5:context 9:context,context
+coop,2,typst_task,6554,7 8,False,conflicts,,8,,,False,1,14,0.012725300000000002,7:capability 8:integration,integration
+coop,2,typst_task,6554,8 9,False,conflicts,,9,,,False,1,12,0.00738376,8:capability 9:integration,integration
+coop,2,typst_task,6554,1 3,False,clean,1,1,,,False,0,8,0.006684300000000001,3:context,context
+coop,2,typst_task,6554,1 9,False,clean,1,,9,,False,0,10,0.00513798,9:context,context
+coop,2,typst_task,6554,6 10,False,conflicts,,6,,,False,1,12,0.00810148,6:integration 10:capability,integration
+solo,2,dottxt_ai_outlines_task,1655,6 7,False,,,,,6 7,,,,0.00375622,,submission
+solo,2,dottxt_ai_outlines_task,1706,5 8,False,,,,,5 8,,,,0.006919269999999999,,submission
+solo,2,dottxt_ai_outlines_task,1655,7 10,False,,,,,10 7,,,,0.00167037,,submission
+solo,2,dottxt_ai_outlines_task,1706,5 6,False,,,,,5 6,,,,0.0037442499999999993,,submission
+solo,2,dottxt_ai_outlines_task,1706,4 6,True,,4 6,,,,,,,0.004483479999999999,,passed
+solo,2,dspy_task,8394,3 4,True,,3 4,,,,,,,0.022954059999999995,,passed
+solo,2,dspy_task,8587,1 4,False,,1,,,,,,,0.00469939,,solo_failed
+solo,2,dspy_task,8394,4 5,False,,,,,,,,,0.010732269999999999,,solo_failed
+solo,2,dspy_task,8587,5 6,False,,,,,5 6,,,,0.00363364,,submission
+solo,2,dspy_task,8394,3 5,False,,,,,3 5,,,,0.004888459999999999,,submission
+solo,2,dspy_task,8587,2 3,False,,2,,,,,,,0.0063801199999999995,,solo_failed
+solo,2,go_chi_task,56,1 5,False,,,,,,,,,0.010160559999999997,,solo_failed
+solo,2,go_chi_task,56,2 3,False,,,,,3,,,,0.005045399999999999,,solo_failed
+solo,2,go_chi_task,26,1 2,True,,1 2,,,,,,,0.004264119999999999,,passed
+solo,2,go_chi_task,27,2 4,False,,,,,2 4,,,,0.00431077,,submission
+solo,2,go_chi_task,26,2 4,False,,,,,2 4,,,,0.02134219000000001,,submission
+solo,2,huggingface_datasets_task,3997,2 4,False,,,,,2,,,,0.004126019999999999,,solo_failed
+solo,2,huggingface_datasets_task,3997,1 2,False,,,,,1 2,,,,0.0024478099999999995,,submission
+solo,2,huggingface_datasets_task,6252,4 6,False,,,,,4 6,,,,0.0018901800000000002,,submission
+solo,2,llama_index_task,18813,1 5,False,,1,,,,,,,0.0030310099999999998,,solo_failed
+solo,2,llama_index_task,17244,2 6,False,,,,,2 6,,,,0.00202849,,submission
+solo,2,llama_index_task,18813,2 5,False,,,,,2,,,,0.00523805,,solo_failed
+solo,2,openai_tiktoken_task,0,1 5,True,,1 5,,,,,,,0.003907870000000001,,passed
+solo,2,openai_tiktoken_task,0,2 4,True,,2 4,,,,,,,0.007634239999999999,,passed
+solo,2,openai_tiktoken_task,0,2 9,False,,,,,2,,,,0.00309324,,solo_failed
+solo,2,openai_tiktoken_task,0,6 8,True,,6 8,,,,,,,0.00460875,,passed
+solo,2,openai_tiktoken_task,0,3 6,True,,3 6,,,,,,,0.00310976,,passed
+solo,2,pallets_click_task,2068,6 7,False,,,,,6 7,,,,0.0029137499999999997,,submission
+solo,2,pallets_click_task,2068,5 7,False,,,,,7,,,,0.0030736699999999997,,solo_failed
+solo,2,pallets_click_task,2068,7 10,True,,7 10,,,,,,,0.00524469,,passed
+solo,2,pallets_click_task,2068,9 11,False,,,,,11,,,,0.004435639999999999,,solo_failed
+solo,2,pallets_click_task,2068,1 4,True,,1 4,,,,,,,0.0035800799999999994,,passed
+solo,2,pallets_click_task,2068,2 8,False,,,,,2,,,,0.0021240399999999998,,solo_failed
+solo,2,pallets_jinja_task,1621,4 10,False,,,,,10,,,,0.004606860000000001,,solo_failed
+solo,2,pallets_jinja_task,1559,1 10,False,,,,,1 10,,,,0.00466458,,submission
+solo,2,pallets_jinja_task,1559,5 8,True,,5 8,,,,,,,0.013658479999999999,,passed
+solo,2,pallets_jinja_task,1559,4 7,False,,,,,7,,,,0.005107659999999999,,solo_failed
+solo,2,pallets_jinja_task,1559,4 8,False,,,,,4,,,,0.021585939999999998,,solo_failed
+solo,2,pallets_jinja_task,1621,6 7,False,,,,,6 7,,,,0.007692359999999999,,submission
+solo,2,pillow_task,290,4 5,False,,,,,5,,,,0.01030406,,solo_failed
+solo,2,pillow_task,290,3 5,False,,,,,3 5,,,,0.0048115,,submission
+solo,2,pillow_task,25,2 5,True,,2 5,,,,,,,0.006605739999999999,,passed
+solo,2,pillow_task,68,1 5,False,,1,,,,,,,0.00446897,,solo_failed
+solo,2,pillow_task,25,1 4,False,,,,,1 4,,,,0.0030138999999999995,,submission
+solo,2,pillow_task,25,2 3,False,,,,,2 3,,,,0.00399827,,submission
+solo,2,react_hook_form_task,85,3 4,False,,,,,4,,,,0.005679189999999999,,solo_failed
+solo,2,react_hook_form_task,153,1 3,True,,1 3,,,,,,,0.0048758199999999995,,passed
+solo,2,samuelcolvin_dirty_equals_task,43,6 7,False,,7,,,,,,,0.0038857799999999997,,solo_failed
+solo,2,samuelcolvin_dirty_equals_task,43,2 4,False,,,,,2 4,,,,0.00367518,,submission
+solo,2,samuelcolvin_dirty_equals_task,43,7 9,False,,,,,7 9,,,,0.0030461299999999998,,submission
+solo,2,samuelcolvin_dirty_equals_task,43,3 7,False,,,,,,,,,0.00254463,,solo_failed
+solo,2,samuelcolvin_dirty_equals_task,43,2 3,False,,,,,2,,,,0.003574999999999999,,solo_failed
+solo,2,typst_task,6554,5 9,False,,,,,,,,,0.00462303,,solo_failed
+solo,2,typst_task,6554,7 8,False,,,,,,,,,0.00587099,,solo_failed
+solo,2,typst_task,6554,8 9,False,,,,,8 9,,,,0.0030863199999999996,,submission
+solo,2,typst_task,6554,1 3,False,,,,,1 3,,,,0.00241077,,submission
+solo,2,typst_task,6554,1 9,False,,,,,,,,,0.00206923,,solo_failed
+solo,2,typst_task,6554,6 10,False,,,,,,,,,0.00266491,,solo_failed
