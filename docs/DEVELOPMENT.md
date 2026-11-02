@@ -69,6 +69,17 @@ python3 scripts/project.py s1 configs/s1_screen.json --freeze configs/s1_main.js
 
 If the computer sleeps during a long run, jobs hang. On macOS, wrap the command in `caffeinate -is` and keep the machine plugged in.
 
+## Offline merge test
+
+Re-merges the patch pairs of S1 coop runs whose `git merge` conflicted, then tests the result against both features. No agent is re-run. The `llm` method calls gpt-6-luna once per conflicted file, so a full set costs cents. `--set dev` (20 screening runs) is for checking the pipeline and the prompt. `--set test` (all 88 conflicted main-run runs) is run once.
+
+```bash
+python3 scripts/project.py merge configs/merge_test.json --set dev --execute --workers 4
+python3 scripts/project.py merge configs/merge_test.json --set test --report
+```
+
+Each run directory under `runs/merge_test/<set>/` keeps the conflicted files with diff3 markers, the merged patch per method, the model's prompts and replies, and `merge.json` with test results.
+
 ## Notes
 
 - gpt-6-luna call parameters are in `configs/agents/luna_mini_swe.yaml` and match M0. `reasoning_effort` must be passed through `extra_body`; otherwise litellm drops it and the API rejects requests that include tools.

@@ -7,7 +7,7 @@ import shlex
 import subprocess
 import sys
 
-from . import census, s1
+from . import census, merge, s1
 
 
 def find_root():
@@ -95,17 +95,25 @@ def s1_command(root, args):
     print(f"Model {config['model']}; {len(config['tasks'])} tasks x {config['repeats']} repeats "
           f"x {len(config.get('settings', s1.SETTINGS))} settings = {len(jobs)} jobs, {done} already done.")
     print("For scale: M0 gpt-6-luna runs cost about $0.004-0.03 each.")
+    code = launch(root, args, "agent_coordination.s1", [str(config_path)], output,
+                  args.workers or config.get("workers", 1))
+    if code is not None and s1.collect(config, output):
+        s1.analyze(config, output)
+    return code or 0
+
+
+def launch(root, args, module, module_args, output, workers):
+    """Run a module under the CooperBench venv, split over worker processes; None if preview only."""
     interpreter = Path(args.python).expanduser().absolute() if args.python else (
         root / "experiments/m0/CooperBench/.venv/bin/python")
-    command = [str(interpreter), "-B", "-u", "-m", "agent_coordination.s1", str(config_path)]
+    command = [str(interpreter), "-B", "-u", "-m", module, *module_args]
     print(shlex.join(command))
     if not args.execute:
         print("Preview only. Add --execute to run the missing jobs.")
-        return 0
+        return None
     if not interpreter.is_file():
         raise ValueError("CooperBench Python is missing; see docs/DEVELOPMENT.md.")
     env = {**os.environ, "PYTHONPATH": str(root / "src")}
-    workers = args.workers or config.get("workers", 1)
     if workers <= 1:
         return subprocess.call(command, cwd=root, env=env)
     output.mkdir(parents=True, exist_ok=True)
@@ -114,13 +122,30 @@ def s1_command(root, args):
         log = open(output / f"worker_{index}.log", "a")
         processes.append((subprocess.Popen(command + ["--shard", f"{index}/{workers}"], cwd=root, env=env,
                                            stdout=log, stderr=subprocess.STDOUT), log))
-    print(f"Started {workers} workers; logs in {config['output']}/worker_*.log", flush=True)
+    print(f"Started {workers} workers; logs in {output.relative_to(root)}/worker_*.log", flush=True)
     codes = [process.wait() for process, _ in processes]
     for _, log in processes:
         log.close()
-    if s1.collect(config, output):
-        s1.analyze(config, output)
     return max(codes)
+
+
+def merge_command(root, args):
+    config_path = args.config.resolve()
+    config = merge.load_config(config_path)
+    if args.set not in config["sets"]:
+        raise ValueError(f"Unknown set; the config defines {', '.join(config['sets'])}.")
+    output = project_path(root, config["output"]) / args.set
+    if args.report:
+        merge.report(config, root, args.set)
+        return 0
+    jobs = merge.select(config, root, args.set)
+    done = sum((merge.target_dir(output, job) / "merge.json").is_file() for job in jobs)
+    print(f"{config['study']} [{args.set}]: {config['question']}")
+    print(f"{len(jobs)} conflicted coop runs, {done} already merged; methods: {', '.join(config['methods'])}.")
+    code = launch(root, args, "agent_coordination.merge", [str(config_path), args.set], output, args.workers or 1)
+    if code is not None:
+        merge.report(config, root, args.set)
+    return code or 0
 
 
 def main(argv=None):
@@ -140,6 +165,13 @@ def main(argv=None):
     fresh.add_argument("--python", help="CooperBench Python interpreter")
     fresh.add_argument("--freeze", type=Path, help="Apply the screening rule and write the S1 main config here")
     fresh.add_argument("--workers", type=int, help="Parallel worker processes (default: config 'workers' or 1)")
+    remerge = subs.add_parser("merge", help="Offline merge test: re-merge conflicted S1 coop runs")
+    remerge.add_argument("config", type=Path)
+    remerge.add_argument("--set", default="dev", help="Which run set in the config (default: dev)")
+    remerge.add_argument("--execute", action="store_true", help="Merge and test (Docker; llm makes paid calls)")
+    remerge.add_argument("--report", action="store_true", help="Summarize existing merge records")
+    remerge.add_argument("--python", help="CooperBench Python interpreter")
+    remerge.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -164,6 +196,8 @@ def main(argv=None):
             return 0
         if args.command == "s1":
             return s1_command(root, args)
+        if args.command == "merge":
+            return merge_command(root, args)
         if args.study not in settings["studies"]:
             raise ValueError("Unknown study. Run 'list' to see available names.")
         study = settings["studies"][args.study]

@@ -1,0 +1,89 @@
+repeat,repo,task_id,features,s1_label,feature_labels,merged_passed,conflict_blocks,union_passed,llm_passed
+1,dottxt_ai_outlines_task,1706,4 6,integration,4:integration 6:integration,,1,4 6,4 6
+2,dottxt_ai_outlines_task,1706,4 6,integration,4:integration 6:integration,,1,4 6,4 6
+3,dottxt_ai_outlines_task,1706,4 6,integration,4:integration 6:integration,,1,4 6,4 6
+1,dottxt_ai_outlines_task,1706,5 6,integration,5:integration 6:integration,,4,,5 6
+2,dottxt_ai_outlines_task,1706,5 6,integration,5:integration 6:integration,,7,,5 6
+3,dottxt_ai_outlines_task,1706,5 6,integration,5:context 6:integration,,4,,5 6
+1,dottxt_ai_outlines_task,1706,5 8,context,5:context 8:context,,1,5 8,5 8
+3,dspy_task,8394,3 4,integration,3:integration 4:integration,,1,,3 4
+2,dspy_task,8394,4 5,integration,4:integration 5:context,,2,,4
+3,dspy_task,8394,4 5,integration,4:integration 5:context,,3,,
+2,dspy_task,8587,1 4,integration,1:integration 4:capability,,1,,1
+1,dspy_task,8587,2 3,integration,2:integration 3:capability,,1,,
+1,dspy_task,8587,5 6,integration,5:integration 6:integration,,2,,
+2,dspy_task,8587,5 6,integration,5:integration 6:integration,,3,,6
+3,dspy_task,8587,5 6,integration,5:integration 6:integration,,3,,6
+2,go_chi_task,26,1 2,integration,1:integration 2:integration,,1,1 2,1 2
+3,go_chi_task,26,1 2,integration,1:integration 2:integration,,1,2,1 2
+1,go_chi_task,26,2 4,integration,2:integration 4:integration,,1,2 4,2 4
+2,go_chi_task,26,2 4,integration,2:integration 4:integration,,1,2 4,2 4
+1,go_chi_task,27,2 4,passed,,2 4,1,,
+3,go_chi_task,27,2 4,passed,,2 4,2,,
+1,go_chi_task,56,2 3,integration,2:capability 3:integration,,2,3,3
+2,go_chi_task,56,2 3,integration,2:capability 3:integration,,2,,3
+3,go_chi_task,56,2 3,integration,2:capability 3:integration,,1,3,3
+3,huggingface_datasets_task,3997,1 2,integration,1:integration 2:integration,,2,1 2,
+1,huggingface_datasets_task,6252,4 6,integration,4:integration 6:integration,,1,4 6,4 6
+1,llama_index_task,17244,2 6,integration,2:integration 6:integration,,1,2 6,2 6
+3,llama_index_task,18813,1 5,integration,1:integration 5:capability,,2,,
+2,llama_index_task,18813,2 5,integration,2:integration 5:capability,,4,,2
+3,llama_index_task,18813,2 5,integration,2:integration 5:capability,,3,,
+1,openai_tiktoken_task,0,1 5,integration,1:integration 5:integration,,2,,1 5
+2,openai_tiktoken_task,0,1 5,integration,1:integration 5:integration,,2,,1 5
+3,openai_tiktoken_task,0,1 5,integration,1:integration 5:integration,,2,,1 5
+1,openai_tiktoken_task,0,2 4,integration,2:integration 4:integration,,1,,2 4
+2,openai_tiktoken_task,0,2 4,integration,2:integration 4:integration,,1,,2 4
+3,openai_tiktoken_task,0,2 4,integration,2:integration 4:integration,,2,,2 4
+2,openai_tiktoken_task,0,2 9,integration,2:integration 9:capability,,2,,2
+3,openai_tiktoken_task,0,2 9,integration,2:integration 9:capability,,3,,2
+1,openai_tiktoken_task,0,3 6,integration,3:integration 6:integration,,1,,3 6
+2,openai_tiktoken_task,0,3 6,integration,3:integration 6:integration,,1,,3 6
+3,openai_tiktoken_task,0,3 6,integration,3:integration 6:integration,,1,,3 6
+1,openai_tiktoken_task,0,6 8,integration,6:integration 8:integration,,1,,6 8
+2,openai_tiktoken_task,0,6 8,integration,6:integration 8:integration,,1,,6 8
+3,openai_tiktoken_task,0,6 8,integration,6:integration 8:integration,,1,,6 8
+1,pallets_click_task,2068,2 8,integration,2:integration 8:integration,,6,,2
+2,pallets_click_task,2068,2 8,context,2:context 8:capability,,2,,
+3,pallets_click_task,2068,2 8,integration,2:integration 8:integration,,6,,2
+1,pallets_click_task,2068,5 7,integration,5:integration 7:integration,,5,5,5 7
+2,pallets_click_task,2068,5 7,integration,5:capability 7:integration,,5,,5 7
+3,pallets_click_task,2068,5 7,integration,5:capability 7:integration,,7,,7
+1,pallets_click_task,2068,6 7,integration,6:integration 7:integration,,6,,6 7
+2,pallets_click_task,2068,6 7,integration,6:integration 7:integration,,6,,6 7
+3,pallets_click_task,2068,6 7,integration,6:context 7:integration,,3,,7
+1,pallets_click_task,2068,7 10,context,7:context 10:context,,3,,7 10
+2,pallets_click_task,2068,7 10,integration,7:integration 10:integration,,6,,7 10
+1,pallets_click_task,2068,9 11,integration,9:capability 11:integration,,4,,11
+3,pallets_click_task,2068,9 11,context,9:capability 11:context,,4,,11
+2,pillow_task,25,1 4,integration,1:integration 4:integration,,1,4,4
+1,pillow_task,25,2 3,integration,2:integration 3:integration,,1,2 3,2 3
+2,pillow_task,25,2 3,integration,2:integration 3:integration,,2,,2 3
+3,pillow_task,25,2 3,integration,2:integration 3:integration,,1,2 3,2 3
+3,pillow_task,25,2 5,integration,2:integration 5:integration,,1,2 5,2 5
+1,pillow_task,290,3 5,integration,3:integration 5:integration,,2,,3 5
+2,pillow_task,290,3 5,integration,3:context 5:integration,,3,,5
+3,pillow_task,290,3 5,integration,3:integration 5:integration,,3,,3 5
+1,pillow_task,290,4 5,integration,4:capability 5:integration,,1,,5
+2,pillow_task,290,4 5,integration,4:capability 5:integration,,2,,5
+3,pillow_task,290,4 5,integration,4:capability 5:integration,,2,,5
+1,samuelcolvin_dirty_equals_task,43,2 3,integration,2:integration 3:capability,,1,2,2
+2,samuelcolvin_dirty_equals_task,43,2 3,integration,2:integration 3:integration,,2,2 3,2 3
+3,samuelcolvin_dirty_equals_task,43,2 3,integration,2:integration 3:capability,,2,2,2
+1,samuelcolvin_dirty_equals_task,43,2 4,integration,2:integration 4:integration,,3,2 4,2 4
+2,samuelcolvin_dirty_equals_task,43,2 4,integration,2:integration 4:integration,,3,2 4,2 4
+3,samuelcolvin_dirty_equals_task,43,2 4,integration,2:integration 4:integration,,1,2 4,2 4
+1,samuelcolvin_dirty_equals_task,43,3 7,integration,3:capability 7:integration,,2,7,7
+2,samuelcolvin_dirty_equals_task,43,3 7,integration,3:capability 7:integration,,1,7,7
+3,samuelcolvin_dirty_equals_task,43,3 7,integration,3:capability 7:integration,,2,7,7
+1,samuelcolvin_dirty_equals_task,43,6 7,integration,6:capability 7:integration,,2,7,7
+2,samuelcolvin_dirty_equals_task,43,6 7,integration,6:capability 7:integration,,3,7,7
+3,samuelcolvin_dirty_equals_task,43,6 7,integration,6:capability 7:integration,,3,7,7
+1,samuelcolvin_dirty_equals_task,43,7 9,integration,7:integration 9:integration,,1,7 9,7 9
+2,samuelcolvin_dirty_equals_task,43,7 9,integration,7:integration 9:integration,,2,7 9,7 9
+3,samuelcolvin_dirty_equals_task,43,7 9,integration,7:integration 9:integration,,2,7 9,7 9
+1,typst_task,6554,1 3,integration,1:integration 3:integration,,4,,
+1,typst_task,6554,1 9,integration,1:integration 9:integration,,2,,
+3,typst_task,6554,1 9,integration,1:integration 9:context,,4,,
+1,typst_task,6554,8 9,integration,8:integration 9:context,,2,,
+3,typst_task,6554,8 9,integration,8:integration 9:context,,2,,

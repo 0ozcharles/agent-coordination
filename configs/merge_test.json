@@ -1,0 +1,19 @@
+{
+  "study": "merge_test",
+  "question": "How many S1 integration failures are recovered by merging the agents' existing patches better?",
+  "decision_rule": "Primary metric: the share of the 134 features labeled integration in the S1 main run that pass after the llm re-merge. At 50% or more, integration failures are mostly mechanical merge conflicts: S2 adds automatic merging to the coop baseline and targets the failures that remain. Below 50%, the conflicts need more than a merge tool, and S2 tests process interventions against integration (one agent owns the merge, interface agreement). Union is reported as a no-model baseline. Regressions (features the official score passed that the re-merge fails) are reported for both methods.",
+  "methods": {
+    "union": "keep both sides of every conflict block, agent 2's lines first (git's union merge)",
+    "llm": "gpt-6-luna resolves the conflict blocks of each file in one call; it sees only the file path and the code around the conflicts, not the feature descriptions or tests; single attempt, no repair loop"
+  },
+  "model": "gpt-6-luna",
+  "model_kwargs": {"temperature": 0.7, "top_p": 0.8, "extra_body": {"reasoning_effort": "none"}},
+  "sets": {
+    "dev": {"source": "configs/s1_screen.json", "sample": 20, "seed": 20261102,
+            "exclude_repos": ["go_chi_task", "typst_task"],
+            "note": "screening runs; used to check the pipeline and the prompt, which may change here"},
+    "test": {"source": "configs/s1_main.json",
+             "note": "all S1 main coop runs whose naive merge conflicted; run once with the frozen prompt"}
+  },
+  "output": "runs/merge_test"
+}

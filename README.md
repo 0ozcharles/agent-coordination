@@ -30,7 +30,15 @@ S1 main run: gpt-6-luna, 53 tasks, 3 coop and 3 solo runs each, 318 runs in tota
 - Capability caused 18 failures (15%) and context 21. A secondary handoff label moves 13 of these 39: to avoid merge conflicts, an agent left part of its feature to its partner, and the combined work failed.
 - Solo officially passed only 27 / 159, but another 62 runs wrote correct code and never opened a PR. CooperBench only grades submitted code.
 
-The pre-registered condition for continuing (non-capability causes ≥ 30% of failures) is met at 86%. Details, confidence intervals and the go_chi/typst caveat are in the [research plan](docs/RESEARCH_PLAN.md#s1-main-run-2026-11-02). Per-run data is in [results/s1_main_rows.csv](results/s1_main_rows.csv), and screening data is in [results/s1_screen_rows.csv](results/s1_screen_rows.csv).
+The pre-registered condition for continuing (non-capability causes ≥ 30% of failures) is met at 86%. Details, confidence intervals and the go_chi/typst caveat are in the [research plan](docs/RESEARCH_PLAN.md#s1-main-run-2026-11-02).
+
+Offline merge test: we re-merged the existing patch pairs of the 88 coop runs whose merge conflicted. No agent was re-run, and the whole test cost $0.02.
+
+- With gpt-6-luna resolving the conflicts, 112 of 134 integration features (84%) pass. Coop then passes 78 / 159 instead of 35, close to solo's 89 when unsubmitted code is counted.
+- Keeping both sides of each conflict (git's union merge) recovers only 51.
+- After the merge, about half of the remaining coop failures are capability. See the [research plan](docs/RESEARCH_PLAN.md#offline-merge-test-2026-11-02).
+
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv).
 
 ## Quick start
 
@@ -47,7 +55,7 @@ Running S1 experiments requires Docker, Redis, and an OpenAI API key. See [Devel
 ## Repository layout
 
 ```text
-src/agent_coordination/   current code: CLI, M0 census, S1 runner
+src/agent_coordination/   current code: CLI, M0 census, S1 runner, merge test
 configs/                  experiment configs
 results/                  shareable result data
 experiments/m0/           M0 code (frozen)

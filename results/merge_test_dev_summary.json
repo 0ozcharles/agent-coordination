@@ -1,0 +1,31 @@
+{
+  "study": "merge_test",
+  "set": "dev",
+  "question": "How many S1 integration failures are recovered by merging the agents' existing patches better?",
+  "runs": 20,
+  "setup_errors": 0,
+  "methods": {
+    "union": {
+      "runs": 20,
+      "unresolved": 0,
+      "integration_features": 30,
+      "integration_recovered": 10,
+      "features_passed": 10,
+      "runs_passed": 3,
+      "runs_passed_officially": 1,
+      "regressions": 2,
+      "cost_usd": 0
+    },
+    "llm": {
+      "runs": 20,
+      "unresolved": 0,
+      "integration_features": 30,
+      "integration_recovered": 29,
+      "features_passed": 31,
+      "runs_passed": 12,
+      "runs_passed_officially": 1,
+      "regressions": 0,
+      "cost_usd": 0.005033600000000001
+    }
+  }
+}

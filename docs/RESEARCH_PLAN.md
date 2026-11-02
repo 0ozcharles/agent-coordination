@@ -116,8 +116,33 @@ Main results:
 
 **go_chi and typst**, reported separately because their tasks were selected using the broken screening runs: 8 tasks, coop passed 9 / 24, and the 15 failures are integration 12 and context 3 (all 3 are handoffs). Without these two repos, integration is 72 of 109 failures (66%) and capability 18 (17%), so the conclusion does not depend on them.
 
+### Offline merge test (2026-11-02)
+
+CooperBench merges the two patches with a plain `git merge` and scores any conflict as a failure. We re-merged the existing patch pairs of every S1 main coop run whose merge conflicted (88 runs: 82 integration, 4 context, 2 passed) and tested the result against both features. No agent was re-run. Config and decision rule: [configs/merge_test.json](../configs/merge_test.json). Per-run data: [results/merge_test_rows.csv](../results/merge_test_rows.csv).
+
+- **union** keeps both sides of every conflict block (git's union merge). No model is used.
+- **llm**: gpt-6-luna resolves the conflict blocks of each file in one call. It sees the code around the conflicts, but not the feature descriptions or tests.
+
+The prompt was checked on 20 screening runs first (llm recovered 29 of 30 integration features there; union recovered 10). It changed twice, both times to fix the output format, and was then frozen for the 88 main-run runs.
+
+| | Integration features recovered | Coop runs passing (of 159) | Regressions | Model cost |
+|---|---|---|---|---|
+| Official (`git merge`) | 0 / 134 | 35 | — | — |
+| union | 51 / 134, 38% [22%, 55%] | 53 | 4 | $0 |
+| llm | 112 / 134, 84% [73%, 92%] | 78 | 4 | $0.02 |
+
+For reference, solo passed 27 / 159 officially and 89 / 159 counting unsubmitted code. The upper bound for a perfect merge is 85.
+
+**Decision rule.** The llm merge recovers 84% of integration features, above the 50% threshold. Most integration failures are mechanical merge conflicts, so S2 adds the llm merge to the coop baseline and targets the failures that remain.
+
+Details:
+
+1. **Where the llm merge fails.** It recovered none of the 7 typst features: the merged Rust did not compile, with mismatched braces in 6 cases and a type error in 1. It recovered 6 of 12 in dspy. Each of the other repositories had at most 2 failures.
+2. **Regressions.** All 4 regressions come from two go_chi runs, and both methods have them. The official score passed these runs through CooperBench's fallback, which tests agent 1's patch alone when the merge conflicts. Both agents had written the same helper function outside the conflict block, so the merged code defines it twice and does not compile.
+3. **What remains after the merge.** 81 coop runs still fail: capability 39, context 21, integration 20, submission 1. With the handoff label, the split is capability 38, integration 20, handoff 13, context 9, submission 1. Capability more than doubles from 18 runs because many integration runs also had a second feature that failed for another reason, which the label order used to hide. After the merge, non-capability causes are about half of the remaining failures.
+
 ## Next steps
 
-1. Test better merge methods offline: re-merge the patch pairs from the 84 integration runs with function-level or model-assisted merging, and count recovered features. The upper bound is 85 / 159. This does not require re-running agents.
+1. Decide S2's focus with the post-merge numbers: about half of the remaining coop failures are capability, which organizational interventions should not fix, and the rest is split among integration that the merge cannot fix (20), handoff (13), and context (9).
 2. Read the main run's 13 handoff runs, and sample the remaining context and capability runs to check what the handoff rule misses.
-3. Design S2 around integration. Candidate conditions: a better automatic merge, one agent owning the merge, and agreeing on interfaces before starting, each compared against solo at the same budget. Write the config and decision rule before running.
+3. Make the llm merge a standard post-processing step for coop runs, reported next to CooperBench's official score.
