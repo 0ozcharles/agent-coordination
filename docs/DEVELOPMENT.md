@@ -80,6 +80,18 @@ python3 scripts/project.py merge configs/merge_test.json --set test --report
 
 Each run directory under `runs/merge_test/<set>/` keeps the conflicted files with diff3 markers, the merged patch per method, the model's prompts and replies, and `merge.json` with test results.
 
+## Running S2
+
+S2 runs every arm in `configs/s2.json` on the S1 main tasks. Each arm is an S1-style config: setting, agent config, and git flag. Results go to `runs/s2/<arm>/`. After each coop run whose `git merge` conflicts, the runner re-merges the two patches with the merge test's frozen llm method and saves `merge.json` in the run directory. The report labels runs on the re-merged result and also prints CooperBench's official score.
+
+```bash
+python3 scripts/project.py s2 configs/s2.json                          # preview
+python3 scripts/project.py s2 configs/s2.json --execute --workers 4    # run (paid API)
+python3 scripts/project.py s2 configs/s2.json --report                 # re-tally, no Docker
+```
+
+The own-feature arm's prompt, `configs/agents/luna_mini_swe_own_feature.yaml`, is CooperBench's coop prompt with the "Your Situation" block and two submission notes changed. CooperBench only logs an agent config it cannot load and then falls back to its defaults, so the S2 runner checks every arm's config before starting.
+
 ## Notes
 
 - gpt-6-luna call parameters are in `configs/agents/luna_mini_swe.yaml` and match M0. `reasoning_effort` must be passed through `extra_body`; otherwise litellm drops it and the API rejects requests that include tools.

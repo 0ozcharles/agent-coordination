@@ -50,7 +50,7 @@ Interventions are designed only for causes that are common in S1:
 
 Main test: for failures caused by X, does the intervention for X recover more of them than other interventions? All conditions get the same budget and are compared against solo.
 
-**Draft design after S1 (2026-11-02, not yet run).** The merge test settles integration: an automatic merge recovers 84% of it, so it becomes part of scoring instead of an intervention arm. The handoff check (below) suggests the main remaining non-capability failures come from two features of the setup. First, CooperBench's coop prompt lists "both patches merge cleanly with zero conflicts" as a success condition. Second, agents cannot see each other's code. Draft config: [configs/s2.json](../configs/s2.json).
+**Design after S1 (frozen 2026-11-02).** The merge test settles integration: an automatic merge recovers 84% of it, so it becomes part of scoring instead of an intervention arm. The handoff check (below) suggests the main remaining non-capability failures come from two features of the setup. First, CooperBench's coop prompt lists "both patches merge cleanly with zero conflicts" as a success condition. Second, agents cannot see each other's code. Config with the question and decision rule: [configs/s2.json](../configs/s2.json).
 
 | Arm | Change from S1 coop | Targets |
 |---|---|---|
@@ -171,5 +171,5 @@ We read the messages and patches of every main-run feature labeled handoff: 15 f
 
 ## Next steps
 
-1. Review the draft S2 design above, then implement it: arms in the runner, an automatic llm re-merge after every coop run, and the own-feature prompt. Freeze the config before running.
-2. Make the llm merge a standard post-processing step for coop runs, reported next to CooperBench's official score (part of step 1).
+1. S2: 636 runs, started 2026-11-02, about 19 hours. A one-task smoke test confirmed that each arm's prompt reaches the agents, that the shared-git agents fetch each other's branches, and that conflicted coop runs are re-merged automatically.
+2. Analyze S2 against the decision rule in the config.

@@ -1,19 +1,40 @@
 {
   "study": "s2",
-  "status": "draft: not frozen, runner support not implemented yet",
+  "status": "frozen 2026-11-02 after a one-task smoke test of all four arms",
   "question": "Once conflicts are merged automatically, does changing how agents divide work or what they can see reduce coop failures, and does each change reduce the cause it targets?",
   "decision_rule": "Primary metric: coop pass rate after the llm re-merge, per arm, compared with coop baseline paired by task (95% bootstrap CI clustered by task). An arm helps if it beats the baseline by at least 10 points with the CI above 0. Matched-intervention test (secondary, underpowered): own-feature should cut handoff failures more than shared-git does, and shared-git should cut context failures more than own-feature does. If both hold, causes call for different fixes and S3 goes ahead. If one arm is at least as good on every cause, it becomes the coop default and S3 is reconsidered. Capability failures should not drop by more than 10 points in any arm; if they do, the labels are suspect.",
   "model": "gpt-6-luna",
   "agent": "mini_swe_agent_v2",
   "messaging": true,
-  "scoring": ["official", "llm_remerge"],
   "arms": {
-    "coop_baseline": {"setting": "coop", "agent_config": "configs/agents/luna_mini_swe.yaml", "git": false},
-    "coop_own_feature": {"setting": "coop", "agent_config": "configs/agents/luna_mini_swe_own_feature.yaml", "git": false,
-                         "change": "the 'Your Situation' prompt block says overlapping edits are merged automatically; each agent implements its whole feature, including shared files, and uses messages only to agree on interfaces"},
-    "coop_shared_git": {"setting": "coop", "agent_config": "configs/agents/luna_mini_swe.yaml", "git": true,
-                        "change": "CooperBench's shared git remote, so agents can fetch and test each other's branches"},
-    "solo": {"setting": "solo", "agent_config": "configs/agents/luna_mini_swe.yaml", "git": false}
+    "coop_baseline": {
+      "setting": "coop",
+      "agent_config": "configs/agents/luna_mini_swe.yaml",
+      "git": false
+    },
+    "coop_own_feature": {
+      "setting": "coop",
+      "agent_config": "configs/agents/luna_mini_swe_own_feature.yaml",
+      "git": false,
+      "change": "the 'Your Situation' prompt block says overlapping edits are merged automatically; each agent implements its whole feature, including shared files, and uses messages only to agree on interfaces"
+    },
+    "coop_shared_git": {
+      "setting": "coop",
+      "agent_config": "configs/agents/luna_mini_swe.yaml",
+      "git": true,
+      "change": "CooperBench's shared git remote, so agents can fetch and test each other's branches"
+    },
+    "solo": {
+      "setting": "solo",
+      "agent_config": "configs/agents/luna_mini_swe.yaml",
+      "git": false
+    }
+  },
+  "baseline": "coop_baseline",
+  "remerge": {
+    "from": "configs/merge_test.json",
+    "method": "llm",
+    "note": "every coop run whose naive merge conflicts is re-merged with the merge test's frozen llm prompt; the re-merged score is primary, CooperBench's official score is reported next to it"
   },
   "tasks_from": "configs/s1_main.json",
   "repeats": 3,

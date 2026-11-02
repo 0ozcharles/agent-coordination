@@ -249,51 +249,68 @@ def require_redis(url):
                            "Start one with: docker run -d --name cooperbench-redis -p 6379:6379 redis:7")
 
 
-def execute(config, root, shard=(0, 1)):
-    """Run this worker's share of missing jobs; worker k of n takes every n-th job."""
+def setup_runner(root, needs_redis, redis_url="redis://localhost:6379"):
+    """Environment and CooperBench patches every S1-style worker needs before its first job."""
     prepare_environment(root)
-    if "coop" in config.get("settings", SETTINGS) and config.get("messaging", True):
-        require_redis(config.get("redis", "redis://localhost:6379"))
-    from cooperbench import run
+    if needs_redis:
+        require_redis(redis_url)
     capture_local_work()
     accept_nudged_agents()
     keep_image_path()
+
+
+def run_job(config, root, job, output, after=None):
+    """Run one job if it has no evaluation yet, then score agents and local work.
+
+    `after(job_dir)` runs once the job has a valid evaluation (S2 uses it to re-merge).
+    """
+    from cooperbench import run
     global CURRENT_JOB_DIR
-    output = root / config["output"]
     dataset_dir = str(root / "experiments/m0/CooperBench/dataset")
     agent_config = str(root / config["agent_config"]) if config.get("agent_config") else None
+    job_dir = log_dir(output, job)
+    name = f"r{job['repeat']} {job['setting']} {job['repo']}/{job['task_id']} {job['features']}"
+    try:
+        if (job_dir / "eval.json").is_file() and agent_errors(job_dir):
+            # Keep the failed attempt for accounting, then retry once in this invocation.
+            attempt = 1
+            while job_dir.with_name(f"{job_dir.name}.error{attempt}").exists():
+                attempt += 1
+            job_dir.rename(job_dir.with_name(f"{job_dir.name}.error{attempt}"))
+            print(f"retry {name} after agent error", flush=True)
+        if not (job_dir / "eval.json").is_file():
+            print(f"run {name}", flush=True)
+            CURRENT_JOB_DIR = job_dir
+            run(run_name=f"r{job['repeat']}", repo=job["repo"], task_id=job["task_id"],
+                features=job["features"], model_name=f"openai/{config['model']}",
+                agent=config.get("agent", "mini_swe_agent_v2"), setting=job["setting"],
+                backend="docker", concurrency=1, auto_eval=True,
+                messaging_enabled=config.get("messaging", True), git_enabled=config.get("git", False),
+                redis_url=config.get("redis", "redis://localhost:6379"), agent_config=agent_config,
+                dataset_dir=dataset_dir, logs_dir=str(output / "logs"))
+        CURRENT_JOB_DIR = None
+        if (job_dir / "eval.json").is_file() and not agent_errors(job_dir):
+            if job["setting"] == "coop":
+                score_agents(job_dir, job, dataset_dir)
+            if not read_json(job_dir / "eval.json").get("both_passed"):
+                score_local(job_dir, job, dataset_dir)
+            if after:
+                after(job_dir)
+    except Exception as exc:  # one broken job must not stop the rest of the shard
+        CURRENT_JOB_DIR = None
+        print(f"job failed: {name}: {type(exc).__name__}: {exc}", flush=True)
+
+
+def execute(config, root, shard=(0, 1)):
+    """Run this worker's share of missing jobs; worker k of n takes every n-th job."""
+    setup_runner(root, "coop" in config.get("settings", SETTINGS) and config.get("messaging", True),
+                 config.get("redis", "redis://localhost:6379"))
+    output = root / config["output"]
     output.mkdir(parents=True, exist_ok=True)
     if shard[0] == 0:
         (output / "config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2))
     for job in plan(config)[shard[0]::shard[1]]:
-        job_dir = log_dir(output, job)
-        name = f"r{job['repeat']} {job['setting']} {job['repo']}/{job['task_id']} {job['features']}"
-        try:
-            if (job_dir / "eval.json").is_file() and agent_errors(job_dir):
-                # Keep the failed attempt for accounting, then retry once in this invocation.
-                attempt = 1
-                while job_dir.with_name(f"{job_dir.name}.error{attempt}").exists():
-                    attempt += 1
-                job_dir.rename(job_dir.with_name(f"{job_dir.name}.error{attempt}"))
-                print(f"retry {name} after agent error", flush=True)
-            if not (job_dir / "eval.json").is_file():
-                print(f"run {name}", flush=True)
-                CURRENT_JOB_DIR = job_dir
-                run(run_name=f"r{job['repeat']}", repo=job["repo"], task_id=job["task_id"],
-                    features=job["features"], model_name=f"openai/{config['model']}",
-                    agent=config.get("agent", "mini_swe_agent_v2"), setting=job["setting"],
-                    backend="docker", concurrency=1, auto_eval=True,
-                    messaging_enabled=config.get("messaging", True), git_enabled=config.get("git", False),
-                    redis_url=config.get("redis", "redis://localhost:6379"), agent_config=agent_config,
-                    dataset_dir=dataset_dir, logs_dir=str(output / "logs"))
-            CURRENT_JOB_DIR = None
-            if (job_dir / "eval.json").is_file() and not agent_errors(job_dir):
-                if job["setting"] == "coop":
-                    score_agents(job_dir, job, dataset_dir)
-                if not read_json(job_dir / "eval.json").get("both_passed"):
-                    score_local(job_dir, job, dataset_dir)
-        except Exception as exc:  # one broken job must not stop the rest of the shard
-            print(f"job failed: {name}: {type(exc).__name__}: {exc}", flush=True)
+        run_job(config, root, job, output)
     if shard[1] == 1:
         analyze(config, output)
 
