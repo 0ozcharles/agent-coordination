@@ -70,6 +70,8 @@ The matched-intervention test is underpowered: the baseline had only 13 handoff 
 
 Predict the failure cause mid-run from signals such as file overlap, self-test results, and messages, then choose an intervention. This stage reuses the checkpoint branching and V(o,a) framework from the original proposal. Baselines: the best single fixed intervention, always solo, and letting an LLM choose directly.
 
+**Status after S2:** not going ahead as planned, because no S2 arm beat the baseline (see [S2 results](#s2-targeted-interventions-2026-11-03)).
+
 ## Experiment rules
 
 In M0, conditions and models changed mid-study, which made results hard to interpret. All later studies follow these rules:
@@ -169,7 +171,29 @@ We read the messages and patches of every main-run feature labeled handoff: 15 f
 - **Recall.** We read 13 of the 26 runs still labeled context or capability: every run where the failing agent asked its partner to take work or had a very small patch, plus a sample of the rest. We found 4 more handoffs the rule misses: 2 split work inside a single file, which the file-based rule cannot see, and in 2 the partner published nothing. We also found 2 runs with mutual dependencies: each agent's patch calls code its partner was supposed to write, so its own patch fails when tested alone. The rule therefore catches roughly three quarters of handoffs, with few false positives.
 - **Why handoffs happen.** CooperBench's coop prompt tells agents that their work succeeds only if "both patches merge cleanly with zero conflicts". So agents divide shared files by layer and code against interfaces their partner promised, but they work in separate workspaces and can never run the combined code. 11 of the 15 handoff runs merged cleanly, so the merge test did not change them; the combined code itself is wrong or incomplete.
 
+### S2 targeted interventions (2026-11-03)
+
+53 tasks × 4 arms × 3 runs = 636 runs, $6.34 for the agents and $0.08 for the 279 re-merges. Two runs hit API errors (a dropped connection and a false content-policy flag) and were retried once, as the runner does for every study, so the final data has no infrastructure errors. Per-run data: [results/s2_rows.csv](../results/s2_rows.csv). Differences are mean per-task differences against the baseline, in points, with 95% bootstrap intervals clustered by task.
+
+| Arm | Pass after re-merge | vs baseline | Official pass | vs baseline (official) | Failures (with handoff) |
+|---|---|---|---|---|---|
+| coop baseline | 88 / 159 (55%) | — | 38 (24%) | — | capability 36, handoff 14, integration 11, context 10 |
+| coop own-feature | 83 / 159 (52%) | −3.1 [−11.3, +5.0] | 34 (21%) | −2.5 [−10.7, +5.7] | capability 38, integration 29, submission 4, handoff 3, context 2 |
+| coop shared-git | 81 / 159 (51%) | −4.4 [−10.7, +1.9] | 55 (35%) | +10.7 [+3.1, +18.9] | capability 44, context 13, handoff 12, integration 8, submission 1 |
+| solo | 33 / 159 (21%) | | | | 98 / 159 counting unsubmitted code |
+
+**Decision rule.** Neither arm beats the baseline. The matched test holds only in part: own-feature cuts handoff failures more than shared-git does (−5.7 points [−11.3, −0.6]), but shared-git does not cut context failures; own-feature cuts them instead (shared-git minus own-feature: +6.9 [+1.9, +12.6]). No arm drops capability failures by more than 10 points, so the labels pass the sanity check. Neither branch of the rule applies as written. Our reading: no arm helps, and there is no pair of cause-matched fixes for an online selector to choose between, so the coop baseline with the llm re-merge stays the default and S3 as planned does not go ahead.
+
+Main results:
+
+1. **Own-feature removes the failures it targets and creates integration failures.** Handoff failures drop from 14 to 3 runs (−6.9 points [−12.6, −1.9]) and context from 10 to 2. But both agents now edit the shared files: 113 runs conflict instead of 85, and integration failures that the re-merge cannot fix rise from 11 to 29 (+11.3 [+3.8, +19.5]). Agents also send about half as many messages (4.9 per run instead of 8.9). Avoiding conflicts by handing work to the partner looks like a reasonable response when merges are unreliable.
+2. **Shared git does not reduce context failures.** Agents do use it to pull in each other's code: in 49 runs a partner's patch passes the agent's feature, against 19 in the baseline. Context failures stay flat (13 against 10) and capability failures rise from 36 to 44 (+5.0 [−0.0, +10.1]). We have not yet read the trajectories to see why.
+3. **The official score would call shared git a success.** On CooperBench's score, shared git beats the baseline by 10.7 points with the interval above 0, which meets our threshold for "helps". 14 of its 55 official passes are conflicted runs, where CooperBench falls back to testing agent 1's patch alone, and that patch often already contains the partner's feature; the baseline has 5 such passes out of 38. After the re-merge the advantage is gone. The scoring rule changes the verdict on the intervention, not only the level.
+4. **The re-merge more than doubles coop again.** The baseline passes 38 runs officially and 88 after the re-merge, the same pattern as the S1 merge test.
+5. **Sensitivity.** Without go_chi and typst, own-feature is −4.4 [−11.1, +3.0] and shared-git −3.7 [−10.4, +2.2] over 45 tasks.
+
 ## Next steps
 
-1. S2: 636 runs, started 2026-11-02, about 19 hours. A one-task smoke test confirmed that each arm's prompt reaches the agents, that the shared-git agents fetch each other's branches, and that conflicted coop runs are re-merged automatically.
-2. Analyze S2 against the decision rule in the config.
+1. Check the main S1, merge-test and S2 findings on stronger models. CooperBench has published the trajectories and patches behind its paper, including GPT-5 and Claude, so per-agent tests and the re-merge can run offline without re-running agents.
+2. Read the shared-git trajectories to find out why capability failures rose.
+3. Choose what replaces S3. Candidates: a repair round after the merge, where an agent sees the merged code and the failing tests; and three-agent tasks with CooperBench's team mode.

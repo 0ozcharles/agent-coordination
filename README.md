@@ -11,14 +11,14 @@ Two agents each implement one feature, and their code is merged at the end. A ru
 - **Coordination**: agents duplicate work or don't know what the other is changing.
 - **Integration**: each agent's code is correct on its own, but the two don't merge.
 
-Each cause calls for a different fix. We first measure how often each cause occurs, then compare targeted interventions for the main causes, and finally ask whether the cause can be predicted while a run is still in progress. Tasks and tests come from [CooperBench](https://github.com/cooperbench/CooperBench).
+We started from the hypothesis that each cause calls for a different fix. We first measure how often each cause occurs, then compare targeted interventions for the main causes, and finally ask whether the cause can be predicted while a run is still in progress. Tasks and tests come from [CooperBench](https://github.com/cooperbench/CooperBench).
 
 | Stage | Question | Status |
 |---|---|---|
 | M0 Exploration | Build the experiment pipeline | Done, see [M0 retrospective](docs/M0_RETROSPECTIVE.md) |
 | S1 Failure census | Which causes produce failures, and how often? | Done: integration is the main cause |
-| S2 Targeted interventions | Does a fix matched to the cause beat other fixes? | Running |
-| S3 Online diagnosis | Can we detect the cause mid-run and pick a fix? | After S2 |
+| S2 Targeted interventions | Does a fix matched to the cause beat other fixes? | Done: no fix beats the baseline once conflicts are merged |
+| S3 Online diagnosis | Can we detect the cause mid-run and pick a fix? | Not going ahead as planned |
 
 The full design is in the [research plan](docs/RESEARCH_PLAN.md).
 
@@ -38,7 +38,14 @@ Offline merge test: we re-merged the existing patch pairs of the 88 coop runs wh
 - Keeping both sides of each conflict (git's union merge) recovers only 51.
 - After the merge, about half of the remaining coop failures are capability. See the [research plan](docs/RESEARCH_PLAN.md#offline-merge-test-2026-11-02).
 
-Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv).
+S2: the same 53 tasks, 3 runs each in four arms, 636 runs in total, $6.42. Conflicted coop runs are re-merged with the merge test's llm method, and that score is primary.
+
+- The baseline passes 88 / 159 after the re-merge, against 38 officially.
+- Telling agents that overlapping edits are merged automatically (own-feature) cuts handoff failures from 14 to 3, but more conflicts follow and integration failures the re-merge cannot fix rise from 11 to 29. Net: −3.1 points against the baseline [−11.3, +5.0].
+- A shared git remote does not reduce context failures, and capability failures rise. Net: −4.4 [−10.7, +1.9].
+- On CooperBench's official score, shared git would beat the baseline by 10.7 points [+3.1, +18.9]. About half of that gain comes from the conflict fallback, which tests agent 1's patch alone after agent 1 has pulled in its partner's code. The scoring rule changes the verdict on the intervention. See the [research plan](docs/RESEARCH_PLAN.md#s2-targeted-interventions-2026-11-03).
+
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv).
 
 ## Quick start
 

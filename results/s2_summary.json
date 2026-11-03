@@ -1,0 +1,102 @@
+{
+  "study": "s2",
+  "question": "Once conflicts are merged automatically, does changing how agents divide work or what they can see reduce coop failures, and does each change reduce the cause it targets?",
+  "arms": {
+    "coop_baseline": {
+      "setting": "coop",
+      "runs": 159,
+      "infra_errors": 0,
+      "official_passed": 38,
+      "passed": 88,
+      "remerged_runs": 85,
+      "cost_usd": 1.798612,
+      "labels": {
+        "passed": 88,
+        "context": 21,
+        "capability": 39,
+        "integration": 11
+      },
+      "refined_labels": {
+        "passed": 88,
+        "handoff": 14,
+        "context": 10,
+        "capability": 36,
+        "integration": 11
+      }
+    },
+    "coop_own_feature": {
+      "setting": "coop",
+      "runs": 159,
+      "infra_errors": 0,
+      "official_passed": 34,
+      "passed": 83,
+      "remerged_runs": 113,
+      "cost_usd": 1.567419,
+      "labels": {
+        "passed": 83,
+        "capability": 40,
+        "integration": 29,
+        "context": 3,
+        "submission": 4
+      },
+      "refined_labels": {
+        "passed": 83,
+        "capability": 38,
+        "integration": 29,
+        "handoff": 3,
+        "context": 2,
+        "submission": 4
+      },
+      "vs_baseline": {
+        "tasks": 53,
+        "difference": -0.03144654088050314,
+        "ci95": [
+          -0.11320754716981128,
+          0.05031446540880503
+        ]
+      }
+    },
+    "coop_shared_git": {
+      "setting": "coop",
+      "runs": 159,
+      "infra_errors": 0,
+      "official_passed": 55,
+      "passed": 81,
+      "remerged_runs": 81,
+      "cost_usd": 2.147847,
+      "labels": {
+        "passed": 81,
+        "context": 23,
+        "capability": 46,
+        "integration": 8,
+        "submission": 1
+      },
+      "refined_labels": {
+        "passed": 81,
+        "handoff": 12,
+        "capability": 44,
+        "context": 13,
+        "integration": 8,
+        "submission": 1
+      },
+      "vs_baseline": {
+        "tasks": 53,
+        "difference": -0.04402515723270441,
+        "ci95": [
+          -0.10691823899371071,
+          0.018867924528301883
+        ]
+      }
+    },
+    "solo": {
+      "setting": "solo",
+      "runs": 159,
+      "infra_errors": 0,
+      "official_passed": 33,
+      "passed": 33,
+      "remerged_runs": 0,
+      "cost_usd": 0.819459,
+      "passed_counting_unpublished": 98
+    }
+  }
+}
