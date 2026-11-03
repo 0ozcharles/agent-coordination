@@ -55,7 +55,7 @@ Running S1 experiments requires Docker, Redis, and an OpenAI API key. See [Devel
 ## Repository layout
 
 ```text
-src/agent_coordination/   current code: CLI, M0 census, S1 runner, merge test
+src/agent_coordination/   current code: CLI, M0 census, S1 and S2 runners, merge test
 configs/                  experiment configs
 results/                  shareable result data
 experiments/m0/           M0 code (frozen)
@@ -67,5 +67,9 @@ tests/
 
 - [Research plan](docs/RESEARCH_PLAN.md): question, how failure causes are labeled, stage designs, progress
 - [M0 retrospective](docs/M0_RETROSPECTIVE.md): what the exploration phase did and learned
-- [Development](docs/DEVELOPMENT.md): setup, running S1, resuming M0 batches
+- [Development](docs/DEVELOPMENT.md): setup, running S1, the merge test and S2, resuming M0 batches
 - [M0 code map](docs/CODEBASE.md): structure of `experiments/m0/`
+
+## License
+
+MIT. See [LICENSE](LICENSE). CooperBench, which the experiments run on, is a separate project (also MIT) and is not included here; the setup steps clone it.
