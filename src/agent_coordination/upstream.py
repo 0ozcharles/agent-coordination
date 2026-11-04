@@ -82,11 +82,14 @@ def results(config, root, setting, model):
         for entry in json.loads(text).get("detailed_results", []):
             key = (dataset_repo(upstream_repo), int(task.removeprefix("task")), entry["feature1_id"], entry["feature2_id"])
             if setting == "solo":
-                out[key] = {"passed": bool(entry.get("both_tests_passed"))}
+                out[key] = {"passed": bool(entry.get("both_tests_passed")),
+                            "features": [entry.get("feature1_test_passed"), entry.get("feature2_test_passed")]}
                 continue
             out[key] = {"upstream": task_path, "conflict": bool(entry.get("has_naive_merge_conflict")),
                         "naive": [entry.get("feature1_naive_merge_test_passed"),
                                   entry.get("feature2_naive_merge_test_passed")],
+                        "stages": {stage: [entry.get(f"feature{n}_{stage}_merge_test_passed") for n in (1, 2)]
+                                   for stage in ("naive", "union", "llm")},
                         "passed": any(both(entry, stage) for stage in ("naive_merge", "union_merge", "llm_merge"))}
     return out
 

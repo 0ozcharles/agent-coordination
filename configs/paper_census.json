@@ -1,0 +1,26 @@
+{
+  "study": "paper_census",
+  "status": "frozen 2026-11-04 before any own-patch or merged re-test of clean-merge pairs",
+  "question": "When the CooperBench paper's GPT-5 and Claude coop pairs fail, and especially when solo passes the same pair, is it because the agents' code does not fit together or because an agent fails its own feature?",
+  "from": "configs/upstream_check.json",
+  "from_note": "published runs, dataset revision, models, excluded repos and job directories come from the upstream check; its own-patch tests of conflicted pairs are reused",
+  "pairs": "every usable coop pair that fails the paper's pipeline (no stage passes both features)",
+  "measurements": {
+    "own": "each agent's published patch tested alone against both features, in our harness; already done for conflicted pairs by the upstream check's own set",
+    "merged": "the two patches merged with the released harness's git merge and tested against both features, for clean-merge pairs (calibration.json in the job directory)",
+    "solo": "the published solo runs: for each feature, the share of the task's solo pairs that include it and pass it"
+  },
+  "labels": {
+    "merged_result": "per feature, the paper's recorded result: the naive merge for clean pairs, the last stage tested for conflicted pairs. Clean pairs with no recorded result use our merged re-test when our merge is clean; otherwise they are left out and counted",
+    "integration": "the agent's own patch passes its feature, but the merged result fails it. Semantic when the pair merged cleanly, conflict otherwise",
+    "context": "the agent's own patch fails its feature, and solo passes the feature in at least half of the task's solo pairs that include it",
+    "capability": "the agent's own patch fails its feature, and solo passes it in fewer than half",
+    "unknown": "no solo pair includes the feature",
+    "order": "a pair takes the first label among its failed features: integration, context, capability, unknown (as in S1)",
+    "handoff": "secondary, as in S1: replaces context or capability when the partner's patch passes the feature, or the feature's patch skips a file the reference solution changes and the partner's patch edits it",
+    "coordination": "extra flag, as in S1: the two patches are identical, or an agent's patch passes its partner's feature"
+  },
+  "decision_rule": "Primary, per model: among gap pairs (the pair's own solo run passes both features, coop fails), the share labeled integration, with a 95% bootstrap CI clustered by task. If it is at least half for both models, code that does not fit together is the main cause of the coop-solo gap, and the next intervention works on the merged code (for example a repair round in which an agent sees the merged code and the failing tests). If it is below half for both, agents mainly fail their own feature when they work as a pair, and the next step looks at how the work is split: the no-communication runs and handoff. A split result is reported per model. Secondary: the label mix over all failed pairs and over clean-merge failures, and feature-level shares without the label order. Robustness: the same counts restricted to features whose failure our merged re-test reproduces (clean pairs whose git merge is also clean in our harness).",
+  "output": "runs/upstream",
+  "results": "census_rows.csv and census_summary.json in the output directory"
+}
