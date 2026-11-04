@@ -92,6 +92,20 @@ python3 scripts/project.py s2 configs/s2.json --report                 # re-tall
 
 The own-feature arm's prompt, `configs/agents/luna_mini_swe_own_feature.yaml`, is CooperBench's coop prompt with the "Your Situation" block and two submission notes changed. CooperBench only logs an agent config it cannot load and then falls back to its defaults, so the S2 runner checks every arm's config before starting.
 
+## Offline check on the paper's runs
+
+`configs/upstream_check.json` points at the coop and solo runs behind the CooperBench paper on Hugging Face, pinned to a dataset revision. Files are downloaded on first use and cached under `runs/upstream/published/`. Three sets:
+
+- `calibration` re-tests a random sample of clean-merge pairs with our harness and compares with the recorded results.
+- `remerge` re-merges every pair that conflicted and failed the paper's pipeline, with the merge test's llm method (cents).
+- `own` tests each agent's patch alone on the same pairs.
+
+```bash
+python3 scripts/project.py upstream configs/upstream_check.json --set remerge                        # preview
+python3 scripts/project.py upstream configs/upstream_check.json --set remerge --execute --workers 4  # Docker
+python3 scripts/project.py upstream configs/upstream_check.json --report
+```
+
 ## Notes
 
 - gpt-6-luna call parameters are in `configs/agents/luna_mini_swe.yaml` and match M0. `reasoning_effort` must be passed through `extra_body`; otherwise litellm drops it and the API rejects requests that include tools.

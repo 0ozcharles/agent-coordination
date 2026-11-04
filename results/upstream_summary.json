@@ -1,0 +1,110 @@
+{
+  "study": "upstream_check",
+  "question": "On the GPT-5 and Claude Sonnet 4.5 coop runs behind the CooperBench paper, how many runs that fail the paper's merge pipeline pass after our llm re-merge, and how much of the coop-solo gap does that close?",
+  "models": {
+    "gpt5": {
+      "name": "GPT-5",
+      "pairs": 571,
+      "tasks": 26,
+      "calibration": {
+        "pairs": 30,
+        "features_agree": 55,
+        "features": 60
+      },
+      "remerge": {
+        "needed": 121,
+        "done": 121,
+        "errors": 0,
+        "recovered": 27,
+        "cost_usd": 0.0483,
+        "own_tested": 121,
+        "integration": 16,
+        "integration_recovered": 12
+      },
+      "paper": {
+        "mean": 0.2819614711033275,
+        "tasks": 26,
+        "ci95": [
+          0.18631178707224336,
+          0.3873581847649919
+        ]
+      },
+      "with_remerge": {
+        "mean": 0.329246935201401,
+        "tasks": 26,
+        "ci95": [
+          0.21904761904761905,
+          0.43434343434343436
+        ]
+      },
+      "gain": {
+        "mean": 0.047285464098073555,
+        "tasks": 26,
+        "ci95": [
+          0.006993006993006993,
+          0.09104938271604938
+        ]
+      },
+      "with_solo": {
+        "pairs": 441,
+        "solo": 0.4580498866213152,
+        "paper": 0.2857142857142857,
+        "with_remerge": 0.3197278911564626,
+        "gap_closed": 0.1973684210526318
+      },
+      "claim_holds": false
+    },
+    "claude": {
+      "name": "Claude Sonnet 4.5",
+      "pairs": 607,
+      "tasks": 29,
+      "calibration": {
+        "pairs": 30,
+        "features_agree": 51,
+        "features": 60
+      },
+      "remerge": {
+        "needed": 98,
+        "done": 98,
+        "errors": 5,
+        "recovered": 21,
+        "cost_usd": 0.0278,
+        "own_tested": 98,
+        "integration": 20,
+        "integration_recovered": 18
+      },
+      "paper": {
+        "mean": 0.2257001647446458,
+        "tasks": 29,
+        "ci95": [
+          0.13157894736842105,
+          0.3304647160068847
+        ]
+      },
+      "with_remerge": {
+        "mean": 0.2602965403624382,
+        "tasks": 29,
+        "ci95": [
+          0.1553398058252427,
+          0.3694581280788177
+        ]
+      },
+      "gain": {
+        "mean": 0.03459637561779242,
+        "tasks": 29,
+        "ci95": [
+          0.004,
+          0.08913649025069638
+        ]
+      },
+      "with_solo": {
+        "pairs": 532,
+        "solo": 0.462406015037594,
+        "paper": 0.2349624060150376,
+        "with_remerge": 0.2424812030075188,
+        "gap_closed": 0.03305785123966942
+      },
+      "claim_holds": false
+    }
+  }
+}

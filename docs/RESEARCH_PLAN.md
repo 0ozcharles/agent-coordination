@@ -192,8 +192,36 @@ Main results:
 4. **The re-merge more than doubles coop again.** The baseline passes 38 runs officially and 88 after the re-merge, the same pattern as the S1 merge test.
 5. **Sensitivity.** Without go_chi and typst, own-feature is −4.4 [−11.1, +3.0] and shared-git −3.7 [−10.4, +2.2] over 45 tasks.
 
+### Offline check on the CooperBench paper's runs (2026-11-03)
+
+**Correction first.** The CooperBench paper does not score coop runs with a plain `git merge`. It runs `git merge-file`, then a union merge, then a small learned resolver (paper Sec. 2.2 and App. B). The released harness we pinned uses `git merge`, drops the union step and falls back to agent 1's patch alone on a conflict. "Official score" in S1 and S2 means the released harness, not the paper's pipeline.
+
+The paper's coop and solo runs are public ([CooperBench/trajectories](https://huggingface.co/datasets/CooperBench/trajectories), revision 906bc2f): one run per pair, OpenHands agents with messaging, and for each pair the two agent patches and the result of each merge stage. We took the GPT-5 and Claude Sonnet 4.5 runs, re-merged every pair that conflicted and failed all three stages with the merge test's frozen llm method, and tested the result. No agent was re-run; the re-merges cost $0.08. firecrawl is left out because the pinned dataset does not include it. Config and decision rule: [configs/upstream_check.json](../configs/upstream_check.json). Per-pair data: [results/upstream_rows.csv](../results/upstream_rows.csv).
+
+**Calibration.** On 30 random clean-merge pairs per model, our harness matched the recorded per-feature results on 55 of 60 features for GPT-5 and 51 of 60 for Claude, below the 90% bar. The misses come mostly from the merge, not the tests: our `git merge` conflicted on 5 (GPT-5) and 13 (Claude) of the 30 pairs that the paper's `git merge-file` merged cleanly. Where both merges were clean, 47 of 50 and 32 of 34 features matched (94%). So the released harness conflicts more often than the paper's pipeline, and its scores are lower for that reason alone.
+
+| | GPT-5 | Claude Sonnet 4.5 |
+|---|---|---|
+| Coop pairs (tasks) | 571 (26) | 607 (29) |
+| Coop success, paper pipeline | 28.2% | 22.6% |
+| With our re-merge added | 32.9% | 26.0% |
+| Gain | +4.7 [+0.7, +9.1] | +3.5 [+0.4, +8.9] |
+| Solo success on pairs with both | 45.8% (441 pairs) | 46.2% (532 pairs) |
+| Coop–solo gap closed | 20% | 3% |
+
+**Decision rule.** The re-merge helps significantly but closes less than a third of the gap for both models, so the claim that much of the coop–solo gap is a merge artifact does not hold for the paper's runs.
+
+**Why (post hoc).** After the primary result we tested each agent's own patch alone on the re-merged pairs, which the config marks as post hoc:
+
+- Pairs where both agents' own patches pass their own features, the integration cases our merge can fix, are rare: 16 of 121 conflicted pairs for GPT-5 and 20 of 98 for Claude, about 4% of each model's failed pairs. The re-merge recovers 12 of 16 and 18 of 20, close to its 84% in the S1 merge test.
+- Most failures are not conflicts at all: 289 of GPT-5's 410 failed pairs and 372 of Claude's 470 merged cleanly and still failed the tests.
+
+So the merge works as well on these runs as on ours, but these agents rarely produce the failure it fixes. The large merge effect in S1 and S2 belongs to our setup: gpt-6-luna with mini-swe-agent, the released harness, and a prompt that rewards zero conflicts. In the paper's setup the coordination gap is real and comes mostly from code that merges cleanly but does not work.
+
 ## Next steps
 
-1. Check the main S1, merge-test and S2 findings on stronger models. CooperBench has published the trajectories and patches behind its paper, including GPT-5 and Claude, so per-agent tests and the re-merge can run offline without re-running agents.
-2. Read the shared-git trajectories to find out why capability failures rose.
-3. Choose what replaces S3. Candidates: a repair round after the merge, where an agent sees the merged code and the failing tests; and three-agent tasks with CooperBench's team mode.
+1. Label the clean-merge failures of the paper's GPT-5 and Claude runs with per-agent tests and the published solo runs: how many are semantic integration failures (both own patches pass, the merged code fails), how many context or handoff (solo can do the feature), and how many capability.
+2. Do the same for the paper's no-communication runs, which conflict far more often, to see how messaging changes the mix of causes.
+3. Ablations the advisor asked for: number of agents, team composition (different, stronger and weaker, commercial and open models together) and the communication channel.
+4. Read the shared-git trajectories to find out why capability failures rose in S2.
+5. Choose what replaces S3. Candidates: a repair round after the merge, where an agent sees the merged code and the failing tests; and three-agent tasks with CooperBench's team mode.

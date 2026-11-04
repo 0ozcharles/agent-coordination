@@ -45,7 +45,15 @@ S2: the same 53 tasks, 3 runs each in four arms, 636 runs in total, $6.42. Confl
 - A shared git remote does not reduce context failures, and capability failures rise. Net: −4.4 [−10.7, +1.9].
 - On CooperBench's official score, shared git would beat the baseline by 10.7 points [+3.1, +18.9]. About half of that gain comes from the conflict fallback, which tests agent 1's patch alone after agent 1 has pulled in its partner's code. The scoring rule changes the verdict on the intervention. See the [research plan](docs/RESEARCH_PLAN.md#s2-targeted-interventions-2026-11-03).
 
-Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv).
+"Official score" above means the released CooperBench harness (`git merge`, then agent 1's patch alone on a conflict). The CooperBench paper used a gentler pipeline: `git merge-file`, a union merge, then a small learned resolver.
+
+Offline check on the paper's own runs: we took the published GPT-5 and Claude Sonnet 4.5 coop runs and re-merged every pair that failed the paper's pipeline after a conflict. No agent was re-run.
+
+- Coop success rises from 28.2% to 32.9% for GPT-5 and from 22.6% to 26.0% for Claude. That closes 20% and 3% of the gap to solo (about 46% for both), short of the pre-registered third.
+- The re-merge recovers 12 of 16 and 18 of 20 pairs where both agents' own patches pass, about as well as in our merge test. But such pairs are only about 4% of each model's failures; 70–79% of the failed pairs merged cleanly and still failed.
+- So the large merge effect in S1 and S2 is specific to our setup. In the paper's runs the coordination gap is real and mostly comes from code that merges cleanly but does not work. See the [research plan](docs/RESEARCH_PLAN.md#offline-check-on-the-cooperbench-papers-runs-2026-11-03).
+
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv).
 
 ## Quick start
 

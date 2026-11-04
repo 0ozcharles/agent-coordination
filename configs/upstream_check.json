@@ -1,0 +1,37 @@
+{
+  "study": "upstream_check",
+  "status": "frozen 2026-11-03 before any re-test or re-merge of published runs",
+  "question": "On the GPT-5 and Claude Sonnet 4.5 coop runs behind the CooperBench paper, how many runs that fail the paper's merge pipeline pass after our llm re-merge, and how much of the coop-solo gap does that close?",
+  "decision_rule": "Calibration first: on a random sample of clean-merge pairs per model, our harness must reproduce the paper's recorded per-feature test results on at least 90% of features; if it does not, results are reported with that caveat. Primary, per model: coop success with our llm re-merge added after the paper's pipeline, against the paper's recorded coop success on the same pairs (95% bootstrap CI clustered by task). The claim that much of the coop-solo gap is a merge artifact holds for a model if the re-merge closes at least a third of that model's gap (recorded solo minus recorded coop, on pairs with both) and the CI of the gain is above 0.",
+  "source": {
+    "dataset": "CooperBench/trajectories",
+    "revision": "906bc2f62325eb6f8ccb4cf221e63df051cb3c99",
+    "paper": "https://arxiv.org/abs/2601.13295",
+    "paper_pipeline": "git merge-file, then a union merge, then a small learned resolver (paper Sec. 2.2 and App. B); recorded per pair as naive, union and llm results in aggregated_results_<model>_k1.json"
+  },
+  "models": {
+    "gpt5": "GPT-5",
+    "claude": "Claude Sonnet 4.5"
+  },
+  "exclude_repos": ["mendableai_firecrawl_task"],
+  "exclude_note": "firecrawl is in the published runs but not in the pinned CooperBench dataset, so its tests cannot be run",
+  "sets": {
+    "calibration": {
+      "rule": "pairs whose naive merge was clean and whose per-feature results were recorded",
+      "sample": 30,
+      "seed": 20261103
+    },
+    "remerge": {
+      "rule": "pairs whose naive merge conflicted and that fail every stage of the paper's pipeline"
+    },
+    "own": {
+      "rule": "the remerge pairs; each agent's own patch is tested alone",
+      "note": "post hoc, added 2026-11-03 after the primary result: separates conflicted pairs where both agents' own work passes (integration cases) from pairs with a feature that fails anyway, to tell whether the re-merge falls short or integration cases are rare"
+    }
+  },
+  "remerge": {
+    "from": "configs/merge_test.json",
+    "method": "llm"
+  },
+  "output": "runs/upstream"
+}

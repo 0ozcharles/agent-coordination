@@ -7,7 +7,7 @@ import shlex
 import subprocess
 import sys
 
-from . import census, merge, s1, s2
+from . import census, merge, s1, s2, upstream
 
 
 def find_root():
@@ -148,6 +148,23 @@ def merge_command(root, args):
     return code or 0
 
 
+def upstream_command(root, args):
+    config_path = args.config.resolve()
+    config = upstream.load_config(config_path)
+    if args.report:
+        upstream.report(config, root)
+        return 0
+    jobs = upstream.select(config, root, args.set)
+    done = sum((upstream.job_dir(config, root, job) / upstream.RECORDS[args.set]).is_file() for job in jobs)
+    print(f"{config['study']} [{args.set}]: {config['question']}")
+    print(f"{len(jobs)} published coop pairs ({', '.join(config['models'].values())}), {done} already done.")
+    code = launch(root, args, "agent_coordination.upstream", [str(config_path), args.set],
+                  project_path(root, config["output"]) / args.set, args.workers or 1)
+    if code is not None:
+        upstream.report(config, root)
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -199,6 +216,13 @@ def main(argv=None):
     stage2.add_argument("--report", action="store_true", help="Re-label existing logs; no Docker or API")
     stage2.add_argument("--python", help="CooperBench Python interpreter")
     stage2.add_argument("--workers", type=int, help="Parallel worker processes (default: config 'workers' or 1)")
+    published = subs.add_parser("upstream", help="Offline check on the CooperBench paper's published runs")
+    published.add_argument("config", type=Path)
+    published.add_argument("--set", default="calibration", help="calibration, remerge or own (default: calibration)")
+    published.add_argument("--execute", action="store_true", help="Test or re-merge (Docker; re-merge makes paid calls)")
+    published.add_argument("--report", action="store_true", help="Summarize existing records")
+    published.add_argument("--python", help="CooperBench Python interpreter")
+    published.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -227,6 +251,8 @@ def main(argv=None):
             return merge_command(root, args)
         if args.command == "s2":
             return s2_command(root, args)
+        if args.command == "upstream":
+            return upstream_command(root, args)
         if args.study not in settings["studies"]:
             raise ValueError("Unknown study. Run 'list' to see available names.")
         study = settings["studies"][args.study]
