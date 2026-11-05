@@ -121,6 +121,14 @@ The re-scoring (`configs/paper_rescore.json`) downloads each pair's published me
 python3 scripts/project.py rescore configs/paper_rescore.json
 ```
 
+The merged-patch check (`configs/paper_merge_check.json`) tests the paper's published naive-merge patches in our harness (Docker, about an hour with 4 workers):
+
+```bash
+caffeinate -is python3 scripts/project.py merge-check configs/paper_merge_check.json --execute --workers 4
+python3 scripts/test_watchdog.py runs/upstream/merge_check/timeouts.log agent_coordination.merge_check   # alongside
+python3 scripts/project.py merge-check configs/paper_merge_check.json --report
+```
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.

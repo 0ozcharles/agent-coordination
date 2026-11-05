@@ -63,9 +63,16 @@ Re-scoring the paper's test logs: CooperBench counts a test run as failed if its
 
 - The paper used this check: re-implemented, it reproduces all 2,211 recorded results.
 - It rarely matters. It flips 6 results and explains only 2 of the 67 unreproduced failures.
-- In the paper's own logs, most of those failures come from tests that ran on code missing the agent's changes. This points at the paper's merge step. We have not verified it yet. See the [research plan](docs/RESEARCH_PLAN.md#re-scoring-the-papers-test-logs-2026-11-04).
+- In the paper's own logs, most of those failures come from tests that ran on code missing the agent's changes. See the [research plan](docs/RESEARCH_PLAN.md#re-scoring-the-papers-test-logs-2026-11-04).
 
-Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv).
+The paper's merged patches tested in our harness:
+
+- 62 of the 64 unreproduced failures also fail when we test the merged patch the paper published (97% [90%, 100%]). In 55 of 56 comparable cases the first error line matches the paper's.
+- Control pairs the paper recorded as passing pass in our harness too.
+- So these failures come from the paper's merge step, not from the agents. In 27 of 48 pairs, its merged patch is simply one agent's patch, with the other agent's work missing. Our `git merge` of the same two patches passes.
+- Correcting these pairs, together with the earlier re-merge of conflicted pairs, closes at least 43% of GPT-5's coop–solo gap and 19% of Claude's. In the census, integration falls to a third (GPT-5) and two fifths (Claude) of the pairs solo passes. See the [research plan](docs/RESEARCH_PLAN.md#the-papers-merged-patches-tested-in-our-harness-2026-11-04).
+
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv), [merged-patch check](results/paper_merge_check_rows.csv).
 
 ## Quick start
 

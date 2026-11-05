@@ -1,0 +1,89 @@
+{
+  "study": "paper_merge_check",
+  "question": "When the paper recorded a merged failure that our own merge of the same two patches does not reproduce, did the code the paper tested lack the agent's changes? We test the paper's published naive-merge patches in our harness.",
+  "sets": {
+    "unreproduced": {
+      "features": 102,
+      "tested": 102,
+      "errors": 0,
+      "published_passed": 19,
+      "by_side": {
+        "side missing -> fail": 48,
+        "side present -> pass": 18,
+        "empty -> fail": 6,
+        "side present -> fail": 29,
+        "side missing -> pass": 1
+      }
+    },
+    "pass_one_side": {
+      "features": 40,
+      "tested": 40,
+      "errors": 0,
+      "published_passed": 39,
+      "by_side": {
+        "side missing -> pass": 21,
+        "side present -> pass": 18,
+        "side missing -> fail": 1
+      }
+    },
+    "pass_both_sides": {
+      "features": 30,
+      "tested": 30,
+      "errors": 0,
+      "published_passed": 30,
+      "by_side": {
+        "side present -> pass": 30
+      }
+    },
+    "reproduced": {
+      "features": 30,
+      "tested": 30,
+      "errors": 0,
+      "published_passed": 10,
+      "by_side": {
+        "side missing -> fail": 5,
+        "side present -> fail": 15,
+        "side present -> pass": 4,
+        "side missing -> pass": 6
+      }
+    }
+  },
+  "primary": {
+    "mean": 0.96875,
+    "tasks": 14,
+    "ci95": [
+      0.9047619047619048,
+      1.0
+    ]
+  },
+  "primary_features": 64,
+  "control_both_sides_pass": {
+    "mean": 1.0,
+    "tasks": 5,
+    "ci95": [
+      1.0,
+      1.0
+    ]
+  },
+  "control_one_side_fail": {
+    "mean": 0.025,
+    "tasks": 9,
+    "ci95": [
+      0.0,
+      0.057692307692307696
+    ]
+  },
+  "control_one_side_missing_fail": {
+    "mean": 0.045454545454545456,
+    "tasks": 9,
+    "ci95": [
+      0.0,
+      0.10714285714285714
+    ]
+  },
+  "same_error": [
+    55,
+    56
+  ],
+  "decision": "the paper's merged code explains the non-reproduction"
+}

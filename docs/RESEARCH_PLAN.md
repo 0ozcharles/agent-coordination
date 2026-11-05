@@ -256,7 +256,7 @@ Each published coop pair comes with a merge report that holds the full test outp
 - It rarely changes the result: 6 GPT-5 naive-merge results flip from fail to pass, and no Claude result does. GPT-5 coop success moves from 161 to 164 of 571 pairs.
 - **Decision rule.** Of the 67 unreproduced merged failures, only 2 pass when re-scored (3% [0%, 9%]). The pass check does not explain the non-reproduction, so the rule sends us to Docker re-runs. The census barely changes: GPT-5's gap-pair integration share becomes 49% [31%, 68%]; Claude's is unchanged.
 
-**What the logs show instead (post hoc, not yet verified).** We read the paper's failing output for the 67 unreproduced features:
+**What the logs show instead (post hoc; tested in the next section).** We read the paper's failing output for the 67 unreproduced features:
 
 - Most fail because the feature's code is not in the program under test: an unexpected keyword argument, a missing attribute, a failed import. In 3, the merged patch was empty.
 - The paper also published its naive-merge patch. In 45 of the 67, that patch lacks at least half of the lines the agent's own patch adds. Among non-empty reproduced failures, this happens in 30 of 113.
@@ -269,9 +269,27 @@ So the unreproduced failures look like code lost in the paper's merge or patch s
 
 So the published patch may not be exactly the code the paper tested. Testing the published merged patches in our harness would settle it.
 
+### The paper's merged patches tested in our harness (2026-11-04)
+
+We applied the paper's published naive-merge patch alone to the clean repository and ran both features' tests, once per pair. We covered every pair with an unreproduced failure (51 pairs) and three control sets. Docker only, no API cost. Config and decision rule: [configs/paper_merge_check.json](../configs/paper_merge_check.json). Per-feature data: [results/paper_merge_check_rows.csv](../results/paper_merge_check_rows.csv).
+
+| Set | Features | Pass with the paper's merged patch |
+|---|---|---|
+| Unreproduced failures (non-empty patch) | 64 | 2 (62 fail, 97% [90%, 100%]) |
+| Control: paper passed, patch has both sides | 30 | 30 |
+| Control: paper passed, patch lacks one side by the line check | 40 | 39 |
+| Reference: reproduced failures, both features of 15 pairs | 30 | 10 |
+
+**Decision rule.** 97% of the unreproduced features also fail with the paper's own merged patch, above the 80% threshold. Our harness passes every feature of the both-sides control, so it agrees with the paper's environment. In 55 of the 56 failures we could compare, our output contains the same first error line as the paper's. So the paper's merged code explains why our re-merge passes. The cause is not our environment or flaky tests.
+
+- **The paper's merge step loses code.** Take the 48 pairs behind the 64 features. In 27, the paper's merged patch is identical to one agent's patch: the other agent's work is missing entirely. In the other 21, part of it is missing or changed. Our `git merge` of the same two agent patches merges cleanly and passes the feature in every case.
+- **The line check does not find these pairs on its own.** In the one-side control, published patches that lack half of one agent's lines still pass 39 of 40 features. Other code in the patch can cover the feature, for example when the partner implemented part of it. So we count affected pairs by our re-merge, not by the line check.
+- **Effect on the paper's result (post hoc).** We replaced the paper's recorded failures with our clean re-merge's result wherever both features pass: 18 GPT-5 pairs and 19 Claude pairs. Coop success then rises from 28.2% to 31.3% for GPT-5 and from 22.6% to 25.7% for Claude. On the pairs with a solo run, adding these to the re-merge of conflicted pairs closes 43% of the coop–solo gap for GPT-5 (20% from conflicts, 23% from lost code) and 19% for Claude (3% and 16%). This is a lower bound, because our merge also conflicts on 79 of GPT-5's and 250 of Claude's clean failed pairs, which we could not check. Solo runs involve no merge, so this does not affect them.
+- **For the census**, the robust share, which counts only failures our re-merge reproduces, becomes the main estimate: integration is 33% [16%, 49%] of GPT-5's gap pairs and 41% [19%, 59%] of Claude's. Failures from the paper's lost code are not failures of the agents.
+
 ## Next steps
 
-1. Test the paper's published naive-merge patches in our harness for the unreproduced failures and a control sample. If they fail where the paper failed, the non-reproduction comes from the paper's merged code. Then check how much of the paper's coop–solo gap rests on such pairs.
+1. Find how the paper's merge step loses code, and check the clean pairs our merge cannot check. Reproducing the paper's merge procedure (feature 1's branch merged into feature 2's workspace) should do both, and it enlarges the robust set, especially for Claude.
 2. Run the same census on the paper's no-communication runs, which conflict far more often, to see how messaging changes the mix of causes.
 3. Ablations the advisor asked for: number of agents, team composition (different, stronger and weaker, commercial and open models together) and the communication channel.
 4. Read the shared-git trajectories to find out why capability failures rose in S2.
