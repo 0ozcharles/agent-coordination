@@ -1,0 +1,294 @@
+{
+  "study": "paper_rescore",
+  "question": "CooperBench's evaluation code counts a test run as failed when its output contains 'failed' anywhere, in any case, including warnings and install logs. Does that explain the paper's recorded merged failures that our re-test does not reproduce, and how does a correct pass check change the paper's coop results and our census labels?",
+  "models": {
+    "gpt5": {
+      "name": "GPT-5",
+      "pairs": 571,
+      "logs": 959,
+      "frameworks": {
+        "pytest": 725,
+        "unparsed": 189,
+        "jest": 45
+      },
+      "check_agreement": [
+        927,
+        927
+      ],
+      "flips": {
+        "naive fail->pass": 6
+      },
+      "triggers": [
+        [
+          "/workspace/repo/Tests/test_image_quantize.py:N: DeprecationWarning: __array__ implementation doesn't",
+          3
+        ],
+        [
+          "\u2713 should invoke the onInvalid callback when validation failed (N ms)",
+          2
+        ],
+        [
+          "\u2713 should invoke the onInvalid callback when validation failed",
+          1
+        ]
+      ],
+      "coop": {
+        "recorded": 161,
+        "corrected": 164,
+        "of": 571,
+        "with_solo": {
+          "pairs": 441,
+          "coop_recorded": 126,
+          "coop_corrected": 129,
+          "solo_recorded": 202
+        }
+      },
+      "retest_agreement": {
+        "features": 404,
+        "recorded": 360,
+        "corrected": 361
+      },
+      "unreproduced": {
+        "features": 34,
+        "corrected_pass": 2,
+        "no_log": 1,
+        "share": {
+          "mean": 0.058823529411764705,
+          "tasks": 5,
+          "ci95": [
+            0.0,
+            0.17391304347826086
+          ]
+        }
+      },
+      "census_now_passing": 3,
+      "census": {
+        "name": "GPT-5",
+        "failed_pairs": 407,
+        "clean": 286,
+        "tested": 407,
+        "labeled": 397,
+        "missing_merged_result": 10,
+        "labels": {
+          "integration": 176,
+          "context": 99,
+          "capability": 68,
+          "unknown": 54
+        },
+        "refined_labels": {
+          "integration": 176,
+          "context": 68,
+          "capability": 61,
+          "unknown": 54,
+          "handoff": 38
+        },
+        "clean_labels": {
+          "integration": 105,
+          "context": 73,
+          "capability": 55,
+          "unknown": 43
+        },
+        "clean_refined_labels": {
+          "integration": 105,
+          "context": 50,
+          "capability": 49,
+          "unknown": 43,
+          "handoff": 29
+        },
+        "feature_labels": {
+          "integration": 194,
+          "capability": 189,
+          "context": 144,
+          "unknown": 105
+        },
+        "integration": {
+          "semantic": 105,
+          "conflict": 71
+        },
+        "coordination_flag": 26,
+        "gap": {
+          "pairs": 100,
+          "labels": {
+            "integration": 49,
+            "context": 46,
+            "capability": 5
+          },
+          "refined_labels": {
+            "integration": 49,
+            "context": 36,
+            "handoff": 11,
+            "capability": 4
+          },
+          "integration": {
+            "mean": 0.49,
+            "tasks": 18,
+            "ci95": [
+              0.3069306930693069,
+              0.6811594202898551
+            ]
+          },
+          "robust_pairs": 67,
+          "robust_integration": {
+            "mean": 0.3283582089552239,
+            "tasks": 12,
+            "ci95": [
+              0.16,
+              0.48717948717948717
+            ]
+          }
+        },
+        "retest": {
+          "clean_pairs": 286,
+          "merge_clean": 208,
+          "failed_features": 286,
+          "reproduced": 249
+        }
+      }
+    },
+    "claude": {
+      "name": "Claude Sonnet 4.5",
+      "pairs": 607,
+      "logs": 1284,
+      "frameworks": {
+        "pytest": 1141,
+        "unparsed": 64,
+        "go": 57,
+        "jest": 22
+      },
+      "check_agreement": [
+        1284,
+        1284
+      ],
+      "flips": {},
+      "triggers": [],
+      "coop": {
+        "recorded": 137,
+        "corrected": 137,
+        "of": 607,
+        "with_solo": {
+          "pairs": 532,
+          "coop_recorded": 125,
+          "coop_corrected": 125,
+          "solo_recorded": 246
+        }
+      },
+      "retest_agreement": {
+        "features": 258,
+        "recorded": 215,
+        "corrected": 215
+      },
+      "unreproduced": {
+        "features": 33,
+        "corrected_pass": 0,
+        "no_log": 0,
+        "share": {
+          "mean": 0.0,
+          "tasks": 11,
+          "ci95": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "census_now_passing": 0,
+      "census": {
+        "name": "Claude Sonnet 4.5",
+        "failed_pairs": 470,
+        "clean": 372,
+        "tested": 470,
+        "labeled": 470,
+        "missing_merged_result": 0,
+        "labels": {
+          "integration": 223,
+          "capability": 112,
+          "context": 110,
+          "unknown": 25
+        },
+        "refined_labels": {
+          "integration": 223,
+          "context": 92,
+          "capability": 92,
+          "handoff": 38,
+          "unknown": 25
+        },
+        "clean_labels": {
+          "integration": 156,
+          "context": 105,
+          "capability": 98,
+          "unknown": 13
+        },
+        "clean_refined_labels": {
+          "integration": 156,
+          "context": 89,
+          "capability": 80,
+          "handoff": 34,
+          "unknown": 13
+        },
+        "feature_labels": {
+          "capability": 248,
+          "integration": 242,
+          "context": 158,
+          "unknown": 60
+        },
+        "integration": {
+          "semantic": 156,
+          "conflict": 67
+        },
+        "coordination_flag": 38,
+        "gap": {
+          "pairs": 158,
+          "labels": {
+            "integration": 106,
+            "context": 47,
+            "capability": 5
+          },
+          "refined_labels": {
+            "integration": 106,
+            "context": 44,
+            "handoff": 4,
+            "capability": 4
+          },
+          "integration": {
+            "mean": 0.6708860759493671,
+            "tasks": 21,
+            "ci95": [
+              0.5645161290322581,
+              0.7519685039370079
+            ]
+          },
+          "robust_pairs": 32,
+          "robust_integration": {
+            "mean": 0.40625,
+            "tasks": 14,
+            "ci95": [
+              0.1935483870967742,
+              0.5945945945945946
+            ]
+          }
+        },
+        "retest": {
+          "clean_pairs": 372,
+          "merge_clean": 122,
+          "failed_features": 173,
+          "reproduced": 140
+        }
+      }
+    }
+  },
+  "missing_reports": 7,
+  "check_agreement": [
+    2211,
+    2211
+  ],
+  "check_passed": true,
+  "primary": {
+    "mean": 0.029850746268656716,
+    "tasks": 15,
+    "ci95": [
+      0.0,
+      0.09230769230769231
+    ]
+  },
+  "decision": "cause lies elsewhere: re-run the tests in Docker",
+  "census_verdict": "split by model"
+}

@@ -115,6 +115,12 @@ python3 scripts/test_watchdog.py runs/upstream/census/timeouts.log              
 python3 scripts/project.py paper-census configs/paper_census.json --report
 ```
 
+The re-scoring (`configs/paper_rescore.json`) downloads each pair's published merge report, re-scores every test log, and re-labels the census. It needs no Docker:
+
+```bash
+python3 scripts/project.py rescore configs/paper_rescore.json
+```
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.

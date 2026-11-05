@@ -59,7 +59,13 @@ Failure census on the paper's runs: we labeled all 880 failed GPT-5 and Claude p
 - The integration labels do not hold up. When we merge the same two patches ourselves and test them, most of these failures disappear: 8 of 19 reproduce for GPT-5 and 3 of 13 for Claude, against 34 of 37 and 16 of 25 for context labels. Counting only reproduced failures, integration falls to 33% and 41%.
 - Our harness and the paper's disagree most exactly where the integration label is decided. So the way merged code is evaluated is a large source of uncertainty in failure attribution. See the [research plan](docs/RESEARCH_PLAN.md#failure-census-on-the-papers-runs-2026-11-04).
 
-Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv).
+Re-scoring the paper's test logs: CooperBench counts a test run as failed if its output contains "failed" anywhere, warnings included.
+
+- The paper used this check: re-implemented, it reproduces all 2,211 recorded results.
+- It rarely matters. It flips 6 results and explains only 2 of the 67 unreproduced failures.
+- In the paper's own logs, most of those failures come from tests that ran on code missing the agent's changes. This points at the paper's merge step. We have not verified it yet. See the [research plan](docs/RESEARCH_PLAN.md#re-scoring-the-papers-test-logs-2026-11-04).
+
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv).
 
 ## Quick start
 

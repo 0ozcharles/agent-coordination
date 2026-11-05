@@ -248,9 +248,30 @@ Our reading: once the disagreement between harnesses is removed, the data do not
 
 **Test timeouts.** CooperBench's Docker backend does not enforce its 600 s test timeout: it calls exec_run inside a `with ThreadPoolExecutor` block, which waits for the command even after the timeout. In one Claude pair (pillow 290, features 1 and 4), agent 4's code loops in `test_image_quantize`. We killed the merged re-test by hand after about 25 minutes, and [scripts/test_watchdog.py](../scripts/test_watchdog.py) killed agent 4's own-patch test at 600 s. Both count as failures, as they would under the intended timeout. Log: [results/paper_census_timeouts.log](../results/paper_census_timeouts.log).
 
+### Re-scoring the paper's test logs (2026-11-04)
+
+Each published coop pair comes with a merge report that holds the full test output of every merge stage. CooperBench's evaluation code counts a run as failed when the output contains "failed" anywhere, in any case. In the first log we read (GPT-5, pillow 290, features 1 and 4), every test passed, but a numpy deprecation warning ("passing copy=False failed") made the run count as failed. We re-scored all 2,243 logs of the GPT-5 and Claude pairs with that check re-implemented and with a check that reads the test framework's own summary. Config: [configs/paper_rescore.json](../configs/paper_rescore.json). Per-log data: [results/paper_rescore_rows.csv](../results/paper_rescore_rows.csv).
+
+- The re-implemented check matches the recorded result on all 2,211 logs that have one, so this is the check the paper used. 7 pairs have no report.
+- It rarely changes the result: 6 GPT-5 naive-merge results flip from fail to pass, and no Claude result does. GPT-5 coop success moves from 161 to 164 of 571 pairs.
+- **Decision rule.** Of the 67 unreproduced merged failures, only 2 pass when re-scored (3% [0%, 9%]). The pass check does not explain the non-reproduction, so the rule sends us to Docker re-runs. The census barely changes: GPT-5's gap-pair integration share becomes 49% [31%, 68%]; Claude's is unchanged.
+
+**What the logs show instead (post hoc, not yet verified).** We read the paper's failing output for the 67 unreproduced features:
+
+- Most fail because the feature's code is not in the program under test: an unexpected keyword argument, a missing attribute, a failed import. In 3, the merged patch was empty.
+- The paper also published its naive-merge patch. In 45 of the 67, that patch lacks at least half of the lines the agent's own patch adds. Among non-empty reproduced failures, this happens in 30 of 113.
+- Example: GPT-5, tiktoken, features 1 and 4. The published merged patch is byte-identical to agent 4's patch, and the report calls the merge clean. Feature 1's test fails because `max_tokens` does not exist.
+
+So the unreproduced failures look like code lost in the paper's merge or patch step, not agents' code that does not fit together. Two things keep this from being a conclusion:
+
+- Published merged patches that lack one side's lines also occur in 68 of the 239 clean pairs the paper recorded as passing.
+- In the tiktoken example, feature 4 also failed for a missing argument that agent 4's patch adds.
+
+So the published patch may not be exactly the code the paper tested. Testing the published merged patches in our harness would settle it.
+
 ## Next steps
 
-1. Find out why the paper's recorded merged failures do not reproduce. Re-run the unreproduced tests a few times to check for flakiness, and merge clean pairs with the paper's own procedure in our harness. The second also enlarges Claude's robust set.
+1. Test the paper's published naive-merge patches in our harness for the unreproduced failures and a control sample. If they fail where the paper failed, the non-reproduction comes from the paper's merged code. Then check how much of the paper's coop–solo gap rests on such pairs.
 2. Run the same census on the paper's no-communication runs, which conflict far more often, to see how messaging changes the mix of causes.
 3. Ablations the advisor asked for: number of agents, team composition (different, stronger and weaker, commercial and open models together) and the communication channel.
 4. Read the shared-git trajectories to find out why capability failures rose in S2.
