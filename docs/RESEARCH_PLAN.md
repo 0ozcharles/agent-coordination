@@ -218,10 +218,40 @@ The paper's coop and solo runs are public ([CooperBench/trajectories](https://hu
 
 So the merge works as well on these runs as on ours, but these agents rarely produce the failure it fixes. The large merge effect in S1 and S2 belongs to our setup: gpt-6-luna with mini-swe-agent, the released harness, and a prompt that rewards zero conflicts. In the paper's setup the coordination gap is real and comes mostly from code that merges cleanly but does not work.
 
+### Failure census on the paper's runs (2026-11-04)
+
+We labeled every GPT-5 and Claude Sonnet 4.5 coop pair that failed the paper's pipeline, 880 pairs in all. Each agent's published patch was tested alone against both features in our harness. For pairs the paper merged cleanly, we also merged the two patches with the released harness and tested the result. The solo reference is the published solo runs. Labels follow S1 and were frozen before any of these tests: [configs/paper_census.json](../configs/paper_census.json). Docker only, no API cost. Per-pair data: [results/paper_census_rows.csv](../results/paper_census_rows.csv).
+
+| | GPT-5 | Claude Sonnet 4.5 |
+|---|---|---|
+| Failed pairs (clean merges) | 410 (289) | 470 (372) |
+| Labeled | 396 | 470 |
+| All failed pairs | integration 171, context 101, capability 67, unknown 54 | integration 223, capability 112, context 110, unknown 25 |
+| Integration: clean merge / conflict | 100 / 71 | 156 / 67 |
+| Gap pairs (solo passes both, coop fails) | 100 | 158 |
+| Integration share of gap pairs | 47% [28%, 66%] | 67% [56%, 75%] |
+| Robust share (gap pairs left) | 33% [16%, 49%] (67) | 41% [19%, 59%] (32) |
+
+14 GPT-5 pairs have no recorded merged result, and our merge conflicted, so they are left out. In 3 more, our re-test passes both features.
+
+**Decision rule.** GPT-5 is below half and Claude above, so the verdict is split and reported per model. By the rule, GPT-5's gap comes mainly from agents failing their own feature, and Claude's from code that does not fit together. GPT-5's interval includes one half.
+
+**The robustness check weakens the integration result for both models.** Counting only failures that our merged re-test reproduces, the integration share drops below half for both. The integration labels are the ones that fail to reproduce:
+
+- Take gap pairs labeled integration after a clean merge, where our merge is also clean. Our merged re-test fails the feature in only 8 of 19 for GPT-5 and 3 of 13 for Claude. In the rest, each own patch and the merged code all pass in our harness.
+- Context labels reproduce in 34 of 37 and 16 of 25.
+- Over all clean pairs that also merge cleanly for us, recorded feature failures reproduce at 88% (243 / 277) and 81% (140 / 173).
+
+This follows from how the label is built. The own-patch result comes from our harness and the merged result from the paper's, so a feature that the paper's evaluation failed but ours passes looks like an integration failure. We do not yet know whether these are flaky tests or differences between the two evaluations. For Claude the robust set is small because our `git merge` conflicts on 250 of the 372 clean pairs, including 82 of the 95 gap pairs labeled integration.
+
+Our reading: once the disagreement between harnesses is removed, the data do not show code that does not fit together as the main cause of the coop–solo gap for either model. Agents failing their own feature when paired (context, including handoff) is at least as large. The two evaluations disagree most where the integration label is decided, so the way merged code is evaluated is itself a major source of uncertainty in failure attribution.
+
+**Test timeouts.** CooperBench's Docker backend does not enforce its 600 s test timeout: it calls exec_run inside a `with ThreadPoolExecutor` block, which waits for the command even after the timeout. In one Claude pair (pillow 290, features 1 and 4), agent 4's code loops in `test_image_quantize`. We killed the merged re-test by hand after about 25 minutes, and [scripts/test_watchdog.py](../scripts/test_watchdog.py) killed agent 4's own-patch test at 600 s. Both count as failures, as they would under the intended timeout. Log: [results/paper_census_timeouts.log](../results/paper_census_timeouts.log).
+
 ## Next steps
 
-1. Label the clean-merge failures of the paper's GPT-5 and Claude runs with per-agent tests and the published solo runs: how many are semantic integration failures (both own patches pass, the merged code fails), how many context or handoff (solo can do the feature), and how many capability.
-2. Do the same for the paper's no-communication runs, which conflict far more often, to see how messaging changes the mix of causes.
+1. Find out why the paper's recorded merged failures do not reproduce. Re-run the unreproduced tests a few times to check for flakiness, and merge clean pairs with the paper's own procedure in our harness. The second also enlarges Claude's robust set.
+2. Run the same census on the paper's no-communication runs, which conflict far more often, to see how messaging changes the mix of causes.
 3. Ablations the advisor asked for: number of agents, team composition (different, stronger and weaker, commercial and open models together) and the communication channel.
 4. Read the shared-git trajectories to find out why capability failures rose in S2.
 5. Choose what replaces S3. Candidates: a repair round after the merge, where an agent sees the merged code and the failing tests; and three-agent tasks with CooperBench's team mode.

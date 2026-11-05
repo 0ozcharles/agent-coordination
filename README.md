@@ -53,7 +53,13 @@ Offline check on the paper's own runs: we took the published GPT-5 and Claude So
 - The re-merge recovers 12 of 16 and 18 of 20 pairs where both agents' own patches pass, about as well as in our merge test. But such pairs are only about 4% of each model's failures; 70–79% of the failed pairs merged cleanly and still failed.
 - So the large merge effect in S1 and S2 is specific to our setup. In the paper's runs the coordination gap is real and mostly comes from code that merges cleanly but does not work. See the [research plan](docs/RESEARCH_PLAN.md#offline-check-on-the-cooperbench-papers-runs-2026-11-03).
 
-Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv).
+Failure census on the paper's runs: we labeled all 880 failed GPT-5 and Claude pairs, using each agent's patch tested alone and the published solo runs. This needed Docker only.
+
+- Take the pairs where solo passes and coop fails. Integration (each own patch passes, the merged code fails) is 47% [28%, 66%] of them for GPT-5 and 67% [56%, 75%] for Claude. The pre-registered rule therefore gives a split verdict.
+- The integration labels do not hold up. When we merge the same two patches ourselves and test them, most of these failures disappear: 8 of 19 reproduce for GPT-5 and 3 of 13 for Claude, against 34 of 37 and 16 of 25 for context labels. Counting only reproduced failures, integration falls to 33% and 41%.
+- Our harness and the paper's disagree most exactly where the integration label is decided. So the way merged code is evaluated is a large source of uncertainty in failure attribution. See the [research plan](docs/RESEARCH_PLAN.md#failure-census-on-the-papers-runs-2026-11-04).
+
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv).
 
 ## Quick start
 

@@ -106,7 +106,18 @@ python3 scripts/project.py upstream configs/upstream_check.json --set remerge --
 python3 scripts/project.py upstream configs/upstream_check.json --report
 ```
 
+The failure census (`configs/paper_census.json`) labels every failed GPT-5 and Claude pair. It reuses the upstream check's job directories and adds own-patch tests and a merged re-test for clean pairs. A full run takes a few hours with 4 workers. Pairs are split across workers in fixed shards, so the last worker can finish well after the others.
+
+```bash
+python3 scripts/project.py paper-census configs/paper_census.json                                       # preview
+caffeinate -is python3 scripts/project.py paper-census configs/paper_census.json --execute --workers 4  # Docker
+python3 scripts/test_watchdog.py runs/upstream/census/timeouts.log                                      # alongside, after the workers start
+python3 scripts/project.py paper-census configs/paper_census.json --report
+```
+
 ## Notes
+
+- CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.
 
 - gpt-6-luna call parameters are in `configs/agents/luna_mini_swe.yaml` and match M0. `reasoning_effort` must be passed through `extra_body`; otherwise litellm drops it and the API rejects requests that include tools.
 - CooperBench issue: when a coop agent finishes without opening a PR, it is told to keep going and submit, but the `exit` message left in its history makes the next API call fail. The S1 runner fixes that message before each request (`s1.api_messages`) without modifying CooperBench.

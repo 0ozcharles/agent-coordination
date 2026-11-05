@@ -1,0 +1,177 @@
+{
+  "study": "paper_census",
+  "question": "When the CooperBench paper's GPT-5 and Claude coop pairs fail, and especially when solo passes the same pair, is it because the agents' code does not fit together or because an agent fails its own feature?",
+  "models": {
+    "gpt5": {
+      "name": "GPT-5",
+      "failed_pairs": 410,
+      "clean": 289,
+      "tested": 410,
+      "labeled": 396,
+      "missing_merged_result": 14,
+      "labels": {
+        "integration": 171,
+        "context": 101,
+        "capability": 67,
+        "unknown": 54,
+        "no_failed_feature": 3
+      },
+      "refined_labels": {
+        "integration": 171,
+        "context": 70,
+        "capability": 60,
+        "unknown": 54,
+        "handoff": 38,
+        "no_failed_feature": 3
+      },
+      "clean_labels": {
+        "integration": 100,
+        "context": 75,
+        "capability": 54,
+        "unknown": 43,
+        "no_failed_feature": 3
+      },
+      "clean_refined_labels": {
+        "integration": 100,
+        "context": 52,
+        "capability": 48,
+        "unknown": 43,
+        "handoff": 29,
+        "no_failed_feature": 3
+      },
+      "feature_labels": {
+        "integration": 192,
+        "capability": 187,
+        "context": 147,
+        "unknown": 105
+      },
+      "integration": {
+        "semantic": 100,
+        "conflict": 71
+      },
+      "coordination_flag": 25,
+      "gap": {
+        "pairs": 100,
+        "labels": {
+          "integration": 47,
+          "context": 46,
+          "capability": 5,
+          "no_failed_feature": 2
+        },
+        "refined_labels": {
+          "integration": 47,
+          "context": 36,
+          "handoff": 11,
+          "capability": 4,
+          "no_failed_feature": 2
+        },
+        "integration": {
+          "mean": 0.47,
+          "tasks": 18,
+          "ci95": [
+            0.2840909090909091,
+            0.6585365853658537
+          ]
+        },
+        "robust_pairs": 67,
+        "robust_integration": {
+          "mean": 0.3283582089552239,
+          "tasks": 12,
+          "ci95": [
+            0.16,
+            0.48717948717948717
+          ]
+        }
+      },
+      "retest": {
+        "clean_pairs": 289,
+        "merge_clean": 210,
+        "failed_features": 277,
+        "reproduced": 243
+      }
+    },
+    "claude": {
+      "name": "Claude Sonnet 4.5",
+      "failed_pairs": 470,
+      "clean": 372,
+      "tested": 470,
+      "labeled": 470,
+      "missing_merged_result": 0,
+      "labels": {
+        "integration": 223,
+        "capability": 112,
+        "context": 110,
+        "unknown": 25
+      },
+      "refined_labels": {
+        "integration": 223,
+        "context": 92,
+        "capability": 92,
+        "handoff": 38,
+        "unknown": 25
+      },
+      "clean_labels": {
+        "integration": 156,
+        "context": 105,
+        "capability": 98,
+        "unknown": 13
+      },
+      "clean_refined_labels": {
+        "integration": 156,
+        "context": 89,
+        "capability": 80,
+        "handoff": 34,
+        "unknown": 13
+      },
+      "feature_labels": {
+        "capability": 248,
+        "integration": 242,
+        "context": 158,
+        "unknown": 60
+      },
+      "integration": {
+        "semantic": 156,
+        "conflict": 67
+      },
+      "coordination_flag": 38,
+      "gap": {
+        "pairs": 158,
+        "labels": {
+          "integration": 106,
+          "context": 47,
+          "capability": 5
+        },
+        "refined_labels": {
+          "integration": 106,
+          "context": 44,
+          "handoff": 4,
+          "capability": 4
+        },
+        "integration": {
+          "mean": 0.6708860759493671,
+          "tasks": 21,
+          "ci95": [
+            0.5645161290322581,
+            0.7519685039370079
+          ]
+        },
+        "robust_pairs": 32,
+        "robust_integration": {
+          "mean": 0.40625,
+          "tasks": 14,
+          "ci95": [
+            0.1935483870967742,
+            0.5945945945945946
+          ]
+        }
+      },
+      "retest": {
+        "clean_pairs": 372,
+        "merge_clean": 122,
+        "failed_features": 173,
+        "reproduced": 140
+      }
+    }
+  },
+  "verdict": "split by model"
+}

@@ -1,0 +1,881 @@
+model,repo,task_id,features,conflict,merged_source,merged_passed,own_passed,cross_passed,solo_pair_passed,solo_rates,retest_merge,retest_passed,coordination,feature_labels,label,refined_feature_labels,refined_label,robust_feature_labels,robust_label
+gpt5,dottxt_ai_outlines_task,1371,1 2,False,naive,1,,,,,clean,,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,dottxt_ai_outlines_task,1371,1 3,True,llm,,1,3,,,,,True,1:integration 3:unknown,integration,1:integration 3:unknown,integration,1:integration 3:unknown,integration
+gpt5,dottxt_ai_outlines_task,1371,1 4,False,naive,1,,,,,clean,,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+gpt5,dottxt_ai_outlines_task,1371,2 4,False,naive,2,,,,,clean,,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+gpt5,dottxt_ai_outlines_task,1371,3 4,False,naive,,,,,,clean,,False,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown
+gpt5,dottxt_ai_outlines_task,1655,1 4,False,naive,1,1,,False,1:1.00 4:0.22,clean,1,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,dottxt_ai_outlines_task,1655,1 7,False,naive,1,1,,True,1:1.00 7:0.78,clean,1,False,7:context,context,7:context,context,7:context,context
+gpt5,dottxt_ai_outlines_task,1655,1 8,False,naive,1,1,,True,1:1.00 8:0.89,clean,1,False,8:context,context,8:context,context,8:context,context
+gpt5,dottxt_ai_outlines_task,1655,2 4,False,naive,2,2,,True,2:1.00 4:0.22,clean,2,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,dottxt_ai_outlines_task,1655,2 6,False,naive,2,2,,True,2:1.00 6:0.67,clean,2,False,6:context,context,6:context,context,6:context,context
+gpt5,dottxt_ai_outlines_task,1655,2 7,True,llm,2,2,,True,2:1.00 7:0.78,,,False,7:context,context,7:context,context,7:context,context
+gpt5,dottxt_ai_outlines_task,1655,2 8,False,naive,2,2,,True,2:1.00 8:0.89,clean,2,False,8:context,context,8:context,context,8:context,context
+gpt5,dottxt_ai_outlines_task,1655,3 4,False,naive,3,3,,False,3:1.00 4:0.22,clean,3,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,dottxt_ai_outlines_task,1655,3 7,False,naive,3,3,,True,3:1.00 7:0.78,clean,3,False,7:context,context,7:context,context,7:context,context
+gpt5,dottxt_ai_outlines_task,1655,3 8,False,naive,3,3,,True,3:1.00 8:0.89,clean,3,False,8:context,context,8:context,context,8:context,context
+gpt5,dottxt_ai_outlines_task,1655,4 5,True,llm,,,,False,4:0.22 5:0.89,,,False,4:capability 5:context,context,4:capability 5:context,context,4:capability 5:context,context
+gpt5,dottxt_ai_outlines_task,1655,4 6,False,naive,,,,False,4:0.22 6:0.67,clean,,False,4:capability 6:context,context,4:capability 6:context,context,4:capability 6:context,context
+gpt5,dottxt_ai_outlines_task,1655,4 7,True,llm,,,,True,4:0.22 7:0.78,,,False,4:capability 7:context,context,4:capability 7:context,context,4:capability 7:context,context
+gpt5,dottxt_ai_outlines_task,1655,4 8,False,naive,8,8,,False,4:0.22 8:0.89,clean,8,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,dottxt_ai_outlines_task,1655,4 9,False,naive,9,9,,False,4:0.22 9:1.00,clean,9,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,dottxt_ai_outlines_task,1655,4 10,False,naive,10,10,,False,4:0.22 10:1.00,clean,10,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,dottxt_ai_outlines_task,1655,5 6,False,naive,5,5,,False,5:0.89 6:0.67,clean,5,False,6:context,context,6:context,context,6:context,context
+gpt5,dottxt_ai_outlines_task,1655,5 8,False,naive,5,5,,True,5:0.89 8:0.89,clean,5,False,8:context,context,8:context,context,8:context,context
+gpt5,dottxt_ai_outlines_task,1655,6 8,True,llm,8,8,,True,6:0.67 8:0.89,,,False,6:context,context,6:context,context,6:context,context
+gpt5,dottxt_ai_outlines_task,1655,7 8,False,naive,,,,False,7:0.78 8:0.89,clean,,False,7:context 8:context,context,7:context 8:context,context,7:context 8:context,context
+gpt5,dottxt_ai_outlines_task,1655,8 9,True,llm,9,9,,False,8:0.89 9:1.00,,,False,8:context,context,8:context,context,8:context,context
+gpt5,dottxt_ai_outlines_task,1655,8 10,False,naive,10,10,,True,8:0.89 10:1.00,conflicts,,False,8:context,context,8:context,context,,
+gpt5,dottxt_ai_outlines_task,1706,1 2,True,llm,,2,,False,1:0.00 2:0.86,,,False,1:capability 2:integration,integration,1:capability 2:integration,integration,1:capability 2:integration,integration
+gpt5,dottxt_ai_outlines_task,1706,1 3,True,llm,,,,False,1:0.00 3:0.86,,,False,1:capability 3:context,context,1:capability 3:context,context,1:capability 3:context,context
+gpt5,dottxt_ai_outlines_task,1706,1 4,True,llm,,4,,False,1:0.00 4:0.86,,,False,1:capability 4:integration,integration,1:capability 4:integration,integration,1:capability 4:integration,integration
+gpt5,dottxt_ai_outlines_task,1706,1 5,False,naive,,,,False,1:0.00 5:0.86,clean,,False,1:capability 5:context,context,1:capability 5:handoff,handoff,1:capability 5:context,context
+gpt5,dottxt_ai_outlines_task,1706,1 6,True,llm,,6,,False,1:0.00 6:0.86,,,False,1:capability 6:integration,integration,1:capability 6:integration,integration,1:capability 6:integration,integration
+gpt5,dottxt_ai_outlines_task,1706,1 7,True,llm,,,,False,1:0.00 7:0.43,,,False,1:capability 7:capability,capability,1:capability 7:capability,capability,1:capability 7:capability,capability
+gpt5,dottxt_ai_outlines_task,1706,1 8,True,llm,,,,False,1:0.00 8:0.86,,,False,1:capability 8:context,context,1:capability 8:context,context,1:capability 8:context,context
+gpt5,dottxt_ai_outlines_task,1706,2 6,True,llm,,2 6,2,True,2:0.86 6:0.86,,,True,2:integration 6:integration,integration,2:integration 6:integration,integration,2:integration 6:integration,integration
+gpt5,dottxt_ai_outlines_task,1706,2 7,True,llm,,2 7,,True,2:0.86 7:0.43,,,False,2:integration 7:integration,integration,2:integration 7:integration,integration,2:integration 7:integration,integration
+gpt5,dottxt_ai_outlines_task,1706,2 8,False,naive,2,2,,True,2:0.86 8:0.86,clean,2,False,8:context,context,8:context,context,8:context,context
+gpt5,dottxt_ai_outlines_task,1706,3 6,False,naive,6,3,,True,3:0.86 6:0.86,conflicts,,False,3:integration,integration,3:integration,integration,,
+gpt5,dottxt_ai_outlines_task,1706,3 7,True,llm,,3,,False,3:0.86 7:0.43,,,False,3:integration 7:capability,integration,3:integration 7:capability,integration,3:integration 7:capability,integration
+gpt5,dottxt_ai_outlines_task,1706,3 8,True,llm,,3,8,True,3:0.86 8:0.86,,,True,3:integration 8:context,integration,3:integration 8:context,integration,3:integration 8:context,integration
+gpt5,dottxt_ai_outlines_task,1706,4 6,False,naive,4,4,,True,4:0.86 6:0.86,clean,4,False,6:context,context,6:context,context,6:context,context
+gpt5,dottxt_ai_outlines_task,1706,4 7,True,llm,,4,,True,4:0.86 7:0.43,,,False,4:integration 7:capability,integration,4:integration 7:capability,integration,4:integration 7:capability,integration
+gpt5,dottxt_ai_outlines_task,1706,4 8,True,llm,,4,8,True,4:0.86 8:0.86,,,True,4:integration 8:context,integration,4:integration 8:context,integration,4:integration 8:context,integration
+gpt5,dottxt_ai_outlines_task,1706,5 7,True,llm,,5,,False,5:0.86 7:0.43,,,False,5:integration 7:capability,integration,5:integration 7:capability,integration,5:integration 7:capability,integration
+gpt5,dottxt_ai_outlines_task,1706,6 7,True,llm,,6,,False,6:0.86 7:0.43,,,False,6:integration 7:capability,integration,6:integration 7:capability,integration,6:integration 7:capability,integration
+gpt5,dottxt_ai_outlines_task,1706,7 8,True,llm,,,,True,7:0.43 8:0.86,,,False,7:capability 8:context,context,7:capability 8:context,context,7:capability 8:context,context
+gpt5,dspy_task,8394,1 2,False,naive,2,1 2,,True,1:1.00 2:0.75,conflicts,,False,1:integration,integration,1:integration,integration,,
+gpt5,dspy_task,8394,1 4,False,naive,,1,,False,1:1.00 4:0.00,clean,1,False,1:integration 4:capability,integration,1:integration 4:capability,integration,4:capability,capability
+gpt5,dspy_task,8394,1 5,False,naive,,1,,False,1:1.00 5:0.00,clean,,False,1:integration 5:capability,integration,1:integration 5:capability,integration,1:integration 5:capability,integration
+gpt5,dspy_task,8394,2 3,False,naive,3,3,,True,2:0.75 3:1.00,conflicts,,False,2:context,context,2:context,context,,
+gpt5,dspy_task,8394,2 4,False,naive,,,,False,2:0.75 4:0.00,conflicts,,False,2:context 4:capability,context,2:context 4:capability,context,,
+gpt5,dspy_task,8394,2 5,False,naive,,,,False,2:0.75 5:0.00,conflicts,,False,2:context 5:capability,context,2:context 5:capability,context,,
+gpt5,dspy_task,8394,3 4,False,naive,,3,,False,3:1.00 4:0.00,conflicts,,False,3:integration 4:capability,integration,3:integration 4:handoff,integration,,
+gpt5,dspy_task,8394,3 5,False,naive,,,,False,3:1.00 5:0.00,conflicts,,False,3:context 5:capability,context,3:context 5:capability,context,,
+gpt5,dspy_task,8394,4 5,False,naive,,4,,False,4:0.00 5:0.00,clean,,False,4:integration 5:capability,integration,4:integration 5:capability,integration,4:integration 5:capability,integration
+gpt5,dspy_task,8563,1 2,False,retest,2,,,False,1:0.00 2:0.40,clean,2,False,1:capability,capability,1:capability,capability,1:capability,capability
+gpt5,dspy_task,8563,1 3,False,missing,,,,False,1:0.00 3:0.20,conflicts,,,,,,,,
+gpt5,dspy_task,8563,1 4,False,retest,,,,False,1:0.00 4:0.80,clean,,False,1:capability 4:context,context,1:capability 4:context,context,1:capability 4:context,context
+gpt5,dspy_task,8563,1 5,False,retest,1,,,False,1:0.00 5:0.00,clean,1,False,5:capability,capability,5:capability,capability,5:capability,capability
+gpt5,dspy_task,8563,1 6,False,retest,,6,,False,1:0.00 6:0.00,clean,,False,1:capability 6:integration,integration,1:capability 6:integration,integration,1:capability 6:integration,integration
+gpt5,dspy_task,8563,2 3,False,retest,2 3,2 3,,False,2:0.40 3:0.20,clean,2 3,False,,no_failed_feature,,no_failed_feature,,
+gpt5,dspy_task,8563,2 4,False,retest,2 4,2 4,,True,2:0.40 4:0.80,clean,2 4,False,,no_failed_feature,,no_failed_feature,,
+gpt5,dspy_task,8563,2 5,False,retest,2,2,,False,2:0.40 5:0.00,clean,2,False,5:capability,capability,5:capability,capability,5:capability,capability
+gpt5,dspy_task,8563,2 6,False,retest,2,,,False,2:0.40 6:0.00,clean,2,False,6:capability,capability,6:capability,capability,6:capability,capability
+gpt5,dspy_task,8563,3 4,False,retest,3 4,3 4,,True,3:0.20 4:0.80,clean,3 4,False,,no_failed_feature,,no_failed_feature,,
+gpt5,dspy_task,8563,3 5,False,retest,5,5,,False,3:0.20 5:0.00,clean,5,False,3:capability,capability,3:capability,capability,3:capability,capability
+gpt5,dspy_task,8563,3 6,False,retest,,3,,False,3:0.20 6:0.00,clean,,False,3:integration 6:capability,integration,3:integration 6:capability,integration,3:integration 6:capability,integration
+gpt5,dspy_task,8563,4 5,False,retest,4,4,,False,4:0.80 5:0.00,clean,4,False,5:capability,capability,5:handoff,handoff,5:capability,capability
+gpt5,dspy_task,8563,4 6,False,retest,,,,False,4:0.80 6:0.00,clean,,False,4:context 6:capability,context,4:handoff 6:capability,handoff,4:context 6:capability,context
+gpt5,dspy_task,8563,5 6,False,retest,,,,False,5:0.00 6:0.00,clean,,False,5:capability 6:capability,capability,5:capability 6:capability,capability,5:capability 6:capability,capability
+gpt5,dspy_task,8587,1 2,False,missing,,,,False,1:0.80 2:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,1 3,False,missing,,,,False,1:0.80 3:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,1 4,False,missing,,,,False,1:0.80 4:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,1 5,False,retest,5,5,,False,1:0.80 5:0.00,clean,5,False,1:context,context,1:handoff,handoff,1:context,context
+gpt5,dspy_task,8587,1 6,False,missing,,,,False,1:0.80 6:0.40,conflicts,,,,,,,,
+gpt5,dspy_task,8587,2 3,False,missing,,,,False,2:0.00 3:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,2 4,False,missing,,,,False,2:0.00 4:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,2 5,False,missing,,,,False,2:0.00 5:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,2 6,False,missing,,,,False,2:0.00 6:0.40,conflicts,,,,,,,,
+gpt5,dspy_task,8587,3 4,False,missing,,,,False,3:0.00 4:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,3 5,False,missing,,,,False,3:0.00 5:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,3 6,False,retest,,,,False,3:0.00 6:0.40,clean,,False,3:capability 6:capability,capability,3:capability 6:handoff,handoff,3:capability 6:capability,capability
+gpt5,dspy_task,8587,4 5,False,missing,,,,False,4:0.00 5:0.00,conflicts,,,,,,,,
+gpt5,dspy_task,8587,4 6,False,missing,,,,False,4:0.00 6:0.40,conflicts,,,,,,,,
+gpt5,dspy_task,8587,5 6,False,missing,,,,False,5:0.00 6:0.40,conflicts,,,,,,,,
+gpt5,huggingface_datasets_task,3997,1 2,False,naive,1,1,,,,clean,1,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,huggingface_datasets_task,3997,1 3,False,naive,1,1,,,,clean,1,False,3:unknown,unknown,3:unknown,unknown,3:unknown,unknown
+gpt5,huggingface_datasets_task,3997,1 4,False,naive,,1,,,,clean,,False,1:integration 4:unknown,integration,1:integration 4:unknown,integration,1:integration 4:unknown,integration
+gpt5,huggingface_datasets_task,3997,1 5,False,naive,5,1 5,,,,conflicts,,False,1:integration,integration,1:integration,integration,,
+gpt5,huggingface_datasets_task,3997,2 3,False,naive,,,,,,clean,,False,2:unknown 3:unknown,unknown,2:unknown 3:unknown,unknown,2:unknown 3:unknown,unknown
+gpt5,huggingface_datasets_task,3997,2 4,False,naive,2,,,,,clean,,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+gpt5,huggingface_datasets_task,3997,3 4,False,naive,3,,,,,clean,,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+gpt5,huggingface_datasets_task,3997,4 5,False,naive,5,5,,,,clean,5,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+gpt5,huggingface_datasets_task,6252,3 5,False,naive,,5,,True,3:0.80 5:1.00,clean,,False,3:context 5:integration,integration,3:context 5:integration,integration,3:context 5:integration,integration
+gpt5,huggingface_datasets_task,7309,1 2,False,naive,,,,True,1:1.00 2:1.00,clean,,False,1:context 2:context,context,1:context 2:handoff,handoff,1:context 2:context,context
+gpt5,llama_index_task,17244,1 4,False,naive,1,1,,False,1:1.00 4:0.00,clean,1,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,llama_index_task,17244,2 3,False,naive,2,2,,True,2:1.00 3:0.83,clean,2,False,3:context,context,3:context,context,3:context,context
+gpt5,llama_index_task,17244,2 4,False,naive,,,,False,2:1.00 4:0.00,clean,,False,2:context 4:capability,context,2:context 4:capability,context,2:context 4:capability,context
+gpt5,llama_index_task,17244,2 7,False,naive,,2,,True,2:1.00 7:0.83,clean,,False,2:integration 7:context,integration,2:integration 7:context,integration,2:integration 7:context,integration
+gpt5,llama_index_task,17244,3 4,False,naive,3,3,,False,3:0.83 4:0.00,clean,3,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,llama_index_task,17244,4 5,False,naive,,,,False,4:0.00 5:1.00,clean,,False,4:capability 5:context,context,4:capability 5:context,context,4:capability 5:context,context
+gpt5,llama_index_task,17244,4 6,False,naive,6,,,False,4:0.00 6:1.00,clean,6,False,4:capability,capability,4:capability,capability,4:capability,capability
+gpt5,llama_index_task,17244,4 7,False,naive,,,,False,4:0.00 7:0.83,clean,,False,4:capability 7:context,context,4:capability 7:context,context,4:capability 7:context,context
+gpt5,llama_index_task,17244,5 6,False,naive,5,5,,True,5:1.00 6:1.00,clean,5,False,6:context,context,6:context,context,6:context,context
+gpt5,llama_index_task,17244,5 7,False,naive,,5,,True,5:1.00 7:0.83,clean,,False,5:integration 7:context,integration,5:integration 7:context,integration,5:integration 7:context,integration
+gpt5,llama_index_task,18813,1 2,True,llm,,1,,False,1:1.00 2:0.00,,,False,1:integration 2:capability,integration,1:integration 2:capability,integration,1:integration 2:capability,integration
+gpt5,llama_index_task,18813,1 4,False,naive,4,4,,True,1:1.00 4:1.00,clean,4,False,1:context,context,1:context,context,1:context,context
+gpt5,llama_index_task,18813,1 5,False,naive,1,,,False,1:1.00 5:0.00,clean,1,False,5:capability,capability,5:capability,capability,5:capability,capability
+gpt5,llama_index_task,18813,1 6,False,naive,1,1,,False,1:1.00 6:0.00,clean,1,False,6:capability,capability,6:capability,capability,6:capability,capability
+gpt5,llama_index_task,18813,2 3,True,llm,,3,,False,2:0.00 3:0.80,,,False,2:capability 3:integration,integration,2:capability 3:integration,integration,2:capability 3:integration,integration
+gpt5,llama_index_task,18813,2 4,True,llm,,4,,False,2:0.00 4:1.00,,,False,2:capability 4:integration,integration,2:capability 4:integration,integration,2:capability 4:integration,integration
+gpt5,llama_index_task,18813,2 5,False,naive,,,,False,2:0.00 5:0.00,clean,,False,2:capability 5:capability,capability,2:capability 5:capability,capability,2:capability 5:capability,capability
+gpt5,llama_index_task,18813,2 6,False,naive,,,,False,2:0.00 6:0.00,clean,,False,2:capability 6:capability,capability,2:capability 6:capability,capability,2:capability 6:capability,capability
+gpt5,llama_index_task,18813,3 4,False,naive,4,4,,True,3:0.80 4:1.00,clean,4,False,3:context,context,3:context,context,3:context,context
+gpt5,llama_index_task,18813,3 5,False,naive,3,3,,False,3:0.80 5:0.00,clean,3,False,5:capability,capability,5:capability,capability,5:capability,capability
+gpt5,llama_index_task,18813,3 6,True,llm,,,,False,3:0.80 6:0.00,,,False,3:context 6:capability,context,3:context 6:capability,context,3:context 6:capability,context
+gpt5,llama_index_task,18813,4 5,True,llm,,,5,False,4:1.00 5:0.00,,,True,4:context 5:capability,context,4:handoff 5:capability,handoff,4:context 5:capability,context
+gpt5,llama_index_task,18813,4 6,False,naive,4,4,,False,4:1.00 6:0.00,clean,4,False,6:capability,capability,6:capability,capability,6:capability,capability
+gpt5,llama_index_task,18813,5 6,True,llm,,,,False,5:0.00 6:0.00,,,False,5:capability 6:capability,capability,5:capability 6:capability,capability,5:capability 6:capability,capability
+gpt5,openai_tiktoken_task,0,1 2,False,naive,2,1 2,1,True,1:1.00 2:1.00,conflicts,1 2,True,1:integration,integration,1:integration,integration,,
+gpt5,openai_tiktoken_task,0,1 3,False,naive,,1 3,1,False,1:1.00 3:0.00,conflicts,1 3,True,1:integration 3:integration,integration,1:integration 3:integration,integration,,
+gpt5,openai_tiktoken_task,0,1 4,False,naive,,1,,True,1:1.00 4:1.00,clean,1 4,False,1:integration 4:context,integration,1:integration 4:context,integration,,
+gpt5,openai_tiktoken_task,0,1 5,False,naive,5,1 5,1,True,1:1.00 5:1.00,conflicts,1 5,True,1:integration,integration,1:integration,integration,,
+gpt5,openai_tiktoken_task,0,1 6,False,naive,6,6,,True,1:1.00 6:1.00,clean,1 6,False,1:context,context,1:context,context,,
+gpt5,openai_tiktoken_task,0,1 7,False,naive,,1,,False,1:1.00 7:0.11,conflicts,,False,1:integration 7:capability,integration,1:integration 7:capability,integration,,
+gpt5,openai_tiktoken_task,0,1 9,False,naive,,1,,False,1:1.00 9:0.00,conflicts,,False,1:integration 9:capability,integration,1:integration 9:capability,integration,,
+gpt5,openai_tiktoken_task,0,1 10,False,naive,,1,,False,1:1.00 10:0.00,clean,1,False,1:integration 10:capability,integration,1:integration 10:capability,integration,10:capability,capability
+gpt5,openai_tiktoken_task,0,2 3,False,naive,,2 3,,False,2:1.00 3:0.00,conflicts,,False,2:integration 3:integration,integration,2:integration 3:integration,integration,,
+gpt5,openai_tiktoken_task,0,2 5,False,naive,5,5,,True,2:1.00 5:1.00,conflicts,,False,2:context,context,2:context,context,,
+gpt5,openai_tiktoken_task,0,2 6,False,naive,6,2 6,,True,2:1.00 6:1.00,clean,2 6,False,2:integration,integration,2:integration,integration,,
+gpt5,openai_tiktoken_task,0,2 7,False,naive,,2,,False,2:1.00 7:0.11,clean,2,False,2:integration 7:capability,integration,2:integration 7:capability,integration,7:capability,capability
+gpt5,openai_tiktoken_task,0,2 9,False,naive,,2,,False,2:1.00 9:0.00,conflicts,,False,2:integration 9:capability,integration,2:integration 9:capability,integration,,
+gpt5,openai_tiktoken_task,0,2 10,False,naive,,,,False,2:1.00 10:0.00,clean,2,False,2:context 10:capability,context,2:context 10:capability,context,10:capability,capability
+gpt5,openai_tiktoken_task,0,3 4,False,naive,4,3 4,,False,3:0.00 4:1.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+gpt5,openai_tiktoken_task,0,3 5,False,naive,5,5,,False,3:0.00 5:1.00,clean,5,False,3:capability,capability,3:capability,capability,3:capability,capability
+gpt5,openai_tiktoken_task,0,3 6,False,naive,6,3 6,,False,3:0.00 6:1.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+gpt5,openai_tiktoken_task,0,3 7,False,naive,,3,,False,3:0.00 7:0.11,conflicts,,False,3:integration 7:capability,integration,3:integration 7:capability,integration,,
+gpt5,openai_tiktoken_task,0,3 8,False,naive,8,3 8,,False,3:0.00 8:1.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+gpt5,openai_tiktoken_task,0,3 9,False,naive,,3,,False,3:0.00 9:0.00,conflicts,,False,3:integration 9:capability,integration,3:integration 9:capability,integration,,
+gpt5,openai_tiktoken_task,0,3 10,False,naive,,,,False,3:0.00 10:0.00,clean,,False,3:capability 10:capability,capability,3:capability 10:capability,capability,3:capability 10:capability,capability
+gpt5,openai_tiktoken_task,0,4 5,False,naive,,4,4,True,4:1.00 5:1.00,conflicts,4 5,True,4:integration 5:context,integration,4:integration 5:handoff,integration,,
+gpt5,openai_tiktoken_task,0,4 6,False,naive,6,4 6,,True,4:1.00 6:1.00,conflicts,,False,4:integration,integration,4:integration,integration,,
+gpt5,openai_tiktoken_task,0,4 7,False,naive,,4,,False,4:1.00 7:0.11,clean,4,False,4:integration 7:capability,integration,4:integration 7:capability,integration,7:capability,capability
+gpt5,openai_tiktoken_task,0,4 8,False,naive,,4,,True,4:1.00 8:1.00,clean,4 8,False,4:integration 8:context,integration,4:integration 8:context,integration,,
+gpt5,openai_tiktoken_task,0,4 9,False,naive,,4,,False,4:1.00 9:0.00,conflicts,,False,4:integration 9:capability,integration,4:integration 9:capability,integration,,
+gpt5,openai_tiktoken_task,0,4 10,False,naive,,4,,False,4:1.00 10:0.00,conflicts,,False,4:integration 10:capability,integration,4:integration 10:capability,integration,,
+gpt5,openai_tiktoken_task,0,5 6,False,naive,,5,,True,5:1.00 6:1.00,clean,5 6,False,5:integration 6:context,integration,5:integration 6:context,integration,,
+gpt5,openai_tiktoken_task,0,5 7,False,naive,,5,,True,5:1.00 7:0.11,clean,5,False,5:integration 7:capability,integration,5:integration 7:handoff,integration,7:capability,capability
+gpt5,openai_tiktoken_task,0,5 8,False,naive,8,5 8,,True,5:1.00 8:1.00,conflicts,,False,5:integration,integration,5:integration,integration,,
+gpt5,openai_tiktoken_task,0,5 9,False,naive,5,5,9,False,5:1.00 9:0.00,clean,5,True,9:capability,capability,9:capability,capability,9:capability,capability
+gpt5,openai_tiktoken_task,0,5 10,False,naive,,,,False,5:1.00 10:0.00,clean,,False,5:context 10:capability,context,5:context 10:handoff,handoff,5:context 10:capability,context
+gpt5,openai_tiktoken_task,0,6 7,False,naive,7,6 7,,False,6:1.00 7:0.11,conflicts,,False,6:integration,integration,6:integration,integration,,
+gpt5,openai_tiktoken_task,0,6 9,False,naive,,6,,False,6:1.00 9:0.00,conflicts,,False,6:integration 9:capability,integration,6:integration 9:capability,integration,,
+gpt5,openai_tiktoken_task,0,6 10,False,naive,,6,,False,6:1.00 10:0.00,conflicts,,False,6:integration 10:capability,integration,6:integration 10:capability,integration,,
+gpt5,openai_tiktoken_task,0,7 8,False,naive,,7,,False,7:0.11 8:1.00,clean,7,False,7:integration 8:context,integration,7:integration 8:context,integration,8:context,context
+gpt5,openai_tiktoken_task,0,7 9,False,naive,,,,False,7:0.11 9:0.00,clean,,False,7:capability 9:capability,capability,7:capability 9:capability,capability,7:capability 9:capability,capability
+gpt5,openai_tiktoken_task,0,7 10,False,naive,,,,False,7:0.11 10:0.00,conflicts,,False,7:capability 10:capability,capability,7:capability 10:capability,capability,,
+gpt5,openai_tiktoken_task,0,8 9,False,naive,,8,,False,8:1.00 9:0.00,conflicts,,False,8:integration 9:capability,integration,8:integration 9:capability,integration,,
+gpt5,openai_tiktoken_task,0,8 10,False,naive,,8,,False,8:1.00 10:0.00,conflicts,,False,8:integration 10:capability,integration,8:integration 10:capability,integration,,
+gpt5,openai_tiktoken_task,0,9 10,False,naive,,,,False,9:0.00 10:0.00,conflicts,,False,9:capability 10:capability,capability,9:capability 10:capability,capability,,
+gpt5,pallets_click_task,2068,1 2,True,llm,,1 2,,False,1:1.00 2:0.64,,,False,1:integration 2:integration,integration,1:integration 2:integration,integration,1:integration 2:integration,integration
+gpt5,pallets_click_task,2068,1 4,False,naive,,,,False,1:1.00 4:0.00,clean,,False,1:context 4:capability,context,1:context 4:capability,context,1:context 4:capability,context
+gpt5,pallets_click_task,2068,1 5,True,llm,,1,,True,1:1.00 5:0.91,,,False,1:integration 5:context,integration,1:integration 5:handoff,integration,1:integration 5:context,integration
+gpt5,pallets_click_task,2068,1 7,False,naive,1,,,True,1:1.00 7:0.91,clean,1,False,7:context,context,7:context,context,7:context,context
+gpt5,pallets_click_task,2068,1 8,True,llm,1,1,,False,1:1.00 8:0.73,,,False,8:context,context,8:context,context,8:context,context
+gpt5,pallets_click_task,2068,1 9,False,naive,1,1,,False,1:1.00 9:0.27,clean,1,False,9:capability,capability,9:handoff,handoff,9:capability,capability
+gpt5,pallets_click_task,2068,1 10,False,naive,,,,True,1:1.00 10:0.64,clean,,False,1:context 10:context,context,1:context 10:context,context,1:context 10:context,context
+gpt5,pallets_click_task,2068,1 11,True,llm,,1,,False,1:1.00 11:0.09,,,False,1:integration 11:capability,integration,1:integration 11:capability,integration,1:integration 11:capability,integration
+gpt5,pallets_click_task,2068,1 12,False,naive,1,,,True,1:1.00 12:0.91,clean,1,False,12:context,context,12:handoff,handoff,12:context,context
+gpt5,pallets_click_task,2068,2 4,False,naive,,,,False,2:0.64 4:0.00,clean,,False,2:context 4:capability,context,2:handoff 4:handoff,handoff,2:context 4:capability,context
+gpt5,pallets_click_task,2068,2 6,True,llm,,,,False,2:0.64 6:0.91,,,False,2:context 6:context,context,2:context 6:handoff,handoff,2:context 6:context,context
+gpt5,pallets_click_task,2068,2 7,True,llm,,2 7,,False,2:0.64 7:0.91,,,False,2:integration 7:integration,integration,2:integration 7:integration,integration,2:integration 7:integration,integration
+gpt5,pallets_click_task,2068,2 8,True,llm,,8,,False,2:0.64 8:0.73,,,False,2:context 8:integration,integration,2:handoff 8:integration,integration,2:context 8:integration,integration
+gpt5,pallets_click_task,2068,2 9,False,naive,,,,False,2:0.64 9:0.27,clean,,False,2:context 9:capability,context,2:context 9:handoff,handoff,2:context 9:capability,context
+gpt5,pallets_click_task,2068,2 10,True,llm,,,,False,2:0.64 10:0.64,,,False,2:context 10:context,context,2:context 10:handoff,handoff,2:context 10:context,context
+gpt5,pallets_click_task,2068,2 11,True,llm,,,,False,2:0.64 11:0.09,,,False,2:context 11:capability,context,2:context 11:capability,context,2:context 11:capability,context
+gpt5,pallets_click_task,2068,2 12,False,naive,12,,,True,2:0.64 12:0.91,clean,12,False,2:context,context,2:handoff,handoff,2:context,context
+gpt5,pallets_click_task,2068,3 4,False,naive,,3,,False,3:0.91 4:0.00,clean,,False,3:integration 4:capability,integration,3:integration 4:handoff,integration,3:integration 4:capability,integration
+gpt5,pallets_click_task,2068,3 5,False,naive,5,5,,True,3:0.91 5:0.91,clean,5,False,3:context,context,3:handoff,handoff,3:context,context
+gpt5,pallets_click_task,2068,3 6,True,llm,,6,,True,3:0.91 6:0.91,,,False,3:context 6:integration,integration,3:handoff 6:integration,integration,3:context 6:integration,integration
+gpt5,pallets_click_task,2068,3 8,False,naive,8,,,True,3:0.91 8:0.73,clean,8,False,3:context,context,3:context,context,3:context,context
+gpt5,pallets_click_task,2068,3 11,True,llm,,11,,False,3:0.91 11:0.09,,,False,3:context 11:integration,integration,3:handoff 11:integration,integration,3:context 11:integration,integration
+gpt5,pallets_click_task,2068,4 5,True,llm,,5,,False,4:0.00 5:0.91,,,False,4:capability 5:integration,integration,4:handoff 5:integration,integration,4:capability 5:integration,integration
+gpt5,pallets_click_task,2068,4 6,True,llm,,6,,False,4:0.00 6:0.91,,,False,4:capability 6:integration,integration,4:capability 6:integration,integration,4:capability 6:integration,integration
+gpt5,pallets_click_task,2068,4 7,True,llm,,7,,False,4:0.00 7:0.91,,,False,4:capability 7:integration,integration,4:capability 7:integration,integration,4:capability 7:integration,integration
+gpt5,pallets_click_task,2068,4 8,True,llm,,8,,False,4:0.00 8:0.73,,,False,4:capability 8:integration,integration,4:handoff 8:integration,integration,4:capability 8:integration,integration
+gpt5,pallets_click_task,2068,4 9,True,llm,,9,,False,4:0.00 9:0.27,,,False,4:capability 9:integration,integration,4:capability 9:integration,integration,4:capability 9:integration,integration
+gpt5,pallets_click_task,2068,4 10,True,llm,,10,,False,4:0.00 10:0.64,,,False,4:capability 10:integration,integration,4:handoff 10:integration,integration,4:capability 10:integration,integration
+gpt5,pallets_click_task,2068,4 11,True,llm,,4,,False,4:0.00 11:0.09,,,False,4:integration 11:capability,integration,4:integration 11:capability,integration,4:integration 11:capability,integration
+gpt5,pallets_click_task,2068,4 12,True,llm,,4,,False,4:0.00 12:0.91,,,False,4:integration 12:context,integration,4:integration 12:context,integration,4:integration 12:context,integration
+gpt5,pallets_click_task,2068,5 9,True,llm,,,,False,5:0.91 9:0.27,,,False,5:context 9:capability,context,5:handoff 9:capability,handoff,5:context 9:capability,context
+gpt5,pallets_click_task,2068,5 10,False,naive,5,5,,True,5:0.91 10:0.64,clean,5,False,10:context,context,10:handoff,handoff,10:context,context
+gpt5,pallets_click_task,2068,5 11,True,llm,,,,False,5:0.91 11:0.09,,,False,5:context 11:capability,context,5:handoff 11:capability,handoff,5:context 11:capability,context
+gpt5,pallets_click_task,2068,6 7,True,llm,,7,,True,6:0.91 7:0.91,,,False,6:context 7:integration,integration,6:handoff 7:integration,integration,6:context 7:integration,integration
+gpt5,pallets_click_task,2068,6 8,False,naive,6,8,8,False,6:0.91 8:0.73,clean,6,True,8:integration,integration,8:integration,integration,8:integration,integration
+gpt5,pallets_click_task,2068,6 9,False,naive,6,,9,True,6:0.91 9:0.27,clean,6,True,9:capability,capability,9:capability,capability,9:capability,capability
+gpt5,pallets_click_task,2068,6 10,True,llm,,,,False,6:0.91 10:0.64,,,False,6:context 10:context,context,6:handoff 10:context,handoff,6:context 10:context,context
+gpt5,pallets_click_task,2068,6 11,True,llm,,,,False,6:0.91 11:0.09,,,False,6:context 11:capability,context,6:context 11:capability,context,6:context 11:capability,context
+gpt5,pallets_click_task,2068,6 12,True,llm,,12,,False,6:0.91 12:0.91,,,False,6:context 12:integration,integration,6:handoff 12:integration,integration,6:context 12:integration,integration
+gpt5,pallets_click_task,2068,7 8,True,llm,,8,,True,7:0.91 8:0.73,,,False,7:context 8:integration,integration,7:handoff 8:integration,integration,7:context 8:integration,integration
+gpt5,pallets_click_task,2068,7 9,False,naive,7,7,,True,7:0.91 9:0.27,clean,7,False,9:capability,capability,9:handoff,handoff,9:capability,capability
+gpt5,pallets_click_task,2068,7 10,True,llm,,7,,True,7:0.91 10:0.64,,,False,7:integration 10:context,integration,7:integration 10:context,integration,7:integration 10:context,integration
+gpt5,pallets_click_task,2068,7 11,True,llm,,,,False,7:0.91 11:0.09,,,False,7:context 11:capability,context,7:handoff 11:capability,handoff,7:context 11:capability,context
+gpt5,pallets_click_task,2068,7 12,False,naive,7,7,,True,7:0.91 12:0.91,clean,7,False,12:context,context,12:handoff,handoff,12:context,context
+gpt5,pallets_click_task,2068,8 9,False,naive,8,8,,False,8:0.73 9:0.27,clean,8,False,9:capability,capability,9:capability,capability,9:capability,capability
+gpt5,pallets_click_task,2068,8 10,True,llm,,8,,True,8:0.73 10:0.64,,,False,8:integration 10:context,integration,8:integration 10:context,integration,8:integration 10:context,integration
+gpt5,pallets_click_task,2068,8 11,False,naive,8,8,,False,8:0.73 11:0.09,clean,8,False,11:capability,capability,11:capability,capability,11:capability,capability
+gpt5,pallets_click_task,2068,8 12,True,llm,,12,,True,8:0.73 12:0.91,,,False,8:context 12:integration,integration,8:context 12:integration,integration,8:context 12:integration,integration
+gpt5,pallets_click_task,2068,9 10,True,llm,,,,False,9:0.27 10:0.64,,,False,9:capability 10:context,context,9:capability 10:context,context,9:capability 10:context,context
+gpt5,pallets_click_task,2068,9 11,True,llm,,,,False,9:0.27 11:0.09,,,False,9:capability 11:capability,capability,9:capability 11:capability,capability,9:capability 11:capability,capability
+gpt5,pallets_click_task,2068,9 12,False,naive,12,12,,False,9:0.27 12:0.91,clean,12,False,9:capability,capability,9:handoff,handoff,9:capability,capability
+gpt5,pallets_click_task,2068,10 11,True,llm,,,,False,10:0.64 11:0.09,,,False,10:context 11:capability,context,10:context 11:capability,context,10:context 11:capability,context
+gpt5,pallets_click_task,2068,10 12,False,naive,12,,,True,10:0.64 12:0.91,clean,12,False,10:context,context,10:context,context,10:context,context
+gpt5,pallets_click_task,2068,11 12,True,llm,,12,,False,11:0.09 12:0.91,,,False,11:capability 12:integration,integration,11:handoff 12:integration,integration,11:capability 12:integration,integration
+gpt5,pallets_click_task,2800,1 2,False,naive,1,1 2,,,,clean,1,False,2:integration,integration,2:integration,integration,2:integration,integration
+gpt5,pallets_click_task,2800,1 4,False,naive,1,1,,,,clean,1,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+gpt5,pallets_click_task,2800,1 6,False,naive,6,1 6,,,,clean,6,False,1:integration,integration,1:integration,integration,1:integration,integration
+gpt5,pallets_click_task,2800,1 7,False,naive,1,1,,,,clean,1,False,7:unknown,unknown,7:unknown,unknown,7:unknown,unknown
+gpt5,pallets_click_task,2800,2 3,False,naive,3,,,,,clean,3,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,pallets_click_task,2800,2 4,False,naive,,,,,,clean,,False,2:unknown 4:unknown,unknown,2:unknown 4:unknown,unknown,2:unknown 4:unknown,unknown
+gpt5,pallets_click_task,2800,2 5,False,naive,5,5,,,,clean,5,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,pallets_click_task,2800,2 6,False,naive,6,6,,,,clean,6,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,pallets_click_task,2800,2 7,False,naive,7,,,,,clean,7,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,pallets_click_task,2800,3 4,False,naive,3,3,,,,clean,3,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+gpt5,pallets_click_task,2800,3 5,False,naive,,,,,,clean,,False,3:unknown 5:unknown,unknown,3:unknown 5:unknown,unknown,3:unknown 5:unknown,unknown
+gpt5,pallets_click_task,2800,3 7,True,llm,,3,,,,,,False,3:integration 7:unknown,integration,3:integration 7:unknown,integration,3:integration 7:unknown,integration
+gpt5,pallets_click_task,2800,4 5,True,llm,,5,,,,,,False,4:unknown 5:integration,integration,4:unknown 5:integration,integration,4:unknown 5:integration,integration
+gpt5,pallets_click_task,2800,4 7,True,llm,,,,,,,,False,4:unknown 7:unknown,unknown,4:unknown 7:unknown,unknown,4:unknown 7:unknown,unknown
+gpt5,pallets_click_task,2800,5 7,True,llm,,7,,,,,,False,5:unknown 7:integration,integration,5:unknown 7:integration,integration,5:unknown 7:integration,integration
+gpt5,pallets_click_task,2956,1 2,True,llm,1,1,,False,1:0.29 2:0.86,,,False,2:context,context,2:context,context,2:context,context
+gpt5,pallets_click_task,2956,1 3,True,llm,3,3,,True,1:0.29 3:0.29,,,False,1:capability,capability,1:capability,capability,1:capability,capability
+gpt5,pallets_click_task,2956,1 4,True,llm,,,,False,1:0.29 4:0.57,,,False,1:capability 4:context,context,1:capability 4:context,context,1:capability 4:context,context
+gpt5,pallets_click_task,2956,1 5,False,naive,,,,False,1:0.29 5:0.14,clean,,False,1:capability 5:capability,capability,1:capability 5:capability,capability,1:capability 5:capability,capability
+gpt5,pallets_click_task,2956,1 6,False,naive,,6,,False,1:0.29 6:0.57,clean,,False,1:capability 6:integration,integration,1:capability 6:integration,integration,1:capability 6:integration,integration
+gpt5,pallets_click_task,2956,1 7,True,llm,,,,False,1:0.29 7:0.00,,,False,1:capability 7:capability,capability,1:capability 7:capability,capability,1:capability 7:capability,capability
+gpt5,pallets_click_task,2956,1 8,False,naive,8,8,,False,1:0.29 8:0.14,clean,8,False,1:capability,capability,1:capability,capability,1:capability,capability
+gpt5,pallets_click_task,2956,2 3,False,naive,3,,,True,2:0.86 3:0.29,clean,3,False,2:context,context,2:context,context,2:context,context
+gpt5,pallets_click_task,2956,2 5,False,naive,2,2,,False,2:0.86 5:0.14,clean,2,False,5:capability,capability,5:capability,capability,5:capability,capability
+gpt5,pallets_click_task,2956,2 6,True,llm,,6,,True,2:0.86 6:0.57,,,False,2:context 6:integration,integration,2:context 6:integration,integration,2:context 6:integration,integration
+gpt5,pallets_click_task,2956,2 7,False,naive,2,2,,False,2:0.86 7:0.00,clean,2,False,7:capability,capability,7:capability,capability,7:capability,capability
+gpt5,pallets_click_task,2956,2 8,False,naive,,2,,False,2:0.86 8:0.14,clean,,False,2:integration 8:capability,integration,2:integration 8:capability,integration,2:integration 8:capability,integration
+gpt5,pallets_click_task,2956,3 4,False,naive,4,4,,False,3:0.29 4:0.57,clean,4,False,3:capability,capability,3:capability,capability,3:capability,capability
+gpt5,pallets_click_task,2956,3 5,True,llm,,,,False,3:0.29 5:0.14,,,False,3:capability 5:capability,capability,3:capability 5:capability,capability,3:capability 5:capability,capability
+gpt5,pallets_click_task,2956,3 6,False,naive,,6,,False,3:0.29 6:0.57,clean,,False,3:capability 6:integration,integration,3:capability 6:integration,integration,3:capability 6:integration,integration
+gpt5,pallets_click_task,2956,3 7,True,llm,,,,False,3:0.29 7:0.00,,,False,3:capability 7:capability,capability,3:capability 7:capability,capability,3:capability 7:capability,capability
+gpt5,pallets_click_task,2956,3 8,False,naive,8,8,,False,3:0.29 8:0.14,clean,8,False,3:capability,capability,3:capability,capability,3:capability,capability
+gpt5,pallets_click_task,2956,4 7,True,llm,,,,False,4:0.57 7:0.00,,,False,4:context 7:capability,context,4:context 7:capability,context,4:context 7:capability,context
+gpt5,pallets_click_task,2956,4 8,True,llm,,4,,False,4:0.57 8:0.14,,,False,4:integration 8:capability,integration,4:integration 8:capability,integration,4:integration 8:capability,integration
+gpt5,pallets_click_task,2956,5 6,False,naive,,6,,False,5:0.14 6:0.57,clean,,False,5:capability 6:integration,integration,5:capability 6:integration,integration,5:capability 6:integration,integration
+gpt5,pallets_click_task,2956,5 7,True,llm,,,,False,5:0.14 7:0.00,,,False,5:capability 7:capability,capability,5:capability 7:capability,capability,5:capability 7:capability,capability
+gpt5,pallets_click_task,2956,5 8,False,naive,8,8,,False,5:0.14 8:0.14,clean,8,False,5:capability,capability,5:capability,capability,5:capability,capability
+gpt5,pallets_click_task,2956,6 7,False,naive,6,6,,False,6:0.57 7:0.00,clean,6,False,7:capability,capability,7:capability,capability,7:capability,capability
+gpt5,pallets_click_task,2956,7 8,False,naive,,,,False,7:0.00 8:0.14,clean,,False,7:capability 8:capability,capability,7:capability 8:capability,capability,7:capability 8:capability,capability
+gpt5,pallets_jinja_task,1465,1 2,True,llm,,1 2,2,,,,,True,1:integration 2:integration,integration,1:integration 2:integration,integration,1:integration 2:integration,integration
+gpt5,pallets_jinja_task,1465,1 3,True,llm,,1,,,,,,False,1:integration 3:unknown,integration,1:integration 3:unknown,integration,1:integration 3:unknown,integration
+gpt5,pallets_jinja_task,1465,1 4,False,naive,4,1 4,,,,clean,4,False,1:integration,integration,1:integration,integration,1:integration,integration
+gpt5,pallets_jinja_task,1465,1 5,True,llm,,,,,,,,False,1:unknown 5:unknown,unknown,1:unknown 5:unknown,unknown,1:unknown 5:unknown,unknown
+gpt5,pallets_jinja_task,1465,1 7,True,llm,,1,1,,,,,True,1:integration 7:unknown,integration,1:integration 7:unknown,integration,1:integration 7:unknown,integration
+gpt5,pallets_jinja_task,1465,1 8,True,llm,,1 8,,,,,,False,1:integration 8:integration,integration,1:integration 8:integration,integration,1:integration 8:integration,integration
+gpt5,pallets_jinja_task,1465,1 9,True,llm,,,9,,,,,True,1:unknown 9:unknown,unknown,1:unknown 9:unknown,unknown,1:unknown 9:unknown,unknown
+gpt5,pallets_jinja_task,1465,2 4,True,llm,,2 4,4,,,,,True,2:integration 4:integration,integration,2:integration 4:integration,integration,2:integration 4:integration,integration
+gpt5,pallets_jinja_task,1465,2 5,False,naive,,,,,,clean,,False,2:unknown 5:unknown,unknown,2:unknown 5:unknown,unknown,2:unknown 5:unknown,unknown
+gpt5,pallets_jinja_task,1465,2 6,True,llm,,6,,,,,,False,2:unknown 6:integration,integration,2:unknown 6:integration,integration,2:unknown 6:integration,integration
+gpt5,pallets_jinja_task,1465,2 7,False,naive,,7,7,,,clean,,True,2:unknown 7:integration,integration,2:unknown 7:integration,integration,2:unknown 7:integration,integration
+gpt5,pallets_jinja_task,1465,2 9,True,llm,,2,,,,,,False,2:integration 9:unknown,integration,2:integration 9:unknown,integration,2:integration 9:unknown,integration
+gpt5,pallets_jinja_task,1465,2 10,True,llm,,2 10,2,,,,,True,2:integration 10:integration,integration,2:integration 10:integration,integration,2:integration 10:integration,integration
+gpt5,pallets_jinja_task,1465,3 5,True,llm,,3,,,,,,False,3:integration 5:unknown,integration,3:integration 5:unknown,integration,3:integration 5:unknown,integration
+gpt5,pallets_jinja_task,1465,3 6,True,llm,,3,,,,,,False,3:integration 6:unknown,integration,3:integration 6:unknown,integration,3:integration 6:unknown,integration
+gpt5,pallets_jinja_task,1465,3 7,True,llm,,3 7,7,,,,,True,3:integration 7:integration,integration,3:integration 7:integration,integration,3:integration 7:integration,integration
+gpt5,pallets_jinja_task,1465,3 9,True,llm,,3 9,,,,,,False,3:integration 9:integration,integration,3:integration 9:integration,integration,3:integration 9:integration,integration
+gpt5,pallets_jinja_task,1465,3 10,True,llm,,10,,,,,,False,3:unknown 10:integration,integration,3:unknown 10:integration,integration,3:unknown 10:integration,integration
+gpt5,pallets_jinja_task,1465,4 5,True,llm,,4,5,,,,,True,4:integration 5:unknown,integration,4:integration 5:unknown,integration,4:integration 5:unknown,integration
+gpt5,pallets_jinja_task,1465,4 6,True,llm,,6,,,,,,False,4:unknown 6:integration,integration,4:unknown 6:integration,integration,4:unknown 6:integration,integration
+gpt5,pallets_jinja_task,1465,4 7,True,llm,,4 7,,,,,,False,4:integration 7:integration,integration,4:integration 7:integration,integration,4:integration 7:integration,integration
+gpt5,pallets_jinja_task,1465,4 10,True,llm,,4,10,,,,,True,4:integration 10:unknown,integration,4:integration 10:unknown,integration,4:integration 10:unknown,integration
+gpt5,pallets_jinja_task,1465,5 6,True,llm,,6,,,,,,False,5:unknown 6:integration,integration,5:unknown 6:integration,integration,5:unknown 6:integration,integration
+gpt5,pallets_jinja_task,1465,5 7,True,llm,,7,,,,,,False,5:unknown 7:integration,integration,5:unknown 7:integration,integration,5:unknown 7:integration,integration
+gpt5,pallets_jinja_task,1465,5 8,True,llm,,,,,,,,False,5:unknown 8:unknown,unknown,5:unknown 8:unknown,unknown,5:unknown 8:unknown,unknown
+gpt5,pallets_jinja_task,1465,5 9,True,llm,,,,,,,,False,5:unknown 9:unknown,unknown,5:unknown 9:unknown,unknown,5:unknown 9:unknown,unknown
+gpt5,pallets_jinja_task,1465,5 10,False,naive,,,,,,clean,,False,5:unknown 10:unknown,unknown,5:unknown 10:unknown,unknown,5:unknown 10:unknown,unknown
+gpt5,pallets_jinja_task,1465,6 7,True,union,7,7,,,,,,False,6:unknown,unknown,6:unknown,unknown,6:unknown,unknown
+gpt5,pallets_jinja_task,1465,6 9,False,naive,6,6,,,,clean,6,False,9:unknown,unknown,9:unknown,unknown,9:unknown,unknown
+gpt5,pallets_jinja_task,1465,6 10,True,llm,10,10,,,,,,False,6:unknown,unknown,6:unknown,unknown,6:unknown,unknown
+gpt5,pallets_jinja_task,1465,7 9,True,llm,,,,,,,,False,7:unknown 9:unknown,unknown,7:unknown 9:unknown,unknown,7:unknown 9:unknown,unknown
+gpt5,pallets_jinja_task,1465,8 9,False,naive,9,9,,,,clean,9,False,8:unknown,unknown,8:unknown,unknown,8:unknown,unknown
+gpt5,pallets_jinja_task,1465,8 10,True,llm,,8,,,,,,False,8:integration 10:unknown,integration,8:integration 10:unknown,integration,8:integration 10:unknown,integration
+gpt5,pallets_jinja_task,1465,9 10,False,naive,9,9,,,,clean,9,False,10:unknown,unknown,10:unknown,unknown,10:unknown,unknown
+gpt5,pallets_jinja_task,1559,1 2,False,naive,,,,,,clean,,False,1:unknown 2:unknown,unknown,1:unknown 2:unknown,unknown,1:unknown 2:unknown,unknown
+gpt5,pallets_jinja_task,1559,1 3,False,naive,1,,,,,conflicts,,False,3:unknown,unknown,3:unknown,unknown,,
+gpt5,pallets_jinja_task,1559,1 6,False,naive,,1,,,,clean,,False,1:integration 6:unknown,integration,1:integration 6:unknown,integration,1:integration 6:unknown,integration
+gpt5,pallets_jinja_task,1559,1 8,False,naive,1,1,,,,clean,1,False,8:unknown,unknown,8:unknown,unknown,8:unknown,unknown
+gpt5,pallets_jinja_task,1559,1 10,False,naive,,10,,,,clean,,False,1:unknown 10:integration,integration,1:unknown 10:integration,integration,1:unknown 10:integration,integration
+gpt5,pallets_jinja_task,1559,2 3,False,naive,,2,,,,clean,,False,2:integration 3:unknown,integration,2:integration 3:unknown,integration,2:integration 3:unknown,integration
+gpt5,pallets_jinja_task,1559,2 4,True,llm,,4,,,,,,False,2:unknown 4:integration,integration,2:unknown 4:integration,integration,2:unknown 4:integration,integration
+gpt5,pallets_jinja_task,1559,2 6,False,naive,2,2,,,,clean,2,False,6:unknown,unknown,6:unknown,unknown,6:unknown,unknown
+gpt5,pallets_jinja_task,1559,2 7,True,llm,,,,,,,,False,2:unknown 7:unknown,unknown,2:unknown 7:unknown,unknown,2:unknown 7:unknown,unknown
+gpt5,pallets_jinja_task,1559,2 8,False,naive,,8,,,,clean,,False,2:unknown 8:integration,integration,2:unknown 8:integration,integration,2:unknown 8:integration,integration
+gpt5,pallets_jinja_task,1559,2 9,False,naive,9,9,,,,clean,9,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,pallets_jinja_task,1559,2 10,False,naive,10,10,,,,clean,10,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+gpt5,pallets_jinja_task,1559,3 4,True,llm,,,,,,,,False,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown
+gpt5,pallets_jinja_task,1559,3 5,False,naive,5,,,,,clean,5,False,3:unknown,unknown,3:unknown,unknown,3:unknown,unknown
+gpt5,pallets_jinja_task,1559,3 6,False,naive,,,,,,clean,,False,3:unknown 6:unknown,unknown,3:unknown 6:unknown,unknown,3:unknown 6:unknown,unknown
+gpt5,pallets_jinja_task,1559,3 7,False,naive,3,,,,,clean,,False,7:unknown,unknown,7:unknown,unknown,7:unknown,unknown
+gpt5,pallets_jinja_task,1559,3 8,False,naive,,,,,,clean,,False,3:unknown 8:unknown,unknown,3:unknown 8:unknown,unknown,3:unknown 8:unknown,unknown
+gpt5,pallets_jinja_task,1559,3 9,False,naive,,9,,,,clean,,False,3:unknown 9:integration,integration,3:unknown 9:integration,integration,3:unknown 9:integration,integration
+gpt5,pallets_jinja_task,1559,4 6,False,naive,,4,,,,clean,,False,4:integration 6:unknown,integration,4:integration 6:unknown,integration,4:integration 6:unknown,integration
+gpt5,pallets_jinja_task,1559,4 8,False,naive,4,4,,,,clean,4,False,8:unknown,unknown,8:unknown,unknown,8:unknown,unknown
+gpt5,pallets_jinja_task,1559,4 9,False,naive,,,,,,clean,,False,4:unknown 9:unknown,unknown,4:unknown 9:unknown,unknown,4:unknown 9:unknown,unknown
+gpt5,pallets_jinja_task,1559,4 10,False,naive,,4,,,,clean,,False,4:integration 10:unknown,integration,4:integration 10:unknown,integration,4:integration 10:unknown,integration
+gpt5,pallets_jinja_task,1559,5 6,False,naive,,5,,,,clean,,False,5:integration 6:unknown,integration,5:integration 6:unknown,integration,5:integration 6:unknown,integration
+gpt5,pallets_jinja_task,1559,5 8,False,naive,5,5,,,,clean,5,False,8:unknown,unknown,8:unknown,unknown,8:unknown,unknown
+gpt5,pallets_jinja_task,1559,5 9,False,naive,5,5,,,,clean,5,False,9:unknown,unknown,9:unknown,unknown,9:unknown,unknown
+gpt5,pallets_jinja_task,1559,6 7,False,naive,,,,,,clean,,False,6:unknown 7:unknown,unknown,6:unknown 7:unknown,unknown,6:unknown 7:unknown,unknown
+gpt5,pallets_jinja_task,1559,6 8,False,naive,,,,,,clean,,False,6:unknown 8:unknown,unknown,6:unknown 8:unknown,unknown,6:unknown 8:unknown,unknown
+gpt5,pallets_jinja_task,1559,6 9,False,naive,,9,,,,clean,,False,6:unknown 9:integration,integration,6:unknown 9:integration,integration,6:unknown 9:integration,integration
+gpt5,pallets_jinja_task,1559,6 10,False,naive,,,,,,clean,,False,6:unknown 10:unknown,unknown,6:unknown 10:unknown,unknown,6:unknown 10:unknown,unknown
+gpt5,pallets_jinja_task,1559,7 8,False,naive,7,7,,,,clean,7,False,8:unknown,unknown,8:unknown,unknown,8:unknown,unknown
+gpt5,pallets_jinja_task,1559,7 10,False,naive,,10,,,,clean,,False,7:unknown 10:integration,integration,7:unknown 10:integration,integration,7:unknown 10:integration,integration
+gpt5,pallets_jinja_task,1559,8 9,True,llm,9,9,9,,,,,True,8:unknown,unknown,8:unknown,unknown,8:unknown,unknown
+gpt5,pallets_jinja_task,1559,8 10,False,naive,10,10,,,,clean,10,False,8:unknown,unknown,8:unknown,unknown,8:unknown,unknown
+gpt5,pallets_jinja_task,1621,1 7,False,naive,7,,,True,1:1.00 7:1.00,clean,7,False,1:context,context,1:context,context,1:context,context
+gpt5,pallets_jinja_task,1621,1 9,True,llm,,1 9,,True,1:1.00 9:0.89,,,False,1:integration 9:integration,integration,1:integration 9:integration,integration,1:integration 9:integration,integration
+gpt5,pallets_jinja_task,1621,1 10,False,naive,,1,,True,1:1.00 10:0.56,clean,,False,1:integration 10:context,integration,1:integration 10:context,integration,1:integration 10:context,integration
+gpt5,pallets_jinja_task,1621,2 5,True,llm,,2 5,,True,2:1.00 5:1.00,,,False,2:integration 5:integration,integration,2:integration 5:integration,integration,2:integration 5:integration,integration
+gpt5,pallets_jinja_task,1621,2 8,False,naive,,2,,False,2:1.00 8:0.56,clean,,False,2:integration 8:context,integration,2:integration 8:context,integration,2:integration 8:context,integration
+gpt5,pallets_jinja_task,1621,2 10,True,llm,,2 10,,False,2:1.00 10:0.56,,,False,2:integration 10:integration,integration,2:integration 10:integration,integration,2:integration 10:integration,integration
+gpt5,pallets_jinja_task,1621,3 10,False,naive,3,3,,True,3:1.00 10:0.56,clean,3,False,10:context,context,10:context,context,10:context,context
+gpt5,pallets_jinja_task,1621,4 8,False,naive,4,4,,True,4:0.89 8:0.56,clean,4,False,8:context,context,8:context,context,8:context,context
+gpt5,pallets_jinja_task,1621,4 10,False,naive,,4,,False,4:0.89 10:0.56,clean,,False,4:integration 10:context,integration,4:integration 10:context,integration,4:integration 10:context,integration
+gpt5,pallets_jinja_task,1621,5 8,False,naive,5,5,,True,5:1.00 8:0.56,clean,5,False,8:context,context,8:context,context,8:context,context
+gpt5,pallets_jinja_task,1621,6 10,True,llm,,10,,False,6:0.78 10:0.56,,,False,6:context 10:integration,integration,6:context 10:integration,integration,6:context 10:integration,integration
+gpt5,pallets_jinja_task,1621,7 8,False,naive,7,7,,True,7:1.00 8:0.56,clean,7,False,8:context,context,8:context,context,8:context,context
+gpt5,pallets_jinja_task,1621,8 9,False,naive,9,9,,False,8:0.56 9:0.89,clean,9,False,8:context,context,8:context,context,8:context,context
+gpt5,pillow_task,25,1 2,False,naive,,1,1,True,1:1.00 2:1.00,clean,1 2,True,1:integration 2:context,integration,1:integration 2:handoff,integration,,
+gpt5,pillow_task,25,1 3,False,naive,,1,,False,1:1.00 3:0.75,clean,,False,1:integration 3:context,integration,1:integration 3:context,integration,1:integration 3:context,integration
+gpt5,pillow_task,25,2 3,False,naive,3,2 3,,True,2:1.00 3:0.75,clean,2 3,False,2:integration,integration,2:integration,integration,,
+gpt5,pillow_task,25,2 4,False,naive,4,2 4,,True,2:1.00 4:1.00,clean,2 4,False,2:integration,integration,2:integration,integration,,
+gpt5,pillow_task,25,2 5,False,naive,,2,,False,2:1.00 5:0.00,clean,2,False,2:integration 5:capability,integration,2:integration 5:capability,integration,5:capability,capability
+gpt5,pillow_task,25,3 4,False,naive,,,,True,3:0.75 4:1.00,clean,3 4,False,3:context 4:context,context,3:context 4:context,context,,
+gpt5,pillow_task,25,3 5,False,naive,5,3 5,,False,3:0.75 5:0.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+gpt5,pillow_task,25,4 5,False,naive,5,4 5,,False,4:1.00 5:0.00,clean,4 5,False,4:integration,integration,4:integration,integration,,
+gpt5,pillow_task,68,1 2,False,naive,2,1 2,,True,1:1.00 2:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+gpt5,pillow_task,68,1 3,True,llm,,1 3,,False,1:1.00 3:0.00,,,False,1:integration 3:integration,integration,1:integration 3:integration,integration,1:integration 3:integration,integration
+gpt5,pillow_task,68,1 4,False,naive,,1,,False,1:1.00 4:0.00,conflicts,,False,1:integration 4:capability,integration,1:integration 4:capability,integration,,
+gpt5,pillow_task,68,1 5,False,naive,,1,,False,1:1.00 5:0.00,conflicts,,False,1:integration 5:capability,integration,1:integration 5:capability,integration,,
+gpt5,pillow_task,68,2 3,False,naive,3,2 3,,False,2:1.00 3:0.00,conflicts,,False,2:integration,integration,2:integration,integration,,
+gpt5,pillow_task,68,2 4,False,naive,,2,,False,2:1.00 4:0.00,conflicts,,False,2:integration 4:capability,integration,2:integration 4:capability,integration,,
+gpt5,pillow_task,68,2 5,False,naive,,2,,False,2:1.00 5:0.00,conflicts,,False,2:integration 5:capability,integration,2:integration 5:capability,integration,,
+gpt5,pillow_task,68,3 4,False,naive,,,,False,3:0.00 4:0.00,conflicts,,False,3:capability 4:capability,capability,3:capability 4:capability,capability,,
+gpt5,pillow_task,68,3 5,False,naive,,3,,False,3:0.00 5:0.00,conflicts,,False,3:integration 5:capability,integration,3:integration 5:capability,integration,,
+gpt5,pillow_task,68,4 5,False,naive,,,,False,4:0.00 5:0.00,conflicts,,False,4:capability 5:capability,capability,4:capability 5:capability,capability,,
+gpt5,pillow_task,290,1 2,False,naive,1,1,,False,1:1.00 2:0.00,clean,1,False,2:capability,capability,2:capability,capability,2:capability,capability
+gpt5,pillow_task,290,1 3,False,naive,3,3,,True,1:1.00 3:0.50,clean,1 3,False,1:context,context,1:context,context,,
+gpt5,pillow_task,290,1 4,False,naive,1,1,,False,1:1.00 4:0.75,clean,1,False,4:context,context,4:context,context,4:context,context
+gpt5,pillow_task,290,1 5,False,naive,1,1,,False,1:1.00 5:0.00,clean,1,False,5:capability,capability,5:capability,capability,5:capability,capability
+gpt5,pillow_task,290,2 3,False,naive,,,,False,2:0.00 3:0.50,clean,,False,2:capability 3:context,context,2:capability 3:context,context,2:capability 3:context,context
+gpt5,pillow_task,290,2 4,False,naive,,,,False,2:0.00 4:0.75,conflicts,,False,2:capability 4:context,context,2:capability 4:context,context,,
+gpt5,pillow_task,290,2 5,False,naive,,,,False,2:0.00 5:0.00,conflicts,,False,2:capability 5:capability,capability,2:capability 5:capability,capability,,
+gpt5,pillow_task,290,3 4,False,naive,,,,True,3:0.50 4:0.75,conflicts,,False,3:context 4:context,context,3:context 4:context,context,,
+gpt5,pillow_task,290,3 5,False,naive,,,,False,3:0.50 5:0.00,conflicts,,False,3:context 5:capability,context,3:context 5:capability,context,,
+gpt5,pillow_task,290,4 5,False,naive,,,,False,4:0.75 5:0.00,conflicts,,False,4:context 5:capability,context,4:context 5:capability,context,,
+gpt5,react_hook_form_task,85,1 2,False,naive,,1,,True,1:1.00 2:0.50,missing_input,,False,1:integration 2:context,integration,1:integration 2:context,integration,,
+gpt5,react_hook_form_task,85,1 3,False,naive,,1,,False,1:1.00 3:0.50,clean,,False,1:integration 3:context,integration,1:integration 3:context,integration,1:integration 3:context,integration
+gpt5,react_hook_form_task,85,1 4,False,naive,4,1 4,,True,1:1.00 4:1.00,clean,,False,1:integration,integration,1:integration,integration,1:integration,integration
+gpt5,react_hook_form_task,85,1 5,False,naive,5,1 5,,True,1:1.00 5:0.75,clean,,False,1:integration,integration,1:integration,integration,1:integration,integration
+gpt5,react_hook_form_task,85,2 3,False,naive,3,2 3,,True,2:0.50 3:0.50,missing_input,,False,2:integration,integration,2:integration,integration,,
+gpt5,react_hook_form_task,85,2 4,False,naive,4,4,,False,2:0.50 4:1.00,missing_input,,False,2:context,context,2:context,context,,
+gpt5,react_hook_form_task,85,2 5,False,naive,5,2 5,2,False,2:0.50 5:0.75,missing_input,2 5,True,2:integration,integration,2:integration,integration,,
+gpt5,react_hook_form_task,85,3 4,False,naive,4,4,,False,3:0.50 4:1.00,clean,,False,3:context,context,3:handoff,handoff,3:context,context
+gpt5,react_hook_form_task,85,3 5,False,naive,5,5,,True,3:0.50 5:0.75,clean,,False,3:context,context,3:context,context,3:context,context
+gpt5,react_hook_form_task,85,4 5,False,naive,,4,,True,4:1.00 5:0.75,clean,,False,4:integration 5:context,integration,4:integration 5:handoff,integration,4:integration 5:context,integration
+gpt5,react_hook_form_task,153,1 2,False,naive,,1,,True,1:1.00 2:1.00,clean,1 2,False,1:integration 2:context,integration,1:integration 2:context,integration,,
+gpt5,react_hook_form_task,153,1 3,False,naive,,1 3,,True,1:1.00 3:1.00,clean,1 3,False,1:integration 3:integration,integration,1:integration 3:integration,integration,,
+gpt5,react_hook_form_task,153,1 4,False,naive,,1 4,,True,1:1.00 4:1.00,clean,1 4,False,1:integration 4:integration,integration,1:integration 4:integration,integration,,
+gpt5,react_hook_form_task,153,1 5,False,naive,,1,,False,1:1.00 5:0.20,clean,1,False,1:integration 5:capability,integration,1:integration 5:capability,integration,5:capability,capability
+gpt5,react_hook_form_task,153,1 6,False,naive,,1,,False,1:1.00 6:0.00,conflicts,,False,1:integration 6:capability,integration,1:integration 6:capability,integration,,
+gpt5,react_hook_form_task,153,2 3,False,naive,,2,,True,2:1.00 3:1.00,conflicts,,False,2:integration 3:context,integration,2:integration 3:context,integration,,
+gpt5,react_hook_form_task,153,2 4,False,naive,,2 4,2,True,2:1.00 4:1.00,conflicts,2 4,True,2:integration 4:integration,integration,2:integration 4:integration,integration,,
+gpt5,react_hook_form_task,153,2 5,False,naive,,2,,True,2:1.00 5:0.20,conflicts,,False,2:integration 5:capability,integration,2:integration 5:capability,integration,,
+gpt5,react_hook_form_task,153,2 6,False,naive,,2,,False,2:1.00 6:0.00,conflicts,,False,2:integration 6:capability,integration,2:integration 6:capability,integration,,
+gpt5,react_hook_form_task,153,3 4,False,naive,,3,,True,3:1.00 4:1.00,clean,3 4,False,3:integration 4:context,integration,3:integration 4:handoff,integration,,
+gpt5,react_hook_form_task,153,3 5,False,naive,,3,,False,3:1.00 5:0.20,conflicts,,False,3:integration 5:capability,integration,3:integration 5:capability,integration,,
+gpt5,react_hook_form_task,153,3 6,False,naive,,,,False,3:1.00 6:0.00,conflicts,,False,3:context 6:capability,context,3:context 6:capability,context,,
+gpt5,react_hook_form_task,153,4 5,False,naive,,4,,False,4:1.00 5:0.20,clean,4,False,4:integration 5:capability,integration,4:integration 5:handoff,integration,5:capability,capability
+gpt5,react_hook_form_task,153,4 6,False,naive,,,,False,4:1.00 6:0.00,conflicts,,False,4:context 6:capability,context,4:context 6:capability,context,,
+gpt5,react_hook_form_task,153,5 6,False,naive,,,,False,5:0.20 6:0.00,conflicts,,False,5:capability 6:capability,capability,5:handoff 6:capability,handoff,,
+gpt5,samuelcolvin_dirty_equals_task,43,1 2,True,llm,2,2,,True,1:0.75 2:1.00,,,False,1:context,context,1:context,context,1:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,1 3,False,naive,1,,,False,1:0.75 3:0.25,clean,1,False,3:capability,capability,3:capability,capability,3:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,1 4,True,llm,,4,,False,1:0.75 4:0.62,,,False,1:context 4:integration,integration,1:context 4:integration,integration,1:context 4:integration,integration
+gpt5,samuelcolvin_dirty_equals_task,43,1 5,False,naive,1,1,,False,1:0.75 5:0.50,conflicts,,False,5:context,context,5:handoff,handoff,,
+gpt5,samuelcolvin_dirty_equals_task,43,1 6,True,llm,1,1,,False,1:0.75 6:0.00,,,False,6:capability,capability,6:handoff,handoff,6:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,1 8,False,naive,,,,True,1:0.75 8:0.50,clean,,False,1:context 8:context,context,1:context 8:handoff,handoff,1:context 8:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,1 9,False,naive,9,9,,True,1:0.75 9:0.75,clean,9,False,1:context,context,1:handoff,handoff,1:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,2 3,False,naive,3,3,,False,2:1.00 3:0.25,clean,3,False,2:context,context,2:handoff,handoff,2:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,2 5,False,naive,5,5,,True,2:1.00 5:0.50,clean,5,False,2:context,context,2:handoff,handoff,2:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,2 6,True,llm,2,2,,False,2:1.00 6:0.00,,,False,6:capability,capability,6:capability,capability,6:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,2 8,False,naive,,,,True,2:1.00 8:0.50,clean,,False,2:context 8:context,context,2:handoff 8:context,handoff,2:context 8:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,3 4,False,naive,4,4,,False,3:0.25 4:0.62,clean,4,False,3:capability,capability,3:capability,capability,3:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,3 5,False,naive,3,3,,False,3:0.25 5:0.50,clean,3,False,5:context,context,5:handoff,handoff,5:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,3 6,True,llm,,,,False,3:0.25 6:0.00,,,False,3:capability 6:capability,capability,3:capability 6:capability,capability,3:capability 6:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,3 7,True,llm,7,7,,True,3:0.25 7:0.62,,,False,3:capability,capability,3:capability,capability,3:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,3 8,False,naive,,,,False,3:0.25 8:0.50,clean,,False,3:capability 8:context,context,3:capability 8:handoff,handoff,3:capability 8:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,4 6,False,naive,4,4,,False,4:0.62 6:0.00,clean,4,False,6:capability,capability,6:capability,capability,6:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,5 6,True,llm,5,5,,False,5:0.50 6:0.00,,,False,6:capability,capability,6:capability,capability,6:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,5 9,True,llm,,5 9,,False,5:0.50 9:0.75,,,False,5:integration 9:integration,integration,5:integration 9:integration,integration,5:integration 9:integration,integration
+gpt5,samuelcolvin_dirty_equals_task,43,6 7,True,llm,,,,False,6:0.00 7:0.62,,,False,6:capability 7:context,context,6:capability 7:handoff,handoff,6:capability 7:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,6 8,False,naive,,,,False,6:0.00 8:0.50,clean,,False,6:capability 8:context,context,6:capability 8:handoff,handoff,6:capability 8:context,context
+gpt5,samuelcolvin_dirty_equals_task,43,6 9,False,naive,9,,,False,6:0.00 9:0.75,clean,9,False,6:capability,capability,6:capability,capability,6:capability,capability
+gpt5,samuelcolvin_dirty_equals_task,43,7 8,False,naive,8,8,,False,7:0.62 8:0.50,conflicts,,False,7:context,context,7:handoff,handoff,,
+gpt5,samuelcolvin_dirty_equals_task,43,7 9,True,llm,,7,,False,7:0.62 9:0.75,,,False,7:integration 9:context,integration,7:integration 9:handoff,integration,7:integration 9:context,integration
+claude,dottxt_ai_outlines_task,1371,1 2,False,naive,,,,False,1:0.67 2:0.33,clean,,False,1:context 2:capability,context,1:context 2:capability,context,1:context 2:capability,context
+claude,dottxt_ai_outlines_task,1371,1 4,False,naive,,,,False,1:0.67 4:0.00,conflicts,,False,1:context 4:capability,context,1:context 4:capability,context,,
+claude,dottxt_ai_outlines_task,1371,2 3,False,naive,3,3,,False,2:0.33 3:0.67,conflicts,,False,2:capability,capability,2:capability,capability,,
+claude,dottxt_ai_outlines_task,1371,2 4,False,naive,,,,False,2:0.33 4:0.00,conflicts,,False,2:capability 4:capability,capability,2:capability 4:capability,capability,,
+claude,dottxt_ai_outlines_task,1371,3 4,False,naive,,3,,False,3:0.67 4:0.00,conflicts,,False,3:integration 4:capability,integration,3:integration 4:capability,integration,,
+claude,dottxt_ai_outlines_task,1655,1 4,True,llm,1,1,,True,1:1.00 4:0.89,,,False,4:context,context,4:context,context,4:context,context
+claude,dottxt_ai_outlines_task,1655,1 7,False,naive,1,1,,True,1:1.00 7:0.89,clean,1,False,7:context,context,7:context,context,7:context,context
+claude,dottxt_ai_outlines_task,1655,2 4,False,naive,,2,,True,2:1.00 4:0.89,conflicts,,False,2:integration 4:context,integration,2:integration 4:context,integration,,
+claude,dottxt_ai_outlines_task,1655,2 5,False,naive,5,2 5,,True,2:1.00 5:1.00,clean,2 5,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,2 6,False,naive,6,2 6,,False,2:1.00 6:0.56,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,2 7,False,naive,7,2 7,,True,2:1.00 7:0.89,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,2 8,False,naive,8,2 8,,True,2:1.00 8:1.00,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,2 9,False,naive,9,2 9,,True,2:1.00 9:1.00,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,3 7,False,naive,3,3,,True,3:1.00 7:0.89,clean,3,False,7:context,context,7:context,context,7:context,context
+claude,dottxt_ai_outlines_task,1655,4 5,False,naive,5,5,4,False,4:0.89 5:1.00,conflicts,,True,4:context,context,4:context,context,,
+claude,dottxt_ai_outlines_task,1655,4 6,False,naive,6,4 6,,False,4:0.89 6:0.56,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,4 7,False,naive,,4,,True,4:0.89 7:0.89,conflicts,,False,4:integration 7:context,integration,4:integration 7:context,integration,,
+claude,dottxt_ai_outlines_task,1655,4 8,False,naive,8,8,,True,4:0.89 8:1.00,conflicts,,False,4:context,context,4:context,context,,
+claude,dottxt_ai_outlines_task,1655,4 9,False,naive,9,9,,True,4:0.89 9:1.00,conflicts,,False,4:context,context,4:context,context,,
+claude,dottxt_ai_outlines_task,1655,4 10,False,naive,10,10,,True,4:0.89 10:1.00,conflicts,,False,4:context,context,4:context,context,,
+claude,dottxt_ai_outlines_task,1655,5 6,False,naive,6,5 6,,True,5:1.00 6:0.56,conflicts,,False,5:integration,integration,5:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,5 7,False,naive,7,5 7,,True,5:1.00 7:0.89,conflicts,,False,5:integration,integration,5:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,5 8,False,naive,8,5 8,5,True,5:1.00 8:1.00,conflicts,5 8,True,5:integration,integration,5:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,5 9,False,naive,9,5 9,,True,5:1.00 9:1.00,conflicts,,False,5:integration,integration,5:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,5 10,False,naive,10,5 10,,True,5:1.00 10:1.00,conflicts,,False,5:integration,integration,5:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,6 7,False,naive,,6,,False,6:0.56 7:0.89,conflicts,,False,6:integration 7:context,integration,6:integration 7:context,integration,,
+claude,dottxt_ai_outlines_task,1655,6 8,False,naive,8,8,6,True,6:0.56 8:1.00,conflicts,,True,6:context,context,6:context,context,,
+claude,dottxt_ai_outlines_task,1655,6 9,False,naive,9,6 9,,False,6:0.56 9:1.00,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,6 10,False,naive,10,6 10,,True,6:0.56 10:1.00,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,7 8,False,naive,8,7 8,,True,7:0.89 8:1.00,conflicts,,False,7:integration,integration,7:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,7 9,False,naive,9,7 9,,False,7:0.89 9:1.00,conflicts,,False,7:integration,integration,7:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,7 10,False,naive,10,7 10,,True,7:0.89 10:1.00,conflicts,,False,7:integration,integration,7:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,8 9,False,naive,9,8 9,,True,8:1.00 9:1.00,conflicts,,False,8:integration,integration,8:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,8 10,False,naive,10,8 10,,True,8:1.00 10:1.00,conflicts,,False,8:integration,integration,8:integration,integration,,
+claude,dottxt_ai_outlines_task,1655,9 10,False,naive,10,9 10,,True,9:1.00 10:1.00,conflicts,,False,9:integration,integration,9:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,1 2,False,naive,2,2,,False,1:0.00 2:0.86,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,dottxt_ai_outlines_task,1706,1 3,False,naive,,,,False,1:0.00 3:0.86,clean,,False,1:capability 3:context,context,1:capability 3:handoff,handoff,1:capability 3:context,context
+claude,dottxt_ai_outlines_task,1706,1 4,False,naive,4,4,,False,1:0.00 4:0.86,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,dottxt_ai_outlines_task,1706,1 5,False,naive,5,5,,False,1:0.00 5:0.29,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,dottxt_ai_outlines_task,1706,1 7,False,naive,7,7,,False,1:0.00 7:0.29,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,dottxt_ai_outlines_task,1706,1 8,False,naive,8,8,,False,1:0.00 8:0.86,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,dottxt_ai_outlines_task,1706,2 3,False,naive,3,2 3,,True,2:0.86 3:0.86,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,2 4,False,naive,4,2 4,,True,2:0.86 4:0.86,clean,2 4,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,2 5,False,naive,5,2 5,,False,2:0.86 5:0.29,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,2 6,False,naive,6,2 6,,True,2:0.86 6:0.86,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,2 7,False,naive,7,2 7,,True,2:0.86 7:0.29,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,2 8,False,naive,8,2 8,,True,2:0.86 8:0.86,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,3 4,False,naive,4,3 4,,True,3:0.86 4:0.86,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,3 5,False,naive,,,,False,3:0.86 5:0.29,conflicts,,False,3:context 5:capability,context,3:context 5:capability,context,,
+claude,dottxt_ai_outlines_task,1706,3 6,False,naive,6,3 6,3,True,3:0.86 6:0.86,conflicts,3 6,True,3:integration,integration,3:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,3 7,False,naive,3,3,7,False,3:0.86 7:0.29,conflicts,,True,7:capability,capability,7:capability,capability,,
+claude,dottxt_ai_outlines_task,1706,4 5,False,naive,5,4 5,,True,4:0.86 5:0.29,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,4 6,False,naive,6,6,,True,4:0.86 6:0.86,clean,6,False,4:context,context,4:context,context,4:context,context
+claude,dottxt_ai_outlines_task,1706,4 7,False,naive,,,,False,4:0.86 7:0.29,conflicts,,False,4:context 7:capability,context,4:context 7:capability,context,,
+claude,dottxt_ai_outlines_task,1706,4 8,False,naive,,,,True,4:0.86 8:0.86,conflicts,,False,4:context 8:context,context,4:context 8:context,context,,
+claude,dottxt_ai_outlines_task,1706,5 6,False,naive,,5,,False,5:0.29 6:0.86,conflicts,,False,5:integration 6:context,integration,5:integration 6:context,integration,,
+claude,dottxt_ai_outlines_task,1706,5 7,False,naive,7,7,,False,5:0.29 7:0.29,conflicts,,False,5:capability,capability,5:capability,capability,,
+claude,dottxt_ai_outlines_task,1706,5 8,False,naive,,,,True,5:0.29 8:0.86,clean,,False,5:capability 8:context,context,5:handoff 8:context,handoff,5:capability 8:context,context
+claude,dottxt_ai_outlines_task,1706,6 7,False,naive,7,6 7,,False,6:0.86 7:0.29,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,dottxt_ai_outlines_task,1706,6 8,False,naive,,,,True,6:0.86 8:0.86,conflicts,,False,6:context 8:context,context,6:context 8:context,context,,
+claude,dottxt_ai_outlines_task,1706,7 8,False,naive,8,8,,True,7:0.29 8:0.86,conflicts,,False,7:capability,capability,7:capability,capability,,
+claude,dspy_task,8394,1 2,True,llm,,1,,False,1:1.00 2:0.00,,,False,1:integration 2:capability,integration,1:integration 2:capability,integration,1:integration 2:capability,integration
+claude,dspy_task,8394,1 4,False,naive,1,1,,False,1:1.00 4:0.00,clean,1,False,4:capability,capability,4:handoff,handoff,4:capability,capability
+claude,dspy_task,8394,1 5,True,llm,,1,,False,1:1.00 5:0.25,,,False,1:integration 5:capability,integration,1:integration 5:capability,integration,1:integration 5:capability,integration
+claude,dspy_task,8394,2 3,True,llm,,3,,False,2:0.00 3:0.75,,,False,2:capability 3:integration,integration,2:capability 3:integration,integration,2:capability 3:integration,integration
+claude,dspy_task,8394,2 4,False,naive,,,,False,2:0.00 4:0.00,clean,,False,2:capability 4:capability,capability,2:capability 4:handoff,handoff,2:capability 4:capability,capability
+claude,dspy_task,8394,2 5,True,llm,,,,False,2:0.00 5:0.25,,,False,2:capability 5:capability,capability,2:capability 5:capability,capability,2:capability 5:capability,capability
+claude,dspy_task,8394,3 4,True,llm,,3,,False,3:0.75 4:0.00,,,False,3:integration 4:capability,integration,3:integration 4:capability,integration,3:integration 4:capability,integration
+claude,dspy_task,8394,3 5,True,llm,,3,,False,3:0.75 5:0.25,,,False,3:integration 5:capability,integration,3:integration 5:handoff,integration,3:integration 5:capability,integration
+claude,dspy_task,8394,4 5,False,naive,,,,False,4:0.00 5:0.25,clean,,False,4:capability 5:capability,capability,4:handoff 5:capability,handoff,4:capability 5:capability,capability
+claude,dspy_task,8563,1 2,False,naive,,,,False,1:0.00 2:0.60,clean,,False,1:capability 2:context,context,1:capability 2:context,context,1:capability 2:context,context
+claude,dspy_task,8563,1 3,False,naive,3,3,,False,1:0.00 3:1.00,clean,3,False,1:capability,capability,1:capability,capability,1:capability,capability
+claude,dspy_task,8563,1 4,False,naive,4,4,,False,1:0.00 4:1.00,clean,4,False,1:capability,capability,1:capability,capability,1:capability,capability
+claude,dspy_task,8563,1 5,False,naive,,,,False,1:0.00 5:0.20,clean,,False,1:capability 5:capability,capability,1:capability 5:capability,capability,1:capability 5:capability,capability
+claude,dspy_task,8563,1 6,True,llm,,,,False,1:0.00 6:0.20,,,False,1:capability 6:capability,capability,1:capability 6:capability,capability,1:capability 6:capability,capability
+claude,dspy_task,8563,2 3,True,llm,,3,,True,2:0.60 3:1.00,,,False,2:context 3:integration,integration,2:context 3:integration,integration,2:context 3:integration,integration
+claude,dspy_task,8563,2 4,False,naive,4,4,,False,2:0.60 4:1.00,clean,4,False,2:context,context,2:context,context,2:context,context
+claude,dspy_task,8563,2 5,True,llm,,,,False,2:0.60 5:0.20,,,False,2:context 5:capability,context,2:context 5:capability,context,2:context 5:capability,context
+claude,dspy_task,8563,2 6,False,naive,,,,False,2:0.60 6:0.20,clean,,False,2:context 6:capability,context,2:context 6:capability,context,2:context 6:capability,context
+claude,dspy_task,8563,3 4,False,naive,,,,True,3:1.00 4:1.00,clean,,False,3:context 4:context,context,3:context 4:context,context,3:context 4:context,context
+claude,dspy_task,8563,3 5,False,naive,,3,,False,3:1.00 5:0.20,clean,3,False,3:integration 5:capability,integration,3:integration 5:capability,integration,5:capability,capability
+claude,dspy_task,8563,3 6,True,llm,,3,,True,3:1.00 6:0.20,,,False,3:integration 6:capability,integration,3:integration 6:capability,integration,3:integration 6:capability,integration
+claude,dspy_task,8563,4 5,True,llm,,4,,False,4:1.00 5:0.20,,,False,4:integration 5:capability,integration,4:integration 5:capability,integration,4:integration 5:capability,integration
+claude,dspy_task,8563,4 6,True,llm,,4,,False,4:1.00 6:0.20,,,False,4:integration 6:capability,integration,4:integration 6:capability,integration,4:integration 6:capability,integration
+claude,dspy_task,8563,5 6,True,llm,,,,False,5:0.20 6:0.20,,,False,5:capability 6:capability,capability,5:capability 6:capability,capability,5:capability 6:capability,capability
+claude,dspy_task,8587,1 2,True,llm,,,2,False,1:1.00 2:0.80,,,True,1:context 2:context,context,1:handoff 2:context,handoff,1:context 2:context,context
+claude,dspy_task,8587,1 3,True,llm,1,1,3,False,1:1.00 3:0.00,,,True,3:capability,capability,3:capability,capability,3:capability,capability
+claude,dspy_task,8587,1 4,True,llm,1,1,,False,1:1.00 4:0.40,,,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,dspy_task,8587,1 5,True,llm,,5,,True,1:1.00 5:1.00,,,False,1:context 5:integration,integration,1:context 5:integration,integration,1:context 5:integration,integration
+claude,dspy_task,8587,1 6,False,naive,1,1,,False,1:1.00 6:0.80,clean,1,False,6:context,context,6:context,context,6:context,context
+claude,dspy_task,8587,2 3,False,naive,2,2,,False,2:0.80 3:0.00,clean,2,False,3:capability,capability,3:capability,capability,3:capability,capability
+claude,dspy_task,8587,2 4,False,naive,2,2,,True,2:0.80 4:0.40,clean,2,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,dspy_task,8587,2 5,True,llm,,2,,True,2:0.80 5:1.00,,,False,2:integration 5:context,integration,2:integration 5:context,integration,2:integration 5:context,integration
+claude,dspy_task,8587,2 6,False,naive,2,2,,True,2:0.80 6:0.80,clean,2,False,6:context,context,6:context,context,6:context,context
+claude,dspy_task,8587,3 4,True,llm,,4,,False,3:0.00 4:0.40,,,False,3:capability 4:integration,integration,3:capability 4:integration,integration,3:capability 4:integration,integration
+claude,dspy_task,8587,3 5,True,llm,,5,,False,3:0.00 5:1.00,,,False,3:capability 5:integration,integration,3:capability 5:integration,integration,3:capability 5:integration,integration
+claude,dspy_task,8587,3 6,False,naive,,,,False,3:0.00 6:0.80,clean,,False,3:capability 6:context,context,3:capability 6:context,context,3:capability 6:context,context
+claude,dspy_task,8587,4 5,True,llm,,,,False,4:0.40 5:1.00,,,False,4:capability 5:context,context,4:capability 5:context,context,4:capability 5:context,context
+claude,dspy_task,8587,4 6,True,llm,,,4,False,4:0.40 6:0.80,,,True,4:capability 6:context,context,4:capability 6:handoff,handoff,4:capability 6:context,context
+claude,dspy_task,8587,5 6,True,llm,,6,,True,5:1.00 6:0.80,,,False,5:context 6:integration,integration,5:context 6:integration,integration,5:context 6:integration,integration
+claude,dspy_task,8635,1 2,False,naive,2,2,,False,1:0.60 2:0.60,clean,2,False,1:context,context,1:context,context,1:context,context
+claude,dspy_task,8635,1 3,False,naive,3,3,,False,1:0.60 3:0.80,clean,3,False,1:context,context,1:context,context,1:context,context
+claude,dspy_task,8635,1 4,False,naive,,,,False,1:0.60 4:0.00,clean,,False,1:context 4:capability,context,1:context 4:capability,context,1:context 4:capability,context
+claude,dspy_task,8635,1 5,False,naive,5,5,,True,1:0.60 5:0.80,clean,5,False,1:context,context,1:context,context,1:context,context
+claude,dspy_task,8635,1 6,True,llm,,1,,False,1:0.60 6:0.20,,,False,1:integration 6:capability,integration,1:integration 6:capability,integration,1:integration 6:capability,integration
+claude,dspy_task,8635,2 6,True,llm,,2,,False,2:0.60 6:0.20,,,False,2:integration 6:capability,integration,2:integration 6:capability,integration,2:integration 6:capability,integration
+claude,dspy_task,8635,3 4,True,llm,,3,,False,3:0.80 4:0.00,,,False,3:integration 4:capability,integration,3:integration 4:capability,integration,3:integration 4:capability,integration
+claude,dspy_task,8635,3 5,False,naive,5,5,,True,3:0.80 5:0.80,clean,5,False,3:context,context,3:context,context,3:context,context
+claude,dspy_task,8635,3 6,True,llm,,3 6,,False,3:0.80 6:0.20,,,False,3:integration 6:integration,integration,3:integration 6:integration,integration,3:integration 6:integration,integration
+claude,dspy_task,8635,4 5,False,naive,5,5,,False,4:0.00 5:0.80,clean,5,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,dspy_task,8635,4 6,True,llm,,,,False,4:0.00 6:0.20,,,False,4:capability 6:capability,capability,4:capability 6:capability,capability,4:capability 6:capability,capability
+claude,dspy_task,8635,5 6,False,naive,,5,,False,5:0.80 6:0.20,clean,,False,5:integration 6:capability,integration,5:integration 6:capability,integration,5:integration 6:capability,integration
+claude,go_chi_task,26,1 2,True,llm,,,,False,1:0.00 2:0.00,,,False,1:capability 2:capability,capability,1:capability 2:capability,capability,1:capability 2:capability,capability
+claude,go_chi_task,26,1 3,True,llm,,,,False,1:0.00 3:0.00,,,False,1:capability 3:capability,capability,1:capability 3:capability,capability,1:capability 3:capability,capability
+claude,go_chi_task,26,1 4,False,naive,,,,False,1:0.00 4:0.00,clean,,False,1:capability 4:capability,capability,1:capability 4:capability,capability,1:capability 4:capability,capability
+claude,go_chi_task,26,2 3,True,llm,,,,False,2:0.00 3:0.00,,,False,2:capability 3:capability,capability,2:capability 3:capability,capability,2:capability 3:capability,capability
+claude,go_chi_task,26,2 4,True,llm,,,,False,2:0.00 4:0.00,,,False,2:capability 4:capability,capability,2:capability 4:capability,capability,2:capability 4:capability,capability
+claude,go_chi_task,26,3 4,False,naive,,,,False,3:0.00 4:0.00,clean,,False,3:capability 4:capability,capability,3:capability 4:handoff,handoff,3:capability 4:capability,capability
+claude,go_chi_task,27,1 2,True,llm,,1,1,True,1:1.00 2:1.00,,,True,1:integration 2:context,integration,1:integration 2:handoff,integration,1:integration 2:context,integration
+claude,go_chi_task,27,1 3,False,naive,1,1,,False,1:1.00 3:0.00,clean,1,False,3:capability,capability,3:handoff,handoff,3:capability,capability
+claude,go_chi_task,27,2 3,False,naive,2,2,,False,2:1.00 3:0.00,clean,2,False,3:capability,capability,3:capability,capability,3:capability,capability
+claude,go_chi_task,27,3 4,True,llm,,4,3,False,3:0.00 4:1.00,,,True,3:capability 4:integration,integration,3:capability 4:integration,integration,3:capability 4:integration,integration
+claude,go_chi_task,56,1 2,True,llm,,,,False,1:0.00 2:0.25,,,False,1:capability 2:capability,capability,1:capability 2:capability,capability,1:capability 2:capability,capability
+claude,go_chi_task,56,1 3,True,llm,,3,,False,1:0.00 3:0.00,,,False,1:capability 3:integration,integration,1:capability 3:integration,integration,1:capability 3:integration,integration
+claude,go_chi_task,56,1 4,True,llm,,,,False,1:0.00 4:0.00,,,False,1:capability 4:capability,capability,1:capability 4:handoff,handoff,1:capability 4:capability,capability
+claude,go_chi_task,56,1 5,True,llm,,,,False,1:0.00 5:0.00,,,False,1:capability 5:capability,capability,1:capability 5:capability,capability,1:capability 5:capability,capability
+claude,go_chi_task,56,2 4,False,naive,2,,,False,2:0.25 4:0.00,clean,,False,4:capability,capability,4:handoff,handoff,4:capability,capability
+claude,go_chi_task,56,2 5,True,llm,,,,False,2:0.25 5:0.00,,,False,2:capability 5:capability,capability,2:handoff 5:handoff,handoff,2:capability 5:capability,capability
+claude,go_chi_task,56,3 4,False,naive,3,3,,False,3:0.00 4:0.00,clean,3,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,go_chi_task,56,3 5,False,naive,,,,False,3:0.00 5:0.00,clean,,False,3:capability 5:capability,capability,3:handoff 5:capability,handoff,3:capability 5:capability,capability
+claude,go_chi_task,56,4 5,False,naive,,,,False,4:0.00 5:0.00,clean,,False,4:capability 5:capability,capability,4:handoff 5:capability,handoff,4:capability 5:capability,capability
+claude,huggingface_datasets_task,3997,1 2,False,naive,1,,,False,1:1.00 2:0.00,clean,,False,2:capability,capability,2:capability,capability,2:capability,capability
+claude,huggingface_datasets_task,3997,1 3,False,naive,1,1,,False,1:1.00 3:0.00,clean,1,False,3:capability,capability,3:capability,capability,3:capability,capability
+claude,huggingface_datasets_task,3997,1 4,False,naive,,,,False,1:1.00 4:0.00,conflicts,,False,1:context 4:capability,context,1:context 4:capability,context,,
+claude,huggingface_datasets_task,3997,1 5,False,naive,5,1 5,,True,1:1.00 5:0.75,clean,1 5,False,1:integration,integration,1:integration,integration,,
+claude,huggingface_datasets_task,3997,2 3,False,naive,,,,False,2:0.00 3:0.00,conflicts,,False,2:capability 3:capability,capability,2:capability 3:capability,capability,,
+claude,huggingface_datasets_task,3997,2 4,False,naive,2,,,False,2:0.00 4:0.00,clean,,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,huggingface_datasets_task,3997,3 4,False,naive,3,,,False,3:0.00 4:0.00,clean,,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,huggingface_datasets_task,3997,4 5,False,naive,5,5,,False,4:0.00 5:0.75,clean,,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,huggingface_datasets_task,6252,1 2,False,naive,2,2,,True,1:0.40 2:1.00,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,huggingface_datasets_task,6252,1 6,False,naive,6,6,,False,1:0.40 6:0.80,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,huggingface_datasets_task,6252,2 3,False,naive,3,2 3,,True,2:1.00 3:0.80,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,huggingface_datasets_task,6252,2 4,False,naive,4,2 4,,True,2:1.00 4:1.00,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,huggingface_datasets_task,6252,2 6,False,naive,6,2 6,,True,2:1.00 6:0.80,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,huggingface_datasets_task,6252,3 4,False,naive,4,3 4,,True,3:0.80 4:1.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,huggingface_datasets_task,6252,3 5,False,naive,5,3 5,,True,3:0.80 5:0.80,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,huggingface_datasets_task,6252,4 5,False,naive,5,4 5,,True,4:1.00 5:0.80,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,huggingface_datasets_task,7309,1 2,False,naive,2,2,,True,1:1.00 2:1.00,conflicts,,False,1:context,context,1:context,context,,
+claude,llama_index_task,17070,1 3,True,llm,,1 3,3,True,1:1.00 3:1.00,,,True,1:integration 3:integration,integration,1:integration 3:integration,integration,1:integration 3:integration,integration
+claude,llama_index_task,17244,1 2,False,naive,,,,True,1:1.00 2:1.00,clean,1 2,False,1:context 2:context,context,1:context 2:context,context,,
+claude,llama_index_task,17244,1 4,False,naive,1,1,,False,1:1.00 4:0.00,clean,1,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,llama_index_task,17244,1 5,False,naive,5,1 5,,True,1:1.00 5:1.00,clean,1 5,False,1:integration,integration,1:integration,integration,,
+claude,llama_index_task,17244,1 6,False,naive,,1,,True,1:1.00 6:1.00,clean,1,False,1:integration 6:context,integration,1:integration 6:context,integration,6:context,context
+claude,llama_index_task,17244,1 7,False,naive,7,1 7,,True,1:1.00 7:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,llama_index_task,17244,2 3,False,naive,,,,True,2:1.00 3:1.00,clean,2 3,False,2:context 3:context,context,2:context 3:context,context,,
+claude,llama_index_task,17244,2 4,False,naive,2,2,,False,2:1.00 4:0.00,clean,2,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,llama_index_task,17244,2 5,False,naive,5,2 5,,True,2:1.00 5:1.00,clean,2 5,False,2:integration,integration,2:integration,integration,,
+claude,llama_index_task,17244,2 6,False,naive,,2,,True,2:1.00 6:1.00,conflicts,,False,2:integration 6:context,integration,2:integration 6:context,integration,,
+claude,llama_index_task,17244,2 7,False,naive,7,2 7,,True,2:1.00 7:1.00,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,llama_index_task,17244,3 4,False,naive,,3,,False,3:1.00 4:0.00,clean,3,False,3:integration 4:capability,integration,3:integration 4:capability,integration,4:capability,capability
+claude,llama_index_task,17244,3 5,False,naive,,,,True,3:1.00 5:1.00,clean,3 5,False,3:context 5:context,context,3:context 5:context,context,,
+claude,llama_index_task,17244,3 6,False,naive,,3,,True,3:1.00 6:1.00,conflicts,,False,3:integration 6:context,integration,3:integration 6:context,integration,,
+claude,llama_index_task,17244,3 7,False,naive,,,,True,3:1.00 7:1.00,clean,3 7,False,3:context 7:context,context,3:context 7:context,context,,
+claude,llama_index_task,17244,4 5,False,naive,5,5,,False,4:0.00 5:1.00,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,llama_index_task,17244,4 6,False,naive,,,,False,4:0.00 6:1.00,clean,,False,4:capability 6:context,context,4:capability 6:context,context,4:capability 6:context,context
+claude,llama_index_task,17244,5 6,False,naive,5,5,,True,5:1.00 6:1.00,clean,5,False,6:context,context,6:context,context,6:context,context
+claude,llama_index_task,17244,6 7,False,naive,7,7,,True,6:1.00 7:1.00,conflicts,,False,6:context,context,6:context,context,,
+claude,llama_index_task,18813,1 2,False,naive,,1,,False,1:1.00 2:0.20,conflicts,,False,1:integration 2:capability,integration,1:integration 2:capability,integration,,
+claude,llama_index_task,18813,1 3,False,naive,3,1 3,,True,1:1.00 3:1.00,clean,1 3,False,1:integration,integration,1:integration,integration,,
+claude,llama_index_task,18813,1 4,False,naive,4,4,,True,1:1.00 4:1.00,clean,1 4,False,1:context,context,1:context,context,,
+claude,llama_index_task,18813,1 5,False,naive,,1,,False,1:1.00 5:0.00,conflicts,,False,1:integration 5:capability,integration,1:integration 5:capability,integration,,
+claude,llama_index_task,18813,1 6,False,naive,,1,,False,1:1.00 6:0.00,conflicts,,False,1:integration 6:capability,integration,1:integration 6:capability,integration,,
+claude,llama_index_task,18813,2 3,False,naive,,,,True,2:0.20 3:1.00,clean,3,False,2:capability 3:context,context,2:capability 3:context,context,2:capability,capability
+claude,llama_index_task,18813,2 4,False,naive,4,4,2,False,2:0.20 4:1.00,conflicts,,True,2:capability,capability,2:capability,capability,,
+claude,llama_index_task,18813,2 5,False,naive,,,,False,2:0.20 5:0.00,conflicts,,False,2:capability 5:capability,capability,2:capability 5:capability,capability,,
+claude,llama_index_task,18813,2 6,False,naive,,,,False,2:0.20 6:0.00,conflicts,,False,2:capability 6:capability,capability,2:capability 6:capability,capability,,
+claude,llama_index_task,18813,3 5,False,naive,3,3,,False,3:1.00 5:0.00,clean,3,False,5:capability,capability,5:capability,capability,5:capability,capability
+claude,llama_index_task,18813,3 6,False,naive,3,3,,False,3:1.00 6:0.00,clean,3,False,6:capability,capability,6:capability,capability,6:capability,capability
+claude,llama_index_task,18813,4 5,False,naive,4,4,5,False,4:1.00 5:0.00,identical,4,True,5:capability,capability,5:capability,capability,,
+claude,llama_index_task,18813,4 6,False,naive,,4,,False,4:1.00 6:0.00,conflicts,,False,4:integration 6:capability,integration,4:integration 6:capability,integration,,
+claude,llama_index_task,18813,5 6,False,naive,,,,False,5:0.00 6:0.00,clean,,False,5:capability 6:capability,capability,5:capability 6:capability,capability,5:capability 6:capability,capability
+claude,openai_tiktoken_task,0,1 2,True,llm,,1 2,,,,,,False,1:integration 2:integration,integration,1:integration 2:integration,integration,1:integration 2:integration,integration
+claude,openai_tiktoken_task,0,1 3,True,llm,,1 3,3,,,,,True,1:integration 3:integration,integration,1:integration 3:integration,integration,1:integration 3:integration,integration
+claude,openai_tiktoken_task,0,1 4,True,llm,,1 4,,,,,,False,1:integration 4:integration,integration,1:integration 4:integration,integration,1:integration 4:integration,integration
+claude,openai_tiktoken_task,0,1 7,False,naive,1,1,7,,,conflicts,,True,7:unknown,unknown,7:unknown,unknown,,
+claude,openai_tiktoken_task,0,1 9,True,llm,,1,9,,,,,True,1:integration 9:unknown,integration,1:integration 9:unknown,integration,1:integration 9:unknown,integration
+claude,openai_tiktoken_task,0,1 10,True,llm,,1,,,,,,False,1:integration 10:unknown,integration,1:integration 10:unknown,integration,1:integration 10:unknown,integration
+claude,openai_tiktoken_task,0,2 3,True,llm,,2 3,,,,,,False,2:integration 3:integration,integration,2:integration 3:integration,integration,2:integration 3:integration,integration
+claude,openai_tiktoken_task,0,2 4,True,llm,,2 4,,,,,,False,2:integration 4:integration,integration,2:integration 4:integration,integration,2:integration 4:integration,integration
+claude,openai_tiktoken_task,0,2 5,True,llm,,2 5,2 5,,,,,True,2:integration 5:integration,integration,2:integration 5:integration,integration,2:integration 5:integration,integration
+claude,openai_tiktoken_task,0,2 8,True,llm,,2 8,8,,,,,True,2:integration 8:integration,integration,2:integration 8:integration,integration,2:integration 8:integration,integration
+claude,openai_tiktoken_task,0,2 9,False,naive,2,2,,,,clean,2,False,9:unknown,unknown,9:unknown,unknown,9:unknown,unknown
+claude,openai_tiktoken_task,0,2 10,True,llm,,2,,,,,,False,2:integration 10:unknown,integration,2:integration 10:unknown,integration,2:integration 10:unknown,integration
+claude,openai_tiktoken_task,0,3 4,True,llm,,3 4,,,,,,False,3:integration 4:integration,integration,3:integration 4:integration,integration,3:integration 4:integration,integration
+claude,openai_tiktoken_task,0,3 5,True,llm,,3,3,,,,,True,3:integration 5:unknown,integration,3:integration 5:unknown,integration,3:integration 5:unknown,integration
+claude,openai_tiktoken_task,0,3 6,True,llm,,3 6,,,,,,False,3:integration 6:integration,integration,3:integration 6:integration,integration,3:integration 6:integration,integration
+claude,openai_tiktoken_task,0,3 7,False,naive,,3,,,,clean,3,False,3:integration 7:unknown,integration,3:integration 7:unknown,integration,7:unknown,unknown
+claude,openai_tiktoken_task,0,3 8,True,llm,,3,,,,,,False,3:integration 8:unknown,integration,3:integration 8:unknown,integration,3:integration 8:unknown,integration
+claude,openai_tiktoken_task,0,3 9,True,llm,,3,,,,,,False,3:integration 9:unknown,integration,3:integration 9:unknown,integration,3:integration 9:unknown,integration
+claude,openai_tiktoken_task,0,3 10,True,llm,,3,,,,,,False,3:integration 10:unknown,integration,3:integration 10:unknown,integration,3:integration 10:unknown,integration
+claude,openai_tiktoken_task,0,4 6,True,llm,,4 6,,,,,,False,4:integration 6:integration,integration,4:integration 6:integration,integration,4:integration 6:integration,integration
+claude,openai_tiktoken_task,0,4 7,True,llm,,4 7,,,,,,False,4:integration 7:integration,integration,4:integration 7:integration,integration,4:integration 7:integration,integration
+claude,openai_tiktoken_task,0,4 9,True,llm,,4,,,,,,False,4:integration 9:unknown,integration,4:integration 9:unknown,integration,4:integration 9:unknown,integration
+claude,openai_tiktoken_task,0,4 10,True,llm,,4,,,,,,False,4:integration 10:unknown,integration,4:integration 10:unknown,integration,4:integration 10:unknown,integration
+claude,openai_tiktoken_task,0,5 8,True,llm,,5 8,8,,,,,True,5:integration 8:integration,integration,5:integration 8:integration,integration,5:integration 8:integration,integration
+claude,openai_tiktoken_task,0,5 9,False,naive,5,5,9,,,conflicts,,True,9:unknown,unknown,9:unknown,unknown,,
+claude,openai_tiktoken_task,0,5 10,True,llm,,5,10,,,,,True,5:integration 10:unknown,integration,5:integration 10:unknown,integration,5:integration 10:unknown,integration
+claude,openai_tiktoken_task,0,6 8,True,llm,,6 8,,,,,,False,6:integration 8:integration,integration,6:integration 8:integration,integration,6:integration 8:integration,integration
+claude,openai_tiktoken_task,0,6 9,True,llm,6,6,,,,,,False,9:unknown,unknown,9:unknown,unknown,9:unknown,unknown
+claude,openai_tiktoken_task,0,6 10,True,llm,,6,,,,,,False,6:integration 10:unknown,integration,6:integration 10:unknown,integration,6:integration 10:unknown,integration
+claude,openai_tiktoken_task,0,7 8,True,llm,,7 8,,,,,,False,7:integration 8:integration,integration,7:integration 8:integration,integration,7:integration 8:integration,integration
+claude,openai_tiktoken_task,0,7 9,True,llm,,7,,,,,,False,7:integration 9:unknown,integration,7:integration 9:unknown,integration,7:integration 9:unknown,integration
+claude,openai_tiktoken_task,0,7 10,True,llm,,,,,,,,False,7:unknown 10:unknown,unknown,7:unknown 10:unknown,unknown,7:unknown 10:unknown,unknown
+claude,openai_tiktoken_task,0,8 9,True,llm,,8,,,,,,False,8:integration 9:unknown,integration,8:integration 9:unknown,integration,8:integration 9:unknown,integration
+claude,openai_tiktoken_task,0,8 10,True,llm,,8,,,,,,False,8:integration 10:unknown,integration,8:integration 10:unknown,integration,8:integration 10:unknown,integration
+claude,openai_tiktoken_task,0,9 10,False,naive,,,,,,clean,,False,9:unknown 10:unknown,unknown,9:unknown 10:unknown,unknown,9:unknown 10:unknown,unknown
+claude,pallets_click_task,2068,1 2,False,naive,,,,False,1:0.82 2:0.18,conflicts,,False,1:context 2:capability,context,1:context 2:capability,context,,
+claude,pallets_click_task,2068,1 3,False,naive,3,1 3,,True,1:0.82 3:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2068,1 4,False,naive,,1,1,False,1:0.82 4:0.00,conflicts,1 4,True,1:integration 4:capability,integration,1:integration 4:handoff,integration,,
+claude,pallets_click_task,2068,1 5,False,naive,5,1 5,,True,1:0.82 5:0.73,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2068,1 6,False,naive,6,1 6,,True,1:0.82 6:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2068,1 7,False,naive,7,1 7,,True,1:0.82 7:0.91,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2068,1 8,False,naive,8,1 8,,False,1:0.82 8:0.27,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2068,1 9,False,naive,,1,,True,1:0.82 9:0.18,conflicts,,False,1:integration 9:capability,integration,1:integration 9:handoff,integration,,
+claude,pallets_click_task,2068,1 10,False,naive,10,1 10,,True,1:0.82 10:0.36,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2068,1 11,False,naive,11,11,,True,1:0.82 11:0.64,conflicts,,False,1:context,context,1:context,context,,
+claude,pallets_click_task,2068,1 12,False,naive,12,1 12,,True,1:0.82 12:0.82,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2068,2 3,False,naive,3,3,,False,2:0.18 3:1.00,conflicts,,False,2:capability,capability,2:capability,capability,,
+claude,pallets_click_task,2068,2 4,False,naive,4,4,,False,2:0.18 4:0.00,conflicts,,False,2:capability,capability,2:capability,capability,,
+claude,pallets_click_task,2068,2 5,False,naive,,,,False,2:0.18 5:0.73,conflicts,,False,2:capability 5:context,context,2:capability 5:context,context,,
+claude,pallets_click_task,2068,2 6,False,naive,6,6,2,False,2:0.18 6:1.00,conflicts,,True,2:capability,capability,2:capability,capability,,
+claude,pallets_click_task,2068,2 7,False,naive,7,7,,False,2:0.18 7:0.91,conflicts,,False,2:capability,capability,2:handoff,handoff,,
+claude,pallets_click_task,2068,2 8,False,naive,8,8,,False,2:0.18 8:0.27,conflicts,,False,2:capability,capability,2:capability,capability,,
+claude,pallets_click_task,2068,2 9,False,naive,,,,False,2:0.18 9:0.18,conflicts,,False,2:capability 9:capability,capability,2:capability 9:capability,capability,,
+claude,pallets_click_task,2068,2 10,False,naive,,,,False,2:0.18 10:0.36,conflicts,,False,2:capability 10:capability,capability,2:capability 10:capability,capability,,
+claude,pallets_click_task,2068,2 11,False,naive,11,11,,False,2:0.18 11:0.64,conflicts,,False,2:capability,capability,2:capability,capability,,
+claude,pallets_click_task,2068,2 12,False,naive,,,,False,2:0.18 12:0.82,conflicts,,False,2:capability 12:context,context,2:capability 12:context,context,,
+claude,pallets_click_task,2068,3 4,False,naive,4,3 4,,False,3:1.00 4:0.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_click_task,2068,3 5,False,naive,5,3 5,,True,3:1.00 5:0.73,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_click_task,2068,3 6,False,naive,6,3 6,3,True,3:1.00 6:1.00,conflicts,3 6,True,3:integration,integration,3:integration,integration,,
+claude,pallets_click_task,2068,3 7,False,naive,7,3 7,,True,3:1.00 7:0.91,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_click_task,2068,3 8,False,naive,8,3 8,,True,3:1.00 8:0.27,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_click_task,2068,3 9,False,naive,,,,False,3:1.00 9:0.18,clean,,False,3:context 9:capability,context,3:context 9:capability,context,3:context 9:capability,context
+claude,pallets_click_task,2068,3 10,False,naive,10,3 10,,True,3:1.00 10:0.36,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_click_task,2068,3 11,False,naive,,3,,True,3:1.00 11:0.64,conflicts,,False,3:integration 11:context,integration,3:integration 11:context,integration,,
+claude,pallets_click_task,2068,3 12,False,naive,12,3 12,,True,3:1.00 12:0.82,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_click_task,2068,4 5,False,naive,,4,,False,4:0.00 5:0.73,conflicts,,False,4:integration 5:context,integration,4:integration 5:context,integration,,
+claude,pallets_click_task,2068,4 7,False,naive,7,7,,False,4:0.00 7:0.91,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_click_task,2068,4 8,False,naive,8,4 8,,False,4:0.00 8:0.27,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,pallets_click_task,2068,4 9,False,naive,,,,False,4:0.00 9:0.18,conflicts,,False,4:capability 9:capability,capability,4:capability 9:capability,capability,,
+claude,pallets_click_task,2068,4 10,False,naive,10,10,,False,4:0.00 10:0.36,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_click_task,2068,4 12,False,naive,12,4 12,,False,4:0.00 12:0.82,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,pallets_click_task,2068,5 6,False,naive,6,5 6,5,False,5:0.73 6:1.00,conflicts,5 6,True,5:integration,integration,5:integration,integration,,
+claude,pallets_click_task,2068,5 7,False,naive,7,7,,True,5:0.73 7:0.91,conflicts,,False,5:context,context,5:context,context,,
+claude,pallets_click_task,2068,5 8,False,naive,8,5 8,5,False,5:0.73 8:0.27,conflicts,5 8,True,5:integration,integration,5:integration,integration,,
+claude,pallets_click_task,2068,5 9,False,naive,,5,,False,5:0.73 9:0.18,conflicts,,False,5:integration 9:capability,integration,5:integration 9:capability,integration,,
+claude,pallets_click_task,2068,5 10,False,naive,10,5 10,5,True,5:0.73 10:0.36,conflicts,5 10,True,5:integration,integration,5:integration,integration,,
+claude,pallets_click_task,2068,5 11,False,naive,11,11,,True,5:0.73 11:0.64,conflicts,,False,5:context,context,5:context,context,,
+claude,pallets_click_task,2068,5 12,False,naive,12,5 12,5,True,5:0.73 12:0.82,conflicts,5 12,True,5:integration,integration,5:integration,integration,,
+claude,pallets_click_task,2068,6 7,False,naive,7,6 7,,True,6:1.00 7:0.91,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_click_task,2068,6 8,False,naive,,6,,False,6:1.00 8:0.27,conflicts,,False,6:integration 8:capability,integration,6:integration 8:capability,integration,,
+claude,pallets_click_task,2068,6 9,False,naive,,6,,False,6:1.00 9:0.18,conflicts,,False,6:integration 9:capability,integration,6:integration 9:capability,integration,,
+claude,pallets_click_task,2068,6 10,False,naive,10,6 10,,False,6:1.00 10:0.36,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_click_task,2068,6 11,False,naive,11,6 11,,False,6:1.00 11:0.64,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_click_task,2068,6 12,False,naive,12,6 12,,True,6:1.00 12:0.82,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_click_task,2068,7 9,False,naive,,7,,False,7:0.91 9:0.18,conflicts,,False,7:integration 9:capability,integration,7:integration 9:capability,integration,,
+claude,pallets_click_task,2068,7 10,False,naive,10,10,,False,7:0.91 10:0.36,conflicts,,False,7:context,context,7:context,context,,
+claude,pallets_click_task,2068,7 11,False,naive,,7,,True,7:0.91 11:0.64,conflicts,,False,7:integration 11:context,integration,7:integration 11:context,integration,,
+claude,pallets_click_task,2068,7 12,False,naive,12,7 12,,True,7:0.91 12:0.82,conflicts,,False,7:integration,integration,7:integration,integration,,
+claude,pallets_click_task,2068,8 9,False,naive,,8,,False,8:0.27 9:0.18,conflicts,,False,8:integration 9:capability,integration,8:integration 9:capability,integration,,
+claude,pallets_click_task,2068,8 10,False,naive,10,10,,True,8:0.27 10:0.36,conflicts,,False,8:capability,capability,8:handoff,handoff,,
+claude,pallets_click_task,2068,8 12,False,naive,12,8 12,,False,8:0.27 12:0.82,conflicts,,False,8:integration,integration,8:integration,integration,,
+claude,pallets_click_task,2068,9 10,False,naive,10,10,9,False,9:0.18 10:0.36,conflicts,,True,9:capability,capability,9:capability,capability,,
+claude,pallets_click_task,2068,9 11,False,naive,11,11,,False,9:0.18 11:0.64,conflicts,,False,9:capability,capability,9:capability,capability,,
+claude,pallets_click_task,2068,9 12,False,naive,12,12,,False,9:0.18 12:0.82,conflicts,,False,9:capability,capability,9:capability,capability,,
+claude,pallets_click_task,2068,10 11,False,naive,,,,False,10:0.36 11:0.64,conflicts,,False,10:capability 11:context,context,10:capability 11:context,context,,
+claude,pallets_click_task,2068,11 12,False,naive,12,11 12,,True,11:0.64 12:0.82,conflicts,,False,11:integration,integration,11:integration,integration,,
+claude,pallets_click_task,2800,1 2,False,naive,1,1 2,,False,1:0.83 2:0.50,clean,1,False,2:integration,integration,2:integration,integration,2:integration,integration
+claude,pallets_click_task,2800,1 3,False,naive,,1,,False,1:0.83 3:0.17,clean,1,False,1:integration 3:capability,integration,1:integration 3:handoff,integration,3:capability,capability
+claude,pallets_click_task,2800,1 4,False,naive,1,1,,False,1:0.83 4:0.00,clean,1,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,pallets_click_task,2800,1 6,False,naive,6,1 6,,True,1:0.83 6:0.83,clean,6,False,1:integration,integration,1:integration,integration,1:integration,integration
+claude,pallets_click_task,2800,1 7,False,naive,7,7,,False,1:0.83 7:1.00,clean,7,False,1:context,context,1:handoff,handoff,1:context,context
+claude,pallets_click_task,2800,2 3,False,naive,,2,,False,2:0.50 3:0.17,conflicts,,False,2:integration 3:capability,integration,2:integration 3:capability,integration,,
+claude,pallets_click_task,2800,2 4,False,naive,,2,,False,2:0.50 4:0.00,conflicts,,False,2:integration 4:capability,integration,2:integration 4:capability,integration,,
+claude,pallets_click_task,2800,2 5,False,naive,5,5,,False,2:0.50 5:0.33,conflicts,,False,2:context,context,2:context,context,,
+claude,pallets_click_task,2800,2 6,False,naive,2,2,,True,2:0.50 6:0.83,clean,2,False,6:context,context,6:context,context,6:context,context
+claude,pallets_click_task,2800,3 4,False,naive,,,,False,3:0.17 4:0.00,conflicts,,False,3:capability 4:capability,capability,3:capability 4:capability,capability,,
+claude,pallets_click_task,2800,3 5,False,naive,5,5,,False,3:0.17 5:0.33,conflicts,,False,3:capability,capability,3:capability,capability,,
+claude,pallets_click_task,2800,3 6,False,naive,3,,,False,3:0.17 6:0.83,clean,,False,6:context,context,6:context,context,6:context,context
+claude,pallets_click_task,2800,3 7,False,naive,7,7,,False,3:0.17 7:1.00,conflicts,,False,3:capability,capability,3:capability,capability,,
+claude,pallets_click_task,2800,4 5,False,naive,5,5,,False,4:0.00 5:0.33,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_click_task,2800,4 7,False,naive,7,7,,False,4:0.00 7:1.00,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_click_task,2800,5 6,False,naive,,5,,False,5:0.33 6:0.83,clean,,False,5:integration 6:context,integration,5:integration 6:context,integration,5:integration 6:context,integration
+claude,pallets_click_task,2800,5 7,False,naive,7,5 7,,True,5:0.33 7:1.00,conflicts,,False,5:integration,integration,5:integration,integration,,
+claude,pallets_click_task,2956,1 2,False,naive,2,2,,False,1:0.43 2:0.86,conflicts,,False,1:capability,capability,1:capability,capability,,
+claude,pallets_click_task,2956,1 3,False,naive,3,1 3,,True,1:0.43 3:0.71,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_click_task,2956,1 4,False,naive,,1,,False,1:0.43 4:0.00,conflicts,,False,1:integration 4:capability,integration,1:integration 4:capability,integration,,
+claude,pallets_click_task,2956,1 5,False,naive,,1,,False,1:0.43 5:0.00,conflicts,,False,1:integration 5:capability,integration,1:integration 5:capability,integration,,
+claude,pallets_click_task,2956,1 7,False,naive,,,,False,1:0.43 7:0.00,conflicts,,False,1:capability 7:capability,capability,1:capability 7:capability,capability,,
+claude,pallets_click_task,2956,2 3,False,naive,,,,False,2:0.86 3:0.71,conflicts,,False,2:context 3:context,context,2:context 3:context,context,,
+claude,pallets_click_task,2956,2 4,False,naive,4,4,,False,2:0.86 4:0.00,conflicts,,False,2:context,context,2:context,context,,
+claude,pallets_click_task,2956,2 5,False,naive,,2,,False,2:0.86 5:0.00,conflicts,,False,2:integration 5:capability,integration,2:integration 5:capability,integration,,
+claude,pallets_click_task,2956,2 7,False,naive,,,,False,2:0.86 7:0.00,conflicts,,False,2:context 7:capability,context,2:context 7:capability,context,,
+claude,pallets_click_task,2956,2 8,False,naive,2,2,,False,2:0.86 8:0.29,clean,2,False,8:capability,capability,8:capability,capability,8:capability,capability
+claude,pallets_click_task,2956,3 4,False,naive,,3,,False,3:0.71 4:0.00,conflicts,,False,3:integration 4:capability,integration,3:integration 4:capability,integration,,
+claude,pallets_click_task,2956,3 5,False,naive,,3,,False,3:0.71 5:0.00,conflicts,,False,3:integration 5:capability,integration,3:integration 5:capability,integration,,
+claude,pallets_click_task,2956,3 6,False,naive,6,6,,True,3:0.71 6:0.86,conflicts,,False,3:context,context,3:context,context,,
+claude,pallets_click_task,2956,3 7,False,naive,,3,,False,3:0.71 7:0.00,conflicts,,False,3:integration 7:capability,integration,3:integration 7:capability,integration,,
+claude,pallets_click_task,2956,3 8,False,naive,,3,,False,3:0.71 8:0.29,clean,,False,3:integration 8:capability,integration,3:integration 8:capability,integration,3:integration 8:capability,integration
+claude,pallets_click_task,2956,4 5,False,naive,,,,False,4:0.00 5:0.00,conflicts,,False,4:capability 5:capability,capability,4:capability 5:capability,capability,,
+claude,pallets_click_task,2956,4 6,False,naive,6,6,,False,4:0.00 6:0.86,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_click_task,2956,4 7,False,naive,4,4,7,False,4:0.00 7:0.00,identical,4,True,7:capability,capability,7:capability,capability,,
+claude,pallets_click_task,2956,4 8,False,naive,,4,,False,4:0.00 8:0.29,clean,,False,4:integration 8:capability,integration,4:integration 8:capability,integration,4:integration 8:capability,integration
+claude,pallets_click_task,2956,5 7,False,naive,,,,False,5:0.00 7:0.00,conflicts,,False,5:capability 7:capability,capability,5:capability 7:capability,capability,,
+claude,pallets_click_task,2956,5 8,False,naive,,,,False,5:0.00 8:0.29,conflicts,,False,5:capability 8:capability,capability,5:capability 8:capability,capability,,
+claude,pallets_click_task,2956,6 7,False,naive,6,6,,False,6:0.86 7:0.00,clean,6,False,7:capability,capability,7:capability,capability,7:capability,capability
+claude,pallets_click_task,2956,7 8,False,naive,,,,False,7:0.00 8:0.29,conflicts,,False,7:capability 8:capability,capability,7:capability 8:capability,capability,,
+claude,pallets_jinja_task,1465,1 3,False,naive,,,,True,1:1.00 3:1.00,clean,,False,1:context 3:context,context,1:context 3:context,context,1:context 3:context,context
+claude,pallets_jinja_task,1465,1 4,False,naive,4,4,,False,1:1.00 4:0.89,conflicts,,False,1:context,context,1:context,context,,
+claude,pallets_jinja_task,1465,1 5,False,naive,,,,False,1:1.00 5:0.00,conflicts,,False,1:context 5:capability,context,1:context 5:capability,context,,
+claude,pallets_jinja_task,1465,1 6,False,naive,6,6,,True,1:1.00 6:1.00,clean,,False,1:context,context,1:context,context,1:context,context
+claude,pallets_jinja_task,1465,1 8,False,naive,,,,True,1:1.00 8:1.00,conflicts,,False,1:context 8:context,context,1:context 8:context,context,,
+claude,pallets_jinja_task,1465,1 9,False,naive,9,9,,True,1:1.00 9:0.67,conflicts,,False,1:context,context,1:context,context,,
+claude,pallets_jinja_task,1465,1 10,False,naive,10,1 10,,True,1:1.00 10:0.89,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_jinja_task,1465,2 3,False,naive,3,3,,True,2:1.00 3:1.00,clean,2 3,False,2:context,context,2:context,context,,
+claude,pallets_jinja_task,1465,2 5,False,naive,2,2,5,False,2:1.00 5:0.00,clean,2,True,5:capability,capability,5:capability,capability,5:capability,capability
+claude,pallets_jinja_task,1465,2 8,False,naive,8,2 8,,True,2:1.00 8:1.00,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,pallets_jinja_task,1465,2 9,False,naive,,,,True,2:1.00 9:0.67,conflicts,,False,2:context 9:context,context,2:context 9:context,context,,
+claude,pallets_jinja_task,1465,2 10,False,naive,10,2 10,,True,2:1.00 10:0.89,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,pallets_jinja_task,1465,3 4,False,naive,4,3 4,,True,3:1.00 4:0.89,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_jinja_task,1465,3 5,False,naive,,3,,False,3:1.00 5:0.00,clean,3,False,3:integration 5:capability,integration,3:integration 5:capability,integration,5:capability,capability
+claude,pallets_jinja_task,1465,3 6,False,naive,6,3 6,,True,3:1.00 6:1.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_jinja_task,1465,3 7,False,naive,7,3 7,,True,3:1.00 7:1.00,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_jinja_task,1465,3 8,False,naive,,,,True,3:1.00 8:1.00,clean,3 8,False,3:context 8:context,context,3:context 8:context,context,,
+claude,pallets_jinja_task,1465,3 9,False,naive,9,3 9,,False,3:1.00 9:0.67,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_jinja_task,1465,3 10,False,naive,10,3 10,,True,3:1.00 10:0.89,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,pallets_jinja_task,1465,4 5,False,naive,,4,,False,4:0.89 5:0.00,conflicts,,False,4:integration 5:capability,integration,4:integration 5:capability,integration,,
+claude,pallets_jinja_task,1465,4 6,False,naive,,4,,True,4:0.89 6:1.00,conflicts,,False,4:integration 6:context,integration,4:integration 6:context,integration,,
+claude,pallets_jinja_task,1465,4 7,False,naive,7,4 7,,True,4:0.89 7:1.00,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,pallets_jinja_task,1465,4 9,False,naive,9,4 9,,True,4:0.89 9:0.67,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,pallets_jinja_task,1465,4 10,False,naive,10,4 10,,True,4:0.89 10:0.89,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,pallets_jinja_task,1465,5 6,False,naive,6,6,5,False,5:0.00 6:1.00,identical,6,True,5:capability,capability,5:capability,capability,,
+claude,pallets_jinja_task,1465,5 7,False,naive,7,7,,False,5:0.00 7:1.00,conflicts,,False,5:capability,capability,5:capability,capability,,
+claude,pallets_jinja_task,1465,5 8,False,naive,8,8,,False,5:0.00 8:1.00,conflicts,,False,5:capability,capability,5:capability,capability,,
+claude,pallets_jinja_task,1465,5 9,False,naive,9,9,,False,5:0.00 9:0.67,conflicts,,False,5:capability,capability,5:capability,capability,,
+claude,pallets_jinja_task,1465,5 10,False,naive,10,10,,False,5:0.00 10:0.89,conflicts,,False,5:capability,capability,5:capability,capability,,
+claude,pallets_jinja_task,1465,6 7,False,naive,,6,,True,6:1.00 7:1.00,conflicts,,False,6:integration 7:context,integration,6:integration 7:context,integration,,
+claude,pallets_jinja_task,1465,6 9,False,naive,9,6 9,,False,6:1.00 9:0.67,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_jinja_task,1465,7 9,False,naive,9,7 9,,True,7:1.00 9:0.67,conflicts,,False,7:integration,integration,7:integration,integration,,
+claude,pallets_jinja_task,1465,7 10,False,naive,10,10,,True,7:1.00 10:0.89,conflicts,,False,7:context,context,7:context,context,,
+claude,pallets_jinja_task,1465,8 9,False,naive,9,8 9,,False,8:1.00 9:0.67,conflicts,,False,8:integration,integration,8:integration,integration,,
+claude,pallets_jinja_task,1465,9 10,False,naive,10,9 10,,False,9:0.67 10:0.89,conflicts,,False,9:integration,integration,9:integration,integration,,
+claude,pallets_jinja_task,1559,1 2,False,naive,,1,,False,1:0.56 2:0.67,conflicts,,False,1:integration 2:context,integration,1:integration 2:context,integration,,
+claude,pallets_jinja_task,1559,1 3,False,naive,,1,,False,1:0.56 3:0.67,conflicts,,False,1:integration 3:context,integration,1:integration 3:context,integration,,
+claude,pallets_jinja_task,1559,1 4,False,naive,,1,,True,1:0.56 4:0.44,conflicts,,False,1:integration 4:capability,integration,1:integration 4:capability,integration,,
+claude,pallets_jinja_task,1559,2 3,False,naive,3,,,False,2:0.67 3:0.67,conflicts,,False,2:context,context,2:context,context,,
+claude,pallets_jinja_task,1559,2 4,False,naive,,,,False,2:0.67 4:0.44,conflicts,,False,2:context 4:capability,context,2:context 4:capability,context,,
+claude,pallets_jinja_task,1559,2 8,False,naive,2,2,,False,2:0.67 8:0.56,clean,2,False,8:context,context,8:context,context,8:context,context
+claude,pallets_jinja_task,1559,3 4,False,naive,3,,,True,3:0.67 4:0.44,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_jinja_task,1559,3 8,False,naive,3,,,False,3:0.67 8:0.56,clean,,False,8:context,context,8:context,context,8:context,context
+claude,pallets_jinja_task,1559,5 10,False,naive,5,5,,True,5:0.89 10:0.78,conflicts,,False,10:context,context,10:context,context,,
+claude,pallets_jinja_task,1559,6 10,False,naive,10,6 10,,True,6:1.00 10:0.78,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_jinja_task,1559,8 9,False,naive,9,8 9,,True,8:0.56 9:1.00,conflicts,,False,8:integration,integration,8:integration,integration,,
+claude,pallets_jinja_task,1621,1 4,False,naive,1,1,,False,1:1.00 4:0.00,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_jinja_task,1621,1 5,False,naive,5,1 5,,True,1:1.00 5:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_jinja_task,1621,1 6,False,naive,6,1 6,,True,1:1.00 6:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_jinja_task,1621,1 8,False,naive,8,1 8,,True,1:1.00 8:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_jinja_task,1621,1 9,False,naive,9,1 9,,True,1:1.00 9:1.00,conflicts,,False,1:integration,integration,1:integration,integration,,
+claude,pallets_jinja_task,1621,2 4,False,naive,2,2,,False,2:1.00 4:0.00,clean,2,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,pallets_jinja_task,1621,2 6,False,naive,6,2 6,,True,2:1.00 6:1.00,conflicts,,False,2:integration,integration,2:integration,integration,,
+claude,pallets_jinja_task,1621,2 9,False,naive,9,2 9,,True,2:1.00 9:1.00,clean,2 9,False,2:integration,integration,2:integration,integration,,
+claude,pallets_jinja_task,1621,2 10,False,naive,10,2 10,,True,2:1.00 10:0.89,clean,2 10,False,2:integration,integration,2:integration,integration,,
+claude,pallets_jinja_task,1621,3 4,False,naive,3,3,,False,3:1.00 4:0.00,clean,3,False,4:capability,capability,4:capability,capability,4:capability,capability
+claude,pallets_jinja_task,1621,3 6,True,llm,,3 6,,True,3:1.00 6:1.00,,,False,3:integration 6:integration,integration,3:integration 6:integration,integration,3:integration 6:integration,integration
+claude,pallets_jinja_task,1621,3 10,False,naive,3,3,,True,3:1.00 10:0.89,clean,3,False,10:context,context,10:context,context,10:context,context
+claude,pallets_jinja_task,1621,4 6,True,llm,,6,,False,4:0.00 6:1.00,,,False,4:capability 6:integration,integration,4:handoff 6:integration,integration,4:capability 6:integration,integration
+claude,pallets_jinja_task,1621,4 7,False,naive,7,7,,False,4:0.00 7:1.00,conflicts,,False,4:capability,capability,4:capability,capability,,
+claude,pallets_jinja_task,1621,5 8,False,naive,,5,,True,5:1.00 8:1.00,clean,,False,5:integration 8:context,integration,5:integration 8:context,integration,5:integration 8:context,integration
+claude,pallets_jinja_task,1621,5 10,False,naive,5,5,,True,5:1.00 10:0.89,clean,5 10,False,10:context,context,10:context,context,,
+claude,pallets_jinja_task,1621,6 8,False,naive,8,6 8,,True,6:1.00 8:1.00,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_jinja_task,1621,6 9,False,naive,9,6 9,,True,6:1.00 9:1.00,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_jinja_task,1621,6 10,False,naive,10,6 10,,False,6:1.00 10:0.89,conflicts,,False,6:integration,integration,6:integration,integration,,
+claude,pallets_jinja_task,1621,8 9,False,naive,9,8 9,,True,8:1.00 9:1.00,clean,8 9,False,8:integration,integration,8:integration,integration,,
+claude,pallets_jinja_task,1621,8 10,False,naive,10,8 10,,True,8:1.00 10:0.89,conflicts,,False,8:integration,integration,8:integration,integration,,
+claude,pallets_jinja_task,1621,9 10,False,naive,,9,,True,9:1.00 10:0.89,clean,9 10,False,9:integration 10:context,integration,9:integration 10:context,integration,,
+claude,pillow_task,25,1 3,False,naive,1,1,,,,clean,1,False,3:unknown,unknown,3:unknown,unknown,3:unknown,unknown
+claude,pillow_task,25,1 4,False,naive,,,,,,clean,,False,1:unknown 4:unknown,unknown,1:unknown 4:unknown,unknown,1:unknown 4:unknown,unknown
+claude,pillow_task,25,1 5,True,llm,1,1,5,,,,,True,5:unknown,unknown,5:unknown,unknown,5:unknown,unknown
+claude,pillow_task,25,2 3,True,llm,,2 3,,,,,,False,2:integration 3:integration,integration,2:integration 3:integration,integration,2:integration 3:integration,integration
+claude,pillow_task,25,2 4,False,naive,2,2,,,,clean,2,False,4:unknown,unknown,4:unknown,unknown,4:unknown,unknown
+claude,pillow_task,25,2 5,True,llm,,2,5,,,,,True,2:integration 5:unknown,integration,2:integration 5:unknown,integration,2:integration 5:unknown,integration
+claude,pillow_task,25,3 4,True,llm,,,,,,,,False,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown
+claude,pillow_task,25,3 5,False,naive,,,,,,clean,,False,3:unknown 5:unknown,unknown,3:unknown 5:unknown,unknown,3:unknown 5:unknown,unknown
+claude,pillow_task,25,4 5,True,llm,,4,,,,,,False,4:integration 5:unknown,integration,4:integration 5:unknown,integration,4:integration 5:unknown,integration
+claude,pillow_task,68,1 2,True,llm,,1 2,,,,,,False,1:integration 2:integration,integration,1:integration 2:integration,integration,1:integration 2:integration,integration
+claude,pillow_task,68,1 3,False,naive,1,1,,,,clean,1,False,3:unknown,unknown,3:unknown,unknown,3:unknown,unknown
+claude,pillow_task,68,1 4,True,llm,,1,,,,,,False,1:integration 4:unknown,integration,1:integration 4:unknown,integration,1:integration 4:unknown,integration
+claude,pillow_task,68,1 5,False,naive,1,1,,,,clean,1,False,5:unknown,unknown,5:unknown,unknown,5:unknown,unknown
+claude,pillow_task,68,2 3,True,llm,,2,,,,,,False,2:integration 3:unknown,integration,2:integration 3:unknown,integration,2:integration 3:unknown,integration
+claude,pillow_task,68,2 4,False,naive,,,,,,clean,,False,2:unknown 4:unknown,unknown,2:unknown 4:unknown,unknown,2:unknown 4:unknown,unknown
+claude,pillow_task,68,2 5,True,llm,,2,,,,,,False,2:integration 5:unknown,integration,2:integration 5:unknown,integration,2:integration 5:unknown,integration
+claude,pillow_task,68,3 4,True,llm,,,,,,,,False,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown,3:unknown 4:unknown,unknown
+claude,pillow_task,68,3 5,True,llm,,,,,,,,False,3:unknown 5:unknown,unknown,3:unknown 5:unknown,unknown,3:unknown 5:unknown,unknown
+claude,pillow_task,68,4 5,True,llm,,,,,,,,False,4:unknown 5:unknown,unknown,4:unknown 5:unknown,unknown,4:unknown 5:unknown,unknown
+claude,pillow_task,290,1 2,False,naive,1,1,,,,clean,1,False,2:unknown,unknown,2:unknown,unknown,2:unknown,unknown
+claude,pillow_task,290,1 3,True,llm,3,1 3,,,,,,False,1:integration,integration,1:integration,integration,1:integration,integration
+claude,pillow_task,290,1 4,False,naive,,,,,,clean,,False,1:unknown 4:unknown,unknown,1:unknown 4:unknown,unknown,1:unknown 4:unknown,unknown
+claude,pillow_task,290,1 5,True,llm,1,1,,,,,,False,5:unknown,unknown,5:unknown,unknown,5:unknown,unknown
+claude,pillow_task,290,2 3,True,llm,,,,,,,,False,2:unknown 3:unknown,unknown,2:unknown 3:unknown,unknown,2:unknown 3:unknown,unknown
+claude,pillow_task,290,2 4,True,llm,,,,,,,,False,2:unknown 4:unknown,unknown,2:unknown 4:unknown,unknown,2:unknown 4:unknown,unknown
+claude,pillow_task,290,2 5,True,llm,,,,,,,,False,2:unknown 5:unknown,unknown,2:unknown 5:unknown,unknown,2:unknown 5:unknown,unknown
+claude,pillow_task,290,3 5,True,llm,,3,5,,,,,True,3:integration 5:unknown,integration,3:integration 5:unknown,integration,3:integration 5:unknown,integration
+claude,pillow_task,290,4 5,True,llm,,,,,,,,False,4:unknown 5:unknown,unknown,4:unknown 5:unknown,unknown,4:unknown 5:unknown,unknown
+claude,react_hook_form_task,85,1 2,True,llm,,1,,True,1:1.00 2:0.50,,,False,1:integration 2:context,integration,1:integration 2:context,integration,1:integration 2:context,integration
+claude,react_hook_form_task,85,1 3,True,llm,,1,,False,1:1.00 3:0.50,,,False,1:integration 3:context,integration,1:integration 3:context,integration,1:integration 3:context,integration
+claude,react_hook_form_task,85,2 3,True,llm,,3,,True,2:0.50 3:0.50,,,False,2:context 3:integration,integration,2:context 3:integration,integration,2:context 3:integration,integration
+claude,react_hook_form_task,85,2 4,False,naive,4,4,,False,2:0.50 4:1.00,clean,,False,2:context,context,2:handoff,handoff,2:context,context
+claude,react_hook_form_task,85,2 5,False,naive,5,,2,False,2:0.50 5:0.75,clean,,True,2:context,context,2:context,context,2:context,context
+claude,react_hook_form_task,85,3 4,True,llm,,4,,False,3:0.50 4:1.00,,,False,3:context 4:integration,integration,3:context 4:integration,integration,3:context 4:integration,integration
+claude,react_hook_form_task,85,3 5,True,llm,,5,,True,3:0.50 5:0.75,,,False,3:context 5:integration,integration,3:handoff 5:integration,integration,3:context 5:integration,integration
+claude,react_hook_form_task,153,1 2,False,naive,2,,,True,1:0.80 2:0.40,clean,2,False,1:context,context,1:context,context,1:context,context
+claude,react_hook_form_task,153,1 3,False,naive,3,3,,False,1:0.80 3:1.00,clean,3,False,1:context,context,1:handoff,handoff,1:context,context
+claude,react_hook_form_task,153,1 5,True,llm,,1,,False,1:0.80 5:0.20,,,False,1:integration 5:capability,integration,1:integration 5:capability,integration,1:integration 5:capability,integration
+claude,react_hook_form_task,153,1 6,False,naive,,,,False,1:0.80 6:0.00,clean,,False,1:context 6:capability,context,1:context 6:handoff,handoff,1:context 6:capability,context
+claude,react_hook_form_task,153,2 3,False,naive,3,3,,False,2:0.40 3:1.00,clean,3,False,2:capability,capability,2:handoff,handoff,2:capability,capability
+claude,react_hook_form_task,153,2 4,False,naive,,,,False,2:0.40 4:1.00,clean,,False,2:capability 4:context,context,2:handoff 4:handoff,handoff,2:capability 4:context,context
+claude,react_hook_form_task,153,2 5,False,naive,5,,2,False,2:0.40 5:0.20,clean,5,True,2:capability,capability,2:handoff,handoff,2:capability,capability
+claude,react_hook_form_task,153,2 6,False,naive,,,,False,2:0.40 6:0.00,clean,,False,2:capability 6:capability,capability,2:capability 6:handoff,handoff,2:capability 6:capability,capability
+claude,react_hook_form_task,153,3 4,False,naive,3,3,,True,3:1.00 4:1.00,clean,3,False,4:context,context,4:handoff,handoff,4:context,context
+claude,react_hook_form_task,153,3 5,False,naive,,,,False,3:1.00 5:0.20,clean,,False,3:context 5:capability,context,3:context 5:handoff,handoff,3:context 5:capability,context
+claude,react_hook_form_task,153,3 6,False,naive,,,,False,3:1.00 6:0.00,clean,,False,3:context 6:capability,context,3:context 6:capability,context,3:context 6:capability,context
+claude,react_hook_form_task,153,4 5,False,naive,4,4,,False,4:1.00 5:0.20,clean,4,False,5:capability,capability,5:handoff,handoff,5:capability,capability
+claude,react_hook_form_task,153,4 6,False,naive,,,,False,4:1.00 6:0.00,clean,,False,4:context 6:capability,context,4:handoff 6:capability,handoff,4:context 6:capability,context
+claude,react_hook_form_task,153,5 6,False,naive,,,,False,5:0.20 6:0.00,clean,,False,5:capability 6:capability,capability,5:handoff 6:capability,handoff,5:capability 6:capability,capability
+claude,samuelcolvin_dirty_equals_task,43,1 2,False,naive,,,,False,1:0.12 2:1.00,conflicts,,False,1:capability 2:context,context,1:capability 2:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,1 3,False,naive,,,,False,1:0.12 3:0.62,conflicts,,False,1:capability 3:context,context,1:capability 3:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,1 4,False,naive,,,,False,1:0.12 4:0.75,conflicts,,False,1:capability 4:context,context,1:capability 4:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,1 5,False,naive,,,,False,1:0.12 5:0.50,conflicts,,False,1:capability 5:context,context,1:handoff 5:context,handoff,,
+claude,samuelcolvin_dirty_equals_task,43,1 6,False,naive,,,,False,1:0.12 6:0.00,conflicts,,False,1:capability 6:capability,capability,1:capability 6:handoff,handoff,,
+claude,samuelcolvin_dirty_equals_task,43,1 7,False,naive,,,,False,1:0.12 7:0.50,conflicts,,False,1:capability 7:context,context,1:capability 7:handoff,handoff,,
+claude,samuelcolvin_dirty_equals_task,43,1 8,False,naive,,,,False,1:0.12 8:0.25,conflicts,,False,1:capability 8:capability,capability,1:handoff 8:capability,handoff,,
+claude,samuelcolvin_dirty_equals_task,43,1 9,False,naive,,,,False,1:0.12 9:0.00,conflicts,,False,1:capability 9:capability,capability,1:capability 9:capability,capability,,
+claude,samuelcolvin_dirty_equals_task,43,2 3,False,naive,,,,True,2:1.00 3:0.62,clean,2 3,False,2:context 3:context,context,2:context 3:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,2 4,False,naive,,,,True,2:1.00 4:0.75,conflicts,,False,2:context 4:context,context,2:context 4:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,2 5,False,naive,,,,True,2:1.00 5:0.50,conflicts,,False,2:context 5:context,context,2:context 5:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,2 6,False,naive,,,,False,2:1.00 6:0.00,conflicts,,False,2:context 6:capability,context,2:context 6:capability,context,,
+claude,samuelcolvin_dirty_equals_task,43,2 7,False,naive,,2,,True,2:1.00 7:0.50,conflicts,,False,2:integration 7:context,integration,2:integration 7:context,integration,,
+claude,samuelcolvin_dirty_equals_task,43,2 8,False,naive,,,,True,2:1.00 8:0.25,conflicts,,False,2:context 8:capability,context,2:handoff 8:capability,handoff,,
+claude,samuelcolvin_dirty_equals_task,43,2 9,False,naive,,2,,False,2:1.00 9:0.00,conflicts,,False,2:integration 9:capability,integration,2:integration 9:capability,integration,,
+claude,samuelcolvin_dirty_equals_task,43,3 4,False,naive,4,3 4,,False,3:0.62 4:0.75,conflicts,,False,3:integration,integration,3:integration,integration,,
+claude,samuelcolvin_dirty_equals_task,43,3 5,False,naive,,3,,False,3:0.62 5:0.50,conflicts,,False,3:integration 5:context,integration,3:integration 5:context,integration,,
+claude,samuelcolvin_dirty_equals_task,43,3 6,False,naive,,,,False,3:0.62 6:0.00,conflicts,,False,3:context 6:capability,context,3:context 6:capability,context,,
+claude,samuelcolvin_dirty_equals_task,43,3 7,False,naive,,3,,True,3:0.62 7:0.50,conflicts,,False,3:integration 7:context,integration,3:integration 7:context,integration,,
+claude,samuelcolvin_dirty_equals_task,43,3 8,False,naive,,3,,False,3:0.62 8:0.25,conflicts,,False,3:integration 8:capability,integration,3:integration 8:capability,integration,,
+claude,samuelcolvin_dirty_equals_task,43,3 9,False,naive,,,,False,3:0.62 9:0.00,conflicts,,False,3:context 9:capability,context,3:handoff 9:capability,handoff,,
+claude,samuelcolvin_dirty_equals_task,43,4 5,False,naive,5,4 5,,False,4:0.75 5:0.50,conflicts,,False,4:integration,integration,4:integration,integration,,
+claude,samuelcolvin_dirty_equals_task,43,4 6,False,naive,,,,False,4:0.75 6:0.00,conflicts,,False,4:context 6:capability,context,4:context 6:capability,context,,
+claude,samuelcolvin_dirty_equals_task,43,4 7,False,naive,,,,False,4:0.75 7:0.50,conflicts,,False,4:context 7:context,context,4:context 7:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,4 8,False,naive,,4,,False,4:0.75 8:0.25,conflicts,,False,4:integration 8:capability,integration,4:integration 8:capability,integration,,
+claude,samuelcolvin_dirty_equals_task,43,4 9,False,naive,,,,False,4:0.75 9:0.00,conflicts,,False,4:context 9:capability,context,4:context 9:capability,context,,
+claude,samuelcolvin_dirty_equals_task,43,5 6,False,naive,,,,False,5:0.50 6:0.00,conflicts,,False,5:context 6:capability,context,5:context 6:capability,context,,
+claude,samuelcolvin_dirty_equals_task,43,5 7,False,naive,,,,True,5:0.50 7:0.50,conflicts,,False,5:context 7:context,context,5:context 7:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,5 8,False,naive,,,,False,5:0.50 8:0.25,conflicts,,False,5:context 8:capability,context,5:context 8:capability,context,,
+claude,samuelcolvin_dirty_equals_task,43,5 9,False,naive,,,,False,5:0.50 9:0.00,conflicts,,False,5:context 9:capability,context,5:context 9:capability,context,,
+claude,samuelcolvin_dirty_equals_task,43,6 7,False,naive,,,,False,6:0.00 7:0.50,conflicts,,False,6:capability 7:context,context,6:capability 7:context,context,,
+claude,samuelcolvin_dirty_equals_task,43,6 8,False,naive,,,,False,6:0.00 8:0.25,conflicts,,False,6:capability 8:capability,capability,6:capability 8:capability,capability,,
+claude,samuelcolvin_dirty_equals_task,43,6 9,False,naive,,,,False,6:0.00 9:0.00,conflicts,,False,6:capability 9:capability,capability,6:capability 9:capability,capability,,
+claude,samuelcolvin_dirty_equals_task,43,7 8,False,naive,,,,False,7:0.50 8:0.25,conflicts,,False,7:context 8:capability,context,7:context 8:handoff,handoff,,
+claude,samuelcolvin_dirty_equals_task,43,7 9,False,naive,,,,False,7:0.50 9:0.00,clean,,False,7:context 9:capability,context,7:context 9:handoff,handoff,7:context 9:capability,context
+claude,samuelcolvin_dirty_equals_task,43,8 9,False,naive,,,,False,8:0.25 9:0.00,conflicts,,False,8:capability 9:capability,capability,8:handoff 9:capability,handoff,,
