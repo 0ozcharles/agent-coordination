@@ -31,7 +31,9 @@ def main(log, pattern="agent_coordination"):
             if name in SKIP:
                 continue
             for proc in run("docker", "exec", name, "sh", "-c", FIND).splitlines():
-                pid, command = proc.split(" ", 1)
+                pid, _, command = proc.partition(" ")
+                if not pid.isdigit():  # a command line with an embedded newline spills onto extra lines
+                    continue
                 start = seen.setdefault((name, pid), now)
                 if now - start > LIMIT:
                     run("docker", "exec", name, "sh", "-c", "kill -9 -1")

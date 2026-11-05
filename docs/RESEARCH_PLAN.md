@@ -309,6 +309,8 @@ We counted, for every clean pair, which agents' code the tested patch holds. The
 
 **Decision rule.** With every merge correction applied, the coop–solo gap closes by 68% for GPT-5 and 85% for Claude. Both are above a third, so for both models much of the paper's coop–solo gap is a merge artifact. This reverses the upstream check's conclusion. The tested patch lost agent 1's code in more than a quarter of each model's failed clean pairs, so the paper's clean-merge share does not measure conflicts. Our statement that most strong-model failures merge cleanly is withdrawn. When the code is actually merged, conflicts are common for both models, most of all for Claude.
 
+**Correction (2026-11-05).** The sensitivity check below withdraws "much of the gap is a merge artifact". Two things go wrong when coop and solo are scored in the same harness. First, the paper's merge bug also produces false passes: in the Claude sample, 9 of the 39 pairs it recorded as passing fail once merged correctly. Second, the 68% and 85% above depend on gpt-6-luna resolving the conflicts. How much of the gap is an artifact depends on how conflicts are resolved.
+
 Caveats:
 
 - Conflicts are resolved with gpt-6-luna, which may be stronger than the paper's small resolver.
@@ -325,11 +327,50 @@ Caveats:
 | Integration | 17, 23% [9%, 47%] | 27, 36% [20%, 50%] |
 | Capability | 7 | 5 |
 
-Among real failures that solo can avoid, an agent failing its own feature when paired is the largest group for both models. Integration is a quarter to a third. Most of Claude's integration failures are conflicts even the llm re-merge cannot resolve: 56 of its 66 across all failed pairs.
+Among real failures that solo can avoid, an agent failing its own feature when paired is the largest group for both models. Integration is a quarter to a third. Most of Claude's integration failures are conflicts even the llm re-merge cannot resolve: 56 of its 66 across all failed pairs. This census starts from the paper's failed pairs only, so it misses the false passes the sensitivity check found.
+
+### Sensitivity of the merge correction (2026-11-05)
+
+We checked whether the audit's conclusion depends on two choices:
+
+- **Conflict resolution.** We re-merged every failed pair whose real merge conflicts with git's union merge (keep both sides of every conflict block), not gpt-6-luna. That gives four levels:
+  - L0: the paper's results.
+  - L1: no conflict resolution of ours, only clean merges.
+  - L2: union.
+  - L3: llm.
+- **One harness for coop and solo.** On 150 random pairs per model, we re-tested the published solo patch and scored coop in our harness too.
+
+Docker only, plus a few cents for the llm re-merges of sampled pairs. Config and decision rule: [configs/paper_sensitivity.json](../configs/paper_sensitivity.json). Per-pair data: [results/paper_sensitivity_rows.csv](../results/paper_sensitivity_rows.csv). One test run hung (outlines 1371, union) and counts as a failure.
+
+Share of the paper's coop–solo gap closed:
+
+| | GPT-5 | Claude Sonnet 4.5 |
+|---|---|---|
+| All pairs with a solo run, solo as recorded: L1 / L2 / L3 | 24% / 34% [13%, 67%] / 68% | 16% / 47% [24%, 84%] / 85% |
+| Sample, solo as recorded: L2 / L3 | 17% / 31% | 45% / 95% |
+| Sample, coop and solo in our harness: L1 | −21% [−60%, 18%] | −64% [−300%, −17%] |
+| Sample, coop and solo in our harness: L2 | 7% [−14%, 43%] | 0% [−140%, 43%] |
+| Sample, coop and solo in our harness: L3 | 28% [11%, 59%] | 64% [17%, 144%] |
+| Sample: solo passes, recorded / ours | 71 / 72 (148 pairs) | 61 / 59 (144 pairs) |
+| Sample: coop passes, paper / ours at L1, L2, L3 | 42 / 37, 45, 51 | 39 / 23, 37, 51 |
+
+**Decision rule.** On all pairs, union closes at least a third of the gap for both models. In one harness, though, it closes 7% and 0%, more than 15 points off. By the rule, the same-harness figure is the main one, and it is below a third. So the conclusion depends on conflict resolution, and it is reported as a range. (The report code first applied the threshold to the full-population figure even when the same-harness one took over. We fixed that before reading the verdict.)
+
+What the sample shows:
+
+- **Solo is scored the same in both harnesses.** 5 of 148 GPT-5 pairs and 2 of 144 Claude pairs disagree. The paper's solo results are not biased.
+- **The paper's coop passes are not all real.** In our harness, 9 of the 39 Claude pairs the paper recorded as passing fail even with the llm re-merge. In 5 of them the two patches merge cleanly but fail the tests: agent 1's code, which the paper never tested, breaks something. All 42 of GPT-5's recorded passes still pass at L3; 9 of them conflict and need a resolver.
+- **So the merge bug cuts both ways.** It fails pairs by dropping code the tests need. It passes pairs by never merging code that conflicts or breaks the build.
+
+**Reading.** The paper's coop numbers for GPT-5 and Claude are not a valid measurement, in either direction. With everything scored in one harness, the real coop–solo gap depends on conflict resolution:
+- Without an llm resolver it is about the size the paper reports.
+- With gpt-6-luna resolving conflicts it shrinks by about a quarter for GPT-5 (28% [11%, 59%]) and by about two thirds for Claude (64% [17%, 144%]).
+
+The sample is 150 pairs per model, so these intervals are wide.
 
 ## Next steps
 
-1. Check the corrections' sensitivity: resolve conflicts with a weaker method (union, or the paper's resolver) and re-test the published solo patches in our harness, so coop and solo are scored by the same pipeline.
+1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.
 2. Run the audit and the census on the paper's other three models and on its no-communication runs.
 3. Ablations the advisor asked for: number of agents, team composition (different, stronger and weaker, commercial and open models together) and the communication channel.
 4. Read the shared-git trajectories to find out why capability failures rose in S2.

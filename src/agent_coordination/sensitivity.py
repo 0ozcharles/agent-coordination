@@ -235,12 +235,12 @@ def summarize(config, rows):
         if l2 is None:
             decision[model] = None
             continue
-        verdict = ("holds without llm conflict resolution" if l2["mean"] >= 1 / 3
-                   else "depends on conflict resolution: report L1 to L3")
+        main, note = l2, ""
         same = s["sample"]["closed"]["L2"]
         if same is not None and abs(same["mean"] - l2["mean"]) > 0.15:
-            verdict += "; same-harness figure is the main one"
-        decision[model] = verdict
+            main, note = same, " (same-harness figure is the main one)"
+        decision[model] = ("holds without llm conflict resolution" if main["mean"] >= 1 / 3
+                           else "depends on conflict resolution: report L1 to L3") + note
     return {"models": out, "decision": decision}
 
 

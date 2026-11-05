@@ -30,8 +30,11 @@ class SensitivityTests(unittest.TestCase):
         rows = [pair(t, 1, 0, 0, int(t < 5), 1, solo_ours=1, ours=(0, 0, 1)) for t in range(10)]
         summary = sensitivity.summarize({}, rows)
         self.assertEqual(summary["models"]["gpt5"]["closed"]["L2"]["mean"], 0.5)
-        self.assertTrue(summary["decision"]["gpt5"].startswith("holds"))
+        # The same-harness L2 closure is 0, more than 15 points away, so it decides the verdict.
+        self.assertTrue(summary["decision"]["gpt5"].startswith("depends"))
         self.assertIn("same-harness", summary["decision"]["gpt5"])
+        close = [pair(t, 1, 0, 0, int(t < 5), 1, solo_ours=1, ours=(0, int(t < 5), 1)) for t in range(10)]
+        self.assertEqual(sensitivity.summarize({}, close)["decision"]["gpt5"], "holds without llm conflict resolution")
 
 
 if __name__ == "__main__":

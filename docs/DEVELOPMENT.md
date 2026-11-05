@@ -137,6 +137,14 @@ python3 scripts/test_watchdog.py runs/upstream/merge_audit/timeouts.log agent_co
 python3 scripts/project.py merge-audit configs/paper_merge_audit.json --report
 ```
 
+The sensitivity check (`configs/paper_sensitivity.json`) re-merges every failed pair whose real merge conflicts with git's union merge, and on 150 random pairs per model scores coop and solo in our harness (Docker, plus cents of API; about 8 hours with 4 workers):
+
+```bash
+caffeinate -is python3 scripts/project.py sensitivity configs/paper_sensitivity.json --execute --workers 4
+python3 scripts/test_watchdog.py runs/upstream/sensitivity/timeouts.log agent_coordination.sensitivity   # alongside
+python3 scripts/project.py sensitivity configs/paper_sensitivity.json --report
+```
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.
