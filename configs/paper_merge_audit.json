@@ -1,0 +1,18 @@
+{
+  "study": "paper_merge_audit",
+  "status": "frozen 2026-11-04 after counting, offline, which agents' code the paper's published merged patches contain (seen before freezing), and before any re-merge below",
+  "question": "In many pairs the paper recorded as merging cleanly, the merged patch it tested holds only agent 2's code, and the diff its merge produced is empty. Are these pairs real conflicts, and how much of the paper's coop-solo gap remains once every merge problem is corrected?",
+  "from": "configs/paper_census.json",
+  "from_note": "dataset revision, models, the census's failed pairs, our merged re-tests (calibration.json) and the upstream check's frozen llm re-merge all come from earlier studies",
+  "audit": "for every usable clean pair with a recorded naive result, which agents' code the published naive-merge patch contains (the line check of configs/paper_merge_check.json: both, agent 2 only, agent 1 only, neither, agent 1's patch empty, or no published patch), and whether the paper's merge diff is empty. The merged-patch check showed the published patch is the code the paper tested",
+  "remerge": "every failed pair the paper recorded as clean whose merge conflicts in our harness: re-merged with the upstream check's frozen llm method (gpt-6-luna, one call per conflicted file, cents) and tested on both features, as the upstream check did for the paper's own conflicted pairs",
+  "measurements": {
+    "lost_side": "per model, the share of failed clean pairs whose tested patch lacks agent 1's code although agent 1's patch is not empty",
+    "conflicts": "per model, the share of failed pairs that conflict when actually merged: the paper's own conflicts plus clean pairs whose merge conflicts in our harness, over failed pairs with a known merge result",
+    "remerge": "pairs that pass both features after the re-merge",
+    "gap": "on pairs with a solo run, the coop-solo gap closed by every correction together: the paper's conflicted pairs re-merged (upstream check), clean pairs our clean merge passes (merged-patch check), and the pairs re-merged here"
+  },
+  "decision_rule": "Primary, per model: the share of the paper's coop-solo gap that closes with every merge correction applied. At least a third: much of the paper's coop-solo gap for that model is a merge artifact, which reverses the upstream check's conclusion for that model. Below a third: the gap mostly stands. Earlier post hoc corrections already close 43% for GPT-5, so the open question is Claude. Secondary: lost_side and conflicts. If at least a quarter of a model's failed clean pairs lost agent 1's code, the paper's clean-merge share does not measure conflicts for that model, and our earlier statement that most strong-model failures merge cleanly is withdrawn for it and replaced by the conflict share from real merges.",
+  "output": "runs/upstream",
+  "results": "merge_audit_rows.csv and merge_audit_summary.json in runs/upstream/merge_audit"
+}
