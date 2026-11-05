@@ -1,0 +1,26 @@
+{
+  "study": "paper_sensitivity",
+  "status": "frozen 2026-11-05 before any union re-merge or re-test below",
+  "question": "Does the conclusion that most of the paper's coop-solo gap is a merge artifact (68% closed for GPT-5, 85% for Claude) survive a conflict resolution weaker than gpt-6-luna, and scoring coop and solo with the same harness?",
+  "from": "configs/paper_merge_audit.json",
+  "from_note": "pairs, own-patch tests, merged re-tests and llm re-merges come from the paper census, the upstream check and the merge audit",
+  "levels": {
+    "L0": "the paper's recorded results",
+    "L1": "no conflict resolution of ours: L0 plus failed pairs whose merge is clean in our harness and passes both features",
+    "L2": "union: L1 plus failed pairs whose real merge conflicts and that pass both features after git's union merge (keep both sides of every conflict block)",
+    "L3": "llm: L1 plus failed pairs whose real merge conflicts and that pass after the frozen gpt-6-luna re-merge (the merge audit's figure)"
+  },
+  "union": "every failed pair whose real merge conflicts (the paper's recorded conflicts and the failed pairs it recorded as clean whose merge conflicts in our harness) is re-merged with the merge test's union method and tested on both features; Docker only",
+  "same_harness": {
+    "sample": "150 random pairs per model among pairs with both a coop and a solo run, seed 20261105",
+    "solo": "the published solo patch tested on both features in our harness (CooperBench's test_solo)",
+    "coop": "every sampled pair scored in our harness: our merged re-test when our merge is clean; when it conflicts, failed at L1, the union re-merge at L2, the llm re-merge at L3. Pairs without our merge yet are merged and tested first, and re-merged if they conflict"
+  },
+  "measurements": {
+    "gap": "per model and level, the share of the coop-solo gap closed relative to L0, on all pairs with a solo run (solo as recorded) and on the sample (coop and solo in our harness)",
+    "solo_agreement": "on the sample, recorded solo results against our re-test, and the net change in solo success"
+  },
+  "decision_rule": "Primary, per model: the gap closed at L2 on all pairs with a solo run. At least a third: the merge-artifact conclusion holds without any LLM conflict resolution. Below a third: the conclusion depends on how conflicts are resolved and is reported as the range L1 to L3. Robustness: on the sample with coop and solo in our harness, if the L2 closure differs from the full-population L2 closure by more than 15 points, the same-harness figure is reported as the main one, because the recorded solo results would then be biased. Secondary: L1 and L3, and solo agreement.",
+  "output": "runs/upstream/sensitivity",
+  "results": "sensitivity_rows.csv and sensitivity_summary.json in the output directory"
+}
