@@ -7,7 +7,7 @@ import shlex
 import subprocess
 import sys
 
-from . import census, merge, paper_census, rescore, s1, s2, upstream
+from . import census, merge, merge_check, paper_census, rescore, s1, s2, upstream
 
 
 def find_root():
@@ -182,6 +182,23 @@ def paper_census_command(root, args):
     return code or 0
 
 
+def merge_check_command(root, args):
+    config_path = args.config.resolve()
+    config, _, base = merge_check.load_config(config_path, root)
+    if args.report:
+        merge_check.report(config, base, root)
+        return 0
+    jobs = merge_check.select(config, base, root)
+    done = sum(merge_check.done(config, root, job) for job in jobs)
+    print(f"{config['study']}: {config['question']}")
+    print(f"{len(jobs)} pairs, {done} already tested.")
+    code = launch(root, args, "agent_coordination.merge_check", [str(config_path)],
+                  project_path(root, config["output"]) / "logs", args.workers or 1)
+    if code is not None:
+        merge_check.report(config, base, root)
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -248,6 +265,12 @@ def main(argv=None):
     paper.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     rescoring = subs.add_parser("rescore", help="Re-score the paper's published coop test logs (offline)")
     rescoring.add_argument("config", type=Path)
+    checking = subs.add_parser("merge-check", help="Test the paper's published merged patches in our harness")
+    checking.add_argument("config", type=Path)
+    checking.add_argument("--execute", action="store_true", help="Run the missing tests (Docker, no model calls)")
+    checking.add_argument("--report", action="store_true", help="Summarize existing records")
+    checking.add_argument("--python", help="CooperBench Python interpreter")
+    checking.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -280,6 +303,8 @@ def main(argv=None):
             return upstream_command(root, args)
         if args.command == "paper-census":
             return paper_census_command(root, args)
+        if args.command == "merge-check":
+            return merge_check_command(root, args)
         if args.command == "rescore":
             rescore.report(*rescore.load_config(args.config.resolve(), root), root)
             return 0

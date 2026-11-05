@@ -1,0 +1,22 @@
+{
+  "study": "paper_merge_check",
+  "status": "frozen 2026-11-04 before testing any published merged patch",
+  "question": "When the paper recorded a merged failure that our own merge of the same two patches does not reproduce, did the code the paper tested lack the agent's changes? We test the paper's published naive-merge patches in our harness.",
+  "from": "configs/paper_rescore.json",
+  "patch": "{model}_naive_merge_k1.patch from the pair's published folder, applied alone to the clean repository and tested against both features with CooperBench's test_solo, once per pair",
+  "line_check": "an agent's side is present in a merged patch when at least half of the non-blank lines its own patch adds appear among the merged patch's added lines",
+  "sets": {
+    "unreproduced": "every pair with an unreproduced merged failure: the re-scoring's 67 features in 51 pairs",
+    "pass_one_side": "20 random clean pairs the paper recorded as passing whose published merged patch lacks one agent's side",
+    "pass_both_sides": "15 random clean pairs the paper recorded as passing whose published merged patch has both sides",
+    "reproduced": "15 random census pairs with a reproduced clean-merge failure (our clean re-merge also fails it) and a non-empty published merged patch",
+    "seed": 20261104
+  },
+  "measurements": {
+    "published": "per feature, whether the paper's published merged patch passes in our harness",
+    "same_error": "for unreproduced features that fail, whether our output contains the first error line of the paper's output"
+  },
+  "decision_rule": "Primary: among unreproduced features whose published merged patch is not empty, the share that also fails when we test that patch. At least 80%: the code in the paper's merged patch, not our environment or flaky tests, explains why our re-merge passes. The census's robust share (failures our re-merge reproduces) then becomes the main estimate, and we count how many of the paper's clean-merge failures rest on merged patches that lack an agent's side. Below 50%: the published patch fails no more often than our re-merge, so the cause is our environment or flaky tests, and the next step repeats the tests. In between: reported as mixed. Controls: on pass_both_sides the published patch must pass at least 90% of features in our harness, or our harness disagrees with the paper's and the primary result cannot be read. On pass_one_side, the share of features that fail says whether published patches lacking a side are the code the paper tested; if most fail, they are not, and the line check cannot be used to count affected pairs. Secondary: same_error.",
+  "output": "runs/upstream/merge_check",
+  "results": "merge_check_rows.csv and merge_check_summary.json in the output directory"
+}
