@@ -7,7 +7,7 @@ import shlex
 import subprocess
 import sys
 
-from . import census, merge, paper_census, s1, s2, upstream
+from . import census, merge, paper_census, rescore, s1, s2, upstream
 
 
 def find_root():
@@ -246,6 +246,8 @@ def main(argv=None):
     paper.add_argument("--report", action="store_true", help="Label existing records")
     paper.add_argument("--python", help="CooperBench Python interpreter")
     paper.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
+    rescoring = subs.add_parser("rescore", help="Re-score the paper's published coop test logs (offline)")
+    rescoring.add_argument("config", type=Path)
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -278,6 +280,9 @@ def main(argv=None):
             return upstream_command(root, args)
         if args.command == "paper-census":
             return paper_census_command(root, args)
+        if args.command == "rescore":
+            rescore.report(*rescore.load_config(args.config.resolve(), root), root)
+            return 0
         if args.study not in settings["studies"]:
             raise ValueError("Unknown study. Run 'list' to see available names.")
         study = settings["studies"][args.study]

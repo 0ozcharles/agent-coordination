@@ -117,11 +117,12 @@ def encode(labels):
 
 # --- analysis (standard library only) --------------------------------------------------
 
-def collect(base, root):
+def collect(base, root, jobs=None):
+    """Census rows; `jobs` replaces the recorded failed pairs (the re-scoring passes corrected ones)."""
     rows = []
     rates = {model: solo_rates(upstream.results(base, root, "solo", model)) for model in base["models"]}
     solo = {model: upstream.results(base, root, "solo", model) for model in base["models"]}
-    for job in select(base, root):
+    for job in select(base, root) if jobs is None else jobs:
         target = upstream.job_dir(base, root, job)
         f1, f2 = (str(f) for f in job["features"])
         key = (job["repo"], job["task_id"], int(f1), int(f2))

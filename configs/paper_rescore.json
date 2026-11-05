@@ -1,0 +1,26 @@
+{
+  "study": "paper_rescore",
+  "status": "frozen 2026-11-04 after reading one published test log (GPT-5 pillow 290, features 1 and 4) and CooperBench's pass check, before re-scoring any other log",
+  "question": "CooperBench's evaluation code counts a test run as failed when its output contains 'failed' anywhere, in any case, including warnings and install logs. Does that explain the paper's recorded merged failures that our re-test does not reproduce, and how does a correct pass check change the paper's coop results and our census labels?",
+  "from": "configs/paper_census.json",
+  "from_note": "dataset revision, models, excluded repos, the census's failed pairs, own-patch tests and merged re-tests all come from the paper census and the upstream check",
+  "logs": "for every usable GPT-5 and Claude coop pair, the merge report published next to its patches ({model}_{repo}_task{id}_merge_report_f{a}_into_f{b}_k1.json): each feature's naive, union and llm test output, where present",
+  "paper_check": "re-implemented from CooperBench's evaluation/test_runner.py (commit 95cd5a2): tests ran if the output matches (passed|PASSED|Test execution completed|\\bok\\b); a run passes if tests ran, the output matches (\\bok\\b|passed|PASSED), and it does not match (FAIL:|FAILED|failed.*tests?.*failed) ignoring case",
+  "corrected_check": {
+    "pytest": "used when the log has a pytest summary line ('=== ... in N.NNs ===' after removing ANSI codes): every such line reports at least one passed and no failed or error; 'no tests ran' fails",
+    "go": "else, when the log has go test package lines: at least one 'ok' line, and no 'FAIL' or '--- FAIL' line, 'panic:' or '[build failed]'",
+    "cargo": "else, when the log has 'test result:' lines: all of them 'ok'",
+    "jest_vitest": "else, when the log has a 'Tests:' summary: at least one passed and none failed, and no failed test suite",
+    "unparsed": "otherwise the recorded result is kept, and the case is counted"
+  },
+  "measurements": {
+    "check": "agreement of the re-implemented paper check with the recorded result over all logs",
+    "flips": "per model and stage, recorded results the corrected check reverses, in both directions, with the line that triggered the paper check",
+    "coop": "coop success on the paper's pipeline (a pair passes if any stage passes both features), recorded and corrected",
+    "retest": "on clean pairs whose merge is clean in our harness too, agreement of the recorded and the corrected naive result with our merged re-test",
+    "census": "the paper census re-labeled with corrected merged results; own-patch tests and solo references unchanged; pairs the correction makes pass leave the census and are counted"
+  },
+  "decision_rule": "Primary: among the census's unreproduced merged failures (clean pairs where the paper's naive merge failed the feature, our merge is also clean and our re-test passes it), the share the corrected check scores as passed. If it is at least half, the paper's pass check explains most of the non-reproduction: the census is re-labeled with corrected merged results and the gap-pair integration share is reported again under the census's rule. If it is below half, the cause lies elsewhere (flaky tests or environment) and the next step re-runs those tests in Docker. Check: the re-implemented paper check must match the recorded result on at least 95% of logs, or the analysis stops, because then we are not scoring what the paper scored. The published solo runs have no test logs, so solo results cannot be corrected here; any coop-solo comparison after correction is one-sided and reported as such.",
+  "output": "runs/upstream/rescore",
+  "results": "rescore_rows.csv and rescore_summary.json in the output directory"
+}
