@@ -1,0 +1,240 @@
+{
+  "study": "paper_merge_audit",
+  "question": "In many pairs the paper recorded as merging cleanly, the merged patch it tested holds only agent 2's code, and the diff its merge produced is empty. Are these pairs real conflicts, and how much of the paper's coop-solo gap remains once every merge problem is corrected?",
+  "models": {
+    "gpt5": {
+      "name": "GPT-5",
+      "audit": {
+        "fail | no published patch | diff": 128,
+        "pass | no published patch | diff": 94,
+        "fail | agent 2 only | diff empty": 82,
+        "pass | both | diff": 22,
+        "fail | both | diff": 16,
+        "fail | both | diff empty": 11,
+        "fail | agent 2 only | diff": 8,
+        "fail | neither | diff empty": 6,
+        "fail | no published patch | diff empty": 5,
+        "pass | agent 2 only | diff": 4,
+        "pass | both | diff empty": 3,
+        "pass | no published patch | diff empty": 2,
+        "fail | agent 1 empty | diff empty": 2,
+        "fail | agent 1 only | diff": 1,
+        "pass | agent 2 only | diff empty": 1
+      },
+      "lost_side": [
+        96,
+        124
+      ],
+      "lost_side_our_merge": {
+        "conflicts": 49,
+        "clean": 43,
+        "missing_input": 4
+      },
+      "conflicts": [
+        196,
+        406
+      ],
+      "paper_conflicts": 121,
+      "remerge": {
+        "pairs": 75,
+        "tested": 75,
+        "status": {
+          "resolved": 75
+        },
+        "passed": 19,
+        "cost_usd": 0.0259
+      },
+      "gap": {
+        "pairs": 441,
+        "solo": 202,
+        "coop": [
+          126,
+          141,
+          159,
+          178
+        ],
+        "closed": [
+          0.0,
+          0.197,
+          0.434,
+          0.684
+        ]
+      },
+      "census_post_hoc": {
+        "now_passing": 64,
+        "kept_as_recorded": 4,
+        "labeled": 346,
+        "labels": {
+          "capability": 116,
+          "context": 99,
+          "integration": 69,
+          "unknown": 62
+        },
+        "refined_labels": {
+          "capability": 107,
+          "context": 75,
+          "integration": 69,
+          "unknown": 62,
+          "handoff": 33
+        },
+        "integration": {
+          "semantic": 41,
+          "conflict": 28
+        },
+        "gap": {
+          "pairs": 73,
+          "labels": {
+            "context": 49,
+            "integration": 17,
+            "capability": 7
+          },
+          "refined_labels": {
+            "context": 39,
+            "integration": 17,
+            "handoff": 12,
+            "capability": 5
+          },
+          "integration": {
+            "mean": 0.2328767123287671,
+            "tasks": 15,
+            "ci95": [
+              0.08870967741935484,
+              0.4696969696969697
+            ]
+          },
+          "robust_pairs": 71,
+          "robust_integration": {
+            "mean": 0.2112676056338028,
+            "tasks": 15,
+            "ci95": [
+              0.08860759493670886,
+              0.4230769230769231
+            ]
+          }
+        }
+      }
+    },
+    "claude": {
+      "name": "Claude Sonnet 4.5",
+      "audit": {
+        "fail | agent 2 only | diff empty": 248,
+        "pass | agent 2 only | diff": 48,
+        "fail | no published patch | diff": 48,
+        "pass | both | diff": 27,
+        "fail | agent 2 only | diff": 24,
+        "fail | both | diff empty": 24,
+        "pass | both | diff empty": 12,
+        "fail | agent 1 empty | diff empty": 11,
+        "pass | agent 2 only | diff empty": 10,
+        "pass | no published patch | diff": 10,
+        "fail | both | diff": 8,
+        "fail | neither | diff empty": 5,
+        "fail | no published patch | diff empty": 3,
+        "pass | neither | diff": 2,
+        "pass | neither | diff empty": 2,
+        "pass | agent 1 only | diff": 1,
+        "pass | agent 1 empty | diff empty": 1,
+        "fail | agent 1 only | diff empty": 1
+      },
+      "lost_side": [
+        277,
+        310
+      ],
+      "lost_side_our_merge": {
+        "clean": 52,
+        "conflicts": 225
+      },
+      "conflicts": [
+        345,
+        467
+      ],
+      "paper_conflicts": 98,
+      "remerge": {
+        "pairs": 247,
+        "tested": 247,
+        "status": {
+          "resolved": 247
+        },
+        "passed": 80,
+        "cost_usd": 0.1187
+      },
+      "gap": {
+        "pairs": 532,
+        "solo": 246,
+        "coop": [
+          125,
+          129,
+          148,
+          228
+        ],
+        "closed": [
+          0.0,
+          0.033,
+          0.19,
+          0.851
+        ]
+      },
+      "census_post_hoc": {
+        "now_passing": 120,
+        "kept_as_recorded": 8,
+        "labeled": 350,
+        "labels": {
+          "capability": 139,
+          "context": 100,
+          "integration": 66,
+          "unknown": 45
+        },
+        "refined_labels": {
+          "capability": 117,
+          "context": 85,
+          "integration": 66,
+          "unknown": 45,
+          "handoff": 37
+        },
+        "integration": {
+          "semantic": 10,
+          "conflict": 56
+        },
+        "gap": {
+          "pairs": 75,
+          "labels": {
+            "context": 43,
+            "integration": 27,
+            "capability": 5
+          },
+          "refined_labels": {
+            "context": 40,
+            "integration": 27,
+            "handoff": 4,
+            "capability": 4
+          },
+          "integration": {
+            "mean": 0.36,
+            "tasks": 18,
+            "ci95": [
+              0.20253164556962025,
+              0.5
+            ]
+          },
+          "robust_pairs": 75,
+          "robust_integration": {
+            "mean": 0.36,
+            "tasks": 18,
+            "ci95": [
+              0.20253164556962025,
+              0.5
+            ]
+          }
+        }
+      }
+    }
+  },
+  "decision": {
+    "gpt5": "merge artifact: gap closes by a third or more",
+    "claude": "merge artifact: gap closes by a third or more"
+  },
+  "withdraw_clean_claim": {
+    "gpt5": true,
+    "claude": true
+  }
+}

@@ -1,0 +1,871 @@
+model,repo,task_id,features,paper_passed,patch,merge_diff_empty,our_merge
+gpt5,dottxt_ai_outlines_task,1371,1 2,False,no published patch,False,clean
+gpt5,dottxt_ai_outlines_task,1371,1 4,False,no published patch,True,clean
+gpt5,dottxt_ai_outlines_task,1371,2 3,True,no published patch,True,
+gpt5,dottxt_ai_outlines_task,1371,2 4,False,no published patch,True,clean
+gpt5,dottxt_ai_outlines_task,1371,3 4,False,no published patch,True,clean
+gpt5,dottxt_ai_outlines_task,1655,1 2,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,1 3,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,1 4,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,1 5,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,1 6,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,1 7,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,1 8,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,1 9,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,1 10,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,2 3,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,2 4,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,2 5,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,2 6,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,2 8,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,2 9,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,2 10,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,3 4,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,3 5,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,3 6,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,3 7,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,3 8,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,3 9,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,3 10,True,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,4 6,False,agent 1 only,False,clean
+gpt5,dottxt_ai_outlines_task,1655,4 8,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,4 9,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,4 10,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,5 6,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,5 8,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,5 9,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,5 10,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,6 7,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,6 9,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,6 10,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,7 8,False,both,False,clean
+gpt5,dottxt_ai_outlines_task,1655,7 10,True,both,False,
+gpt5,dottxt_ai_outlines_task,1655,8 10,False,both,False,conflicts
+gpt5,dottxt_ai_outlines_task,1655,9 10,True,both,False,
+gpt5,dottxt_ai_outlines_task,1706,1 5,False,no published patch,False,clean
+gpt5,dottxt_ai_outlines_task,1706,2 4,True,no published patch,False,
+gpt5,dottxt_ai_outlines_task,1706,2 8,False,no published patch,False,clean
+gpt5,dottxt_ai_outlines_task,1706,3 4,True,no published patch,False,
+gpt5,dottxt_ai_outlines_task,1706,3 5,True,no published patch,False,
+gpt5,dottxt_ai_outlines_task,1706,3 6,False,no published patch,False,conflicts
+gpt5,dottxt_ai_outlines_task,1706,4 5,True,no published patch,False,
+gpt5,dottxt_ai_outlines_task,1706,4 6,False,no published patch,False,clean
+gpt5,dottxt_ai_outlines_task,1706,5 6,True,no published patch,False,
+gpt5,dottxt_ai_outlines_task,1706,5 8,True,no published patch,False,
+gpt5,dspy_task,8394,1 2,False,agent 2 only,True,conflicts
+gpt5,dspy_task,8394,1 3,True,agent 2 only,False,
+gpt5,dspy_task,8394,1 4,False,agent 2 only,True,clean
+gpt5,dspy_task,8394,1 5,False,agent 2 only,True,clean
+gpt5,dspy_task,8394,2 3,False,agent 2 only,True,conflicts
+gpt5,dspy_task,8394,2 4,False,agent 2 only,True,conflicts
+gpt5,dspy_task,8394,2 5,False,agent 2 only,True,conflicts
+gpt5,dspy_task,8394,3 4,False,neither,True,conflicts
+gpt5,dspy_task,8394,3 5,False,agent 2 only,True,conflicts
+gpt5,dspy_task,8394,4 5,False,agent 2 only,True,clean
+gpt5,dspy_task,8635,1 2,True,both,False,
+gpt5,huggingface_datasets_task,3997,1 2,False,agent 2 only,False,clean
+gpt5,huggingface_datasets_task,3997,1 3,False,agent 2 only,False,clean
+gpt5,huggingface_datasets_task,3997,1 4,False,agent 2 only,True,clean
+gpt5,huggingface_datasets_task,3997,1 5,False,agent 2 only,True,conflicts
+gpt5,huggingface_datasets_task,3997,2 3,False,agent 2 only,True,clean
+gpt5,huggingface_datasets_task,3997,2 4,False,agent 2 only,False,clean
+gpt5,huggingface_datasets_task,3997,2 5,True,agent 2 only,False,
+gpt5,huggingface_datasets_task,3997,3 4,False,agent 2 only,False,clean
+gpt5,huggingface_datasets_task,3997,3 5,True,agent 2 only,False,
+gpt5,huggingface_datasets_task,3997,4 5,False,agent 2 only,True,clean
+gpt5,huggingface_datasets_task,6252,1 2,True,no published patch,False,
+gpt5,huggingface_datasets_task,6252,1 3,True,no published patch,False,
+gpt5,huggingface_datasets_task,6252,1 5,True,no published patch,False,
+gpt5,huggingface_datasets_task,6252,1 6,True,no published patch,False,
+gpt5,huggingface_datasets_task,6252,2 4,True,no published patch,False,
+gpt5,huggingface_datasets_task,6252,3 5,False,no published patch,False,clean
+gpt5,huggingface_datasets_task,6252,4 5,True,no published patch,False,
+gpt5,huggingface_datasets_task,6252,4 6,True,no published patch,False,
+gpt5,huggingface_datasets_task,6252,5 6,True,no published patch,False,
+gpt5,huggingface_datasets_task,7309,1 2,False,no published patch,False,clean
+gpt5,llama_index_task,17070,1 2,True,no published patch,False,
+gpt5,llama_index_task,17070,2 3,True,no published patch,False,
+gpt5,llama_index_task,17244,1 2,True,no published patch,False,
+gpt5,llama_index_task,17244,1 3,True,no published patch,False,
+gpt5,llama_index_task,17244,1 4,False,no published patch,False,clean
+gpt5,llama_index_task,17244,1 5,True,no published patch,False,
+gpt5,llama_index_task,17244,1 6,True,no published patch,False,
+gpt5,llama_index_task,17244,2 3,False,no published patch,False,clean
+gpt5,llama_index_task,17244,2 4,False,no published patch,False,clean
+gpt5,llama_index_task,17244,2 5,True,no published patch,False,
+gpt5,llama_index_task,17244,2 6,True,no published patch,False,
+gpt5,llama_index_task,17244,2 7,False,no published patch,False,clean
+gpt5,llama_index_task,17244,3 4,False,no published patch,False,clean
+gpt5,llama_index_task,17244,3 5,True,no published patch,False,
+gpt5,llama_index_task,17244,3 6,True,no published patch,False,
+gpt5,llama_index_task,17244,4 5,False,no published patch,False,clean
+gpt5,llama_index_task,17244,4 6,False,no published patch,False,clean
+gpt5,llama_index_task,17244,4 7,False,no published patch,False,clean
+gpt5,llama_index_task,17244,5 6,False,no published patch,False,clean
+gpt5,llama_index_task,17244,5 7,False,no published patch,False,clean
+gpt5,llama_index_task,18813,1 3,True,no published patch,False,clean
+gpt5,llama_index_task,18813,1 4,False,no published patch,False,clean
+gpt5,llama_index_task,18813,1 5,False,no published patch,False,clean
+gpt5,llama_index_task,18813,1 6,False,no published patch,False,clean
+gpt5,llama_index_task,18813,2 5,False,no published patch,False,clean
+gpt5,llama_index_task,18813,2 6,False,no published patch,False,clean
+gpt5,llama_index_task,18813,3 4,False,no published patch,False,clean
+gpt5,llama_index_task,18813,3 5,False,no published patch,False,clean
+gpt5,llama_index_task,18813,4 6,False,no published patch,False,clean
+gpt5,openai_tiktoken_task,0,1 2,False,both,True,conflicts
+gpt5,openai_tiktoken_task,0,1 3,False,both,True,conflicts
+gpt5,openai_tiktoken_task,0,1 4,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,1 5,False,both,True,conflicts
+gpt5,openai_tiktoken_task,0,1 6,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,1 7,False,both,True,conflicts
+gpt5,openai_tiktoken_task,0,1 8,True,both,True,
+gpt5,openai_tiktoken_task,0,1 9,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,1 10,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,2 3,False,both,True,conflicts
+gpt5,openai_tiktoken_task,0,2 4,True,both,True,
+gpt5,openai_tiktoken_task,0,2 5,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,2 6,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,2 7,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,2 8,True,agent 2 only,True,
+gpt5,openai_tiktoken_task,0,2 9,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,2 10,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,3 4,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,3 5,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,3 6,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,3 7,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,3 8,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,3 9,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,3 10,False,agent 1 empty,True,clean
+gpt5,openai_tiktoken_task,0,4 5,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,4 6,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,4 7,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,4 8,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,4 9,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,4 10,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,5 6,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,5 7,False,no published patch,True,clean
+gpt5,openai_tiktoken_task,0,5 8,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,5 9,False,both,True,clean
+gpt5,openai_tiktoken_task,0,5 10,False,no published patch,True,clean
+gpt5,openai_tiktoken_task,0,6 7,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,6 8,True,both,True,
+gpt5,openai_tiktoken_task,0,6 9,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,6 10,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,7 8,False,agent 2 only,True,clean
+gpt5,openai_tiktoken_task,0,7 9,False,both,True,clean
+gpt5,openai_tiktoken_task,0,7 10,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,8 9,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,8 10,False,agent 2 only,True,conflicts
+gpt5,openai_tiktoken_task,0,9 10,False,agent 2 only,True,conflicts
+gpt5,pallets_click_task,2068,1 4,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,1 7,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,1 9,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,1 10,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,1 12,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,2 3,True,no published patch,False,
+gpt5,pallets_click_task,2068,2 4,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,2 5,True,no published patch,False,
+gpt5,pallets_click_task,2068,2 9,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,2 12,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,3 4,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,3 5,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,3 7,True,no published patch,False,
+gpt5,pallets_click_task,2068,3 8,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,3 9,True,no published patch,False,
+gpt5,pallets_click_task,2068,3 12,True,no published patch,False,clean
+gpt5,pallets_click_task,2068,5 6,True,no published patch,False,
+gpt5,pallets_click_task,2068,5 7,True,no published patch,False,
+gpt5,pallets_click_task,2068,5 8,True,no published patch,False,
+gpt5,pallets_click_task,2068,5 10,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,5 12,True,no published patch,False,
+gpt5,pallets_click_task,2068,6 8,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,6 9,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,7 9,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,7 12,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,8 9,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,8 11,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,9 12,False,no published patch,False,clean
+gpt5,pallets_click_task,2068,10 12,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,1 2,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,1 3,True,no published patch,False,
+gpt5,pallets_click_task,2800,1 4,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,1 5,True,no published patch,False,
+gpt5,pallets_click_task,2800,1 6,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,1 7,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,2 3,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,2 4,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,2 5,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,2 6,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,2 7,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,3 4,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,3 5,False,no published patch,False,clean
+gpt5,pallets_click_task,2800,3 6,True,no published patch,False,
+gpt5,pallets_click_task,2800,5 6,True,no published patch,False,
+gpt5,pallets_click_task,2800,6 7,True,no published patch,False,
+gpt5,pallets_click_task,2956,1 5,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,1 6,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,1 8,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,2 3,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,2 5,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,2 7,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,2 8,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,3 4,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,3 6,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,3 8,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,4 5,True,no published patch,False,
+gpt5,pallets_click_task,2956,5 6,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,5 8,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,6 7,False,no published patch,False,clean
+gpt5,pallets_click_task,2956,6 8,True,no published patch,False,
+gpt5,pallets_click_task,2956,7 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1465,1 4,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1465,1 6,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,1 10,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,2 5,False,agent 1 empty,True,clean
+gpt5,pallets_jinja_task,1465,2 7,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1465,2 8,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,3 4,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,3 8,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,4 8,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,4 9,True,no published patch,True,
+gpt5,pallets_jinja_task,1465,5 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1465,6 8,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,6 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1465,7 8,True,no published patch,False,clean
+gpt5,pallets_jinja_task,1465,7 10,True,no published patch,False,
+gpt5,pallets_jinja_task,1465,8 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1465,9 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,1 2,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,1 3,False,no published patch,False,conflicts
+gpt5,pallets_jinja_task,1559,1 5,True,no published patch,False,
+gpt5,pallets_jinja_task,1559,1 6,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,1 7,True,no published patch,False,
+gpt5,pallets_jinja_task,1559,1 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,1 9,True,no published patch,False,
+gpt5,pallets_jinja_task,1559,1 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,2 3,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,2 6,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,2 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,2 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,2 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,3 5,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,3 6,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,3 7,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,3 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,3 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,4 5,True,no published patch,False,
+gpt5,pallets_jinja_task,1559,4 6,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,4 7,True,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,4 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,4 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,4 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,5 6,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,5 7,True,no published patch,False,
+gpt5,pallets_jinja_task,1559,5 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,5 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,5 10,True,no published patch,False,
+gpt5,pallets_jinja_task,1559,6 7,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,6 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,6 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,6 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,7 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,7 9,True,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,7 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,8 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1559,9 10,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,1 2,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,1 3,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,1 4,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,1 6,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,1 7,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,1 8,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,1 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,2 3,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,2 4,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,2 7,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,2 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,2 9,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,3 4,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,3 5,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,3 6,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,3 7,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,3 8,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,3 9,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,3 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,4 5,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,4 6,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,4 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,4 9,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,4 10,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,5 6,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,5 7,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,5 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,5 9,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,5 10,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,6 7,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,6 8,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,7 8,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,7 9,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,7 10,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,8 9,False,no published patch,False,clean
+gpt5,pallets_jinja_task,1621,8 10,True,no published patch,False,
+gpt5,pallets_jinja_task,1621,9 10,True,no published patch,False,
+gpt5,pillow_task,25,1 2,False,neither,True,clean
+gpt5,pillow_task,25,1 3,False,agent 2 only,False,clean
+gpt5,pillow_task,25,1 4,True,agent 2 only,False,
+gpt5,pillow_task,25,2 3,False,agent 2 only,True,clean
+gpt5,pillow_task,25,2 4,False,agent 2 only,True,clean
+gpt5,pillow_task,25,2 5,False,neither,True,clean
+gpt5,pillow_task,25,3 4,False,neither,True,clean
+gpt5,pillow_task,25,3 5,False,agent 2 only,True,conflicts
+gpt5,pillow_task,25,4 5,False,neither,True,clean
+gpt5,pillow_task,68,1 2,False,agent 2 only,True,conflicts
+gpt5,pillow_task,68,1 4,False,agent 2 only,True,conflicts
+gpt5,pillow_task,68,1 5,False,agent 2 only,True,conflicts
+gpt5,pillow_task,68,2 3,False,agent 2 only,True,conflicts
+gpt5,pillow_task,68,2 4,False,neither,True,conflicts
+gpt5,pillow_task,68,2 5,False,agent 2 only,True,conflicts
+gpt5,pillow_task,68,3 4,False,agent 2 only,True,conflicts
+gpt5,pillow_task,68,3 5,False,agent 2 only,True,conflicts
+gpt5,pillow_task,68,4 5,False,agent 2 only,True,conflicts
+gpt5,pillow_task,290,1 2,False,agent 2 only,False,clean
+gpt5,pillow_task,290,1 3,False,agent 2 only,True,clean
+gpt5,pillow_task,290,1 4,False,agent 2 only,False,clean
+gpt5,pillow_task,290,1 5,False,agent 2 only,False,clean
+gpt5,pillow_task,290,2 3,False,both,True,clean
+gpt5,pillow_task,290,2 4,False,agent 2 only,True,conflicts
+gpt5,pillow_task,290,2 5,False,agent 2 only,True,conflicts
+gpt5,pillow_task,290,3 4,False,agent 2 only,True,conflicts
+gpt5,pillow_task,290,3 5,False,agent 2 only,True,conflicts
+gpt5,pillow_task,290,4 5,False,agent 2 only,True,conflicts
+gpt5,react_hook_form_task,85,1 2,False,agent 2 only,True,missing_input
+gpt5,react_hook_form_task,85,1 3,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,85,1 4,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,85,1 5,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,85,2 3,False,agent 2 only,True,missing_input
+gpt5,react_hook_form_task,85,2 4,False,agent 2 only,True,missing_input
+gpt5,react_hook_form_task,85,2 5,False,agent 2 only,True,missing_input
+gpt5,react_hook_form_task,85,3 4,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,85,3 5,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,85,4 5,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,153,1 2,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,153,1 3,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,153,1 4,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,153,1 5,False,both,True,clean
+gpt5,react_hook_form_task,153,1 6,False,agent 2 only,True,conflicts
+gpt5,react_hook_form_task,153,2 3,False,agent 2 only,True,conflicts
+gpt5,react_hook_form_task,153,2 4,False,agent 2 only,True,conflicts
+gpt5,react_hook_form_task,153,2 5,False,both,True,conflicts
+gpt5,react_hook_form_task,153,2 6,False,both,True,conflicts
+gpt5,react_hook_form_task,153,3 4,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,153,3 5,False,agent 2 only,True,conflicts
+gpt5,react_hook_form_task,153,3 6,False,agent 2 only,True,conflicts
+gpt5,react_hook_form_task,153,4 5,False,agent 2 only,True,clean
+gpt5,react_hook_form_task,153,4 6,False,agent 2 only,True,conflicts
+gpt5,react_hook_form_task,153,5 6,False,agent 2 only,True,conflicts
+gpt5,samuelcolvin_dirty_equals_task,43,1 3,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,1 5,False,no published patch,False,conflicts
+gpt5,samuelcolvin_dirty_equals_task,43,1 8,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,1 9,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,2 3,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,2 4,True,no published patch,False,
+gpt5,samuelcolvin_dirty_equals_task,43,2 5,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,2 7,True,no published patch,False,
+gpt5,samuelcolvin_dirty_equals_task,43,2 8,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,2 9,True,no published patch,False,
+gpt5,samuelcolvin_dirty_equals_task,43,3 4,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,3 5,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,3 8,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,4 6,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,4 7,True,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,4 8,True,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,4 9,True,no published patch,False,
+gpt5,samuelcolvin_dirty_equals_task,43,6 8,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,6 9,False,no published patch,False,clean
+gpt5,samuelcolvin_dirty_equals_task,43,7 8,False,no published patch,False,conflicts
+gpt5,samuelcolvin_dirty_equals_task,43,8 9,True,no published patch,False,
+claude,dottxt_ai_outlines_task,1371,1 2,False,agent 2 only,True,clean
+claude,dottxt_ai_outlines_task,1371,1 3,True,agent 2 only,True,
+claude,dottxt_ai_outlines_task,1371,1 4,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1371,2 3,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1371,2 4,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1371,3 4,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,1 3,True,both,False,
+claude,dottxt_ai_outlines_task,1655,1 5,True,agent 2 only,False,
+claude,dottxt_ai_outlines_task,1655,1 6,True,agent 2 only,False,
+claude,dottxt_ai_outlines_task,1655,1 7,False,agent 2 only,False,clean
+claude,dottxt_ai_outlines_task,1655,1 8,True,agent 2 only,False,
+claude,dottxt_ai_outlines_task,1655,1 9,True,agent 2 only,False,
+claude,dottxt_ai_outlines_task,1655,1 10,True,agent 2 only,False,
+claude,dottxt_ai_outlines_task,1655,2 3,True,both,False,
+claude,dottxt_ai_outlines_task,1655,2 4,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,2 5,False,agent 2 only,True,clean
+claude,dottxt_ai_outlines_task,1655,2 6,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,2 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,2 8,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,2 9,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,2 10,True,both,True,
+claude,dottxt_ai_outlines_task,1655,3 5,True,both,False,
+claude,dottxt_ai_outlines_task,1655,3 6,True,neither,False,
+claude,dottxt_ai_outlines_task,1655,3 7,False,both,False,clean
+claude,dottxt_ai_outlines_task,1655,3 8,True,both,False,
+claude,dottxt_ai_outlines_task,1655,4 5,False,both,True,conflicts
+claude,dottxt_ai_outlines_task,1655,4 6,False,neither,True,conflicts
+claude,dottxt_ai_outlines_task,1655,4 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,4 8,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,4 9,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,4 10,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,5 6,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,5 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,5 8,False,both,True,conflicts
+claude,dottxt_ai_outlines_task,1655,5 9,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,5 10,False,neither,True,conflicts
+claude,dottxt_ai_outlines_task,1655,6 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,6 8,False,both,True,conflicts
+claude,dottxt_ai_outlines_task,1655,6 9,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,6 10,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,7 8,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,7 9,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,7 10,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,8 9,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,8 10,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1655,9 10,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,1 2,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,1 3,False,no published patch,True,clean
+claude,dottxt_ai_outlines_task,1706,1 4,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,1 5,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,1 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,1 8,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,2 3,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,2 4,False,agent 2 only,True,clean
+claude,dottxt_ai_outlines_task,1706,2 5,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,2 6,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,2 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,2 8,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,3 4,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,3 5,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,3 6,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,3 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,3 8,True,agent 2 only,True,
+claude,dottxt_ai_outlines_task,1706,4 5,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,4 6,False,agent 2 only,True,clean
+claude,dottxt_ai_outlines_task,1706,4 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,4 8,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,5 6,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,5 7,False,both,True,conflicts
+claude,dottxt_ai_outlines_task,1706,5 8,False,agent 1 empty,True,clean
+claude,dottxt_ai_outlines_task,1706,6 7,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,6 8,False,agent 2 only,True,conflicts
+claude,dottxt_ai_outlines_task,1706,7 8,False,both,True,conflicts
+claude,dspy_task,8394,1 3,True,no published patch,False,clean
+claude,dspy_task,8394,1 4,False,no published patch,False,clean
+claude,dspy_task,8394,2 4,False,no published patch,False,clean
+claude,dspy_task,8394,4 5,False,no published patch,False,clean
+claude,dspy_task,8563,1 2,False,no published patch,False,clean
+claude,dspy_task,8563,1 3,False,no published patch,False,clean
+claude,dspy_task,8563,1 4,False,no published patch,False,clean
+claude,dspy_task,8563,1 5,False,no published patch,False,clean
+claude,dspy_task,8563,2 4,False,no published patch,False,clean
+claude,dspy_task,8563,2 6,False,no published patch,False,clean
+claude,dspy_task,8563,3 4,False,no published patch,False,clean
+claude,dspy_task,8563,3 5,False,no published patch,False,clean
+claude,dspy_task,8587,1 6,False,no published patch,False,clean
+claude,dspy_task,8587,2 3,False,no published patch,False,clean
+claude,dspy_task,8587,2 4,False,no published patch,False,clean
+claude,dspy_task,8587,2 6,False,no published patch,False,clean
+claude,dspy_task,8587,3 6,False,no published patch,False,clean
+claude,dspy_task,8635,1 2,False,no published patch,False,clean
+claude,dspy_task,8635,1 3,False,no published patch,False,clean
+claude,dspy_task,8635,1 4,False,no published patch,False,clean
+claude,dspy_task,8635,1 5,False,no published patch,False,clean
+claude,dspy_task,8635,2 5,True,no published patch,False,
+claude,dspy_task,8635,3 5,False,no published patch,False,clean
+claude,dspy_task,8635,4 5,False,no published patch,False,clean
+claude,dspy_task,8635,5 6,False,no published patch,False,clean
+claude,go_chi_task,26,1 4,False,no published patch,False,clean
+claude,go_chi_task,26,3 4,False,no published patch,False,clean
+claude,go_chi_task,27,1 3,False,no published patch,False,clean
+claude,go_chi_task,27,1 4,True,no published patch,False,
+claude,go_chi_task,27,2 3,False,no published patch,False,clean
+claude,go_chi_task,27,2 4,True,no published patch,False,
+claude,go_chi_task,56,2 4,False,no published patch,False,clean
+claude,go_chi_task,56,3 4,False,no published patch,False,clean
+claude,go_chi_task,56,3 5,False,agent 1 empty,True,clean
+claude,go_chi_task,56,4 5,False,no published patch,False,clean
+claude,huggingface_datasets_task,3997,1 2,False,agent 2 only,False,clean
+claude,huggingface_datasets_task,3997,1 3,False,agent 2 only,False,clean
+claude,huggingface_datasets_task,3997,1 4,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,3997,1 5,False,agent 2 only,True,clean
+claude,huggingface_datasets_task,3997,2 3,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,3997,2 4,False,agent 2 only,False,clean
+claude,huggingface_datasets_task,3997,2 5,True,agent 2 only,False,
+claude,huggingface_datasets_task,3997,3 4,False,agent 2 only,False,clean
+claude,huggingface_datasets_task,3997,3 5,True,agent 2 only,False,
+claude,huggingface_datasets_task,3997,4 5,False,agent 2 only,True,clean
+claude,huggingface_datasets_task,6252,1 2,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,6252,1 3,True,agent 2 only,False,
+claude,huggingface_datasets_task,6252,1 4,True,agent 2 only,False,
+claude,huggingface_datasets_task,6252,1 5,True,agent 1 only,False,
+claude,huggingface_datasets_task,6252,1 6,False,neither,True,conflicts
+claude,huggingface_datasets_task,6252,2 3,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,6252,2 4,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,6252,2 6,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,6252,3 4,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,6252,3 5,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,6252,4 5,False,agent 2 only,True,conflicts
+claude,huggingface_datasets_task,6252,4 6,True,agent 2 only,False,
+claude,huggingface_datasets_task,6252,5 6,True,agent 2 only,False,clean
+claude,huggingface_datasets_task,7309,1 2,False,agent 2 only,True,conflicts
+claude,llama_index_task,17070,1 2,True,no published patch,False,
+claude,llama_index_task,17070,2 3,True,no published patch,False,
+claude,llama_index_task,17244,1 2,False,agent 2 only,True,clean
+claude,llama_index_task,17244,1 3,True,agent 2 only,True,
+claude,llama_index_task,17244,1 4,False,agent 2 only,False,clean
+claude,llama_index_task,17244,1 5,False,agent 2 only,True,clean
+claude,llama_index_task,17244,1 6,False,agent 2 only,True,clean
+claude,llama_index_task,17244,1 7,False,agent 2 only,True,conflicts
+claude,llama_index_task,17244,2 3,False,agent 2 only,True,clean
+claude,llama_index_task,17244,2 4,False,both,False,clean
+claude,llama_index_task,17244,2 5,False,agent 2 only,True,clean
+claude,llama_index_task,17244,2 6,False,agent 2 only,True,conflicts
+claude,llama_index_task,17244,2 7,False,neither,True,conflicts
+claude,llama_index_task,17244,3 4,False,agent 2 only,True,clean
+claude,llama_index_task,17244,3 5,False,agent 2 only,True,clean
+claude,llama_index_task,17244,3 6,False,agent 2 only,True,conflicts
+claude,llama_index_task,17244,3 7,False,agent 2 only,True,clean
+claude,llama_index_task,17244,4 5,False,agent 2 only,True,conflicts
+claude,llama_index_task,17244,4 6,False,agent 2 only,True,clean
+claude,llama_index_task,17244,4 7,True,agent 2 only,False,
+claude,llama_index_task,17244,5 6,False,agent 2 only,False,clean
+claude,llama_index_task,17244,5 7,True,neither,False,
+claude,llama_index_task,17244,6 7,False,agent 2 only,True,conflicts
+claude,llama_index_task,18813,1 2,False,agent 2 only,True,conflicts
+claude,llama_index_task,18813,1 3,False,both,True,clean
+claude,llama_index_task,18813,1 4,False,both,True,clean
+claude,llama_index_task,18813,1 5,False,both,True,conflicts
+claude,llama_index_task,18813,1 6,False,both,True,conflicts
+claude,llama_index_task,18813,2 3,False,agent 2 only,True,clean
+claude,llama_index_task,18813,2 4,False,agent 2 only,True,conflicts
+claude,llama_index_task,18813,2 5,False,agent 2 only,True,conflicts
+claude,llama_index_task,18813,2 6,False,both,True,conflicts
+claude,llama_index_task,18813,3 5,False,agent 2 only,False,clean
+claude,llama_index_task,18813,3 6,False,agent 2 only,False,clean
+claude,llama_index_task,18813,4 5,False,both,True,identical
+claude,llama_index_task,18813,4 6,False,agent 2 only,True,conflicts
+claude,llama_index_task,18813,5 6,False,agent 2 only,True,clean
+claude,openai_tiktoken_task,0,1 7,False,no published patch,True,conflicts
+claude,openai_tiktoken_task,0,1 8,True,agent 1 empty,True,
+claude,openai_tiktoken_task,0,2 6,True,no published patch,False,
+claude,openai_tiktoken_task,0,2 9,False,no published patch,False,clean
+claude,openai_tiktoken_task,0,3 7,False,no published patch,False,clean
+claude,openai_tiktoken_task,0,5 9,False,no published patch,True,conflicts
+claude,openai_tiktoken_task,0,9 10,False,agent 1 empty,True,clean
+claude,pallets_click_task,2068,1 2,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 3,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 4,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 6,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 8,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 9,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 11,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,1 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,2 3,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,2 4,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,2 5,False,both,True,conflicts
+claude,pallets_click_task,2068,2 6,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,2 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,2 8,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,2 9,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,2 10,False,both,True,conflicts
+claude,pallets_click_task,2068,2 11,False,both,True,conflicts
+claude,pallets_click_task,2068,2 12,False,both,True,conflicts
+claude,pallets_click_task,2068,3 4,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,3 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,3 6,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,3 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,3 8,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,3 9,False,agent 2 only,True,clean
+claude,pallets_click_task,2068,3 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,3 11,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,3 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,4 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,4 6,True,both,True,
+claude,pallets_click_task,2068,4 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,4 8,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,4 9,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,4 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,4 11,True,both,True,
+claude,pallets_click_task,2068,4 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,5 6,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,5 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,5 8,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,5 9,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,5 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,5 11,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,5 12,False,both,True,conflicts
+claude,pallets_click_task,2068,6 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,6 8,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,6 9,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,6 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,6 11,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,6 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,7 8,True,both,True,
+claude,pallets_click_task,2068,7 9,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,7 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,7 11,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,7 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,8 9,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,8 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,8 11,True,agent 2 only,True,
+claude,pallets_click_task,2068,8 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,9 10,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,9 11,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,9 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2068,10 11,False,both,True,conflicts
+claude,pallets_click_task,2068,10 12,True,both,True,
+claude,pallets_click_task,2068,11 12,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,1 2,False,both,False,clean
+claude,pallets_click_task,2800,1 3,False,agent 2 only,True,clean
+claude,pallets_click_task,2800,1 4,False,both,False,clean
+claude,pallets_click_task,2800,1 5,True,both,False,
+claude,pallets_click_task,2800,1 6,False,both,False,clean
+claude,pallets_click_task,2800,1 7,False,agent 2 only,True,clean
+claude,pallets_click_task,2800,2 3,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,2 4,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,2 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,2 6,False,agent 2 only,False,clean
+claude,pallets_click_task,2800,2 7,True,both,True,
+claude,pallets_click_task,2800,3 4,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,3 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,3 6,False,agent 2 only,False,clean
+claude,pallets_click_task,2800,3 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,4 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,4 6,True,agent 2 only,False,
+claude,pallets_click_task,2800,4 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,5 6,False,agent 2 only,False,clean
+claude,pallets_click_task,2800,5 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2800,6 7,True,both,False,
+claude,pallets_click_task,2956,1 2,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,1 3,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,1 4,False,neither,True,conflicts
+claude,pallets_click_task,2956,1 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,1 6,True,agent 2 only,False,
+claude,pallets_click_task,2956,1 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,1 8,True,agent 2 only,False,
+claude,pallets_click_task,2956,2 3,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,2 4,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,2 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,2 6,True,agent 2 only,False,
+claude,pallets_click_task,2956,2 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,2 8,False,agent 2 only,False,clean
+claude,pallets_click_task,2956,3 4,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,3 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,3 6,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,3 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,3 8,False,agent 2 only,False,clean
+claude,pallets_click_task,2956,4 5,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,4 6,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,4 7,False,both,True,identical
+claude,pallets_click_task,2956,4 8,False,agent 2 only,False,clean
+claude,pallets_click_task,2956,5 6,True,agent 2 only,False,
+claude,pallets_click_task,2956,5 7,False,agent 2 only,True,conflicts
+claude,pallets_click_task,2956,5 8,False,agent 2 only,False,conflicts
+claude,pallets_click_task,2956,6 7,False,agent 2 only,False,clean
+claude,pallets_click_task,2956,6 8,True,agent 2 only,False,
+claude,pallets_click_task,2956,7 8,False,agent 2 only,False,conflicts
+claude,pallets_jinja_task,1465,1 2,True,agent 2 only,True,
+claude,pallets_jinja_task,1465,1 3,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1465,1 4,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,1 5,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,1 6,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1465,1 7,True,agent 2 only,True,
+claude,pallets_jinja_task,1465,1 8,False,both,True,conflicts
+claude,pallets_jinja_task,1465,1 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,1 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,2 3,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1465,2 4,True,both,True,
+claude,pallets_jinja_task,1465,2 5,False,agent 1 only,True,clean
+claude,pallets_jinja_task,1465,2 6,True,both,True,
+claude,pallets_jinja_task,1465,2 7,True,agent 2 only,True,
+claude,pallets_jinja_task,1465,2 8,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,2 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,2 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,3 4,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,3 5,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1465,3 6,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,3 7,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,3 8,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1465,3 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,3 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,4 5,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,4 6,False,both,True,conflicts
+claude,pallets_jinja_task,1465,4 7,False,both,True,conflicts
+claude,pallets_jinja_task,1465,4 8,True,neither,True,
+claude,pallets_jinja_task,1465,4 9,False,both,True,conflicts
+claude,pallets_jinja_task,1465,4 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,5 6,False,both,True,identical
+claude,pallets_jinja_task,1465,5 7,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,5 8,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,5 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,5 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,6 7,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,6 8,True,both,True,
+claude,pallets_jinja_task,1465,6 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,6 10,True,neither,True,conflicts
+claude,pallets_jinja_task,1465,7 8,True,both,True,
+claude,pallets_jinja_task,1465,7 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,7 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1465,8 9,False,both,True,conflicts
+claude,pallets_jinja_task,1465,8 10,True,both,True,
+claude,pallets_jinja_task,1465,9 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,1 2,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,1 3,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,1 4,False,agent 2 only,False,conflicts
+claude,pallets_jinja_task,1559,1 5,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,1 6,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,1 7,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,1 8,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,1 9,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,1 10,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,2 3,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,2 4,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,2 5,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,2 6,True,both,False,clean
+claude,pallets_jinja_task,1559,2 7,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,2 8,False,agent 2 only,False,clean
+claude,pallets_jinja_task,1559,2 9,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,2 10,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,3 4,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,3 7,True,both,False,
+claude,pallets_jinja_task,1559,3 8,False,agent 2 only,False,clean
+claude,pallets_jinja_task,1559,3 9,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,3 10,True,agent 2 only,True,
+claude,pallets_jinja_task,1559,4 5,True,both,False,
+claude,pallets_jinja_task,1559,4 6,True,both,False,clean
+claude,pallets_jinja_task,1559,4 7,True,both,False,
+claude,pallets_jinja_task,1559,4 8,True,both,False,
+claude,pallets_jinja_task,1559,4 9,True,both,False,
+claude,pallets_jinja_task,1559,4 10,True,both,False,
+claude,pallets_jinja_task,1559,5 6,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,5 7,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,5 8,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,5 9,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,5 10,False,agent 2 only,False,conflicts
+claude,pallets_jinja_task,1559,6 7,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,6 8,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,6 9,True,agent 2 only,False,
+claude,pallets_jinja_task,1559,6 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,7 8,True,both,False,
+claude,pallets_jinja_task,1559,7 9,True,both,False,
+claude,pallets_jinja_task,1559,7 10,True,both,False,
+claude,pallets_jinja_task,1559,8 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1559,8 10,True,both,False,
+claude,pallets_jinja_task,1559,9 10,True,agent 2 only,False,clean
+claude,pallets_jinja_task,1621,1 2,True,both,False,clean
+claude,pallets_jinja_task,1621,1 3,True,both,False,
+claude,pallets_jinja_task,1621,1 4,False,both,False,conflicts
+claude,pallets_jinja_task,1621,1 5,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,1 6,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,1 7,True,both,False,
+claude,pallets_jinja_task,1621,1 8,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,1 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,1 10,True,both,False,
+claude,pallets_jinja_task,1621,2 3,True,both,False,
+claude,pallets_jinja_task,1621,2 4,False,both,False,clean
+claude,pallets_jinja_task,1621,2 5,True,both,True,
+claude,pallets_jinja_task,1621,2 6,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,2 7,True,both,False,
+claude,pallets_jinja_task,1621,2 8,True,both,False,
+claude,pallets_jinja_task,1621,2 9,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1621,2 10,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1621,3 4,False,agent 2 only,False,clean
+claude,pallets_jinja_task,1621,3 5,True,both,False,
+claude,pallets_jinja_task,1621,3 7,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,3 8,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,3 9,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,3 10,False,agent 2 only,False,clean
+claude,pallets_jinja_task,1621,4 5,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,4 7,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,4 8,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,4 9,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,4 10,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,5 6,True,agent 2 only,True,
+claude,pallets_jinja_task,1621,5 7,True,both,False,
+claude,pallets_jinja_task,1621,5 8,False,both,False,clean
+claude,pallets_jinja_task,1621,5 9,True,agent 2 only,True,
+claude,pallets_jinja_task,1621,5 10,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1621,6 7,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,6 8,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,6 9,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,6 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,7 8,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,7 9,True,agent 2 only,False,clean
+claude,pallets_jinja_task,1621,7 10,True,agent 2 only,False,
+claude,pallets_jinja_task,1621,8 9,False,agent 2 only,True,clean
+claude,pallets_jinja_task,1621,8 10,False,agent 2 only,True,conflicts
+claude,pallets_jinja_task,1621,9 10,False,agent 2 only,True,clean
+claude,pillow_task,25,1 2,True,no published patch,False,
+claude,pillow_task,25,1 3,False,no published patch,False,clean
+claude,pillow_task,25,1 4,False,agent 1 empty,True,clean
+claude,pillow_task,25,2 4,False,no published patch,False,clean
+claude,pillow_task,25,3 5,False,agent 1 empty,True,clean
+claude,pillow_task,68,1 3,False,no published patch,False,clean
+claude,pillow_task,68,1 5,False,no published patch,False,clean
+claude,pillow_task,68,2 4,False,agent 1 empty,True,clean
+claude,pillow_task,290,1 2,False,no published patch,False,clean
+claude,pillow_task,290,1 4,False,agent 1 empty,True,clean
+claude,react_hook_form_task,85,1 5,True,no published patch,False,
+claude,react_hook_form_task,85,2 4,False,agent 1 empty,True,clean
+claude,react_hook_form_task,85,2 5,False,no published patch,False,clean
+claude,react_hook_form_task,153,1 2,False,no published patch,False,clean
+claude,react_hook_form_task,153,1 3,False,agent 1 empty,True,clean
+claude,react_hook_form_task,153,1 4,True,no published patch,False,
+claude,react_hook_form_task,153,1 6,False,no published patch,False,clean
+claude,react_hook_form_task,153,2 3,False,no published patch,False,clean
+claude,react_hook_form_task,153,2 4,False,no published patch,False,clean
+claude,react_hook_form_task,153,2 5,False,no published patch,False,clean
+claude,react_hook_form_task,153,2 6,False,no published patch,False,clean
+claude,react_hook_form_task,153,3 4,False,no published patch,False,clean
+claude,react_hook_form_task,153,3 5,False,no published patch,False,clean
+claude,react_hook_form_task,153,3 6,False,no published patch,False,clean
+claude,react_hook_form_task,153,4 5,False,no published patch,False,clean
+claude,react_hook_form_task,153,4 6,False,agent 1 empty,True,clean
+claude,react_hook_form_task,153,5 6,False,agent 1 empty,True,clean
+claude,samuelcolvin_dirty_equals_task,43,1 2,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,1 3,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,1 4,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,1 5,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,1 6,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,1 7,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,1 8,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,1 9,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,2 3,False,agent 2 only,True,clean
+claude,samuelcolvin_dirty_equals_task,43,2 4,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,2 5,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,2 6,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,2 7,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,2 8,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,2 9,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,3 4,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,3 5,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,3 6,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,3 7,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,3 8,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,3 9,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,4 5,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,4 6,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,4 7,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,4 8,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,4 9,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,5 6,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,5 7,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,5 8,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,5 9,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,6 7,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,6 8,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,6 9,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,7 8,False,agent 2 only,True,conflicts
+claude,samuelcolvin_dirty_equals_task,43,7 9,False,agent 2 only,True,clean
+claude,samuelcolvin_dirty_equals_task,43,8 9,False,agent 2 only,True,conflicts

@@ -218,6 +218,8 @@ The paper's coop and solo runs are public ([CooperBench/trajectories](https://hu
 
 So the merge works as well on these runs as on ours, but these agents rarely produce the failure it fixes. The large merge effect in S1 and S2 belongs to our setup: gpt-6-luna with mini-swe-agent, the released harness, and a prompt that rewards zero conflicts. In the paper's setup the coordination gap is real and comes mostly from code that merges cleanly but does not work.
 
+**Correction (2026-11-04).** The audit below withdraws the last two bullets and this reading. Most of the paper's "clean" merges never contained agent 1's code. Merged for real, 48% of GPT-5's failed pairs and 74% of Claude's conflict. Once every merge problem is corrected, the coop–solo gap closes by 68% and 85%.
+
 ### Failure census on the paper's runs (2026-11-04)
 
 We labeled every GPT-5 and Claude Sonnet 4.5 coop pair that failed the paper's pipeline, 880 pairs in all. Each agent's published patch was tested alone against both features in our harness. For pairs the paper merged cleanly, we also merged the two patches with the released harness and tested the result. The solo reference is the published solo runs. Labels follow S1 and were frozen before any of these tests: [configs/paper_census.json](../configs/paper_census.json). Docker only, no API cost. Per-pair data: [results/paper_census_rows.csv](../results/paper_census_rows.csv).
@@ -285,12 +287,50 @@ We applied the paper's published naive-merge patch alone to the clean repository
 - **The paper's merge step loses code.** Take the 48 pairs behind the 64 features. In 27, the paper's merged patch is identical to one agent's patch: the other agent's work is missing entirely. In the other 21, part of it is missing or changed. Our `git merge` of the same two agent patches merges cleanly and passes the feature in every case.
 - **The line check does not find these pairs on its own.** In the one-side control, published patches that lack half of one agent's lines still pass 39 of 40 features. Other code in the patch can cover the feature, for example when the partner implemented part of it. So we count affected pairs by our re-merge, not by the line check.
 - **Effect on the paper's result (post hoc).** We replaced the paper's recorded failures with our clean re-merge's result wherever both features pass: 18 GPT-5 pairs and 19 Claude pairs. Coop success then rises from 28.2% to 31.3% for GPT-5 and from 22.6% to 25.7% for Claude. On the pairs with a solo run, adding these to the re-merge of conflicted pairs closes 43% of the coop–solo gap for GPT-5 (20% from conflicts, 23% from lost code) and 19% for Claude (3% and 16%). This is a lower bound, because our merge also conflicts on 79 of GPT-5's and 250 of Claude's clean failed pairs, which we could not check. Solo runs involve no merge, so this does not affect them.
-- **For the census**, the robust share, which counts only failures our re-merge reproduces, becomes the main estimate: integration is 33% [16%, 49%] of GPT-5's gap pairs and 41% [19%, 59%] of Claude's. Failures from the paper's lost code are not failures of the agents.
+- **For the census**, the robust share, which counts only failures our re-merge reproduces, becomes the main estimate: integration is 33% [16%, 49%] of GPT-5's gap pairs and 41% [19%, 59%] of Claude's. Failures from the paper's lost code are not failures of the agents. The audit below replaces this with a census on our own merges.
+
+### Audit of the paper's clean merges (2026-11-04)
+
+The paper merges by checking out agent 2's branch and merging agent 1's branch into it. For each pair it keeps the diff that merge produces, and it tests a merged patch. In most pairs it recorded as clean, that diff is empty and the tested patch holds only agent 2's code: agent 1's work never entered the merge, so the merge could not conflict. The paper-era merge code we can read (commit 95cd5a2, released after the runs) looks correct. So the published files show what happened, but not why.
+
+We counted, for every clean pair, which agents' code the tested patch holds. Then we re-merged the failed "clean" pairs whose merge conflicts in our harness, using the upstream check's frozen llm method, and tested them. The patch counts were seen before freezing; the re-merges were not. Config and decision rule: [configs/paper_merge_audit.json](../configs/paper_merge_audit.json). Per-pair data: [results/paper_merge_audit_rows.csv](../results/paper_merge_audit_rows.csv). The re-merges cost $0.14. Eight test runs on outlines 1371 hung and were killed at 600 s; they count as failures.
+
+| | GPT-5 | Claude Sonnet 4.5 |
+|---|---|---|
+| Failed clean pairs whose tested patch lacks agent 1's code (of those with a published patch and a non-empty agent 1 patch) | 96 / 124 | 277 / 310 |
+| Failed pairs that conflict when merged for real (of those with a known merge) | 196 / 406 (48%) | 345 / 467 (74%) |
+| Conflicts the paper recorded among failed pairs | 121 / 410 (30%) | 98 / 470 (21%) |
+| Mislabeled pairs re-merged / passing both features | 75 / 19 | 247 / 80 |
+| Solo success, pairs with a solo run | 202 / 441 (45.8%) | 246 / 532 (46.2%) |
+| Coop, paper pipeline | 126 (28.6%) | 125 (23.5%) |
+| + paper's conflicts re-merged (upstream check) | 141 (gap closed 20%) | 129 (3%) |
+| + clean pairs our clean merge passes (merged-patch check) | 159 (43%) | 148 (19%) |
+| + mislabeled pairs re-merged (this audit) | 178 (40.4%, 68%) | 228 (42.9%, 85%) |
+
+**Decision rule.** With every merge correction applied, the coop–solo gap closes by 68% for GPT-5 and 85% for Claude. Both are above a third, so for both models much of the paper's coop–solo gap is a merge artifact. This reverses the upstream check's conclusion. The tested patch lost agent 1's code in more than a quarter of each model's failed clean pairs, so the paper's clean-merge share does not measure conflicts. Our statement that most strong-model failures merge cleanly is withdrawn. When the code is actually merged, conflicts are common for both models, most of all for Claude.
+
+Caveats:
+
+- Conflicts are resolved with gpt-6-luna, which may be stronger than the paper's small resolver.
+- 12 failed pairs have no usable merge of ours and keep the paper's result.
+- Solo results are the paper's. They come from the same "failed" check, but they involve no merge.
+
+**Census on our own merges (post hoc).** We re-labeled the census with our merge in place of the paper's: our merged re-test where our merge is clean, the llm re-merge where it conflicts.
+
+| | GPT-5 | Claude Sonnet 4.5 |
+|---|---|---|
+| Failed pairs that pass once merged correctly | 64 | 120 |
+| Gap pairs left (solo passes both, coop fails) | 73 | 75 |
+| Context (own feature fails, solo can do it) | 49 | 43 |
+| Integration | 17, 23% [9%, 47%] | 27, 36% [20%, 50%] |
+| Capability | 7 | 5 |
+
+Among real failures that solo can avoid, an agent failing its own feature when paired is the largest group for both models. Integration is a quarter to a third. Most of Claude's integration failures are conflicts even the llm re-merge cannot resolve: 56 of its 66 across all failed pairs.
 
 ## Next steps
 
-1. Find how the paper's merge step loses code, and check the clean pairs our merge cannot check. Reproducing the paper's merge procedure (feature 1's branch merged into feature 2's workspace) should do both, and it enlarges the robust set, especially for Claude.
-2. Run the same census on the paper's no-communication runs, which conflict far more often, to see how messaging changes the mix of causes.
+1. Check the corrections' sensitivity: resolve conflicts with a weaker method (union, or the paper's resolver) and re-test the published solo patches in our harness, so coop and solo are scored by the same pipeline.
+2. Run the audit and the census on the paper's other three models and on its no-communication runs.
 3. Ablations the advisor asked for: number of agents, team composition (different, stronger and weaker, commercial and open models together) and the communication channel.
 4. Read the shared-git trajectories to find out why capability failures rose in S2.
 5. Choose what replaces S3. Candidates: a repair round after the merge, where an agent sees the merged code and the failing tests; and three-agent tasks with CooperBench's team mode.

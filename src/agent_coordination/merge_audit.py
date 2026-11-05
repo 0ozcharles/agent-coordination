@@ -99,8 +99,42 @@ def remerged(base, root, job):
             bool(method.get(str(f1)) and method.get(str(f2))), method.get("cost_usd") or 0)
 
 
+def corrected_jobs(base, root):
+    """Post hoc: the census's failed pairs with our merge result in place of the paper's.
+
+    A pair whose merge is clean in our harness uses our merged re-test; one that conflicts uses the
+    llm re-merge (the upstream check's for the paper's conflicts, this study's for the rest). Pairs that
+    then pass both features leave the census. Returns (jobs, pairs now passing, pairs kept as recorded).
+    """
+    jobs, now_pass, kept = [], Counter(), Counter()
+    for job in paper_census.select(base, root):
+        target = upstream.job_dir(base, root, job)
+        f1, f2 = (str(f) for f in job["features"])
+        ours = s1.read_json(target / "calibration.json")
+        record = remerged(base, root, job)
+        method = ((s1.read_json(target / "merge.json") or {}).get("methods") or {}).get(base["remerge"]["method"]) or {}
+        if ours and ours.get("merge") == "clean" and not ours.get("error"):
+            values, conflict = [ours.get(f1), ours.get(f2)], False
+        elif record and record[0] != "error":
+            values, conflict = [method.get(f1), method.get(f2)], True
+        else:
+            kept[job["model"]] += 1
+            jobs.append(job)
+            continue
+        values = [bool(v) for v in values]
+        if all(values):
+            now_pass[job["model"]] += 1
+            continue
+        stages = {"naive": [None, None], "union": [None, None], "llm": [None, None]}
+        stages["llm" if conflict else "naive"] = values
+        jobs.append(dict(job, recorded=dict(job["recorded"], conflict=conflict, stages=stages)))
+    return jobs, dict(now_pass), dict(kept)
+
+
 def summarize(config, base, root, audit_rows):
     census_rows = paper_census.collect(base, root)
+    fixed_jobs, now_pass, kept = corrected_jobs(base, root)
+    fixed = paper_census.summarize({}, base, paper_census.collect(base, root, fixed_jobs))
     clean_fix = {(r["model"], r["repo"], r["task_id"], r["features"]) for r in census_rows
                  if not r["conflict"] and r["retest_merge"] == "clean"
                  and set((r["retest_passed"] or "").split()) == set(r["features"].split())}
@@ -143,6 +177,12 @@ def summarize(config, base, root, audit_rows):
                         "cost_usd": round(sum(v[2] for v in tested), 4)},
             "gap": {"pairs": len(with_solo), "solo": solo, "coop": steps,
                     "closed": [round((s - steps[0]) / gap, 3) if gap else None for s in steps]},
+            "census_post_hoc": {"now_passing": now_pass.get(model, 0), "kept_as_recorded": kept.get(model, 0),
+                                "labeled": fixed["models"][model]["labeled"],
+                                "labels": fixed["models"][model]["labels"],
+                                "refined_labels": fixed["models"][model]["refined_labels"],
+                                "integration": fixed["models"][model]["integration"],
+                                "gap": fixed["models"][model]["gap"]},
         }
     decided = {m: v["gap"]["closed"][-1] for m, v in out.items()}
     return {"models": out,
@@ -180,6 +220,12 @@ def report(config, base, root):
         print(f"  re-merged {r['tested']}/{r['pairs']}: {r['status']}, {r['passed']} pass both, ${r['cost_usd']}")
         print(f"  on {g['pairs']} pairs with solo: solo {g['solo']}, coop {g['coop']} "
               f"(paper, +conflict re-merge, +clean fixes, +re-merged here); gap closed {g['closed']}")
+        c = s["census_post_hoc"]
+        print(f"  census on our merges (post hoc): {c['now_passing']} failed pairs now pass, "
+              f"{c['kept_as_recorded']} kept as recorded, {c['labeled']} labeled")
+        print(f"    labels {c['labels']}; with handoff {c['refined_labels']}; integration {c['integration']}")
+        print(f"    gap pairs {c['gap']['pairs']}: {c['gap']['labels']}; "
+              f"integration share {paper_census.pct(c['gap']['integration'])}")
     print(f"\ndecision: {summary['decision']}; withdraw the clean-merge claim: {summary['withdraw_clean_claim']}")
     return summary
 

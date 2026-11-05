@@ -47,32 +47,17 @@ S2: the same 53 tasks, 3 runs each in four arms, 636 runs in total, $6.42. Confl
 
 "Official score" above means the released CooperBench harness (`git merge`, then agent 1's patch alone on a conflict). The CooperBench paper used a gentler pipeline: `git merge-file`, a union merge, then a small learned resolver.
 
-Offline check on the paper's own runs: we took the published GPT-5 and Claude Sonnet 4.5 coop runs and re-merged every pair that failed the paper's pipeline after a conflict. No agent was re-run.
+The CooperBench paper's own runs (GPT-5 and Claude Sonnet 4.5, published on Hugging Face): we re-checked the paper's results without re-running any agent. This used Docker and a few cents of re-merging.
 
-- Coop success rises from 28.2% to 32.9% for GPT-5 and from 22.6% to 26.0% for Claude. That closes 20% and 3% of the gap to solo (about 46% for both), short of the pre-registered third.
-- The re-merge recovers 12 of 16 and 18 of 20 pairs where both agents' own patches pass, about as well as in our merge test. But such pairs are only about 4% of each model's failures; 70–79% of the failed pairs merged cleanly and still failed.
-- So the large merge effect in S1 and S2 is specific to our setup. In the paper's runs the coordination gap is real and mostly comes from code that merges cleanly but does not work. See the [research plan](docs/RESEARCH_PLAN.md#offline-check-on-the-cooperbench-papers-runs-2026-11-03).
+- **The paper's merge step often loses code.** In most pairs it recorded as merging cleanly, the merged patch it tested holds only agent 2's code: agent 1's work never entered the merge. We tested the paper's own merged patches in our harness. They reproduce its failures: 62 of 64, with the same first error in 55 of 56. Control pairs the paper recorded as passing pass for us too.
+- **Merged for real, conflicts are common.** 48% of GPT-5's failed pairs and 74% of Claude's conflict, against the 30% and 21% the paper recorded. We withdraw our earlier reading that strong models rarely conflict and fail mostly on code that merges cleanly.
+- **Most of the coop–solo gap is a merge artifact.** We corrected every merge problem: conflicts resolved by our llm re-merge, lost code restored. On pairs with a solo run, coop success then rises from 28.6% to 40.4% for GPT-5 and from 23.5% to 42.9% for Claude, against solo's 45.8% and 46.2%. That closes 68% and 85% of the gap. Conflicts are resolved with gpt-6-luna, which may be stronger than the paper's resolver.
+- **What remains.** Among the remaining failures that solo avoids, an agent failing its own feature when paired is the largest cause. Integration is 23% (GPT-5) and 36% (Claude).
+- **A smaller bug.** CooperBench counts a test run as failed if "failed" appears anywhere in its output. The paper used this check (it reproduces all 2,211 recorded results), but it changes only 6 of them.
 
-Failure census on the paper's runs: we labeled all 880 failed GPT-5 and Claude pairs, using each agent's patch tested alone and the published solo runs. This needed Docker only.
+Details, in order: the [offline check](docs/RESEARCH_PLAN.md#offline-check-on-the-cooperbench-papers-runs-2026-11-03), the [failure census](docs/RESEARCH_PLAN.md#failure-census-on-the-papers-runs-2026-11-04), [re-scoring the logs](docs/RESEARCH_PLAN.md#re-scoring-the-papers-test-logs-2026-11-04), the [merged-patch check](docs/RESEARCH_PLAN.md#the-papers-merged-patches-tested-in-our-harness-2026-11-04) and the [merge audit](docs/RESEARCH_PLAN.md#audit-of-the-papers-clean-merges-2026-11-04).
 
-- Take the pairs where solo passes and coop fails. Integration (each own patch passes, the merged code fails) is 47% [28%, 66%] of them for GPT-5 and 67% [56%, 75%] for Claude. The pre-registered rule therefore gives a split verdict.
-- The integration labels do not hold up. When we merge the same two patches ourselves and test them, most of these failures disappear: 8 of 19 reproduce for GPT-5 and 3 of 13 for Claude, against 34 of 37 and 16 of 25 for context labels. Counting only reproduced failures, integration falls to 33% and 41%.
-- Our harness and the paper's disagree most exactly where the integration label is decided. So the way merged code is evaluated is a large source of uncertainty in failure attribution. See the [research plan](docs/RESEARCH_PLAN.md#failure-census-on-the-papers-runs-2026-11-04).
-
-Re-scoring the paper's test logs: CooperBench counts a test run as failed if its output contains "failed" anywhere, warnings included.
-
-- The paper used this check: re-implemented, it reproduces all 2,211 recorded results.
-- It rarely matters. It flips 6 results and explains only 2 of the 67 unreproduced failures.
-- In the paper's own logs, most of those failures come from tests that ran on code missing the agent's changes. See the [research plan](docs/RESEARCH_PLAN.md#re-scoring-the-papers-test-logs-2026-11-04).
-
-The paper's merged patches tested in our harness:
-
-- 62 of the 64 unreproduced failures also fail when we test the merged patch the paper published (97% [90%, 100%]). In 55 of 56 comparable cases the first error line matches the paper's.
-- Control pairs the paper recorded as passing pass in our harness too.
-- So these failures come from the paper's merge step, not from the agents. In 27 of 48 pairs, its merged patch is simply one agent's patch, with the other agent's work missing. Our `git merge` of the same two patches passes.
-- Correcting these pairs, together with the earlier re-merge of conflicted pairs, closes at least 43% of GPT-5's coop–solo gap and 19% of Claude's. In the census, integration falls to a third (GPT-5) and two fifths (Claude) of the pairs solo passes. See the [research plan](docs/RESEARCH_PLAN.md#the-papers-merged-patches-tested-in-our-harness-2026-11-04).
-
-Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv), [merged-patch check](results/paper_merge_check_rows.csv).
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv), [merged-patch check](results/paper_merge_check_rows.csv), [merge audit](results/paper_merge_audit_rows.csv).
 
 ## Quick start
 
