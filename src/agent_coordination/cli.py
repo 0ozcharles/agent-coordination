@@ -7,7 +7,7 @@ import shlex
 import subprocess
 import sys
 
-from . import census, merge, merge_audit, merge_check, paper_census, rescore, s1, s2, sensitivity, upstream
+from . import census, decomposition, merge, merge_audit, merge_check, paper_census, rescore, s1, s2, sensitivity, upstream
 
 
 def find_root():
@@ -233,6 +233,23 @@ def sensitivity_command(root, args):
     return code or 0
 
 
+def decomposition_command(root, args):
+    config_path = args.config.resolve()
+    config, base = decomposition.load_config(config_path, root)
+    if args.report:
+        decomposition.report(config, base, root)
+        return 0
+    jobs = decomposition.pairs(base, root)
+    todo = [j for j in jobs if decomposition.pending(config, base, root, j)]
+    print(f"{config['study']}: {config['question']}")
+    print(f"{len(jobs)} pairs with coop and solo, {len(todo)} still to score.")
+    code = launch(root, args, "agent_coordination.decomposition", [str(config_path)],
+                  project_path(root, config["output"]) / "logs", args.workers or 1)
+    if code is not None:
+        decomposition.report(config, base, root)
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -317,6 +334,12 @@ def main(argv=None):
     sens.add_argument("--report", action="store_true", help="Summarize existing records")
     sens.add_argument("--python", help="CooperBench Python interpreter")
     sens.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
+    decomp = subs.add_parser("decomposition", help="Decompose the paper's coop-solo gap in one harness")
+    decomp.add_argument("config", type=Path)
+    decomp.add_argument("--execute", action="store_true", help="Score the missing pairs (Docker, cents of API)")
+    decomp.add_argument("--report", action="store_true", help="Summarize existing records")
+    decomp.add_argument("--python", help="CooperBench Python interpreter")
+    decomp.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -349,6 +372,8 @@ def main(argv=None):
             return upstream_command(root, args)
         if args.command == "paper-census":
             return paper_census_command(root, args)
+        if args.command == "decomposition":
+            return decomposition_command(root, args)
         if args.command == "sensitivity":
             return sensitivity_command(root, args)
         if args.command == "merge-audit":

@@ -1,0 +1,25 @@
+{
+  "study": "paper_decomposition",
+  "status": "frozen 2026-11-07 before scoring any pair beyond the sensitivity sample",
+  "question": "What is the CooperBench paper's coop-solo gap made of, for each of its five models, once coop and solo are scored in one harness: evaluation artifacts, conflicts a resolver can fix, and the failures that remain, split into division of labor and integration?",
+  "from": "configs/paper_sensitivity.json",
+  "models": {"gpt5": "GPT-5", "claude": "Claude Sonnet 4.5", "minimax": "minimax", "qwen_coder": "qwen_coder", "qwen": "qwen"},
+  "models_note": "names are the keys of the published result files; GPT-5 and Claude run first, then the other three",
+  "pairs": "every usable pair with both a published coop run and a published solo run",
+  "per_pair": {
+    "merge": "the two agents' published patches merged and tested with the released harness (calibration.json)",
+    "conflicts": "when our merge conflicts: git's union merge (merge_union.json) and the frozen gpt-6-luna re-merge (merge.json), each tested on both features",
+    "solo": "the published solo patch tested on both features",
+    "own": "each agent's own patch tested alone, for pairs that still fail after the llm re-merge"
+  },
+  "levels": "L1 our merge without conflict resolution, L2 union, L3 llm, as in configs/paper_sensitivity.json; a merge that our harness reports as identical counts as clean, a pair with missing input is left out and counted",
+  "decomposition": {
+    "paper_gap": "G0 = solo recorded minus coop recorded, summed over pairs",
+    "artifact": "A = G0 minus (our solo minus our coop at L1): the part of the gap that correct evaluation alone removes; negative when it widens the gap",
+    "resolvable": "R = our coop at L3 minus our coop at L1 (union part: L2 minus L1): pairs a conflict resolver rescues",
+    "remaining": "G3 = our solo minus our coop at L3 = G0 - A - R; the positive part (solo passes, coop fails at L3) is split by the failed features of the L3 result: integration when the feature's own patch passes alone, division of labor when it fails; the negative part counts pairs where coop passes and solo fails"
+  },
+  "decision_rule": "Descriptive, per model: each component's share of G0 with a 95% bootstrap interval clustered by task; a component is called a driver of the gap only when its interval excludes zero. Primary question: among pairs where solo passes and coop still fails at L3, is division of labor at least half? At least half for a model: the main remaining cause for that model is agents failing their own feature when paired. Integration at least half: the main remaining cause is code that does not fit together. Neither: reported as mixed. The census on our merges (post hoc) found division of labor ahead of integration for GPT-5 and Claude; this tests that on all pairs and on three more models.",
+  "output": "runs/upstream/decomposition",
+  "results": "decomposition_rows.csv and decomposition_summary.json in the output directory"
+}

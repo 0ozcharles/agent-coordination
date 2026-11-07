@@ -52,9 +52,12 @@ def sample(base, root):
     return out
 
 
+SOLO = "runs/upstream/solo"  # shared by the sensitivity check and the decomposition
+
+
 def solo_dir(config, root, job):
     f1, f2 = job["features"]
-    return root / config["output"] / "solo" / job["model"] / job["repo"] / str(job["task_id"]) / f"f{f1}_f{f2}"
+    return root / SOLO / job["model"] / job["repo"] / str(job["task_id"]) / f"f{f1}_f{f2}"
 
 
 def remerge_union(base, root, job, target):
