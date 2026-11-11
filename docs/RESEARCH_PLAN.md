@@ -368,6 +368,43 @@ What the sample shows:
 
 The sample is 150 pairs per model, so these intervals are wide.
 
+### Coordination conflict states (2026-11-10)
+
+The research direction moved to how agents handle conflicts with each other (Thomas–Kilmann styles), starting with coordination conflicts (class C in the team's benchmark plan). This study builds the first conflict-state library from the coop runs we already have: all gpt-6-luna, no new agent runs. Config: [configs/c_conflict_states.json](../configs/c_conflict_states.json). Codebook: [C_CONFLICT_CODEBOOK.md](C_CONFLICT_CODEBOOK.md). Per-run data: [results/c_conflict_states_rows.csv](../results/c_conflict_states_rows.csv). Labeling cost $0.49 in total.
+
+- **Conflict point (detector).** The first message after which both agents claim the same file. For each agent, the trajectory step where it has sent its claim and received the partner's.
+- **Labels (model).** gpt-6-luna reads the feature titles and the messages in order, never the code or test results, and labels conflict types, each agent's assertiveness and cooperativeness (0–2, mapped to a style), and a few facts about the episode.
+- **Codebook revisions.** Three revisions on the screening runs (dev). Version 3 was then applied to the library. A hand check of 30 library runs agreed with 42 of 60 agent styles, almost every miss scoring a plain split of the shared file as collaborating, so those labels were withdrawn. That check showed only a few messages around the conflict point, so it overstates the error somewhat. Versions 4 and 5, revised on dev only, make keeping edits apart cooperativeness 1. The library was relabeled with version 5.
+
+Library: S1 main and the S2 baseline, default CooperBench prompt, 318 runs.
+
+| | S1 main | S2 baseline |
+|---|---|---|
+| Runs with a conflict point | 159 / 159 | 158 / 159 |
+| ...with a request to stay out of the file (strict reading) | 91 | 88 |
+| Conflict step per agent, median (trajectory length ~41) | 6 | 7 |
+| Agent trajectories with a file write before the conflict point | 15 / 286 | 11 / 282 |
+| Conflict types: interface / responsibility / requirement | 96 / 51 / 1 | 112 / 73 / 1 |
+| Agent styles: collaborating / compromising / accommodating / avoiding / competing | 143 / 133 / 33 / 5 / 4 | 156 / 97 / 53 / 7 / 3 |
+| Handoff (an agent asks its partner to implement part of its own feature) | 52 | 71 |
+| A direct question left unanswered | 27 | 32 |
+
+Every run has a resource conflict, since all 652 CooperBench pairs touch a common file (86% common lines). About 16% of runs have an agent whose trajectory was compacted into a summary; their messages are ordered by sender only and their conflict step is unknown.
+
+Checks:
+
+- **Labeler consistency.** 40 library runs labeled twice. Cohen's kappa: styles 0.82 and 0.95 (agent 1, agent 2), assertiveness 0.78–0.84, cooperativeness 0.90–1.00, conflict types 0.89–1.00, handoff 0.89, unanswered question 0.87. Lower for whether the claims were incompatible (0.50) and for the kind of agreement (0.54).
+- **Hand check.** The same 30 runs, now with whole episodes: 56 of 60 agent styles agree. The four misses score agreement on where each change goes inside one function as collaborating. This is one reader (Claude), not independent annotation. A blind sheet for teammates is in [results/c_conflict_annotation_sheet.csv](../results/c_conflict_annotation_sheet.csv).
+- **Detector against labeler.** Where the detector saw a request to stay out of the file, the labeler judged the claims incompatible in 150 of 179 library runs.
+
+What it shows:
+
+- **Conflicts need not be constructed for class C.** In CooperBench they happen in almost every run, at the agents' first exchange.
+- **Branching is cheap.** 95% of agent trajectories have written nothing when the conflict point is reached. A branch can restart from the message history in a fresh container, with no code state to replay.
+- **The default style is not avoidance.** Under the default prompt, gpt-6-luna agents mostly collaborate or compromise when they negotiate. This contradicts our first hypothesis that agents default to avoiding and accommodating. Accommodating appears mainly as handoffs, in 39% of conflicts.
+- **The prompt moves the style.** Telling agents that overlapping edits merge automatically (own-feature) leaves 42 of 159 runs without a conflict point. It cuts handoffs from 71 to 9 and accommodating agents from 53 to 4, and raises avoiding (14) and competing (10).
+- **No clear link from style to outcome in observational data.** In S1, collaborating pairs passed less often than compromising pairs (6/49 against 16/57). In S2, where conflicted runs are re-merged, they pass equally often (28/45 against 25/40). Collaboration happens most when both features change the same function, which also causes more merge conflicts. Task structure confounds these comparisons, which is why style has to be set by intervention.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.

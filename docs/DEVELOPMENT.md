@@ -145,6 +145,18 @@ python3 scripts/test_watchdog.py runs/upstream/sensitivity/timeouts.log agent_co
 python3 scripts/project.py sensitivity configs/paper_sensitivity.json --report
 ```
 
+## Coordination conflict states
+
+`configs/c_conflict_states.json` finds the first coordination conflict in every S1 and S2 coop run that has message logs: the first message after which both agents claim the same file, and the trajectory step at which each agent reaches it (the state a branch would resume from). A model labeler then reads only the messages and labels conflict types and each agent's handling style with [the codebook](C_CONFLICT_CODEBOOK.md). Building the state table needs no API; labeling costs well under a dollar for all sets.
+
+```bash
+python3 scripts/project.py conflict-states configs/c_conflict_states.json --set all --report              # state table and summary, no API
+python3 scripts/project.py conflict-states configs/c_conflict_states.json --set library --execute --workers 8
+python3 scripts/project.py conflict-states configs/c_conflict_states.json --set library --execute --repeat  # second labels for 40 runs
+```
+
+Sets: `dev` (S1 screening, where the codebook was revised), `library` (S1 main and the S2 baseline, default prompt), `conditions` (the two S2 interventions). A label is used only while the codebook text it was made with is unchanged, so editing the codebook makes every label stale until the set is labeled again. About 16% of runs have an agent whose trajectory was compacted into a summary; their messages are ordered by sender only and their conflict step is unknown.
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.
