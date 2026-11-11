@@ -286,6 +286,9 @@ def branch_command(root, args):
         return 0
     if args.label:
         return launch(root, args, "agent_coordination.branch", [str(config_path), "--label"], output, 1) or 0
+    if args.score_agents:
+        return launch(root, args, "agent_coordination.branch", [str(config_path), "--score-agents", args.score_agents],
+                      output / "scoring", args.workers or 1) or 0
     jobs = branch.plan(config, root)
     done = sum((branch.job_dir(output, job) / "eval.json").is_file() for job in jobs)
     print(f"{config['study']}: {config['question']}")
@@ -406,6 +409,7 @@ def main(argv=None):
     branching.add_argument("--report", action="store_true", help="Summarize finished branches; no Docker or API")
     branching.add_argument("--label", action="store_true", help="Label finished branches with the conflict codebook (cents)")
     branching.add_argument("--limit", type=int, help="Run at most this many branches (pipeline check)")
+    branching.add_argument("--score-agents", help="Comma-separated arms: test each agent's own patch alone (Docker only)")
     branching.add_argument("--python", help="CooperBench Python interpreter")
     branching.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")

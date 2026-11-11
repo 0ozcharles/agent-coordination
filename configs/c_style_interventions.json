@@ -1,6 +1,6 @@
 {
   "study": "c_style_interventions",
-  "status": "frozen 2026-11-10 before the first intervention branch",
+  "status": "frozen 2026-11-10 before the first intervention branch; ran unchanged (312 of 312 branches). Added after the outcomes were seen, as an exploratory diagnosis: each agent's own patch was tested alone for the neutral and compromising arms (score_backfill), and the report gained patch-based measures (agents whose patch leaves the contested file alone) and per-state sign tests for target style and message count",
   "question": "When two coding agents' claims first collide, does telling both of them to handle the overlap in one Thomas-Kilmann style change how they negotiate and whether both features pass?",
   "design": "Each sampled conflict state is restarted once per arm (src/agent_coordination/branch.py). Right before each agent's first new model call, after it receives its partner's claim, the arm adds one user message; both agents get the same text. The texts describe behaviour only and never name the style, so the labeler, which sees only the messages between agents, cannot pick the style up from the agents quoting it. Control is a neutral note of the same form, so every arm draws the same attention to the overlap",
   "primary": "both features pass after the llm re-merge, each style arm against the neutral arm, paired by state (sign test on discordant states)",

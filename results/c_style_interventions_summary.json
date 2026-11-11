@@ -1,0 +1,277 @@
+{
+  "study": "c_style_interventions",
+  "branchable_runs": 263,
+  "not_branchable": {
+    "compacted trajectory": 34,
+    "file written before the cut": 12,
+    "conflict message never received": 3,
+    "inconsistent cut": 5,
+    "no conflict point": 1
+  },
+  "states": 52,
+  "jobs": 312,
+  "finished": 312,
+  "inbox_delivered": 312,
+  "compacted": 27,
+  "conflict_point_again": 302,
+  "both_pass": {
+    "original_remerged": 25,
+    "original_official": 10,
+    "branches_remerged": 155,
+    "branches_official": 78,
+    "states": 52,
+    "branches": 312
+  },
+  "cost_usd": 3.0628,
+  "arms": {
+    "neutral": {
+      "branches": 52,
+      "labeled_agents": 98,
+      "agent_styles": {
+        "compromising": 28,
+        "collaborating": 50,
+        "accommodating": 20
+      },
+      "target": null,
+      "target_share": null,
+      "handoff_runs": 26,
+      "remerged_pass": 30,
+      "scored": 52,
+      "official_pass": 16,
+      "own_scored": 52,
+      "own_both": 26,
+      "failed_with_own_both": 2,
+      "merge_conflicts": 31,
+      "agents_off_contested": 6,
+      "agents_with_contested_files": 98,
+      "empty_patches": 1,
+      "mean_messages": 9.6,
+      "mean_minutes": 9.4,
+      "cost_usd": 0.5568
+    },
+    "competing": {
+      "branches": 52,
+      "labeled_agents": 96,
+      "agent_styles": {
+        "collaborating": 50,
+        "compromising": 43,
+        "competing": 2,
+        "accommodating": 1
+      },
+      "target": "competing",
+      "target_share": 0.021,
+      "handoff_runs": 4,
+      "remerged_pass": 26,
+      "scored": 52,
+      "official_pass": 13,
+      "own_scored": 0,
+      "own_both": 0,
+      "failed_with_own_both": 0,
+      "merge_conflicts": 38,
+      "agents_off_contested": 1,
+      "agents_with_contested_files": 96,
+      "empty_patches": 0,
+      "mean_messages": 7.0,
+      "mean_minutes": 6.5,
+      "cost_usd": 0.4657,
+      "vs_control": {
+        "pairs": 52,
+        "both_pass": 23,
+        "only_arm": 3,
+        "only_control": 7,
+        "sign_test_p": 0.3438
+      },
+      "target_vs_control": {
+        "states": 46,
+        "higher": 2,
+        "lower": 0,
+        "sign_test_p": 0.5
+      },
+      "messages_vs_control": {
+        "states": 52,
+        "higher": 7,
+        "lower": 38,
+        "sign_test_p": 0.0
+      }
+    },
+    "collaborating": {
+      "branches": 52,
+      "labeled_agents": 86,
+      "agent_styles": {
+        "collaborating": 57,
+        "accommodating": 11,
+        "compromising": 18
+      },
+      "target": "collaborating",
+      "target_share": 0.663,
+      "handoff_runs": 16,
+      "remerged_pass": 29,
+      "scored": 52,
+      "official_pass": 17,
+      "own_scored": 0,
+      "own_both": 0,
+      "failed_with_own_both": 0,
+      "merge_conflicts": 30,
+      "agents_off_contested": 3,
+      "agents_with_contested_files": 86,
+      "empty_patches": 4,
+      "mean_messages": 11.3,
+      "mean_minutes": 6.9,
+      "cost_usd": 0.5646,
+      "vs_control": {
+        "pairs": 52,
+        "both_pass": 24,
+        "only_arm": 5,
+        "only_control": 6,
+        "sign_test_p": 1.0
+      },
+      "target_vs_control": {
+        "states": 42,
+        "higher": 15,
+        "lower": 8,
+        "sign_test_p": 0.21
+      },
+      "messages_vs_control": {
+        "states": 52,
+        "higher": 30,
+        "lower": 15,
+        "sign_test_p": 0.0357
+      }
+    },
+    "compromising": {
+      "branches": 52,
+      "labeled_agents": 96,
+      "agent_styles": {
+        "collaborating": 47,
+        "compromising": 33,
+        "accommodating": 15,
+        "competing": 1
+      },
+      "target": "compromising",
+      "target_share": 0.344,
+      "handoff_runs": 23,
+      "remerged_pass": 18,
+      "scored": 52,
+      "official_pass": 9,
+      "own_scored": 52,
+      "own_both": 19,
+      "failed_with_own_both": 5,
+      "merge_conflicts": 27,
+      "agents_off_contested": 5,
+      "agents_with_contested_files": 96,
+      "empty_patches": 2,
+      "mean_messages": 9.3,
+      "mean_minutes": 7.5,
+      "cost_usd": 0.5171,
+      "vs_control": {
+        "pairs": 52,
+        "both_pass": 18,
+        "only_arm": 0,
+        "only_control": 12,
+        "sign_test_p": 0.0005
+      },
+      "target_vs_control": {
+        "states": 48,
+        "higher": 9,
+        "lower": 6,
+        "sign_test_p": 0.6072
+      },
+      "messages_vs_control": {
+        "states": 52,
+        "higher": 23,
+        "lower": 23,
+        "sign_test_p": 1.0
+      }
+    },
+    "accommodating": {
+      "branches": 52,
+      "labeled_agents": 90,
+      "agent_styles": {
+        "collaborating": 46,
+        "compromising": 28,
+        "accommodating": 16
+      },
+      "target": "accommodating",
+      "target_share": 0.178,
+      "handoff_runs": 17,
+      "remerged_pass": 28,
+      "scored": 52,
+      "official_pass": 16,
+      "own_scored": 0,
+      "own_both": 0,
+      "failed_with_own_both": 0,
+      "merge_conflicts": 30,
+      "agents_off_contested": 5,
+      "agents_with_contested_files": 90,
+      "empty_patches": 2,
+      "mean_messages": 9.8,
+      "mean_minutes": 5.8,
+      "cost_usd": 0.5749,
+      "vs_control": {
+        "pairs": 52,
+        "both_pass": 25,
+        "only_arm": 3,
+        "only_control": 5,
+        "sign_test_p": 0.7266
+      },
+      "target_vs_control": {
+        "states": 44,
+        "higher": 6,
+        "lower": 9,
+        "sign_test_p": 0.6072
+      },
+      "messages_vs_control": {
+        "states": 52,
+        "higher": 25,
+        "lower": 21,
+        "sign_test_p": 0.6587
+      }
+    },
+    "avoiding": {
+      "branches": 52,
+      "labeled_agents": 104,
+      "agent_styles": {
+        "compromising": 58,
+        "collaborating": 15,
+        "avoiding": 11,
+        "competing": 12,
+        "accommodating": 8
+      },
+      "target": "avoiding",
+      "target_share": 0.106,
+      "handoff_runs": 15,
+      "remerged_pass": 24,
+      "scored": 52,
+      "official_pass": 7,
+      "own_scored": 0,
+      "own_both": 0,
+      "failed_with_own_both": 0,
+      "merge_conflicts": 34,
+      "agents_off_contested": 6,
+      "agents_with_contested_files": 104,
+      "empty_patches": 1,
+      "mean_messages": 3.8,
+      "mean_minutes": 5.7,
+      "cost_usd": 0.3838,
+      "vs_control": {
+        "pairs": 52,
+        "both_pass": 23,
+        "only_arm": 1,
+        "only_control": 7,
+        "sign_test_p": 0.0703
+      },
+      "target_vs_control": {
+        "states": 49,
+        "higher": 10,
+        "lower": 0,
+        "sign_test_p": 0.002
+      },
+      "messages_vs_control": {
+        "states": 52,
+        "higher": 2,
+        "lower": 50,
+        "sign_test_p": 0.0
+      }
+    }
+  }
+}

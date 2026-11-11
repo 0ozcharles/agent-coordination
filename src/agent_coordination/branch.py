@@ -312,6 +312,24 @@ def execute(config, root, shard=(0, 1), limit=None):
         run_job(config, root, job, output)
 
 
+def score_backfill(config, root, arms, shard=(0, 1)):
+    """Test each agent's own patch alone (s1.score_agents) for finished branches of some arms; Docker only."""
+    s1.prepare_environment(root)
+    output = root / config["output"]
+    dataset_dir = str(root / "experiments/m0/CooperBench/dataset")
+    jobs = [j for j in plan(config, root) if j["arm"] in arms]
+    for job in jobs[shard[0]::shard[1]]:
+        target = job_dir(output, job)
+        if not (target / "eval.json").is_file() or s1.agent_errors(target):
+            continue
+        try:
+            s1.score_agents(target, {"setting": "coop", "repeat": job["continuation"], "repo": job["repo"],
+                                     "task_id": int(job["task_id"]), "features": [int(f) for f in job["features"]]},
+                            dataset_dir)
+        except Exception as exc:
+            print(f"scoring failed: {claim_key(job)}: {type(exc).__name__}: {exc}", flush=True)
+
+
 def label_branches(config, root, workers=4):
     """Label every finished branch with the frozen conflict codebook (cents)."""
     from concurrent.futures import ThreadPoolExecutor
@@ -408,6 +426,25 @@ def first_reply_ok(config, target, job):
     return ok
 
 
+def contested(rec):
+    """Files both agents had claimed by the conflict message (the same in every arm: it is in the prefix)."""
+    sent = [m for m in rec["transcript"] if not m.get("exit")][:rec["conflict_message"] or 0]
+    claims = {a: set().union(*[cs.files_in(m["text"]) for m in sent if m["from"] == a] or [set()]) for a in PARTNER}
+    return claims["agent1"] & claims["agent2"]
+
+
+def patch_use(target, job, files):
+    """How many agents' final patches leave every contested file alone, and how many are empty."""
+    off = empty = 0
+    for agent in ("agent1", "agent2"):
+        path = target / f"agent{job['state']['features'][agent]}.patch"
+        text = path.read_text() if path.is_file() else ""
+        touched = {f.rsplit("/", 1)[-1] for f in s1.patch_files(text)}
+        empty += not text.strip()
+        off += bool(text.strip()) and not (touched & files)
+    return off, empty
+
+
 def report(config, root):
     output = root / config["output"]
     states_config = labeler_config(config, root)
@@ -423,6 +460,8 @@ def report(config, root):
                    "merge_status": result["merge"], "refined_label": ""}
             rec = dict(cs.state(root, target, row), set=f"branch_{job['arm']}")
         label = cs.load_label(states_config, root, rec) if rec else None
+        files = contested(rec) if rec and rec["source"] == "trajectories" else set()
+        off, empty = patch_use(target, job, files) if files else ("", "")
         source_rec = {"run": job["run"], "set": job["source"]}
         original = cs.load_label(original_labels, root, source_rec)
         rows.append({"state": f"{name(job)} {job['repo']}/{job['task_id']} {' '.join(job['features'])}",
@@ -436,6 +475,8 @@ def report(config, root):
                      **{k: (result or {}).get(k, "") for k in ("merge", "official", "remerged", "own_passed",
                                                                "cost_usd", "steps", "minutes")},
                      "target": config["arms"][job["arm"]].get("target", ""),
+                     "own_scored": (target / "agent_eval.json").is_file(),
+                     "contested": " ".join(sorted(files)), "agents_off_contested": off, "empty_patches": empty,
                      "original_style": " + ".join(original[a]["style"] for a in ("agent1", "agent2")) if original else "",
                      "style": " + ".join(label[a]["style"] for a in ("agent1", "agent2")) if label else "",
                      "handoff": label["handoff"] if label else "", "original_handoff": original["handoff"] if original else ""})
@@ -487,7 +528,14 @@ def arm_stats(config, done):
                  "handoff_runs": sum(r["handoff"] is True for r in rs),
                  "remerged_pass": sum(r["remerged"] == 1 for r in scored), "scored": len(scored),
                  "official_pass": sum(r["official"] == 1 for r in rs),
+                 "own_scored": sum(r["own_scored"] is True for r in rs),
+                 "own_both": sum(r["own_scored"] is True and len(r["own_passed"].split()) == 2 for r in rs),
+                 "failed_with_own_both": sum(r["own_scored"] is True and len(r["own_passed"].split()) == 2
+                                             and r["remerged"] == 0 for r in rs),
                  "merge_conflicts": sum(r["merge"] == "conflicts" for r in rs),
+                 "agents_off_contested": sum(r["agents_off_contested"] or 0 for r in rs),
+                 "agents_with_contested_files": 2 * sum(r["agents_off_contested"] != "" for r in rs),
+                 "empty_patches": sum(r["empty_patches"] or 0 for r in rs),
                  "mean_messages": round(sum(r["messages"] or 0 for r in rs) / len(rs), 1) if rs else None,
                  "mean_minutes": round(sum(float(r["minutes"] or 0) for r in rs) / len(rs), 1) if rs else None,
                  "cost_usd": round(sum(float(r["cost_usd"] or 0) for r in rs), 4)}
@@ -499,6 +547,16 @@ def arm_stats(config, done):
             stats["vs_control"] = {"pairs": len(pairs), "both_pass": sum(a == b == 1 for a, b in pairs),
                                    "only_arm": only_arm, "only_control": only_control,
                                    "sign_test_p": exact_p(only_arm, only_arm + only_control)}
+            # Per state: more or fewer agents in the target style, and more or fewer messages, than control.
+            def per_state(value):
+                diffs = [value(r) - value(base[r["state"]]) for r in rs if r["state"] in base
+                         and value(r) is not None and value(base[r["state"]]) is not None]
+                up, down = sum(d > 0 for d in diffs), sum(d < 0 for d in diffs)
+                return {"states": len(diffs), "higher": up, "lower": down, "sign_test_p": exact_p(up, up + down)}
+            if target:
+                stats["target_vs_control"] = per_state(
+                    lambda r: agents(r, "style").count(target) if r["style"] else None)
+            stats["messages_vs_control"] = per_state(lambda r: r["messages"] if r["messages"] != "" else None)
         out[arm] = stats
     return out
 
@@ -551,6 +609,9 @@ def main(argv):
     shard, limit = (0, 1), None
     if "--shard" in argv:
         shard = tuple(int(v) for v in argv[argv.index("--shard") + 1].split("/"))
+    if "--score-agents" in argv:
+        score_backfill(config, root, argv[argv.index("--score-agents") + 1].split(","), shard)
+        return 0
     if "--limit" in argv:
         limit = int(argv[argv.index("--limit") + 1])
     execute(config, root, shard, limit)

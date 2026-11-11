@@ -65,6 +65,14 @@ Coordination conflict states (the start of the conflict-handling direction): in 
 
 Branching pilot: 263 of those runs can be restarted at the conflict point in a fresh container. We did this twice for each of 10 states, changing nothing ($0.23). The restarts pass about as often as the originals. In 3 of 10 states the two restarts disagree on the outcome, so outcome effects will need around 100 states. Handling styles repeat in 75–82% of agents, so a change in style should show up with far fewer. See the [research plan](docs/RESEARCH_PLAN.md#branching-pilot-from-conflict-states-2026-11-10).
 
+Style interventions: we restarted 52 conflict states (one per feature pair) under six instructions, a neutral control and the five Thomas–Kilmann styles, given to both agents right after their claims collide. 312 branches, $3.31.
+
+- The labeled style barely moves. Agents keep every edit their feature needs and almost never give up the contested file, because both features must edit it.
+- The instructions do change communication: avoiding sends 60% fewer messages, competing cuts handoffs from 26 runs to 4, and collaborating adds 18% more messages.
+- No instruction beats neutral (30/52 pass after the re-merge). Compromising hurts, with 18/52 passing; all 12 states where it differs from neutral favour neutral (p = 0.0005). Its agents more often write code that fails their own feature.
+
+See the [research plan](docs/RESEARCH_PLAN.md#style-interventions-at-the-conflict-point-2026-11-11).
+
 Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv), [merged-patch check](results/paper_merge_check_rows.csv), [merge audit](results/paper_merge_audit_rows.csv), [sensitivity](results/paper_sensitivity_rows.csv).
 
 ## Quick start

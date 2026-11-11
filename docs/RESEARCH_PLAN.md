@@ -443,6 +443,53 @@ What it shows:
 - **Style is mostly set by the state.** 75–82% of agent styles repeat across continuations, against 92% when the same transcript is labeled twice. A prompt that really moves the style should show up on far fewer states than an effect on outcomes. Handoffs vary more: they matched the original in only 10 of 17 branches.
 - **Throughput is limited by a long tail.** 20 branches took 75 minutes with 4 workers. A few branches ran 20–40 minutes while most finished in under 3. An intervention study with hundreds of branches will take a day or more unless long branches are capped.
 
+### Style interventions at the conflict point (2026-11-11)
+
+Does telling both agents how to handle the overlap change how they negotiate, and whether both features pass? Config, frozen before the first branch: [configs/c_style_interventions.json](../configs/c_style_interventions.json). Per-branch data: [results/c_style_interventions_rows.csv](../results/c_style_interventions_rows.csv). Cost: $3.06 for the agents, $0.20 for labels, $0.05 for re-merges. 312 branches ran in about 7 hours with 6 workers.
+
+- **States.** 52, one per feature pair, the most the library allows. All are class C conflicts, and all are resource conflicts. 35 also involve an interface and 15 a question of who writes shared code. None involves contradictory requirements.
+- **Arms.** Six: a neutral control and the five Thomas–Kilmann styles. Each state is restarted once per arm. Right after each agent receives its partner's claim, it gets one instruction, the same for both agents.
+  - The instructions describe behaviour and never name the style, so agents cannot pass the label on to the labeler.
+  - The neutral control ("handle the overlap in whatever way you think best") has the same form, so every arm draws the same attention to the overlap.
+- **Measures.**
+  - Primary: both features pass after the llm re-merge. Each arm is compared with neutral, paired by state, with a sign test on the states where the two disagree.
+  - Manipulation check: the frozen codebook-v5 labeler, which sees only the messages between agents.
+  - Patch-based check: whether an agent's final patch leaves the contested file alone.
+
+Checks: every branch resumed with its inbox and instruction in place. 27 branches compacted their context and are left out of the style counts.
+
+| Arm | Pass after re-merge | Only this arm / only neutral passes | Official | Merge conflicts | Messages per run | Runs with a handoff | Agents in the target style | Agents leaving the contested file |
+|---|---|---|---|---|---|---|---|---|
+| Neutral | 30 / 52 | | 16 | 31 | 9.6 | 26 | | 6 / 98 |
+| Competing | 26 / 52 | 3 / 7 | 13 | 38 | 7.0 | 4 | 2 / 96 | 1 / 96 |
+| Collaborating | 29 / 52 | 5 / 6 | 17 | 30 | 11.3 | 16 | 57 / 86 (neutral 50 / 98) | 3 / 86 |
+| Compromising | **18 / 52** | **0 / 12** (p = 0.0005) | 9 | 27 | 9.3 | 23 | 33 / 96 (neutral 28 / 98) | 5 / 96 |
+| Accommodating | 28 / 52 | 3 / 5 | 16 | 30 | 9.8 | 17 | 16 / 90 (neutral 20 / 98) | 5 / 90 |
+| Avoiding | 24 / 52 | 1 / 7 (p = 0.07) | 7 | 34 | 3.8 | 15 | 11 / 104 | 6 / 104 |
+
+What it shows:
+
+- **The labeled style barely moves.** Under every instruction most agents are still labeled collaborating or compromising.
+  - Collaborating raises its style from 51% to 66% of agents. More states rise than fall (15 against 8), but that is not significant (p = 0.21).
+  - Avoiding is the only arm with a clear per-state shift: 10 states have more avoiding agents and none fewer (p = 0.002). It also produces 12 competing agents.
+  - Competing, accommodating and compromising leave their target style where it was.
+  - Reading the transcripts explains why. Agents follow the instruction in tone ("I'll defer to your feature", "please work around my changes") but keep every edit their own feature needs, and they still say where they will edit. In almost no branch does an agent give up the contested file (1–6% in every arm). Both reference solutions edit that file, so giving it up would mean failing one's own feature. CooperBench conflicts are unavoidable resource conflicts, and conceding is not a real option in them.
+- **The instructions change communication and handoffs.**
+  - Avoiding cuts messages by 60%: fewer in 50 of 52 states.
+  - Competing cuts messages by 27%, and runs with a handoff from 26 to 4.
+  - Collaborating adds 18% more messages (p = 0.04).
+- **No instruction beats neutral, and compromising hurts.**
+  - Compromising passes 18 of 52 against 30. All 12 states where the two arms differ favour neutral (p = 0.0005; still below 0.01 after a Bonferroni correction for five arms).
+  - Each agent's own patch, tested alone after the fact for these two arms, shows the mechanism. Under compromising, both agents' own patches pass their own features in 19 runs, against 26 under neutral. In 8 of the 12 discordant states, an agent whose feature passed under neutral fails it under compromising, consistent with the instruction to "give up a little". The other 4 are merge failures.
+  - Avoiding trends worse: 24 against 30 after the re-merge, and 7 against 16 on the official score, because merge conflicts rise.
+  - Collaborating's extra messages buy nothing (29 against 30).
+- **No sign that style matters more for interface conflicts.** Pass rates per arm follow the same pattern in the 35 states with an interface dependency and in the 17 without.
+- **Limits.**
+  - 52 states detect only large effects. For example, the competing and accommodating arms cannot be told apart from neutral.
+  - The own-patch tests and the patch-based measures were added after the outcomes were seen, and are exploratory.
+  - One model (gpt-6-luna) and one benchmark.
+- **What it means for the dataset.** To study real concession and competition, we need tasks where giving up a resource or insisting on it are both feasible: for example, alternative implementations, optional shared helpers, or contested design choices, rather than two features that both must edit the same lines.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.

@@ -170,6 +170,15 @@ python3 scripts/project.py branch configs/c_branch_pilot.json --label --execute 
 python3 scripts/project.py branch configs/c_branch_pilot.json --report                            # no Docker or API
 ```
 
+`configs/c_style_interventions.json` uses the same runner with several arms. Each arm's `instruction` is added as a user message just before each agent's first new model call, after the messages it receives at that step. `instruction_agent1` and `instruction_agent2` override it for one agent. Workers share one queue through `claims/` in the output directory; the CLI clears it before starting workers. With `score_agents: false` each agent's own patch is not tested during the run. Backfill those tests for chosen arms with Docker only:
+
+```bash
+caffeinate -is python3 scripts/project.py branch configs/c_style_interventions.json --execute --workers 6
+python3 scripts/project.py branch configs/c_style_interventions.json --score-agents neutral,compromising --execute --workers 5
+python3 scripts/project.py branch configs/c_style_interventions.json --label --execute
+python3 scripts/project.py branch configs/c_style_interventions.json --report
+```
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.
