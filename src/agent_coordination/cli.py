@@ -7,7 +7,8 @@ import shlex
 import subprocess
 import sys
 
-from . import census, decomposition, merge, merge_audit, merge_check, paper_census, rescore, s1, s2, sensitivity, upstream
+from . import (census, conflict_states, decomposition, merge, merge_audit, merge_check, paper_census, rescore, s1, s2,
+               sensitivity, upstream)
 
 
 def find_root():
@@ -250,6 +251,32 @@ def decomposition_command(root, args):
     return code or 0
 
 
+def conflict_states_command(root, args):
+    config_path = args.config.resolve()
+    config = conflict_states.load_config(config_path)
+    names = list(config["sets"]) if args.set == "all" else [args.set]
+    if any(n not in config["sets"] for n in names):
+        raise ValueError(f"Unknown set; choose from {', '.join(config['sets'])} or all.")
+    if args.report:
+        conflict_states.report(config, root, names)
+        return 0
+    if len(names) != 1:
+        raise ValueError("Label one set at a time.")
+    recs = conflict_states.states(config, root, args.set)
+    done = sum(conflict_states.label_path(config, root, r).is_file() for r in recs)
+    print(f"{config['study']}: {config['question']}")
+    print(f"{args.set}: {len(recs)} runs, {sum(r['conflict_point'] for r in recs)} with a detected conflict point, "
+          f"{done} already labeled.")
+    module_args = [str(config_path), args.set, str(args.workers or 4)]
+    module_args += ["--repeat"] if args.repeat else []
+    module_args += ["--limit", str(args.limit)] if args.limit else []
+    code = launch(root, args, "agent_coordination.conflict_states", module_args,
+                  project_path(root, config["output"]) / "logs", 1)
+    if code is not None:
+        conflict_states.report(config, root, [n for n in config["sets"]])
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -340,6 +367,15 @@ def main(argv=None):
     decomp.add_argument("--report", action="store_true", help="Summarize existing records")
     decomp.add_argument("--python", help="CooperBench Python interpreter")
     decomp.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
+    confl = subs.add_parser("conflict-states", help="Coordination conflict states in coop runs, labeled by a model")
+    confl.add_argument("config", type=Path)
+    confl.add_argument("--set", default="dev", help="Run set in the config, or 'all' with --report (default: dev)")
+    confl.add_argument("--execute", action="store_true", help="Label the missing runs (paid model calls, cents)")
+    confl.add_argument("--report", action="store_true", help="Rebuild the state table and summary; no API")
+    confl.add_argument("--repeat", action="store_true", help="Second labels for the consistency sample")
+    confl.add_argument("--limit", type=int, help="Label at most this many runs (pipeline check)")
+    confl.add_argument("--python", help="CooperBench Python interpreter")
+    confl.add_argument("--workers", type=int, help="Concurrent model calls (default 4)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -374,6 +410,8 @@ def main(argv=None):
             return paper_census_command(root, args)
         if args.command == "decomposition":
             return decomposition_command(root, args)
+        if args.command == "conflict-states":
+            return conflict_states_command(root, args)
         if args.command == "sensitivity":
             return sensitivity_command(root, args)
         if args.command == "merge-audit":

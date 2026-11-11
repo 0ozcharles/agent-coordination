@@ -1,0 +1,36 @@
+{
+  "study": "c_conflict_states",
+  "status": "frozen 2026-11-10 after three codebook revisions on the dev set (s1_screen) and before labeling the library or the conditions; codebook fingerprint 85b87cc58dd9",
+  "question": "In CooperBench coop runs, where does the first coordination conflict happen, which kinds of conflict occur, and how does each agent handle them?",
+  "sets": {
+    "dev": [
+      {"name": "s1_screen", "logs": "runs/s1_screen/logs", "rows": "results/s1_screen_rows.csv",
+       "note": "default CooperBench prompt; codebook and prompt checks"}
+    ],
+    "library": [
+      {"name": "s1_main", "logs": "runs/s1_main/logs", "rows": "results/s1_main_rows.csv",
+       "note": "default prompt; outcome is the official merge"},
+      {"name": "s2_baseline", "logs": "runs/s2/coop_baseline/logs", "rows": "results/s2_rows.csv", "arm": "coop_baseline",
+       "note": "default prompt; outcome is after the llm re-merge of conflicted runs"}
+    ],
+    "conditions": [
+      {"name": "s2_own_feature", "logs": "runs/s2/coop_own_feature/logs", "rows": "results/s2_rows.csv", "arm": "coop_own_feature",
+       "note": "agents told that overlapping edits are merged automatically"},
+      {"name": "s2_shared_git", "logs": "runs/s2/coop_shared_git/logs", "rows": "results/s2_rows.csv", "arm": "coop_shared_git",
+       "note": "agents share a git remote"}
+    ]
+  },
+  "conflict_point": "defined by the detector, not the labeler: the first sent message after which both agents have claimed the same file (a path both mention, or a reference to 'the same file'); per agent, the trajectory step where it has sent its own claim and received the partner's. 'exclusive' marks a request to stay out of the file before that point, the strict reading of section 2.2 of the benchmark plan",
+  "codebook": "docs/C_CONFLICT_CODEBOOK.md",
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {"extra_body": {"reasoning_effort": "low"}},
+    "input": "feature titles and every message in causal order, with delivery failures and exits; no code, patches, tests or outcomes",
+    "attempts": 2,
+    "repeat_sample": 40,
+    "seed": 20261110
+  },
+  "validation": "a second independent label on 40 random library runs (Cohen's kappa per field); a hand check of 30 runs against the messages; the outcome analysis is exploratory and reported per set, since S1 and S2 score merges differently",
+  "outputs": "runs/c_conflict_states/conflict_states.csv and conflict_summary.json; copies in results/ once the library is labeled",
+  "output": "runs/c_conflict_states"
+}
