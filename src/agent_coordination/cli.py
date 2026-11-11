@@ -7,7 +7,7 @@ import shlex
 import subprocess
 import sys
 
-from . import (census, conflict_states, decomposition, merge, merge_audit, merge_check, paper_census, rescore, s1, s2,
+from . import (branch, census, conflict_states, decomposition, merge, merge_audit, merge_check, paper_census, rescore, s1, s2,
                sensitivity, upstream)
 
 
@@ -277,6 +277,27 @@ def conflict_states_command(root, args):
     return code or 0
 
 
+def branch_command(root, args):
+    config_path = args.config.resolve()
+    config = branch.load_config(config_path)
+    output = project_path(root, config["output"])
+    if args.report:
+        branch.report(config, root)
+        return 0
+    if args.label:
+        return launch(root, args, "agent_coordination.branch", [str(config_path), "--label"], output, 1) or 0
+    jobs = branch.plan(config, root)
+    done = sum((branch.job_dir(output, job) / "eval.json").is_file() for job in jobs)
+    print(f"{config['study']}: {config['question']}")
+    print(f"{len(jobs) // config['continuations']} states x {config['continuations']} continuations, "
+          f"arms {', '.join(config['arms'])}: {len(jobs)} branches, {done} already run.")
+    module_args = [str(config_path)] + (["--limit", str(args.limit)] if args.limit else [])
+    code = launch(root, args, "agent_coordination.branch", module_args, output, args.workers or 1)
+    if code is not None:
+        branch.report(config, root)
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -376,6 +397,14 @@ def main(argv=None):
     confl.add_argument("--limit", type=int, help="Label at most this many runs (pipeline check)")
     confl.add_argument("--python", help="CooperBench Python interpreter")
     confl.add_argument("--workers", type=int, help="Concurrent model calls (default 4)")
+    branching = subs.add_parser("branch", help="Restart coop runs at their first conflict and continue them")
+    branching.add_argument("config", type=Path)
+    branching.add_argument("--execute", action="store_true", help="Run missing branches (Docker, paid model calls)")
+    branching.add_argument("--report", action="store_true", help="Summarize finished branches; no Docker or API")
+    branching.add_argument("--label", action="store_true", help="Label finished branches with the conflict codebook (cents)")
+    branching.add_argument("--limit", type=int, help="Run at most this many branches (pipeline check)")
+    branching.add_argument("--python", help="CooperBench Python interpreter")
+    branching.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -412,6 +441,8 @@ def main(argv=None):
             return decomposition_command(root, args)
         if args.command == "conflict-states":
             return conflict_states_command(root, args)
+        if args.command == "branch":
+            return branch_command(root, args)
         if args.command == "sensitivity":
             return sensitivity_command(root, args)
         if args.command == "merge-audit":

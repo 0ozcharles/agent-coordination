@@ -405,6 +405,44 @@ What it shows:
 - **The prompt moves the style.** Telling agents that overlapping edits merge automatically (own-feature) leaves 42 of 159 runs without a conflict point. It cuts handoffs from 71 to 9 and accommodating agents from 53 to 4, and raises avoiding (14) and competing (10).
 - **No clear link from style to outcome in observational data.** In S1, collaborating pairs passed less often than compromising pairs (6/49 against 16/57). In S2, where conflicted runs are re-merged, they pass equally often (28/45 against 25/40). Collaboration happens most when both features change the same function, which also causes more merge conflicts. Task structure confounds these comparisons, which is why style has to be set by intervention.
 
+### Branching pilot from conflict states (2026-11-10)
+
+Interventions on style need runs that restart at the conflict point. This pilot builds that restart and measures how much unchanged restarts vary (A/A). Config: [configs/c_branch_pilot.json](../configs/c_branch_pilot.json). Code: `src/agent_coordination/branch.py`. Per-branch data: [results/c_branch_pilot_rows.csv](../results/c_branch_pilot_rows.csv). Cost: $0.23 for the agents, $0.01 for labels, plus cents of re-merging.
+
+- **The cut.**
+  - The sender of the conflict message keeps its history up to the step that sent it.
+  - The receiver keeps its history up to just before it receives the message.
+  - Messages sent but not yet received go back into the receiver's inbox.
+  - Both agents then start in fresh containers from the task image.
+  - Most eligible runs are cut after each agent's first step, while both claims are still in flight.
+- **Eligible runs.** 263 of the 318 library runs. Excluded: 34 with a compacted trajectory, 12 with a file write before the cut, 5 where the cut is not consistent, 3 where the conflict message was never received, and 1 with no conflict point.
+- **Design.** 10 states: 5 from S1 main and 5 from the S2 baseline, one per task, drawn with a fixed seed. Each state is continued twice with nothing changed. The original run serves as a third continuation. Scoring follows S2: the llm re-merge score is primary.
+
+Checks:
+
+- All 20 branches finished without agent errors. One OpenAI policy flag was retried successfully; S1 and S2 logs show 9 such flags.
+- Each agent's prompt rendered as in its original run. The one difference was the host OS line, which changed with a macOS update. It is ignored, and the restored history keeps the original text.
+- In all 20 branches, each agent's first new step received exactly the messages left in its inbox.
+- 3 branches compacted their context during the run. Their messages fall back to sender order, as in the library, and they are left out of the style comparisons.
+
+| | Result |
+|---|---|
+| Both features pass after the re-merge: originals / branches | 6 / 10, 11 / 20 |
+| Official score: originals / branches | 1 / 10, 3 / 20 |
+| Same re-merged outcome: continuation 1 vs 2 / branch vs original | 7 / 10, 15 / 20 |
+| States with the same outcome in all three continuations | 6 / 10 |
+| Same agent style: continuation 1 vs 2 / branch vs original | 12 / 16, 28 / 34 |
+| Same agent style when one transcript is labeled twice (library) | 74 / 80 |
+| Same handoff flag: continuation 1 vs 2 / branch vs original | 7 / 8, 10 / 17 |
+| Branch duration, median (longest) | 2.5 min (42 min) |
+
+What it shows:
+
+- **Restarting works.** The branches pass about as often as their originals (55% against 60%, on 10 states).
+- **Outcomes are noisy.** In 3 of 10 states, the two unchanged continuations disagree on whether both features pass. With about 30% discordant pairs, a paired comparison of two arms needs roughly 100 states to detect a 15-point difference in pass rate.
+- **Style is mostly set by the state.** 75–82% of agent styles repeat across continuations, against 92% when the same transcript is labeled twice. A prompt that really moves the style should show up on far fewer states than an effect on outcomes. Handoffs vary more: they matched the original in only 10 of 17 branches.
+- **Throughput is limited by a long tail.** 20 branches took 75 minutes with 4 workers. A few branches ran 20–40 minutes while most finished in under 3. An intervention study with hundreds of branches will take a day or more unless long branches are capped.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.

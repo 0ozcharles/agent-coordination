@@ -1,0 +1,25 @@
+{
+  "study": "c_branch_pilot",
+  "status": "frozen 2026-11-10 before the first branch run. The pipeline check then failed on the prompt check, whose only difference was the host OS line (macOS update); that line is now ignored and the check was rerun before the pilot. Later changes touch the report only (inbox check reads the uncompacted history; compacted branches left out of style comparisons)",
+  "question": "Can a CooperBench coop run be restarted at its first coordination conflict, and how much do outcome and handling style vary between unchanged continuations of the same state?",
+  "design": "A/A: each sampled conflict state is continued twice with no change, from the cut described in src/agent_coordination/branch.py. The original run is a third continuation. Checks: both agents resume (the prompt renders as in the original, each first new step receives the messages left in its inbox), the conflict point is detected again, and agreement on both-pass and on labeled styles between continuations. This sets the noise floor for later style interventions; with 10 states it is a pilot, not an estimate",
+  "states": {
+    "config": "configs/c_conflict_states.json",
+    "sets": ["library"],
+    "eligible": "trajectories complete (not compacted), conflict message received, every message received before the cut was sent before the partner's cut, no file written and nobody exited before the cut"
+  },
+  "sample": {"states": 10, "seed": 20261112, "rule": "shuffle with the seed, then take states in order, the same number from each source, at most one per task (repo and task id)"},
+  "arms": {"none": {"note": "no change: the restored history continues as it is"}},
+  "continuations": 2,
+  "model": "gpt-6-luna",
+  "agent": "mini_swe_agent_v2",
+  "agent_config": "configs/agents/luna_mini_swe.yaml",
+  "remerge": {
+    "from": "configs/merge_test.json",
+    "method": "llm",
+    "note": "as in S2: a branch whose naive merge conflicts is re-merged with the merge test's frozen llm prompt; the re-merged score is primary"
+  },
+  "scores": "official (CooperBench's merge) and re-merged, compared with the original run on the same score; S1 main originals take their re-merged score from the merge test",
+  "redis": "redis://localhost:6379",
+  "output": "runs/c_branch_pilot"
+}

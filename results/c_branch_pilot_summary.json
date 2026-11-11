@@ -1,0 +1,58 @@
+{
+  "study": "c_branch_pilot",
+  "branchable_runs": 263,
+  "not_branchable": {
+    "compacted trajectory": 34,
+    "file written before the cut": 12,
+    "conflict message never received": 3,
+    "inconsistent cut": 5,
+    "no conflict point": 1
+  },
+  "states": 10,
+  "jobs": 20,
+  "finished": 20,
+  "inbox_delivered": 20,
+  "compacted": 3,
+  "conflict_point_again": 18,
+  "both_pass": {
+    "original_remerged": 6,
+    "original_official": 1,
+    "branches_remerged": 11,
+    "branches_official": 3,
+    "states": 10,
+    "branches": 20
+  },
+  "remerged_c1_vs_c2": {
+    "agree": 7,
+    "of": 10
+  },
+  "remerged_branch_vs_original": {
+    "agree": 15,
+    "of": 20
+  },
+  "style_pair_c1_vs_c2": {
+    "agree": 5,
+    "of": 8
+  },
+  "style_pair_branch_vs_original": {
+    "agree": 12,
+    "of": 17
+  },
+  "agent_style_c1_vs_c2": {
+    "agree": 12,
+    "of": 16
+  },
+  "agent_style_branch_vs_original": {
+    "agree": 28,
+    "of": 34
+  },
+  "handoff_c1_vs_c2": {
+    "agree": 7,
+    "of": 8
+  },
+  "handoff_branch_vs_original": {
+    "agree": 10,
+    "of": 17
+  },
+  "cost_usd": 0.2347
+}

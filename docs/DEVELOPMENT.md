@@ -157,6 +157,19 @@ python3 scripts/project.py conflict-states configs/c_conflict_states.json --set 
 
 Sets: `dev` (S1 screening, where the codebook was revised), `library` (S1 main and the S2 baseline, default prompt), `conditions` (the two S2 interventions). A label is used only while the codebook text it was made with is unchanged, so editing the codebook makes every label stale until the set is labeled again. About 16% of runs have an agent whose trajectory was compacted into a summary; their messages are ordered by sender only and their conflict step is unknown.
 
+## Branching from conflict states
+
+`configs/c_branch_pilot.json` restarts library runs at their first conflict and continues them (`src/agent_coordination/branch.py`). The sender of the conflict message keeps its history up to the step that sent it. The receiver keeps its history up to just before it receives the message. Messages already sent but not yet received go back into the receiver's inbox. Each agent starts in a fresh container from the task image, so only runs whose agents wrote no file before the cut are eligible.
+
+Before resuming, the runner checks that the prompt still renders as in the original run, apart from the host OS line CooperBench adds. It also holds both agents until both inboxes are filled. Needs Docker, Redis and the API key, like S1. Each branch costs well under a cent. Scoring is the same as in S2: CooperBench's merge, plus the llm re-merge when the merge conflicts.
+
+```bash
+python3 scripts/project.py branch configs/c_branch_pilot.json                                     # preview
+caffeinate -is python3 scripts/project.py branch configs/c_branch_pilot.json --execute --workers 4
+python3 scripts/project.py branch configs/c_branch_pilot.json --label --execute                   # label branches (cents)
+python3 scripts/project.py branch configs/c_branch_pilot.json --report                            # no Docker or API
+```
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.
