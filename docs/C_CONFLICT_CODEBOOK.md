@@ -1,4 +1,4 @@
-# Coordination conflict codebook (version 1)
+# Coordination conflict codebook (version 5)
 
 This codebook labels coordination conflicts (class C) in CooperBench coop runs: two agents each implement one feature in the same repository, talk by message, and their patches are merged at the end. The same text is the instruction given to the model labeler, so it is written to be read without other context.
 
@@ -45,16 +45,18 @@ Score each agent's behaviour in the episode that starts at the message the detec
 Assertiveness, how much the agent secures what its own feature needs in the shared code:
 
 - 0: gives up edits its own feature needs, or hands them to the partner, without making sure they will be done as required.
-- 1: keeps some of what its feature needs but accepts a limit that costs it something: drops part of the change, works around a restriction, or leaves part to the partner while stating exactly what it needs.
+- 1: keeps some of what its feature needs but accepts a limit that costs it something: drops part of the change, moves its code elsewhere because of the partner, works around a restriction, or hands part of its own feature to the partner while stating exactly what it needs.
 - 2: keeps every edit its feature needs in the shared code, or asks the partner to adapt around it.
+
+Asking the partner to take over part of your own feature is at most assertiveness 1.
 
 Cooperativeness, how much the agent works to meet the partner's needs:
 
 - 0: does not engage with the partner's needs: ignores their messages or questions, or only states its own claims and demands.
-- 1: accepts the partner's needs and stays out of their way, for example agrees to a split of the file or promises not to touch their code, and does nothing more for them.
-- 2: actively helps the partner's feature work: states or asks for exact names, signatures or formats, writes shared code the partner needs, checks that both parts fit together, or follows up until the partner's need is met.
+- 1: accepts the partner's needs and keeps its edits apart from theirs, and does nothing more for them. This includes agreeing to a split, saying where it will edit, asking where the partner will edit, asking the partner to keep out of a region, giving line ranges or insertion points, and using a separate import line or block so that edits do not overlap.
+- 2: does something for the partner's feature itself, beyond keeping edits apart: takes on code the partner's feature needs, gives or asks for the exact names, signatures, formats or behaviour that one feature uses from the other, or checks that the partner's feature still works with its own change.
 
-Staying out of the partner's way is 1, not 2. Score 2 only for an action that helps the partner beyond that.
+Keeping edits apart is 1, however detailed. Score 2 only when the agent helps the partner's feature work, not only avoids colliding with it. Inside one function, agreeing where each change goes is still keeping edits apart (1); working out how the two behaviours interact, for example the order of operations, passing a value through, or a combined signature or return type that both features rely on, is 2.
 
 Style follows from the two scores (Thomas & Kilmann):
 

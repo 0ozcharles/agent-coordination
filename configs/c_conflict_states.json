@@ -1,6 +1,6 @@
 {
   "study": "c_conflict_states",
-  "status": "frozen 2026-11-10 after three codebook revisions on the dev set (s1_screen) and before labeling the library or the conditions; codebook fingerprint 85b87cc58dd9",
+  "status": "refrozen 2026-11-10 with codebook version 5 (fingerprint 3b66ef0462d9) before relabeling the library and the conditions. Version 3 (fingerprint 85b87cc58dd9) labeled the library once; a hand check of 30 library runs agreed with 42 of 60 agent styles, nearly all misses scoring a split of the shared file as collaborating instead of compromising, so those labels are withdrawn. Versions 4 and 5 tightened the cooperativeness anchors on the dev set only",
   "question": "In CooperBench coop runs, where does the first coordination conflict happen, which kinds of conflict occur, and how does each agent handle them?",
   "sets": {
     "dev": [
