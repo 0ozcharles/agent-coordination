@@ -133,18 +133,26 @@ def candidates(config, root):
 
 
 def select(config, root):
-    """A seeded sample of branchable states: the same number from each source, at most one per task."""
+    """A seeded sample of branchable states, at most one per unit: a task, or a pair of features.
+
+    With a number of states, the same number is taken from each source; with "all", every unit gets
+    one state. `order: drawn` keeps the draw order, so a run stopped early still covers a random subset.
+    """
     found, _ = candidates(config, root)
+    sample = config["sample"]
     sources = sorted({c["source"] for c in found})
-    rng = random.Random(config["sample"]["seed"])
+    rng = random.Random(sample["seed"])
     rng.shuffle(found)
-    per_source, seen, chosen = config["sample"]["states"] // len(sources), set(), []
+    per_source = None if sample["states"] == "all" else sample["states"] // len(sources)
+    seen, chosen = set(), []
     for c in found:
-        task = (c["repo"], c["task_id"])
-        if task in seen or sum(x["source"] == c["source"] for x in chosen) >= per_source:
+        unit = (c["repo"], c["task_id"]) + ((tuple(c["features"]),) if sample.get("per") == "pair" else ())
+        if unit in seen or (per_source is not None and sum(x["source"] == c["source"] for x in chosen) >= per_source):
             continue
-        seen.add(task)
+        seen.add(unit)
         chosen.append(c)
+    if sample.get("order") == "drawn":
+        return chosen
     return sorted(chosen, key=lambda c: (c["source"], c["repo"], c["task_id"], c["features"], c["repeat"]))
 
 
@@ -162,6 +170,18 @@ def job_dir(output, job):
             / str(job["task_id"]) / f"f{job['features'][0]}_f{job['features'][1]}")
 
 
+def instruction(config, arm, agent):
+    """The text an arm adds for one agent right before its first new model call, or None."""
+    spec = config["arms"][arm]
+    text = spec.get(f"instruction_{agent}", spec.get("instruction"))
+    return config.get("instruction_prefix", "") + text if text else None
+
+
+def claim_key(job):
+    return "__".join([job["arm"], f"{name(job)}_c{job['continuation']}", job["repo"], str(job["task_id"]),
+                      "_".join(job["features"])])
+
+
 # --- execution (CooperBench venv only) -------------------------------------------------
 
 RESTORE = {}  # agent id -> restored history and inbox for the job this process is running
@@ -172,14 +192,15 @@ def install_restore():
 
     `run()` empties the history and adds the system and task messages; that first add is replaced by
     the restored prefix, after checking that the prompt renders as in the original run (apart from the
-    host OS line). The
-    agent then puts its pending messages in its own inbox and waits for its partner, so neither acts
-    before both inboxes are filled (each agent clears its own inbox when it connects).
+    host OS line). The agent then puts its pending messages in its own inbox and waits for its partner,
+    so neither acts before both inboxes are filled (each agent clears its own inbox when it connects).
+    An arm's instruction is added as a user message just before the first new model call, after the
+    messages the agent receives at that step.
     """
     from cooperbench.agents.mini_swe_agent_v2.agents.default import DefaultAgent
     if getattr(DefaultAgent, "_branch_restore", False):
         return
-    original_init, original_add = DefaultAgent.__init__, DefaultAgent.add_messages
+    original_init, original_add, original_query = DefaultAgent.__init__, DefaultAgent.add_messages, DefaultAgent.query
 
     def init(self, *args, **kwargs):
         original_init(self, *args, **kwargs)
@@ -199,6 +220,7 @@ def install_restore():
                                    f"at character {at}: now {a[at - 80:at + 120]!r}, then {b[at - 80:at + 120]!r}")
         self.messages.extend(copy.deepcopy(history))
         self.n_calls = sum(m.get("role") == "assistant" for m in history)
+        self._branch_instruction = restore.get("instruction")
         for m in restore["inbox"]:
             self.comm._client.rpush(self.comm._inbox_key, json.dumps(
                 {"from": m["from"], "to": self.agent_id, "content": m["content"],
@@ -206,8 +228,16 @@ def install_restore():
         restore["barrier"].wait(timeout=900)
         return list(messages)
 
+    def query(self):
+        text = getattr(self, "_branch_instruction", None)
+        if text:
+            self._branch_instruction = None
+            self.add_messages(self.model.format_message(role="user", content=text))
+        return original_query(self)
+
     DefaultAgent.__init__ = init
     DefaultAgent.add_messages = add_messages
+    DefaultAgent.query = query
     DefaultAgent._branch_restore = True
 
 
@@ -234,7 +264,8 @@ def run_job(config, root, job, output):
             RESTORE.clear()
             for agent in ("agent1", "agent2"):
                 RESTORE[agent] = {"messages": prefix(source, job["state"], agent),
-                                  "inbox": job["state"]["inbox"][agent], "barrier": barrier}
+                                  "inbox": job["state"]["inbox"][agent], "barrier": barrier,
+                                  "instruction": instruction(config, job["arm"], agent)}
             target.mkdir(parents=True, exist_ok=True)
             (target / "branch.json").write_text(json.dumps(
                 {k: job[k] for k in ("source", "run", "arm", "continuation", "state")}, indent=2))
@@ -249,9 +280,10 @@ def run_job(config, root, job, output):
         RESTORE.clear()
         s1.CURRENT_JOB_DIR = None
         if (target / "eval.json").is_file() and not s1.agent_errors(target):
-            s1.score_agents(target, scoring_job, dataset_dir)
-            if not s1.read_json(target / "eval.json").get("both_passed"):
-                s1.score_local(target, scoring_job, dataset_dir)
+            if config.get("score_agents", True):
+                s1.score_agents(target, scoring_job, dataset_dir)
+                if not s1.read_json(target / "eval.json").get("both_passed"):
+                    s1.score_local(target, scoring_job, dataset_dir)
             s2.remerge({"remerge": config["remerge"]}, root, scoring_job, target)
     except Exception as exc:  # one broken job must not stop the rest of the shard
         RESTORE.clear()
@@ -260,14 +292,23 @@ def run_job(config, root, job, output):
 
 
 def execute(config, root, shard=(0, 1), limit=None):
+    """Run missing branches in plan order. Workers share one queue: each claims a branch by creating a
+    directory under claims/ (the CLI clears it before starting workers), so a long branch does not hold
+    up a fixed share of the others."""
+    import os
     s1.setup_runner(root, True, config.get("redis", "redis://localhost:6379"))
     install_restore()
     output = root / config["output"]
-    output.mkdir(parents=True, exist_ok=True)
+    claims = output / "claims"
+    claims.mkdir(parents=True, exist_ok=True)
     jobs = plan(config, root)[:limit] if limit else plan(config, root)
     if shard[0] == 0:
         (output / "config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2))
-    for job in jobs[shard[0]::shard[1]]:
+    for job in jobs:
+        try:
+            os.mkdir(claims / claim_key(job))
+        except FileExistsError:
+            continue
         run_job(config, root, job, output)
 
 
@@ -312,7 +353,7 @@ def outcome(target, features, method_name="llm"):
             "merged_passed": " ".join(sorted(remerged if remerged is not None else official)),
             "own_passed": " ".join(f for f in (f1, f2) if agents.get(f, {}).get(f)),
             "cost_usd": result.get("total_cost") or 0.0, "messages": result.get("messages_sent", 0),
-            "steps": result.get("total_steps", 0)}
+            "steps": result.get("total_steps", 0), "minutes": round((result.get("duration_seconds") or 0) / 60, 1)}
 
 
 def original_outcome(root, state):
@@ -343,12 +384,14 @@ def branch_states(config, root):
         yield job, dict(cs.state(root, target, row), set=f"branch_{job['arm']}")
 
 
-def first_reply_ok(target, job):
-    """Whether each agent's first new step is fed the messages left in its inbox at the cut."""
+def first_reply_ok(config, target, job):
+    """Whether each agent's first new step is fed the messages left in its inbox at the cut, followed by
+    the arm's instruction if there is one."""
     ok = True
     for agent in ("agent1", "agent2"):
         expected = job["state"]["inbox"][agent]
-        if not expected:
+        text = instruction(config, job["arm"], agent)
+        if not expected and not text:
             continue
         path = target / f"agent{job['state']['features'][agent]}_traj.json"
         full = target / f"{agent}_full_traj.json"  # written when the context was compacted; starts uncompacted
@@ -359,6 +402,9 @@ def first_reply_ok(target, job):
         start = job["state"]["cut"][agent]
         got = [cs.RECV.match(m.get("content") or "") for m in msgs[start:start + len(expected)]]
         ok &= all(g and g.group(2) == e["content"] for g, e in zip(got, expected)) and len(got) == len(expected)
+        if text:
+            after = msgs[start + len(expected)] if len(msgs) > start + len(expected) else {}
+            ok &= after.get("role") == "user" and after.get("content") == text
     return ok
 
 
@@ -383,12 +429,13 @@ def report(config, root):
                      "source": job["source"], "run": job["run"], "arm": job["arm"], "continuation": job["continuation"],
                      "cut1": job["state"]["cut"]["agent1"], "cut2": job["state"]["cut"]["agent2"],
                      "finished": result is not None, "order": rec["source"] if rec else "",
-                     "inbox_delivered": first_reply_ok(target, job) if result is not None else "",
+                     "inbox_delivered": first_reply_ok(config, target, job) if result is not None else "",
                      "conflict_point": rec["conflict_point"] if rec else "",
                      "messages": rec["messages"] if rec else "",
                      "original_official": base["official"], "original_remerged": base["remerged"],
                      **{k: (result or {}).get(k, "") for k in ("merge", "official", "remerged", "own_passed",
-                                                               "cost_usd", "steps")},
+                                                               "cost_usd", "steps", "minutes")},
+                     "target": config["arms"][job["arm"]].get("target", ""),
                      "original_style": " + ".join(original[a]["style"] for a in ("agent1", "agent2")) if original else "",
                      "style": " + ".join(label[a]["style"] for a in ("agent1", "agent2")) if label else "",
                      "handoff": label["handoff"] if label else "", "original_handoff": original["handoff"] if original else ""})
@@ -403,37 +450,85 @@ def report(config, root):
     return summary
 
 
+def exact_p(k, n):
+    """Two-sided exact binomial test of k successes in n trials against one half (paired sign test)."""
+    from math import comb
+    if n == 0:
+        return None
+    tail = sum(comb(n, i) for i in range(min(k, n - k) + 1)) / 2 ** n
+    return round(min(1.0, 2 * tail), 4)
+
+
+def agents(r, key):
+    return r[key].split(" + ") if r[key] else ["", ""]
+
+
+def agree(pairs):
+    pairs = [(a, b) for a, b in pairs if a not in ("", None) and b not in ("", None)]
+    return {"agree": sum(a == b for a, b in pairs), "of": len(pairs)}
+
+
+def arm_stats(config, done):
+    """Per arm: labeled styles (the manipulation check), outcomes, and the paired comparison with the
+    control arm on the re-merged score."""
+    control = config.get("control")
+    by_arm = defaultdict(list)
+    for r in done:
+        by_arm[r["arm"]].append(r)
+    base = {r["state"]: r for r in by_arm.get(control, [])}
+    out = {}
+    for arm in config["arms"]:
+        rs = by_arm.get(arm, [])
+        styles = [x for r in rs for x in agents(r, "style") if x]
+        target = config["arms"][arm].get("target")
+        scored = [r for r in rs if r["remerged"] not in ("", None)]
+        stats = {"branches": len(rs), "labeled_agents": len(styles), "agent_styles": dict(Counter(styles)),
+                 "target": target, "target_share": round(styles.count(target) / len(styles), 3) if target and styles else None,
+                 "handoff_runs": sum(r["handoff"] is True for r in rs),
+                 "remerged_pass": sum(r["remerged"] == 1 for r in scored), "scored": len(scored),
+                 "official_pass": sum(r["official"] == 1 for r in rs),
+                 "merge_conflicts": sum(r["merge"] == "conflicts" for r in rs),
+                 "mean_messages": round(sum(r["messages"] or 0 for r in rs) / len(rs), 1) if rs else None,
+                 "mean_minutes": round(sum(float(r["minutes"] or 0) for r in rs) / len(rs), 1) if rs else None,
+                 "cost_usd": round(sum(float(r["cost_usd"] or 0) for r in rs), 4)}
+        if control and arm != control:
+            pairs = [(r["remerged"], base[r["state"]]["remerged"]) for r in scored
+                     if r["state"] in base and base[r["state"]]["remerged"] not in ("", None)]
+            only_arm = sum(a == 1 and b == 0 for a, b in pairs)
+            only_control = sum(a == 0 and b == 1 for a, b in pairs)
+            stats["vs_control"] = {"pairs": len(pairs), "both_pass": sum(a == b == 1 for a, b in pairs),
+                                   "only_arm": only_arm, "only_control": only_control,
+                                   "sign_test_p": exact_p(only_arm, only_arm + only_control)}
+        out[arm] = stats
+    return out
+
+
 def summarize(config, root, rows):
     found, skipped = candidates(config, root)
     done = [r for r in rows if r["finished"]]
     # A branch whose context was compacted has its messages grouped by sender, as in the library; its
     # labels are left out of the comparisons.
     done = [r if r["order"] == "trajectories" else {**r, "style": "", "handoff": ""} for r in done]
-    by_state = defaultdict(list)
-    for r in done:
-        by_state[r["state"]].append(r)
-    full = {s: rs for s, rs in by_state.items() if len(rs) == config["continuations"] * len(config["arms"])}
-
-    def agree(pairs):
-        pairs = [(a, b) for a, b in pairs if a not in ("", None) and b not in ("", None)]
-        return {"agree": sum(a == b for a, b in pairs), "of": len(pairs)}
-
-    def agents(r, key):
-        return r[key].split(" + ") if r[key] else ["", ""]
-
-
     originals = {r["state"]: r for r in rows}.values()
-    pairs = [(rs[0], rs[1]) for rs in full.values() if len(rs) >= 2]
-    return {"study": config["study"], "branchable_runs": len(found), "not_branchable": dict(skipped),
-            "states": len(originals), "jobs": len(rows), "finished": len(done),
-            "inbox_delivered": sum(r["inbox_delivered"] is True for r in done),
-            "compacted": sum(r["order"] == "conversation" for r in done),
-            "conflict_point_again": sum(r["conflict_point"] is True for r in done),
-            "both_pass": {"original_remerged": sum(r["original_remerged"] or 0 for r in originals),
-                          "original_official": sum(r["original_official"] for r in originals),
-                          "branches_remerged": sum(r["remerged"] or 0 for r in done),
-                          "branches_official": sum(r["official"] or 0 for r in done),
-                          "states": len(originals), "branches": len(done)},
+    summary = {"study": config["study"], "branchable_runs": len(found), "not_branchable": dict(skipped),
+               "states": len(originals), "jobs": len(rows), "finished": len(done),
+               "inbox_delivered": sum(r["inbox_delivered"] is True for r in done),
+               "compacted": sum(r["order"] == "conversation" for r in done),
+               "conflict_point_again": sum(r["conflict_point"] is True for r in done),
+               "both_pass": {"original_remerged": sum(r["original_remerged"] or 0 for r in originals),
+                             "original_official": sum(r["original_official"] for r in originals),
+                             "branches_remerged": sum(r["remerged"] or 0 for r in done),
+                             "branches_official": sum(r["official"] or 0 for r in done),
+                             "states": len(originals), "branches": len(done)},
+               "cost_usd": round(sum(float(r["cost_usd"] or 0) for r in done), 4)}
+    if len(config["arms"]) > 1:
+        summary["arms"] = arm_stats(config, done)
+    if config["continuations"] >= 2:
+        by_state = defaultdict(list)
+        for r in done:
+            by_state[r["state"]].append(r)
+        pairs = [(rs[0], rs[1]) for rs in by_state.values() if len(rs) == config["continuations"] * len(config["arms"])]
+        summary.update({
             "remerged_c1_vs_c2": agree([(a["remerged"], b["remerged"]) for a, b in pairs]),
             "remerged_branch_vs_original": agree([(r["remerged"], r["original_remerged"]) for r in done]),
             "style_pair_c1_vs_c2": agree([(a["style"], b["style"]) for a, b in pairs]),
@@ -443,8 +538,8 @@ def summarize(config, root, rows):
             "agent_style_branch_vs_original": agree([(x, y) for r in done
                                                      for x, y in zip(agents(r, "style"), agents(r, "original_style"))]),
             "handoff_c1_vs_c2": agree([(a["handoff"], b["handoff"]) for a, b in pairs]),
-            "handoff_branch_vs_original": agree([(r["handoff"], r["original_handoff"]) for r in done]),
-            "cost_usd": round(sum(float(r["cost_usd"] or 0) for r in done), 4)}
+            "handoff_branch_vs_original": agree([(r["handoff"], r["original_handoff"]) for r in done])})
+    return summary
 
 
 def main(argv):

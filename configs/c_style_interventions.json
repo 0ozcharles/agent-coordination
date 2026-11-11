@@ -1,0 +1,46 @@
+{
+  "study": "c_style_interventions",
+  "status": "frozen 2026-11-10 before the first intervention branch",
+  "question": "When two coding agents' claims first collide, does telling both of them to handle the overlap in one Thomas-Kilmann style change how they negotiate and whether both features pass?",
+  "design": "Each sampled conflict state is restarted once per arm (src/agent_coordination/branch.py). Right before each agent's first new model call, after it receives its partner's claim, the arm adds one user message; both agents get the same text. The texts describe behaviour only and never name the style, so the labeler, which sees only the messages between agents, cannot pick the style up from the agents quoting it. Control is a neutral note of the same form, so every arm draws the same attention to the overlap",
+  "primary": "both features pass after the llm re-merge, each style arm against the neutral arm, paired by state (sign test on discordant states)",
+  "manipulation_check": "share of agents the frozen codebook-v5 labeler assigns the arm's target style, against the neutral arm",
+  "secondary": "official score, merge conflicts, handoffs, messages, duration and cost per arm",
+  "power": "the A/A pilot (configs/c_branch_pilot.json) found 3 of 10 states discordant between unchanged restarts, so about 100 states are needed for a 15-point difference in pass rate; 52 states is the most the library allows at one state per feature pair, which suffices for the manipulation check and for large outcome effects only",
+  "states": {
+    "config": "configs/c_conflict_states.json",
+    "sets": ["library"],
+    "eligible": "as in the pilot: trajectories complete, conflict message received, consistent cut, no file written and nobody exited before the cut"
+  },
+  "sample": {"states": "all", "per": "pair", "order": "drawn", "seed": 20261113,
+             "rule": "shuffle the 263 eligible runs with the seed and keep the first run of each feature pair (52); branches run state by state in draw order, so a run stopped early covers a random subset of pairs with every arm"},
+  "instruction_prefix": "[Coordination guidance] Your plan and your colleague's plan overlap in the shared code. ",
+  "control": "neutral",
+  "arms": {
+    "neutral": {"target": null,
+                "instruction": "Handle the overlap in whatever way you think best."},
+    "competing": {"target": "competing",
+                  "instruction": "Handle it like this: keep every change your own feature needs, exactly where your feature needs it. Tell your colleague what you are changing and ask them to work around your changes. Do not give up, move or shrink your edits for their sake."},
+    "collaborating": {"target": "collaborating",
+                      "instruction": "Handle it like this: work out with your colleague how both features fit together in the shared code, so that both fully work. Agree on exact names, signatures, data formats and the order of operations where your changes meet, decide who writes any shared code, and check that your change keeps their feature working."},
+    "compromising": {"target": "compromising",
+                     "instruction": "Handle it like this: settle quickly on a middle ground you can both accept. Split the shared code so that each of you keeps the main part of your change in your own region, give up a little if needed, and stay out of your colleague's region."},
+    "accommodating": {"target": "accommodating",
+                      "instruction": "Handle it like this: put your colleague's needs first. Ask what they need in the shared code, fit your own changes around theirs, and give up or move your edits, or write code for them, whenever that helps them."},
+    "avoiding": {"target": "avoiding",
+                 "instruction": "Handle it like this: do not negotiate about the overlap. Keep messages to a minimum, steer clear of the contested code where you can, and get on with your own feature."}
+  },
+  "continuations": 1,
+  "model": "gpt-6-luna",
+  "agent": "mini_swe_agent_v2",
+  "agent_config": "configs/agents/luna_mini_swe.yaml",
+  "remerge": {
+    "from": "configs/merge_test.json",
+    "method": "llm",
+    "note": "as in S2 and the pilot: a branch whose naive merge conflicts is re-merged with the merge test's frozen llm prompt; the re-merged score is primary"
+  },
+  "score_agents": false,
+  "score_agents_note": "each agent's own patch is not tested during the run, to save time; it can be backfilled with Docker only",
+  "redis": "redis://localhost:6379",
+  "output": "runs/c_style_interventions"
+}

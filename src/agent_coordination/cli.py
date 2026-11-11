@@ -289,9 +289,12 @@ def branch_command(root, args):
     jobs = branch.plan(config, root)
     done = sum((branch.job_dir(output, job) / "eval.json").is_file() for job in jobs)
     print(f"{config['study']}: {config['question']}")
-    print(f"{len(jobs) // config['continuations']} states x {config['continuations']} continuations, "
-          f"arms {', '.join(config['arms'])}: {len(jobs)} branches, {done} already run.")
+    print(f"{len(jobs) // (config['continuations'] * len(config['arms']))} states x {len(config['arms'])} arms x "
+          f"{config['continuations']} continuations: {len(jobs)} branches, {done} already run.")
     module_args = [str(config_path)] + (["--limit", str(args.limit)] if args.limit else [])
+    if args.execute:
+        import shutil
+        shutil.rmtree(output / "claims", ignore_errors=True)  # claims of an earlier, finished invocation
     code = launch(root, args, "agent_coordination.branch", module_args, output, args.workers or 1)
     if code is not None:
         branch.report(config, root)

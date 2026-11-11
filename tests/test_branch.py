@@ -77,6 +77,19 @@ class BranchTest(unittest.TestCase):
         msgs = [{"role": "assistant"}, {"role": "tool"}, {"role": "tool"}, {"role": "user"}]
         self.assertEqual(branch.tool_end(msgs, 0), 3)
 
+    def test_instruction_uses_the_prefix_and_per_agent_overrides(self):
+        config = {"instruction_prefix": "[Guidance] ", "arms": {
+            "none": {"note": "a description, not an instruction"},
+            "split": {"instruction": "Split it.", "instruction_agent2": "Take the rest."}}}
+        self.assertIsNone(branch.instruction(config, "none", "agent1"))
+        self.assertEqual(branch.instruction(config, "split", "agent1"), "[Guidance] Split it.")
+        self.assertEqual(branch.instruction(config, "split", "agent2"), "[Guidance] Take the rest.")
+
+    def test_sign_test_is_two_sided(self):
+        self.assertEqual(branch.exact_p(0, 0), None)
+        self.assertEqual(branch.exact_p(5, 5), 0.0625)
+        self.assertEqual(branch.exact_p(2, 4), 1.0)
+
 
 if __name__ == "__main__":
     unittest.main()
