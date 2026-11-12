@@ -1,0 +1,33 @@
+{
+  "study": "parallact_pilot",
+  "jobs": 20,
+  "finished": 20,
+  "both_pass": 4,
+  "both_pass_clean_merge": 4,
+  "merged_outcomes": {
+    "B only": 6,
+    "both": 4,
+    "neither": 9,
+    "A only": 1
+  },
+  "own_pass": {
+    "A": 7,
+    "B": 11
+  },
+  "merge_status": {
+    "clean": 14,
+    "resolved": 6
+  },
+  "runs_with_messages": 20,
+  "mean_messages": 6.5,
+  "runs_with_shared_files": 10,
+  "empty_patches": 4,
+  "test_errors": 0,
+  "cost_usd": 0.24,
+  "mean_minutes": 7.6,
+  "gold": {
+    "checked": 20,
+    "all_checks_pass": 20,
+    "failed": {}
+  }
+}

@@ -73,7 +73,9 @@ Style interventions: we restarted 52 conflict states (one per feature pair) unde
 
 See the [research plan](docs/RESEARCH_PLAN.md#style-interventions-at-the-conflict-point-2026-11-11).
 
-Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv), [merged-patch check](results/paper_merge_check_rows.csv), [merge audit](results/paper_merge_audit_rows.csv), [sensitivity](results/paper_sensitivity_rows.csv).
+ParallACT pilot: in CooperBench conceding means failing one's own feature, so we moved to [ParallACT](https://github.com/rm206/ParallACT_data_and_code)'s contradictory tasks, where two requests change the same code in incompatible ways but can be reconciled. Our coop agents now run them in the tasks' SWE-Bench Pro images, scored with ParallACT's grader; the reference patches check out on all 20 pilot instances. On one run each ($0.24), both requests pass in 4 of 20. In 4 runs one agent handed the shared code to its partner, and in 3 of those the partner implemented both requests and both pass. See the [research plan](docs/RESEARCH_PLAN.md#parallact-pilot-2026-11-11).
+
+Per-run data: [S1 main](results/s1_main_rows.csv), [S1 screening](results/s1_screen_rows.csv), [merge test](results/merge_test_rows.csv), [S2](results/s2_rows.csv), [paper runs](results/upstream_rows.csv), [paper census](results/paper_census_rows.csv), [re-scored logs](results/paper_rescore_rows.csv), [merged-patch check](results/paper_merge_check_rows.csv), [merge audit](results/paper_merge_audit_rows.csv), [sensitivity](results/paper_sensitivity_rows.csv), [ParallACT pilot](results/parallact_pilot_rows.csv).
 
 ## Quick start
 

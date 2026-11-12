@@ -1,0 +1,36 @@
+{
+  "study": "parallact_pilot",
+  "question": "Can our gpt-6-luna coop agents run ParallACT's contradictory tasks: do the agents talk about the shared code, how often do both requests pass after the merge, and what does a run cost?",
+  "status": "pilot, not frozen: checks the harness before any style intervention on ParallACT",
+  "source": {
+    "url": "https://github.com/rm206/ParallACT_data_and_code",
+    "commit": "c212deb174fbc8980212cc1bde5b3f047941f332",
+    "path": "external/ParallACT",
+    "license": "none stated; used for research only, the dataset is not redistributed"
+  },
+  "family": "contradictory",
+  "sample": {
+    "corpora": {
+      "v1/seeds": "all",
+      "v1/generated": 4,
+      "v2/generated": 4
+    },
+    "seed": 20261112,
+    "note": "all 12 hand-built contradictory seeds plus 4 random generated instances from each corpus"
+  },
+  "repeats": 1,
+  "model": "gpt-6-luna",
+  "agent": "mini_swe_agent_v2",
+  "agent_config": "configs/agents/luna_mini_swe.yaml",
+  "redis": "redis://localhost:6379",
+  "merge_config": "configs/merge_test.json",
+  "merge_method": "llm",
+  "test_timeout": 2400,
+  "request_timeout": 300,
+  "scoring": {
+    "own": "each agent's patch, test files dropped, against its own request's fail-to-pass tests (ParallACT's A and B groups)",
+    "merged": "git merge of the two patches on the base commit; conflicted files resolved by the merge test's llm method; the merged patch against the combined tests",
+    "primary": "both requests' fail-to-pass tests pass on the merged patch"
+  },
+  "output": "runs/parallact/pilot"
+}

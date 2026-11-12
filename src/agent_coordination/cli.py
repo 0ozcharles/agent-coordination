@@ -7,8 +7,8 @@ import shlex
 import subprocess
 import sys
 
-from . import (branch, census, conflict_states, decomposition, merge, merge_audit, merge_check, paper_census, rescore, s1, s2,
-               sensitivity, upstream)
+from . import (branch, census, conflict_states, decomposition, merge, merge_audit, merge_check, paper_census, parallact,
+               rescore, s1, s2, sensitivity, upstream)
 
 
 def find_root():
@@ -304,6 +304,35 @@ def branch_command(root, args):
     return code or 0
 
 
+def parallact_command(root, args):
+    config_path = args.config.resolve()
+    config = parallact.load_config(config_path)
+    output = project_path(root, config["output"])
+    if args.report:
+        parallact.report(config, root)
+        return 0
+    jobs = parallact.plan(config, root)
+    module_args = [str(config_path)] + (["--limit", str(args.limit)] if args.limit else [])
+    print(f"{config['study']}: {config['question']}")
+    if args.gold:
+        done = sum((output / "gold" / f"{job['instance']}.json").is_file() for job in jobs if job["repeat"] == 1)
+        print(f"Reference-patch checks for {len(jobs) // config.get('repeats', 1)} instances, {done} done (Docker only).")
+        if args.execute:
+            import shutil
+            shutil.rmtree(output / "claims_gold", ignore_errors=True)
+        code = launch(root, args, "agent_coordination.parallact", module_args + ["--gold"], output, args.workers or 1)
+    else:
+        done = sum((parallact.job_dir(output, job) / "parallact_eval.json").is_file() for job in jobs)
+        print(f"{len(jobs)} coop runs, {done} already scored.")
+        if args.execute:
+            import shutil
+            shutil.rmtree(output / "claims", ignore_errors=True)
+        code = launch(root, args, "agent_coordination.parallact", module_args, output, args.workers or 1)
+    if code is not None:
+        parallact.report(config, root)
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -412,6 +441,14 @@ def main(argv=None):
     branching.add_argument("--score-agents", help="Comma-separated arms: test each agent's own patch alone (Docker only)")
     branching.add_argument("--python", help="CooperBench Python interpreter")
     branching.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
+    pact = subs.add_parser("parallact", help="ParallACT tasks with our coop agents: preview, check, run, or report")
+    pact.add_argument("config", type=Path)
+    pact.add_argument("--execute", action="store_true", help="Run missing jobs (Docker; paid model calls unless --gold)")
+    pact.add_argument("--gold", action="store_true", help="Check the harness with the reference patches (Docker only)")
+    pact.add_argument("--report", action="store_true", help="Summarize finished jobs; no Docker or API")
+    pact.add_argument("--limit", type=int, help="Run at most this many jobs or instances")
+    pact.add_argument("--python", help="CooperBench Python interpreter")
+    pact.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -450,6 +487,8 @@ def main(argv=None):
             return conflict_states_command(root, args)
         if args.command == "branch":
             return branch_command(root, args)
+        if args.command == "parallact":
+            return parallact_command(root, args)
         if args.command == "sensitivity":
             return sensitivity_command(root, args)
         if args.command == "merge-audit":

@@ -31,3 +31,6 @@ htmlcov/
 .idea/
 .vscode/
 
+
+# Third-party benchmark checkouts (see docs/DEVELOPMENT.md)
+/external/

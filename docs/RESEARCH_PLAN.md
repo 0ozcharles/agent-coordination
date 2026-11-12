@@ -490,6 +490,19 @@ What it shows:
   - One model (gpt-6-luna) and one benchmark.
 - **What it means for the dataset.** To study real concession and competition, we need tasks where giving up a resource or insisting on it are both feasible: for example, alternative implementations, optional shared helpers, or contested design choices, rather than two features that both must edit the same lines.
 
+### ParallACT pilot (2026-11-11)
+
+The style interventions suggest that CooperBench leaves no room for conceding. [ParallACT](https://github.com/rm206/ParallACT_data_and_code) (arXiv 2611.00314) has contradictory tasks: two separate requests change the same code in incompatible ways, and a reconciled implementation that satisfies both exists. Can our coop agents run them, and does conceding happen there? Config: [configs/parallact_pilot.json](../configs/parallact_pilot.json). Per-run data: [results/parallact_pilot_rows.csv](../results/parallact_pilot_rows.csv). 20 instances (all 12 hand-built seeds and 8 random generated ones), one coop run each, gpt-6-luna with CooperBench's coop prompt. Cost $0.24, 7.6 minutes per run on average (Go repositories up to 32).
+
+- **Harness.** Each instance runs as a two-feature CooperBench task in its SWE-Bench Pro image, scored with ParallACT's grader: each agent's patch against its own request's tests, and the git merge of both patches (llm re-merge on conflict) against the combined tests. For all 20 instances the reference patches behave as the dataset claims in our harness: the base fails, each reference patch passes its own tests, the reconciled patch passes the combined tests, and a plain git merge of the two reference patches conflicts.
+- **Outcomes.** Both requests pass after the merge in 4 of 20 runs; A only in 1, B only in 6, neither in 9.
+  - Of the 40 requests, 15 pass after the merge. 17 already fail in the owning agent's own patch.
+  - 8 pass in the agent's own patch and fail after the merge: the two implementations do not combine. None of the 6 runs whose merge needed the llm resolver passes both requests, as the dataset intends.
+- **The agents negotiate the conflict.** Every run has messages about the shared code (6.5 on average). In one, both agents first claim the same parameter of `getObjects` for their own request, then agree on the reference design: an array selects fields, an object carries options.
+- **Conceding is feasible and works.** In 4 runs one agent handed the shared code to its partner and submitted no code of its own. In 3 of them the partner implemented both requests and both pass; these are 3 of the 4 runs where both requests pass. In the fourth, the partner's implementation failed. In CooperBench, leaving part of one's feature to the partner was a failure mode (13 S1 failures).
+- **Harness fixes during the pilot.** litellm waits 6000 s for a response by default, so one stalled API connection held three runs for over an hour; the ParallACT runner now times calls out at 300 s and the agent retries. An empty patch made the merge step fail; four runs were re-scored, no agent was re-run.
+- **Limits.** One run per instance and 20 instances. No solo baseline yet, so capability and coordination failures are told apart only by the own-patch tests. The observation about conceding is observational and rests on 4 runs.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.
