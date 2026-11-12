@@ -76,6 +76,18 @@ class ParallactTest(unittest.TestCase):
         self.assertEqual(sets["combined"]["fail_to_pass"], ["a1", "a2", "b1"])
         self.assertEqual(sets["combined"]["patches"], ["tc"])
 
+    def test_solo_jobs_and_errors(self):
+        config = {**self.config, "setting": "solo", "repeats": 1}
+        job = parallact.plan(config, self.root)[0]
+        self.assertEqual(job["setting"], "solo")
+        self.assertEqual(parallact.job_dir(self.root, job).parts[-4], "solo")
+        target = self.root / "job"
+        target.mkdir()
+        (target / "result.json").write_text(json.dumps({"agent": {"status": "Error"}}))
+        self.assertEqual(parallact.agent_errors(target), ["solo"])
+        (target / "result.json").write_text(json.dumps({"agents": {"agent1": {"status": "Submitted"}}}))
+        self.assertEqual(parallact.agent_errors(target), [])
+
 
 if __name__ == "__main__":
     unittest.main()

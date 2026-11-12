@@ -1,5 +1,6 @@
 {
   "study": "parallact_pilot",
+  "setting": "coop",
   "jobs": 20,
   "finished": 20,
   "both_pass": 4,

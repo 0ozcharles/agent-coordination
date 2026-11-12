@@ -188,12 +188,13 @@ git clone https://github.com/rm206/ParallACT_data_and_code external/ParallACT
 git -C external/ParallACT checkout c212deb174fbc8980212cc1bde5b3f047941f332
 ```
 
-`src/agent_coordination/parallact.py` turns each instance into a two-feature CooperBench task (feature 1 is request A, feature 2 is request B) and runs CooperBench's coop agents on it, with CooperBench's coop prompt. The agents work in the instance's SWE-Bench Pro image (`jefzda/sweap-images`, about 2 GB each, linux/amd64, so Docker emulates it on Apple silicon); the repository at `/app` is reset to the base commit and linked to `/workspace/repo`. Scoring follows ParallACT's grader, loaded from the checkout: each agent's patch against its own request's tests, then a git merge of the two patches in the image (conflicted files resolved with the merge test's llm method) against the combined tests.
+`src/agent_coordination/parallact.py` turns each instance into a two-feature CooperBench task (feature 1 is request A, feature 2 is request B) and runs CooperBench's coop agents on it, with CooperBench's coop prompt (or, with `"setting": "solo"`, one agent given both requests). The agents work in the instance's SWE-Bench Pro image (`jefzda/sweap-images`, about 2 GB each, linux/amd64, so Docker emulates it on Apple silicon); the repository at `/app` is reset to the base commit and linked to `/workspace/repo`. Scoring follows ParallACT's grader, loaded from the checkout: each agent's patch against its own request's tests, then a git merge of the two patches in the image (conflicted files resolved with the merge test's llm method) against the combined tests.
 
 ```bash
 python3 scripts/project.py parallact configs/parallact_pilot.json --gold --execute --workers 4   # reference patches, Docker only
 python3 scripts/project.py parallact configs/parallact_pilot.json --execute --workers 3          # coop runs (paid API)
 python3 scripts/project.py parallact configs/parallact_pilot.json --report
+python3 scripts/project.py parallact configs/parallact_solo.json --execute --workers 3            # one agent, both requests
 ```
 
 The reference check confirms, per instance, that the base commit fails the combined tests, each reference patch passes its own tests, the reconciled patch passes the combined tests, and a plain git merge of the two reference patches does not.

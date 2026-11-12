@@ -1,0 +1,35 @@
+{
+  "study": "parallact_solo",
+  "question": "How often does one gpt-6-luna agent given both requests of a ParallACT contradictory task satisfy both, on the pilot instances? This bounds what two coop agents could reach.",
+  "status": "baseline for the pilot, not frozen",
+  "setting": "solo",
+  "source": {
+    "url": "https://github.com/rm206/ParallACT_data_and_code",
+    "commit": "c212deb174fbc8980212cc1bde5b3f047941f332",
+    "path": "external/ParallACT",
+    "license": "none stated; used for research only, the dataset is not redistributed"
+  },
+  "family": "contradictory",
+  "sample": {
+    "corpora": {
+      "v1/seeds": "all",
+      "v1/generated": 4,
+      "v2/generated": 4
+    },
+    "seed": 20261112,
+    "note": "all 12 hand-built contradictory seeds plus 4 random generated instances from each corpus"
+  },
+  "repeats": 1,
+  "model": "gpt-6-luna",
+  "agent": "mini_swe_agent_v2",
+  "agent_config": "configs/agents/luna_mini_swe.yaml",
+  "redis": "redis://localhost:6379",
+  "test_timeout": 2400,
+  "request_timeout": 300,
+  "scoring": {
+    "solo": "the agent's published patch (PR or pushed branch), test files dropped, against the combined tests",
+    "local": "its local diff at the end, scored too when it differs (CooperBench grades only published work)",
+    "primary": "both requests' fail-to-pass tests pass on the published patch"
+  },
+  "output": "runs/parallact/solo"
+}

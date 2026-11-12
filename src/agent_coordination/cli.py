@@ -323,7 +323,7 @@ def parallact_command(root, args):
         code = launch(root, args, "agent_coordination.parallact", module_args + ["--gold"], output, args.workers or 1)
     else:
         done = sum((parallact.job_dir(output, job) / "parallact_eval.json").is_file() for job in jobs)
-        print(f"{len(jobs)} coop runs, {done} already scored.")
+        print(f"{len(jobs)} {config.get('setting', 'coop')} runs, {done} already scored.")
         if args.execute:
             import shutil
             shutil.rmtree(output / "claims", ignore_errors=True)

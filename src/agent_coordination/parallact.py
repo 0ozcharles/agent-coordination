@@ -4,8 +4,9 @@ ParallACT (Mediratta et al. 2026, arXiv 2611.00314) gives two coding agents sepa
 repository. In its contradictory instances the two requests change the same code in incompatible ways,
 and a reconciled implementation that satisfies both is known to exist. Each instance here becomes a
 two-feature CooperBench task: feature 1 is request A, feature 2 is request B. The agents are CooperBench's
-coop agents (mini_swe_agent_v2 with Redis messaging); they run in the instance's SWE-Bench Pro image, where
-the repository at /app is reset to the base commit and linked to /workspace/repo.
+coop agents (mini_swe_agent_v2 with Redis messaging), or in the solo setting one agent given both requests;
+they run in the instance's SWE-Bench Pro image, where the repository at /app is reset to the base commit and
+linked to /workspace/repo.
 
 Scoring follows ParallACT's grader, loaded from the pinned checkout (its eval/runner.py): each agent's
 patch against its own request's tests, and the merged patch against the combined tests, which hold both
@@ -130,12 +131,13 @@ def select(config, root):
 def plan(config, root):
     ids = task_ids(all_instances(config, root))
     return [{"instance": i["instance_id"], "repo": repo_name(i), "task_id": ids[i["instance_id"]],
-             "repeat": r, "features": list(FEATURES)}
+             "repeat": r, "features": list(FEATURES), "setting": config.get("setting", "coop")}
             for r in range(1, config.get("repeats", 1) + 1) for i in select(config, root)]
 
 
 def job_dir(output, job):
-    return Path(output) / "logs" / f"r{job['repeat']}" / "coop" / job["repo"] / str(job["task_id"]) / "f1_f2"
+    return (Path(output) / "logs" / f"r{job['repeat']}" / job.get("setting", "coop") / job["repo"]
+            / str(job["task_id"]) / "f1_f2")
 
 
 def write_dataset(output, instance, job):
@@ -174,18 +176,20 @@ def install_hooks(images):
     under emulation on Apple silicon.
     """
     import cooperbench.runner.coop as coop
+    import cooperbench.runner.solo as solo
     from cooperbench.agents.mini_swe_agent_v2.environments.docker import DockerEnvironment
     os.environ["DOCKER_DEFAULT_PLATFORM"] = "linux/amd64"
     bases = {v["image"]: v["base"] for v in images.values()}
-    if not getattr(coop, "_parallact_images", None):
-        original_name = coop.get_image_name
+    for module in (coop, solo):  # each imported get_image_name by name
+        if not getattr(module, "_parallact_images", None):
+            original_name = module.get_image_name
 
-        def image_name(repo, task_id):
-            entry = coop._parallact_images.get((repo, int(task_id)))
-            return entry["image"] if entry else original_name(repo, task_id)
+            def image_name(repo, task_id, module=module, original_name=original_name):
+                entry = module._parallact_images.get((repo, int(task_id)))
+                return entry["image"] if entry else original_name(repo, task_id)
 
-        coop.get_image_name = image_name
-    coop._parallact_images = images
+            module.get_image_name = image_name
+        module._parallact_images = images
     if getattr(DockerEnvironment, "_parallact_setup", False):
         DockerEnvironment._parallact_bases = bases
         return
@@ -213,11 +217,18 @@ def ensure_image(image, timeout=3600):
 
 def run_agents(config, root, job, output, instance):
     from cooperbench.runner.coop import execute_coop
+    from cooperbench.runner.solo import execute_solo
     ensure_image(instance["runtime"]["image_uri"])
     dataset = write_dataset(output, instance, job)
     agent_config = str(root / config["agent_config"]) if config.get("agent_config") else None
     s1.CURRENT_JOB_DIR = job_dir(output, job)
     try:
+        if job.get("setting") == "solo":  # one agent; CooperBench joins the two requests as Feature 1 and 2
+            execute_solo(repo_name=job["repo"], task_id=job["task_id"], features=job["features"],
+                         run_name=f"r{job['repeat']}", agent_name=config.get("agent", "mini_swe_agent_v2"),
+                         model_name=f"openai/{config['model']}", force=True, quiet=True, backend="docker",
+                         agent_config=agent_config, dataset_dir=str(dataset), logs_dir=str(Path(output) / "logs"))
+            return
         execute_coop(repo_name=job["repo"], task_id=job["task_id"], features=job["features"],
                      run_name=f"r{job['repeat']}", agent_name=config.get("agent", "mini_swe_agent_v2"),
                      model_name=f"openai/{config['model']}", redis_url=config.get("redis", "redis://localhost:6379"),
@@ -229,7 +240,8 @@ def run_agents(config, root, job, output, instance):
 
 def agent_errors(target):
     result = json.loads((target / "result.json").read_text()) if (target / "result.json").is_file() else {}
-    return [a for a, info in result.get("agents", {}).items() if info.get("status") == "Error"]
+    agents = result.get("agents") or ({"solo": result["agent"]} if "agent" in result else {})
+    return [a for a, info in agents.items() if info.get("status") == "Error"]
 
 
 # --- scoring (CooperBench venv for the test-file filter and the llm merge) -------------
@@ -322,6 +334,10 @@ def score(config, root, job, output, instance, runner):
     timeout = config.get("test_timeout", 2400)
     scratch = Path(output) / "scratch"
     sets = test_sets(instance)
+    if job.get("setting") == "solo":
+        record = score_solo(instance, target, sets, runner, scratch, timeout)
+        out.write_text(json.dumps(record, indent=2))
+        return record
     patches = [clean_patch((target / f"agent{f}.patch").read_text() if (target / f"agent{f}.patch").is_file() else "")
                for f in FEATURES]
     record = {"instance": instance["instance_id"], "empty": [SIDES[f] for f, p in zip(FEATURES, patches) if not p.strip()],
@@ -338,6 +354,23 @@ def score(config, root, job, output, instance, runner):
             "A": side_passed(result, instance["agentA_fail_to_pass"]),
             "B": side_passed(result, instance["agentB_fail_to_pass"])}
     out.write_text(json.dumps(record, indent=2))
+    return record
+
+
+def score_solo(instance, target, sets, runner, scratch, timeout):
+    """The solo patch against the combined tests. CooperBench grades only work the agent published (a PR or
+    a pushed branch); its local work at the end is scored too when it differs."""
+    record = {"instance": instance["instance_id"], "setting": "solo"}
+    texts = {name: clean_patch((target / f).read_text() if (target / f).is_file() else "")
+             for name, f in (("solo", "solo.patch"), ("local", "local_solo.patch"))}
+    for name, text in texts.items():
+        if name == "local" and text.strip() == texts["solo"].strip():
+            record["local"] = {"same_as_published": True}
+            continue
+        result = test_state(runner, instance, text, sets["combined"], scratch, timeout)
+        record[name] = result | {"empty": not text.strip(),
+                                 "A": side_passed(result, instance["agentA_fail_to_pass"]),
+                                 "B": side_passed(result, instance["agentB_fail_to_pass"])}
     return record
 
 
@@ -455,9 +488,9 @@ def execute_gold(config, root, shard=(0, 1), limit=None):
 
 # --- analysis (standard library) -------------------------------------------------------
 
-ROW_COLUMNS = ["repeat", "instance", "repo", "corpus", "mutex_type", "finished", "messages", "cost_usd", "steps",
-               "minutes", "empty_patches", "shared_files", "own_A", "own_B", "merge", "conflict_blocks",
-               "merged_A", "merged_B", "both", "both_clean_merge", "test_errors"]
+ROW_COLUMNS = ["setting", "repeat", "instance", "repo", "corpus", "mutex_type", "finished", "messages", "cost_usd",
+               "steps", "minutes", "empty_patches", "shared_files", "own_A", "own_B", "merge", "conflict_blocks",
+               "merged_A", "merged_B", "both", "both_clean_merge", "own_both", "local_A", "local_B", "test_errors"]
 
 
 def read_json(path):
@@ -471,16 +504,23 @@ def collect(config, root):
     for job in plan(config, root):
         target, instance = job_dir(output, job), instances[job["instance"]]
         result, ev = read_json(target / "result.json"), read_json(target / "parallact_eval.json")
-        row = {"repeat": job["repeat"], "instance": job["instance"], "repo": instance["repo"],
+        row = {"setting": job["setting"], "repeat": job["repeat"], "instance": job["instance"], "repo": instance["repo"],
                "corpus": instance["_corpus"], "mutex_type": instance.get("mutex_type", ""),
                "finished": bool(ev)}
         if result:
             row.update(messages=result.get("messages_sent", 0), cost_usd=round(result.get("total_cost", 0), 4),
                        steps=result.get("total_steps", 0), minutes=round(result.get("duration_seconds", 0) / 60, 1))
-            texts = [(target / f"agent{f}.patch").read_text() if (target / f"agent{f}.patch").is_file() else ""
-                     for f in FEATURES]
-            row["shared_files"] = len(s1.patch_files(texts[0]) & s1.patch_files(texts[1]))
-        if ev:
+            if job["setting"] == "coop":
+                texts = [(target / f"agent{f}.patch").read_text() if (target / f"agent{f}.patch").is_file() else ""
+                         for f in FEATURES]
+                row["shared_files"] = len(s1.patch_files(texts[0]) & s1.patch_files(texts[1]))
+        if ev and job["setting"] == "solo":
+            solo, local = ev["solo"], ev.get("local", {})
+            local = solo if local.get("same_as_published") else local
+            row.update(empty_patches=int(solo["empty"]), merge="solo", merged_A=solo["A"], merged_B=solo["B"],
+                       both=solo["A"] and solo["B"], local_A=local.get("A", False), local_B=local.get("B", False),
+                       test_errors=sum(s.get("applied", "ok") != "ok" for s in (solo, local)))
+        elif ev:
             merged = ev.get("merged", {})
             states = [ev["own"]["A"], ev["own"]["B"]] + ([merged] if merged else [])
             row.update(empty_patches=len(ev["empty"]),
@@ -490,6 +530,8 @@ def collect(config, root):
                        merged_A=merged.get("A", False), merged_B=merged.get("B", False),
                        both=bool(merged.get("A") and merged.get("B")),
                        both_clean_merge=bool(ev["merge"]["status"] == "clean" and merged.get("A") and merged.get("B")),
+                       own_both=bool(side_passed(ev["own"]["A"], instance["agentA_fail_to_pass"])
+                                     and side_passed(ev["own"]["B"], instance["agentB_fail_to_pass"])),
                        test_errors=sum(s["applied"] != "ok" for s in states))
         rows.append(row)
     return rows
@@ -499,10 +541,14 @@ def summarize(config, rows, gold_records):
     done = [r for r in rows if r["finished"]]
     outcome = Counter(("both" if r["merged_A"] and r["merged_B"] else "A only" if r["merged_A"]
                        else "B only" if r["merged_B"] else "neither") for r in done)
-    return {"study": config["study"], "jobs": len(rows), "finished": len(done),
-            "both_pass": sum(r["both"] for r in done), "both_pass_clean_merge": sum(r["both_clean_merge"] for r in done),
+    extra = ({"both_pass_local_work": sum(bool(r["local_A"] and r["local_B"]) for r in done)}
+             if config.get("setting") == "solo" else
+             {"both_pass_clean_merge": sum(r["both_clean_merge"] for r in done)})
+    return {"study": config["study"], "setting": config.get("setting", "coop"), "jobs": len(rows), "finished": len(done),
+            "both_pass": sum(r["both"] for r in done), **extra,
             "merged_outcomes": dict(outcome),
-            "own_pass": {"A": sum(r["own_A"] for r in done), "B": sum(r["own_B"] for r in done)},
+            "own_pass": None if config.get("setting") == "solo" else
+            {"A": sum(bool(r.get("own_A")) for r in done), "B": sum(bool(r.get("own_B")) for r in done)},
             "merge_status": dict(Counter(r["merge"] for r in done)),
             "runs_with_messages": sum(1 for r in done if r.get("messages")),
             "mean_messages": round(sum(r.get("messages", 0) for r in done) / len(done), 1) if done else None,
