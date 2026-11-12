@@ -1,0 +1,238 @@
+{
+  "study": "parallact_conflict_states",
+  "question": "In ParallACT contradictory tasks, when does the first conflict between the two agents surface, can a branch restart from it, and how do the agents handle it by default?",
+  "sets": {
+    "parallact_pilot": {
+      "runs": 20,
+      "detector_conflict": 14,
+      "exclusive_claim": 10,
+      "gold_shared_lines": 20,
+      "labeled": 20,
+      "labeled_conflicts": 14,
+      "labeler_incompatible": 5,
+      "labeler_incompatible_when_exclusive": [
+        3,
+        10
+      ],
+      "conflict_step_median": 20,
+      "writes_before_conflict": [
+        12,
+        40
+      ],
+      "types_present": {
+        "resource": 11,
+        "responsibility": 9,
+        "interface": 11,
+        "requirement": 2
+      },
+      "primary_type": {
+        "resource": 11,
+        "interface": 1,
+        "null": 1,
+        "responsibility": 1
+      },
+      "agent_styles": {
+        "accommodating": 7,
+        "competing": 1,
+        "collaborating": 8,
+        "compromising": 11,
+        "avoiding": 1
+      },
+      "style_pairs": {
+        "accommodating + collaborating": 5,
+        "compromising + compromising": 5,
+        "accommodating + competing": 1,
+        "collaborating + collaborating": 1,
+        "accommodating + avoiding": 1,
+        "collaborating + compromising": 1
+      },
+      "facts": {
+        "agreement": {
+          "partial": 2,
+          "explicit": 11,
+          "none": 1
+        },
+        "shared_code_owner": {
+          "unclear": 2,
+          "agent2": 3,
+          "split": 7,
+          "agent1": 2
+        },
+        "interface_exact": {
+          "True": 9,
+          "False": 5
+        },
+        "handoff": {
+          "True": 9,
+          "False": 5
+        },
+        "unanswered_question": {
+          "True": 3,
+          "False": 11
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            2,
+            11
+          ],
+          "responsibility": [
+            0,
+            1
+          ],
+          "interface": [
+            0,
+            1
+          ],
+          "requirement": [
+            0,
+            0
+          ]
+        },
+        "style_pair": {
+          "accommodating + collaborating": [
+            2,
+            5
+          ],
+          "compromising + compromising": [
+            0,
+            5
+          ],
+          "accommodating + competing": [
+            0,
+            1
+          ],
+          "collaborating + collaborating": [
+            0,
+            1
+          ],
+          "accommodating + avoiding": [
+            0,
+            1
+          ],
+          "collaborating + compromising": [
+            0,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            1,
+            9
+          ],
+          "False": [
+            1,
+            5
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            2,
+            9
+          ],
+          "False": [
+            0,
+            5
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            0,
+            3
+          ],
+          "False": [
+            2,
+            11
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            2,
+            11
+          ],
+          "none": [
+            0,
+            1
+          ],
+          "partial": [
+            0,
+            2
+          ]
+        }
+      }
+    }
+  },
+  "consistency": {
+    "pairs": 20,
+    "incompatible": {
+      "agree": 19,
+      "kappa": 0.8863636363636362
+    },
+    "primary_type": {
+      "agree": 15,
+      "kappa": 0.6991150442477876
+    },
+    "type_resource": {
+      "agree": 20,
+      "kappa": 1.0
+    },
+    "type_responsibility": {
+      "agree": 19,
+      "kappa": 0.8979591836734693
+    },
+    "type_interface": {
+      "agree": 17,
+      "kappa": 0.659090909090909
+    },
+    "type_requirement": {
+      "agree": 18,
+      "kappa": 0.0
+    },
+    "agent1_assertiveness": {
+      "agree": 18,
+      "kappa": 0.7938144329896908
+    },
+    "agent1_cooperativeness": {
+      "agree": 17,
+      "kappa": 0.7235023041474654
+    },
+    "agent1_style": {
+      "agree": 17,
+      "kappa": 0.7619047619047619
+    },
+    "agent2_assertiveness": {
+      "agree": 18,
+      "kappa": 0.699248120300752
+    },
+    "agent2_cooperativeness": {
+      "agree": 17,
+      "kappa": 0.7457627118644067
+    },
+    "agent2_style": {
+      "agree": 16,
+      "kappa": 0.710144927536232
+    },
+    "agreement": {
+      "agree": 16,
+      "kappa": 0.6153846153846155
+    },
+    "shared_code_owner": {
+      "agree": 15,
+      "kappa": 0.6575342465753424
+    },
+    "interface_exact": {
+      "agree": 15,
+      "kappa": 0.5
+    },
+    "handoff": {
+      "agree": 19,
+      "kappa": 0.8979591836734693
+    },
+    "unanswered_question": {
+      "agree": 17,
+      "kappa": 0.6341463414634146
+    }
+  },
+  "label_cost_usd": 0.0229
+}

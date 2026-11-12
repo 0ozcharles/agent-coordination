@@ -1,0 +1,24 @@
+{
+  "study": "parallact_conflict_states",
+  "status": "pilot, not frozen: applies the CooperBench conflict detector and codebook version 5, unchanged, to the ParallACT pilot runs",
+  "question": "In ParallACT contradictory tasks, when does the first conflict between the two agents surface, can a branch restart from it, and how do the agents handle it by default?",
+  "sets": {
+    "pilot": [
+      {"name": "parallact_pilot", "logs": "runs/parallact/pilot/logs", "rows": "results/parallact_pilot_rows.csv",
+       "dataset": "runs/parallact/pilot/dataset", "segments": true,
+       "note": "CooperBench's default coop prompt; outcome is after the git merge with the llm resolver"}
+    ]
+  },
+  "conflict_point": "defined by the detector, as in configs/c_conflict_states.json: the first sent message after which both agents have claimed the same file (a path both mention, or a reference to 'the same file'); per agent, the trajectory step where it has sent its own claim and received the partner's",
+  "codebook": "docs/C_CONFLICT_CODEBOOK.md",
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {"extra_body": {"reasoning_effort": "low"}},
+    "input": "request titles and every message in causal order, with delivery failures and exits; no code, patches, tests or outcomes",
+    "attempts": 2,
+    "repeat_sample": 20,
+    "seed": 20261112
+  },
+  "validation": "every run labeled twice (Cohen's kappa per field); the four runs where an agent submitted no code are read by hand against their labels",
+  "output": "runs/parallact/conflict_states"
+}

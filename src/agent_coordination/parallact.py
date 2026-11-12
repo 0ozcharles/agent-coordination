@@ -141,12 +141,14 @@ def job_dir(output, job):
 
 
 def write_dataset(output, instance, job):
-    """CooperBench reads each agent's task from dataset/<repo>/task<id>/feature<n>/feature.md."""
+    """CooperBench reads each agent's task from dataset/<repo>/task<id>/feature<n>/feature.md. The reference
+    patch goes next to it, as in CooperBench's dataset; it stays on the host, where agents cannot read it."""
     task = Path(output) / "dataset" / job["repo"] / f"task{job['task_id']}"
     for feature in FEATURES:
         target = task / f"feature{feature}" / "feature.md"
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(instance[f"agent{SIDES[feature]}_problem_statement"].strip() + "\n")
+        target.with_name("feature.patch").write_text(instance.get(f"agent{SIDES[feature]}_solution") or "")
     return Path(output) / "dataset"
 
 
@@ -488,9 +490,16 @@ def execute_gold(config, root, shard=(0, 1), limit=None):
 
 # --- analysis (standard library) -------------------------------------------------------
 
-ROW_COLUMNS = ["setting", "repeat", "instance", "repo", "corpus", "mutex_type", "finished", "messages", "cost_usd",
-               "steps", "minutes", "empty_patches", "shared_files", "own_A", "own_B", "merge", "conflict_blocks",
-               "merged_A", "merged_B", "both", "both_clean_merge", "own_both", "local_A", "local_B", "test_errors"]
+# repo, task_id, features, merge_status, merged_passed and own_passed follow the S1 rows, so that
+# conflict_states can read these runs.
+ROW_COLUMNS = ["setting", "repeat", "instance", "repo", "task_id", "features", "source_repo", "corpus", "mutex_type",
+               "finished", "messages", "cost_usd", "steps", "minutes", "empty_patches", "shared_files", "own_A",
+               "own_B", "merge_status", "conflict_blocks", "merged_A", "merged_B", "both", "both_clean_merge",
+               "own_both", "local_A", "local_B", "merged_passed", "own_passed", "test_errors"]
+
+
+def passed(a, b):
+    return " ".join(str(f) for f, ok in zip(FEATURES, (a, b)) if ok)
 
 
 def read_json(path):
@@ -504,7 +513,9 @@ def collect(config, root):
     for job in plan(config, root):
         target, instance = job_dir(output, job), instances[job["instance"]]
         result, ev = read_json(target / "result.json"), read_json(target / "parallact_eval.json")
-        row = {"setting": job["setting"], "repeat": job["repeat"], "instance": job["instance"], "repo": instance["repo"],
+        write_dataset(output, instance, job)
+        row = {"setting": job["setting"], "repeat": job["repeat"], "instance": job["instance"], "repo": job["repo"],
+               "task_id": job["task_id"], "features": "1 2", "source_repo": instance["repo"],
                "corpus": instance["_corpus"], "mutex_type": instance.get("mutex_type", ""),
                "finished": bool(ev)}
         if result:
@@ -517,7 +528,8 @@ def collect(config, root):
         if ev and job["setting"] == "solo":
             solo, local = ev["solo"], ev.get("local", {})
             local = solo if local.get("same_as_published") else local
-            row.update(empty_patches=int(solo["empty"]), merge="solo", merged_A=solo["A"], merged_B=solo["B"],
+            row.update(empty_patches=int(solo["empty"]), merge_status="solo", merged_A=solo["A"], merged_B=solo["B"],
+                       merged_passed=passed(solo["A"], solo["B"]),
                        both=solo["A"] and solo["B"], local_A=local.get("A", False), local_B=local.get("B", False),
                        test_errors=sum(s.get("applied", "ok") != "ok" for s in (solo, local)))
         elif ev:
@@ -526,13 +538,15 @@ def collect(config, root):
             row.update(empty_patches=len(ev["empty"]),
                        own_A=side_passed(ev["own"]["A"], instance["agentA_fail_to_pass"]),
                        own_B=side_passed(ev["own"]["B"], instance["agentB_fail_to_pass"]),
-                       merge=ev["merge"]["status"], conflict_blocks=ev["merge"].get("conflict_blocks", 0),
+                       merge_status=ev["merge"]["status"], conflict_blocks=ev["merge"].get("conflict_blocks", 0),
                        merged_A=merged.get("A", False), merged_B=merged.get("B", False),
                        both=bool(merged.get("A") and merged.get("B")),
                        both_clean_merge=bool(ev["merge"]["status"] == "clean" and merged.get("A") and merged.get("B")),
                        own_both=bool(side_passed(ev["own"]["A"], instance["agentA_fail_to_pass"])
                                      and side_passed(ev["own"]["B"], instance["agentB_fail_to_pass"])),
                        test_errors=sum(s["applied"] != "ok" for s in states))
+            row.update(merged_passed=passed(row["merged_A"], row["merged_B"]),
+                       own_passed=passed(row["own_A"], row["own_B"]))
         rows.append(row)
     return rows
 
@@ -549,7 +563,7 @@ def summarize(config, rows, gold_records):
             "merged_outcomes": dict(outcome),
             "own_pass": None if config.get("setting") == "solo" else
             {"A": sum(bool(r.get("own_A")) for r in done), "B": sum(bool(r.get("own_B")) for r in done)},
-            "merge_status": dict(Counter(r["merge"] for r in done)),
+            "merge_status": dict(Counter(r["merge_status"] for r in done)),
             "runs_with_messages": sum(1 for r in done if r.get("messages")),
             "mean_messages": round(sum(r.get("messages", 0) for r in done) / len(done), 1) if done else None,
             "runs_with_shared_files": sum(1 for r in done if r.get("shared_files")),

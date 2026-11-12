@@ -197,6 +197,14 @@ python3 scripts/project.py parallact configs/parallact_pilot.json --report
 python3 scripts/project.py parallact configs/parallact_solo.json --execute --workers 3            # one agent, both requests
 ```
 
+Conflict points and style labels for these runs use the conflict-state module with its own config. A source there names its `dataset` folder (for the request titles) and sets `segments`, which rebuilds a compacted agent's message history from the snapshots in its full trajectory:
+
+```bash
+python3 scripts/project.py conflict-states configs/parallact_conflict_states.json --set pilot --report            # no API
+python3 scripts/project.py conflict-states configs/parallact_conflict_states.json --set pilot --execute --workers 6
+python3 scripts/project.py conflict-states configs/parallact_conflict_states.json --set pilot --execute --repeat
+```
+
 The reference check confirms, per instance, that the base commit fails the combined tests, each reference patch passes its own tests, the reconciled patch passes the combined tests, and a plain git merge of the two reference patches does not.
 
 ## Notes

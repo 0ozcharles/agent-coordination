@@ -507,6 +507,28 @@ The style interventions suggest that CooperBench leaves no room for conceding. [
   - So on these 20 instances most failures are capability: neither setting satisfies both requests in 13. The coordination gap is about 3 instances (15 points), and that is the most a better handling style could recover here.
 - **Limits.** One run per instance and 20 instances, so every count above is noisy. The observation about conceding is observational and rests on 4 runs.
 
+### ParallACT conflict states (2026-11-12)
+
+Does the method we used on CooperBench (find the first conflict point, restart both agents there, label styles from the messages) carry over to ParallACT? We applied the detector and codebook version 5, unchanged, to the 20 pilot coop runs. Config: [configs/parallact_conflict_states.json](../configs/parallact_conflict_states.json). Per-run data: [results/parallact_conflict_states_rows.csv](../results/parallact_conflict_states_rows.csv). Every run was labeled twice; labels cost $0.02.
+
+- **The conflict surfaces late, after the agents have started writing.**
+  - Agents announce their plan at once: the first message is sent at step 2 (median) and the partner's first message arrives at step 6. Only 1 of 36 agents had written a file by then.
+  - A conflict point (both agents claim the same file) is detected in 14 of 20 runs, at step 20 (median; trajectories are 23 to 81 steps long). In CooperBench it came at step 6 or 7. By then 12 of the 28 agents had written files, against 5% in CooperBench.
+  - 7 runs have an agent that compacted its context (35%; about 16% in CooperBench). Their message order is now rebuilt from the snapshots in the full trajectory.
+- **Restarting at the conflict point works for few runs.** The branching code accepts 4 of 20 runs (5 are excluded for files written before the cut, 7 for compaction, 4 have no conflict point). Restoring compacted agents from their history before the compaction would raise that to 7. In CooperBench 263 of 318 runs could be restarted.
+- **In 6 runs the detector finds no conflict point.** In four the agents hardly exchange anything (1 to 5 messages, one side announcing). In one both claim the same three methods without naming a file, which the detector misses. In one an agent hands a component to its partner.
+- **Default styles.** Over the 40 agents: compromising 18, collaborating 10, accommodating 8, competing 2, avoiding 2. Accommodating is more common than in CooperBench (20% against 14%), and so are handoffs (11 of 20 runs against 39%).
+- **The agents almost never say that the requests contradict.** The labeler marks a requirement conflict in 2 of 20 runs, and its two passes do not agree on which. The agents treat the overlap as "we both edit this function" and split it or hand it over.
+- **Where coordination failed, the conflict was not discussed.** Of the three instances that solo solves and coop does not, two had 1 and 3 messages and no exchange about the shared code; in the third one agent accommodated and the other competed.
+- **The labeler recognizes conceding.** In the four runs where an agent submitted no code of its own, the first pass scores that agent accommodating in all four and the second in three. Of the 8 runs with an accommodating agent, 3 pass both requests; of the 12 without, 1 does (observational, small counts).
+- **Labeler consistency is lower than on CooperBench.** Cohen's kappa over the 20 runs: styles 0.76 and 0.71 (0.82 and 0.95 on CooperBench), assertiveness 0.79 and 0.70, cooperativeness 0.72 and 0.75, handoff 0.90, incompatible claims 0.89.
+
+What it means for the intervention design:
+
+- A style instruction at the detected conflict point would reach a third of the runs at most, and not the ones where the conflict is never discussed. The instruction has to come at the start of the run, or at the first exchange (step 6, before almost any write), worded so that it does not presuppose a known overlap.
+- Getting the agents to state what their request needs from the shared code comes before handling style. An arm that asks for this in the first message (the structured-message idea) is the natural companion to the style arms.
+- Limits: 20 runs, one per instance; the conflict detector keys on file names and was not adapted to ParallACT.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.

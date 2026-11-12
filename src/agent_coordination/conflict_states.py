@@ -71,10 +71,30 @@ def _tool_output(message):
 
 # ---------------------------------------------------------------- trajectories and order
 
-def trajectory(path, me):
+def history(path):
+    """A compacted agent's whole message history, rebuilt from its full trajectory, and the number of
+    messages before its first compaction.
+
+    The full trajectory keeps a snapshot of the agent's messages before each compaction and at the end.
+    After a compaction the messages are the system prompt, the task, a summary and the most recent turns,
+    so each later snapshot adds whatever follows the turns it shares with the history so far. A step below
+    the first compaction indexes the messages the agent really had at that point.
+    """
+    snapshots = [s["messages"] for s in json.loads(Path(path).read_text())["segments"] if s["kind"] == "solver"]
+    same = lambda m: (m.get("role"), m.get("content"), json.dumps(m.get("tool_calls"), sort_keys=True, default=str))
+    out = list(snapshots[0])
+    for snapshot in snapshots[1:]:
+        body = [same(m) for m in snapshot[3:]]  # after the system prompt, the task and the summary
+        tail = [same(m) for m in out]
+        kept = next((n for n in range(min(len(body), len(tail)), 0, -1) if tail[-n:] == body[:n]), 0)
+        out.extend(snapshot[3 + kept:])
+    return out, len(snapshots[0])
+
+
+def trajectory(path, me, msgs=None):
     """Events in one agent's trajectory by step: send, recv (also inline --wait replies), write,
-    partner_exit and exit; plus the trajectory length."""
-    msgs = json.loads(Path(path).read_text())["messages"]
+    partner_exit and exit; plus the trajectory length. `msgs` replaces the messages in `path`."""
+    msgs = json.loads(Path(path).read_text())["messages"] if msgs is None else msgs
     out = []
     for i, m in enumerate(msgs):
         content = m.get("content") if isinstance(m.get("content"), str) else ""
@@ -172,10 +192,10 @@ def first_conflict_message(sends):
 
 # ---------------------------------------------------------------- runs and states
 
-def gold(root, repo, task, feature):
-    path = root / DATASET / repo / f"task{task}" / f"feature{feature}" / "feature.patch"
+def gold(root, repo, task, feature, dataset=DATASET):
+    path = root / dataset / repo / f"task{task}" / f"feature{feature}" / "feature.patch"
     files, ranges, cur = set(), defaultdict(list), None
-    for line in path.read_text(errors="replace").splitlines():
+    for line in path.read_text(errors="replace").splitlines() if path.is_file() else []:
         if line.startswith("+++ b/"):
             cur = line[6:].strip()
             files.add(cur)
@@ -186,12 +206,19 @@ def gold(root, repo, task, feature):
     return files, ranges
 
 
-def title(root, repo, task, feature):
-    path = root / DATASET / repo / f"task{task}" / f"feature{feature}" / "feature.md"
-    for line in path.read_text(errors="replace").splitlines():
+def title(root, repo, task, feature, dataset=DATASET):
+    """The feature's Title line. Other datasets have none: there the first line of text stands in."""
+    path = root / dataset / repo / f"task{task}" / f"feature{feature}" / "feature.md"
+    lines = path.read_text(errors="replace").splitlines()
+    for line in lines:
         m = re.match(r"\**Title\**:\s*(.+)", line.strip())
         if m:
             return m.group(1).strip()
+    if dataset != DATASET:
+        for line in lines:
+            text = re.sub(r"^[#\s\"'*]*(?:Title\s*:?)?\s*", "", line.replace("\\n", " ")).strip(" \"'*")
+            if text:
+                return text[:160]
     return f"feature {feature}"
 
 
@@ -209,18 +236,25 @@ def runs(root, source):
             yield d, row
 
 
-def state(root, d, row):
-    """One run's conflict state, the ordered transcript, and its outcome (kept apart from labels)."""
+def state(root, d, row, dataset=DATASET, segments=False):
+    """One run's conflict state, the ordered transcript, and its outcome (kept apart from labels).
+
+    With `segments`, a compacted agent's messages come from its full trajectory (see `history`), and
+    compacted1/compacted2 give the number of messages before each agent's first compaction."""
     repo, task = d.parts[-3], d.parts[-2]
     fa, fb = d.name[1:].split("_f")
     t1, t2 = d / f"agent{fa}_traj.json", d / f"agent{fb}_traj.json"
     conv = json.loads((d / "conversation.json").read_text())
     rec = {"run": str(d.relative_to(root)), "repo": repo, "task": task, "features": f"{fa} {fb}",
-           "repeat": d.parts[-5][1:], "titles": [title(root, repo, task, fa), title(root, repo, task, fb)]}
+           "repeat": d.parts[-5][1:],
+           "titles": [title(root, repo, task, fa, dataset), title(root, repo, task, fb, dataset)]}
     lanes, lengths = {}, {}
     if t1.is_file() and t2.is_file():
-        lanes["agent1"], lengths["agent1"] = trajectory(t1, "agent1")
-        lanes["agent2"], lengths["agent2"] = trajectory(t2, "agent2")
+        for agent, path in (("agent1", t1), ("agent2", t2)):
+            full, msgs = d / f"{agent}_full_traj.json", None
+            if segments:
+                msgs, rec[f"compacted{agent[-1]}"] = history(full) if full.is_file() else (None, None)
+            lanes[agent], lengths[agent] = trajectory(path, agent, msgs)
     counts = Counter(m["from"] for m in conv)
     complete = bool(lanes) and all(sum(e["kind"] == "send" and e["delivered"] for e in lanes[a]) >= counts.get(a, 0)
                                    for a in ("agent1", "agent2"))
@@ -245,8 +279,8 @@ def state(root, d, row):
     n = first_conflict_message(sends)
     claims = {a: set().union(*[files_in(e["text"]) for e in sends if e["agent"] == a] or [set()]) for a in ("agent1", "agent2")}
     upto = sends[:n] if n else sends
-    ga, ra = gold(root, repo, task, fa)
-    gb, rb = gold(root, repo, task, fb)
+    ga, ra = gold(root, repo, task, fa, dataset)
+    gb, rb = gold(root, repo, task, fb, dataset)
     shared_gold = ga & gb
     merged = set(row.get("merged_passed", "").split())
     own = set(row.get("own_passed", "").split())
@@ -264,8 +298,9 @@ def state(root, d, row):
 def states(config, root, set_name):
     out = []
     for source in config["sets"][set_name]:
-        for d, row in runs(root, source):
-            out.append(dict(state(root, d, row), set=source["name"]))
+        for d, row in runs(root, source):  # a source outside CooperBench names its own dataset folder
+            out.append(dict(state(root, d, row, source.get("dataset", DATASET), source.get("segments", False)),
+                            set=source["name"]))
     return out
 
 
@@ -414,6 +449,7 @@ def flat(rec, label):
                                "length2", "writes_before1", "writes_before2", "undelivered", "gold_shared_file",
                                "gold_shared_lines", "merge", "both_pass", "own_both", "label")}
     row["shared_files"] = " ".join(rec["shared_files"])
+    row.update({k: rec[k] for k in ("compacted1", "compacted2") if k in rec})
     if label:
         row.update(incompatible=label["claims_incompatible"], primary_type=label["primary_type"],
                    **{f"type_{t}": label["types"][t] for t in TYPES},

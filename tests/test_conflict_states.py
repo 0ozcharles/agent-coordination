@@ -83,6 +83,20 @@ class ConflictStateTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             cs.parse_label(json.dumps(bad))
 
+    def test_history_joins_snapshots_after_a_compaction(self):
+        m = lambda role, text: {"role": role, "content": text}
+        first = [m("system", "s"), m("user", "task"), m("assistant", "a1"), m("tool", "t1"), m("assistant", "a2"), m("tool", "t2")]
+        later = [m("system", "s"), m("user", "task"), m("assistant", "summary"), m("assistant", "a2"), m("tool", "t2"),
+                 m("assistant", "a3")]
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "agent1_full_traj.json"
+            path.write_text(json.dumps({"segments": [{"kind": "solver", "messages": first},
+                                                     {"kind": "summarizer", "messages": first},
+                                                     {"kind": "solver", "messages": later}]}))
+            msgs, before = cs.history(path)
+        self.assertEqual([x["content"] for x in msgs], ["s", "task", "a1", "t1", "a2", "t2", "a3"])
+        self.assertEqual(before, 6)
+
     def test_kappa(self):
         self.assertEqual(cs.kappa(["a", "b", "a", "b"], ["a", "b", "a", "b"]), 1.0)
         self.assertAlmostEqual(cs.kappa(["a", "a", "b", "b"], ["a", "b", "a", "b"]), 0.0)
