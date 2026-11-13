@@ -14,6 +14,9 @@ requests' tests. The two patches are merged with git in the instance image; conf
 with the merge test's llm method (merge.resolve). Agent-written test files are dropped before scoring, as
 CooperBench does.
 
+A config may define arms. Each arm runs every sampled instance; its instruction, if it has one, is given
+to both agents as a user message before their first model call, so it applies from the start of the run.
+
 `execute` and `gold` import CooperBench and run under its venv with Docker; `report` uses only the
 standard library.
 """
@@ -85,7 +88,11 @@ git diff "$BASE" HEAD > /m/merged.patch
 
 
 def load_config(path):
-    return json.loads(Path(path).read_text())
+    """A config may extend another file in the same folder; its own keys replace the base's."""
+    config = json.loads(Path(path).read_text())
+    if "extends" in config:
+        config = {**load_config(Path(path).parent / config["extends"]), **config}
+    return config
 
 
 def source_dir(config, root):
@@ -115,13 +122,19 @@ def task_ids(instances):
 
 
 def select(config, root):
-    """The sampled instances, in a fixed order."""
+    """The sampled instances, in a fixed order: an explicit list, or a draw from each corpus that can
+    leave out the instances another config samples."""
     instances = all_instances(config, root)
     family = [i for i in instances.values() if i["family"] == config["family"]]
     sample = config["sample"]
+    if "instances" in sample:
+        return [instances[i] for i in sample["instances"]]
+    excluded = ({i["instance_id"] for i in select(load_config(root / sample["exclude"]), root)}
+                if sample.get("exclude") else set())
     chosen = []
     for corpus, count in sample["corpora"].items():
-        pool = sorted((i for i in family if i["_corpus"] == corpus), key=lambda i: i["instance_id"])
+        pool = sorted((i for i in family if i["_corpus"] == corpus and i["instance_id"] not in excluded),
+                      key=lambda i: i["instance_id"])
         if count != "all":
             pool = random.Random(sample["seed"]).sample(pool, count)
         chosen.extend(pool)
@@ -129,15 +142,28 @@ def select(config, root):
 
 
 def plan(config, root):
+    """One job per repeat, instance and arm; the arms of an instance are adjacent, so a partial run stays balanced."""
     ids = task_ids(all_instances(config, root))
+    arms = [{"arm": a} for a in config["arms"]] if config.get("arms") else [{}]
     return [{"instance": i["instance_id"], "repo": repo_name(i), "task_id": ids[i["instance_id"]],
-             "repeat": r, "features": list(FEATURES), "setting": config.get("setting", "coop")}
-            for r in range(1, config.get("repeats", 1) + 1) for i in select(config, root)]
+             "repeat": r, "features": list(FEATURES), "setting": config.get("setting", "coop"), **arm}
+            for r in range(1, config.get("repeats", 1) + 1) for i in select(config, root) for arm in arms]
+
+
+def logs_dir(output, job):
+    return Path(output) / job["arm"] / "logs" if job.get("arm") else Path(output) / "logs"
 
 
 def job_dir(output, job):
-    return (Path(output) / "logs" / f"r{job['repeat']}" / job.get("setting", "coop") / job["repo"]
+    return (logs_dir(output, job) / f"r{job['repeat']}" / job.get("setting", "coop") / job["repo"]
             / str(job["task_id"]) / "f1_f2")
+
+
+def instruction(config, arm, agent):
+    """The arm's instruction for one agent (instruction_agent1/2 override the shared one), or None."""
+    spec = config["arms"][arm] if arm else {}
+    text = spec.get(f"instruction_{agent}", spec.get("instruction"))
+    return config.get("instruction_prefix", "") + text if text else None
 
 
 def write_dataset(output, instance, job):
@@ -210,6 +236,41 @@ def install_hooks(images):
     DockerEnvironment._parallact_setup = True
 
 
+GUIDANCE = {}  # agent id -> instruction for the job this process is running
+
+
+def install_guidance():
+    """Give each agent its arm's instruction as a user message just before its first model call."""
+    from cooperbench.agents.mini_swe_agent_v2.agents.default import DefaultAgent
+    if getattr(DefaultAgent, "_parallact_guidance", False):
+        return
+    original_query = DefaultAgent.query
+
+    def query(self):
+        text = GUIDANCE.get(self.agent_id)
+        if text and self.n_calls == 0 and not getattr(self, "_guided", False):
+            self._guided = True
+            self.add_messages(self.model.format_message(role="user", content=text))
+        return original_query(self)
+
+    DefaultAgent.query = query
+    DefaultAgent._parallact_guidance = True
+
+
+def guidance_given(target, texts):
+    """Whether each agent's history has its instruction before its first reply (None: the arm has none)."""
+    from . import conflict_states as cs
+    if not any(texts.values()):
+        return None
+    for agent, text in texts.items():
+        full, path = Path(target) / f"{agent}_full_traj.json", Path(target) / f"agent{agent[-1]}_traj.json"
+        msgs = cs.history(full)[0] if full.is_file() else read_json(path).get("messages", [])
+        first_reply = next((n for n, m in enumerate(msgs) if m.get("role") == "assistant"), len(msgs))
+        if text and not any(m.get("role") == "user" and m.get("content") == text for m in msgs[:first_reply]):
+            return False
+    return True
+
+
 def ensure_image(image, timeout=3600):
     """Pull the image first: CooperBench starts agent containers with a 120 s limit, too short for a pull."""
     if subprocess.run(["docker", "image", "inspect", image], capture_output=True).returncode != 0:
@@ -224,19 +285,26 @@ def run_agents(config, root, job, output, instance):
     dataset = write_dataset(output, instance, job)
     agent_config = str(root / config["agent_config"]) if config.get("agent_config") else None
     s1.CURRENT_JOB_DIR = job_dir(output, job)
+    logs = str(logs_dir(output, job))
     try:
         if job.get("setting") == "solo":  # one agent; CooperBench joins the two requests as Feature 1 and 2
             execute_solo(repo_name=job["repo"], task_id=job["task_id"], features=job["features"],
                          run_name=f"r{job['repeat']}", agent_name=config.get("agent", "mini_swe_agent_v2"),
                          model_name=f"openai/{config['model']}", force=True, quiet=True, backend="docker",
-                         agent_config=agent_config, dataset_dir=str(dataset), logs_dir=str(Path(output) / "logs"))
+                         agent_config=agent_config, dataset_dir=str(dataset), logs_dir=logs)
             return
+        texts = {agent: instruction(config, job.get("arm"), agent) for agent in ("agent1", "agent2")}
+        GUIDANCE.clear()
+        GUIDANCE.update({a: t for a, t in texts.items() if t})
         execute_coop(repo_name=job["repo"], task_id=job["task_id"], features=job["features"],
                      run_name=f"r{job['repeat']}", agent_name=config.get("agent", "mini_swe_agent_v2"),
                      model_name=f"openai/{config['model']}", redis_url=config.get("redis", "redis://localhost:6379"),
                      force=True, quiet=True, git_enabled=False, messaging_enabled=True, backend="docker",
-                     agent_config=agent_config, dataset_dir=str(dataset), logs_dir=str(Path(output) / "logs"))
+                     agent_config=agent_config, dataset_dir=str(dataset), logs_dir=logs)
+        if job.get("arm"):
+            (job_dir(output, job) / "arm.json").write_text(json.dumps({"arm": job["arm"], "instructions": texts}, indent=2))
     finally:
+        GUIDANCE.clear()
         s1.CURRENT_JOB_DIR = None
 
 
@@ -422,7 +490,7 @@ def images_for(config, root, jobs):
 
 def run_job(config, root, job, output, instance, runner):
     target = job_dir(output, job)
-    name = f"r{job['repeat']} {job['instance']}"
+    name = f"{job.get('arm', '')} r{job['repeat']} {job['instance']}".strip()
     try:
         if (target / "result.json").is_file() and agent_errors(target):
             attempt = 1
@@ -460,11 +528,12 @@ def execute(config, root, shard=(0, 1), limit=None):
     (output / "claims").mkdir(parents=True, exist_ok=True)
     jobs = plan(config, root)[:limit] if limit else plan(config, root)
     install_hooks(images_for(config, root, jobs))
+    install_guidance()
     instances, runner = all_instances(config, root), load_runner(config, root)
     if shard[0] == 0:
         (output / "config.json").write_text(json.dumps(config, ensure_ascii=False, indent=2))
     for job in jobs:
-        if claimed(output, f"r{job['repeat']}_{job['task_id']}"):
+        if claimed(output, f"{job.get('arm', '')}_r{job['repeat']}_{job['task_id']}"):
             run_job(config, root, job, output, instances[job["instance"]], runner)
 
 
@@ -514,7 +583,8 @@ def collect(config, root):
         target, instance = job_dir(output, job), instances[job["instance"]]
         result, ev = read_json(target / "result.json"), read_json(target / "parallact_eval.json")
         write_dataset(output, instance, job)
-        row = {"setting": job["setting"], "repeat": job["repeat"], "instance": job["instance"], "repo": job["repo"],
+        row = {"arm": job.get("arm", ""),
+               "setting": job["setting"], "repeat": job["repeat"], "instance": job["instance"], "repo": job["repo"],
                "task_id": job["task_id"], "features": "1 2", "source_repo": instance["repo"],
                "corpus": instance["_corpus"], "mutex_type": instance.get("mutex_type", ""),
                "finished": bool(ev)}
@@ -525,6 +595,8 @@ def collect(config, root):
                 texts = [(target / f"agent{f}.patch").read_text() if (target / f"agent{f}.patch").is_file() else ""
                          for f in FEATURES]
                 row["shared_files"] = len(s1.patch_files(texts[0]) & s1.patch_files(texts[1]))
+            if job.get("arm"):
+                row["instruction_given"] = guidance_given(target, read_json(target / "arm.json").get("instructions", {}))
         if ev and job["setting"] == "solo":
             solo, local = ev["solo"], ev.get("local", {})
             local = solo if local.get("same_as_published") else local
@@ -551,6 +623,41 @@ def collect(config, root):
     return rows
 
 
+def arm_summaries(config, rows):
+    """Per arm: outcomes and behaviour, and paired comparisons with the control on the instances both finished.
+
+    A comparison counts the instances where the two arms differ (arm higher / control higher) with an
+    exact sign test. `concessions` are runs where one agent submitted no code of its own."""
+    from .branch import exact_p
+    control, out = config.get("control"), {}
+    done = {(r["arm"], r["repeat"], r["instance"]): r for r in rows if r["finished"]}
+    measures = {"both_pass": lambda r: int(r["both"]),
+                "requests_passed": lambda r: int(r["merged_A"]) + int(r["merged_B"]),
+                "messages": lambda r: r.get("messages", 0)}
+    for arm in config["arms"]:
+        R = [r for (a, _, _), r in done.items() if a == arm]
+        entry = {"finished": len(R), "both_pass": sum(r["both"] for r in R),
+                 "requests_passed": sum(int(r["merged_A"]) + int(r["merged_B"]) for r in R),
+                 "own_both": sum(r["own_both"] for r in R),
+                 "merge_conflicts": sum(r["merge_status"] != "clean" for r in R),
+                 "concessions": sum(r["empty_patches"] == 1 for r in R),
+                 "concessions_both_pass": sum(r["empty_patches"] == 1 and r["both"] for r in R),
+                 "mean_messages": round(sum(r.get("messages", 0) for r in R) / len(R), 1) if R else None,
+                 "mean_minutes": round(sum(r.get("minutes", 0) for r in R) / len(R), 1) if R else None,
+                 "cost_usd": round(sum(r.get("cost_usd", 0) for r in R), 2),
+                 "instruction_missing": sum(r.get("instruction_given") is False for r in R)}
+        if control and arm != control:
+            pairs = [(r, done[(control, k[1], k[2])]) for k, r in done.items()
+                     if k[0] == arm and (control, k[1], k[2]) in done]
+            entry["vs_control"] = {"pairs": len(pairs)}
+            for name, value in measures.items():
+                up = sum(value(a) > value(c) for a, c in pairs)
+                down = sum(value(a) < value(c) for a, c in pairs)
+                entry["vs_control"][name] = {"arm_higher": up, "control_higher": down, "p": exact_p(up, up + down)}
+        out[arm] = entry
+    return out
+
+
 def summarize(config, rows, gold_records):
     done = [r for r in rows if r["finished"]]
     outcome = Counter(("both" if r["merged_A"] and r["merged_B"] else "A only" if r["merged_A"]
@@ -571,6 +678,7 @@ def summarize(config, rows, gold_records):
             "test_errors": sum(r["test_errors"] for r in done),
             "cost_usd": round(sum(r.get("cost_usd", 0) for r in rows), 2),
             "mean_minutes": round(sum(r.get("minutes", 0) for r in done) / len(done), 1) if done else None,
+            **({"control": config.get("control"), "arms": arm_summaries(config, rows)} if config.get("arms") else {}),
             "gold": {"checked": len(gold_records),
                      "all_checks_pass": sum(all(g["checks"].values()) for g in gold_records),
                      "failed": {g["instance"]: [k for k, v in g["checks"].items() if not v]
@@ -585,7 +693,8 @@ def report(config, root):
     output.mkdir(parents=True, exist_ok=True)
     for path in (output / "rows.csv", root / "results" / f"{config['study']}_rows.csv"):
         with open(path, "w", newline="") as handle:
-            writer = csv.DictWriter(handle, fieldnames=ROW_COLUMNS, extrasaction="ignore")
+            columns = (["arm", "instruction_given"] if config.get("arms") else []) + ROW_COLUMNS
+            writer = csv.DictWriter(handle, fieldnames=columns, extrasaction="ignore")
             writer.writeheader()
             writer.writerows(rows)
     for path in (output / "summary.json", root / "results" / f"{config['study']}_summary.json"):

@@ -1,0 +1,19 @@
+{
+  "extends": "parallact_styles.json",
+  "study": "parallact_styles_dev",
+  "status": "dev: checks that the instructions are delivered and followed; wording may change here before the test set is frozen",
+  "sample": {
+    "instances": [
+      "instance_NodeBB__NodeBB-b1f9ad5534bb3a44dab5364f659876a4b7fe34c1-vnan",
+      "instance_ansible__ansible-1ee70fc272aff6bf3415357c6e13c5de5b928d9b-v1055803c3a812189a1133297f7f5468579283f86",
+      "instance_flipt-io__flipt-381b90f718435c4694380b5fcd0d5cf8e3b5a25a",
+      "instance_flipt-io__flipt-b6cef5cdc0daff3ee99e5974ed60a1dc6b4b0d67",
+      "instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866",
+      "instance_protonmail__webclients-b387b24147e4b5ec3b482b8719ea72bee001462a",
+      "instance_NodeBB__NodeBB-4327a09d76f10a79109da9d91c22120428d3bdb9-vnan",
+      "instance_qutebrowser__qutebrowser-0b621cb0ce2b54d3f93d8d41d8ff4257888a87e5-v2ef375ac784985212b1805e1d0431dc8f1b3c171"
+    ],
+    "note": "eight pilot instances: the six where a solo agent satisfied both requests, one where the pair negotiated the contradiction explicitly, and one where a concession satisfied both"
+  },
+  "output": "runs/parallact/styles_dev"
+}

@@ -1,0 +1,82 @@
+{
+  "study": "parallact_styles",
+  "question": "On ParallACT's contradictory tasks, where conceding is feasible, does telling both agents how to handle an overlap change how they negotiate, whose request is satisfied, and whether both requests pass? Does asking them to state what they need from the shared code help?",
+  "status": "draft, not frozen: the instructions are checked on the dev instances (configs/parallact_styles_dev.json) and may change there; freeze before the first test run",
+  "source": {
+    "url": "https://github.com/rm206/ParallACT_data_and_code",
+    "commit": "c212deb174fbc8980212cc1bde5b3f047941f332",
+    "path": "external/ParallACT",
+    "license": "none stated; used for research only, the dataset is not redistributed"
+  },
+  "family": "contradictory",
+  "sample": {
+    "corpora": {
+      "v1/generated": "all",
+      "v2/generated": "all"
+    },
+    "exclude": "configs/parallact_pilot.json",
+    "seed": 20261113,
+    "note": "the 65 contradictory instances the pilot did not use; the 20 pilot instances are the dev set"
+  },
+  "repeats": 1,
+  "model": "gpt-6-luna",
+  "agent": "mini_swe_agent_v2",
+  "agent_config": "configs/agents/luna_mini_swe.yaml",
+  "redis": "redis://localhost:6379",
+  "merge_config": "configs/merge_test.json",
+  "merge_method": "llm",
+  "test_timeout": 2400,
+  "request_timeout": 300,
+  "instruction_timing": "a user message to both agents before their first model call. The pilot showed that a conflict point is reached late (step 20) or never, after 43% of agents have written files, so the instruction cannot wait for it as it did on CooperBench",
+  "instruction_prefix": "[Coordination guidance] Your feature and your colleague's feature may need changes to the same code, so your plans may overlap in the shared code. ",
+  "control": "neutral",
+  "arms": {
+    "default": {
+      "instruction": null,
+      "note": "CooperBench's coop prompt as it is; no guidance message"
+    },
+    "neutral": {
+      "instruction": "Handle the overlap in whatever way you think best.",
+      "note": "control: same form as the style arms, so every guided arm draws the same attention to a possible overlap"
+    },
+    "competing": {
+      "target": "competing",
+      "instruction": "Handle it like this: keep every change your own feature needs, exactly where your feature needs it. Tell your colleague what you are changing and ask them to work around your changes. Do not give up, move or shrink your edits for their sake."
+    },
+    "collaborating": {
+      "target": "collaborating",
+      "instruction": "Handle it like this: work out with your colleague how both features fit together in the shared code, so that both fully work. Agree on exact names, signatures, data formats and the order of operations where your changes meet, decide who writes any shared code, and check that your change keeps their feature working."
+    },
+    "compromising": {
+      "target": "compromising",
+      "instruction": "Handle it like this: settle quickly on a middle ground you can both accept. Split the shared code so that each of you keeps the main part of your change in your own region, give up a little if needed, and stay out of your colleague's region."
+    },
+    "accommodating": {
+      "target": "accommodating",
+      "instruction": "Handle it like this: put your colleague's needs first. Ask what they need in the shared code, fit your own changes around theirs, and give up or move your edits, or write code for them, whenever that helps them."
+    },
+    "avoiding": {
+      "target": "avoiding",
+      "instruction": "Handle it like this: do not negotiate about the overlap. Keep messages to a minimum, steer clear of the contested code where you can, and get on with your own feature."
+    },
+    "structured": {
+      "instruction": "Before you edit any code, send your colleague one message that lists (1) the files and functions you expect to change, (2) what your feature requires of each one: its signature, arguments, return value and behaviour, and (3) what you need from them. Ask them for the same list, read it, and tell them about anything in it that is incompatible with your feature. Then handle the overlap in whatever way you think best.",
+      "note": "not a style: asks each agent to state what its feature needs from the shared code before editing, then leaves the handling open as in neutral"
+    }
+  },
+  "instruction_source": "the neutral and style sentences are those of configs/c_style_interventions.json, unchanged; only the prefix differs, because here the overlap is not yet known when the instruction is given. They describe behaviour and never name a style",
+  "measures": {
+    "primary": "both requests' fail-to-pass tests pass on the merged patch; each arm against neutral, paired by instance, exact sign test on the instances where the two differ, Holm correction over the six guided arms",
+    "requests": "number of requests that pass on the merged patch (0, 1 or 2), and which one, paired the same way",
+    "manipulation": "each agent's style from codebook version 5, labeled from the messages between agents only (the guidance message is not among them); share of agents in the arm's target style against neutral",
+    "behaviour": "messages sent; handoffs (labeler); concessions, meaning one agent submits no code of its own, and whether both requests then pass; merge conflicts",
+    "capability": "a solo baseline on the same instances separates what the model cannot do from what coordination loses; both-pass is also reported on the instances solo satisfies"
+  },
+  "predictions": "Unlike on CooperBench, conceding is feasible here. We expect accommodating and collaborating to raise both-pass against neutral, competing and avoiding to lower it, and structured to raise it. On CooperBench no style helped and compromising hurt",
+  "scoring": {
+    "own": "each agent's patch, test files dropped, against its own request's fail-to-pass tests (ParallACT's A and B groups)",
+    "merged": "git merge of the two patches on the base commit; conflicted files resolved by the merge test's llm method; the merged patch against the combined tests",
+    "primary": "both requests' fail-to-pass tests pass on the merged patch"
+  },
+  "output": "runs/parallact/styles"
+}

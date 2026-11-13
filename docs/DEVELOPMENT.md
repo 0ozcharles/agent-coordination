@@ -197,6 +197,13 @@ python3 scripts/project.py parallact configs/parallact_pilot.json --report
 python3 scripts/project.py parallact configs/parallact_solo.json --execute --workers 3            # one agent, both requests
 ```
 
+A config can define `arms`. Every arm runs each sampled instance; an arm's `instruction` (after `instruction_prefix`) is given to both agents as a user message before their first model call, and `instruction_agent1` / `instruction_agent2` override it for one agent. Runs go to `<output>/<arm>/logs/`. `sample.instances` lists instance ids, `sample.exclude` leaves out the instances another config samples, and `extends` reuses another config in the same folder:
+
+```bash
+python3 scripts/project.py parallact configs/parallact_styles_dev.json --execute --workers 3     # 8 dev instances x 8 arms
+python3 scripts/project.py parallact configs/parallact_styles.json                               # preview of the test set
+```
+
 Conflict points and style labels for these runs use the conflict-state module with its own config. A source there names its `dataset` folder (for the request titles) and sets `segments`, which rebuilds a compacted agent's message history from the snapshots in its full trajectory:
 
 ```bash

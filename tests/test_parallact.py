@@ -88,6 +88,48 @@ class ParallactTest(unittest.TestCase):
         (target / "result.json").write_text(json.dumps({"agents": {"agent1": {"status": "Submitted"}}}))
         self.assertEqual(parallact.agent_errors(target), [])
 
+    def test_arms_plan_instruction_and_paths(self):
+        config = {**self.config, "repeats": 1, "instruction_prefix": "[G] ",
+                  "arms": {"default": {"instruction": None}, "neutral": {"instruction": "Do as you like."},
+                           "split": {"instruction": "Both.", "instruction_agent2": "Only two."}}}
+        jobs = parallact.plan(config, self.root)
+        self.assertEqual([j["arm"] for j in jobs[:3]], ["default", "neutral", "split"])
+        self.assertEqual(jobs[0]["instance"], jobs[2]["instance"])
+        self.assertEqual(parallact.job_dir(self.root, jobs[1]).parts[-7:-4], ("neutral", "logs", "r1"))
+        self.assertIsNone(parallact.instruction(config, "default", "agent1"))
+        self.assertEqual(parallact.instruction(config, "neutral", "agent2"), "[G] Do as you like.")
+        self.assertEqual(parallact.instruction(config, "split", "agent1"), "[G] Both.")
+        self.assertEqual(parallact.instruction(config, "split", "agent2"), "[G] Only two.")
+
+    def test_sample_by_list_exclusion_and_extends(self):
+        base = self.root / "base.json"
+        base.write_text(json.dumps(self.config))
+        other = {**self.config, "sample": {"corpora": {"v1/seeds": "all", "v2/generated": "all"}, "exclude": "base.json"}}
+        left = [i["instance_id"] for i in parallact.select(other, self.root)]
+        taken = {i["instance_id"] for i in parallact.select(self.config, self.root)}
+        self.assertEqual(len(left), 1)
+        self.assertFalse(set(left) & taken)
+        child = self.root / "child.json"
+        child.write_text(json.dumps({"extends": "base.json", "sample": {"instances": ["g2", "s1"]}}))
+        config = parallact.load_config(child)
+        self.assertEqual(config["family"], "contradictory")
+        self.assertEqual([i["instance_id"] for i in parallact.select(config, self.root)], ["g2", "s1"])
+
+    def test_arm_summaries_pair_by_instance(self):
+        def row(arm, instance, a, b, messages, empty=0):
+            return {"arm": arm, "repeat": 1, "instance": instance, "finished": True, "merged_A": a, "merged_B": b,
+                    "both": a and b, "own_both": False, "merge_status": "clean", "empty_patches": empty,
+                    "messages": messages, "minutes": 1.0, "cost_usd": 0.01, "instruction_given": True}
+        rows = [row("neutral", "x", True, False, 4), row("neutral", "y", False, False, 6), row("neutral", "z", True, True, 2),
+                row("give", "x", True, True, 5, empty=1), row("give", "y", True, True, 6), row("give", "z", True, True, 1)]
+        config = {"control": "neutral", "arms": {"neutral": {}, "give": {}}}
+        out = parallact.arm_summaries(config, rows)
+        self.assertEqual(out["give"]["both_pass"], 3)
+        self.assertEqual(out["give"]["concessions_both_pass"], 1)
+        self.assertEqual(out["give"]["vs_control"]["both_pass"], {"arm_higher": 2, "control_higher": 0, "p": 0.5})
+        self.assertEqual(out["give"]["vs_control"]["messages"]["control_higher"], 1)
+        self.assertNotIn("vs_control", out["neutral"])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -315,15 +315,17 @@ def parallact_command(root, args):
     module_args = [str(config_path)] + (["--limit", str(args.limit)] if args.limit else [])
     print(f"{config['study']}: {config['question']}")
     if args.gold:
-        done = sum((output / "gold" / f"{job['instance']}.json").is_file() for job in jobs if job["repeat"] == 1)
-        print(f"Reference-patch checks for {len(jobs) // config.get('repeats', 1)} instances, {done} done (Docker only).")
+        instances = sorted({job["instance"] for job in jobs})
+        done = sum((output / "gold" / f"{i}.json").is_file() for i in instances)
+        print(f"Reference-patch checks for {len(instances)} instances, {done} done (Docker only).")
         if args.execute:
             import shutil
             shutil.rmtree(output / "claims_gold", ignore_errors=True)
         code = launch(root, args, "agent_coordination.parallact", module_args + ["--gold"], output, args.workers or 1)
     else:
         done = sum((parallact.job_dir(output, job) / "parallact_eval.json").is_file() for job in jobs)
-        print(f"{len(jobs)} {config.get('setting', 'coop')} runs, {done} already scored.")
+        arms = f" in {len(config['arms'])} arms ({', '.join(config['arms'])})" if config.get("arms") else ""
+        print(f"{len(jobs)} {config.get('setting', 'coop')} runs{arms}, {done} already scored.")
         if args.execute:
             import shutil
             shutil.rmtree(output / "claims", ignore_errors=True)

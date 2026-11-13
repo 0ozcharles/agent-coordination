@@ -529,6 +529,27 @@ What it means for the intervention design:
 - Getting the agents to state what their request needs from the shared code comes before handling style. An arm that asks for this in the first message (the structured-message idea) is the natural companion to the style arms.
 - Limits: 20 runs, one per instance; the conflict detector keys on file names and was not adapted to ParallACT.
 
+### ParallACT style interventions: design (2026-11-12)
+
+Status: draft. The instructions are checked on dev instances first; the config is frozen before the first test run. Config: [configs/parallact_styles.json](../configs/parallact_styles.json), dev: [configs/parallact_styles_dev.json](../configs/parallact_styles_dev.json). No results yet.
+
+- **Question.** Where conceding is feasible, does telling both agents how to handle an overlap change how they negotiate, whose request is satisfied, and whether both requests pass? Does asking them to state what they need from the shared code help?
+- **Timing.** The instruction is a user message to both agents before their first model call. It cannot wait for a conflict point as on CooperBench: on ParallACT that point comes late or never (see above).
+- **Arms.** Eight, each on every instance:
+  - default: CooperBench's coop prompt as it is.
+  - neutral (control): "handle the overlap in whatever way you think best". Same form as the style arms, so every guided arm draws the same attention to a possible overlap.
+  - the five Thomas–Kilmann styles, with the sentences used on CooperBench, unchanged. Only the opening differs ("your features may need changes to the same code"), because the overlap is not yet known.
+  - structured: before editing, each agent lists the files and functions it will change, what its feature requires of each (signature, arguments, return value, behaviour) and what it needs from its partner; then handles the overlap as it sees fit. This is not a style. It tests whether stating needs up front helps, since the pilot agents rarely said that their requests contradict.
+- **Sample.** Test: the 65 contradictory instances the pilot did not use, one run per arm (520 runs). Dev: 8 pilot instances, used to check that the instructions are delivered and followed; wording may change there only.
+- **Measures.**
+  - Primary: both requests pass on the merged patch. Each guided arm against neutral, paired by instance, exact sign test, Holm correction over six arms.
+  - Requests: how many requests pass (0, 1 or 2) and whose.
+  - Manipulation check: styles from codebook version 5, labeled from the messages between agents (the instruction is not among them).
+  - Behaviour: messages, handoffs, concessions (one agent submits no code of its own) and whether both requests then pass, merge conflicts.
+  - Capability: a solo baseline on the same instances; both-pass is also reported on the instances solo satisfies.
+- **Predictions.** Accommodating and collaborating raise both-pass against neutral, competing and avoiding lower it, structured raises it. On CooperBench no style helped and compromising hurt.
+- **Check so far.** One dev instance in the default and neutral arms: the neutral agents received the instruction before their first reply, the default agents received none.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.
