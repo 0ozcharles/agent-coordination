@@ -236,6 +236,44 @@ def install_hooks(images):
     DockerEnvironment._parallact_setup = True
 
 
+def limit_model_calls(seconds):
+    """Give every model call a hard wall-clock limit.
+
+    A stalled API connection held runs for 40 minutes and more: litellm's own timeout (600 s by default,
+    passed to the HTTP client) did not end those requests, and `litellm.request_timeout` is not read
+    by `completion`. The call now runs in a thread; when the limit passes, a TimeoutError goes to the
+    agent's retry loop and the stalled thread is left behind. The limit is also passed as the request's
+    timeout.
+    """
+    import threading
+    from cooperbench.agents.mini_swe_agent_v2.models.litellm_model import LitellmModel
+    if getattr(LitellmModel, "_parallact_limit", None):
+        LitellmModel._parallact_limit = seconds
+        return
+    original = LitellmModel._query
+
+    def _query(self, messages, **kwargs):
+        limit, box = LitellmModel._parallact_limit, {}
+
+        def work():
+            try:
+                box["value"] = original(self, messages, **{"timeout": limit, **kwargs})
+            except BaseException as exc:  # handed to the caller's thread
+                box["error"] = exc
+
+        thread = threading.Thread(target=work, daemon=True)
+        thread.start()
+        thread.join(limit + 30)
+        if thread.is_alive():
+            raise TimeoutError(f"model call still running after {limit + 30} s")
+        if "error" in box:
+            raise box["error"]
+        return box["value"]
+
+    LitellmModel._query = _query
+    LitellmModel._parallact_limit = seconds
+
+
 GUIDANCE = {}  # agent id -> instruction for the job this process is running
 
 
@@ -498,6 +536,13 @@ def run_job(config, root, job, output, instance, runner):
                 attempt += 1
             target.rename(target.with_name(f"{target.name}.error{attempt}"))
             print(f"retry {name} after agent error", flush=True)
+        if target.is_dir() and not (target / "result.json").is_file():
+            # An interrupted attempt: its leftover files (a compacted agent's full trajectory) must not
+            # be read as part of the new run.
+            attempt = 1
+            while target.with_name(f"{target.name}.interrupted{attempt}").exists():
+                attempt += 1
+            target.rename(target.with_name(f"{target.name}.interrupted{attempt}"))
         if not (target / "result.json").is_file():
             print(f"run {name}", flush=True)
             run_agents(config, root, job, output, instance)
@@ -520,10 +565,7 @@ def execute(config, root, shard=(0, 1), limit=None):
     """Run missing jobs; workers share one queue through claims/ (the CLI clears it first)."""
     check_source(config, root)
     s1.setup_runner(root, True, config.get("redis", "redis://localhost:6379"))
-    import litellm
-    # litellm waits 6000 s for a response by default, so one stalled API connection held a run for
-    # over an hour in the pilot. The agent retries a timed-out call.
-    litellm.request_timeout = config.get("request_timeout", 300)
+    limit_model_calls(config.get("request_timeout", 300))
     output = root / config["output"]
     (output / "claims").mkdir(parents=True, exist_ok=True)
     jobs = plan(config, root)[:limit] if limit else plan(config, root)
@@ -658,6 +700,40 @@ def arm_summaries(config, rows):
     return out
 
 
+def style_summaries(config, root):
+    """Per arm, from the labeled conflict-state table named in the config (`style_labels`): each agent's
+    labeled style, handoffs, and for an arm with a target style the agents in that style, compared with
+    the control on the same instances (runs where the arm has more / fewer such agents, exact sign test)."""
+    from .branch import exact_p
+    path = root / config["style_labels"]
+    if not path.is_file():
+        return None
+    labeled = {}
+    for r in csv.DictReader(open(path)):
+        if r.get("agent1_style"):
+            labeled[(r["set"], r["repeat"], r["repo"], r["task"])] = r
+    control, out = config.get("control"), {}
+    in_style = lambda r, style: sum(r[f"{a}_style"] == style for a in ("agent1", "agent2"))
+    for arm, spec in config["arms"].items():
+        R = [r for k, r in labeled.items() if k[0] == arm]
+        entry = {"labeled_runs": len(R),
+                 "agent_styles": dict(Counter(r[f"{a}_style"] for r in R for a in ("agent1", "agent2")).most_common()),
+                 "handoff_runs": sum(r["handoff"] == "True" for r in R),
+                 "requirement_conflict_runs": sum(r["type_requirement"] == "True" for r in R),
+                 "exact_interface_runs": sum(r["interface_exact"] == "True" for r in R)}
+        target = spec.get("target")
+        if target:
+            pairs = [(r, labeled[(control, *k[1:])]) for k, r in labeled.items()
+                     if k[0] == arm and (control, *k[1:]) in labeled]
+            up = sum(in_style(a, target) > in_style(c, target) for a, c in pairs)
+            down = sum(in_style(a, target) < in_style(c, target) for a, c in pairs)
+            entry["target"] = {"style": target, "agents": [sum(in_style(r, target) for r in R), 2 * len(R)],
+                               "control_agents": [sum(in_style(c, target) for _, c in pairs), 2 * len(pairs)],
+                               "runs_more": up, "runs_fewer": down, "p": exact_p(up, up + down)}
+        out[arm] = entry
+    return out
+
+
 def summarize(config, rows, gold_records):
     done = [r for r in rows if r["finished"]]
     outcome = Counter(("both" if r["merged_A"] and r["merged_B"] else "A only" if r["merged_A"]
@@ -679,6 +755,7 @@ def summarize(config, rows, gold_records):
             "cost_usd": round(sum(r.get("cost_usd", 0) for r in rows), 2),
             "mean_minutes": round(sum(r.get("minutes", 0) for r in done) / len(done), 1) if done else None,
             **({"control": config.get("control"), "arms": arm_summaries(config, rows)} if config.get("arms") else {}),
+            **({"styles": config["_styles"]} if config.get("_styles") else {}),
             "gold": {"checked": len(gold_records),
                      "all_checks_pass": sum(all(g["checks"].values()) for g in gold_records),
                      "failed": {g["instance"]: [k for k, v in g["checks"].items() if not v]
@@ -689,6 +766,8 @@ def report(config, root):
     output = root / config["output"]
     rows = collect(config, root)
     gold_records = [read_json(p) for p in sorted((output / "gold").glob("*.json"))]
+    if config.get("style_labels"):
+        config = {**config, "_styles": style_summaries(config, root)}
     summary = summarize(config, rows, gold_records)
     output.mkdir(parents=True, exist_ok=True)
     for path in (output / "rows.csv", root / "results" / f"{config['study']}_rows.csv"):

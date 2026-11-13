@@ -1,0 +1,89 @@
+{
+  "study": "parallact_styles_dev_conflict_states",
+  "status": "dev: labels the dev runs of configs/parallact_styles_dev.json with codebook version 5, unchanged",
+  "question": "In the dev runs of the ParallACT style arms, does each instruction move the agents' labeled handling style toward its target?",
+  "sets": {
+    "dev": [
+      {
+        "name": "default",
+        "arm": "default",
+        "logs": "runs/parallact/styles_dev/default/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      },
+      {
+        "name": "neutral",
+        "arm": "neutral",
+        "logs": "runs/parallact/styles_dev/neutral/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      },
+      {
+        "name": "competing",
+        "arm": "competing",
+        "logs": "runs/parallact/styles_dev/competing/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      },
+      {
+        "name": "collaborating",
+        "arm": "collaborating",
+        "logs": "runs/parallact/styles_dev/collaborating/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      },
+      {
+        "name": "compromising",
+        "arm": "compromising",
+        "logs": "runs/parallact/styles_dev/compromising/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      },
+      {
+        "name": "accommodating",
+        "arm": "accommodating",
+        "logs": "runs/parallact/styles_dev/accommodating/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      },
+      {
+        "name": "avoiding",
+        "arm": "avoiding",
+        "logs": "runs/parallact/styles_dev/avoiding/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      },
+      {
+        "name": "structured",
+        "arm": "structured",
+        "logs": "runs/parallact/styles_dev/structured/logs",
+        "rows": "results/parallact_styles_dev_rows.csv",
+        "dataset": "runs/parallact/styles_dev/dataset",
+        "segments": true
+      }
+    ]
+  },
+  "conflict_point": "defined by the detector, as in configs/c_conflict_states.json: the first sent message after which both agents have claimed the same file (a path both mention, or a reference to 'the same file'); per agent, the trajectory step where it has sent its own claim and received the partner's",
+  "codebook": "docs/C_CONFLICT_CODEBOOK.md",
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {
+      "extra_body": {
+        "reasoning_effort": "low"
+      }
+    },
+    "input": "request titles and every message between the agents in causal order; not the guidance message, code, patches, tests or outcomes",
+    "attempts": 2,
+    "repeat_sample": 0,
+    "seed": 20261112
+  },
+  "validation": "none on the dev set; the test set gets second labels",
+  "output": "runs/parallact/styles_dev_conflict_states"
+}

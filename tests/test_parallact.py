@@ -130,6 +130,54 @@ class ParallactTest(unittest.TestCase):
         self.assertEqual(out["give"]["vs_control"]["messages"]["control_higher"], 1)
         self.assertNotIn("vs_control", out["neutral"])
 
+    def test_style_summaries_compare_target_style_with_control(self):
+        import csv
+        def row(arm, task, s1, s2, handoff="False"):
+            return {"set": arm, "repeat": "1", "repo": "r", "task": task, "agent1_style": s1, "agent2_style": s2,
+                    "handoff": handoff, "type_requirement": "False", "interface_exact": "True"}
+        rows = [row("neutral", "1", "compromising", "compromising"), row("neutral", "2", "accommodating", "collaborating"),
+                row("give", "1", "accommodating", "accommodating", "True"), row("give", "2", "accommodating", "collaborating"),
+                row("give", "3", "", "")]
+        path = self.root / "states.csv"
+        with open(path, "w", newline="") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+        config = {"style_labels": "states.csv", "control": "neutral",
+                  "arms": {"neutral": {}, "give": {"target": "accommodating"}}}
+        out = parallact.style_summaries(config, self.root)
+        self.assertEqual(out["give"]["labeled_runs"], 2)
+        self.assertEqual(out["give"]["target"]["agents"], [3, 4])
+        self.assertEqual(out["give"]["target"]["control_agents"], [1, 4])
+        self.assertEqual((out["give"]["target"]["runs_more"], out["give"]["target"]["runs_fewer"]), (1, 0))
+        self.assertEqual(out["give"]["handoff_runs"], 1)
+        self.assertNotIn("target", out["neutral"])
+
+    def test_limit_model_calls_ends_a_stalled_call(self):
+        import sys, time, types
+        names = ["cooperbench", "cooperbench.agents", "cooperbench.agents.mini_swe_agent_v2",
+                 "cooperbench.agents.mini_swe_agent_v2.models", "cooperbench.agents.mini_swe_agent_v2.models.litellm_model"]
+        saved = {n: sys.modules.get(n) for n in names}
+
+        class LitellmModel:
+            def _query(self, messages, **kwargs):
+                time.sleep(messages)
+                return kwargs["timeout"]
+        try:
+            for n in names:
+                sys.modules[n] = types.ModuleType(n)
+            sys.modules[names[-1]].LitellmModel = LitellmModel
+            parallact.limit_model_calls(-29.9)  # joins for 0.1 s
+            self.assertEqual(LitellmModel()._query(0), -29.9)
+            with self.assertRaises(TimeoutError):
+                LitellmModel()._query(1)
+        finally:
+            for n, module in saved.items():
+                if module is None:
+                    sys.modules.pop(n, None)
+                else:
+                    sys.modules[n] = module
+
 
 if __name__ == "__main__":
     unittest.main()

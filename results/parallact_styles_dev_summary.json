@@ -1,0 +1,434 @@
+{
+  "study": "parallact_styles_dev",
+  "setting": "coop",
+  "jobs": 64,
+  "finished": 64,
+  "both_pass": 37,
+  "both_pass_clean_merge": 23,
+  "merged_outcomes": {
+    "neither": 12,
+    "A only": 7,
+    "both": 37,
+    "B only": 8
+  },
+  "own_pass": {
+    "A": 44,
+    "B": 52
+  },
+  "merge_status": {
+    "resolved": 27,
+    "clean": 37
+  },
+  "runs_with_messages": 60,
+  "mean_messages": 5.8,
+  "runs_with_shared_files": 31,
+  "empty_patches": 14,
+  "test_errors": 0,
+  "cost_usd": 0.66,
+  "mean_minutes": 7.1,
+  "control": "neutral",
+  "arms": {
+    "default": {
+      "finished": 8,
+      "both_pass": 4,
+      "requests_passed": 11,
+      "own_both": 2,
+      "merge_conflicts": 3,
+      "concessions": 3,
+      "concessions_both_pass": 2,
+      "mean_messages": 6.4,
+      "mean_minutes": 4.6,
+      "cost_usd": 0.09,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 8,
+        "both_pass": {
+          "arm_higher": 1,
+          "control_higher": 2,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 2,
+          "control_higher": 3,
+          "p": 1.0
+        },
+        "messages": {
+          "arm_higher": 5,
+          "control_higher": 3,
+          "p": 0.7266
+        }
+      }
+    },
+    "neutral": {
+      "finished": 8,
+      "both_pass": 5,
+      "requests_passed": 11,
+      "own_both": 6,
+      "merge_conflicts": 3,
+      "concessions": 2,
+      "concessions_both_pass": 1,
+      "mean_messages": 3.8,
+      "mean_minutes": 6.6,
+      "cost_usd": 0.06,
+      "instruction_missing": 0
+    },
+    "competing": {
+      "finished": 8,
+      "both_pass": 4,
+      "requests_passed": 11,
+      "own_both": 5,
+      "merge_conflicts": 4,
+      "concessions": 0,
+      "concessions_both_pass": 0,
+      "mean_messages": 5.5,
+      "mean_minutes": 8.5,
+      "cost_usd": 0.1,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 8,
+        "both_pass": {
+          "arm_higher": 1,
+          "control_higher": 2,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 2,
+          "control_higher": 3,
+          "p": 1.0
+        },
+        "messages": {
+          "arm_higher": 3,
+          "control_higher": 3,
+          "p": 1.0
+        }
+      }
+    },
+    "collaborating": {
+      "finished": 8,
+      "both_pass": 6,
+      "requests_passed": 13,
+      "own_both": 6,
+      "merge_conflicts": 5,
+      "concessions": 0,
+      "concessions_both_pass": 0,
+      "mean_messages": 7.9,
+      "mean_minutes": 6.1,
+      "cost_usd": 0.1,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 8,
+        "both_pass": {
+          "arm_higher": 1,
+          "control_higher": 0,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 2,
+          "control_higher": 0,
+          "p": 0.5
+        },
+        "messages": {
+          "arm_higher": 7,
+          "control_higher": 0,
+          "p": 0.0156
+        }
+      }
+    },
+    "compromising": {
+      "finished": 8,
+      "both_pass": 3,
+      "requests_passed": 9,
+      "own_both": 4,
+      "merge_conflicts": 3,
+      "concessions": 2,
+      "concessions_both_pass": 1,
+      "mean_messages": 6.1,
+      "mean_minutes": 5.5,
+      "cost_usd": 0.08,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 8,
+        "both_pass": {
+          "arm_higher": 0,
+          "control_higher": 2,
+          "p": 0.5
+        },
+        "requests_passed": {
+          "arm_higher": 1,
+          "control_higher": 3,
+          "p": 0.625
+        },
+        "messages": {
+          "arm_higher": 6,
+          "control_higher": 1,
+          "p": 0.125
+        }
+      }
+    },
+    "accommodating": {
+      "finished": 8,
+      "both_pass": 6,
+      "requests_passed": 12,
+      "own_both": 4,
+      "merge_conflicts": 4,
+      "concessions": 1,
+      "concessions_both_pass": 1,
+      "mean_messages": 6.9,
+      "mean_minutes": 11.1,
+      "cost_usd": 0.09,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 8,
+        "both_pass": {
+          "arm_higher": 1,
+          "control_higher": 0,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 1,
+          "control_higher": 1,
+          "p": 1.0
+        },
+        "messages": {
+          "arm_higher": 4,
+          "control_higher": 2,
+          "p": 0.6875
+        }
+      }
+    },
+    "avoiding": {
+      "finished": 8,
+      "both_pass": 3,
+      "requests_passed": 9,
+      "own_both": 5,
+      "merge_conflicts": 4,
+      "concessions": 3,
+      "concessions_both_pass": 0,
+      "mean_messages": 1.6,
+      "mean_minutes": 7.5,
+      "cost_usd": 0.06,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 8,
+        "both_pass": {
+          "arm_higher": 0,
+          "control_higher": 2,
+          "p": 0.5
+        },
+        "requests_passed": {
+          "arm_higher": 0,
+          "control_higher": 2,
+          "p": 0.5
+        },
+        "messages": {
+          "arm_higher": 2,
+          "control_higher": 6,
+          "p": 0.2891
+        }
+      }
+    },
+    "structured": {
+      "finished": 8,
+      "both_pass": 6,
+      "requests_passed": 13,
+      "own_both": 2,
+      "merge_conflicts": 1,
+      "concessions": 3,
+      "concessions_both_pass": 3,
+      "mean_messages": 8.1,
+      "mean_minutes": 6.5,
+      "cost_usd": 0.09,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 8,
+        "both_pass": {
+          "arm_higher": 1,
+          "control_higher": 0,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 2,
+          "control_higher": 0,
+          "p": 0.5
+        },
+        "messages": {
+          "arm_higher": 5,
+          "control_higher": 1,
+          "p": 0.2188
+        }
+      }
+    }
+  },
+  "styles": {
+    "default": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "collaborating": 6,
+        "compromising": 4,
+        "accommodating": 3,
+        "avoiding": 3
+      },
+      "handoff_runs": 5,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 3
+    },
+    "neutral": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "compromising": 9,
+        "avoiding": 3,
+        "accommodating": 2,
+        "collaborating": 2
+      },
+      "handoff_runs": 1,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 1
+    },
+    "competing": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "compromising": 5,
+        "collaborating": 5,
+        "avoiding": 4,
+        "accommodating": 2
+      },
+      "handoff_runs": 1,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 4,
+      "target": {
+        "style": "competing",
+        "agents": [
+          0,
+          16
+        ],
+        "control_agents": [
+          0,
+          16
+        ],
+        "runs_more": 0,
+        "runs_fewer": 0,
+        "p": null
+      }
+    },
+    "collaborating": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "collaborating": 8,
+        "accommodating": 3,
+        "compromising": 3,
+        "competing": 1,
+        "avoiding": 1
+      },
+      "handoff_runs": 4,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 6,
+      "target": {
+        "style": "collaborating",
+        "agents": [
+          8,
+          16
+        ],
+        "control_agents": [
+          2,
+          16
+        ],
+        "runs_more": 4,
+        "runs_fewer": 1,
+        "p": 0.375
+      }
+    },
+    "compromising": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "collaborating": 7,
+        "compromising": 6,
+        "accommodating": 3
+      },
+      "handoff_runs": 2,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 4,
+      "target": {
+        "style": "compromising",
+        "agents": [
+          6,
+          16
+        ],
+        "control_agents": [
+          9,
+          16
+        ],
+        "runs_more": 1,
+        "runs_fewer": 3,
+        "p": 0.625
+      }
+    },
+    "accommodating": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "compromising": 6,
+        "collaborating": 5,
+        "accommodating": 3,
+        "avoiding": 2
+      },
+      "handoff_runs": 2,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 4,
+      "target": {
+        "style": "accommodating",
+        "agents": [
+          3,
+          16
+        ],
+        "control_agents": [
+          2,
+          16
+        ],
+        "runs_more": 2,
+        "runs_fewer": 1,
+        "p": 1.0
+      }
+    },
+    "avoiding": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "avoiding": 10,
+        "accommodating": 3,
+        "competing": 2,
+        "collaborating": 1
+      },
+      "handoff_runs": 1,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 1,
+      "target": {
+        "style": "avoiding",
+        "agents": [
+          10,
+          16
+        ],
+        "control_agents": [
+          3,
+          16
+        ],
+        "runs_more": 4,
+        "runs_fewer": 0,
+        "p": 0.125
+      }
+    },
+    "structured": {
+      "labeled_runs": 8,
+      "agent_styles": {
+        "collaborating": 8,
+        "accommodating": 5,
+        "avoiding": 3
+      },
+      "handoff_runs": 4,
+      "requirement_conflict_runs": 1,
+      "exact_interface_runs": 7
+    }
+  },
+  "gold": {
+    "checked": 0,
+    "all_checks_pass": 0,
+    "failed": {}
+  }
+}

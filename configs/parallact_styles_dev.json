@@ -15,5 +15,6 @@
     ],
     "note": "eight pilot instances: the six where a solo agent satisfied both requests, one where the pair negotiated the contradiction explicitly, and one where a concession satisfied both"
   },
-  "output": "runs/parallact/styles_dev"
+  "output": "runs/parallact/styles_dev",
+  "style_labels": "runs/parallact/styles_dev_conflict_states/conflict_states.csv"
 }
