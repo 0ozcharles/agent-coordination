@@ -1,0 +1,16 @@
+{
+  "extends": "parallact_solo.json",
+  "study": "parallact_styles_solo",
+  "question": "On the 65 test instances of the style arms, how often does one gpt-6-luna agent given both requests satisfy both? This separates what the model cannot do from what coordination loses.",
+  "status": "frozen 2026-11-13 with configs/parallact_styles.json",
+  "sample": {
+    "corpora": {
+      "v1/generated": "all",
+      "v2/generated": "all"
+    },
+    "exclude": "configs/parallact_pilot.json",
+    "seed": 20261113,
+    "note": "the 65 contradictory instances the pilot did not use; the 20 pilot instances are the dev set"
+  },
+  "output": "runs/parallact/styles_solo"
+}

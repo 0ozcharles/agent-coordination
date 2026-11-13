@@ -531,7 +531,7 @@ What it means for the intervention design:
 
 ### ParallACT style interventions: design (2026-11-12)
 
-Status: draft, dev check done; the config is frozen before the first test run. Config: [configs/parallact_styles.json](../configs/parallact_styles.json), dev: [configs/parallact_styles_dev.json](../configs/parallact_styles_dev.json). No test results yet.
+Status: frozen 2026-11-13 after the dev check, with the instructions unchanged. Also frozen: the style labels ([configs/parallact_styles_conflict_states.json](../configs/parallact_styles_conflict_states.json), 80 runs labeled twice) and the solo baseline on the same 65 instances ([configs/parallact_styles_solo.json](../configs/parallact_styles_solo.json)). Instances whose reference patches fail the harness check are left out of every comparison. Config: [configs/parallact_styles.json](../configs/parallact_styles.json), dev: [configs/parallact_styles_dev.json](../configs/parallact_styles_dev.json). No test results yet.
 
 - **Question.** Where conceding is feasible, does telling both agents how to handle an overlap change how they negotiate, whose request is satisfied, and whether both requests pass? Does asking them to state what they need from the shared code help?
 - **Timing.** The instruction is a user message to both agents before their first model call. It cannot wait for a conflict point as on CooperBench: on ParallACT that point comes late or never (see above).

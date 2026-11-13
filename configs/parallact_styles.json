@@ -1,7 +1,7 @@
 {
   "study": "parallact_styles",
   "question": "On ParallACT's contradictory tasks, where conceding is feasible, does telling both agents how to handle an overlap change how they negotiate, whose request is satisfied, and whether both requests pass? Does asking them to state what they need from the shared code help?",
-  "status": "draft, not frozen: the instructions are checked on the dev instances (configs/parallact_styles_dev.json) and may change there; freeze before the first test run",
+  "status": "frozen 2026-11-13 before the first test run. The instructions are unchanged after the dev check (configs/parallact_styles_dev.json), so the five style sentences stay identical to the CooperBench study",
   "source": {
     "url": "https://github.com/rm206/ParallACT_data_and_code",
     "commit": "c212deb174fbc8980212cc1bde5b3f047941f332",
@@ -78,5 +78,8 @@
     "merged": "git merge of the two patches on the base commit; conflicted files resolved by the merge test's llm method; the merged patch against the combined tests",
     "primary": "both requests' fail-to-pass tests pass on the merged patch"
   },
-  "output": "runs/parallact/styles"
+  "output": "runs/parallact/styles",
+  "exclusions": "an instance whose reference patches fail the harness check (--gold) is left out of every comparison; a run that ends in an agent error is retried once and otherwise left out, together with its instance in all arms",
+  "style_labels": "runs/parallact/styles_conflict_states/conflict_states.csv",
+  "analysis_notes": "all comparisons are paired by instance against neutral. Default is reported but not tested. Both-pass on the instances the solo baseline satisfies (configs/parallact_styles_solo.json) is secondary. Anything beyond the measures listed here is exploratory"
 }
