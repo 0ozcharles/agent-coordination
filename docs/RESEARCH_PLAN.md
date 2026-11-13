@@ -531,7 +531,7 @@ What it means for the intervention design:
 
 ### ParallACT style interventions: design (2026-11-12)
 
-Status: draft. The instructions are checked on dev instances first; the config is frozen before the first test run. Config: [configs/parallact_styles.json](../configs/parallact_styles.json), dev: [configs/parallact_styles_dev.json](../configs/parallact_styles_dev.json). No results yet.
+Status: draft, dev check done; the config is frozen before the first test run. Config: [configs/parallact_styles.json](../configs/parallact_styles.json), dev: [configs/parallact_styles_dev.json](../configs/parallact_styles_dev.json). No test results yet.
 
 - **Question.** Where conceding is feasible, does telling both agents how to handle an overlap change how they negotiate, whose request is satisfied, and whether both requests pass? Does asking them to state what they need from the shared code help?
 - **Timing.** The instruction is a user message to both agents before their first model call. It cannot wait for a conflict point as on CooperBench: on ParallACT that point comes late or never (see above).
@@ -548,7 +548,23 @@ Status: draft. The instructions are checked on dev instances first; the config i
   - Behaviour: messages, handoffs, concessions (one agent submits no code of its own) and whether both requests then pass, merge conflicts.
   - Capability: a solo baseline on the same instances; both-pass is also reported on the instances solo satisfies.
 - **Predictions.** Accommodating and collaborating raise both-pass against neutral, competing and avoiding lower it, structured raises it. On CooperBench no style helped and compromising hurt.
-- **Check so far.** One dev instance in the default and neutral arms: the neutral agents received the instruction before their first reply, the default agents received none.
+- **Dev check (2026-11-12).** 8 dev instances in all eight arms, 64 runs, $0.66 for the agents and $0.04 for labels. Per-run data: [results/parallact_styles_dev_rows.csv](../results/parallact_styles_dev_rows.csv), labels: [results/parallact_styles_dev_conflict_states_rows.csv](../results/parallact_styles_dev_conflict_states_rows.csv). Every guided agent received its instruction before its first reply; no run failed and no test errored.
+
+  | Arm | Both pass | Requests passed (of 16) | Messages per run | Concessions (both then pass) | Agents in the target style (neutral) |
+  |---|---|---|---|---|---|
+  | Default | 4 / 8 | 11 | 6.4 | 3 (2) | |
+  | Neutral | 5 / 8 | 11 | 3.8 | 2 (1) | |
+  | Competing | 4 / 8 | 11 | 5.5 | 0 | 0 / 16 (0 / 16) |
+  | Collaborating | 6 / 8 | 13 | 7.9 | 0 | 8 / 16 (2 / 16) |
+  | Compromising | 3 / 8 | 9 | 6.1 | 2 (1) | 6 / 16 (9 / 16) |
+  | Accommodating | 6 / 8 | 12 | 6.9 | 1 (1) | 3 / 16 (2 / 16) |
+  | Avoiding | 3 / 8 | 9 | 1.6 | 3 (0) | 10 / 16 (3 / 16) |
+  | Structured | 6 / 8 | 13 | 8.1 | 3 (3) | |
+
+  - The instructions are followed in the messages for collaborating (more messages than neutral in 7 of 8 instances, p = 0.016) and avoiding (10 of 16 agents labeled avoiding). The labeled style does not move for competing, accommodating and compromising, as on CooperBench; competing does remove concessions (0 against 2 under neutral).
+  - Outcomes point the way the predictions say, but with 8 instances per arm no difference from neutral is near significance. The dev set was chosen from instances the model can solve, so its pass rates are far above what the test set will show.
+  - Under structured, three runs end with one agent conceding and both requests passing.
+  - A stalled API connection held one run for 40 minutes: the earlier timeout setting had no effect. Model calls now have a hard limit of 330 s (see the pilot notes); seven calls hit it afterwards and were retried.
 
 ## Next steps
 
