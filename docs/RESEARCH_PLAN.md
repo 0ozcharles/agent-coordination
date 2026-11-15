@@ -566,6 +566,36 @@ Status: frozen 2026-11-13 after the dev check, with the instructions unchanged. 
   - Under structured, three runs end with one agent conceding and both requests passing.
   - A stalled API connection held one run for 40 minutes: the earlier timeout setting had no effect. Model calls now have a hard limit of 330 s (see the pilot notes); seven calls hit it afterwards and were retried.
 
+### ParallACT style interventions: results (2026-11-15)
+
+The frozen design above, run on the 65 test instances: 8 arms, one run each, 520 runs. Per-run data: [results/parallact_styles_rows.csv](../results/parallact_styles_rows.csv); labels: [results/parallact_styles_conflict_states_rows.csv](../results/parallact_styles_conflict_states_rows.csv); solo baseline: [results/parallact_styles_solo_rows.csv](../results/parallact_styles_solo_rows.csv). Cost: $7.16 for the coop agents, $0.49 for solo, $0.37 for labels. All 65 instances passed the reference check, so none was excluded. One solo run ended in an API connection error and was retried, as the rules say. Six test runs (own-patch tests of two instances, one merged test) timed out and count as failed.
+
+| Arm | Both pass | Arm better / neutral better | Requests passed (of 130) | Messages per run | Agents in the target style (neutral) | Concessions (both then pass) |
+|---|---|---|---|---|---|---|
+| Default | 23 | 5 / 5 | 69 | 6.5 | | 13 (3) |
+| Neutral | 23 | | 67 | 6.4 | | 14 (6) |
+| Competing | 23 | 7 / 7 | 69 | 5.0 | 10 / 130 (8) | 10 (4) |
+| Collaborating | 25 | 6 / 4 | 69 | 7.6 | **60** / 130 (37) | 11 (4) |
+| Compromising | 22 | 8 / 9 | 68 | 5.7 | **73** / 130 (52) | 10 (3) |
+| Accommodating | 22 | 6 / 7 | 68 | 6.8 | 16 / 130 (17) | 14 (2) |
+| Avoiding | 21 | 7 / 9 | 60 | **1.5** | **84** / 130 (16) | 6 (1) |
+| Structured | 26 | 9 / 6 | 73 | **8.2** | | 14 (8) |
+
+- **No instruction changes whether both requests pass.** Both-pass ranges from 21 to 26 of 65 against 23 under neutral. No arm differs from neutral by more than three instances in either direction; the smallest unadjusted p is 0.61 (Holm-adjusted 1.0). The predictions are not supported: accommodating and collaborating do not raise both-pass, competing and avoiding do not lower it, and structured (26, better in 9 instances and worse in 6) is not a significant gain.
+- **The instructions move behaviour.**
+  - Labeled style: collaborating (60 agents against 37; more in 27 instances, fewer in 8, p = 0.002), compromising (73 against 52, p = 0.017) and avoiding (84 against 16, p < 0.001) shift toward their target. Competing (10 against 8) and accommodating (16 against 17) do not, as on CooperBench.
+  - Messages: avoiding cuts them to 1.5 per run (fewer than neutral in 59 of 62 differing instances); collaborating (p < 0.001) and structured (p = 0.005) add them.
+  - Structured gets the agents to state interfaces: exact names, signatures or formats in 47 runs against 24 under neutral, and a contradiction between the requests named in 7 runs against 3.
+- **Conceding does not pay off here either.** Across all arms, 92 runs end with one agent submitting no code of its own; both requests pass in 31 of them (34%), against 154 of 425 other runs (36%). The 3 of 4 in the pilot were chance. The accommodating instruction does not raise concessions (14, as under neutral).
+- **Capability bounds the room for coordination.** Solo local work satisfies both requests on 25 of the 65 instances (its published patch on 17). On those 25 the coop arms pass both in 17 to 20; on the other 40 in 2 to 7. Every instance solo solves is solved by at least one arm, and 10 instances see no request pass in any arm. Coordination loses at most about 8 of the 25 solvable instances, and the arms do not move that number either (structured 20 against neutral 17, p = 0.45).
+- **Labeler consistency** on 80 runs labeled twice: style kappa 0.67 and 0.70, handoff 0.88, incompatible claims 0.82. Lower than on CooperBench (0.82 and 0.95).
+
+What it shows, together with the CooperBench study:
+
+- On both benchmarks, instructions that describe a handling style change how agents talk (how much, whether they state interfaces, the labeled style for three of the five styles) but not what code they end up writing, and not whether both features pass. Giving the agents room to concede (ParallACT) does not change that.
+- On ParallACT most failures are capability, as the pilot suggested: whether both requests pass is decided mostly by the instance. A study of handling styles needs tasks the model can solve alone, or a stronger model, before differences in coordination can show.
+- Limits: one model (gpt-6-luna) and one run per instance and arm. With 65 instances the comparisons detect only large effects; a difference of three or four instances per arm cannot be ruled out.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.

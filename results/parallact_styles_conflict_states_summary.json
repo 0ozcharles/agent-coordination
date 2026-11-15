@@ -1,0 +1,1437 @@
+{
+  "study": "parallact_styles_conflict_states",
+  "question": "On the ParallACT test instances, does each instruction move the agents' labeled handling style toward its target?",
+  "sets": {
+    "accommodating": {
+      "runs": 65,
+      "detector_conflict": 41,
+      "exclusive_claim": 23,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 41,
+      "labeler_incompatible": 7,
+      "labeler_incompatible_when_exclusive": [
+        4,
+        23
+      ],
+      "conflict_step_median": 18,
+      "writes_before_conflict": [
+        26,
+        130
+      ],
+      "types_present": {
+        "resource": 34,
+        "responsibility": 17,
+        "interface": 23,
+        "requirement": 1
+      },
+      "primary_type": {
+        "responsibility": 4,
+        "resource": 31,
+        "interface": 5,
+        "null": 1
+      },
+      "agent_styles": {
+        "accommodating": 11,
+        "collaborating": 24,
+        "compromising": 44,
+        "avoiding": 3
+      },
+      "style_pairs": {
+        "compromising + compromising": 17,
+        "accommodating + collaborating": 8,
+        "collaborating + collaborating": 6,
+        "collaborating + compromising": 4,
+        "avoiding + compromising": 3,
+        "accommodating + compromising": 3
+      },
+      "facts": {
+        "agreement": {
+          "explicit": 34,
+          "partial": 5,
+          "none": 2
+        },
+        "shared_code_owner": {
+          "agent2": 8,
+          "agent1": 6,
+          "split": 23,
+          "unclear": 2,
+          "neither": 2
+        },
+        "interface_exact": {
+          "True": 14,
+          "False": 27
+        },
+        "handoff": {
+          "True": 19,
+          "False": 22
+        },
+        "unanswered_question": {
+          "False": 33,
+          "True": 8
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            10,
+            31
+          ],
+          "responsibility": [
+            1,
+            4
+          ],
+          "interface": [
+            1,
+            5
+          ],
+          "requirement": [
+            0,
+            0
+          ]
+        },
+        "style_pair": {
+          "compromising + compromising": [
+            5,
+            17
+          ],
+          "accommodating + collaborating": [
+            2,
+            8
+          ],
+          "collaborating + collaborating": [
+            2,
+            6
+          ],
+          "collaborating + compromising": [
+            1,
+            4
+          ],
+          "avoiding + compromising": [
+            2,
+            3
+          ],
+          "accommodating + compromising": [
+            0,
+            3
+          ]
+        },
+        "handoff": {
+          "True": [
+            3,
+            19
+          ],
+          "False": [
+            9,
+            22
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            5,
+            14
+          ],
+          "False": [
+            7,
+            27
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            3,
+            8
+          ],
+          "False": [
+            9,
+            33
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            10,
+            34
+          ],
+          "none": [
+            1,
+            2
+          ],
+          "partial": [
+            1,
+            5
+          ]
+        }
+      }
+    },
+    "avoiding": {
+      "runs": 65,
+      "detector_conflict": 9,
+      "exclusive_claim": 4,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 9,
+      "labeler_incompatible": 2,
+      "labeler_incompatible_when_exclusive": [
+        2,
+        4
+      ],
+      "conflict_step_median": 27,
+      "writes_before_conflict": [
+        12,
+        130
+      ],
+      "types_present": {
+        "resource": 8,
+        "responsibility": 5,
+        "interface": 3,
+        "requirement": 0
+      },
+      "primary_type": {
+        "resource": 6,
+        "responsibility": 2,
+        "null": 1
+      },
+      "agent_styles": {
+        "competing": 1,
+        "accommodating": 4,
+        "collaborating": 4,
+        "compromising": 8,
+        "avoiding": 1
+      },
+      "style_pairs": {
+        "accommodating + collaborating": 3,
+        "compromising + compromising": 3,
+        "accommodating + competing": 1,
+        "collaborating + compromising": 1,
+        "avoiding + compromising": 1
+      },
+      "facts": {
+        "agreement": {
+          "partial": 3,
+          "explicit": 5,
+          "none": 1
+        },
+        "shared_code_owner": {
+          "agent1": 3,
+          "split": 4,
+          "agent2": 2
+        },
+        "interface_exact": {
+          "False": 6,
+          "True": 3
+        },
+        "handoff": {
+          "True": 5,
+          "False": 4
+        },
+        "unanswered_question": {
+          "False": 9
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            2,
+            6
+          ],
+          "responsibility": [
+            2,
+            2
+          ],
+          "interface": [
+            0,
+            0
+          ],
+          "requirement": [
+            0,
+            0
+          ]
+        },
+        "style_pair": {
+          "accommodating + collaborating": [
+            2,
+            3
+          ],
+          "compromising + compromising": [
+            1,
+            3
+          ],
+          "accommodating + competing": [
+            0,
+            1
+          ],
+          "collaborating + compromising": [
+            1,
+            1
+          ],
+          "avoiding + compromising": [
+            0,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            3,
+            5
+          ],
+          "False": [
+            1,
+            4
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            2,
+            3
+          ],
+          "False": [
+            2,
+            6
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            0,
+            0
+          ],
+          "False": [
+            4,
+            9
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            4,
+            5
+          ],
+          "none": [
+            0,
+            1
+          ],
+          "partial": [
+            0,
+            3
+          ]
+        }
+      }
+    },
+    "collaborating": {
+      "runs": 65,
+      "detector_conflict": 47,
+      "exclusive_claim": 27,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 47,
+      "labeler_incompatible": 23,
+      "labeler_incompatible_when_exclusive": [
+        13,
+        27
+      ],
+      "conflict_step_median": 15,
+      "writes_before_conflict": [
+        24,
+        130
+      ],
+      "types_present": {
+        "resource": 41,
+        "responsibility": 24,
+        "interface": 37,
+        "requirement": 3
+      },
+      "primary_type": {
+        "responsibility": 2,
+        "resource": 37,
+        "interface": 6,
+        "requirement": 2
+      },
+      "agent_styles": {
+        "accommodating": 18,
+        "competing": 3,
+        "collaborating": 47,
+        "compromising": 21,
+        "avoiding": 5
+      },
+      "style_pairs": {
+        "accommodating + collaborating": 15,
+        "collaborating + collaborating": 11,
+        "collaborating + compromising": 7,
+        "compromising + compromising": 5,
+        "avoiding + collaborating": 2,
+        "avoiding + compromising": 2,
+        "accommodating + competing": 1,
+        "accommodating + avoiding": 1,
+        "competing + compromising": 1,
+        "collaborating + competing": 1,
+        "accommodating + compromising": 1
+      },
+      "facts": {
+        "agreement": {
+          "partial": 7,
+          "explicit": 37,
+          "none": 3
+        },
+        "shared_code_owner": {
+          "neither": 2,
+          "split": 27,
+          "agent1": 10,
+          "unclear": 1,
+          "agent2": 7
+        },
+        "interface_exact": {
+          "True": 31,
+          "False": 16
+        },
+        "handoff": {
+          "True": 26,
+          "False": 21
+        },
+        "unanswered_question": {
+          "True": 10,
+          "False": 37
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            16,
+            37
+          ],
+          "responsibility": [
+            1,
+            2
+          ],
+          "interface": [
+            3,
+            6
+          ],
+          "requirement": [
+            0,
+            2
+          ]
+        },
+        "style_pair": {
+          "accommodating + collaborating": [
+            7,
+            15
+          ],
+          "collaborating + collaborating": [
+            5,
+            11
+          ],
+          "collaborating + compromising": [
+            3,
+            7
+          ],
+          "compromising + compromising": [
+            2,
+            5
+          ],
+          "avoiding + collaborating": [
+            1,
+            2
+          ],
+          "avoiding + compromising": [
+            1,
+            2
+          ],
+          "accommodating + competing": [
+            1,
+            1
+          ],
+          "accommodating + avoiding": [
+            0,
+            1
+          ],
+          "competing + compromising": [
+            0,
+            1
+          ],
+          "collaborating + competing": [
+            0,
+            1
+          ],
+          "accommodating + compromising": [
+            0,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            12,
+            26
+          ],
+          "False": [
+            8,
+            21
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            13,
+            31
+          ],
+          "False": [
+            7,
+            16
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            4,
+            10
+          ],
+          "False": [
+            16,
+            37
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            17,
+            37
+          ],
+          "none": [
+            2,
+            3
+          ],
+          "partial": [
+            1,
+            7
+          ]
+        }
+      }
+    },
+    "competing": {
+      "runs": 65,
+      "detector_conflict": 40,
+      "exclusive_claim": 38,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 40,
+      "labeler_incompatible": 18,
+      "labeler_incompatible_when_exclusive": [
+        17,
+        38
+      ],
+      "conflict_step_median": 15,
+      "writes_before_conflict": [
+        17,
+        130
+      ],
+      "types_present": {
+        "resource": 37,
+        "responsibility": 13,
+        "interface": 23,
+        "requirement": 2
+      },
+      "primary_type": {
+        "resource": 36,
+        "responsibility": 2,
+        "null": 1,
+        "interface": 1
+      },
+      "agent_styles": {
+        "collaborating": 31,
+        "accommodating": 11,
+        "compromising": 30,
+        "competing": 2,
+        "avoiding": 6
+      },
+      "style_pairs": {
+        "compromising + compromising": 12,
+        "collaborating + collaborating": 10,
+        "accommodating + collaborating": 9,
+        "avoiding + compromising": 4,
+        "avoiding + collaborating": 2,
+        "accommodating + compromising": 2,
+        "competing + competing": 1
+      },
+      "facts": {
+        "agreement": {
+          "explicit": 26,
+          "partial": 12,
+          "none": 2
+        },
+        "shared_code_owner": {
+          "split": 27,
+          "agent1": 7,
+          "unclear": 2,
+          "agent2": 3,
+          "neither": 1
+        },
+        "interface_exact": {
+          "False": 21,
+          "True": 19
+        },
+        "handoff": {
+          "False": 28,
+          "True": 12
+        },
+        "unanswered_question": {
+          "False": 30,
+          "True": 10
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            12,
+            36
+          ],
+          "responsibility": [
+            1,
+            2
+          ],
+          "interface": [
+            0,
+            1
+          ],
+          "requirement": [
+            0,
+            0
+          ]
+        },
+        "style_pair": {
+          "compromising + compromising": [
+            1,
+            12
+          ],
+          "collaborating + collaborating": [
+            3,
+            10
+          ],
+          "accommodating + collaborating": [
+            4,
+            9
+          ],
+          "avoiding + compromising": [
+            1,
+            4
+          ],
+          "avoiding + collaborating": [
+            2,
+            2
+          ],
+          "accommodating + compromising": [
+            1,
+            2
+          ],
+          "competing + competing": [
+            1,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            8,
+            12
+          ],
+          "False": [
+            5,
+            28
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            8,
+            19
+          ],
+          "False": [
+            5,
+            21
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            2,
+            10
+          ],
+          "False": [
+            11,
+            30
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            7,
+            26
+          ],
+          "none": [
+            1,
+            2
+          ],
+          "partial": [
+            5,
+            12
+          ]
+        }
+      }
+    },
+    "compromising": {
+      "runs": 65,
+      "detector_conflict": 37,
+      "exclusive_claim": 21,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 37,
+      "labeler_incompatible": 11,
+      "labeler_incompatible_when_exclusive": [
+        9,
+        21
+      ],
+      "conflict_step_median": 17,
+      "writes_before_conflict": [
+        28,
+        130
+      ],
+      "types_present": {
+        "resource": 35,
+        "responsibility": 14,
+        "interface": 21,
+        "requirement": 3
+      },
+      "primary_type": {
+        "responsibility": 3,
+        "resource": 30,
+        "requirement": 2,
+        "interface": 2
+      },
+      "agent_styles": {
+        "compromising": 32,
+        "collaborating": 23,
+        "accommodating": 11,
+        "avoiding": 5,
+        "competing": 3
+      },
+      "style_pairs": {
+        "compromising + compromising": 11,
+        "collaborating + collaborating": 7,
+        "accommodating + collaborating": 6,
+        "competing + compromising": 3,
+        "avoiding + compromising": 3,
+        "collaborating + compromising": 2,
+        "accommodating + compromising": 2,
+        "accommodating + avoiding": 1,
+        "avoiding + collaborating": 1,
+        "accommodating + accommodating": 1
+      },
+      "facts": {
+        "agreement": {
+          "explicit": 24,
+          "partial": 10,
+          "none": 3
+        },
+        "shared_code_owner": {
+          "agent2": 8,
+          "split": 20,
+          "agent1": 4,
+          "unclear": 5
+        },
+        "interface_exact": {
+          "True": 13,
+          "False": 24
+        },
+        "handoff": {
+          "True": 14,
+          "False": 23
+        },
+        "unanswered_question": {
+          "False": 30,
+          "True": 7
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            8,
+            30
+          ],
+          "responsibility": [
+            1,
+            3
+          ],
+          "interface": [
+            2,
+            2
+          ],
+          "requirement": [
+            0,
+            2
+          ]
+        },
+        "style_pair": {
+          "compromising + compromising": [
+            4,
+            11
+          ],
+          "collaborating + collaborating": [
+            4,
+            7
+          ],
+          "accommodating + collaborating": [
+            1,
+            6
+          ],
+          "competing + compromising": [
+            0,
+            3
+          ],
+          "avoiding + compromising": [
+            0,
+            3
+          ],
+          "collaborating + compromising": [
+            1,
+            2
+          ],
+          "accommodating + compromising": [
+            0,
+            2
+          ],
+          "accommodating + avoiding": [
+            1,
+            1
+          ],
+          "avoiding + collaborating": [
+            0,
+            1
+          ],
+          "accommodating + accommodating": [
+            0,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            3,
+            14
+          ],
+          "False": [
+            8,
+            23
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            6,
+            13
+          ],
+          "False": [
+            5,
+            24
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            2,
+            7
+          ],
+          "False": [
+            9,
+            30
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            9,
+            24
+          ],
+          "none": [
+            1,
+            3
+          ],
+          "partial": [
+            1,
+            10
+          ]
+        }
+      }
+    },
+    "default": {
+      "runs": 65,
+      "detector_conflict": 38,
+      "exclusive_claim": 22,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 38,
+      "labeler_incompatible": 17,
+      "labeler_incompatible_when_exclusive": [
+        12,
+        22
+      ],
+      "conflict_step_median": 13,
+      "writes_before_conflict": [
+        18,
+        128
+      ],
+      "types_present": {
+        "resource": 37,
+        "responsibility": 13,
+        "interface": 20,
+        "requirement": 2
+      },
+      "primary_type": {
+        "resource": 34,
+        "responsibility": 2,
+        "requirement": 1,
+        "interface": 1
+      },
+      "agent_styles": {
+        "compromising": 29,
+        "accommodating": 14,
+        "collaborating": 24,
+        "avoiding": 5,
+        "competing": 4
+      },
+      "style_pairs": {
+        "compromising + compromising": 10,
+        "accommodating + collaborating": 9,
+        "collaborating + collaborating": 6,
+        "accommodating + compromising": 4,
+        "avoiding + compromising": 3,
+        "avoiding + competing": 2,
+        "collaborating + compromising": 2,
+        "collaborating + competing": 1,
+        "accommodating + competing": 1
+      },
+      "facts": {
+        "agreement": {
+          "explicit": 24,
+          "partial": 11,
+          "none": 3
+        },
+        "shared_code_owner": {
+          "split": 25,
+          "agent1": 9,
+          "unclear": 3,
+          "agent2": 1
+        },
+        "interface_exact": {
+          "False": 25,
+          "True": 13
+        },
+        "handoff": {
+          "False": 22,
+          "True": 16
+        },
+        "unanswered_question": {
+          "False": 26,
+          "True": 12
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            15,
+            34
+          ],
+          "responsibility": [
+            0,
+            2
+          ],
+          "interface": [
+            0,
+            1
+          ],
+          "requirement": [
+            0,
+            1
+          ]
+        },
+        "style_pair": {
+          "compromising + compromising": [
+            5,
+            10
+          ],
+          "accommodating + collaborating": [
+            5,
+            9
+          ],
+          "collaborating + collaborating": [
+            2,
+            6
+          ],
+          "accommodating + compromising": [
+            1,
+            4
+          ],
+          "avoiding + compromising": [
+            1,
+            3
+          ],
+          "avoiding + competing": [
+            1,
+            2
+          ],
+          "collaborating + compromising": [
+            0,
+            2
+          ],
+          "collaborating + competing": [
+            0,
+            1
+          ],
+          "accommodating + competing": [
+            0,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            6,
+            16
+          ],
+          "False": [
+            9,
+            22
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            5,
+            13
+          ],
+          "False": [
+            10,
+            25
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            3,
+            12
+          ],
+          "False": [
+            12,
+            26
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            11,
+            24
+          ],
+          "none": [
+            1,
+            3
+          ],
+          "partial": [
+            3,
+            11
+          ]
+        }
+      }
+    },
+    "neutral": {
+      "runs": 65,
+      "detector_conflict": 41,
+      "exclusive_claim": 20,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 41,
+      "labeler_incompatible": 18,
+      "labeler_incompatible_when_exclusive": [
+        12,
+        20
+      ],
+      "conflict_step_median": 16,
+      "writes_before_conflict": [
+        21,
+        130
+      ],
+      "types_present": {
+        "resource": 38,
+        "responsibility": 21,
+        "interface": 25,
+        "requirement": 2
+      },
+      "primary_type": {
+        "resource": 36,
+        "responsibility": 3,
+        "interface": 1,
+        "requirement": 1
+      },
+      "agent_styles": {
+        "compromising": 28,
+        "collaborating": 31,
+        "accommodating": 15,
+        "competing": 4,
+        "avoiding": 4
+      },
+      "style_pairs": {
+        "accommodating + collaborating": 14,
+        "compromising + compromising": 10,
+        "collaborating + collaborating": 6,
+        "collaborating + compromising": 4,
+        "avoiding + competing": 2,
+        "avoiding + compromising": 2,
+        "collaborating + competing": 1,
+        "competing + compromising": 1,
+        "accommodating + compromising": 1
+      },
+      "facts": {
+        "agreement": {
+          "explicit": 31,
+          "none": 5,
+          "partial": 5
+        },
+        "shared_code_owner": {
+          "split": 17,
+          "agent1": 12,
+          "unclear": 4,
+          "agent2": 8
+        },
+        "interface_exact": {
+          "False": 20,
+          "True": 21
+        },
+        "handoff": {
+          "False": 20,
+          "True": 21
+        },
+        "unanswered_question": {
+          "False": 34,
+          "True": 7
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            17,
+            36
+          ],
+          "responsibility": [
+            1,
+            3
+          ],
+          "interface": [
+            0,
+            1
+          ],
+          "requirement": [
+            0,
+            1
+          ]
+        },
+        "style_pair": {
+          "accommodating + collaborating": [
+            4,
+            14
+          ],
+          "compromising + compromising": [
+            5,
+            10
+          ],
+          "collaborating + collaborating": [
+            2,
+            6
+          ],
+          "collaborating + compromising": [
+            3,
+            4
+          ],
+          "avoiding + competing": [
+            2,
+            2
+          ],
+          "avoiding + compromising": [
+            1,
+            2
+          ],
+          "collaborating + competing": [
+            0,
+            1
+          ],
+          "competing + compromising": [
+            0,
+            1
+          ],
+          "accommodating + compromising": [
+            1,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            10,
+            21
+          ],
+          "False": [
+            8,
+            20
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            6,
+            21
+          ],
+          "False": [
+            12,
+            20
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            3,
+            7
+          ],
+          "False": [
+            15,
+            34
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            13,
+            31
+          ],
+          "none": [
+            3,
+            5
+          ],
+          "partial": [
+            2,
+            5
+          ]
+        }
+      }
+    },
+    "structured": {
+      "runs": 65,
+      "detector_conflict": 48,
+      "exclusive_claim": 27,
+      "gold_shared_lines": 64,
+      "labeled": 65,
+      "labeled_conflicts": 48,
+      "labeler_incompatible": 24,
+      "labeler_incompatible_when_exclusive": [
+        11,
+        27
+      ],
+      "conflict_step_median": 12,
+      "writes_before_conflict": [
+        11,
+        130
+      ],
+      "types_present": {
+        "resource": 45,
+        "responsibility": 23,
+        "interface": 40,
+        "requirement": 4
+      },
+      "primary_type": {
+        "resource": 40,
+        "requirement": 4,
+        "interface": 3,
+        "responsibility": 1
+      },
+      "agent_styles": {
+        "accommodating": 15,
+        "collaborating": 53,
+        "avoiding": 5,
+        "compromising": 22,
+        "competing": 1
+      },
+      "style_pairs": {
+        "accommodating + collaborating": 15,
+        "collaborating + collaborating": 14,
+        "collaborating + compromising": 7,
+        "compromising + compromising": 6,
+        "avoiding + compromising": 3,
+        "avoiding + collaborating": 2,
+        "collaborating + competing": 1
+      },
+      "facts": {
+        "agreement": {
+          "explicit": 41,
+          "partial": 6,
+          "none": 1
+        },
+        "shared_code_owner": {
+          "agent2": 10,
+          "split": 26,
+          "agent1": 11,
+          "neither": 1
+        },
+        "interface_exact": {
+          "True": 37,
+          "False": 11
+        },
+        "handoff": {
+          "True": 20,
+          "False": 28
+        },
+        "unanswered_question": {
+          "True": 14,
+          "False": 34
+        }
+      },
+      "both_pass_by": {
+        "primary_type": {
+          "resource": [
+            19,
+            40
+          ],
+          "responsibility": [
+            1,
+            1
+          ],
+          "interface": [
+            1,
+            3
+          ],
+          "requirement": [
+            1,
+            4
+          ]
+        },
+        "style_pair": {
+          "accommodating + collaborating": [
+            7,
+            15
+          ],
+          "collaborating + collaborating": [
+            6,
+            14
+          ],
+          "collaborating + compromising": [
+            5,
+            7
+          ],
+          "compromising + compromising": [
+            2,
+            6
+          ],
+          "avoiding + compromising": [
+            2,
+            3
+          ],
+          "avoiding + collaborating": [
+            0,
+            2
+          ],
+          "collaborating + competing": [
+            0,
+            1
+          ]
+        },
+        "handoff": {
+          "True": [
+            10,
+            20
+          ],
+          "False": [
+            12,
+            28
+          ]
+        },
+        "interface_exact": {
+          "True": [
+            19,
+            37
+          ],
+          "False": [
+            3,
+            11
+          ]
+        },
+        "unanswered_question": {
+          "True": [
+            8,
+            14
+          ],
+          "False": [
+            14,
+            34
+          ]
+        },
+        "agreement": {
+          "explicit": [
+            19,
+            41
+          ],
+          "none": [
+            0,
+            1
+          ],
+          "partial": [
+            3,
+            6
+          ]
+        }
+      }
+    }
+  },
+  "consistency": {
+    "pairs": 80,
+    "incompatible": {
+      "agree": 74,
+      "kappa": 0.8215613382899629
+    },
+    "primary_type": {
+      "agree": 71,
+      "kappa": 0.7426761678543152
+    },
+    "type_resource": {
+      "agree": 74,
+      "kappa": 0.8069187449718425
+    },
+    "type_responsibility": {
+      "agree": 73,
+      "kappa": 0.8033707865168539
+    },
+    "type_interface": {
+      "agree": 67,
+      "kappa": 0.6692111959287532
+    },
+    "type_requirement": {
+      "agree": 80,
+      "kappa": 1.0
+    },
+    "agent1_assertiveness": {
+      "agree": 69,
+      "kappa": 0.7094750742819413
+    },
+    "agent1_cooperativeness": {
+      "agree": 66,
+      "kappa": 0.7284848484848484
+    },
+    "agent1_style": {
+      "agree": 61,
+      "kappa": 0.6736096199269915
+    },
+    "agent2_assertiveness": {
+      "agree": 73,
+      "kappa": 0.7807361002349256
+    },
+    "agent2_cooperativeness": {
+      "agree": 67,
+      "kappa": 0.7436529455262509
+    },
+    "agent2_style": {
+      "agree": 63,
+      "kappa": 0.6985147417424075
+    },
+    "agreement": {
+      "agree": 69,
+      "kappa": 0.7423133235724745
+    },
+    "shared_code_owner": {
+      "agree": 65,
+      "kappa": 0.7368421052631579
+    },
+    "interface_exact": {
+      "agree": 69,
+      "kappa": 0.6901408450704226
+    },
+    "handoff": {
+      "agree": 76,
+      "kappa": 0.8839738941261783
+    },
+    "unanswered_question": {
+      "agree": 74,
+      "kappa": 0.8064516129032259
+    }
+  },
+  "label_cost_usd": 0.3736
+}

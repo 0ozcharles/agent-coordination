@@ -1,0 +1,443 @@
+{
+  "study": "parallact_styles",
+  "setting": "coop",
+  "jobs": 520,
+  "finished": 520,
+  "both_pass": 185,
+  "both_pass_clean_merge": 152,
+  "merged_outcomes": {
+    "A only": 33,
+    "both": 185,
+    "B only": 140,
+    "neither": 162
+  },
+  "own_pass": {
+    "A": 223,
+    "B": 386
+  },
+  "merge_status": {
+    "resolved": 148,
+    "clean": 372
+  },
+  "runs_with_messages": 492,
+  "mean_messages": 5.9,
+  "runs_with_shared_files": 322,
+  "empty_patches": 98,
+  "test_errors": 6,
+  "cost_usd": 7.16,
+  "mean_minutes": 7.4,
+  "control": "neutral",
+  "arms": {
+    "default": {
+      "finished": 65,
+      "both_pass": 23,
+      "requests_passed": 69,
+      "own_both": 21,
+      "merge_conflicts": 14,
+      "concessions": 13,
+      "concessions_both_pass": 3,
+      "mean_messages": 6.5,
+      "mean_minutes": 7.1,
+      "cost_usd": 0.89,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 65,
+        "both_pass": {
+          "arm_higher": 5,
+          "control_higher": 5,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 9,
+          "control_higher": 9,
+          "p": 1.0
+        },
+        "messages": {
+          "arm_higher": 34,
+          "control_higher": 23,
+          "p": 0.1849
+        }
+      }
+    },
+    "neutral": {
+      "finished": 65,
+      "both_pass": 23,
+      "requests_passed": 67,
+      "own_both": 21,
+      "merge_conflicts": 22,
+      "concessions": 14,
+      "concessions_both_pass": 6,
+      "mean_messages": 6.4,
+      "mean_minutes": 7.9,
+      "cost_usd": 0.93,
+      "instruction_missing": 0
+    },
+    "competing": {
+      "finished": 65,
+      "both_pass": 23,
+      "requests_passed": 69,
+      "own_both": 22,
+      "merge_conflicts": 19,
+      "concessions": 10,
+      "concessions_both_pass": 4,
+      "mean_messages": 5.0,
+      "mean_minutes": 8.1,
+      "cost_usd": 0.9,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 65,
+        "both_pass": {
+          "arm_higher": 7,
+          "control_higher": 7,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 9,
+          "control_higher": 8,
+          "p": 1.0
+        },
+        "messages": {
+          "arm_higher": 23,
+          "control_higher": 33,
+          "p": 0.2288
+        }
+      }
+    },
+    "collaborating": {
+      "finished": 65,
+      "both_pass": 25,
+      "requests_passed": 69,
+      "own_both": 19,
+      "merge_conflicts": 21,
+      "concessions": 11,
+      "concessions_both_pass": 4,
+      "mean_messages": 7.6,
+      "mean_minutes": 8.5,
+      "cost_usd": 1.01,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 65,
+        "both_pass": {
+          "arm_higher": 6,
+          "control_higher": 4,
+          "p": 0.7539
+        },
+        "requests_passed": {
+          "arm_higher": 10,
+          "control_higher": 7,
+          "p": 0.6291
+        },
+        "messages": {
+          "arm_higher": 45,
+          "control_higher": 16,
+          "p": 0.0003
+        }
+      }
+    },
+    "compromising": {
+      "finished": 65,
+      "both_pass": 22,
+      "requests_passed": 68,
+      "own_both": 18,
+      "merge_conflicts": 16,
+      "concessions": 10,
+      "concessions_both_pass": 3,
+      "mean_messages": 5.7,
+      "mean_minutes": 7.3,
+      "cost_usd": 0.82,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 65,
+        "both_pass": {
+          "arm_higher": 8,
+          "control_higher": 9,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 10,
+          "control_higher": 11,
+          "p": 1.0
+        },
+        "messages": {
+          "arm_higher": 28,
+          "control_higher": 30,
+          "p": 0.8957
+        }
+      }
+    },
+    "accommodating": {
+      "finished": 65,
+      "both_pass": 22,
+      "requests_passed": 68,
+      "own_both": 21,
+      "merge_conflicts": 17,
+      "concessions": 14,
+      "concessions_both_pass": 2,
+      "mean_messages": 6.8,
+      "mean_minutes": 7.9,
+      "cost_usd": 0.94,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 65,
+        "both_pass": {
+          "arm_higher": 6,
+          "control_higher": 7,
+          "p": 1.0
+        },
+        "requests_passed": {
+          "arm_higher": 11,
+          "control_higher": 9,
+          "p": 0.8238
+        },
+        "messages": {
+          "arm_higher": 34,
+          "control_higher": 23,
+          "p": 0.1849
+        }
+      }
+    },
+    "avoiding": {
+      "finished": 65,
+      "both_pass": 21,
+      "requests_passed": 60,
+      "own_both": 25,
+      "merge_conflicts": 23,
+      "concessions": 6,
+      "concessions_both_pass": 1,
+      "mean_messages": 1.5,
+      "mean_minutes": 6.4,
+      "cost_usd": 0.72,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 65,
+        "both_pass": {
+          "arm_higher": 7,
+          "control_higher": 9,
+          "p": 0.8036
+        },
+        "requests_passed": {
+          "arm_higher": 10,
+          "control_higher": 15,
+          "p": 0.4244
+        },
+        "messages": {
+          "arm_higher": 3,
+          "control_higher": 59,
+          "p": 0.0
+        }
+      }
+    },
+    "structured": {
+      "finished": 65,
+      "both_pass": 26,
+      "requests_passed": 73,
+      "own_both": 15,
+      "merge_conflicts": 16,
+      "concessions": 14,
+      "concessions_both_pass": 8,
+      "mean_messages": 8.2,
+      "mean_minutes": 6.1,
+      "cost_usd": 0.95,
+      "instruction_missing": 0,
+      "vs_control": {
+        "pairs": 65,
+        "both_pass": {
+          "arm_higher": 9,
+          "control_higher": 6,
+          "p": 0.6072
+        },
+        "requests_passed": {
+          "arm_higher": 14,
+          "control_higher": 9,
+          "p": 0.4049
+        },
+        "messages": {
+          "arm_higher": 40,
+          "control_higher": 18,
+          "p": 0.0054
+        }
+      }
+    }
+  },
+  "styles": {
+    "default": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "compromising": 55,
+        "collaborating": 35,
+        "accommodating": 20,
+        "avoiding": 12,
+        "competing": 8
+      },
+      "handoff_runs": 24,
+      "requirement_conflict_runs": 3,
+      "exact_interface_runs": 21
+    },
+    "neutral": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "compromising": 52,
+        "collaborating": 37,
+        "accommodating": 17,
+        "avoiding": 16,
+        "competing": 8
+      },
+      "handoff_runs": 26,
+      "requirement_conflict_runs": 3,
+      "exact_interface_runs": 24
+    },
+    "competing": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "compromising": 55,
+        "collaborating": 33,
+        "avoiding": 18,
+        "accommodating": 14,
+        "competing": 10
+      },
+      "handoff_runs": 15,
+      "requirement_conflict_runs": 2,
+      "exact_interface_runs": 22,
+      "target": {
+        "style": "competing",
+        "agents": [
+          10,
+          130
+        ],
+        "control_agents": [
+          8,
+          130
+        ],
+        "runs_more": 7,
+        "runs_fewer": 6,
+        "p": 1.0
+      }
+    },
+    "collaborating": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "collaborating": 60,
+        "compromising": 32,
+        "accommodating": 21,
+        "avoiding": 11,
+        "competing": 6
+      },
+      "handoff_runs": 31,
+      "requirement_conflict_runs": 3,
+      "exact_interface_runs": 36,
+      "target": {
+        "style": "collaborating",
+        "agents": [
+          60,
+          130
+        ],
+        "control_agents": [
+          37,
+          130
+        ],
+        "runs_more": 27,
+        "runs_fewer": 8,
+        "p": 0.0019
+      }
+    },
+    "compromising": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "compromising": 73,
+        "collaborating": 32,
+        "accommodating": 14,
+        "avoiding": 7,
+        "competing": 4
+      },
+      "handoff_runs": 16,
+      "requirement_conflict_runs": 3,
+      "exact_interface_runs": 16,
+      "target": {
+        "style": "compromising",
+        "agents": [
+          73,
+          130
+        ],
+        "control_agents": [
+          52,
+          130
+        ],
+        "runs_more": 28,
+        "runs_fewer": 12,
+        "p": 0.0166
+      }
+    },
+    "accommodating": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "compromising": 66,
+        "collaborating": 38,
+        "accommodating": 16,
+        "avoiding": 8,
+        "competing": 2
+      },
+      "handoff_runs": 24,
+      "requirement_conflict_runs": 3,
+      "exact_interface_runs": 23,
+      "target": {
+        "style": "accommodating",
+        "agents": [
+          16,
+          130
+        ],
+        "control_agents": [
+          17,
+          130
+        ],
+        "runs_more": 9,
+        "runs_fewer": 10,
+        "p": 1.0
+      }
+    },
+    "avoiding": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "avoiding": 84,
+        "compromising": 17,
+        "competing": 16,
+        "collaborating": 7,
+        "accommodating": 6
+      },
+      "handoff_runs": 7,
+      "requirement_conflict_runs": 0,
+      "exact_interface_runs": 7,
+      "target": {
+        "style": "avoiding",
+        "agents": [
+          84,
+          130
+        ],
+        "control_agents": [
+          16,
+          130
+        ],
+        "runs_more": 45,
+        "runs_fewer": 1,
+        "p": 0.0
+      }
+    },
+    "structured": {
+      "labeled_runs": 65,
+      "agent_styles": {
+        "collaborating": 74,
+        "compromising": 28,
+        "accommodating": 18,
+        "avoiding": 9,
+        "competing": 1
+      },
+      "handoff_runs": 24,
+      "requirement_conflict_runs": 7,
+      "exact_interface_runs": 47
+    }
+  },
+  "gold": {
+    "checked": 65,
+    "all_checks_pass": 65,
+    "failed": {}
+  }
+}

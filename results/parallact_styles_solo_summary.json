@@ -1,0 +1,30 @@
+{
+  "study": "parallact_styles_solo",
+  "setting": "solo",
+  "jobs": 65,
+  "finished": 65,
+  "both_pass": 17,
+  "both_pass_local_work": 25,
+  "merged_outcomes": {
+    "both": 17,
+    "B only": 13,
+    "neither": 33,
+    "A only": 2
+  },
+  "own_pass": null,
+  "merge_status": {
+    "solo": 65
+  },
+  "runs_with_messages": 0,
+  "mean_messages": 0.0,
+  "runs_with_shared_files": 0,
+  "empty_patches": 25,
+  "test_errors": 0,
+  "cost_usd": 0.49,
+  "mean_minutes": 9.6,
+  "gold": {
+    "checked": 0,
+    "all_checks_pass": 0,
+    "failed": {}
+  }
+}
