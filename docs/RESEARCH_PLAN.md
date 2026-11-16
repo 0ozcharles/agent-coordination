@@ -596,6 +596,38 @@ What it shows, together with the CooperBench study:
 - On ParallACT most failures are capability, as the pilot suggested: whether both requests pass is decided mostly by the instance. A study of handling styles needs tasks the model can solve alone, or a stronger model, before differences in coordination can show.
 - Limits: one model (gpt-6-luna) and one run per instance and arm. With 65 instances the comparisons detect only large effects; a difference of three or four instances per arm cannot be ruled out.
 
+### ParallACT synthesis readouts (2026-11-16)
+
+Prompted by Zhao et al., "When Debate Helps" (NeurIPS 2026): when several agents propose, does the final readout lose what they found? Two readouts on the finished style runs, with no agent re-run. Config, frozen before the test runs after a dev check on 8 other instances: [configs/parallact_synthesis.json](../configs/parallact_synthesis.json). Per-run data: [select](../results/parallact_synthesis_select_rows.csv), [re-merge](../results/parallact_synthesis_remerge_rows.csv); summary: [results/parallact_synthesis_summary.json](../results/parallact_synthesis_summary.json). Cost: $0.10 for selection, $0.71 for the 592 re-merges.
+
+- **Select.** For each of the 65 instances a manager (gpt-6-luna) reads both requests and the eight teams' merged patches, in shuffled order, and picks one. Baselines: the consensus patch (the one sharing the most changed lines with the others), a random team and the oracle (some team passes both).
+- **Re-merge.** Each of the 148 conflicted runs is merged again from the same two patches. A 2 × 2 design: the resolver sees either only the conflict blocks (as the original merge) or the whole conflicted file, and is either blind or given both requests and the agents' messages. A second blind block run (blind repeat) measures resampling alone. Primary: aware whole-file against the original blind merge.
+
+| Select (65 instances) | Both pass |
+|---|---|
+| Random team (expected) | 23.1 |
+| Consensus | 27 |
+| Manager | 28 |
+| Oracle | 38 |
+
+| Re-merge (148 conflicted runs) | Both pass | Better / worse than original | Requests passed (of 296) | When both own patches pass (of 67) |
+|---|---|---|---|---|
+| Original (blind, blocks) | 33 | | 107 | 30 |
+| Blind repeat | 31 | 2 / 4 | 102 | 29 |
+| Aware, blocks | 40 | 12 / 5 | 120 | 39 |
+| Blind, whole file | 45 | 15 / 3 (p = 0.008) | 138 | 39 |
+| **Aware, whole file** | **61** | **30 / 2 (p < 0.001)** | **166** | **55** |
+
+- **The manager does not beat consensus.** Of the 11 instances where consensus misses but some team passes both, the manager recovers 3, and it loses 2 that consensus had (p = 1.0). Both beat a random team by 4 to 5 instances. Judging from patches alone, without running tests, recovers little of the headroom. The dev result (6 against 4 of 8) did not hold.
+- **The re-merge recovers most of the merge loss, but only with both changes.** Seeing the requests alone (+7 net, p = 0.14) or the whole file alone (+12) helps less than both together (+28; against blind whole-file 17 / 1, p < 0.001). Resampling alone does nothing (−2). Where both agents' own patches pass, the aware whole-file merge passes both requests in 55 of 67 runs against 30.
+- **It raises the floor, not the ceiling.** Substituting the aware whole-file merge into the style runs raises both-pass from 21–26 to 24–29 of 65 per arm, and on the 25 instances a single agent solves from 17–20 to 19–23. The number of instances some team solves moves only from 38 to 39: the merges it fixes are on instances another team had already solved.
+
+What it shows:
+
+- In the debate paper's terms, the teams supply the right answer on 38 of 65 instances, and a readout that only reads the proposals adds almost nothing over consensus. Where the readout gets the information the blind step lacked (what each side was asked to do, and the code around the conflict), it recovers most of what the plain merge lost.
+- For our study, part of what looked like coordination failure on ParallACT was a weak merge step. Comparisons of handling styles should be scored with the aware whole-file merge. The exploratory rescoring above does not change the style result: no arm moves above neutral (29).
+- Limits: one model, one resolution per run and method; the rescoring of style arms was not planned before the run.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.

@@ -1,0 +1,182 @@
+{
+  "study": "parallact_synthesis",
+  "question": "On the finished ParallACT style runs, does a readout that uses the requests beat the plain combination? (1) select: can a judge that reads both requests pick, among the eight teams' merged patches for an instance, one that satisfies both, better than a consensus pick? (2) remerge: does resolving conflicted files with both requests and the agents' messages in view pass more requests than the blind resolver?",
+  "select": {
+    "instances": 65,
+    "parsed": 65,
+    "both_pass": {
+      "judge": 28,
+      "consensus": 27,
+      "random_expected": 23.1,
+      "oracle": 38
+    },
+    "judge_vs_consensus": {
+      "judge_better": 3,
+      "consensus_better": 2,
+      "p": 1.0
+    },
+    "decomposition": {
+      "headroom": 11,
+      "recovered": 3,
+      "consensus_correct": 27,
+      "damaged": 2
+    },
+    "judge_arms": {
+      "structured": 15,
+      "accommodating": 9,
+      "default": 9,
+      "collaborating": 8,
+      "neutral": 7,
+      "compromising": 6,
+      "avoiding": 6,
+      "competing": 5
+    },
+    "consensus_arms": {
+      "default": 12,
+      "structured": 11,
+      "competing": 9,
+      "neutral": 8,
+      "avoiding": 8,
+      "compromising": 6,
+      "accommodating": 6,
+      "collaborating": 5
+    },
+    "cost_usd": 0.095
+  },
+  "remerge": {
+    "aware": {
+      "runs": 148,
+      "resolved": 148,
+      "both_pass": 40,
+      "blind_both_pass": 33,
+      "requests_passed": 120,
+      "blind_requests_passed": 107,
+      "vs_blind": {
+        "better": 12,
+        "worse": 5,
+        "p": 0.1435,
+        "requests_better": 18,
+        "requests_worse": 6,
+        "requests_p": 0.0227
+      },
+      "own_both_runs": 67,
+      "both_pass_when_own_both": [
+        39,
+        67
+      ],
+      "blind_both_pass_when_own_both": [
+        30,
+        67
+      ],
+      "cost_usd": 0.043
+    },
+    "blind_repeat": {
+      "runs": 148,
+      "resolved": 148,
+      "both_pass": 31,
+      "blind_both_pass": 33,
+      "requests_passed": 102,
+      "blind_requests_passed": 107,
+      "vs_blind": {
+        "better": 2,
+        "worse": 4,
+        "p": 0.6875,
+        "requests_better": 2,
+        "requests_worse": 6,
+        "requests_p": 0.2891
+      },
+      "own_both_runs": 67,
+      "both_pass_when_own_both": [
+        29,
+        67
+      ],
+      "blind_both_pass_when_own_both": [
+        30,
+        67
+      ],
+      "cost_usd": 0.029
+    },
+    "aware_file": {
+      "runs": 148,
+      "resolved": 148,
+      "both_pass": 61,
+      "blind_both_pass": 33,
+      "requests_passed": 166,
+      "blind_requests_passed": 107,
+      "vs_blind": {
+        "better": 30,
+        "worse": 2,
+        "p": 0.0,
+        "requests_better": 42,
+        "requests_worse": 2,
+        "requests_p": 0.0
+      },
+      "own_both_runs": 67,
+      "both_pass_when_own_both": [
+        55,
+        67
+      ],
+      "blind_both_pass_when_own_both": [
+        30,
+        67
+      ],
+      "cost_usd": 0.325
+    },
+    "blind_file": {
+      "runs": 148,
+      "resolved": 148,
+      "both_pass": 45,
+      "blind_both_pass": 33,
+      "requests_passed": 138,
+      "blind_requests_passed": 107,
+      "vs_blind": {
+        "better": 15,
+        "worse": 3,
+        "p": 0.0075,
+        "requests_better": 20,
+        "requests_worse": 3,
+        "requests_p": 0.0005
+      },
+      "own_both_runs": 67,
+      "both_pass_when_own_both": [
+        39,
+        67
+      ],
+      "blind_both_pass_when_own_both": [
+        30,
+        67
+      ],
+      "cost_usd": 0.311
+    },
+    "aware_vs_blind_repeat": {
+      "pairs": 148,
+      "aware_better": 11,
+      "blind_repeat_better": 2,
+      "p": 0.0225
+    },
+    "blind_file_vs_blind_repeat": {
+      "pairs": 148,
+      "blind_file_better": 15,
+      "blind_repeat_better": 1,
+      "p": 0.0005
+    },
+    "aware_file_vs_blind_file": {
+      "pairs": 148,
+      "aware_file_better": 17,
+      "blind_file_better": 1,
+      "p": 0.0001
+    },
+    "aware_file_vs_aware": {
+      "pairs": 148,
+      "aware_file_better": 21,
+      "aware_better": 0,
+      "p": 0.0
+    },
+    "aware_file_vs_blind_repeat": {
+      "pairs": 148,
+      "aware_file_better": 31,
+      "blind_repeat_better": 1,
+      "p": 0.0
+    }
+  }
+}

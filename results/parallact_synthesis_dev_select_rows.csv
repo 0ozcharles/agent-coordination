@@ -1,0 +1,9 @@
+instance,judge,consensus,oracle,random,judge_arm,consensus_arm,parsed,cost_usd
+instance_NodeBB__NodeBB-4327a09d76f10a79109da9d91c22120428d3bdb9-vnan,True,False,True,0.375,default,neutral,True,0.002114
+instance_NodeBB__NodeBB-b1f9ad5534bb3a44dab5364f659876a4b7fe34c1-vnan,True,False,True,0.25,collaborating,default,True,0.0015151999999999998
+instance_ansible__ansible-1ee70fc272aff6bf3415357c6e13c5de5b928d9b-v1055803c3a812189a1133297f7f5468579283f86,True,True,True,0.625,accommodating,structured,True,0.0005208999999999999
+instance_flipt-io__flipt-381b90f718435c4694380b5fcd0d5cf8e3b5a25a,True,True,True,1.0,structured,collaborating,True,0.0010151
+instance_flipt-io__flipt-b6cef5cdc0daff3ee99e5974ed60a1dc6b4b0d67,False,False,False,0.0,competing,structured,True,0.000975
+instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866,True,False,True,0.625,accommodating,compromising,True,0.0013624000000000002
+instance_protonmail__webclients-b387b24147e4b5ec3b482b8719ea72bee001462a,True,True,True,1.0,neutral,neutral,True,0.0022924
+instance_qutebrowser__qutebrowser-0b621cb0ce2b54d3f93d8d41d8ff4257888a87e5-v2ef375ac784985212b1805e1d0431dc8f1b3c171,False,True,True,0.75,default,collaborating,True,0.0003915
