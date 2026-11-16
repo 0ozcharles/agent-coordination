@@ -1,0 +1,44 @@
+{
+  "study": "parallact_synthesis",
+  "question": "On the finished ParallACT style runs, does a readout that uses the requests beat the plain combination? (1) select: can a judge that reads both requests pick, among the eight teams' merged patches for an instance, one that satisfies both, better than a consensus pick? (2) remerge: does resolving conflicted files with both requests and the agents' messages in view pass more requests than the blind resolver?",
+  "status": "frozen 2026-11-15 before the test runs. The dev check (configs/parallact_synthesis_dev.json, 8 instances, 27 conflicted runs) found block resolution breaking syntax, so whole-file methods were added there; no prompt changed after that. Dev results: select 6/8 against consensus 4/8; remerge both-pass blind 14, blind_repeat 15, aware 13, blind_file 17, aware_file 24 of 27",
+  "motivation": "Zhao et al., When Debate Helps (NeurIPS 2026): multi-agent systems beat voting only when the candidates contain a correct answer and the readout uses evidence of correctness. On the test runs, some team passes both requests on 38 of 65 instances against 23 for one team, and 40 runs lose a request that each agent's own patch passed when the two patches are merged",
+  "runs": "configs/parallact_styles.json",
+  "rows": "results/parallact_styles_rows.csv",
+  "select": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {
+      "extra_body": {
+        "reasoning_effort": "low"
+      }
+    },
+    "seed": 20261115,
+    "max_patch_lines": 400,
+    "attempts": 2,
+    "candidates": "the merged patch of every arm's run on the instance (8), shown in a seeded random order, without scores, tests or arm names",
+    "baselines": "consensus: the patch whose changed lines overlap most with the others' (mean Jaccard), the analogue of a majority vote; random: the mean over the candidates; oracle: some candidate passes"
+  },
+  "remerge": {
+    "merge_config": "configs/merge_test.json",
+    "methods": [
+      "aware",
+      "blind_repeat",
+      "aware_file",
+      "blind_file"
+    ],
+    "max_message_chars": 6000,
+    "population": "every run whose git merge conflicted",
+    "aware": "the blind resolver's model, settings and output format, with both requests and the messages between the agents added to the prompt, and the conflict sides labeled by request",
+    "blind_repeat": "the blind prompt again, a second sample: what resampling alone changes",
+    "design": "2 x 2: information (blind, or aware of both requests and the messages between the agents) x format (each conflict block from a 40-line excerpt as the blind resolver did, or the whole conflicted file in and the whole resolved file out). blind_repeat is the original blind prompt again. The dev check showed block resolution breaking syntax (unbalanced braces) when a conflict block cuts through a function",
+    "aware_file": "the whole conflicted file, both requests and the messages; the model writes the whole resolved file",
+    "blind_file": "the whole conflicted file only; the model writes the whole resolved file"
+  },
+  "measures": {
+    "select": "both requests pass on the chosen patch; judge against consensus, paired by instance, exact sign test; recovered headroom (instances where some team passes and consensus does not) and damage (consensus passes, judge does not)",
+    "remerge": "both requests pass on the re-merged patch, against the blind merge of the same run (paired, exact sign test); aware against blind_repeat the same way; requests passed (0 to 2) as a secondary measure"
+  },
+  "test_timeout": 2400,
+  "output": "runs/parallact/synthesis",
+  "primary": "remerge: aware_file against the original blind merge of the same run (both requests pass, paired sign test). select: judge against consensus. The other remerge comparisons separate information from format and are secondary"
+}

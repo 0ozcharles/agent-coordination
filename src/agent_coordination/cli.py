@@ -8,7 +8,7 @@ import subprocess
 import sys
 
 from . import (branch, census, conflict_states, decomposition, merge, merge_audit, merge_check, paper_census, parallact,
-               rescore, s1, s2, sensitivity, upstream)
+               rescore, s1, s2, sensitivity, synthesis, upstream)
 
 
 def find_root():
@@ -335,6 +335,32 @@ def parallact_command(root, args):
     return code or 0
 
 
+def synthesis_command(root, args):
+    config_path = args.config.resolve()
+    config = synthesis.load_config(config_path)
+    output = project_path(root, config["output"])
+    if args.report:
+        synthesis.report(config, root)
+        return 0
+    print(f"{config['study']}: {config['question']}")
+    rows = synthesis.rows(config, root)
+    instances = sorted({r["instance"] for r in rows})
+    selected = sum((output / "select" / f"{i}.json").is_file() for i in instances)
+    jobs = synthesis.remerge_jobs(config, root)
+    remerged = sum(synthesis.remerge_path(config, root, r, m).is_file() for r, m in jobs)
+    print(f"select: {len(instances)} instances, {selected} done (model calls, cents). "
+          f"remerge: {len(jobs)} re-merges of conflicted runs, {remerged} done (model calls and Docker).")
+    module_args = [str(config_path)] + (["--select"] if args.select else []) + (["--remerge"] if args.remerge else [])
+    module_args += ["--workers", str(args.workers or 3)] + (["--limit", str(args.limit)] if args.limit else [])
+    if not (args.select or args.remerge):
+        print("Add --select and/or --remerge, then --execute.")
+        return 0
+    code = launch(root, args, "agent_coordination.synthesis", module_args, output, 1)
+    if code is not None:
+        synthesis.report(config, root)
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -451,6 +477,15 @@ def main(argv=None):
     pact.add_argument("--limit", type=int, help="Run at most this many jobs or instances")
     pact.add_argument("--python", help="CooperBench Python interpreter")
     pact.add_argument("--workers", type=int, help="Parallel worker processes (default 1)")
+    synth = subs.add_parser("synthesis", help="Readouts on finished ParallACT runs: pick among teams, or re-merge with the requests")
+    synth.add_argument("config", type=Path)
+    synth.add_argument("--select", action="store_true", help="Judge picks one team's merged patch per instance (cents)")
+    synth.add_argument("--remerge", action="store_true", help="Re-resolve conflicted merges and test them (cents and Docker)")
+    synth.add_argument("--execute", action="store_true")
+    synth.add_argument("--report", action="store_true", help="Summarize; no Docker or API")
+    synth.add_argument("--limit", type=int, help="At most this many instances or re-merges")
+    synth.add_argument("--python", help="CooperBench Python interpreter")
+    synth.add_argument("--workers", type=int, help="Concurrent jobs (default 3)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -491,6 +526,8 @@ def main(argv=None):
             return branch_command(root, args)
         if args.command == "parallact":
             return parallact_command(root, args)
+        if args.command == "synthesis":
+            return synthesis_command(root, args)
         if args.command == "sensitivity":
             return sensitivity_command(root, args)
         if args.command == "merge-audit":

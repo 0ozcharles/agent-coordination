@@ -1,0 +1,8 @@
+{
+  "extends": "parallact_synthesis.json",
+  "study": "parallact_synthesis_dev",
+  "status": "dev: checks parsing, prompt length and the pipeline; prompts may change here",
+  "runs": "configs/parallact_styles_dev.json",
+  "rows": "results/parallact_styles_dev_rows.csv",
+  "output": "runs/parallact/synthesis_dev"
+}
