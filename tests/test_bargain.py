@@ -202,3 +202,93 @@ class BargainTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SkinAndGroundTest(unittest.TestCase):
+    def test_abstract_rendering_is_the_default(self):
+        inst = bargain.make_instance(ENV, seed=3, index=0, first_mover="p1")
+        text = bargain.system_prompt(config(), inst, "p1", "neutral", "prompted")
+        self.assertIn("You are Developer 1, one of two developers who must agree on a shared design with 4 decisions. For each", text)
+        self.assertIn("Decision 1: Option A = ", text)
+        self.assertIn("The other developer has their own private scores", text)
+        self.assertEqual(bargain.issue_names(inst), ["Decision 1", "Decision 2", "Decision 3", "Decision 4"])
+        self.assertEqual(bargain.option_labels(inst, 0), ["Option A", "Option B", "Option C"])
+
+    def test_named_skin_rendering_and_parsing(self):
+        inst = bargain.make_instance({**ENV, "skin": "team_plan"}, seed=3, index=0, first_mover="p1")
+        plain = bargain.make_instance(ENV, seed=3, index=0, first_mover="p1")
+        self.assertEqual(inst["weights"], plain["weights"])  # a skin changes the rendering, not the game
+        text = bargain.system_prompt(config(), inst, "p2", "competing", "prompted")
+        self.assertIn("You are Team lead 2, one of two team leads who must agree on a quarterly plan for both teams with 4 decisions.", text)
+        self.assertIn("Hiring: A (two senior engineers) = ", text)
+        self.assertIn("a plan is worth the sum of your scores", text)
+        self.assertIn("The other team lead has their own private scores", text)
+        self.assertNotIn("developer", text)
+        self.assertNotIn("design", text)
+        told = bargain.describe(inst, move(1, "p1", "propose", [0, 1, 2, 0], inst=inst), "p2", 2, 10)
+        self.assertTrue(told.startswith('The other team lead said: "hi" and proposed: Hiring: A (two senior engineers), Office days: B (Tuesday to Thursday)'))
+        reply = ('{"action": "propose", "message": "m", "proposal": {"Hiring": "B", "Office days": "Option C", '
+                 '"Tooling budget": "training", "Review cadence": "A (weekly)"}}')
+        self.assertEqual(bargain.parse_reply(reply, inst)["design"], [1, 2, 2, 0])
+        with self.assertRaises(ValueError):
+            bargain.parse_reply(reply.replace('"training"', '"nothing"'), inst)
+        self.assertIn("Two team leads negotiate a quarterly plan for both teams", bargain.label_prompt("CB", {"instance": inst, "moves": []}))
+
+    def test_instances_from_a_file(self):
+        spec = {"source": "x", "importance": {"p1": [60.0, 40.0], "p2": [25.0, 75.0]},
+                "rankings": {"p1": [[2, 0, 1], [1, 0, 2]], "p2": [[1, 0, 2], [1, 0, 2]]}, "opposed": [True, False],
+                "skin": {"parties": ["Developer A", "Developer B"], "roles": ["the batch API", "the fast path"],
+                         "artifact": "the design of src/meta/index.js", "intro": "Context here. You are working on {role}; the other developer on {other_role}.",
+                         "issues": [{"name": "Input shape", "options": ["one", "two", "three"]}, {"name": "Lookups", "options": ["x", "y", "z"]}]}}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "specs.json"
+            path.write_text(json.dumps([spec, spec]))
+            cfg = config(instances={"path": str(path), "first_mover": "alternate"}, environment={"moves": 8, "outside": [30, 30]})
+            insts = bargain.instances(cfg)
+        self.assertEqual([i["first_mover"] for i in insts], ["p1", "p2"])
+        inst = insts[0]
+        self.assertEqual((inst["k"], inst["m"], inst["opposed"], inst["opposition"]), (2, 3, [True, False], 0.5))
+        self.assertEqual(inst["weights"]["p1"][0], [30.0, 0.0, 60.0])  # option 2 is p1's top on issue 0, option 1 its bottom
+        self.assertEqual(inst["weights"]["p2"][0], [12.5, 25.0, 0.0])
+        self.assertEqual(inst["outside"], {"p1": 30, "p2": 30})
+        self.assertIn("integrative_gain", inst["frontier"])
+        text_a = bargain.system_prompt(cfg, inst, "p1", "neutral", "prompted")
+        text_b = bargain.system_prompt(cfg, inst, "p2", "neutral", "prompted")
+        self.assertIn("You are Developer A, one of two developers who must agree on the design of src/meta/index.js with 2 decisions. Context here. "
+                      "You are working on the batch API; the other developer on the fast path.", text_a)
+        self.assertIn("You are working on the fast path; the other developer on the batch API.", text_b)
+        self.assertIn("Input shape: A (one) = 30, B (two) = 0, C (three) = 60", text_a)
+        self.assertIn("8 moves in total", text_a)
+
+    def test_ground_validation_and_spec(self):
+        from agent_coordination import ground
+        out = {"context": "The shared code validates slugs across three namespaces and both tickets rewrite that flow.",
+               "roles": ["Add batch slug checks", "Short-circuit lookups"],
+               "decisions": [{"name": "Input shape", "options": ["Scalar only", "Scalar and array", "Array only"],
+                              "A_needs": 2, "B_needs": 1, "middle": 3, "importance": {"A": 5, "B": 2}},
+                             {"name": "Invalid input", "options": ["Accept falsy", "Reject missing", "Reject missing or falsy"],
+                              "A_needs": 3, "B_needs": 3, "middle": 2, "importance": {"A": 3, "B": 3}}]}
+        ground.validate(out)
+        data = {"instance_id": "inst-1", "repo": "r", "shared_artifact": "src/meta/index.js — Meta.slugTaken flow"}
+        spec = ground.to_spec(data, out)
+        self.assertEqual(spec["opposed"], [True, False])
+        self.assertEqual(spec["importance"], {"p1": [62.5, 37.5], "p2": [40.0, 60.0]})
+        self.assertEqual(spec["skin"]["artifact"], "the design of src/meta/index.js")
+        issues = spec["skin"]["issues"]
+        self.assertEqual(sorted(issues[0]["options"]), ["Array only", "Scalar and array", "Scalar only"])
+        top = lambda agent, i: issues[i]["options"][spec["rankings"][agent][i][0]]
+        self.assertEqual((top("p1", 0), top("p2", 0)), ("Scalar and array", "Scalar only"))
+        self.assertEqual(issues[0]["options"][spec["rankings"]["p1"][0][1]], "Array only")  # the middle ground is second for both
+        self.assertEqual(spec["rankings"]["p1"][0][1], spec["rankings"]["p2"][0][1])
+        self.assertEqual((top("p1", 1), top("p2", 1)), ("Reject missing or falsy", "Reject missing or falsy"))
+        inst = bargain.assemble({"moves": 10, "outside": [30, 30]}, 0, "p1", spec["importance"], spec["rankings"], spec["opposed"], skin=spec["skin"])
+        self.assertEqual(inst["max"], {"p1": 100, "p2": 100})
+        self.assertEqual(bargain.value(inst, "p1", [spec["rankings"]["p1"][0][0], spec["rankings"]["p1"][1][0]]), 100)
+        for broken in ({**out, "decisions": out["decisions"][:1] + [{**out["decisions"][1], "A_needs": 1, "B_needs": 1, "middle": 1}]},
+                       {**out, "decisions": [out["decisions"][1]] * 2},
+                       {**out, "decisions": [{**out["decisions"][0], "A_needs": 1, "B_needs": 1}, out["decisions"][1]]},
+                       {**out, "roles": ["only one"]}):
+            with self.assertRaises(ValueError):
+                ground.validate(broken)
+        self.assertEqual(ground.short_artifact("src/a.js: the thing"), "src/a.js")
+        self.assertEqual(ground.short_artifact("src/a.js"), "src/a.js")

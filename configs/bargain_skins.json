@@ -1,0 +1,138 @@
+{
+  "note": "Scenario skins: the same generated instance rendered as a different realistic conflict. A skin names the two parties, the artifact, the decisions and their options; the generator still draws the weights, so no option is systematically better. Option names are meant to carry as little prior as possible. 'abstract' is the default rendering (Decision 1, Option A). 'thing' is the word used for the object being negotiated (design, plan).",
+  "software_design": {
+    "parties": [
+      "Developer 1",
+      "Developer 2"
+    ],
+    "party_kind": "developers",
+    "other": "the other developer",
+    "artifact": "the design of a shared module",
+    "intro": "You each own one feature of the same service, and both features go through this module, so its design decides how much work each of you has and how well your feature performs.",
+    "issues": [
+      {
+        "name": "Storage layer",
+        "options": [
+          "an in-process cache",
+          "the existing SQL tables",
+          "a separate key-value store"
+        ]
+      },
+      {
+        "name": "Call style",
+        "options": [
+          "synchronous calls",
+          "callbacks",
+          "an event queue"
+        ]
+      },
+      {
+        "name": "Error handling",
+        "options": [
+          "raise exceptions",
+          "return result objects",
+          "log and continue"
+        ]
+      },
+      {
+        "name": "Configuration",
+        "options": [
+          "constants in code",
+          "a config file",
+          "environment variables"
+        ]
+      }
+    ],
+    "thing": "design"
+  },
+  "team_plan": {
+    "parties": [
+      "Team lead 1",
+      "Team lead 2"
+    ],
+    "party_kind": "team leads",
+    "other": "the other team lead",
+    "artifact": "a quarterly plan for both teams",
+    "intro": "Your two teams share one budget, one office and one review process, and the plan you agree on applies to both teams.",
+    "issues": [
+      {
+        "name": "Hiring",
+        "options": [
+          "two senior engineers",
+          "one senior and two junior engineers",
+          "four junior engineers"
+        ]
+      },
+      {
+        "name": "Office days",
+        "options": [
+          "Monday to Wednesday",
+          "Tuesday to Thursday",
+          "Wednesday to Friday"
+        ]
+      },
+      {
+        "name": "Tooling budget",
+        "options": [
+          "cloud credits",
+          "workstations",
+          "training"
+        ]
+      },
+      {
+        "name": "Review cadence",
+        "options": [
+          "weekly",
+          "every two weeks",
+          "monthly"
+        ]
+      }
+    ],
+    "thing": "plan"
+  },
+  "release_plan": {
+    "parties": [
+      "Product owner 1",
+      "Product owner 2"
+    ],
+    "party_kind": "product owners",
+    "other": "the other product owner",
+    "artifact": "a joint release plan",
+    "intro": "Your two products ship together in one release, so the date, the platform order, the pricing and the launch region are decided once for both.",
+    "issues": [
+      {
+        "name": "Release date",
+        "options": [
+          "end of March",
+          "end of April",
+          "end of May"
+        ]
+      },
+      {
+        "name": "First platform",
+        "options": [
+          "web",
+          "iOS",
+          "Android"
+        ]
+      },
+      {
+        "name": "Pricing",
+        "options": [
+          "a free tier plus a paid plan",
+          "paid plans only",
+          "usage-based pricing"
+        ]
+      },
+      {
+        "name": "Launch region",
+        "options": [
+          "North America",
+          "Europe",
+          "Asia"
+        ]
+      }
+    ],
+    "thing": "plan"
+  }
+}

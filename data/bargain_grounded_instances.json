@@ -1,0 +1,8832 @@
+[
+ {
+  "source": "instance_NodeBB__NodeBB-00c70ce7b0541cfc94afe567921d7668cdc8f4ac-vnan",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/meta/index.js — Meta.slugTaken validation, normalization, and existence-check control flow",
+  "importance": {
+   "p1": [
+    45.5,
+    18.2,
+    36.3
+   ],
+   "p2": [
+    22.2,
+    55.6,
+    22.2
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2,
+    4
+   ],
+   "B": [
+    2,
+    5,
+    2
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/meta/index.js",
+   "thing": "design",
+   "intro": "The shared metadata code checks whether a slug is already used in the user, group, or category namespaces. One ticket extends that behavior to batches, while the other aims to avoid unnecessary namespace lookups for scalar checks. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add batch slug checks and user lookup APIs",
+    "Short-circuit scalar namespace checks"
+   ],
+   "issues": [
+    {
+     "name": "Input and result shape",
+     "options": [
+      "Scalar input only, returning one boolean",
+      "Scalar or array input, returning matching boolean shapes",
+      "Scalar or array input, with unordered batch results"
+     ]
+    },
+    {
+     "name": "Namespace lookup order",
+     "options": [
+      "Check namespaces in order and stop on a match",
+      "Check namespaces in order without stopping on a match",
+      "Check all namespaces concurrently"
+     ]
+    },
+    {
+     "name": "Invalid batch values",
+     "options": [
+      "Skip falsy array values and preserve their positions",
+      "Reject arrays containing any falsy value",
+      "Reject missing scalar values only"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-05f2236193f407cf8e2072757fbd6bb170bc13f0-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/topics/sorted.js — sortTids dispatch block and topic-order comparators",
+  "importance": {
+   "p1": [
+    45.5,
+    45.5,
+    9.0
+   ],
+   "p2": [
+    14.3,
+    14.3,
+    71.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    1
+   ],
+   "B": [
+    1,
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/topics/sorted.js",
+   "thing": "design",
+   "intro": "The shared code selects ordering behavior for topic queries and applies comparators to the returned topics. One ticket needs chronological ordering in the opposite direction from the usual recent-first order, while the other needs a reliable tie-breaker for equally popular topics. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add oldest-first topic sorting",
+    "Stabilize popular-topic tie ordering"
+   ],
+   "issues": [
+    {
+     "name": "Old sort direction",
+     "options": [
+      "Descending last-post time",
+      "No dedicated old-sort behavior",
+      "Ascending last-post time"
+     ]
+    },
+    {
+     "name": "Old sort query scope",
+     "options": [
+      "Tag and category queries only",
+      "Global queries only",
+      "Global, tag, and category queries"
+     ]
+    },
+    {
+     "name": "Popular-sort tie-breaker",
+     "options": [
+      "Most recent last-post time",
+      "Highest view count",
+      "Candidate source order"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-3c85b944e30a0ba8b3ec9e1f441c74f383625a15-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/middleware/maintenance.js — maintenanceMode authorization branch after login-route handling",
+  "importance": {
+   "p1": [
+    45.5,
+    45.5,
+    9.0
+   ],
+   "p2": [
+    45.5,
+    9.1,
+    45.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    1
+   ],
+   "B": [
+    5,
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/middleware/maintenance.js",
+   "thing": "design",
+   "intro": "The shared middleware decides whether requests may continue while Maintenance Mode is enabled or are sent to the maintenance page. Both tickets add a non-admin bypass condition to that authorization decision, while requiring normal behavior to remain unchanged when Maintenance Mode is disabled. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Configure group-based maintenance exemptions",
+    "Configure trusted client-IP exemptions"
+   ],
+   "issues": [
+    {
+     "name": "Bypass eligibility",
+     "options": [
+      "Administrators and configured IPs",
+      "Administrators and configured groups",
+      "Administrators, configured groups, or configured IPs"
+     ]
+    },
+    {
+     "name": "Group-list fallback",
+     "options": [
+      "Default to administrators and Global Moderators",
+      "Treat an empty list as no group exemptions",
+      "Use configured groups, falling back only to administrators"
+     ]
+    },
+    {
+     "name": "IP-list interpretation",
+     "options": [
+      "Parse arrays or comma- or whitespace-separated values and normalize mapped IPv4",
+      "Accept only array-valued exact IP entries",
+      "Parse arrays or separated values without address normalization"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-b398321a5eb913666f903a794219833926881a8f-vd59a5728dfc977f44533186ace531248c2917516",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/privileges/global.js — privsGlobal.can collection normalization and return contract",
+  "importance": {
+   "p1": [
+    27.8,
+    27.8,
+    22.2,
+    22.2
+   ],
+   "p2": [
+    25.0,
+    25.0,
+    25.0,
+    25.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    4,
+    4
+   ],
+   "B": [
+    5,
+    5,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/privileges/global.js",
+   "thing": "design",
+   "intro": "The shared privilege-checking code accepts permission queries and returns authorization results used by chat and plugins. Both tickets change how it handles collections, while also relying on predictable behavior for individual permissions and administrators. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add privileged-chat authorization",
+    "Support Set-based plugin authorization"
+   ],
+   "issues": [
+    {
+     "name": "Accepted query types",
+     "options": [
+      "Strings, arrays, and Sets",
+      "Strings and arrays",
+      "Strings and Sets"
+     ]
+    },
+    {
+     "name": "Collection result shape",
+     "options": [
+      "Any-of boolean",
+      "Positional boolean vector",
+      "Type-specific array vector and Set boolean"
+     ]
+    },
+    {
+     "name": "String result shape",
+     "options": [
+      "Any-of boolean over normalized input",
+      "One-element boolean vector",
+      "Single boolean"
+     ]
+    },
+    {
+     "name": "Administrator override",
+     "options": [
+      "Override only for string queries",
+      "Override for every query type",
+      "No administrator override"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-cfc237c2b79d8c731bbfc6cadf977ed530bfd57a-v0495b863a912fbff5749c67e860612b91825407c",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/user/data.js — modifyUserData() generated-avatar icon:bgColor decision block",
+  "importance": {
+   "p1": [
+    35.7,
+    35.7,
+    21.4,
+    7.2
+   ],
+   "p2": [
+    33.3,
+    6.7,
+    33.3,
+    26.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    3,
+    1
+   ],
+   "B": [
+    5,
+    1,
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/user/data.js",
+   "thing": "design",
+   "intro": "This code selects the background color for generated letter avatars and determines when their icon data is populated. One ticket adds per-user color customization, while the other adds stable colors for staff, so their selection rules need to coexist. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add customizable avatar background colors",
+    "Assign stable colors to staff avatars"
+   ],
+   "issues": [
+    {
+     "name": "Color source precedence",
+     "options": [
+      "Staff role color before saved preference",
+      "Valid saved preference before staff role",
+      "Saved preference for non-staff; staff role color otherwise"
+     ]
+    },
+    {
+     "name": "Preference palette validation",
+     "options": [
+      "Accept any color in the global palette",
+      "Use the filtered palette, then the global palette",
+      "Accept only colors in the user-filtered palette"
+     ]
+    },
+    {
+     "name": "Non-staff fallback",
+     "options": [
+      "Random palette color",
+      "Deterministic username-based palette color",
+      "Fixed default palette color"
+     ]
+    },
+    {
+     "name": "Empty-picture icon data",
+     "options": [
+      "Populate icon data when picture is requested, even if empty",
+      "Populate icon data for every user",
+      "Populate icon data only when a picture is stored"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-f9ce92df988db7c1ae55d9ef96d247d27478bc70-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/controllers/admin/uploads.js — uploadsController.uploadFile post-JSON-parse folder handling",
+  "importance": {
+   "p1": [
+    33.3,
+    33.3,
+    33.4
+   ],
+   "p2": [
+    62.5,
+    25.0,
+    12.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    5
+   ],
+   "B": [
+    5,
+    2,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/controllers/admin/uploads.js",
+   "thing": "design",
+   "intro": "The admin upload controller handles the requested folder before passing an upload to storage, where that folder determines the destination and asset URL. The changes concern how the folder is interpreted and whether the destination is verified before the upload proceeds. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Validate admin upload destination directories",
+    "Normalize Windows-style upload folder paths"
+   ],
+   "issues": [
+    {
+     "name": "Folder processing order",
+     "options": [
+      "Normalize only at storage handoff",
+      "Normalize folder, then check existence",
+      "Check raw folder, then normalize"
+     ]
+    },
+    {
+     "name": "Validation path base",
+     "options": [
+      "Configured upload root",
+      "Unrestricted submitted path",
+      "Application working directory"
+     ]
+    },
+    {
+     "name": "Missing-folder behavior",
+     "options": [
+      "Create the missing directory",
+      "Continue to storage",
+      "Reject with invalid-path"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-12734fa21c08a0ce8c84e533abdc560db2eb1955-v7eee2454f617569fd6889f2211f75bc02a35f9f8",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/parsing/yaml/dumper.py: the AnsibleDumper representer registration block immediately following represent_binary",
+  "importance": {
+   "p1": [
+    16.7,
+    41.7,
+    41.6
+   ],
+   "p2": [
+    71.4,
+    14.3,
+    14.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    2,
+    5,
+    5
+   ],
+   "B": [
+    5,
+    1,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/parsing/yaml/dumper.py",
+   "thing": "design",
+   "intro": "The dumper registers how supported YAML values are represented, and the YAML filters use it to serialize template values. One change needs undefined values to trigger a meaningful failure, while the other needs derived wrapper types to inherit their base types’ representations. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix undefined-variable YAML serialization",
+    "Support derived YAML wrapper types"
+   ],
+   "issues": [
+    {
+     "name": "Registration dispatch",
+     "options": [
+      "Explicit registrations for selected subclasses",
+      "Inheritance-aware registrations for supported types",
+      "Exact-type registrations only"
+     ]
+    },
+    {
+     "name": "Undefined representation",
+     "options": [
+      "Trigger Jinja's undefined-variable failure",
+      "Serialize an explanatory string",
+      "Keep the generic representer failure"
+     ]
+    },
+    {
+     "name": "Filter error handling",
+     "options": [
+      "Propagate serialization failures unchanged",
+      "Wrap failures without identifying the filter",
+      "Wrap failures with filter-specific context and preserve the cause"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-1a4644ff15355fd696ac5b9d074a566a80fe7ca3-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/plugins/connection/psrp.py: Connection._build_kwargs, specifically construction of the pypsrp proxy/no_proxy keyword arguments inside the option-forwarding block",
+  "importance": {
+   "p1": [
+    45.5,
+    36.4,
+    18.1
+   ],
+   "p2": [
+    14.3,
+    14.3,
+    71.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4,
+    2
+   ],
+   "B": [
+    1,
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/plugins/connection/psrp.py",
+   "thing": "design",
+   "intro": "The shared builder turns connection settings into keyword arguments for the PSRP library. One change narrows how those settings are selected and forwarded, while the other addresses how proxy-related settings interact. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Narrow PSRP settings to documented options",
+    "Enforce explicit proxy precedence"
+   ],
+   "issues": [
+    {
+     "name": "Option surface",
+     "options": [
+      "Also read and forward dynamic extras",
+      "Read extras only when supported by pypsrp",
+      "Read and forward documented options only"
+     ]
+    },
+    {
+     "name": "Version-specific forwarding",
+     "options": [
+      "Gate version-specific options on detected support",
+      "Forward documented options directly without version checks",
+      "Omit options not supported by the installed version"
+     ]
+    },
+    {
+     "name": "Proxy precedence",
+     "options": [
+      "ignore_proxy determines no_proxy even with an explicit proxy",
+      "Explicit proxy forces no_proxy false",
+      "Omit no_proxy when an explicit proxy is set"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-5d253a13807e884b7ce0b6b57a963a45e2f0322c-v1055803c3a812189a1133297f7f5468579283f86",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/plugins/lookup/password.py: _parse_parameters parameter-defaulting block, moved into LookupModule by A and edited in place by B.",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    28.6,
+    71.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    2,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/plugins/lookup/password.py",
+   "thing": "design",
+   "intro": "The password lookup parser resolves parameters from the lookup term and supplies values used to generate a password. Both changes affect how that parser handles length, while one also changes where parsing and option defaults are implemented. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix key=value parsing and character handling",
+    "Reject negative password lengths"
+   ],
+   "issues": [
+    {
+     "name": "Parser location",
+     "options": [
+      "LookupModule instance method",
+      "Separate parser helper",
+      "Global parsing function"
+     ]
+    },
+    {
+     "name": "Negative length policy",
+     "options": [
+      "Clamp to zero",
+      "Raise an error",
+      "Allow negative lengths"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-949c503f2ef4b2c5d668af0492a5c0db1ab86140-v0f01c69f1e2528b935359cfe578530722bca2c59",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/config/manager.py: ConfigManager.get_configuration_definitions() and its adjacent Galaxy-server definition loading region",
+  "importance": {
+   "p1": [
+    45.5,
+    18.2,
+    36.3
+   ],
+   "p2": [
+    14.3,
+    71.4,
+    14.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2,
+    4
+   ],
+   "B": [
+    1,
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/config/manager.py",
+   "thing": "design",
+   "intro": "ConfigManager gathers configuration definitions for introspection, and its adjacent Galaxy-server loading code determines which server options are available to that introspection. The tickets change this shared area to expose Galaxy server settings and to ensure that requesting a public-only listing does not affect later lookups. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Integrate Galaxy server configuration into ansible-config",
+    "Prevent filtered listings from mutating definitions"
+   ],
+   "issues": [
+    {
+     "name": "Galaxy definition source",
+     "options": [
+      "Load definitions dynamically from Galaxy servers",
+      "Render Galaxy options separately in the CLI",
+      "Use only static core definitions"
+     ]
+    },
+    {
+     "name": "Private filtering strategy",
+     "options": [
+      "Return the registry without filtering",
+      "Delete private entries from the live registry",
+      "Filter a shallow copy of the registry"
+     ]
+    },
+    {
+     "name": "Galaxy timeout fallback",
+     "options": [
+      "Resolve missing values from the global timeout",
+      "Require explicit per-server timeout values",
+      "Apply fallback only during CLI rendering"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-9a21e247786ebd294dafafca1105fcd770ff46c6-v67cdaa49f89b34e42b69d5b7830b3c3ad3d8803f",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/module_utils/common/sys_info.py: get_distribution() and get_distribution_version() distro metadata reads",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    28.6,
+    71.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    2,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/module_utils/common/sys_info.py",
+   "thing": "design",
+   "intro": "These helpers read distribution names and versions from distro metadata and expose them to other Ansible code. One ticket concerns metadata availability across operating systems, while the other concerns byte-valued metadata leaking through the public helpers. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix distribution detection on non-Linux platforms",
+    "Normalize byte-valued distro metadata to text"
+   ],
+   "issues": [
+    {
+     "name": "Metadata read scope",
+     "options": [
+      "Linux-only reads",
+      "Reads on selected non-Linux platforms",
+      "Reads on all platforms"
+     ]
+    },
+    {
+     "name": "Metadata text normalization",
+     "options": [
+      "Preserve provider values",
+      "Convert only before returning",
+      "Convert each read to text"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/config/manager.py: ensure_type list and dictionary conversion branches",
+  "importance": {
+   "p1": [
+    35.7,
+    28.6,
+    35.7
+   ],
+   "p2": [
+    25.0,
+    62.5,
+    12.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4,
+    5
+   ],
+   "B": [
+    2,
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/config/manager.py",
+   "thing": "design",
+   "intro": "The configuration manager converts values to requested types, including lists, dictionaries, and booleans. Its list and dictionary branches affect both the concrete type of returned values and whether mutable results share identity with their inputs. The tickets also address how non-strict boolean conversion handles unhashable inputs. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix configuration type coercion",
+    "Prevent mutable configuration aliasing"
+   ],
+   "issues": [
+    {
+     "name": "Sequence result type",
+     "options": [
+      "Return a concrete list",
+      "Reject non-list sequences",
+      "Preserve accepted sequence type"
+     ]
+    },
+    {
+     "name": "Native container identity",
+     "options": [
+      "Shallow-copy every container",
+      "Copy only containers with mutable contents",
+      "Return the original container"
+     ]
+    },
+    {
+     "name": "Unhashable boolean input",
+     "options": [
+      "Raise a conversion error",
+      "Return a null value",
+      "Use the non-strict false fallback"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-de01db08d00c8d2438e1ba5989c313ba16a145b0-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/modules/pip.py: _get_packages() command construction, where A requires pip as an argv list and B shell-quotes a scalar executable path.",
+  "importance": {
+   "p1": [
+    45.5,
+    45.5,
+    9.0
+   ],
+   "p2": [
+    50.0,
+    20.0,
+    30.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    1
+   ],
+   "B": [
+    5,
+    2,
+    3
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/modules/pip.py",
+   "thing": "design",
+   "intro": "This helper builds commands for pip operations and returns command information used by the module. Its command construction affects both how pip is invoked and how the invocation is represented in diagnostics. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add interpreter-based pip fallback",
+    "Fix whitespace in executable discovery"
+   ],
+   "issues": [
+    {
+     "name": "Execution representation",
+     "options": [
+      "Normalized argv list",
+      "Shell command string",
+      "Raw argv list"
+     ]
+    },
+    {
+     "name": "Missing binary fallback",
+     "options": [
+      "Interpreter module invocation",
+      "Configured executable, then interpreter module",
+      "PATH lookup only"
+     ]
+    },
+    {
+     "name": "Diagnostic command format",
+     "options": [
+      "Shell-quoted arguments",
+      "Argument-list representation",
+      "Unquoted joined arguments"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_element-hq__element-web-772df3021201d9c73835a626df8dcb6334ad9a3e-vnan",
+  "repo": "element-hq/element-web",
+  "artifact": "src/components/views/settings/devices/DeviceTile.tsx — DeviceTile component signature and interactive information region",
+  "importance": {
+   "p1": [
+    50.0,
+    40.0,
+    10.0
+   ],
+   "p2": [
+    14.3,
+    14.3,
+    71.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4,
+    1
+   ],
+   "B": [
+    1,
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/components/views/settings/devices/DeviceTile.tsx",
+   "thing": "design",
+   "intro": "DeviceTile renders device information and handles interactions for a device-management screen. One change adds multi-device selection and its visual state, while another makes actionable information regions usable from the keyboard. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add multi-device selection and sign-out",
+    "Make actionable tiles keyboard accessible"
+   ],
+   "issues": [
+    {
+     "name": "Selection state API",
+     "options": [
+      "Internal component state",
+      "No selection state",
+      "Controlled selected prop"
+     ]
+    },
+    {
+     "name": "Selected appearance",
+     "options": [
+      "Highlight only",
+      "Selection icon and highlight",
+      "No selected indicator"
+     ]
+    },
+    {
+     "name": "Keyboard affordance",
+     "options": [
+      "Conditional button semantics with Enter and Space",
+      "Mouse interaction only",
+      "Conditional button semantics with Enter"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_element-hq__element-web-ee13e23b156fbad9369d6a656c827b6444343d4f-vnan",
+  "repo": "element-hq/element-web",
+  "artifact": "src/components/views/right_panel/RoomHeaderButtons.tsx — PinnedMessagesHeaderButton hook inputs and renderButtons pinning registration",
+  "importance": {
+   "p1": [
+    45.5,
+    45.5,
+    9.0
+   ],
+   "p2": [
+    22.2,
+    22.2,
+    55.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    1
+   ],
+   "B": [
+    2,
+    2,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/components/views/right_panel/RoomHeaderButtons.tsx",
+   "thing": "design",
+   "intro": "The room header derives controls from room state and registers pinned-message behavior while also handling thread notifications. Changes to its room access, thread handling, and pinning eligibility can affect whether the header renders safely and whether pinned rooms expose their control. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Make room and thread handling crash-safe",
+    "Retire the pinned-messages lab flag"
+   ],
+   "issues": [
+    {
+     "name": "Thread support handling",
+     "options": [
+      "Guard thread state and actions; use a safe panel fallback",
+      "Access thread state and actions unconditionally",
+      "Guard thread state but open the panel unconditionally"
+     ]
+    },
+    {
+     "name": "Missing room behavior",
+     "options": [
+      "Render the header shell with optional room reads",
+      "Render no room controls when the room is absent",
+      "Use optional room access and pass the real room to hooks"
+     ]
+    },
+    {
+     "name": "Pinning feature eligibility",
+     "options": [
+      "Gate pinning on the lab setting in rendering",
+      "Expose pinning without the lab setting",
+      "Gate pinning on the lab setting in the hooks"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-b6cef5cdc0daff3ee99e5974ed60a1dc6b4b0d67",
+  "repo": "flipt-io/flipt",
+  "artifact": "internal/server/auth/http.go: Middleware.Handler authentication-cookie deletion loop",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    37.5,
+    62.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    3,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of internal/server/auth/http.go",
+   "thing": "design",
+   "intro": "The shared code expires authentication cookies by adding deletion headers to HTTP responses. One ticket needs this behavior for unauthenticated responses, while the other changes the security attributes on logout deletion headers. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Clear cookies after unauthenticated responses",
+    "Harden logout cookie deletion headers"
+   ],
+   "issues": [
+    {
+     "name": "Expiry response scope",
+     "options": [
+      "Logout and unauthenticated errors",
+      "All authentication failures",
+      "Explicit logout only"
+     ]
+    },
+    {
+     "name": "Deletion cookie attributes",
+     "options": [
+      "Existing deletion attributes",
+      "Configured Secure only",
+      "Secure, HttpOnly, SameSite=Strict"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-dae029cba7cdb98dfb1a6b416c00d324241e6063",
+  "repo": "flipt-io/flipt",
+  "artifact": "internal/ext/importer.go: Import's top-level flag and segment nil-entry guards",
+  "importance": {
+   "p1": [
+    71.4,
+    28.6
+   ],
+   "p2": [
+    37.5,
+    62.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2
+   ],
+   "B": [
+    3,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of internal/ext/importer.go",
+   "thing": "design",
+   "intro": "The importer reads flags and segments from configuration documents and checks them against items already in the database. The shared entry guards affect both how existing items are handled and whether malformed null entries are accepted. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add incremental import that skips existing items",
+    "Reject null entries in import documents"
+   ],
+   "issues": [
+    {
+     "name": "Existing-item behavior",
+     "options": [
+      "Skip existing items",
+      "Overwrite existing items",
+      "Fail on existing items"
+     ]
+    },
+    {
+     "name": "Null-entry handling",
+     "options": [
+      "Silently ignore null entries",
+      "Return a generic error",
+      "Return an indexed type-specific error"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-0ec945d0510cdebf92cdd8999f94610772689f14",
+  "repo": "future-architect/vuls",
+  "artifact": "scanner/redhatbase.go: redhatBase.parseInstalledPackagesLine tokenization and accepted-field-count switch",
+  "importance": {
+   "p1": [
+    50.0,
+    30.0,
+    20.0
+   ],
+   "p2": [
+    16.7,
+    41.7,
+    41.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    2
+   ],
+   "B": [
+    2,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of scanner/redhatbase.go",
+   "thing": "design",
+   "intro": "The shared parser tokenizes installed-package records and uses their field count to decide how to interpret them. The tickets require it to handle empty fields without shifting package data and to accept records with an additional trailing collector token. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix empty-release and source-RPM parsing",
+    "Accept collector-annotated RPM records"
+   ],
+   "issues": [
+    {
+     "name": "Field tokenization",
+     "options": [
+      "Split on literal spaces",
+      "Collapse whitespace runs",
+      "Preserve empty repeated-space fields"
+     ]
+    },
+    {
+     "name": "Accepted field counts",
+     "options": [
+      "Accept six and seven fields",
+      "Accept six or more fields",
+      "Accept six, seven, and eight fields"
+     ]
+    },
+    {
+     "name": "Eighth-field handling",
+     "options": [
+      "Ignore the trailing field",
+      "Reject records with a trailing field",
+      "Parse it as package metadata"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-8659668177f1feb65963db7a967347a79c5f9c40",
+  "repo": "future-architect/vuls",
+  "artifact": "models/vulninfos.go: VulnInfos.FilterByCvssOver return signature and CVSS threshold predicate",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    16.7,
+    83.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of models/vulninfos.go",
+   "thing": "design",
+   "intro": "This shared filter applies a configured CVSS cutoff to vulnerability results. One ticket needs filter methods to expose exclusion counts for detection logs, while the other needs the cutoff boundary to exclude vulnerabilities whose score equals the threshold. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add exclusion counts and per-rule logging",
+    "Make cvss-over exclude cutoff-equal scores"
+   ],
+   "issues": [
+    {
+     "name": "Filter return shape",
+     "options": [
+      "Result struct with list and count",
+      "Filtered list and excluded count",
+      "Filtered list only"
+     ]
+    },
+    {
+     "name": "CVSS cutoff boundary",
+     "options": [
+      "Make boundary behavior configurable",
+      "Exclude scores equal to cutoff",
+      "Retain scores equal to cutoff"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-a76302c11174ca081f656c63a000ffa746e350af",
+  "repo": "future-architect/vuls",
+  "artifact": "models/vulninfos.go: VulnInfo.Cvss40Scores source-iteration expression",
+  "importance": {
+   "p1": [
+    62.5,
+    37.5
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of models/vulninfos.go",
+   "thing": "design",
+   "intro": "CVSS v4.0 aggregation collects metrics from vulnerability content sources and determines which results callers see. Changes to the aggregation must account for newly ingested NVD metrics and metrics already populated by other sources. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add NVD CVSS v4.0 ingestion",
+    "Fix aggregation across registered sources"
+   ],
+   "issues": [
+    {
+     "name": "Aggregation source coverage",
+     "options": [
+      "MITRE and NVD",
+      "MITRE only",
+      "All registered content types"
+     ]
+    },
+    {
+     "name": "Source traversal order",
+     "options": [
+      "Fixed explicit source order",
+      "Stable registry order",
+      "Map iteration order"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-edb324c3d9ec3b107bf947f00e38af99d05b3e16",
+  "repo": "future-architect/vuls",
+  "artifact": "scan/base.go: base.detectScanDest wildcard destination expansion and result construction",
+  "importance": {
+   "p1": [
+    62.5,
+    25.0,
+    12.5
+   ],
+   "p2": [
+    16.7,
+    41.7,
+    41.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2,
+    1
+   ],
+   "B": [
+    2,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of scan/base.go",
+   "thing": "design",
+   "intro": "This code expands listening addresses into destinations for port scanning and prepares those destinations for the scan consumer. One ticket changes how destinations are organized and deduplicated, while the other changes which addresses wildcard listeners cover and how IPv6 destinations are formed. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Refactoring destinations into grouped data",
+    "Adding IPv6 wildcard scan coverage"
+   ],
+   "issues": [
+    {
+     "name": "Destination representation",
+     "options": [
+      "Flat socket-address slice",
+      "Map from IP to socket addresses",
+      "Map from raw IP to ports"
+     ]
+    },
+    {
+     "name": "Wildcard address coverage",
+     "options": [
+      "IPv4 addresses only",
+      "IPv4 and selected IPv6 addresses",
+      "IPv4 and all discovered IPv6 addresses"
+     ]
+    },
+    {
+     "name": "Socket address formatting",
+     "options": [
+      "Preformatted socket-address storage",
+      "Manual host-port concatenation",
+      "Standard host-port joining"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718",
+  "repo": "gravitational/teleport",
+  "artifact": "lib/utils/utils.go: package import block and the file-reading dependency used by the new ReadAtMost helper",
+  "importance": {
+   "p1": [
+    71.4,
+    14.3,
+    14.3
+   ],
+   "p2": [
+    9.1,
+    45.5,
+    45.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1,
+    1
+   ],
+   "B": [
+    1,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/utils/utils.go",
+   "thing": "design",
+   "intro": "This utility file handles both bounded stream reads and persistent host identity files. The tickets change separate behaviors but can collide over the file’s imports and how file operations are performed. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add bounded HTTP body reads",
+    "Protect persistent host identity files"
+   ],
+   "issues": [
+    {
+     "name": "Stream read dependency",
+     "options": [
+      "Use an unaliased ioutil import",
+      "Use io.ReadAll without ioutil",
+      "Alias ioutil for the bounded read"
+     ]
+    },
+    {
+     "name": "Host UUID creation",
+     "options": [
+      "Check for existence before creating",
+      "Create or truncate with a convenience write",
+      "Create exclusively with O_EXCL"
+     ]
+    },
+    {
+     "name": "Host file access",
+     "options": [
+      "Use an explicit read handle only",
+      "Use explicit read and write handles",
+      "Use convenience file operations"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_internetarchive__openlibrary-f0341c0ba81c790241b782f5103ce5c9a6edf8e3-ve8fc82d8aae8463b752a211156c5b7b59f349237",
+  "repo": "internetarchive/openlibrary",
+  "artifact": "openlibrary/catalog/add_book/__init__.py: RequiredField exception class",
+  "importance": {
+   "p1": [
+    50.0,
+    10.0,
+    40.0
+   ],
+   "p2": [
+    33.3,
+    41.7,
+    25.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1,
+    4
+   ],
+   "B": [
+    4,
+    5,
+    3
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of openlibrary/catalog/add_book/__init__.py",
+   "thing": "design",
+   "intro": "RequiredField reports missing required fields during add_book validation. One ticket needs it to describe multiple missing names, while another needs a structured exception contract for Python and API consumers. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Unify add_book validation behavior",
+    "Make RequiredField a structured error"
+   ],
+   "issues": [
+    {
+     "name": "Accepted field input",
+     "options": [
+      "Single field name",
+      "Either form",
+      "Collection of field names"
+     ]
+    },
+    {
+     "name": "Exception base class",
+     "options": [
+      "Exception",
+      "ValueError",
+      "Custom exception base"
+     ]
+    },
+    {
+     "name": "Error message format",
+     "options": [
+      "Generic validation wording",
+      "Pluralized field names",
+      "Single-field wording"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c",
+  "repo": "navidrome/navidrome",
+  "artifact": "server/subsonic/api.go: Router.routes global middleware chain and protected-route regrouping boundary",
+  "importance": {
+   "p1": [
+    55.6,
+    11.1,
+    33.3
+   ],
+   "p2": [
+    23.1,
+    38.5,
+    38.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1,
+    3
+   ],
+   "B": [
+    3,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of server/subsonic/api.go",
+   "thing": "design",
+   "intro": "The Subsonic router applies middleware to routes that handle both public discovery and authenticated API requests. Its middleware boundaries determine which requests require authentication and whether every response receives cache-prevention headers. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Make extension discovery publicly accessible",
+    "Prevent caching of API responses"
+   ],
+   "issues": [
+    {
+     "name": "Authentication boundary",
+     "options": [
+      "Authentication on every route",
+      "No authentication middleware",
+      "Authentication only on protected routes"
+     ]
+    },
+    {
+     "name": "Cache policy coverage",
+     "options": [
+      "Protected-route responses only",
+      "All router responses",
+      "Registered endpoint responses"
+     ]
+    },
+    {
+     "name": "Middleware ordering",
+     "options": [
+      "Parse forms before cache prevention",
+      "Parse forms only on protected routes",
+      "Apply cache prevention before parsing forms"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-66b74c81f115c78cb69910b0472eeb376750efc4",
+  "repo": "navidrome/navidrome",
+  "artifact": "persistence/user_repository.go: userRepository.Put immediately after UpdatedAt assignment",
+  "importance": {
+   "p1": [
+    28.6,
+    71.4
+   ],
+   "p2": [
+    83.3,
+    16.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    2,
+    5
+   ],
+   "B": [
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of persistence/user_repository.go",
+   "thing": "design",
+   "intro": "The repository’s Put method prepares user records for persistence, including their passwords. One ticket changes how passwords are stored and retrieved, while the other adds a policy for newly submitted passwords, so their behavior must fit together at this shared point. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Implement reversible password encryption",
+    "Enforce minimum password length"
+   ],
+   "issues": [
+    {
+     "name": "Password validation target",
+     "options": [
+      "Validate plaintext and transformed password",
+      "Submitted plaintext",
+      "Transformed password"
+     ]
+    },
+    {
+     "name": "Stored password form",
+     "options": [
+      "Reversibly encrypted password",
+      "Plaintext password",
+      "One-way password hash"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-b3980532237e57ab15b2b93c49d5cd5b2d050013",
+  "repo": "navidrome/navidrome",
+  "artifact": "core/agents/lastfm.go: lastFMConstructor language and credential initialization",
+  "importance": {
+   "p1": [
+    41.7,
+    25.0,
+    33.3
+   ],
+   "p2": [
+    14.3,
+    71.4,
+    14.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    4
+   ],
+   "B": [
+    1,
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of core/agents/lastfm.go",
+   "thing": "design",
+   "intro": "The shared constructor initializes the Last.FM client’s credentials and language from configuration. Its handling of missing settings and locale-style language values affects whether requests can be made successfully. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Provide sensible API key and language defaults",
+    "Canonicalize regional locale language values"
+   ],
+   "issues": [
+    {
+     "name": "Missing API key",
+     "options": [
+      "Use a built-in shared key",
+      "Fail construction",
+      "Keep the key empty"
+     ]
+    },
+    {
+     "name": "Configured language handling",
+     "options": [
+      "Trim, strip region, and lowercase",
+      "Trim and lowercase without stripping region",
+      "Pass the configured value unchanged"
+     ]
+    },
+    {
+     "name": "Missing language",
+     "options": [
+      "Keep the value empty",
+      "Fail construction",
+      "Fall back to en"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-d21932bd1b2379b0ebca2d19e5d8bae91040268a",
+  "repo": "navidrome/navidrome",
+  "artifact": "persistence/sql_smartplaylist.go: SmartPlaylist.AddFilters/AddCriteria query-construction region",
+  "importance": {
+   "p1": [
+    55.6,
+    44.4
+   ],
+   "p2": [
+    37.5,
+    62.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4
+   ],
+   "B": [
+    3,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of persistence/sql_smartplaylist.go",
+   "thing": "design",
+   "intro": "The shared SQL builder turns smart-playlist rules, ordering, and limits into a media-file query. One change reorganizes playlist updates and refreshes while changing the builder API; the other bounds query and refresh work for large user-supplied limits. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Centralize playlist updates and add automatic refresh",
+    "Bound smart-playlist result sizes"
+   ],
+   "issues": [
+    {
+     "name": "Builder method API",
+     "options": [
+      "Support both names",
+      "Keep AddFilters only",
+      "Rename to AddCriteria only"
+     ]
+    },
+    {
+     "name": "Limit normalization",
+     "options": [
+      "Default invalid limits to 500 and cap at 500",
+      "Cap at 500 while retaining existing fallback behavior",
+      "Keep the 100 default and cap at 500"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-d5df102f9f97c21715c756069c9e141da2a422dc",
+  "repo": "navidrome/navidrome",
+  "artifact": "core/share.go: shareRepositoryWrapper.Update column-selection logic",
+  "importance": {
+   "p1": [
+    44.4,
+    55.6
+   ],
+   "p2": [
+    71.4,
+    28.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    4,
+    5
+   ],
+   "B": [
+    5,
+    2
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of core/share.go",
+   "thing": "design",
+   "intro": "The share repository wrapper chooses which columns to send when updating a share. Share lifecycle updates need to preserve an omitted expiration, while other callers rely on the persistence layer honoring explicitly requested partial-update columns. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Implement Subsonic share updates and deletion",
+    "Forward requested share partial-update columns"
+   ],
+   "issues": [
+    {
+     "name": "Explicit column handling",
+     "options": [
+      "Always forward the supplied list",
+      "Always use wrapper defaults",
+      "Forward non-empty lists; default otherwise"
+     ]
+    },
+    {
+     "name": "Default expiration selection",
+     "options": [
+      "Include expires_at only when non-zero",
+      "Always include expires_at",
+      "Include when non-zero or explicitly requested"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-f78257235ec3429ef42af6687738cd327ec77ce8",
+  "repo": "navidrome/navidrome",
+  "artifact": "log/log.go: SetLevel and the underlying defaultLogger level used by createNewLogger",
+  "importance": {
+   "p1": [
+    55.6,
+    44.4
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of log/log.go",
+   "thing": "design",
+   "intro": "The shared logging code sets the global level and creates the underlying logger used by ordinary and context-backed log entries. Changes to its filtering behavior affect both source-specific verbosity and whether existing contexts reflect runtime level changes. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add source-path-specific verbosity overrides",
+    "Apply runtime verbosity changes to existing contexts"
+   ],
+   "issues": [
+    {
+     "name": "Underlying logger level",
+     "options": [
+      "Keep the logger at trace level",
+      "Synchronize it to the global level",
+      "Set it to the least restrictive configured threshold"
+     ]
+    },
+    {
+     "name": "Context threshold timing",
+     "options": [
+      "Evaluate the current threshold on each call",
+      "Use the level captured at creation",
+      "Refresh stored entries when the level changes"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_protonmail__webclients-1501eb765873b2884b6f1944fd242ecfc9d6b103",
+  "repo": "protonmail/webclients",
+  "artifact": "packages/components/components/smartBanner/useSmartBanner.ts — mobile platform selection and store-link return path",
+  "importance": {
+   "p1": [
+    38.5,
+    23.1,
+    38.4
+   ],
+   "p2": [
+    30.8,
+    38.5,
+    30.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    5
+   ],
+   "B": [
+    4,
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of packages/components/components/smartBanner/useSmartBanner.ts",
+   "thing": "design",
+   "intro": "This shared code selects the mobile platform and store destination for the SmartBanner, while also deciding which mobile visitors are eligible to see it. The tickets change how store links and mobile-browser eligibility are handled, and one also addresses cases where platform detection matches both iOS and Android. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Expand Mail and Calendar banner availability",
+    "Fix ambiguous mobile platform routing"
+   ],
+   "issues": [
+    {
+     "name": "Store link source",
+     "options": [
+      "One shared product link",
+      "Product-specific platform link table",
+      "DOM store metadata"
+     ]
+    },
+    {
+     "name": "Overlapping platform precedence",
+     "options": [
+      "iOS takes precedence",
+      "Android takes precedence",
+      "Suppress ambiguous detection"
+     ]
+    },
+    {
+     "name": "Mobile browser eligibility",
+     "options": [
+      "Browser-specific allowlist",
+      "Existing browser restrictions",
+      "All supported mobile browsers"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_protonmail__webclients-428cd033fede5fd6ae9dbc7ab634e010b10e4209",
+  "repo": "protonmail/webclients",
+  "artifact": "applications/drive/src/app/store/_photos/usePhotosRecovery.ts — usePhotosRecovery handlePrepareLinks callback",
+  "importance": {
+   "p1": [
+    41.7,
+    16.7,
+    41.6
+   ],
+   "p2": [
+    40.0,
+    50.0,
+    10.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2,
+    5
+   ],
+   "B": [
+    4,
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of applications/drive/src/app/store/_photos/usePhotosRecovery.ts",
+   "thing": "design",
+   "intro": "The hook prepares photo IDs from cached listings and submits them to a move operation while tracking recovery progress. Changes to which listings it uses, how it handles repeated entries, and when it submits requests affect both recovery behavior and the reported count. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Recover normal and trashed photos reliably",
+    "Prevent duplicate moves from cached listings"
+   ],
+   "issues": [
+    {
+     "name": "Listing sources",
+     "options": [
+      "Normal listing plus conditionally available trash",
+      "Normal and trashed listings",
+      "Normal listing only"
+     ]
+    },
+    {
+     "name": "Duplicate ID handling",
+     "options": [
+      "Preserve every listing entry",
+      "Deduplicate across all sources",
+      "Deduplicate within each listing"
+     ]
+    },
+    {
+     "name": "Move readiness",
+     "options": [
+      "Wait for both listings to load",
+      "Skip listings that fail to load",
+      "Move when either listing is ready"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_protonmail__webclients-a6e6f617026794e7b505d649d2a7a9cdf17658c8",
+  "repo": "protonmail/webclients",
+  "artifact": "applications/mail/src/app/helpers/transforms/transformStyleAttributes.ts and the transformStyleAttributes hook in transforms.ts",
+  "importance": {
+   "p1": [
+    35.7,
+    28.6,
+    35.7
+   ],
+   "p2": [
+    35.7,
+    28.6,
+    35.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4,
+    5
+   ],
+   "B": [
+    5,
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of applications/mail/src/app/helpers/transforms/transformStyleAttributes.ts and the transformStyleAttributes hook in transforms.ts",
+   "thing": "design",
+   "intro": "The shared helper mutates inline styles during HTML-message preparation. Both tickets need it to preserve unrelated declarations while addressing different style properties, and both depend on it running in the normal preparation pipeline. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Adapt inline viewport-height sizing",
+    "Prevent fixed overlays in messages"
+   ],
+   "issues": [
+    {
+     "name": "Properties transformed",
+     "options": [
+      "Both heights and positioning",
+      "Fixed positioning only",
+      "Viewport-relative heights only"
+     ]
+    },
+    {
+     "name": "Elements inspected",
+     "options": [
+      "Descendants with inline styles",
+      "Every descendant regardless of styles",
+      "Root and styled descendants"
+     ]
+    },
+    {
+     "name": "Pipeline registration",
+     "options": [
+      "No automatic pipeline hook",
+      "One shared pipeline hook",
+      "Separate property-specific hooks"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_protonmail__webclients-b387b24147e4b5ec3b482b8719ea72bee001462a",
+  "repo": "protonmail/webclients",
+  "artifact": "packages/components/components/v2/phone/PhoneInput.tsx — PhoneInputBase props destructuring and default-country state synchronization",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    44.4,
+    55.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of packages/components/components/v2/phone/PhoneInput.tsx",
+   "thing": "design",
+   "intro": "PhoneInputBase uses defaultCountry to choose the country shown for a phone field, and its initialization and synchronization behavior live in the same code region. One ticket changes how an asynchronous default is first applied, while the other adds a way to follow later controlled defaults in multi-step forms. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Simplify asynchronous country defaults",
+    "Synchronize empty fields with controlled defaults"
+   ],
+   "issues": [
+    {
+     "name": "Initial country selection",
+     "options": [
+      "Start unset and never apply a default",
+      "Initialize from the mount-time default",
+      "Start unset; apply the first available default once"
+     ]
+    },
+    {
+     "name": "Later default changes",
+     "options": [
+      "Always follow changes while the phone is empty",
+      "Apply only the first available default for all callers",
+      "Follow each change only when opted in and the phone is empty"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_protonmail__webclients-c8117f446c3d1d7e117adc6e0e46b0ece9b0b90e",
+  "repo": "protonmail/webclients",
+  "artifact": "applications/drive/src/app/utils/lastActivePersistedUserSession.ts — getLastPersistedLocalID parsing and fallback logic",
+  "importance": {
+   "p1": [
+    33.3,
+    41.7,
+    25.0
+   ],
+   "p2": [
+    38.5,
+    23.1,
+    38.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    4,
+    5,
+    3
+   ],
+   "B": [
+    5,
+    3,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of applications/drive/src/app/utils/lastActivePersistedUserSession.ts",
+   "thing": "design",
+   "intro": "This utility scans persisted-session entries in localStorage to identify a local ID for session restoration. One change depends on distinguishing the absence of a usable session from ID 0, while another must recover a usable session even if a different entry is malformed. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Restore public sessions during initial handshake",
+    "Recover sessions despite corrupt records"
+   ],
+   "issues": [
+    {
+     "name": "Malformed record handling",
+     "options": [
+      "Silently skip malformed records",
+      "Abort lookup and return null",
+      "Report and skip malformed records"
+     ]
+    },
+    {
+     "name": "No-result sentinel",
+     "options": [
+      "Return default local ID",
+      "Return null",
+      "Return zero"
+     ]
+    },
+    {
+     "name": "Session selection order",
+     "options": [
+      "Largest numeric local ID",
+      "First valid record encountered",
+      "Newest persistedAt value"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-0fc6d1109d041c69a68a896db87cf1b8c194cef7-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/completion/models/urlmodel.py: url() category assembly immediately before configured categories are added",
+  "importance": {
+   "p1": [
+    20.0,
+    50.0,
+    30.0
+   ],
+   "p2": [
+    55.6,
+    33.3,
+    11.1
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    2,
+    5,
+    3
+   ],
+   "B": [
+    5,
+    3,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/completion/models/urlmodel.py",
+   "thing": "design",
+   "intro": "URL completion assembles categories before adding the configured categories for :open. Filesystem suggestions need to join that assembly, while private-tab completion must avoid exposing persisted browsing history without removing other categories. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add filesystem path completion",
+    "Hide history in private completion"
+   ],
+   "issues": [
+    {
+     "name": "History visibility",
+     "options": [
+      "Exclude history in every tab",
+      "Include history in every tab",
+      "Exclude history only in private tabs"
+     ]
+    },
+    {
+     "name": "Filesystem registration",
+     "options": [
+      "Add Filesystem alongside configured categories",
+      "Replace configured categories with Filesystem",
+      "Add Filesystem only for path-like input"
+     ]
+    },
+    {
+     "name": "Filesystem category order",
+     "options": [
+      "Use a configurable category position",
+      "Append Filesystem after configured categories",
+      "Place Filesystem before configured categories"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-77c3557995704a683cdb67e2a3055f7547fa22c3-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/config/configutils.py: Values.__init__ initial-storage assignment",
+  "importance": {
+   "p1": [
+    41.7,
+    33.3,
+    25.0
+   ],
+   "p2": [
+    16.7,
+    41.7,
+    41.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4,
+    3
+   ],
+   "B": [
+    2,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/config/configutils.py",
+   "thing": "design",
+   "intro": "Values stores configuration entries scoped by URL patterns, and its constructor accepts an initial sequence. The storage representation affects the cost of repeated updates, while the way that sequence is consumed affects whether later caller-side mutations can change the stored configuration. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Improve URL-pattern update scalability",
+    "Prevent caller-list mutation from changing Values"
+   ],
+   "issues": [
+    {
+     "name": "Storage representation",
+     "options": [
+      "OrderedDict",
+      "List",
+      "Plain dict"
+     ]
+    },
+    {
+     "name": "Initialization ownership",
+     "options": [
+      "Retain supplied list",
+      "Copy into a list",
+      "Populate an owned mapping"
+     ]
+    },
+    {
+     "name": "Entry ordering",
+     "options": [
+      "Reverse input order",
+      "Sort by pattern",
+      "Preserve input order"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-f8e7fea0becae25ae20606f1422068137189fe9e",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/config/qtargs.py: qt_args, _qtwebengine_args, and _qtwebengine_settings_args argument-generation pipeline",
+  "importance": {
+   "p1": [
+    45.5,
+    45.5,
+    9.0
+   ],
+   "p2": [
+    45.5,
+    9.1,
+    45.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    1
+   ],
+   "B": [
+    5,
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/config/qtargs.py",
+   "thing": "design",
+   "intro": "This pipeline turns Qt arguments and regular settings into QtWebEngine command-line switches. One ticket adds a version-dependent graphics workaround, while the other prevents generated switches from overriding explicitly supplied arguments. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add a version-aware canvas workaround",
+    "Preserve explicit Qt switch precedence"
+   ],
+   "issues": [
+    {
+     "name": "Helper context",
+     "options": [
+      "Collected Qt arguments",
+      "Version and argument context",
+      "Qt version metadata"
+     ]
+    },
+    {
+     "name": "Canvas auto policy",
+     "options": [
+      "Disable before Qt 6.6.0",
+      "Disable on every Qt version",
+      "Never disable automatically"
+     ]
+    },
+    {
+     "name": "Duplicate filtering scope",
+     "options": [
+      "Filter all generated switches",
+      "No generated-switch filtering",
+      "Filter static generated switches"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-fec187c2cb53d769c2682b35ca77858a811414a8-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/utils/urlutils.py: _parse_search_term search-engine selection logic",
+  "importance": {
+   "p1": [
+    23.1,
+    38.5,
+    38.4
+   ],
+   "p2": [
+    71.4,
+    14.3,
+    14.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    3,
+    5,
+    5
+   ],
+   "B": [
+    5,
+    1,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/utils/urlutils.py",
+   "thing": "design",
+   "intro": "This utility selects a configured search engine from address-bar input and prepares the remaining text for search URL construction. The shared parser must also distinguish a bare engine shortcut from a shortcut followed by a search term. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Correct search-term parsing and URL encoding",
+    "Case-insensitive search-engine shortcut recognition"
+   ],
+   "issues": [
+    {
+     "name": "Shortcut matching",
+     "options": [
+      "Exact configured keys only",
+      "Exact first, unique case-insensitive fallback",
+      "Case-insensitive first match"
+     ]
+    },
+    {
+     "name": "Bare shortcut handling",
+     "options": [
+      "Format an empty search term",
+      "Return no search term",
+      "Use the default search engine"
+     ]
+    },
+    {
+     "name": "Search-term encoding",
+     "options": [
+      "Percent-encode the search term",
+      "Encode the completed URL",
+      "Interpolate the raw search term"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-4327a09d76f10a79109da9d91c22120428d3bdb9-vnan",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/database/{mongo,postgres,redis}/hash.js — module.getObjects signature and return path",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/database/{mongo,postgres,redis}/hash.js",
+   "thing": "design",
+   "intro": "The shared database modules retrieve single objects and ordered batches across MongoDB, PostgreSQL, and Redis. The tickets both change bulk-read behavior: one adds field selection, while the other adds a way to omit missing records. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add field projection to object reads",
+    "Add compact mode to bulk reads"
+   ],
+   "issues": [
+    {
+     "name": "Second argument shape",
+     "options": [
+      "Arrays for fields, objects for options",
+      "Options objects only",
+      "Field-name arrays only"
+     ]
+    },
+    {
+     "name": "Missing-record handling",
+     "options": [
+      "Always preserve placeholders",
+      "Always omit missing records",
+      "Omit only in compact mode"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-b1f9ad5534bb3a44dab5364f659876a4b7fe34c1-vnan",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/database/{mongo,postgres,redis}/sorted.js — module.sortedSetsCardSum",
+  "importance": {
+   "p1": [
+    28.6,
+    71.4
+   ],
+   "p2": [
+    83.3,
+    16.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    2,
+    5
+   ],
+   "B": [
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/database/{mongo,postgres,redis}/sorted.js",
+   "thing": "design",
+   "intro": "The database adapters expose a shared function that sums sorted-set cardinalities across one or more keys. The function is changing to support score-range counts and key collections supplied by callers, so its input and counting behavior must be defined consistently across adapters. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add inclusive score-range counting",
+    "Accept Set key collections"
+   ],
+   "issues": [
+    {
+     "name": "Accepted key inputs",
+     "options": [
+      "Scalar keys, arrays, and Sets",
+      "Set inputs only",
+      "Scalar keys and arrays"
+     ]
+    },
+    {
+     "name": "Score-bound behavior",
+     "options": [
+      "Exclusive minimum and maximum",
+      "Inclusive minimum and maximum",
+      "Total cardinality only"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-1ee70fc272aff6bf3415357c6e13c5de5b928d9b-v1055803c3a812189a1133297f7f5468579283f86",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/utils/vars.py: the isidentifier() function. A rewrites it (ascii-strict, keyword-aware, no extra params); B changes its signature to isidentifier(ident, allow_dotted=False) and its body to validate dotted paths. Both edit the same function region.",
+  "importance": {
+   "p1": [
+    41.7,
+    41.7,
+    16.6
+   ],
+   "p2": [
+    20.0,
+    30.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    2
+   ],
+   "B": [
+    2,
+    3,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/utils/vars.py",
+   "thing": "design",
+   "intro": "The shared function validates whether a string is an identifier, and both tickets change its validation behavior. One ticket seeks consistent cross-version rules, while the other adds optional validation for dotted variable paths. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Unify identifier validation across Python versions",
+    "Add optional dotted variable-path validation"
+   ],
+   "issues": [
+    {
+     "name": "Character repertoire",
+     "options": [
+      "Reject non-ASCII characters",
+      "Allow Unicode identifiers",
+      "Allow Unicode only in dotted paths"
+     ]
+    },
+    {
+     "name": "Keyword handling",
+     "options": [
+      "Reject only Python 2 keywords",
+      "Accept syntactic identifiers, including keywords",
+      "Reject language keywords"
+     ]
+    },
+    {
+     "name": "Dotted-path support",
+     "options": [
+      "Accept dotted paths by default",
+      "Reject dotted strings",
+      "Accept dotted paths only when enabled"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-489156378c8e97374a75a544c7c9c2c0dd8146d1-v390e508d27db7a51eece36bb6d9698b63a5b638a",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/module_utils/network/meraki/meraki.py: MerakiModule.request HTTP status-handling block",
+  "importance": {
+   "p1": [
+    41.7,
+    41.7,
+    16.6
+   ],
+   "p2": [
+    41.7,
+    16.7,
+    41.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    2
+   ],
+   "B": [
+    5,
+    2,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/module_utils/network/meraki/meraki.py",
+   "thing": "design",
+   "intro": "The request method sends HTTP requests and handles responses, returning decoded data for successful responses. Its status-handling logic determines whether errors are retried or raised, and both changes affect that shared logic. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add catchable HTTP errors",
+    "Retry transient API errors"
+   ],
+   "issues": [
+    {
+     "name": "Status dispatch order",
+     "options": [
+      "Retry transient statuses before generic errors",
+      "Retry every error status",
+      "Raise generic errors before checking retry statuses"
+     ]
+    },
+    {
+     "name": "Generic error handling",
+     "options": [
+      "Return unhandled error responses",
+      "Raise HTTPError for unhandled error statuses",
+      "Call fail_json for unhandled error statuses"
+     ]
+    },
+    {
+     "name": "Retry exhaustion exception",
+     "options": [
+      "Raise generic HTTPError",
+      "Raise status-specific HTTPError subclasses",
+      "Raise status-specific exceptions"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_element-hq__element-web-33299af5c9b7a7ec5a9c31d578d4ec5b18088fb7-vnan",
+  "repo": "element-hq/element-web",
+  "artifact": "src/components/views/rooms/RoomHeader.tsx — RoomHeader imports and JSX return block",
+  "importance": {
+   "p1": [
+    33.3,
+    26.7,
+    6.7,
+    33.3
+   ],
+   "p2": [
+    6.7,
+    33.3,
+    33.3,
+    26.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   false,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4,
+    1,
+    5
+   ],
+   "B": [
+    1,
+    5,
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/components/views/rooms/RoomHeader.tsx",
+   "thing": "design",
+   "intro": "The room header presents room identity and may receive a Room or out-of-band room data. Both tickets change its shared layout and behavior, so the design must account for optional room information while keeping the header usable. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add room-aware avatar and name layout",
+    "Add topic preview and Room Summary control"
+   ],
+   "issues": [
+    {
+     "name": "Avatar selection",
+     "options": [
+      "Decorated room avatar with fallback",
+      "Room avatar for every header",
+      "No header avatar"
+     ]
+    },
+    {
+     "name": "Header details",
+     "options": [
+      "Avatar beside name and optional topic",
+      "Avatar beside name only",
+      "Name and topic without avatar"
+     ]
+    },
+    {
+     "name": "Panel click behavior",
+     "options": [
+      "Always open Room Summary on click",
+      "Header is not a panel control",
+      "Toggle Room Summary on click"
+     ]
+    },
+    {
+     "name": "Optional Room handling",
+     "options": [
+      "Require a Room to render",
+      "Render safely without a Room",
+      "Show a placeholder without a Room"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-381b90f718435c4694380b5fcd0d5cf8e3b5a25a",
+  "repo": "flipt-io/flipt",
+  "artifact": "internal/cmd/http.go: NewHTTPServer's cors.Options AllowedHeaders expression",
+  "importance": {
+   "p1": [
+    55.6,
+    33.3,
+    11.1
+   ],
+   "p2": [
+    35.7,
+    35.7,
+    28.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    1
+   ],
+   "B": [
+    5,
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of internal/cmd/http.go",
+   "thing": "design",
+   "intro": "The HTTP server uses an allowed-request-header policy to decide which browser preflight requests can proceed. One ticket changes which headers are accepted by default, while the other makes that policy configurable. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Allow Fern SDK headers in CORS defaults",
+    "Make the CORS header allowlist configurable"
+   ],
+   "issues": [
+    {
+     "name": "Default header set",
+     "options": [
+      "Existing four plus one Fern header",
+      "Existing four plus all three Fern headers",
+      "Existing four headers only"
+     ]
+    },
+    {
+     "name": "Allowlist source",
+     "options": [
+      "Hard-coded in middleware",
+      "Runtime configuration consumed by middleware",
+      "Configuration merged with hard-coded headers"
+     ]
+    },
+    {
+     "name": "Schema exposure",
+     "options": [
+      "Runtime configuration only",
+      "Public schemas only",
+      "Runtime configuration and public schemas"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-3d5a345f94c2adc8a0eaa102c189c08ad4c0f8e8",
+  "repo": "flipt-io/flipt",
+  "artifact": "internal/config/tracing.go: TracingConfig struct, setDefaults, and the newly introduced validate method",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of internal/config/tracing.go",
+   "thing": "design",
+   "intro": "TracingConfig is shared configuration code that defines tracing settings, initializes their defaults, and validates them. Both tickets change this code, so the configuration fields and validation behavior must support both settings. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add configurable trace sampling ratio",
+    "Add configurable OpenTelemetry propagators"
+   ],
+   "issues": [
+    {
+     "name": "Validation scope",
+     "options": [
+      "Propagator check only",
+      "Sampling check only",
+      "Both checks"
+     ]
+    },
+    {
+     "name": "Defaulting coverage",
+     "options": [
+      "Default() only",
+      "Configuration defaulting only",
+      "Both initialization paths"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e",
+  "repo": "future-architect/vuls",
+  "artifact": "scanner/utils.go: isRunningKernel Red Hat-family package-name classification switch",
+  "importance": {
+   "p1": [
+    71.4,
+    28.6
+   ],
+   "p2": [
+    28.6,
+    71.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2
+   ],
+   "B": [
+    2,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of scanner/utils.go",
+   "thing": "design",
+   "intro": "The shared classifier identifies installed Red Hat-family packages whose versions should be matched against the running kernel release. One ticket needs it to recognize bootable debug variants, while the other needs development packages to remain independent of that release. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Recognize running debug kernel variants",
+    "Preserve newer kernel-devel inventory"
+   ],
+   "issues": [
+    {
+     "name": "Runtime package coverage",
+     "options": [
+      "All kernel-prefixed packages",
+      "Generic runtime packages only",
+      "Generic and debug runtime packages"
+     ]
+    },
+    {
+     "name": "Development package filtering",
+     "options": [
+      "Match kernel-devel to uname",
+      "Leave kernel-devel outside filtering",
+      "Exclude kernel-devel from inventory"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_internetarchive__openlibrary-3aeec6afed9198d734b7ee1293f03ca94ff970e1-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+  "repo": "internetarchive/openlibrary",
+  "artifact": "openlibrary/core/wikidata.py WikidataEntity profile-builder methods and openlibrary/templates/authors/infobox.html profile rendering block",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of openlibrary/core/wikidata.py WikidataEntity profile-builder methods and openlibrary/templates/authors/infobox.html profile rendering block",
+   "thing": "design",
+   "intro": "The shared code builds external profiles for authors from Wikidata data and renders them in the author infobox. Both changes affect how those profiles are assembled and how the template accesses them. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Encapsulate Wikidata profile-building helpers",
+    "Aggregate external profiles behind one method"
+   ],
+   "issues": [
+    {
+     "name": "Helper visibility",
+     "options": [
+      "Public low-level builders",
+      "Private low-level builders only",
+      "Private builders with public aggregation method"
+     ]
+    },
+    {
+     "name": "Template profile interface",
+     "options": [
+      "Template-specific combined adapter",
+      "Direct private-builder calls",
+      "Unified public aggregation method"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866",
+  "repo": "internetarchive/openlibrary",
+  "artifact": "openlibrary/core/db.py — CommonExtras.update_work_id and CommonExtras.update_work_ids_individually collision handling",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of openlibrary/core/db.py",
+   "thing": "design",
+   "intro": "The shared code consolidates work identifiers and handles cases where an updated row conflicts with an existing row. Both tickets need this path to return structured counts, but their data types require different outcomes for a collision. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Protecting notes during work-ID consolidation",
+    "Deduplicating reading-log rows during consolidation"
+   ],
+   "issues": [
+    {
+     "name": "Collision row handling",
+     "options": [
+      "Delete the source row",
+      "Choose behavior per model",
+      "Preserve the source row"
+     ]
+    },
+    {
+     "name": "Result representation",
+     "options": [
+      "Tuple of three counters",
+      "Single changed-row count",
+      "Dictionary of three counters"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-0b621cb0ce2b54d3f93d8d41d8ff4257888a87e5-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/misc/guiprocess.py: GUIProcess._on_error error-message construction",
+  "importance": {
+   "p1": [
+    62.5,
+    37.5
+   ],
+   "p2": [
+    44.4,
+    55.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3
+   ],
+   "B": [
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/misc/guiprocess.py",
+   "thing": "design",
+   "intro": "This code constructs GUI notifications when a process reports an error. The tickets change how the notification identifies the failure and handles backend-provided detail. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add actionable command-specific process errors",
+    "Prevent multiline process-error notifications"
+   ],
+   "issues": [
+    {
+     "name": "Failure identification",
+     "options": [
+      "Existing process label",
+      "Existing label plus command and error type",
+      "Capitalized name, command, and error type"
+     ]
+    },
+    {
+     "name": "Backend detail formatting",
+     "options": [
+      "Unmodified detail",
+      "Visible newline markers",
+      "Space-joined lines"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-96b997802e942937e81d2b8a32d08f00d3f4bc4e-v5fc38aaf22415ab0b70567368332beee7955b367",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/misc/utilcmds.py: the later command's decorators, signature, argument documentation, and delay setup block",
+  "importance": {
+   "p1": [
+    45.5,
+    9.1,
+    45.4
+   ],
+   "p2": [
+    28.6,
+    35.7,
+    35.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1,
+    5
+   ],
+   "B": [
+    4,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/misc/utilcmds.py",
+   "thing": "design",
+   "intro": "The shared command accepts a delay and configures a timer, so its argument handling affects both user-facing syntax and scheduling. One ticket changes how durations are parsed, while the other adds count-based scaling; the design must preserve the relevant behavior of both. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix duration parsing and add string delays",
+    "Add count-based delay scaling"
+   ],
+   "issues": [
+    {
+     "name": "Accepted delay inputs",
+     "options": [
+      "Integer millisecond delays",
+      "Duration strings and integer milliseconds",
+      "Validated duration strings"
+     ]
+    },
+    {
+     "name": "Count scaling",
+     "options": [
+      "Multiply delay by count",
+      "Add count to delay",
+      "No count injection"
+     ]
+    },
+    {
+     "name": "Scaling validation order",
+     "options": [
+      "Validate before scaling",
+      "Skip delay validation",
+      "Scale before validation"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-1ea9481af6125ffd6da0592ed439aa62af0bca11-vd59a5728dfc977f44533186ace531248c2917516",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/controllers/write/topics.js — Topics.create import and request-handling block",
+  "importance": {
+   "p1": [
+    41.7,
+    25.0,
+    33.3
+   ],
+   "p2": [
+    16.7,
+    41.7,
+    41.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    4
+   ],
+   "B": [
+    2,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/controllers/write/topics.js",
+   "thing": "design",
+   "intro": "The topic creation handler processes requests that can arrive concurrently and change shared application state. One ticket adds protection against overlapping creates, while the other adds replay behavior for completed requests carrying an idempotency key. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Prevent duplicate topics from concurrent requests",
+    "Replay completed keyed topic requests"
+   ],
+   "issues": [
+    {
+     "name": "Request admission",
+     "options": [
+      "No posting lock",
+      "Per-requester posting lock",
+      "Idempotency keys only"
+     ]
+    },
+    {
+     "name": "Replay and lock order",
+     "options": [
+      "Skip locking keyed requests",
+      "Check replay before acquiring lock",
+      "Acquire lock before replay lookup"
+     ]
+    },
+    {
+     "name": "Requester key scope",
+     "options": [
+      "Global key namespace",
+      "Authenticated-user-only scope",
+      "User or guest-session scope"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-445b70deda20201b7d9a68f7224da751b3db728c-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/api/chats.js — chatsAPI.list signature and legacy pagination block",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/api/chats.js",
+   "thing": "design",
+   "intro": "The chat list method validates pagination input and forwards pagination values to the messaging layer. One change affects which pagination fields the method accepts, while another removes legacy page-based offset conversion. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Validate chat and user API inputs",
+    "Remove deprecated chat-list pagination"
+   ],
+   "issues": [
+    {
+     "name": "Pagination parameters",
+     "options": [
+      "Remove both fields",
+      "Retain page and perPage",
+      "Retain page only"
+     ]
+    },
+    {
+     "name": "Legacy page handling",
+     "options": [
+      "Ignore page and leave offsets undefined",
+      "Validate page without translating offsets",
+      "Translate page into offsets"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-bad15643013ca15affe408b75eba9e47cc604bb2-vd59a5728dfc977f44533186ace531248c2917516",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/meta/index.js — Meta.userOrGroupExists normalization and existence-result return path",
+  "importance": {
+   "p1": [
+    29.4,
+    29.4,
+    11.8,
+    29.4
+   ],
+   "p2": [
+    15.4,
+    38.5,
+    38.5,
+    7.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   false,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    2,
+    5
+   ],
+   "B": [
+    2,
+    5,
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/meta/index.js",
+   "thing": "design",
+   "intro": "The shared helper normalizes names and determines whether they identify users or groups. One change expands that flow to handle batches, while the other changes which group identities count as existing. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add batch slug existence lookups",
+    "Reserve built-in pseudo-group usernames"
+   ],
+   "issues": [
+    {
+     "name": "Accepted input shape",
+     "options": [
+      "Array input only",
+      "Scalar input only",
+      "Scalar or array input"
+     ]
+    },
+    {
+     "name": "Slug normalization",
+     "options": [
+      "Normalize every input before lookup",
+      "Normalize scalar inputs only",
+      "Match raw input exactly"
+     ]
+    },
+    {
+     "name": "Ephemeral group handling",
+     "options": [
+      "Check persisted groups only",
+      "Count built-in groups as existing",
+      "Reserve names in username generation only"
+     ]
+    },
+    {
+     "name": "Bulk user lookup results",
+     "options": [
+      "Preserve input order and missing entries",
+      "Preserve order but omit missing entries",
+      "Issue separate lookups and assemble results"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_NodeBB__NodeBB-bd80d36e0dcf78cd4360791a82966078b3a07712-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed",
+  "repo": "NodeBB/NodeBB",
+  "artifact": "src/middleware/user.js — middleware.registrationComplete unconfirmed-email enforcement block",
+  "importance": {
+   "p1": [
+    16.7,
+    41.7,
+    41.6
+   ],
+   "p2": [
+    50.0,
+    30.0,
+    20.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    2,
+    5,
+    5
+   ],
+   "B": [
+    5,
+    3,
+    2
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/middleware/user.js",
+   "thing": "design",
+   "intro": "This middleware enforces the configured email requirement for users whose email is unconfirmed. Its privilege check and enforcement branch determine who is redirected and whether the registration flow or another route handles the requirement. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix required-email registration routing",
+    "Fix global moderator email exemption"
+   ],
+   "issues": [
+    {
+     "name": "Privilege exemption",
+     "options": [
+      "Administrators only",
+      "All moderators and administrators",
+      "Administrators and global moderators"
+     ]
+    },
+    {
+     "name": "Enforcement destination",
+     "options": [
+      "Email change form",
+      "Requested page without enforcement",
+      "Registration completion interstitial"
+     ]
+    },
+    {
+     "name": "Pending requirement state",
+     "options": [
+      "No recorded pending state",
+      "Request-local redirect state",
+      "Registration session state"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-1c06c46cc14324df35ac4f39a45fb3ccd602195d-v0f01c69f1e2528b935359cfe578530722bca2c59",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/plugins/filter/core.py: from_yaml() and from_yaml_all() input-normalization and loader-selection branches",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    62.5,
+    37.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    5,
+    3
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/plugins/filter/core.py",
+   "thing": "design",
+   "intro": "The YAML filters normalize inputs and select a loader before parsing documents. The shared branches must support serialized byte payloads while also preserving trust and source-origin metadata for tagged text. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Preserve YAML trust, origin, and vault behavior",
+    "Restore YAML parsing for byte inputs"
+   ],
+   "issues": [
+    {
+     "name": "Input normalization",
+     "options": [
+      "Decode bytes while preserving tagged text",
+      "Convert all inputs to plain text",
+      "Leave bytes unparsed as non-strings"
+     ]
+    },
+    {
+     "name": "Loader selection",
+     "options": [
+      "Instrumented loader for text",
+      "Separate loaders by input type",
+      "Standard loader for all inputs"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-379058e10f3dbc0fdcaf80394bd09b18927e7d33-v1055803c3a812189a1133297f7f5468579283f86",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/module_utils/basic.py: the collection ABC import block near lines 140-145.",
+  "importance": {
+   "p1": [
+    71.4,
+    28.6
+   ],
+   "p2": [
+    16.7,
+    83.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2
+   ],
+   "B": [
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/module_utils/basic.py",
+   "thing": "design",
+   "intro": "The shared block makes collection ABCs available to a foundational module used by many utilities. One ticket changes where those ABCs come from to reduce an internal dependency, while the other trims bindings that the module does not use. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Migrate collection ABC imports off the internal shim",
+    "Remove unused collection ABC imports"
+   ],
+   "issues": [
+    {
+     "name": "ABC import source",
+     "options": [
+      "Internal compatibility shim",
+      "Split imports between both paths",
+      "Supported collections ABC path"
+     ]
+    },
+    {
+     "name": "Imported ABC set",
+     "options": [
+      "Keep only bindings used here",
+      "Remove only some unused bindings",
+      "Keep every existing binding"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-9759e0ca494de1fd5fc2df2c5d11c57adbe6007c-v1055803c3a812189a1133297f7f5468579283f86",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/galaxy/dependency_resolution/providers.py, CollectionDependencyProvider.find_matches() preinstalled_candidates selection",
+  "importance": {
+   "p1": [
+    42.9,
+    57.1
+   ],
+   "p2": [
+    62.5,
+    37.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    3,
+    4
+   ],
+   "B": [
+    5,
+    3
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/galaxy/dependency_resolution/providers.py, CollectionDependencyProvider.find_matches() preinstalled_candidates selection",
+   "thing": "design",
+   "intro": "The resolver chooses between installed collections and versions available from configured servers, using the active version requirements to determine acceptable matches. The installation pipeline is adding an opt-in upgrade mode while candidate selection is being corrected to exclude installed versions that do not meet those requirements. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Propagate opt-in collection upgrade mode",
+    "Fix installed-version constraint matching"
+   ],
+   "issues": [
+    {
+     "name": "Installed version eligibility",
+     "options": [
+      "Accept versions matching all requirements",
+      "Accept every installed version",
+      "Accept versions matching any requirement"
+     ]
+    },
+    {
+     "name": "Upgrade candidate preference",
+     "options": [
+      "Always prefer a valid installed version",
+      "Prefer a server version over any valid installed version in upgrade mode",
+      "Prefer a newer server version over a valid installed version in upgrade mode"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_ansible__ansible-bec27fb4c0a40c5f8bbcf26a475704227d65ee73-v30a923fb5c164d6cd18280c02422f75e611e8fb2",
+  "repo": "ansible/ansible",
+  "artifact": "lib/ansible/cli/doc.py: DocCLI.tty_ify(), specifically the semantic P(...) plugin-reference substitution inside the general-formatting block.",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    37.5,
+    62.5
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    3,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ansible/cli/doc.py",
+   "thing": "design",
+   "intro": "DocCLI converts semantic documentation markup into terminal text, including plugin references embedded in general-formatting output. One ticket changes how markup is styled without color, while the other needs plugin references to retain their kind; both affect the same substitution. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Improve markup rendering and role summaries",
+    "Preserve plugin kinds in terminal references"
+   ],
+   "issues": [
+    {
+     "name": "Plugin reference styling",
+     "options": [
+      "Preserve the original markup",
+      "Emit literal bracketed names",
+      "Use the PLUGIN formatting path"
+     ]
+    },
+    {
+     "name": "Plugin kind annotation",
+     "options": [
+      "Append only recognized kinds",
+      "Omit the plugin kind",
+      "Append the captured plugin kind"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_element-hq__element-web-404c412bcb694f04ba0c4d5479541203d701bca0-vnan",
+  "repo": "element-hq/element-web",
+  "artifact": "src/MatrixClientPeg.ts — MatrixClientPegClass store-closure handler and the listener registration in assign()",
+  "importance": {
+   "p1": [
+    55.6,
+    44.4
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/MatrixClientPeg.ts",
+   "thing": "design",
+   "intro": "This code assigns the active Matrix client and registers a handler for its store closing. The handler must decide how to respond so the client can recover or the user can restore service. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Handle unexpected store closure with user feedback",
+    "Preserve authenticated sessions after storage loss"
+   ],
+   "issues": [
+    {
+     "name": "Closure response",
+     "options": [
+      "Restart authenticated clients and offer reload",
+      "Restart authenticated clients on memory storage",
+      "Reload guests; offer authenticated users reload"
+     ]
+    },
+    {
+     "name": "Listener ownership",
+     "options": [
+      "Listeners added on every assignment",
+      "One listener per client",
+      "One listener per assigned store"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_element-hq__element-web-4fec436883b601a3cac2d4a58067e597f737b817-vnan",
+  "repo": "element-hq/element-web",
+  "artifact": "src/components/views/settings/devices/DeviceDetails.tsx — imports and the session heading in DeviceDetails",
+  "importance": {
+   "p1": [
+    37.5,
+    62.5
+   ],
+   "p2": [
+    83.3,
+    16.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    3,
+    5
+   ],
+   "B": [
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/components/views/settings/devices/DeviceDetails.tsx",
+   "thing": "design",
+   "intro": "The device details view shows a session heading and supports actions related to identifying that session. One ticket adds session renaming, while the other addresses how named sessions expose their immutable ID. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add session renaming",
+    "Expose IDs for named sessions"
+   ],
+   "issues": [
+    {
+     "name": "Named heading identity",
+     "options": [
+      "Display name with ID subtitle",
+      "Display name with ID tooltip",
+      "Display name only"
+     ]
+    },
+    {
+     "name": "Rename interaction",
+     "options": [
+      "Separate rename dialog",
+      "Read-only heading",
+      "Inline heading edit state"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_element-hq__element-web-53b42e321777a598aaf2bb3eab22d710569f83a8-vnan",
+  "repo": "element-hq/element-web",
+  "artifact": "src/components/views/rooms/RoomTile.tsx — RoomTile.showContextMenu getter",
+  "importance": {
+   "p1": [
+    55.6,
+    44.4
+   ],
+   "p2": [
+    71.4,
+    28.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4
+   ],
+   "B": [
+    5,
+    2
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/components/views/rooms/RoomTile.tsx",
+   "thing": "design",
+   "intro": "Room tiles expose room actions through a context menu, and the shared getter determines whether that menu is available. The tickets both affect tile access: one introduces deployment control over the menu, while the other addresses access from invited-room tiles. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add deployment control for room options",
+    "Expose room actions on invited tiles"
+   ],
+   "issues": [
+    {
+     "name": "Tile visibility rule",
+     "options": [
+      "Deployment setting only",
+      "Unconditional invite access",
+      "Setting-gated joined tiles with invite exception"
+     ]
+    },
+    {
+     "name": "Setting coverage",
+     "options": [
+      "Tiles and room headers",
+      "Tiles, headers, and spotlight results",
+      "Room tiles only"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_element-hq__element-web-f0359a5c180b8fec4329c77adcf967c8d3b7b787-vnan",
+  "repo": "element-hq/element-web",
+  "artifact": "src/components/views/settings/devices/LoginWithQRSection.tsx — capability checks and offerShowQr computation in LoginWithQRSection.render()",
+  "importance": {
+   "p1": [
+    71.4,
+    28.6
+   ],
+   "p2": [
+    16.7,
+    83.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2
+   ],
+   "B": [
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/components/views/settings/devices/LoginWithQRSection.tsx",
+   "thing": "design",
+   "intro": "The shared component decides whether to show the QR sign-in section using homeserver capability data. Its visibility also needs to reflect an application-level setting, while malformed capability values must not be mistaken for support. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add an off-by-default QR sign-in setting",
+    "Reject non-boolean QR capability values"
+   ],
+   "issues": [
+    {
+     "name": "Feature gate default",
+     "options": [
+      "On-by-default setting",
+      "No application-level setting",
+      "Off-by-default experimental setting"
+     ]
+    },
+    {
+     "name": "Capability value handling",
+     "options": [
+      "JavaScript truthiness",
+      "Literal boolean true only",
+      "Explicit value normalization"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-05d7234fa582df632f70a7cd10194d61bd7043b9",
+  "repo": "flipt-io/flipt",
+  "artifact": "internal/storage/fs/object/file.go: File.Stat FileInfo construction, especially the modTime assignment",
+  "importance": {
+   "p1": [
+    12.5,
+    25.0,
+    62.5
+   ],
+   "p2": [
+    45.5,
+    45.5,
+    9.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    1,
+    2,
+    5
+   ],
+   "B": [
+    5,
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of internal/storage/fs/object/file.go",
+   "thing": "design",
+   "intro": "The object-storage adapter turns bucket objects into filesystem files, and `File.Stat` constructs the metadata consumers see. Namespace versioning needs a revision identifier reachable from a file, while metadata normalization affects the reported name and modification time. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add namespace versions and file ETags",
+    "Normalize object-backed file metadata"
+   ],
+   "issues": [
+    {
+     "name": "Reported file name",
+     "options": [
+      "Return the full bucket key",
+      "Make name handling configurable",
+      "Return only the basename"
+     ]
+    },
+    {
+     "name": "Modification time location",
+     "options": [
+      "Keep the original internally, normalize metadata to UTC",
+      "Return the time in UTC",
+      "Preserve the provider location"
+     ]
+    },
+    {
+     "name": "ETag exposure",
+     "options": [
+      "Expose the ETag only on the file",
+      "Do not expose the ETag",
+      "Expose the ETag in file metadata"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-84806a178447e766380cc66b14dee9c6eeb534f4",
+  "repo": "flipt-io/flipt",
+  "artifact": "internal/config/storage.go: OCI.Insecure and the OCI defaults branch; internal/oci/file.go: StoreOptions/NewStore option initialization",
+  "importance": {
+   "p1": [
+    71.4,
+    14.3,
+    14.3
+   ],
+   "p2": [
+    10.0,
+    50.0,
+    40.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1,
+    1
+   ],
+   "B": [
+    1,
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of internal/config/storage.go",
+   "thing": "design",
+   "intro": "The shared configuration and store-construction code determines which OCI settings are accepted, how defaults are registered, and which options reach registry operations. Both tickets change these areas to make OCI storage behave reliably, but they require different configuration and transport behavior. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Expand OCI configuration parsing and validation",
+    "Enable plain-HTTP access for insecure registries"
+   ],
+   "issues": [
+    {
+     "name": "Repository validation",
+     "options": [
+      "Reject invalid references during configuration loading",
+      "Validate references when creating the store",
+      "Pass references through without validation"
+     ]
+    },
+    {
+     "name": "Insecure setting lifecycle",
+     "options": [
+      "Retain and wire insecure transport behavior",
+      "Retain the setting without transport behavior",
+      "Remove the insecure setting"
+     ]
+    },
+    {
+     "name": "Insecure default key",
+     "options": [
+      "Register both keys as aliases",
+      "Keep only store.oci.insecure",
+      "Register only storage.oci.insecure"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59",
+  "repo": "flipt-io/flipt",
+  "artifact": "internal/oci/file.go: Store.getTarget remote-registry auth.Client construction block",
+  "importance": {
+   "p1": [
+    45.5,
+    9.1,
+    45.4
+   ],
+   "p2": [
+    28.6,
+    35.7,
+    35.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1,
+    5
+   ],
+   "B": [
+    4,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of internal/oci/file.go",
+   "thing": "design",
+   "intro": "The shared code constructs the remote client used to access OCI registries, including its authentication and network transport settings. Credential resolution and registry-specific TLS behavior both affect that construction, so the choices must preserve the needs of both features. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add per-registry AWS credential resolution",
+    "Add opt-in insecure HTTPS for development registries"
+   ],
+   "issues": [
+    {
+     "name": "Credential source",
+     "options": [
+      "Resolver with static fallback",
+      "Configured static credentials",
+      "Per-registry credential resolver"
+     ]
+    },
+    {
+     "name": "TLS verification",
+     "options": [
+      "Normal verification for HTTPS",
+      "Skip verification for all HTTPS",
+      "Opt-in insecure HTTPS scheme"
+     ]
+    },
+    {
+     "name": "Client construction",
+     "options": [
+      "One client with both settings",
+      "Separate clients per feature",
+      "Last setting replaces earlier"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_flipt-io__flipt-f808b4dd6e36b9dc8b011eb26b196f4e2cc64c41",
+  "repo": "flipt-io/flipt",
+  "artifact": "config/config.go DatabaseConfig and Load DB block; storage/db/db.go Open/parse connection pipeline; storage/db/migrator.go NewMigrator",
+  "importance": {
+   "p1": [
+    45.5,
+    45.5,
+    9.0
+   ],
+   "p2": [
+    25.0,
+    33.3,
+    41.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    1
+   ],
+   "B": [
+    3,
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of config/config.go DatabaseConfig and Load DB block; storage/db/db.go Open/parse connection pipeline; storage/db/migrator.go NewMigrator",
+   "thing": "design",
+   "intro": "Database configuration is loaded centrally and then used to construct connections and migrations for multiple database backends. The changes affect how connection details are represented and passed through that shared path, as well as how PostgreSQL transport security is applied to URL-based connections. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add discrete database connection settings",
+    "Add managed PostgreSQL SSL mode setting"
+   ],
+   "issues": [
+    {
+     "name": "Connection settings form",
+     "options": [
+      "Connection URL only",
+      "URL with discrete-field fallback",
+      "URL and discrete fields"
+     ]
+    },
+    {
+     "name": "Pipeline input",
+     "options": [
+      "Database configuration object",
+      "Raw connection URL",
+      "SSL-normalized URL"
+     ]
+    },
+    {
+     "name": "SSL mode precedence",
+     "options": [
+      "Configured value takes precedence",
+      "Reject conflicting values",
+      "URL value takes precedence"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-17ae386d1e185ba742eea4668ca77642e22b54c4",
+  "repo": "future-architect/vuls",
+  "artifact": "oval/util.go: isOvalDefAffected version-comparison error return statements",
+  "importance": {
+   "p1": [
+    71.4,
+    28.6
+   ],
+   "p2": [
+    16.7,
+    83.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2
+   ],
+   "B": [
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of oval/util.go",
+   "thing": "design",
+   "intro": "The shared evaluator checks whether an OVAL definition applies by comparing installed and available package versions, and its result also carries fix-status information. Missing architecture metadata and failed version comparisons reach nearby return paths, so changes for either case must preserve the intended handling of the other. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Report missing Oracle and Amazon architecture metadata",
+    "Retain definitions when version comparison fails"
+   ],
+   "issues": [
+    {
+     "name": "Missing architecture handling",
+     "options": [
+      "Continue without architecture validation",
+      "Discard the definition silently",
+      "Return an explicit evaluation error"
+     ]
+    },
+    {
+     "name": "Comparison failure outcome",
+     "options": [
+      "Abort evaluation with an error",
+      "Mark affected and unresolved with advisory version",
+      "Mark not affected with unresolved fix"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-2923cbc645fbc7a37d50398eb2ab8febda8c3264",
+  "repo": "future-architect/vuls",
+  "artifact": "oval/util.go: rhelDownStreamOSVersionToRHEL helper and its compiled release-normalization pattern",
+  "importance": {
+   "p1": [
+    30.0,
+    40.0,
+    30.0
+   ],
+   "p2": [
+    9.1,
+    45.5,
+    45.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    3,
+    4,
+    3
+   ],
+   "B": [
+    1,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of oval/util.go",
+   "thing": "design",
+   "intro": "The shared helper normalizes RHEL-compatible rebuild release strings before OVAL version comparisons. Its pattern and naming are being changed to handle both rebuild markers and custom tags that resemble those markers. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Normalize CentOS, Alma, and Rocky versions",
+    "Preserve custom RPM release tags"
+   ],
+   "issues": [
+    {
+     "name": "Helper naming",
+     "options": [
+      "Keep the existing neutral name",
+      "Rename to a RHEL-specific name",
+      "Create separate normalization helpers"
+     ]
+    },
+    {
+     "name": "Marker matching",
+     "options": [
+      "Require a component boundary",
+      "Match marker prefixes",
+      "Do not strip distro markers"
+     ]
+    },
+    {
+     "name": "Suffix preservation",
+     "options": [
+      "Preserve following custom components",
+      "Remove the marker and all following text",
+      "Leave the entire release unchanged"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-2c84be80b65d022c262956cd26fc79d8bb2f7010",
+  "repo": "future-architect/vuls",
+  "artifact": "scanner/redhatbase.go: splitFileName and its source-RPM parsing call sites",
+  "importance": {
+   "p1": [
+    16.7,
+    41.7,
+    41.6
+   ],
+   "p2": [
+    71.4,
+    14.3,
+    14.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   false,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    2,
+    5,
+    5
+   ],
+   "B": [
+    5,
+    1,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of scanner/redhatbase.go",
+   "thing": "design",
+   "intro": "The shared parser turns source RPM metadata into source package identity and a relationship to the binary package. Changes to how it normalizes and splits that metadata affect whether inventory survives unusual filenames and whether source package names match imported records. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Make malformed and epoch-bearing RPMs safe to scan",
+    "Normalize imported source RPM cache paths"
+   ],
+   "issues": [
+    {
+     "name": "Path normalization",
+     "options": [
+      "Parse the full supplied path",
+      "Parse only the basename",
+      "Reject values containing directories"
+     ]
+    },
+    {
+     "name": "Malformed source handling",
+     "options": [
+      "Abort inventory collection",
+      "Silently omit the source package",
+      "Warn and omit the source package"
+     ]
+    },
+    {
+     "name": "Epoch interpretation",
+     "options": [
+      "Treat the epoch as filename text",
+      "Parse and retain the epoch",
+      "Reject epoch-bearing filenames"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_future-architect__vuls-3c1489e588dacea455ccf4c352a3b1006902e2d4",
+  "repo": "future-architect/vuls",
+  "artifact": "models/vulninfos.go: VulnInfos.CountGroupBySeverity signature and score-selection body",
+  "importance": {
+   "p1": [
+    41.7,
+    16.7,
+    41.6
+   ],
+   "p2": [
+    41.7,
+    41.7,
+    16.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2,
+    5
+   ],
+   "B": [
+    5,
+    5,
+    2
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of models/vulninfos.go",
+   "thing": "design",
+   "intro": "VulnInfos.CountGroupBySeverity counts vulnerabilities by the severity of a selected CVSS score. One change corrects how scores and severity-only data are represented and counted, while the other adds version-specific grouping for audit exports. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Correct CVSS data modeling and severity counts",
+    "Add CVSS-version selection for audit grouping"
+   ],
+   "issues": [
+    {
+     "name": "Default score precedence",
+     "options": [
+      "CVSS3-first fallback",
+      "CVSS2-first fallback",
+      "Caller-configurable precedence"
+     ]
+    },
+    {
+     "name": "Version selection",
+     "options": [
+      "No version selector",
+      "Required strict version selector",
+      "Optional strict version selector"
+     ]
+    },
+    {
+     "name": "Critical score bucket",
+     "options": [
+      "Separate Critical bucket",
+      "Omit scores above High",
+      "Include Critical in High"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_gravitational__teleport-0cb341c926713bdfcbb490c69659a9b101df99eb",
+  "repo": "gravitational/teleport",
+  "artifact": "roles.go: ParseRoles parsing/validation loop and the adjacent built-in role validation path",
+  "importance": {
+   "p1": [
+    38.5,
+    23.1,
+    38.4
+   ],
+   "p2": [
+    45.5,
+    45.5,
+    9.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    5
+   ],
+   "B": [
+    5,
+    5,
+    1
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of roles.go",
+   "thing": "design",
+   "intro": "This shared code parses role names and validates built-in roles used by the application. Changes to parsing affect which role values are accepted, while collection validation and equality determine how lists of roles behave. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Validate role collections and compare them as sets",
+    "Register RemoteProxy and parse role names case-insensitively"
+   ],
+   "issues": [
+    {
+     "name": "Validation scope",
+     "options": [
+      "Validate each parsed token only",
+      "Resolve each token, then validate the completed list",
+      "Validate the completed role list only"
+     ]
+    },
+    {
+     "name": "Role-name resolution",
+     "options": [
+      "Normalize spelling and accept unregistered names",
+      "Case-insensitive canonical-name lookup",
+      "Case-sensitive canonical-name lookup"
+     ]
+    },
+    {
+     "name": "Collection equality",
+     "options": [
+      "Order-sensitive list equality",
+      "Set equality ignoring repetitions",
+      "Equal-length comparison with membership checks"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d",
+  "repo": "gravitational/teleport",
+  "artifact": "lib/ai/model/messages.go: TokensUsed declaration and AddTokens implementation",
+  "importance": {
+   "p1": [
+    55.6,
+    33.3,
+    11.1
+   ],
+   "p2": [
+    16.7,
+    41.7,
+    41.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    1
+   ],
+   "B": [
+    2,
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/ai/model/messages.go",
+   "thing": "design",
+   "intro": "The shared code defines token-usage accounting for model messages and an exported accumulator that counts prompt and completion tokens. The tickets change how usage is represented across model interactions and whether the accumulator works when callers use its zero value. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Redesign assistant token accounting",
+    "Make the token accumulator zero-value safe"
+   ],
+   "issues": [
+    {
+     "name": "Assistant accounting path",
+     "options": [
+      "Per-message usage values",
+      "Both accounting paths",
+      "Aggregate exchange counters"
+     ]
+    },
+    {
+     "name": "Accumulator compatibility",
+     "options": [
+      "Keep it in assistant messages",
+      "Remove the exported accumulator",
+      "Keep it as a standalone compatibility type"
+     ]
+    },
+    {
+     "name": "Tokenizer initialization",
+     "options": [
+      "Require a caller-supplied tokenizer",
+      "Require constructor initialization",
+      "Initialize CL100K on first use"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_gravitational__teleport-bb69574e02bd62e5ccd3cebb25e1c992641afb2a",
+  "repo": "gravitational/teleport",
+  "artifact": "lib/utils/parse/parse.go: walk's *ast.BasicLit case",
+  "importance": {
+   "p1": [
+    28.6,
+    35.7,
+    35.7
+   ],
+   "p2": [
+    45.5,
+    18.2,
+    36.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    4,
+    5,
+    5
+   ],
+   "B": [
+    5,
+    2,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of lib/utils/parse/parse.go",
+   "thing": "design",
+   "intro": "The shared parser walks Go AST literals while parsing templated expressions, and its handling determines how bracket keys become trait names. The same parsing and resolution path is also being extended to support plain values as literal expressions. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add plain-string literal expressions",
+    "Support numeric bracket trait keys"
+   ],
+   "issues": [
+    {
+     "name": "Literal token spelling",
+     "options": [
+      "Unquote every literal token",
+      "Preserve every token spelling",
+      "Unquote quoted tokens only"
+     ]
+    },
+    {
+     "name": "Literal API scope",
+     "options": [
+      "Add a separate literal parser",
+      "Add literals to Variable only",
+      "Add literals to every parser"
+     ]
+    },
+    {
+     "name": "Literal resolution",
+     "options": [
+      "Resolve every expression through traits",
+      "Return literals only when traits are absent",
+      "Return literal without trait lookup"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_internetarchive__openlibrary-798055d1a19b8fa0983153b709f460be97e33064-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+  "repo": "internetarchive/openlibrary",
+  "artifact": "scripts/import_standard_ebooks.py: map_data() language validation and import-record language assignment",
+  "importance": {
+   "p1": [
+    33.3,
+    33.3,
+    33.4
+   ],
+   "p2": [
+    25.0,
+    33.3,
+    41.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    5
+   ],
+   "B": [
+    3,
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of scripts/import_standard_ebooks.py",
+   "thing": "design",
+   "intro": "The shared function reads Standard Ebooks feed entries, validates their language, and builds import records. Both tickets change how it reads and handles language data, so their choices must work together. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Fix dictionary-based feed parsing",
+    "Add French language support"
+   ],
+   "issues": [
+    {
+     "name": "Entry access",
+     "options": [
+      "Attributes only",
+      "Dictionary keys only",
+      "Support keys and attributes"
+     ]
+    },
+    {
+     "name": "Language field source",
+     "options": [
+      "dcterms_language only",
+      "dcterms_language with language fallback",
+      "language only"
+     ]
+    },
+    {
+     "name": "Language mapping",
+     "options": [
+      "Always use eng",
+      "Map English and French variants",
+      "Pass through the primary subtag"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_internetarchive__openlibrary-7edd1ef09d91fe0b435707633c5cc9af41dedddf-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c",
+  "repo": "internetarchive/openlibrary",
+  "artifact": "openlibrary/plugins/worksearch/autocomplete.py: works_autocomplete.GET Solr request parameters, replaced by autocomplete.GET in Agent A",
+  "importance": {
+   "p1": [
+    41.7,
+    16.7,
+    41.6
+   ],
+   "p2": [
+    27.3,
+    45.5,
+    27.2
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    2,
+    5
+   ],
+   "B": [
+    3,
+    5,
+    3
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of openlibrary/plugins/worksearch/autocomplete.py",
+   "thing": "design",
+   "intro": "The shared autocomplete code builds Solr requests and formats suggestions for works and other resource types. One ticket consolidates that behavior and corrects work titles in responses, while the other makes work suggestions easier to scan by title without changing their query, filters, limit, or response format. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Unify autocomplete queries and response formatting",
+    "Sort work suggestions alphabetically"
+   ],
+   "issues": [
+    {
+     "name": "Request architecture",
+     "options": [
+      "Shared formatting with separate queries",
+      "Shared configurable GET handler",
+      "Separate resource-specific GET handlers"
+     ]
+    },
+    {
+     "name": "Sort configuration",
+     "options": [
+      "Preserve existing work ranking",
+      "Configure sorting per resource",
+      "Sort every resource by title"
+     ]
+    },
+    {
+     "name": "Work name source",
+     "options": [
+      "Use the record key",
+      "Use title with key fallback",
+      "Use the work title"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818",
+  "repo": "internetarchive/openlibrary",
+  "artifact": "openlibrary/catalog/add_book/__init__.py supplement_rec_with_import_item_metadata() and its metadata-fill condition",
+  "importance": {
+   "p1": [
+    38.5,
+    30.8,
+    30.7
+   ],
+   "p2": [
+    11.1,
+    55.6,
+    33.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4,
+    4
+   ],
+   "B": [
+    1,
+    5,
+    3
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of openlibrary/catalog/add_book/__init__.py supplement_rec_with_import_item_metadata() and its metadata-fill condition",
+   "thing": "design",
+   "intro": "This code prepares imported book records, decides whether their metadata is sufficient, and supplements records with metadata from staged or pending imports. One ticket changes which sparse records are accepted and how publisher placeholders are handled, while the other changes when placeholder metadata counts as missing. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Accept sparse strong-identifier imports",
+    "Replace sentinel metadata with staged values"
+   ],
+   "issues": [
+    {
+     "name": "Validation threshold",
+     "options": [
+      "Require all five metadata fields",
+      "Accept any record with a title",
+      "Accept complete records or strong identifiers"
+     ]
+    },
+    {
+     "name": "Placeholder handling",
+     "options": [
+      "Strip only placeholder publishers during normalization",
+      "Treat author, date, and publisher sentinels as missing when filling",
+      "Normalize all supported sentinels before validation and filling"
+     ]
+    },
+    {
+     "name": "Enrichment entry point",
+     "options": [
+      "Move enrichment into import parsing and retain a delegating helper",
+      "Keep enrichment in the existing helper",
+      "Move enrichment into import parsing and remove the helper"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-0a650de357babdcc8ce910fe37fee84acf4ed2fe",
+  "repo": "navidrome/navidrome",
+  "artifact": "server/subsonic/responses/responses.go: ArtistID3 OpenSubsonic extension fields",
+  "importance": {
+   "p1": [
+    45.5,
+    45.5,
+    9.0
+   ],
+   "p2": [
+    10.0,
+    40.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5,
+    1
+   ],
+   "B": [
+    1,
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of server/subsonic/responses/responses.go",
+   "thing": "design",
+   "intro": "The shared response code converts artist data into OpenSubsonic ID3 responses and defines the structure and serialization of those fields. One change addresses artist grouping and consistently serialized metadata, while the other exposes an artist URL already stored in the domain model. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Correct artist response schema and metadata",
+    "Expose canonical artist URLs in ID3 responses"
+   ],
+   "issues": [
+    {
+     "name": "Artist grouping",
+     "options": [
+      "Keep flat Indexes structure",
+      "Return grouped and flat structures",
+      "Use grouped IndexID3 structure"
+     ]
+    },
+    {
+     "name": "Field serialization",
+     "options": [
+      "Always serialize every field",
+      "Always serialize core metadata; omit empty URL",
+      "Omit every empty field"
+     ]
+    },
+    {
+     "name": "External URL mapping",
+     "options": [
+      "Expose field without converter mapping",
+      "Expose optional field and map model URL",
+      "Do not expose external URL"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca",
+  "repo": "navidrome/navidrome",
+  "artifact": "core/media_streamer.go: streamJob fields and Key method, plus the DoStream job construction",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    50.0,
+    50.0
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    5,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of core/media_streamer.go",
+   "thing": "design",
+   "intro": "Streaming jobs carry the information used to build transcoded output and identify its cache entry. Playback offsets and editable transcoding commands can both change which output is correct, so the shared job construction and cache-key design must account for them. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add playback offsets to streaming and transcoding",
+    "Invalidate cache entries when profile commands change"
+   ],
+   "issues": [
+    {
+     "name": "Cache key dimensions",
+     "options": [
+      "Include command fingerprint only",
+      "Include both dimensions",
+      "Include playback offset only"
+     ]
+    },
+    {
+     "name": "Command fingerprint form",
+     "options": [
+      "Raw command text",
+      "SHA-256 command digest",
+      "No command fingerprint"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_navidrome__navidrome-87d4db7638b37eeb754b217440ab7a372f669205",
+  "repo": "navidrome/navidrome",
+  "artifact": "core/artwork.go: artwork.get album image extraction candidate list",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    16.7,
+    83.3
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    1,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of core/artwork.go",
+   "thing": "design",
+   "intro": "The shared artwork resolver selects album images from embedded artwork and local image files, and its candidate list controls which local scan wins. One ticket also needs requests to distinguish media-file artwork from album artwork, while the other changes the priority of local album scans. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add media-file artwork dispatch and fallback",
+    "Prioritize explicit front scans for albums"
+   ],
+   "issues": [
+    {
+     "name": "Artwork ID routing",
+     "options": [
+      "Album-only resolution",
+      "Dispatch by ID kind",
+      "Path-based dispatch"
+     ]
+    },
+    {
+     "name": "Album scan priority",
+     "options": [
+      "Generic cover scans first",
+      "Front scans first",
+      "Front scans only if no cover"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_protonmail__webclients-09fcf0dbdb87fa4f4a27700800ee4a3caed8b413",
+  "repo": "protonmail/webclients",
+  "artifact": "applications/mail/src/app/components/list/ItemRowLayout.tsx and ItemColumnLayout.tsx — verified-badge props, imports, and sender-line JSX",
+  "importance": {
+   "p1": [
+    41.7,
+    25.0,
+    33.3
+   ],
+   "p2": [
+    30.8,
+    30.8,
+    38.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    4
+   ],
+   "B": [
+    4,
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of applications/mail/src/app/components/list/ItemRowLayout.tsx and ItemColumnLayout.tsx",
+   "thing": "design",
+   "intro": "The mail-list layouts use sender-line code to display verification indicators, and their props determine what verification state the layouts can render. One ticket adds consistent Proton-origin identification, while the other addresses the indicator’s visibility and accessibility across layouts. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add consistent Proton-origin identification",
+    "Show accessible verified badges in row layout"
+   ],
+   "issues": [
+    {
+     "name": "Verification flag source",
+     "options": [
+      "Combine origin checks with an upstream flag",
+      "Derive it with an origin utility",
+      "Pass through an existing verification flag"
+     ]
+    },
+    {
+     "name": "Badge implementation",
+     "options": [
+      "Render the badge inline per layout",
+      "Keep badge rendering in column view only",
+      "Use a shared badge renderer"
+     ]
+    },
+    {
+     "name": "Layout badge coverage",
+     "options": [
+      "Show a badge in row view only",
+      "Show badges in both layouts",
+      "Show a badge in column view only"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_protonmail__webclients-b530a3db50cb33e5064464addbcbef1465856ce6",
+  "repo": "protonmail/webclients",
+  "artifact": "applications/mail/src/app/containers/onboardingChecklist/hooks/useCanCheckItem.ts and provider/GetStartedChecklistProvider.tsx — the extracted canMarkItemsAsDone permission rule",
+  "importance": {
+   "p1": [
+    50.0,
+    50.0
+   ],
+   "p2": [
+    55.6,
+    44.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    5
+   ],
+   "B": [
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of applications/mail/src/app/containers/onboardingChecklist/hooks/useCanCheckItem.ts and provider/GetStartedChecklistProvider.tsx",
+   "thing": "design",
+   "intro": "The provider decides whether completed onboarding checklist items can be persisted, based on the user's status and subscription-related checklist data. One change makes that rule reusable, while the other needs organization members to persist progress even when their personal subscription does not match the existing plan-based criteria. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Extract the checklist permission rule",
+    "Restore organization members’ checklist progress"
+   ],
+   "issues": [
+    {
+     "name": "Eligibility criteria",
+     "options": [
+      "Free users and matching plan-checklist users",
+      "Existing criteria plus organization members",
+      "Organization members with matching checklist flags"
+     ]
+    },
+    {
+     "name": "Permission ownership",
+     "options": [
+      "Provider uses a shared helper",
+      "Provider keeps its inline rule",
+      "Provider uses the extracted hook"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-1943fa072ec3df5a87e18a23b0916f134c131016-vafb3e8e01b31319c66c4e666b8a3b1d8ba55db24",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/mainwindow/tabwidget.py: TabWidget.update_tab_title invalid-index handling",
+  "importance": {
+   "p1": [
+    55.6,
+    44.4
+   ],
+   "p2": [
+    71.4,
+    28.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    4
+   ],
+   "B": [
+    5,
+    2
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/mainwindow/tabwidget.py",
+   "thing": "design",
+   "intro": "The tab widget updates titles using numeric tab indexes, while tab pinning is being moved onto each tab so it can work across window and container changes. The title-update entry point must handle both detached-tab lookups and delayed refreshes for tabs that have since been removed. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Move pinned-state ownership onto tabs",
+    "Ignore delayed refreshes for removed tabs"
+   ],
+   "issues": [
+    {
+     "name": "Invalid-index policy",
+     "options": [
+      "Assert on every invalid index",
+      "Ignore every invalid index",
+      "Assert on -1; ignore stale non-negative indexes"
+     ]
+    },
+    {
+     "name": "Missing-tab signal lookup",
+     "options": [
+      "Use an unchecked lookup and pass its index",
+      "Reuse the tab's last known index",
+      "Use a checked lookup and skip absent tabs"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-3fd8e12949b8feda401930574facf09dd4180bba",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "qutebrowser/misc/utilcmds.py: repeat_command/cmd_repeat_last decorator, signature, and replay body",
+  "importance": {
+   "p1": [
+    41.7,
+    25.0,
+    33.3
+   ],
+   "p2": [
+    30.8,
+    38.5,
+    30.7
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    3,
+    4
+   ],
+   "B": [
+    4,
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of qutebrowser/misc/utilcmds.py",
+   "thing": "design",
+   "intro": "The shared command replays a remembered command from the current mode, using its existing count behavior. One ticket changes how the command is named, while the other adds an optional way to remove a remembered command after replay. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Standardize the replay command name",
+    "Add one-shot replay for remembered commands"
+   ],
+   "issues": [
+    {
+     "name": "Command naming",
+     "options": [
+      "Old name only",
+      "New name with deprecated alias",
+      "Both names without deprecation"
+     ]
+    },
+    {
+     "name": "Remembered command removal",
+     "options": [
+      "Remove before replay",
+      "Never remove",
+      "Remove after successful replay"
+     ]
+    },
+    {
+     "name": "Replay count handling",
+     "options": [
+      "Preserve existing count behavior",
+      "Always replay once",
+      "Apply count after replay"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_qutebrowser__qutebrowser-8f46ba3f6dc7b18375f7aa63c48a1fe461190430-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+  "repo": "qutebrowser/qutebrowser",
+  "artifact": "misc/org.qutebrowser.qutebrowser.desktop Exec command and misc/nsis/install.nsh shell\\open\\command registration",
+  "importance": {
+   "p1": [
+    16.7,
+    83.3
+   ],
+   "p2": [
+    55.6,
+    44.4
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     0,
+     2,
+     1
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     2,
+     0
+    ],
+    [
+     2,
+     0,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   false
+  ],
+  "raw_importance": {
+   "A": [
+    1,
+    5
+   ],
+   "B": [
+    5,
+    4
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of misc/org.qutebrowser.qutebrowser.desktop Exec command and misc/nsis/install.nsh shell\\open\\command registration",
+   "thing": "design",
+   "intro": "The Linux desktop entry and Windows file-association command launch qutebrowser with a URL supplied by the operating system. Both tickets change these shared commands: one constrains how that URL is interpreted, and the other controls which browsing window receives it. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Add validation for untrusted command-line arguments",
+    "Route externally opened links to new windows"
+   ],
+   "issues": [
+    {
+     "name": "External link target",
+     "options": [
+      "Automatic target",
+      "Window target before URL",
+      "Window target after URL"
+     ]
+    },
+    {
+     "name": "Target-marker ordering",
+     "options": [
+      "Marker before target",
+      "Target after URL",
+      "Target before marker"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "instance_tutao__tutanota-f373ac3808deefce8183dad8d16729839cc330c1-v2939aa9f4356f0dc9f523ee5ce19d09e08ab979b",
+  "repo": "tutao/tutanota",
+  "artifact": "src/api/worker/crypto/CryptoFacade.ts — sessionKeyCache state, resolveSessionKey cache paths, and the cache lifecycle API",
+  "importance": {
+   "p1": [
+    83.3,
+    16.7
+   ],
+   "p2": [
+    44.4,
+    55.6
+   ]
+  },
+  "rankings": {
+   "p1": [
+    [
+     2,
+     0,
+     1
+    ],
+    [
+     1,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     2,
+     1
+    ]
+   ]
+  },
+  "opposed": [
+   true,
+   true
+  ],
+  "raw_importance": {
+   "A": [
+    5,
+    1
+   ],
+   "B": [
+    4,
+    5
+   ]
+  },
+  "skin": {
+   "name": "grounded",
+   "parties": [
+    "Developer A",
+    "Developer B"
+   ],
+   "party_kind": "developers",
+   "other": "the other developer",
+   "artifact": "the design of src/api/worker/crypto/CryptoFacade.ts",
+   "thing": "design",
+   "intro": "The facade resolves session keys for mail entities and currently retains decrypted keys in process-local state. One change aims to make resolution depend only on the entity being processed, while another needs account transitions to discard sensitive key state. You are working on {role}; the other developer on {other_role}.",
+   "roles": [
+    "Prevent stale keys in mail-details decryption",
+    "Purge keys during account transitions"
+   ],
+   "issues": [
+    {
+     "name": "Cache policy",
+     "options": [
+      "Entity-scoped cache",
+      "Process-wide reusable cache",
+      "No session-key cache"
+     ]
+    },
+    {
+     "name": "Purge API contract",
+     "options": [
+      "Public cache-clearing operation",
+      "No purge operation",
+      "Public idempotent no-op hook"
+     ]
+    }
+   ]
+  }
+ }
+]

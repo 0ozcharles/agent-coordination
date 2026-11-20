@@ -391,12 +391,16 @@ def bargain_command(root, args):
         return 0
     config = bargain.load_config(config_path)
     output = project_path(root, config["output"])
+    if args.ground:
+        module_args = [str(config_path), "--workers", str(args.workers or 4)] + (["--limit", str(args.limit)] if args.limit else [])
+        print(f"Extracting decisions from ParallACT contradictory pairs into {config['instances'].get('path')}")
+        return launch(root, args, "agent_coordination.ground", module_args, output, 1) or 0
     if args.report:
         bargain.report(config, root)
         return 0
     print(f"{config['study']}: {config['question']}")
     todo = bargain.jobs(config, root)
-    total = len(config["cells"]) * config["instances"]["n"]
+    total = len(config["cells"]) * len(bargain.instances(config))
     print(f"{total} games in {len(config['cells'])} cells, {total - len(todo)} played; "
           f"${bargain.spent_so_far(config, root):.2f} spent, budget ${config.get('budget_usd', 5.0):.2f}.")
     module_args = [str(config_path)] + (["--execute"] if args.execute else []) + (["--label"] if args.label else [])
@@ -553,6 +557,7 @@ def main(argv=None):
     barg.add_argument("--limit", type=int, help="At most this many games")
     barg.add_argument("--cells", help="Comma-separated subset of cell names")
     barg.add_argument("--map", action="store_true", help="Treat the config as a condition index and build the condition map (no API)")
+    barg.add_argument("--ground", action="store_true", help="Extract grounded instances from ParallACT into the config's instances.path (paid model calls)")
     barg.add_argument("--python", help="CooperBench Python interpreter")
     barg.add_argument("--workers", type=int, help="Concurrent games (default 4)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")

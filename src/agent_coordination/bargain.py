@@ -28,6 +28,30 @@ from .negotiation import mean, sign_test
 STYLES = ("competing", "collaborating", "compromising", "accommodating", "avoiding")
 AGENTS = ("p1", "p2")
 NAMES = {"p1": "Developer 1", "p2": "Developer 2"}
+SKINS_PATH = Path(__file__).resolve().parents[2] / "configs" / "bargain_skins.json"
+ABSTRACT = {"name": "abstract", "parties": ["Developer 1", "Developer 2"], "party_kind": "developers",
+            "other": "the other developer", "artifact": "a shared design", "thing": "design", "intro": "", "issues": None}
+_SKINS = {}
+
+
+def skin_of(inst):
+    """The rendering of an instance: the abstract default, a named skin from configs/bargain_skins.json, or one inline."""
+    s = inst.get("skin")
+    if isinstance(s, dict):
+        return {**ABSTRACT, **s}
+    if not s or s == "abstract":
+        return ABSTRACT
+    if not _SKINS:
+        _SKINS.update(json.loads(SKINS_PATH.read_text()))
+    return {**ABSTRACT, **_SKINS[s], "name": s}
+
+
+def party(inst, agent):
+    return skin_of(inst)["parties"][0 if agent == "p1" else 1]
+
+
+def other_party(inst):
+    return skin_of(inst)["other"]
 ASKS = re.compile(r"\b(matter|important|priorit|care about|what do you need|which .* need|prefer)", re.I)
 DISCLOSES = re.compile(r"\b\d{1,3}\s*(points?|pts)\b|\bworth\s+\d", re.I)
 ROW_COLUMNS = ("cell", "instance", "p1", "p2", "op", "first_mover", "error", "agreement", "ended_by", "moves",
@@ -80,12 +104,54 @@ def reversed_ranks(values):
     return out
 
 
-def issue_names(k):
+def issue_names(inst):
+    sk, k = skin_of(inst), inst["k"]
+    if sk.get("issues"):
+        return [x["name"] for x in sk["issues"][:k]]
     return [f"Decision {i + 1}" for i in range(k)]
 
 
-def option_names(m):
-    return [f"Option {chr(65 + j)}" for j in range(m)]
+def option_labels(inst, i):
+    """How issue i's options are shown: 'Option A' in the abstract skin, 'A (the name)' in a scenario skin."""
+    sk, m = skin_of(inst), inst["m"]
+    letters = [chr(65 + j) for j in range(m)]
+    if sk.get("issues"):
+        return [f"{letters[j]} ({sk['issues'][i]['options'][j]})" for j in range(m)]
+    return [f"Option {letters[j]}" for j in range(m)]
+
+
+def option_aliases(inst, i):
+    """Every spelling accepted for issue i's options, lower-cased, mapped to the option index."""
+    sk, m = skin_of(inst), inst["m"]
+    out = {}
+    for j in range(m):
+        letter = chr(65 + j)
+        for alias in (letter, f"option {letter}", option_labels(inst, i)[j]):
+            out[alias.lower()] = j
+        if sk.get("issues"):
+            out[sk["issues"][i]["options"][j].lower()] = j
+    return out
+
+
+def assemble(env, index, first_mover, importance, rankings, opposed, seed=None, skin=None):
+    """An instance from its structure (importance per side, option rankings per side, which issues are contested)."""
+    k, m = len(importance["p1"]), len(rankings["p1"][0])
+    stakes = env.get("stakes", [1.0, 1.0])  # how much the design matters to each side: scales its points and outside option
+    weights = {}
+    for agent, s in (("p1", stakes[0]), ("p2", stakes[1])):
+        weights[agent] = [[round(importance[agent][i] * (1 - r.index(o) / (m - 1)) * s, 1) for o in range(m)]
+                          for i, r in enumerate(rankings[agent])]
+    outside = env.get("outside", [20, 20])
+    inst = {"id": index, "seed": seed, "k": k, "m": m, "opposition": env.get("opposition", round(sum(opposed) / k, 2)),
+            "asymmetry": env.get("asymmetry"),
+            "importance": importance, "weights": weights, "opposed": list(opposed),
+            "outside": {"p1": round(outside[0] * stakes[0], 1), "p2": round(outside[1] * stakes[1], 1)},
+            "max": {"p1": round(100 * stakes[0], 1), "p2": round(100 * stakes[1], 1)}, "first_mover": first_mover,
+            "visible_weights": bool(env.get("visible_weights", False)), "move_cost": env.get("move_cost", 0),
+            "output_budget": env.get("output_budget"), "moves": env.get("moves", 10),
+            "skin": skin if skin is not None else env.get("skin", "abstract")}
+    inst["frontier"] = frontier(inst)
+    return inst
 
 
 def make_instance(env, seed, index, first_mover):
@@ -100,25 +166,21 @@ def make_instance(env, seed, index, first_mover):
     rank1 = [rng.sample(range(m), m) for _ in range(k)]  # option indices from top to bottom
     opposed_set = set(rng.sample(range(k), round(env["opposition"] * k)))
     rank2 = [list(reversed(r)) if i in opposed_set else list(r) for i, r in enumerate(rank1)]
-    stakes = env.get("stakes", [1.0, 1.0])  # how much the design matters to each side: scales its points and outside option
-    weights = {}
-    for agent, imp, ranks, s in (("p1", imp1, rank1, stakes[0]), ("p2", imp2, rank2, stakes[1])):
-        weights[agent] = [[round(imp[i] * (1 - r.index(o) / (m - 1)) * s, 1) for o in range(m)] for i, r in enumerate(ranks)]
-    outside = env.get("outside", [20, 20])
-    inst = {"id": index, "seed": seed, "k": k, "m": m, "opposition": env["opposition"], "asymmetry": env["asymmetry"],
-            "importance": {"p1": imp1, "p2": imp2}, "weights": weights, "opposed": [i in opposed_set for i in range(k)],
-            "outside": {"p1": round(outside[0] * stakes[0], 1), "p2": round(outside[1] * stakes[1], 1)},
-            "max": {"p1": round(100 * stakes[0], 1), "p2": round(100 * stakes[1], 1)}, "first_mover": first_mover,
-            "visible_weights": bool(env.get("visible_weights", False)), "move_cost": env.get("move_cost", 0),
-            "output_budget": env.get("output_budget"), "moves": env.get("moves", 10)}
-    inst["frontier"] = frontier(inst)
-    return inst
+    return assemble(env, index, first_mover, {"p1": imp1, "p2": imp2}, {"p1": rank1, "p2": rank2},
+                    [i in opposed_set for i in range(k)], seed=seed)
 
 
 def instances(config):
+    """The instances of a study: generated from a seed, or built from the structures in a file (the grounded layer)."""
     env, spec = config["environment"], config["instances"]
-    rng = random.Random(spec["seed"])
     out = []
+    if spec.get("path"):
+        specs = json.loads(Path(spec["path"]).read_text())
+        for i, s in enumerate(specs[: spec.get("n") or len(specs)]):
+            first = ("p1", "p2")[i % 2] if spec.get("first_mover", "alternate") == "alternate" else spec["first_mover"]
+            out.append(assemble(env, i, first, s["importance"], s["rankings"], s["opposed"], seed=s.get("source"), skin=s.get("skin")))
+        return out
+    rng = random.Random(spec["seed"])
     for i in range(spec["n"]):
         first = ("p1", "p2")[i % 2] if spec.get("first_mover", "alternate") == "alternate" else spec["first_mover"]
         out.append(make_instance(env, rng.randrange(2 ** 31), i, first))
@@ -172,22 +234,35 @@ def guidance(config, strategy, op, inst=None, agent=None):
 
 
 def scores_table(inst, agent):
-    names, opts = issue_names(inst["k"]), option_names(inst["m"])
-    return "\n".join(f"{names[i]}: " + ", ".join(f"{opts[o]} = {inst['weights'][agent][i][o]:g}" for o in range(inst["m"]))
+    names = issue_names(inst)
+    return "\n".join(f"{names[i]}: " + ", ".join(f"{opt} = {inst['weights'][agent][i][o]:g}" for o, opt in enumerate(option_labels(inst, i)))
                      for i in range(inst["k"]))
 
 
 def design_text(inst, design):
-    names, opts = issue_names(inst["k"]), option_names(inst["m"])
-    return ", ".join(f"{names[i]}: {opts[o]}" for i, o in enumerate(design))
+    names = issue_names(inst)
+    return ", ".join(f"{names[i]}: {option_labels(inst, i)[o]}" for i, o in enumerate(design))
+
+
+def reskin(text, inst):
+    """Guidance and notes are written for 'the other developer' and 'the design'; a scenario skin renames both."""
+    sk = skin_of(inst)
+    o, thing = sk["other"], sk["thing"]
+    if o != ABSTRACT["other"]:
+        text = text.replace("the other developer", o).replace("The other developer", o[0].upper() + o[1:])
+    if thing != "design":
+        text = text.replace("design", thing)
+    return text
 
 
 def system_prompt(config, inst, agent, strategy, op):
     other = "p2" if agent == "p1" else "p1"
+    sk, who = skin_of(inst), other_party(inst)
+    Who = who[0].upper() + who[1:]
     T = config["environment"]["moves"]
-    partner_scores = (f"The other developer's scores are:\n{scores_table(inst, other)}\n" if inst["visible_weights"]
-                      else "The other developer has their own private scores, which you do not see.\n")
-    example = json.dumps({n: option_names(inst["m"])[0] for n in issue_names(inst["k"])})
+    partner_scores = (f"{Who}'s scores are:\n{scores_table(inst, other)}\n" if inst["visible_weights"]
+                      else f"{Who} has their own private scores, which you do not see.\n")
+    example = json.dumps({n: option_labels(inst, i)[0] for i, n in enumerate(issue_names(inst))})
     top = inst.get("max", {}).get(agent, 100)
     costs = ""
     if inst.get("move_cost"):
@@ -196,35 +271,43 @@ def system_prompt(config, inst, agent, strategy, op):
     if inst.get("output_budget"):
         costs += (f" Your replies in this negotiation may use at most {inst['output_budget']} tokens in total; "
                   f"once they are used up you can only accept or walk away.")
-    text = (f"You are {NAMES[agent]}, one of two developers who must agree on a shared design with {inst['k']} decisions. "
+    intro = sk.get("intro") or ""
+    if sk.get("roles"):  # grounded instances: each seat is told its own ticket and the other's
+        mine, theirs = sk["roles"] if agent == "p1" else sk["roles"][::-1]
+        intro = intro.replace("{role}", mine).replace("{other_role}", theirs)
+    intro = f" {intro}" if intro else ""
+    thing = sk["thing"]
+    text = (f"You are {party(inst, agent)}, one of two {sk['party_kind']} who must agree on {sk['artifact']} with {inst['k']} decisions.{intro} "
             f"For each decision exactly one option will be chosen. Your private scores for each option are below; "
-            f"a design is worth the sum of your scores for its chosen options, at most {top:g} points.\n{partner_scores}"
-            f"If you both accept one complete design, each of you gets your own value of it. If no design is accepted "
+            f"a {thing} is worth the sum of your scores for its chosen options, at most {top:g} points.\n{partner_scores}"
+            f"If you both accept one complete {thing}, each of you gets your own value of it. If no {thing} is accepted "
             f"within {T} moves in total, or either of you walks away, you each get your outside option: yours is "
             f"{inst['outside'][agent]:g} points.{costs} Your goal is to get as many points as you can.\n\n"
             f"Your scores:\n{scores_table(inst, agent)}\n\n"
             f"Moves alternate. On your move, reply with one JSON object and nothing else, in one of these forms:\n"
-            f'{{"message": "<what you say to the other developer>", "action": "propose", "proposal": {example}}}\n'
-            f'{{"message": "<...>", "action": "accept"}}   (accepts the other developer\'s latest proposal as stated)\n'
+            f'{{"message": "<what you say to {who}>", "action": "propose", "proposal": {example}}}\n'
+            f'{{"message": "<...>", "action": "accept"}}   (accepts {who}\'s latest proposal as stated)\n'
             f'{{"message": "<...>", "action": "walk"}}   (ends the negotiation; both get their outside options)\n'
             f"A proposal names one option for every decision. You may say anything in the message, including your "
             f"scores, or nothing.")
     note = config["environment"].get("protocol_note")
     if note:
-        text += " " + note.format(T=T)
+        text += " " + reskin(note.format(T=T), inst)
     extra = guidance(config, strategy, op, inst, agent)
-    return text + (f"\n\n{extra}" if extra else "")
+    return text + (f"\n\n{reskin(extra, inst)}" if extra else "")
 
 
 def describe(inst, move, agent, n, T, budget_left=None):
-    """What `agent` is told about the other developer's last move before moving."""
+    """What `agent` is told about the other party's last move before moving."""
     tail = ""
     if budget_left is not None:
         tail = (f" Your reply budget is used up: reply with accept or walk only, in one short JSON object."
                 if budget_left <= 0 else f" You have about {budget_left} reply tokens left.")
     if move is None:
         return f"Move 1 of {T}. You move first.{tail}"
-    said = f'The other developer said: "{move["message"]}"' if move["message"] else "The other developer sent no message"
+    who = other_party(inst)
+    Who = who[0].upper() + who[1:]
+    said = f'{Who} said: "{move["message"]}"' if move["message"] else f"{Who} sent no message"
     if move["action"] == "propose":
         did = f" and proposed: {design_text(inst, move['design'])} (worth {move['values'][agent]:g} points to you)."
     elif move["action"] == "pass":
@@ -278,19 +361,22 @@ def parse_reply(text, inst):
         proposal = data.get("proposal")
         if not isinstance(proposal, dict):
             raise ValueError("a proposal must map every decision to an option")
-        names, opts = issue_names(inst["k"]), option_names(inst["m"])
+        names = issue_names(inst)
         lookup = {n.lower(): i for i, n in enumerate(names)}
+        lookup.update({f"decision {i + 1}": i for i in range(inst["k"])})
         lookup.update({str(i + 1): i for i in range(inst["k"])})
         chosen = {}
         for key, val in proposal.items():
             i = lookup.get(str(key).strip().lower())
             if i is None:
                 raise ValueError(f"unknown decision {key!r}")
-            v = str(val).strip().lower().replace("option", "").strip()
-            letters = [o.split()[-1].lower() for o in opts]
-            if v not in letters:
+            aliases = option_aliases(inst, i)
+            v = str(val).strip().lower()
+            if v not in aliases and v.replace("option", "").strip() in aliases:
+                v = v.replace("option", "").strip()
+            if v not in aliases:
                 raise ValueError(f"unknown option {val!r} for {names[i]}")
-            chosen[i] = letters.index(v)
+            chosen[i] = aliases[v]
         if len(chosen) != inst["k"]:
             raise ValueError("the proposal must name an option for every decision")
         design = [chosen[i] for i in range(inst["k"])]
@@ -323,7 +409,7 @@ def play(config, inst, cell):
             try:
                 parsed = parse_reply(reply, inst)
                 if parsed["action"] == "accept" and not (standing and standing["by"] == other):
-                    raise ValueError("there is no proposal from the other developer to accept")
+                    raise ValueError(f"there is no proposal from {other_party(inst)} to accept")
                 if parsed["action"] == "propose" and left is not None and left <= 0:
                     raise ValueError("your reply budget is used up; you can only accept or walk")
                 move = {**parsed, "raw": reply}
@@ -524,8 +610,10 @@ def transcript(record):
 
 def label_prompt(codebook, record):
     inst = record["instance"]
-    return (f"{codebook}\n\n---\n\nTwo developers negotiate one shared design with {inst['k']} decisions "
-            f"({', '.join(issue_names(inst['k']))}), each with options {', '.join(option_names(inst['m']))}. "
+    sk = skin_of(inst)
+    letters = ", ".join(chr(65 + j) for j in range(inst["m"]))
+    return (f"{codebook}\n\n---\n\nTwo {sk['party_kind']} negotiate {sk['artifact']} with {inst['k']} decisions "
+            f"({', '.join(issue_names(inst))}), each with options {letters}. "
             f"Each has private scores you do not see.\n\nMoves in the order they happened:\n{transcript(record)}\n\n"
             f"Return the JSON object only.")
 
