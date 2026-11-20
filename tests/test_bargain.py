@@ -61,6 +61,26 @@ class BargainTest(unittest.TestCase):
         self.assertEqual(len(bargain.instances(config())), 4)
         self.assertEqual([i["first_mover"] for i in bargain.instances(config())], ["p1", "p2", "p1", "p2"])
 
+    def test_stakes_move_cost_and_budget(self):
+        env = {**ENV, "stakes": [1.0, 0.3], "outside": [30, 30], "move_cost": 2, "output_budget": 400}
+        inst = bargain.make_instance(env, 3, 0, "p1")
+        self.assertEqual((inst["max"]["p1"], inst["max"]["p2"], inst["outside"]["p2"]), (100, 30, 9))
+        best2 = [max(range(3), key=lambda o: inst["weights"]["p2"][i][o]) for i in range(4)]
+        self.assertAlmostEqual(bargain.value(inst, "p2", best2), 30.0, places=0)
+        self.assertEqual(bargain.thresholds(inst, "p2"), {"max": 30, "t60": 18, "t50": 15, "outside": 9, "outside10": 12})
+        cfg = config(strategies={"shared": {"neutral": "Do."}, "prompted": {}, "rules": {"competing": "Accept {t60}+, not {outside}."}})
+        self.assertEqual(bargain.guidance(cfg, "competing", "rules", inst, "p2"), "[G] Accept 18+, not 9.")
+        text = bargain.system_prompt(cfg, inst, "p2", "neutral", "prompted")
+        self.assertIn("at most 30 points", text)
+        self.assertIn("costs each of you 2 points", text)
+        self.assertIn("at most 400 tokens", text)
+        self.assertIn("reply budget is used up", bargain.describe(inst, None, "p1", 1, 10, 0))
+        moves = [move(1, "p1", "propose", best2, "hi", inst), move(2, "p2", "accept")]
+        out = bargain.outcome(inst, moves, {"by": "p1", "design": best2, "values": moves[0]["values"]})
+        self.assertEqual(out["move_cost_paid"], 4)
+        self.assertAlmostEqual(out["payoff"]["p2"], 30.0 - 4, places=0)
+        self.assertEqual(bargain.outcome(inst, moves[:1] + [move(2, "p2", "walk")], None)["payoff"], {"p1": 26, "p2": 5})
+
     def test_prompts_and_guidance(self):
         cfg = config()
         self.assertEqual(bargain.guidance(cfg, "competing", "rules"), "[G] Open at 95.")

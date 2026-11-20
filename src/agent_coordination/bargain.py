@@ -35,7 +35,8 @@ ROW_COLUMNS = ("cell", "instance", "p1", "p2", "op", "first_mover", "error", "ag
                "middle_share", "p1_first", "p1_last", "p1_concession", "p1_proposals", "p1_asks", "p1_discloses",
                "p1_logroll", "p1_trade", "p1_complies", "p2_first", "p2_last", "p2_concession", "p2_proposals", "p2_asks",
                "p2_discloses", "p2_logroll", "p2_trade", "p2_complies", "p1_style", "p2_style", "p1_assertiveness",
-               "p1_cooperativeness", "invalid_replies", "cost_usd")
+               "p1_cooperativeness", "p1_tokens", "p1_out_tokens", "p1_seconds", "p2_tokens", "p2_out_tokens", "p2_seconds",
+               "move_cost_paid", "invalid_replies", "cost_usd")
 
 
 def load_config(path):
@@ -99,14 +100,17 @@ def make_instance(env, seed, index, first_mover):
     rank1 = [rng.sample(range(m), m) for _ in range(k)]  # option indices from top to bottom
     opposed_set = set(rng.sample(range(k), round(env["opposition"] * k)))
     rank2 = [list(reversed(r)) if i in opposed_set else list(r) for i, r in enumerate(rank1)]
+    stakes = env.get("stakes", [1.0, 1.0])  # how much the design matters to each side: scales its points and outside option
     weights = {}
-    for agent, imp, ranks in (("p1", imp1, rank1), ("p2", imp2, rank2)):
-        weights[agent] = [[round(imp[i] * (1 - r.index(o) / (m - 1)), 1) for o in range(m)] for i, r in enumerate(ranks)]
+    for agent, imp, ranks, s in (("p1", imp1, rank1, stakes[0]), ("p2", imp2, rank2, stakes[1])):
+        weights[agent] = [[round(imp[i] * (1 - r.index(o) / (m - 1)) * s, 1) for o in range(m)] for i, r in enumerate(ranks)]
     outside = env.get("outside", [20, 20])
     inst = {"id": index, "seed": seed, "k": k, "m": m, "opposition": env["opposition"], "asymmetry": env["asymmetry"],
             "importance": {"p1": imp1, "p2": imp2}, "weights": weights, "opposed": [i in opposed_set for i in range(k)],
-            "outside": {"p1": outside[0], "p2": outside[1]}, "first_mover": first_mover,
-            "visible_weights": bool(env.get("visible_weights", False))}
+            "outside": {"p1": round(outside[0] * stakes[0], 1), "p2": round(outside[1] * stakes[1], 1)},
+            "max": {"p1": round(100 * stakes[0], 1), "p2": round(100 * stakes[1], 1)}, "first_mover": first_mover,
+            "visible_weights": bool(env.get("visible_weights", False)), "move_cost": env.get("move_cost", 0),
+            "output_budget": env.get("output_budget")}
     inst["frontier"] = frontier(inst)
     return inst
 
@@ -146,16 +150,24 @@ def frontier(inst):
 
 # ---------------------------------------------------------------- prompts
 
-def guidance(config, strategy, op, outside=None):
+def thresholds(inst, agent):
+    """The point thresholds the rules refer to, on this agent's scale (100 points when the stakes are full)."""
+    top, out = inst.get("max", {}).get(agent, 100), inst["outside"][agent]
+    return {"max": top, "t60": round(0.6 * top, 1), "t50": round(0.5 * top, 1), "outside": out,
+            "outside10": round(out + 0.1 * top, 1)}
+
+
+def guidance(config, strategy, op, inst=None, agent=None):
     """The guidance text for a strategy: None for the default, a prefixed sentence or rule otherwise.
 
-    Rule texts may use {outside} and {outside10} for the agent's outside option and that plus 10."""
+    Rule texts may use {max}, {t60}, {t50}, {outside} and {outside10}, filled on the agent's own point scale."""
     if strategy == "default":
         return None
     texts = config["strategies"]
     text = texts["shared"].get(strategy) if strategy in texts.get("shared", {}) else texts[op][strategy]
-    if outside is not None:
-        text = text.replace("{outside10}", f"{outside + 10:g}").replace("{outside}", f"{outside:g}")
+    if inst is not None:
+        for key, val in thresholds(inst, agent).items():
+            text = text.replace("{" + key + "}", f"{val:g}")
     return config.get("instruction_prefix", "") + text
 
 
@@ -176,12 +188,20 @@ def system_prompt(config, inst, agent, strategy, op):
     partner_scores = (f"The other developer's scores are:\n{scores_table(inst, other)}\n" if inst["visible_weights"]
                       else "The other developer has their own private scores, which you do not see.\n")
     example = json.dumps({n: option_names(inst["m"])[0] for n in issue_names(inst["k"])})
+    top = inst.get("max", {}).get(agent, 100)
+    costs = ""
+    if inst.get("move_cost"):
+        costs += (f" Every move that passes, by either of you, costs each of you {inst['move_cost']:g} points, "
+                  f"whether or not you reach an agreement.")
+    if inst.get("output_budget"):
+        costs += (f" Your replies in this negotiation may use at most {inst['output_budget']} tokens in total; "
+                  f"once they are used up you can only accept or walk away.")
     text = (f"You are {NAMES[agent]}, one of two developers who must agree on a shared design with {inst['k']} decisions. "
             f"For each decision exactly one option will be chosen. Your private scores for each option are below; "
-            f"a design is worth the sum of your scores for its chosen options, at most 100 points.\n{partner_scores}"
+            f"a design is worth the sum of your scores for its chosen options, at most {top:g} points.\n{partner_scores}"
             f"If you both accept one complete design, each of you gets your own value of it. If no design is accepted "
             f"within {T} moves in total, or either of you walks away, you each get your outside option: yours is "
-            f"{inst['outside'][agent]:g} points. Your goal is to get as many points as you can.\n\n"
+            f"{inst['outside'][agent]:g} points.{costs} Your goal is to get as many points as you can.\n\n"
             f"Your scores:\n{scores_table(inst, agent)}\n\n"
             f"Moves alternate. On your move, reply with one JSON object and nothing else, in one of these forms:\n"
             f'{{"message": "<what you say to the other developer>", "action": "propose", "proposal": {example}}}\n'
@@ -192,14 +212,18 @@ def system_prompt(config, inst, agent, strategy, op):
     note = config["environment"].get("protocol_note")
     if note:
         text += " " + note.format(T=T)
-    extra = guidance(config, strategy, op, inst["outside"][agent])
+    extra = guidance(config, strategy, op, inst, agent)
     return text + (f"\n\n{extra}" if extra else "")
 
 
-def describe(inst, move, agent, n, T):
+def describe(inst, move, agent, n, T, budget_left=None):
     """What `agent` is told about the other developer's last move before moving."""
+    tail = ""
+    if budget_left is not None:
+        tail = (f" Your reply budget is used up: reply with accept or walk only, in one short JSON object."
+                if budget_left <= 0 else f" You have about {budget_left} reply tokens left.")
     if move is None:
-        return f"Move 1 of {T}. You move first."
+        return f"Move 1 of {T}. You move first.{tail}"
     said = f'The other developer said: "{move["message"]}"' if move["message"] else "The other developer sent no message"
     if move["action"] == "propose":
         did = f" and proposed: {design_text(inst, move['design'])} (worth {move['values'][agent]:g} points to you)."
@@ -207,15 +231,18 @@ def describe(inst, move, agent, n, T):
         did = " and made no valid move."
     else:
         did = "."
-    return f"{said}{did}\nMove {n} of {T}. Your move."
+    return f"{said}{did}\nMove {n} of {T}. Your move.{tail}"
 
 
 # ---------------------------------------------------------------- model calls and parsing
 
 def call(config, messages):
+    """One model reply: text, cost in dollars, and usage (prompt and completion tokens, seconds)."""
     import litellm
+    import time
     last = None
     for _ in range(3):
+        started = time.time()
         try:
             response = litellm.completion(model=f"openai/{config['model']}", messages=messages,
                                           max_completion_tokens=config.get("max_tokens", 700), drop_params=True,
@@ -224,7 +251,10 @@ def call(config, messages):
                 cost = litellm.completion_cost(completion_response=response)
             except Exception:
                 cost = None
-            return response.choices[0].message.content or "", cost or 0.0
+            usage = getattr(response, "usage", None)
+            used = {"prompt": getattr(usage, "prompt_tokens", 0) or 0, "completion": getattr(usage, "completion_tokens", 0) or 0,
+                    "seconds": round(time.time() - started, 2)}
+            return response.choices[0].message.content or "", cost or 0.0, used
         except Exception as exc:  # transient API errors
             last = exc
     raise RuntimeError(f"model call failed: {last}")
@@ -274,20 +304,28 @@ def play(config, inst, cell):
     strategies = {"p1": cell["p1"], "p2": cell["p2"]}
     ops = {"p1": cell.get("op", "rules"), "p2": cell.get("p2_op", cell.get("op", "rules"))}
     conv = {a: [{"role": "system", "content": system_prompt(config, inst, a, strategies[a], ops[a])}] for a in AGENTS}
+    usage = {a: {"prompt": 0, "completion": 0, "seconds": 0.0, "calls": 0} for a in AGENTS}
+    budget = inst.get("output_budget")
     mover = inst["first_mover"]
     standing, last, moves, agreement, ended_by, cost, invalid = None, None, [], None, "moves_exhausted", 0.0, 0
     for n in range(1, T + 1):
         other = "p2" if mover == "p1" else "p1"
-        conv[mover].append({"role": "user", "content": describe(inst, last, mover, n, T)})
+        left = (budget - usage[mover]["completion"]) if budget else None
+        conv[mover].append({"role": "user", "content": describe(inst, last, mover, n, T, left)})
         move = None
         for attempt in range(2):
-            reply, c = call(config, conv[mover])
+            reply, c, used = call(config, conv[mover])
             cost += c
+            for key in ("prompt", "completion", "seconds"):
+                usage[mover][key] += used[key]
+            usage[mover]["calls"] += 1
             conv[mover].append({"role": "assistant", "content": reply})
             try:
                 parsed = parse_reply(reply, inst)
                 if parsed["action"] == "accept" and not (standing and standing["by"] == other):
                     raise ValueError("there is no proposal from the other developer to accept")
+                if parsed["action"] == "propose" and left is not None and left <= 0:
+                    raise ValueError("your reply budget is used up; you can only accept or walk")
                 move = {**parsed, "raw": reply}
                 break
             except ValueError as exc:
@@ -311,20 +349,23 @@ def play(config, inst, cell):
         last, mover = move, other
     return {"cell": cell["name"], "instance": inst, "strategies": strategies, "ops": ops, "moves": moves,
             "agreement": agreement, "ended_by": ended_by, "invalid_replies": invalid, "cost_usd": cost, "error": None,
-            **outcome(inst, moves, agreement), "metrics": {a: agent_metrics(inst, moves, agreement, a) for a in AGENTS},
+            "usage": usage, **outcome(inst, moves, agreement),
+            "metrics": {a: agent_metrics(inst, moves, agreement, a) for a in AGENTS},
             "compliance": {a: compliance(strategies[a], inst, moves, agreement, a) for a in AGENTS}}
 
 
 def outcome(inst, moves, agreement):
+    """Payoffs: the agreed design's value or the outside option, minus the cost of the moves that passed."""
     if agreement:
         u1, u2 = agreement["values"]["p1"], agreement["values"]["p2"]
     else:
         u1, u2 = inst["outside"]["p1"], inst["outside"]["p2"]
+    spent = round(inst.get("move_cost", 0) * len(moves), 1)
+    p1, p2 = round(u1 - spent, 1), round(u2 - spent, 1)
     f = inst["frontier"]
-    return {"payoff": {"p1": u1, "p2": u2}, "joint": round(u1 + u2, 1), "max_joint": f["max_joint"],
-            "joint_gap": round(f["max_joint"] - (u1 + u2), 1),
-            "on_frontier": bool(agreement) and [u1, u2] in [list(p) for p in f["pareto"]],
-            "nash": f["nash"]}
+    return {"payoff": {"p1": p1, "p2": p2}, "value": {"p1": u1, "p2": u2}, "move_cost_paid": spent,
+            "joint": round(p1 + p2, 1), "max_joint": f["max_joint"], "joint_gap": round(f["max_joint"] - (u1 + u2), 1),
+            "on_frontier": bool(agreement) and [u1, u2] in [list(p) for p in f["pareto"]], "nash": f["nash"]}
 
 
 def tops(inst, agent):
@@ -372,21 +413,22 @@ def compliance(strategy, inst, moves, agreement, agent):
     m = agent_metrics(inst, moves, agreement, agent)
     own, other = m["proposals"], "p2" if agent == "p1" else "p1"
     accepted = m["accepted_value"]
+    t = thresholds(inst, agent)
     partner_offers = [(x["n"], x["values"][agent]) for x in moves if x["by"] == other and x["action"] == "propose"]
     checks = {}
     if strategy == "competing":
-        checks = {"opens_high": (own[0] >= 90) if own else None,
+        checks = {"opens_high": (own[0] >= 0.9 * t["max"]) if own else None,
                   "one_decision_per_step": m["max_changed"] is None or m["max_changed"] <= 1,
-                  "accepts_60": accepted is None or accepted >= 60}
+                  "accepts_60": accepted is None or accepted >= t["t60"]}
     elif strategy == "collaborating":
-        checks = {"asks_first": m["asks"], "accepts_60": accepted is None or accepted >= 60,
+        checks = {"asks_first": m["asks"], "accepts_60": accepted is None or accepted >= t["t60"],
                   "proposes_trade": m["trade"] if own else None}
     elif strategy == "compromising":
-        checks = {"accepts_50": accepted is None or accepted >= 50,
+        checks = {"accepts_50": accepted is None or accepted >= t["t50"],
                   "steps_of_two_decisions": m["max_changed"] is None or m["max_changed"] <= 2,
                   "monotone": m["monotone"]}
     elif strategy == "accommodating":
-        floor = inst["outside"][agent] + 10
+        floor = t["outside10"]
         first_ok = next((n for n, v in partner_offers if v >= floor), None)
         accepted_next = (agreement is not None and moves[-1]["by"] == agent and moves[-1]["action"] == "accept"
                          and first_ok is not None and moves[-1]["n"] == first_ok + 1)
@@ -564,11 +606,14 @@ def rows(config, root):
                         "p1_assertiveness": lab.get("agent1", {}).get("assertiveness"),
                         "p1_cooperativeness": lab.get("agent1", {}).get("cooperativeness")})
             row["middle_share"] = r["metrics"]["p1"].get("middle_share")
+            row["move_cost_paid"] = r.get("move_cost_paid", 0)
             for a in AGENTS:
-                m, c = r["metrics"][a], r["compliance"][a]
+                m, c, u = r["metrics"][a], r["compliance"][a], (r.get("usage") or {}).get(a, {})
                 row.update({f"{a}_first": m["first"], f"{a}_last": m["last"], f"{a}_concession": m["concession"],
                             f"{a}_proposals": len(m["proposals"]), f"{a}_asks": m["asks"], f"{a}_discloses": m["discloses"],
-                            f"{a}_logroll": m["logroll"], f"{a}_trade": m.get("trade"), f"{a}_complies": c.get("overall")})
+                            f"{a}_logroll": m["logroll"], f"{a}_trade": m.get("trade"), f"{a}_complies": c.get("overall"),
+                            f"{a}_tokens": (u.get("prompt", 0) or 0) + (u.get("completion", 0) or 0),
+                            f"{a}_out_tokens": u.get("completion"), f"{a}_seconds": u.get("seconds")})
         out.append(row)
     return out
 
@@ -593,6 +638,8 @@ def summarize(config, table):
                  "p1_logroll": sum(1 for r in g if r.get("p1_logroll")), "p1_trade": sum(1 for r in g if r.get("p1_trade")),
                  "middle_share": mean([r["middle_share"] for r in g if r.get("middle_share") is not None]),
                  "p1_walked": sum(1 for r in g if r.get("ended_by") == "p1_walked"),
+                 "p1_tokens": mean([r.get("p1_tokens") for r in g]), "p2_tokens": mean([r.get("p2_tokens") for r in g]),
+                 "p1_out_tokens": mean([r.get("p1_out_tokens") for r in g]), "p1_seconds": mean([r.get("p1_seconds") for r in g]),
                  "invalid_replies": sum(r.get("invalid_replies", 0) for r in g), "p1_style": styles,
                  "labeled": sum(1 for r in g if r.get("p1_style")), "cost_usd": round(sum(r["cost_usd"] for r in g), 3)}
         if cell["p1"] in STYLES:
