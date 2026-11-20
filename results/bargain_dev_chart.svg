@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="412" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="412" fill="white"/>
+<text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
+<text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
+<line x1="190.0" y1="36" x2="190.0" y2="352" stroke="#eee"/><text x="190.0" y="364" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="352" stroke="#eee"/><text x="295.0" y="364" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="352" stroke="#eee"/><text x="400.0" y="364" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="352" stroke="#eee"/><text x="505.0" y="364" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="352" stroke="#eee"/><text x="610.0" y="364" text-anchor="middle">100</text>
+<text x="184" y="56" text-anchor="end">default</text>
+<rect x="190" y="43" width="253.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="53" width="221.8" height="9" fill="#95a5a6"/>
+<text x="624" y="56">10/10</text><text x="674" y="56">n/a</text><text x="734" y="56">30.75</text>
+<text x="184" y="82" text-anchor="end">prompted-neutral</text>
+<rect x="190" y="69" width="256.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="79" width="243.2" height="9" fill="#95a5a6"/>
+<text x="624" y="82">10/10</text><text x="674" y="82">n/a</text><text x="734" y="82">25</text>
+<text x="184" y="108" text-anchor="end">prompted-competing</text>
+<rect x="190" y="95" width="276.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="105" width="271.3" height="9" fill="#95a5a6"/>
+<text x="624" y="108">10/10</text><text x="674" y="108">6/10</text><text x="734" y="108">13.5</text>
+<text x="184" y="134" text-anchor="end">prompted-collaborating</text>
+<rect x="190" y="121" width="251.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="131" width="295.1" height="9" fill="#95a5a6"/>
+<text x="624" y="134">10/10</text><text x="674" y="134">3/10</text><text x="734" y="134">14</text>
+<text x="184" y="160" text-anchor="end">prompted-compromising</text>
+<rect x="190" y="147" width="246.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="157" width="274.5" height="9" fill="#95a5a6"/>
+<text x="624" y="160">10/10</text><text x="674" y="160">7/10</text><text x="734" y="160">19.95</text>
+<text x="184" y="186" text-anchor="end">prompted-accommodating</text>
+<rect x="190" y="173" width="233.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="183" width="290.9" height="9" fill="#95a5a6"/>
+<text x="624" y="186">10/10</text><text x="674" y="186">7/10</text><text x="734" y="186">19.1</text>
+<text x="184" y="212" text-anchor="end">prompted-avoiding</text>
+<rect x="190" y="199" width="145.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="209" width="191.5" height="9" fill="#95a5a6"/>
+<text x="624" y="212">3/10</text><text x="674" y="212">10/10</text><text x="734" y="212">63.75</text>
+<text x="184" y="238" text-anchor="end">rules-competing</text>
+<rect x="190" y="225" width="291.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="235" width="194.9" height="9" fill="#95a5a6"/>
+<text x="624" y="238">9/10</text><text x="674" y="238">10/10</text><text x="734" y="238">28.25</text>
+<text x="184" y="264" text-anchor="end">rules-collaborating</text>
+<rect x="190" y="251" width="308.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="261" width="256.2" height="9" fill="#95a5a6"/>
+<text x="624" y="264">10/10</text><text x="674" y="264">7/10</text><text x="734" y="264">9.6</text>
+<text x="184" y="290" text-anchor="end">rules-compromising</text>
+<rect x="190" y="277" width="282.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="287" width="277.4" height="9" fill="#95a5a6"/>
+<text x="624" y="290">10/10</text><text x="674" y="290">7/10</text><text x="734" y="290">10.65</text>
+<text x="184" y="316" text-anchor="end">rules-accommodating</text>
+<rect x="190" y="303" width="244.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="313" width="319.8" height="9" fill="#95a5a6"/>
+<text x="624" y="316">10/10</text><text x="674" y="316">9/10</text><text x="734" y="316">9.75</text>
+<text x="184" y="342" text-anchor="end">rules-avoiding</text>
+<rect x="190" y="329" width="153.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="339" width="195.1" height="9" fill="#95a5a6"/>
+<text x="624" y="342">4/10</text><text x="674" y="342">10/10</text><text x="734" y="342">60.95</text>
+</svg>

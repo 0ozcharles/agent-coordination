@@ -7,8 +7,8 @@ import shlex
 import subprocess
 import sys
 
-from . import (branch, census, conflict_states, decomposition, merge, merge_audit, merge_check, negotiation, paper_census,
-               parallact, rescore, s1, s2, sensitivity, synthesis, upstream)
+from . import (bargain, branch, census, conflict_states, decomposition, merge, merge_audit, merge_check, negotiation,
+               paper_census, parallact, rescore, s1, s2, sensitivity, synthesis, upstream)
 
 
 def find_root():
@@ -384,6 +384,31 @@ def negotiation_command(root, args):
     return code or 0
 
 
+def bargain_command(root, args):
+    config_path = args.config.resolve()
+    config = bargain.load_config(config_path)
+    output = project_path(root, config["output"])
+    if args.report:
+        bargain.report(config, root)
+        return 0
+    print(f"{config['study']}: {config['question']}")
+    todo = bargain.jobs(config, root)
+    total = len(config["cells"]) * config["instances"]["n"]
+    print(f"{total} games in {len(config['cells'])} cells, {total - len(todo)} played; "
+          f"${bargain.spent_so_far(config, root):.2f} spent, budget ${config.get('budget_usd', 5.0):.2f}.")
+    module_args = [str(config_path)] + (["--execute"] if args.execute else []) + (["--label"] if args.label else [])
+    module_args += ["--workers", str(args.workers or 4)] + (["--limit", str(args.limit)] if args.limit else [])
+    if args.cells:
+        module_args += ["--cells", args.cells]
+    if not (args.execute or args.label):
+        print("Add --execute to play the missing games and/or --label to label them (both paid).")
+        return 0
+    code = launch(root, args, "agent_coordination.bargain", module_args, output, 1)
+    if code is not None:
+        bargain.report(config, root)
+    return code or 0
+
+
 def s2_command(root, args):
     config_path = args.config.resolve()
     config = s2.load_config(config_path)
@@ -517,6 +542,15 @@ def main(argv=None):
     nego.add_argument("--limit", type=int, help="At most this many games")
     nego.add_argument("--python", help="CooperBench Python interpreter")
     nego.add_argument("--workers", type=int, help="Concurrent games (default 4)")
+    barg = subs.add_parser("bargain", help="Multi-issue bargaining between two agents with assigned strategies: play, label, report")
+    barg.add_argument("config", type=Path)
+    barg.add_argument("--execute", action="store_true", help="Play the missing games (paid model calls)")
+    barg.add_argument("--label", action="store_true", help="Label the styles in finished games (paid model calls)")
+    barg.add_argument("--report", action="store_true", help="Summarize; no API")
+    barg.add_argument("--limit", type=int, help="At most this many games")
+    barg.add_argument("--cells", help="Comma-separated subset of cell names")
+    barg.add_argument("--python", help="CooperBench Python interpreter")
+    barg.add_argument("--workers", type=int, help="Concurrent games (default 4)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")
     run.add_argument("study")
     run.add_argument("--mode", choices=("resume", "offline"), default="resume")
@@ -561,6 +595,8 @@ def main(argv=None):
             return synthesis_command(root, args)
         if args.command == "negotiation":
             return negotiation_command(root, args)
+        if args.command == "bargain":
+            return bargain_command(root, args)
         if args.command == "sensitivity":
             return sensitivity_command(root, args)
         if args.command == "merge-audit":

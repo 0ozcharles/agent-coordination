@@ -656,10 +656,86 @@ What it decides for the main study:
 - Cost is not a constraint: $0.001 per game, so the planned 1200 games cost about $2 plus labels.
 - Limits: one model, 20 games per condition, single-pass labels (no repeat, so no agreement figure). The arena's engine does not end a game on REJECT; moves after a REJECT are discarded (5 games), and the three games whose end-of-game summary crashed were replayed with the engine ending on REJECT.
 
+### Strategy payoff study: design (2026-11-20)
+
+The paper this builds toward is an analysis paper: how conflict-handling strategies change each agent's payoff when two LLM agents must agree on one shared artifact while wanting different things from it, and how that depends on the structure of the conflict. The product is the payoff landscape over strategies and environments, not a method. The coding studies above are its boundary case (binary, capability-gated payoff); the negotiation pilot is its zero-sum pole. This section is the design as it stands before the environment is built; the exact prompts, instance seeds and predictions are frozen in the config before each experiment runs.
+
+**Environment: parametric multi-issue bargaining** (`src/agent_coordination/bargain.py`). Two agents must agree on a shared design with K issues (default 4), each with M options (default 3). Each agent has a private importance vector over issues (summing to 100) and, within each issue, a ranking of the options: its top option is worth the issue's importance, the middle option half, the bottom option nothing. An agent's payoff is the sum over issues; 100 is its ideal design. Two generator knobs set the structure of the conflict:
+
+- *opposition* p: the fraction of issues on which the two rankings are reversed (the middle option is then the compromise); on the other issues the rankings agree.
+- *asymmetry* a: how differently the two agents weigh the issues, from identical importance (a = 0, purely distributive) to reversed importance (a = 1, maximal gain from trading issues).
+
+Other knobs: the outside option d each agent gets without a deal (default 20; power asymmetry sets them apart), whether the partner's weights are visible (default private), the number of moves T (default 10), and whether the same pair plays several instances in a row. Because weights are known to the environment, every instance's Pareto frontier, maximal joint payoff, Nash bargaining point and equal split are computed exactly, so efficiency and fairness are measured against the instance's own optimum.
+
+Protocol: alternating moves. A move is a message plus one of: a full proposal (an option for every issue), ACCEPT of the partner's standing proposal, or WALK. The environment tells each agent the value of every proposal in its own points. Agreement pays each agent its value of the accepted design; no agreement by move T, or a WALK, pays the outside options. The framing is two developers settling a shared design, so the setting stays continuous with the coding studies; issue and option names are neutral so that no world knowledge fixes a "right" answer.
+
+**Strategies.** The five Thomas–Kilmann styles, a neutral control and a no-guidance default, in two operationalizations:
+
+- *Prompted*: the style sentences used in the coding and negotiation studies, reworded for a multi-issue design.
+- *Rule-based*: each style as behavioural rules stated on the agent's own point scale, so that compliance is checked from the moves without any judge. Competing: open at or near 100, concede at most 5 points per own proposal, accept nothing under 60, walk rather than go lower. Collaborating: exchange which issues matter most before proposing, propose packages that trade issues, accept at 60 or more once the partner says the package works for them. Compromising: take the middle option on contested issues or alternate who gets their way, concede 10 to 15 points per proposal, accept at 50 or more. Accommodating: ask what the partner needs, accept the first proposal worth at least 30, propose packages built around the partner's stated needs. Avoiding: make at most one proposal, do not argue, then accept whatever is worth at least the outside option or walk.
+
+E0 decides which operationalization the main experiments use (rules, unless the prompted version turns out to comply as well); the other is kept as an ablation. The negotiation pilot predicts the outcome: prompted compromising behaves like accommodating and prompted competing like neutral.
+
+**Measures.** Outcome: own and partner payoff in points, joint payoff, agreement, Pareto efficiency (distance of the agreement to the frontier), fairness (difference of the two payoffs), the Nash product. Process: the concession curve (own value of own proposals by move), who conceded first, moves to agreement, message length, whether an agent discloses its priorities, asks about the partner's, or proposes a trade across issues (a package at or above 90% of the maximal joint payoff). Compliance with the rule of the assigned strategy. Labeled style from the public transcript (a multi-issue version of the negotiation codebook), secondary to the programmatic measures, with repeat labels for agreement.
+
+**Experiments.**
+
+| | Design | Decides or tests |
+|---|---|---|
+| E0 manipulation check | dev set, 10 instances × 6 strategies × 2 operationalizations, partner neutral | which operationalization complies; the labeler on multi-issue transcripts |
+| E1 strategy matrix | test set, 40 instances × all 36 ordered pairs, first mover balanced; mixed regime p = 0.75, a = 0.5, d = 20 | own-payoff and joint-payoff matrices, best responses, empirical equilibria, exploitability |
+| E2 conflict structure | opposition {0.25, 0.75, 1} × asymmetry {0, 0.5, 1}; the 6 symmetric pairs and 6 key asymmetric pairs, 20 instances each | where strategies diverge; when collaborating beats compromising |
+| E3 information and power | weights visible or private; outside options 20/20, 40/10 | whether information removes collaborating's advantage and competing's exploitation; who pays for weakness |
+| E4 models | E1's diagonal and key pairs with two further models; cross-model pairs | whether the landscape is a property of the model or of the game |
+| E5 external validity | buy-sell (done: zero-sum pole), LLM-Deliberation reduced to two parties (positive-sum), the coding studies (binary payoff) | that the landscape holds outside the synthetic environment |
+| E6 decomposition | all of the above | whether payoff differences come from the agreement rate, the split, or efficiency; concession dynamics; logrolling |
+
+**Analysis, registered before E1.** Primary: joint payoff by strategy pair against neutral–neutral, and the own-payoff matrix, both paired by instance with exact sign tests, bootstrap intervals clustered by instance and Holm correction within each family. Secondary: best responses per column of the matrix; the attractors of replicator dynamics on the 6 × 6 empirical game; exploitability of each strategy (own loss when the partner switches to competing). E2 to E4 are moderator analyses and are reported as such. Effect sizes are in payoff points out of 100. Power: in the negotiation pilot a shift of 0.3 of the surplus was significant with 20 paired instances; 40 instances detect a paired difference of about 0.45 standard deviations at 80% power.
+
+**Predictions to be frozen with E1** (from dual-concern theory and the pilot): collaborating–collaborating gives the highest joint payoff and efficiency, competing–competing the lowest agreement rate; competing exploits accommodating and compromising, so accommodating is a best response to nothing and the empirical equilibrium is competing–competing or compromising–compromising depending on the cost of impasse; collaborating's advantage over compromising grows with asymmetry and vanishes at a = 0; visible weights shrink both collaborating's advantage and competing's exploitation; a higher outside option raises that side's share under every pair, most under accommodating.
+
+**Validity threats and what answers them.** Strategies as prompts are vague: rules with programmatic compliance. Judge-based labels: programmatic measures are primary, labels secondary with agreement figures. One model: three models and cross-model pairs. A synthetic game: two external benchmarks and the coding boundary case. First-mover advantage (sellers took 0.68 in the pilot): balanced and reported. Parsing failures: a corrective retry, then the move is a pass, and the rate is reported. Leakage and tuning: dev and test instances are disjoint and prompts are frozen before each run. Repetition and learning: one-shot by default, repetition as a separate knob.
+
+**Cost and order.** About $0.003 per game: E0 under $1, E1 about $5 per model, the whole plan under $100. Order: build the environment and run E0; freeze E1 and run it on gpt-6-luna; E2 and E3; the other models; LLM-Deliberation in parallel with a teammate.
+
+### Strategy payoff study: E0 manipulation check (2026-11-20)
+
+Config: [configs/bargain_dev.json](../configs/bargain_dev.json); 10 dev instances in the mixed regime (4 decisions, 3 options, 3 decisions contested, asymmetry 0.5, outside option 30, 10 moves); Developer 1 gets the strategy, Developer 2 the neutral sentence; 12 cells, 120 games per round, gpt-6-luna on both sides. Per-game data: [results/bargain_dev_rows.csv](../results/bargain_dev_rows.csv); summary: [results/bargain_dev_summary.json](../results/bargain_dev_summary.json). Three rounds, $0.33 in all including labels:
+
+- *Calibration* (4 instances, both neutral). With outside option 20 and no protocol note, the responder accepted the first mover's ideal design, worth 26 points to it, at once. A sentence saying that proposals can be countered removed first-offer acceptance, and an outside option of 30 makes accepting the partner's ideal (about 25 points) irrational while the issue-by-issue compromise (about 50) stays feasible. gpt-6-luna rejects `temperature` with any reasoning effort, so reasoning stays off.
+- *Round 1* ([round 1 summary](../results/bargain_dev_round1_summary.json)). Developer 1 earned more in both control cells whoever moved first: the generator derived Developer 2's importance from Developer 1's, which left seat 1 with the more concentrated profile and a higher Nash payoff (75 against 62). The generator now builds both profiles as mirror images of one latent vector (Nash 71 against 71 over 300 instances; at asymmetry 0 the integrative gain is 0, at 1 it is 34 points). Rule compliance was competing 2 of 10, collaborating 6, compromising 6: the rules asked for point-sized concession steps that a discrete design cannot deliver (switching one decision moves 5 to 20 points). The rules were restated in decisions changed per proposal.
+- *Round 2* ([round 2 summary](../results/bargain_dev_round2_summary.json)) and *round 3* (collaborating and compromising rewritten once more and replayed, which is the table below).
+
+| Cell (Developer 1's strategy) | Deals | Payoff D1 (D2) | Joint gap | Moves | Rule compliance | D1 labeled: competing / collaborating / compromising / accommodating / avoiding |
+|---|---|---|---|---|---|---|
+| default (no guidance) | 10 | 60.5 (52.8) | 30.8 | 4.6 | | 0 / 2 / 4 / 4 / 0 |
+| neutral | 10 | 61.1 (57.9) | 25.0 | 4.2 | | 0 / 2 / 3 / 5 / 0 |
+| prompted competing | 10 | 65.9 (64.6) | 13.5 | 5.4 | 6 / 10 | 1 / 1 / 7 / 1 / 0 |
+| prompted collaborating | 10 | 59.8 (70.3) | 14.0 | 4.3 | 3 / 10 | 0 / 4 / 0 / 6 / 0 |
+| prompted compromising | 10 | 58.7 (65.4) | 20.0 | 4.4 | 7 / 10 | 0 / 0 / 8 / 2 / 0 |
+| prompted accommodating | 10 | 55.7 (69.3) | 19.1 | 4.6 | 7 / 10 | 0 / 0 / 1 / 9 / 0 |
+| prompted avoiding | 3 | 34.7 (45.6) | 63.8 | 3.3 | 10 / 10 | 7 / 0 / 1 / 2 / 0 |
+| rules competing | 9 | 69.4 (46.4) | 28.3 | 6.5 | **10 / 10** | 1 / 0 / 8 / 1 / 0 |
+| rules collaborating | 10 | 73.4 (61.0) | 9.6 | 5.2 | 7 / 10 | 0 / 5 / 0 / 5 / 0 |
+| rules compromising | 10 | 67.3 (66.1) | 10.7 | 6.3 | 7 / 10 | 0 / 0 / 9 / 1 / 0 |
+| rules accommodating | 10 | 58.1 (76.2) | 9.8 | 4.5 | **9 / 10** | 0 / 3 / 0 / 7 / 0 |
+| rules avoiding | 4 | 36.6 (46.5) | 61.0 | 3.0 | **10 / 10** | 4 / 0 / 2 / 2 / 2 |
+
+The joint gap is the distance of the outcome from the instance's maximal joint payoff (about 142 points in this regime).
+
+- **The default agent leaves a quarter of the joint value on the table.** Under no guidance or the neutral sentence the gap is 25 to 31 points; the agents take the middle option on a third of the contested decisions and trade whole decisions in 2 to 4 games of 10, although they disclose their scores in 7 to 9.
+- **Rules stated in moves are followed; rules that need a constructed package are followed 7 times in 10.** Competing, avoiding and accommodating comply in 9 or 10 games. Collaborating agents ask and disclose in every game but in 3 of 10 propose a split instead of a trade (one announced a concession on Decision 4 and encoded a different option); compromising agents raise their own value again in 3 of 10. Two rewrites moved these from 6 and 4 to 7 of 10; a third was not tried, to avoid tuning the rule text to these ten instances.
+- **The strategies separate in payoff as predicted.** Competing by rule exploits the neutral partner (69 against 46, 9 deals of 10) but leaves a 28-point gap; collaborating by rule pays the instructed side the most (73) with the partner at 61 and the smallest gap (9.6); accommodating costs the instructed side (58 against 76) while the pair stays efficient; avoiding walks away in 6 or 7 games of 10, because the partner's opening design is worth less than the outside option, and is by far the worst for both (joint 80 to 83).
+- **The prompted sentences repeat the negotiation pilot.** Prompted competing is firm but fair (66 against 65, labeled compromising in 7 of 10); prompted collaborating is labeled accommodating in 6 of 10 and pays the partner more than the instructed side; prompted compromising opens at the middle and holds.
+- **The labeler separates the cooperative styles, not competing from compromising.** Collaborating is labeled in 5 of 10 rule games against 2 under neutral, compromising in 9, accommodating in 7. Competing is labeled at most once per cell even where the rule is followed 10 times, because one-decision concessions read as compromising; avoiding is labeled competing when it walks. The programmatic measures (compliance, concession curve, trades, middle share) are therefore primary in E1 and the labels secondary.
+- After the generator fix neither seat earns systematically more in the control cells (5-game subsets by first mover differ in both directions).
+
+Decisions for E1: the rule-based operationalization with these rule texts, the prompted sentences as an ablation on the diagonal; compliance reported in every cell, with the analysis on all games (intention to treat) primary and on compliant games secondary; outside option 30, the protocol note, opposition 0.75 and asymmetry 0.5 unchanged; avoiding is operationalized as withdrawal, and its predicted place is the lowest agreement rate. Limits: 10 instances per cell; the rule texts were adjusted on these dev instances, so E1 uses a fresh seed; labels are single-pass.
+
 ## Next steps
 
-1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.
-2. Run the audit and the census on the paper's other three models and on its no-communication runs.
-3. Ablations the advisor asked for: number of agents, team composition (different, stronger and weaker, commercial and open models together) and the communication channel.
-4. Read the shared-git trajectories to find out why capability failures rose in S2.
-5. Choose what replaces S3. Candidates: a repair round after the merge, where an agent sees the merged code and the failing tests; and three-agent tasks with CooperBench's team mode.
+1. Build the bargaining environment, run E0 on the dev set, and choose the operationalization of the strategies.
+2. Freeze E1 (instances, prompts, predictions) and run it; then E2 and E3.
+3. Add two models and cross-model pairs (E4); reduce LLM-Deliberation to two parties (E5, with a teammate).
+4. Outline the paper: the payoff landscape as the main result, the coding studies as the boundary case, the negotiation pilot as the zero-sum pole.
+5. Earlier CooperBench follow-ups (same-harness scoring of all pairs, the other models' runs, S2 trajectories) stay on the list but behind the study above.

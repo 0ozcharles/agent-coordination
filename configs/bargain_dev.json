@@ -1,0 +1,167 @@
+{
+  "study": "bargain_dev",
+  "question": "E0 manipulation check for the strategy payoff study: in the multi-issue bargaining environment, which operationalization of the five conflict-handling strategies (prompted style sentences, or behavioural rules on the agent's own point scale) do LLM agents actually enact, measured by rule compliance, the concession curve and the labeled style? Developer 1 gets the strategy, Developer 2 the neutral sentence.",
+  "model": "gpt-6-luna",
+  "model_kwargs": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "extra_body": {
+      "reasoning_effort": "none"
+    }
+  },
+  "max_tokens": 700,
+  "environment": {
+    "issues": 4,
+    "options": 3,
+    "moves": 10,
+    "outside": [
+      30,
+      30
+    ],
+    "opposition": 0.75,
+    "asymmetry": 0.5,
+    "visible_weights": false,
+    "note": "the mixed regime planned for E1: three of four decisions contested, importance half-way between identical and reversed. Calibration on 4 dev instances (2026-11-20): with outside option 20 and no protocol note the neutral responder accepted the first mover's ideal design (26 points, just above its outside option) at once; the note removed first-offer acceptance, and an outside option of 30 makes accepting the partner's ideal (about 25 points) irrational while the all-middle design (about 50) stays feasible. reasoning_effort low was rejected by the API together with temperature, so reasoning stays off",
+    "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+    "generator": "round 2: both importance vectors are mirror-image mixtures of one latent vector and its rank reversal, so neither seat has the more concentrated profile; round 1 derived Developer 2's vector from Developer 1's, which gave seat 1 the higher Nash payoff (about 75 against 62) and a higher payoff in both control cells whoever moved first"
+  },
+  "instances": {
+    "n": 10,
+    "seed": 20261121,
+    "first_mover": "alternate",
+    "note": "dev set; E1 draws its instances from a different seed"
+  },
+  "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+  "strategies": {
+    "shared": {
+      "neutral": "Handle this in whatever way you think best."
+    },
+    "prompted": {
+      "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+      "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+      "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+      "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+      "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+    },
+    "rules": {
+      "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least 60 points to you; never accept less, and on your last move walk away rather than accept less than 60.",
+      "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least 60 points to you; do not accept less before your last move.",
+      "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least 50 points to you, and never accept one worth less than 50.",
+      "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+      "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+    },
+    "note": "{outside} and {outside10} in rule texts are replaced by the agent's outside option and that plus 10",
+    "rules_round1": {
+      "competing": "Follow these rules: open with a proposal worth at least 95 points to you; each later proposal of yours may be worth at most 5 points less to you than your previous one; accept only a proposal worth at least 60 points to you; never accept less, and on your last move walk away rather than go below 60.",
+      "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer; propose designs that give each side its preferred option on the decisions that side cares most about, trading decisions rather than splitting each one; accept a proposal worth at least 60 points to you; do not accept less before your last move.",
+      "compromising": "Follow these rules: on each decision where you and the other developer want different options, prefer the middle option or alternate which of you gets your preferred option; each proposal of yours should be worth 10 to 15 points less to you than your previous one until a proposal is worth about 50 to you; accept any proposal worth at least 50 points to you.",
+      "note": "round 1 (results/bargain_dev_round1_*): compliance competing 2/10, collaborating 6/10, compromising 6/10, because point-sized concession steps are not available on a discrete design (one decision switch moves 5 to 20 points); rewritten in decisions per proposal for round 2"
+    },
+    "rules_round2": {
+      "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer; then propose designs that give each side its top option on the decisions that side says matter most to it, trading whole decisions rather than splitting every decision down the middle; accept a proposal worth at least 60 points to you; do not accept less before your last move.",
+      "compromising": "Follow these rules: on each decision where you and the other developer want different options, prefer the middle option; move toward it one or two decisions per proposal, never going back up; accept any proposal worth at least 50 points to you.",
+      "note": "round 2 (results/bargain_dev_round2_*): compliance competing 10/10, accommodating 9/10, avoiding 10/10; collaborating 4/10 (asked and disclosed in every game but proposed a design giving each side its top option on a contested decision in only 5), compromising 6/10 (accepted below 50 twice, raised its own value twice); both rewritten for round 3"
+    }
+  },
+  "cells": [
+    {
+      "name": "default",
+      "p1": "default",
+      "p2": "neutral",
+      "op": "prompted",
+      "note": "no guidance for Developer 1"
+    },
+    {
+      "name": "prompted-neutral",
+      "p1": "neutral",
+      "p2": "neutral",
+      "op": "prompted"
+    },
+    {
+      "name": "prompted-competing",
+      "p1": "competing",
+      "p2": "neutral",
+      "op": "prompted"
+    },
+    {
+      "name": "prompted-collaborating",
+      "p1": "collaborating",
+      "p2": "neutral",
+      "op": "prompted"
+    },
+    {
+      "name": "prompted-compromising",
+      "p1": "compromising",
+      "p2": "neutral",
+      "op": "prompted"
+    },
+    {
+      "name": "prompted-accommodating",
+      "p1": "accommodating",
+      "p2": "neutral",
+      "op": "prompted"
+    },
+    {
+      "name": "prompted-avoiding",
+      "p1": "avoiding",
+      "p2": "neutral",
+      "op": "prompted"
+    },
+    {
+      "name": "rules-competing",
+      "p1": "competing",
+      "p2": "neutral",
+      "op": "rules",
+      "p2_op": "prompted"
+    },
+    {
+      "name": "rules-collaborating",
+      "p1": "collaborating",
+      "p2": "neutral",
+      "op": "rules",
+      "p2_op": "prompted"
+    },
+    {
+      "name": "rules-compromising",
+      "p1": "compromising",
+      "p2": "neutral",
+      "op": "rules",
+      "p2_op": "prompted"
+    },
+    {
+      "name": "rules-accommodating",
+      "p1": "accommodating",
+      "p2": "neutral",
+      "op": "rules",
+      "p2_op": "prompted"
+    },
+    {
+      "name": "rules-avoiding",
+      "p1": "avoiding",
+      "p2": "neutral",
+      "op": "rules",
+      "p2_op": "prompted"
+    }
+  ],
+  "control": "prompted-neutral",
+  "predictions": {
+    "manipulation": "rule compliance above 80% for every rule-based strategy; prompted competing and compromising fail as in the negotiation pilot (competing stays near neutral, compromising behaves like accommodating); prompted collaborating asks about priorities but concedes",
+    "payoff": "Developer 1's payoff: rules-competing highest, rules-accommodating lowest; rules-collaborating has the smallest joint gap; rules-avoiding and rules-competing have the most games without agreement",
+    "decision": "the main experiments use the rule-based operationalization unless the prompted one complies as well; a rule whose compliance is below 80% is rewritten before E1 and E0 is rerun for that cell"
+  },
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {
+      "extra_body": {
+        "reasoning_effort": "low"
+      }
+    },
+    "codebook": "docs/B_BARGAIN_STYLE_CODEBOOK.md",
+    "attempts": 2,
+    "input": "the public moves and messages in order; not the scores, the private reasoning, the guidance or the payoffs"
+  },
+  "budget_usd": 3.0,
+  "output": "runs/bargain/dev",
+  "results_prefix": "results/bargain_dev",
+  "status": "written 2026-11-20; environment calibrated on 4 dev instances (environment.note); round 1 and round 2 played 2026-11-20 (results/bargain_dev_round1_*, _round2_*); round 3 replays the collaborating and compromising rule cells with the rules in this file"
+}

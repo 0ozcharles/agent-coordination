@@ -229,6 +229,19 @@ python3 scripts/project.py negotiation configs/negotiation_pilot.json --report  
 
 Each game's record (proposals, messages, payoffs, label) is under `runs/negotiation/<study>/games/<condition>/`; the arena's own logs are next to them. The style labeler uses `docs/N_NEGOTIATION_STYLE_CODEBOOK.md`, the negotiation counterpart of the coordination codebook. The arena's `agents` package imports the `anthropic` SDK unconditionally; the module stubs it when the package is missing, since only the litellm agent is used. The players get an explicit payoff line (price minus cost, or limit minus price); without it the seller opened at cost and the buyer accepted at once.
 
+## Multi-issue bargaining
+
+`src/agent_coordination/bargain.py` is our own environment for the strategy payoff study (design in the research plan): two agents agree on a design with K decisions and M options under private weights, generated from a seed with the conflict's opposition and asymmetry as knobs; payoffs, the Pareto frontier and the Nash point are computed exactly. A config lists `cells`, each assigning a strategy to Developer 1 and Developer 2 in a prompted or rule-based operationalization; rule compliance is checked from the moves. No Docker; about $0.001 to $0.003 per game.
+
+```bash
+python3 scripts/project.py bargain configs/bargain_dev.json                        # preview
+python3 scripts/project.py bargain configs/bargain_dev.json --execute --workers 8   # play (paid API)
+python3 scripts/project.py bargain configs/bargain_dev.json --label --workers 8     # style labels (paid API)
+python3 scripts/project.py bargain configs/bargain_dev.json --report                # no API
+```
+
+Records are under `runs/bargain/<study>/games/<cell>/`; the labeler uses `docs/B_BARGAIN_STYLE_CODEBOOK.md`. gpt-6-luna rejects `temperature` when `reasoning_effort` is anything but `none`, so reasoning stays off in these games.
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.
