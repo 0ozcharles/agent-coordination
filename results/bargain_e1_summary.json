@@ -33,12 +33,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 2,
+    "compromising": 20,
+    "accommodating": 18,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.021
   },
   "neutral-competing": {
@@ -71,12 +71,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 8,
+    "compromising": 12,
+    "accommodating": 20,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.029,
    "vs_control": {
     "pairs": 40,
@@ -137,12 +137,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 12,
+    "compromising": 4,
+    "accommodating": 24,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.029,
    "vs_control": {
     "pairs": 40,
@@ -203,12 +203,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 6,
+    "compromising": 20,
+    "accommodating": 14,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.026,
    "vs_control": {
     "pairs": 40,
@@ -269,12 +269,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "collaborating": 6,
+    "compromising": 14,
+    "accommodating": 19,
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.02,
    "vs_control": {
     "pairs": 40,
@@ -334,13 +334,13 @@
    "p1_seconds": 2.058,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "competing": 2,
+    "collaborating": 9,
+    "compromising": 16,
+    "accommodating": 13,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.011,
    "vs_control": {
     "pairs": 40,
@@ -401,12 +401,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 1,
+    "compromising": 37,
+    "accommodating": 2,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.028,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -473,11 +473,11 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
+    "compromising": 39,
     "accommodating": 0,
-    "avoiding": 0
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.039,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -543,12 +543,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 6,
+    "compromising": 26,
+    "accommodating": 8,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.035,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -615,11 +615,11 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 36,
+    "accommodating": 4,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.021,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -684,15 +684,15 @@
    "p1_seconds": 3.858,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "competing": 2,
+    "collaborating": 5,
+    "compromising": 28,
+    "accommodating": 5,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.025,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 2,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -721,7 +721,7 @@
      "p": 1.0
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 2,
      "control": 0
     }
    }
@@ -755,15 +755,15 @@
    "p1_seconds": 1.889,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 8,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 29,
+    "accommodating": 2,
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.012,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 8,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -792,7 +792,7 @@
      "p": 0.0192
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 8,
      "control": 0
     }
    }
@@ -827,14 +827,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 18,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 22,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.026,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 18,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -863,8 +863,8 @@
      "p": 0.0428
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 18,
+     "control": 2
     }
    }
   },
@@ -898,14 +898,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 18,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 22,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.032,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 18,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -934,8 +934,8 @@
      "p": 0.3771
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 18,
+     "control": 2
     }
    }
   },
@@ -969,14 +969,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 17,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 23,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.028,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 17,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1005,8 +1005,8 @@
      "p": 0.8555
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 17,
+     "control": 2
     }
    }
   },
@@ -1040,14 +1040,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 18,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 22,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.027,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 18,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1076,8 +1076,8 @@
      "p": 0.8506
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 18,
+     "control": 2
     }
    }
   },
@@ -1111,14 +1111,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 19,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 21,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.02,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 19,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1147,8 +1147,8 @@
      "p": 0.1849
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 19,
+     "control": 2
     }
    }
   },
@@ -1182,14 +1182,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 12,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 28,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.013,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 12,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1218,8 +1218,8 @@
      "p": 0.0227
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 12,
+     "control": 2
     }
    }
   },
@@ -1253,14 +1253,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 1,
+    "compromising": 32,
+    "accommodating": 7,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.022,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 32,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1289,8 +1289,8 @@
      "p": 0.0522
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 32,
+     "control": 20
     }
    }
   },
@@ -1325,13 +1325,13 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 38,
+    "accommodating": 1,
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.024,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 38,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1360,8 +1360,8 @@
      "p": 0.7111
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 38,
+     "control": 20
     }
    }
   },
@@ -1395,14 +1395,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 4,
+    "compromising": 16,
+    "accommodating": 20,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.023,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 16,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1431,8 +1431,8 @@
      "p": 0.136
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 16,
+     "control": 20
     }
    }
   },
@@ -1465,15 +1465,15 @@
    "p1_seconds": 2.471,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 1,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 25,
+    "accommodating": 14,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.014,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 25,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1502,8 +1502,8 @@
      "p": 0.0125
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 25,
+     "control": 20
     }
    }
   },
@@ -1537,14 +1537,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "collaborating": 6,
+    "compromising": 23,
+    "accommodating": 9,
+    "avoiding": 2
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.018,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 23,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1573,8 +1573,8 @@
      "p": 0.0015
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 23,
+     "control": 20
     }
    }
   },
@@ -1609,13 +1609,13 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 34,
+    "accommodating": 6,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 34,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1644,8 +1644,8 @@
      "p": 0.0639
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 34,
+     "control": 20
     }
    }
   },
@@ -1679,14 +1679,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 3,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 37,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.017,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 37,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1715,8 +1715,8 @@
      "p": 0.6776
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 37,
+     "control": 18
     }
    }
   },
@@ -1750,14 +1750,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 9,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 31,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.025,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 31,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1786,8 +1786,8 @@
      "p": 0.0576
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 31,
+     "control": 18
     }
    }
   },
@@ -1821,14 +1821,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 7,
+    "compromising": 4,
+    "accommodating": 29,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.018,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 29,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1857,8 +1857,8 @@
      "p": 0.1849
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 29,
+     "control": 18
     }
    }
   },
@@ -1892,14 +1892,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 2,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 38,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.015,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 38,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1928,8 +1928,8 @@
      "p": 0.2649
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 38,
+     "control": 18
     }
    }
   },
@@ -1963,14 +1963,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 7,
+    "compromising": 7,
+    "accommodating": 26,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.015,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 26,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -1999,8 +1999,8 @@
      "p": 0.5413
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 26,
+     "control": 18
     }
    }
   },
@@ -2034,14 +2034,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 6,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 34,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.012,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 34,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2070,8 +2070,8 @@
      "p": 0.8388
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 34,
+     "control": 18
     }
    }
   },
@@ -2104,15 +2104,15 @@
    "p1_seconds": 2.083,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 10,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 18,
+    "accommodating": 9,
+    "avoiding": 3
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 3,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2141,7 +2141,7 @@
      "p": 0.0
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 3,
      "control": 0
     }
    }
@@ -2175,15 +2175,15 @@
    "p1_seconds": 2.033,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 15,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 14,
+    "accommodating": 10,
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 1,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2212,7 +2212,7 @@
      "p": 0.0
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 1,
      "control": 0
     }
    }
@@ -2246,15 +2246,15 @@
    "p1_seconds": 2.003,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "competing": 5,
+    "collaborating": 3,
+    "compromising": 8,
+    "accommodating": 22,
+    "avoiding": 2
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.012,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 2,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2283,7 +2283,7 @@
      "p": 0.0002
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 2,
      "control": 0
     }
    }
@@ -2317,15 +2317,15 @@
    "p1_seconds": 1.93,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 5,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 21,
+    "accommodating": 12,
+    "avoiding": 2
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 2,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2354,7 +2354,7 @@
      "p": 0.0001
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 2,
      "control": 0
     }
    }
@@ -2388,15 +2388,15 @@
    "p1_seconds": 2.135,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "competing": 5,
+    "collaborating": 1,
+    "compromising": 20,
+    "accommodating": 11,
+    "avoiding": 3
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.012,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 3,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2425,7 +2425,7 @@
      "p": 0.0001
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 3,
      "control": 0
     }
    }
@@ -2459,15 +2459,15 @@
    "p1_seconds": 1.658,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 6,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 17,
+    "accommodating": 11,
+    "avoiding": 6
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.009,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 6,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2496,7 +2496,7 @@
      "p": 0.0002
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 6,
      "control": 0
     }
    }
@@ -2530,15 +2530,15 @@
    "p1_seconds": 4.782,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "competing": 11,
+    "collaborating": 5,
+    "compromising": 18,
+    "accommodating": 5,
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.03,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 11,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2567,7 +2567,7 @@
      "p": 0.0094
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 11,
      "control": 0
     }
    }
@@ -2602,14 +2602,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 14,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 26,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.02,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 14,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2638,8 +2638,8 @@
      "p": 0.0433
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 14,
+     "control": 2
     }
    }
   },
@@ -2674,13 +2674,13 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 31,
+    "accommodating": 9,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.015,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 31,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2709,8 +2709,8 @@
      "p": 0.0037
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 31,
+     "control": 20
     }
    }
   },
@@ -2744,14 +2744,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 7,
+    "compromising": 5,
+    "accommodating": 28,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.018,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 28,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2780,8 +2780,8 @@
      "p": 1.0
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 28,
+     "control": 18
     }
    }
   },
@@ -2814,15 +2814,15 @@
    "p1_seconds": 1.718,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 17,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 12,
+    "accommodating": 9,
+    "avoiding": 2
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.01,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 2,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -2851,7 +2851,7 @@
      "p": 0.0001
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 2,
      "control": 0
     }
    }
@@ -2886,12 +2886,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 3,
+    "compromising": 25,
+    "accommodating": 12,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.016,
    "vs_control": {
     "pairs": 40,
@@ -2989,5 +2989,5 @@
   "accommodating": 0.0,
   "avoiding": 0.0
  },
- "cost_usd": 0.829
+ "cost_usd": 1.508
 }
