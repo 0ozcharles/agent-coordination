@@ -1,0 +1,212 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="890" height="410" font-family="Helvetica, Arial, sans-serif" font-size="11">
+<rect width="890" height="410" fill="white"/>
+<text x="150" y="22" font-size="14" font-weight="bold">Best strategy by condition (seats pooled), by reading and by the price of tokens λ</text>
+<text x="270" y="44" text-anchor="middle" font-weight="bold">symmetric</text>
+<text x="190" y="60" text-anchor="middle">λ=0</text>
+<text x="270" y="60" text-anchor="middle">λ=5</text>
+<text x="350" y="60" text-anchor="middle">λ=20</text>
+<text x="510" y="44" text-anchor="middle" font-weight="bold">vs neutral</text>
+<text x="430" y="60" text-anchor="middle">λ=0</text>
+<text x="510" y="60" text-anchor="middle">λ=5</text>
+<text x="590" y="60" text-anchor="middle">λ=20</text>
+<text x="750" y="44" text-anchor="middle" font-weight="bold">vs competing</text>
+<text x="670" y="60" text-anchor="middle">λ=0</text>
+<text x="750" y="60" text-anchor="middle">λ=5</text>
+<text x="830" y="60" text-anchor="middle">λ=20</text>
+<text x="144" y="88" text-anchor="end">base</text>
+<rect x="150" y="70" width="78" height="26" fill="#27ae60"/>
+<text x="189" y="88" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="230" y="70" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="88" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="70" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="88" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="70" width="78" height="26" fill="#2980b9"/>
+<text x="429" y="88" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="470" y="70" width="78" height="26" fill="#2980b9"/>
+<text x="509" y="88" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="550" y="70" width="78" height="26" fill="#7f8c8d"/>
+<text x="589" y="88" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="630" y="70" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="88" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="70" width="78" height="26" fill="#27ae60"/>
+<text x="749" y="88" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="790" y="70" width="78" height="26" fill="#95a5a6"/>
+<text x="829" y="88" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<text x="144" y="116" text-anchor="end">urgent</text>
+<rect x="150" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="189" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="230" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="429" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="470" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="509" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="550" y="98" width="78" height="26" fill="#7f8c8d"/>
+<text x="589" y="116" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="630" y="98" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="116" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="749" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="790" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="829" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<text x="144" y="144" text-anchor="end">time_cost</text>
+<rect x="150" y="126" width="78" height="26" fill="#27ae60"/>
+<text x="189" y="144" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="230" y="126" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="144" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="126" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="144" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="126" width="78" height="26" fill="#2980b9"/>
+<text x="429" y="144" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="470" y="126" width="78" height="26" fill="#7f8c8d"/>
+<text x="509" y="144" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="550" y="126" width="78" height="26" fill="#95a5a6"/>
+<text x="589" y="144" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<rect x="630" y="126" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="144" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="126" width="78" height="26" fill="#27ae60"/>
+<text x="749" y="144" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="790" y="126" width="78" height="26" fill="#95a5a6"/>
+<text x="829" y="144" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<text x="144" y="172" text-anchor="end">tight_budget</text>
+<rect x="150" y="154" width="78" height="26" fill="#27ae60"/>
+<text x="189" y="172" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="230" y="154" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="172" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="154" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="172" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="154" width="78" height="26" fill="#c0392b"/>
+<text x="429" y="172" text-anchor="middle" fill="white" font-size="10">compet</text>
+<rect x="470" y="154" width="78" height="26" fill="#c0392b"/>
+<text x="509" y="172" text-anchor="middle" fill="white" font-size="10">compet</text>
+<rect x="550" y="154" width="78" height="26" fill="#7f8c8d"/>
+<text x="589" y="172" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="630" y="154" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="172" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="154" width="78" height="26" fill="#2980b9"/>
+<text x="749" y="172" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="790" y="154" width="78" height="26" fill="#8e44ad"/>
+<text x="829" y="172" text-anchor="middle" fill="white" font-size="10">compro</text>
+<text x="144" y="200" text-anchor="end">distributive</text>
+<rect x="150" y="182" width="78" height="26" fill="#27ae60"/>
+<text x="189" y="200" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="230" y="182" width="78" height="26" fill="#8e44ad"/>
+<text x="269" y="200" text-anchor="middle" fill="white" font-size="10">compro</text>
+<rect x="310" y="182" width="78" height="26" fill="#8e44ad"/>
+<text x="349" y="200" text-anchor="middle" fill="white" font-size="10">compro</text>
+<rect x="390" y="182" width="78" height="26" fill="#c0392b"/>
+<text x="429" y="200" text-anchor="middle" fill="white" font-size="10">compet</text>
+<rect x="470" y="182" width="78" height="26" fill="#7f8c8d"/>
+<text x="509" y="200" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="550" y="182" width="78" height="26" fill="#7f8c8d"/>
+<text x="589" y="200" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="630" y="182" width="78" height="26" fill="#7f8c8d"/>
+<text x="669" y="200" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="710" y="182" width="78" height="26" fill="#8e44ad"/>
+<text x="749" y="200" text-anchor="middle" fill="white" font-size="10">compro</text>
+<rect x="790" y="182" width="78" height="26" fill="#95a5a6"/>
+<text x="829" y="200" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<text x="144" y="228" text-anchor="end">integrative</text>
+<rect x="150" y="210" width="78" height="26" fill="#2980b9"/>
+<text x="189" y="228" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="230" y="210" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="228" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="210" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="228" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="210" width="78" height="26" fill="#2980b9"/>
+<text x="429" y="228" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="470" y="210" width="78" height="26" fill="#2980b9"/>
+<text x="509" y="228" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="550" y="210" width="78" height="26" fill="#7f8c8d"/>
+<text x="589" y="228" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="630" y="210" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="228" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="210" width="78" height="26" fill="#2980b9"/>
+<text x="749" y="228" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="790" y="210" width="78" height="26" fill="#27ae60"/>
+<text x="829" y="228" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<text x="144" y="256" text-anchor="end">all_contested</text>
+<rect x="150" y="238" width="78" height="26" fill="#7f8c8d"/>
+<text x="189" y="256" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="230" y="238" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="256" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="238" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="256" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="238" width="78" height="26" fill="#2980b9"/>
+<text x="429" y="256" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="470" y="238" width="78" height="26" fill="#27ae60"/>
+<text x="509" y="256" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="550" y="238" width="78" height="26" fill="#27ae60"/>
+<text x="589" y="256" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="630" y="238" width="78" height="26" fill="#7f8c8d"/>
+<text x="669" y="256" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="710" y="238" width="78" height="26" fill="#95a5a6"/>
+<text x="749" y="256" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<rect x="790" y="238" width="78" height="26" fill="#95a5a6"/>
+<text x="829" y="256" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<text x="144" y="284" text-anchor="end">low_stakes_p2</text>
+<rect x="150" y="266" width="78" height="26" fill="#27ae60"/>
+<text x="189" y="284" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="230" y="266" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="284" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="266" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="284" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="266" width="78" height="26" fill="#2980b9"/>
+<text x="429" y="284" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="470" y="266" width="78" height="26" fill="#2980b9"/>
+<text x="509" y="284" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="550" y="266" width="78" height="26" fill="#95a5a6"/>
+<text x="589" y="284" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<rect x="630" y="266" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="284" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="266" width="78" height="26" fill="#2980b9"/>
+<text x="749" y="284" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="790" y="266" width="78" height="26" fill="#95a5a6"/>
+<text x="829" y="284" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<text x="144" y="312" text-anchor="end">power_p1</text>
+<rect x="150" y="294" width="78" height="26" fill="#2980b9"/>
+<text x="189" y="312" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="230" y="294" width="78" height="26" fill="#27ae60"/>
+<text x="269" y="312" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="310" y="294" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="312" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="294" width="78" height="26" fill="#c0392b"/>
+<text x="429" y="312" text-anchor="middle" fill="white" font-size="10">compet</text>
+<rect x="470" y="294" width="78" height="26" fill="#2980b9"/>
+<text x="509" y="312" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="550" y="294" width="78" height="26" fill="#7f8c8d"/>
+<text x="589" y="312" text-anchor="middle" fill="white" font-size="10">neutra</text>
+<rect x="630" y="294" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="312" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="294" width="78" height="26" fill="#8e44ad"/>
+<text x="749" y="312" text-anchor="middle" fill="white" font-size="10">compro</text>
+<rect x="790" y="294" width="78" height="26" fill="#95a5a6"/>
+<text x="829" y="312" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<text x="144" y="340" text-anchor="end">open_info</text>
+<rect x="150" y="322" width="78" height="26" fill="#2980b9"/>
+<text x="189" y="340" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="230" y="322" width="78" height="26" fill="#2980b9"/>
+<text x="269" y="340" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="310" y="322" width="78" height="26" fill="#27ae60"/>
+<text x="349" y="340" text-anchor="middle" fill="white" font-size="10">accomm</text>
+<rect x="390" y="322" width="78" height="26" fill="#c0392b"/>
+<text x="429" y="340" text-anchor="middle" fill="white" font-size="10">compet</text>
+<rect x="470" y="322" width="78" height="26" fill="#2980b9"/>
+<text x="509" y="340" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="550" y="322" width="78" height="26" fill="#95a5a6"/>
+<text x="589" y="340" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<rect x="630" y="322" width="78" height="26" fill="#2980b9"/>
+<text x="669" y="340" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="710" y="322" width="78" height="26" fill="#2980b9"/>
+<text x="749" y="340" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="790" y="322" width="78" height="26" fill="#2980b9"/>
+<text x="829" y="340" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="150" y="380" width="12" height="12" fill="#7f8c8d"/><text x="166" y="390">neutral</text>
+<rect x="221" y="380" width="12" height="12" fill="#c0392b"/><text x="237" y="390">competing</text>
+<rect x="306" y="380" width="12" height="12" fill="#2980b9"/><text x="322" y="390">collaborating</text>
+<rect x="419" y="380" width="12" height="12" fill="#8e44ad"/><text x="435" y="390">compromising</text>
+<rect x="525" y="380" width="12" height="12" fill="#27ae60"/><text x="541" y="390">accommodating</text>
+<rect x="638" y="380" width="12" height="12" fill="#95a5a6"/><text x="654" y="390">avoiding</text>
+</svg>
