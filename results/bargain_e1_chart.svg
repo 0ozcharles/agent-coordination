@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1192" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="1192" fill="white"/>
+<text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
+<text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
+<line x1="190.0" y1="36" x2="190.0" y2="1132" stroke="#eee"/><text x="190.0" y="1144" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="1132" stroke="#eee"/><text x="295.0" y="1144" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="1132" stroke="#eee"/><text x="400.0" y="1144" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="1132" stroke="#eee"/><text x="505.0" y="1144" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="1132" stroke="#eee"/><text x="610.0" y="1144" text-anchor="middle">100</text>
+<text x="184" y="56" text-anchor="end">neutral-neutral</text>
+<rect x="190" y="43" width="272.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="53" width="263.0" height="9" fill="#95a5a6"/>
+<text x="624" y="56">40/40</text><text x="674" y="56">n/a</text><text x="734" y="56">14.025</text>
+<text x="184" y="82" text-anchor="end">neutral-competing</text>
+<rect x="190" y="69" width="229.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="79" width="278.7" height="9" fill="#95a5a6"/>
+<text x="624" y="82">35/40</text><text x="674" y="82">n/a</text><text x="734" y="82">20.663</text>
+<text x="184" y="108" text-anchor="end">neutral-collaborating</text>
+<rect x="190" y="95" width="278.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="105" width="302.5" height="9" fill="#95a5a6"/>
+<text x="624" y="108">40/40</text><text x="674" y="108">n/a</text><text x="734" y="108">3.25</text>
+<text x="184" y="134" text-anchor="end">neutral-compromising</text>
+<rect x="190" y="121" width="272.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="131" width="225.7" height="9" fill="#95a5a6"/>
+<text x="624" y="134">35/40</text><text x="674" y="134">n/a</text><text x="734" y="134">22.913</text>
+<text x="184" y="160" text-anchor="end">neutral-accommodating</text>
+<rect x="190" y="147" width="333.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="157" width="221.5" height="9" fill="#95a5a6"/>
+<text x="624" y="160">40/40</text><text x="674" y="160">n/a</text><text x="734" y="160">9.512</text>
+<text x="184" y="186" text-anchor="end">neutral-avoiding</text>
+<rect x="190" y="173" width="232.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="183" width="175.1" height="9" fill="#95a5a6"/>
+<text x="624" y="186">24/40</text><text x="674" y="186">n/a</text><text x="734" y="186">44.45</text>
+<text x="184" y="212" text-anchor="end">competing-neutral</text>
+<rect x="190" y="199" width="284.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="209" width="214.5" height="9" fill="#95a5a6"/>
+<text x="624" y="212">35/40</text><text x="674" y="212">39/40</text><text x="734" y="212">22.863</text>
+<text x="184" y="238" text-anchor="end">competing-competing</text>
+<rect x="190" y="225" width="210.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="235" width="220.2" height="9" fill="#95a5a6"/>
+<text x="624" y="238">25/40</text><text x="674" y="238">39/40</text><text x="734" y="238">39.062</text>
+<text x="184" y="264" text-anchor="end">competing-collaborating</text>
+<rect x="190" y="251" width="235.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="261" width="229.4" height="9" fill="#95a5a6"/>
+<text x="624" y="264">26/40</text><text x="674" y="264">36/40</text><text x="734" y="264">30.887</text>
+<text x="184" y="290" text-anchor="end">competing-compromising</text>
+<rect x="190" y="277" width="291.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="287" width="201.8" height="9" fill="#95a5a6"/>
+<text x="624" y="290">36/40</text><text x="674" y="290">39/40</text><text x="734" y="290">24.062</text>
+<text x="184" y="316" text-anchor="end">competing-accommodating</text>
+<rect x="190" y="303" width="312.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="313" width="213.0" height="9" fill="#95a5a6"/>
+<text x="624" y="316">37/40</text><text x="674" y="316">37/40</text><text x="734" y="316">16.587</text>
+<text x="184" y="342" text-anchor="end">competing-avoiding</text>
+<rect x="190" y="329" width="255.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="339" width="153.7" height="9" fill="#95a5a6"/>
+<text x="624" y="342">21/40</text><text x="674" y="342">39/40</text><text x="734" y="342">44.138</text>
+<text x="184" y="368" text-anchor="end">collaborating-neutral</text>
+<rect x="190" y="355" width="303.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="365" width="260.0" height="9" fill="#95a5a6"/>
+<text x="624" y="368">39/40</text><text x="674" y="368">21/40</text><text x="734" y="368">7.338</text>
+<text x="184" y="394" text-anchor="end">collaborating-competing</text>
+<rect x="190" y="381" width="234.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="391" width="256.7" height="9" fill="#95a5a6"/>
+<text x="624" y="394">29/40</text><text x="674" y="394">32/40</text><text x="734" y="394">24.75</text>
+<text x="184" y="420" text-anchor="end">collaborating-collaborating</text>
+<rect x="190" y="407" width="288.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="417" width="280.8" height="9" fill="#95a5a6"/>
+<text x="624" y="420">39/40</text><text x="674" y="420">24/40</text><text x="734" y="420">6.138</text>
+<text x="184" y="446" text-anchor="end">collaborating-compromising</text>
+<rect x="190" y="433" width="278.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="443" width="224.8" height="9" fill="#95a5a6"/>
+<text x="624" y="446">35/40</text><text x="674" y="446">18/40</text><text x="734" y="446">21.887</text>
+<text x="184" y="472" text-anchor="end">collaborating-accommodating</text>
+<rect x="190" y="459" width="303.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="469" width="259.8" height="9" fill="#95a5a6"/>
+<text x="624" y="472">40/40</text><text x="674" y="472">23/40</text><text x="734" y="472">7.513</text>
+<text x="184" y="498" text-anchor="end">collaborating-avoiding</text>
+<rect x="190" y="485" width="282.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="495" width="197.5" height="9" fill="#95a5a6"/>
+<text x="624" y="498">30/40</text><text x="674" y="498">16/40</text><text x="734" y="498">27.312</text>
+<text x="184" y="524" text-anchor="end">compromising-neutral</text>
+<rect x="190" y="511" width="257.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="521" width="263.7" height="9" fill="#95a5a6"/>
+<text x="624" y="524">40/40</text><text x="674" y="524">27/40</text><text x="734" y="524">17.438</text>
+<text x="184" y="550" text-anchor="end">compromising-competing</text>
+<rect x="190" y="537" width="222.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="547" width="281.7" height="9" fill="#95a5a6"/>
+<text x="624" y="550">35/40</text><text x="674" y="550">29/40</text><text x="734" y="550">21.637</text>
+<text x="184" y="576" text-anchor="end">compromising-collaborating</text>
+<rect x="190" y="563" width="265.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="573" width="280.7" height="9" fill="#95a5a6"/>
+<text x="624" y="576">38/40</text><text x="674" y="576">31/40</text><text x="734" y="576">11.65</text>
+<text x="184" y="602" text-anchor="end">compromising-compromising</text>
+<rect x="190" y="589" width="251.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="599" width="231.1" height="9" fill="#95a5a6"/>
+<text x="624" y="602">37/40</text><text x="674" y="602">36/40</text><text x="734" y="602">26.7</text>
+<text x="184" y="628" text-anchor="end">compromising-accommodating</text>
+<rect x="190" y="615" width="280.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="625" width="255.5" height="9" fill="#95a5a6"/>
+<text x="624" y="628">39/40</text><text x="674" y="628">34/40</text><text x="734" y="628">14.012</text>
+<text x="184" y="654" text-anchor="end">compromising-avoiding</text>
+<rect x="190" y="641" width="252.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="651" width="241.3" height="9" fill="#95a5a6"/>
+<text x="624" y="654">36/40</text><text x="674" y="654">37/40</text><text x="734" y="654">24.113</text>
+<text x="184" y="680" text-anchor="end">accommodating-neutral</text>
+<rect x="190" y="667" width="212.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="677" width="337.2" height="9" fill="#95a5a6"/>
+<text x="624" y="680">40/40</text><text x="674" y="680">38/40</text><text x="734" y="680">10.738</text>
+<text x="184" y="706" text-anchor="end">accommodating-competing</text>
+<rect x="190" y="693" width="219.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="703" width="320.4" height="9" fill="#95a5a6"/>
+<text x="624" y="706">37/40</text><text x="674" y="706">36/40</text><text x="734" y="706">13.05</text>
+<text x="184" y="732" text-anchor="end">accommodating-collaborating</text>
+<rect x="190" y="719" width="253.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="729" width="312.2" height="9" fill="#95a5a6"/>
+<text x="624" y="732">40/40</text><text x="674" y="732">38/40</text><text x="734" y="732">6.825</text>
+<text x="184" y="758" text-anchor="end">accommodating-compromising</text>
+<rect x="190" y="745" width="257.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="755" width="280.5" height="9" fill="#95a5a6"/>
+<text x="624" y="758">40/40</text><text x="674" y="758">33/40</text><text x="734" y="758">13.625</text>
+<text x="184" y="784" text-anchor="end">accommodating-accommodating</text>
+<rect x="190" y="771" width="279.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="781" width="292.8" height="9" fill="#95a5a6"/>
+<text x="624" y="784">40/40</text><text x="674" y="784">36/40</text><text x="734" y="784">5.338</text>
+<text x="184" y="810" text-anchor="end">accommodating-avoiding</text>
+<rect x="190" y="797" width="246.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="807" width="273.4" height="9" fill="#95a5a6"/>
+<text x="624" y="810">37/40</text><text x="674" y="810">37/40</text><text x="734" y="810">17.762</text>
+<text x="184" y="836" text-anchor="end">avoiding-neutral</text>
+<rect x="190" y="823" width="205.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="833" width="255.5" height="9" fill="#95a5a6"/>
+<text x="624" y="836">31/40</text><text x="674" y="836">40/40</text><text x="734" y="836">31.837</text>
+<text x="184" y="862" text-anchor="end">avoiding-competing</text>
+<rect x="190" y="849" width="149.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="859" width="278.4" height="9" fill="#95a5a6"/>
+<text x="624" y="862">24/40</text><text x="674" y="862">40/40</text><text x="734" y="862">39.812</text>
+<text x="184" y="888" text-anchor="end">avoiding-collaborating</text>
+<rect x="190" y="875" width="204.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="885" width="284.3" height="9" fill="#95a5a6"/>
+<text x="624" y="888">30/40</text><text x="674" y="888">40/40</text><text x="734" y="888">25.35</text>
+<text x="184" y="914" text-anchor="end">avoiding-compromising</text>
+<rect x="190" y="901" width="234.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="911" width="241.4" height="9" fill="#95a5a6"/>
+<text x="624" y="914">35/40</text><text x="674" y="914">40/40</text><text x="734" y="914">28.363</text>
+<text x="184" y="940" text-anchor="end">avoiding-accommodating</text>
+<rect x="190" y="927" width="233.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="937" width="252.4" height="9" fill="#95a5a6"/>
+<text x="624" y="940">33/40</text><text x="674" y="940">40/40</text><text x="734" y="940">25.825</text>
+<text x="184" y="966" text-anchor="end">avoiding-avoiding</text>
+<rect x="190" y="953" width="246.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="963" width="226.9" height="9" fill="#95a5a6"/>
+<text x="624" y="966">32/40</text><text x="674" y="966">40/40</text><text x="734" y="966">28.837</text>
+<text x="184" y="992" text-anchor="end">prompted-competing-competing</text>
+<rect x="190" y="979" width="243.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="989" width="245.0" height="9" fill="#95a5a6"/>
+<text x="624" y="992">32/40</text><text x="674" y="992">21/40</text><text x="734" y="992">25.262</text>
+<text x="184" y="1018" text-anchor="end">prompted-collaborating-collaborating</text>
+<rect x="190" y="1005" width="290.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1015" width="274.8" height="9" fill="#95a5a6"/>
+<text x="624" y="1018">40/40</text><text x="674" y="1018">23/40</text><text x="734" y="1018">7.013</text>
+<text x="184" y="1044" text-anchor="end">prompted-compromising-compromising</text>
+<rect x="190" y="1031" width="252.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1041" width="262.2" height="9" fill="#95a5a6"/>
+<text x="624" y="1044">40/40</text><text x="674" y="1044">27/40</text><text x="734" y="1044">19.15</text>
+<text x="184" y="1070" text-anchor="end">prompted-accommodating-accommodating</text>
+<rect x="190" y="1057" width="284.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1067" width="267.5" height="9" fill="#95a5a6"/>
+<text x="624" y="1070">40/40</text><text x="674" y="1070">30/40</text><text x="734" y="1070">10.225</text>
+<text x="184" y="1096" text-anchor="end">prompted-avoiding-avoiding</text>
+<rect x="190" y="1083" width="185.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1093" width="196.2" height="9" fill="#95a5a6"/>
+<text x="624" y="1096">17/40</text><text x="674" y="1096">39/40</text><text x="734" y="1096">50.75</text>
+<text x="184" y="1122" text-anchor="end">default-default</text>
+<rect x="190" y="1109" width="261.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="1119" width="279.8" height="9" fill="#95a5a6"/>
+<text x="624" y="1122">40/40</text><text x="674" y="1122">n/a</text><text x="734" y="1122">12.662</text>
+</svg>

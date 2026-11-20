@@ -110,7 +110,7 @@ def make_instance(env, seed, index, first_mover):
             "outside": {"p1": round(outside[0] * stakes[0], 1), "p2": round(outside[1] * stakes[1], 1)},
             "max": {"p1": round(100 * stakes[0], 1), "p2": round(100 * stakes[1], 1)}, "first_mover": first_mover,
             "visible_weights": bool(env.get("visible_weights", False)), "move_cost": env.get("move_cost", 0),
-            "output_budget": env.get("output_budget")}
+            "output_budget": env.get("output_budget"), "moves": env.get("moves", 10)}
     inst["frontier"] = frontier(inst)
     return inst
 
@@ -414,6 +414,8 @@ def compliance(strategy, inst, moves, agreement, agent):
     own, other = m["proposals"], "p2" if agent == "p1" else "p1"
     accepted = m["accepted_value"]
     t = thresholds(inst, agent)
+    # the rules allow a lower acceptance on the agent's last possible move (the last two moves of the game)
+    at_last_move = bool(moves) and moves[-1]["n"] >= inst.get("moves", 10) - 1
     partner_offers = [(x["n"], x["values"][agent]) for x in moves if x["by"] == other and x["action"] == "propose"]
     checks = {}
     if strategy == "competing":
@@ -421,7 +423,7 @@ def compliance(strategy, inst, moves, agreement, agent):
                   "one_decision_per_step": m["max_changed"] is None or m["max_changed"] <= 1,
                   "accepts_60": accepted is None or accepted >= t["t60"]}
     elif strategy == "collaborating":
-        checks = {"asks_first": m["asks"], "accepts_60": accepted is None or accepted >= t["t60"],
+        checks = {"asks_first": m["asks"], "accepts_60": accepted is None or accepted >= t["t60"] or at_last_move,
                   "proposes_trade": m["trade"] if own else None}
     elif strategy == "compromising":
         checks = {"accepts_50": accepted is None or accepted >= t["t50"],
@@ -818,6 +820,46 @@ def map_chart(out):
     return "\n".join(s)
 
 
+def matrix_chart(M, J=None, title="Own payoff (row strategy) against the partner's strategy (column)"):
+    """An SVG heatmap of the own-payoff matrix, and of a second matrix (joint payoff) beside it when given."""
+    names = list(M)
+    cw, ch, x0, y0 = 72, 30, 150, 60
+    panels = [(M, title)] + ([(J, "Joint payoff by pair")] if J else [])
+    W = x0 + len(names) * cw + (len(panels) - 1) * (len(names) * cw + 150) + 20
+    H = y0 + len(names) * ch + 30
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" font-family="Helvetica, Arial, sans-serif" font-size="11">',
+         f'<rect width="{W}" height="{H}" fill="white"/>']
+    for p, (mat, label) in enumerate(panels):
+        ox = x0 + p * (len(names) * cw + 150)
+        vals = [v for row in mat.values() for v in row.values() if v is not None]
+        lo, hi = (min(vals), max(vals)) if vals else (0, 1)
+        s.append(f'<text x="{ox}" y="22" font-size="13" font-weight="bold">{label}</text>')
+        for j, t in enumerate(names):
+            s.append(f'<text x="{ox + j * cw + cw / 2:.0f}" y="{y0 - 8}" text-anchor="middle">{t[:7]}</text>')
+        for i, r in enumerate(names):
+            s.append(f'<text x="{ox - 6}" y="{y0 + i * ch + ch / 2 + 4:.0f}" text-anchor="end">{r}</text>')
+            for j, t in enumerate(names):
+                v = mat[r][t]
+                if v is None:
+                    continue
+                z = (v - lo) / (hi - lo) if hi > lo else 0.5
+                red, green, blue = int(230 - 150 * z), int(120 + 100 * z), int(100 + 40 * (1 - z))
+                s.append(f'<rect x="{ox + j * cw}" y="{y0 + i * ch}" width="{cw - 2}" height="{ch - 2}" fill="rgb({red},{green},{blue})"/>')
+                s.append(f'<text x="{ox + j * cw + cw / 2 - 1:.0f}" y="{y0 + i * ch + ch / 2 + 4:.0f}" text-anchor="middle">{v:.0f}</text>')
+    s.append("</svg>")
+    return "\n".join(s)
+
+
+def joint_matrix(table, strategies=("neutral", *STYLES)):
+    cells = {}
+    for r in table:
+        if r["error"]:
+            continue
+        cells.setdefault((r["p1"], r["p2"]), []).append(r["joint"])
+        cells.setdefault((r["p2"], r["p1"]), []).append(r["joint"])
+    return {s: {t: mean(cells.get((s, t), [])) for t in strategies} for s in strategies}
+
+
 def report(config, root):
     table = rows(config, root)
     summary = summarize(config, table)
@@ -834,6 +876,8 @@ def report(config, root):
                                                                      for rec in records(config, root)), 3)}
     Path(f"{prefix}_summary.json").write_text(json.dumps(out, indent=1))
     Path(f"{prefix}_chart.svg").write_text(chart(config, summary))
+    if sum(1 for s in M if any(M[s][t] is not None for t in M)) >= 3:
+        Path(f"{prefix}_matrix.svg").write_text(matrix_chart(M, joint_matrix(table)))
     for name, e in summary.items():
         comply = f'{e["p1_complies"]}/{e["p1_compliance_known"]}' if e["p1_compliance_known"] else "-"
         print(f"{name:26} n={e['games']:>2} agree={e['agreements']:>2} p1={e['payoff_p1']} p2={e['payoff_p2']} "

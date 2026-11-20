@@ -740,6 +740,44 @@ The joint gap is the distance of the outcome from the instance's maximal joint p
 
 Decisions for E1: the rule-based operationalization with these rule texts, the prompted sentences as an ablation on the diagonal; compliance reported in every cell, with the analysis on all games (intention to treat) primary and on compliant games secondary; outside option 30, the protocol note, opposition 0.75 and asymmetry 0.5 unchanged; avoiding is operationalized as withdrawal, and its predicted place is the lowest agreement rate. Limits: 10 instances per cell; the rule texts were adjusted on these dev instances, so E1 uses a fresh seed; labels are single-pass.
 
+### Strategy payoff study: E1 strategy matrix (2026-11-20)
+
+Config, frozen before the run: [configs/bargain_e1.json](../configs/bargain_e1.json). 40 fresh instances of the mixed regime; all 36 ordered pairs of {neutral, competing, collaborating, compromising, accommodating, avoiding} as rules, the five prompted sentences on the diagonal, and no guidance on both sides: 42 cells, 1680 games, gpt-6-luna on both sides, $0.83 for the games. No game errored and no reply was unparseable. Per-game data: [results/bargain_e1_rows.csv](../results/bargain_e1_rows.csv); summary with the matrices, best responses and replicator dynamics: [results/bargain_e1_summary.json](../results/bargain_e1_summary.json); figure: [results/bargain_e1_matrix.svg](../results/bargain_e1_matrix.svg). Comparisons are paired by instance (exact sign tests over 40 instances); the matrix pools both seats, so each entry is 80 games.
+
+Own payoff (row: own strategy; column: the partner's), in points out of 100; the maximal joint payoff of an instance is about 142:
+
+| | neutral | competing | collaborating | compromising | accommodating | avoiding |
+|---|---|---|---|---|---|---|
+| neutral | 63.8 | 52.8 | 64.1 | 63.9 | **79.8** | 58.2 |
+| competing | 67.0 | 54.7 | 58.6 | **68.3** | 75.3 | 63.6 |
+| collaborating | **72.2** | **55.2** | **67.5** | 66.5 | 73.3 | **67.5** |
+| compromising | 57.6 | 50.5 | 58.3 | 59.3 | 66.8 | 58.8 |
+| accommodating | 51.7 | 51.5 | 61.2 | 61.0 | 66.9 | 59.4 |
+| avoiding | 45.3 | 36.1 | 47.8 | 56.6 | 60.4 | 50.9 |
+
+| Pair (rules) | Joint | vs neutral–neutral | Agreement | Joint gap | Moves | Tokens per agent |
+|---|---|---|---|---|---|---|
+| collaborating–collaborating | 135.5 | +7.9 (22 / 10, p = 0.05) | 0.97 | 6.1 | 5.6 | 2694 |
+| accommodating–accommodating | 136.3 | +8.7 (23 / 7, p = 0.005) | 1.00 | 5.3 | 3.8 | 1383 |
+| neutral–neutral | 127.6 | | 1.00 | 14.0 | 4.9 | 1881 |
+| default–default (no guidance) | 128.9 | +1.4 (p = 0.74) | 1.00 | 12.7 | 4.3 | 1437 |
+| compromising–compromising | 114.9 | −12.7 (10 / 26, p = 0.011) | 0.93 | 26.7 | 3.7 | 1396 |
+| avoiding–avoiding | 112.8 | −14.8 (p = 0.058) | 0.80 | 28.8 | 2.6 | 831 |
+| competing–competing | 102.5 | −25.0 (10 / 29, p = 0.003) | 0.62 | 39.1 | 8.6 | 4010 |
+
+- **Collaborating by rule dominates.** It is the best response to neutral, competing, collaborating and avoiding (bold), and replicator dynamics on the 6 × 6 game converge to all-collaborating. Against a neutral partner it earns 72.2 against the partner's 63.8, that is 7.4 points more than neutral earns in neutral–neutral (25 / 10, p = 0.017), while the neutral partner keeps what it had (64.1): the collaborating agent creates value and takes it. The result holds among the games that comply with the collaborating rule (72.8 against neutral) as much as among those that do not (71.9).
+- **Competing does not pay.** Against neutral it gains 2.7 points (p = 0.52) at the cost of 12% impasses; against itself it is the worst pair in the table (54.7 each, 62% agreement, a 39-point gap, 8.6 moves and 4000 tokens per agent). It is the best response only to compromising. The predicted exploitation of soft partners goes to the default agent instead: against accommodating, neutral earns 79.8, competing 75.3, because the competing rule's one-decision steps and 60-point floor cost it agreements.
+- **Accommodating is exploited by everyone, but two accommodators are efficient.** It earns 14.4 points less than neutral against a neutral partner (6 / 29, p < 0.001), and least against every partner except avoiding. Yet accommodating–accommodating has the highest joint payoff (136.3, gap 5.3) and the fewest tokens of any agreeing pair: each side takes the other's priorities and the trades happen by default.
+- **Compromising and avoiding destroy value.** Compromising–compromising leaves 26.7 points on the table (middle options on contested decisions); avoiding walks away in 20% of games against itself and 44% against competing, and earns 16 points less than neutral against a neutral partner.
+- **Cost orders the strategies the other way round from payoff**, except for collaborating: tokens per agent, averaged over partners, are competing 2688, collaborating 2366, neutral 2082, compromising 1762, accommodating 1570, avoiding 1109. Competing is the most expensive and among the least rewarding; collaborating pays for its talk.
+- **Prompted sentences.** On the diagonal the prompted competing sentence is softer than the rule (32 against 25 agreements, 21 / 40 comply), prompted avoiding harsher (17 agreements, both walk), and prompted collaborating, compromising and accommodating within a few points of the rules.
+- **Seats.** In the symmetric rule cells the two seats differ by at most 5 points and the second mover does slightly better in four of six; neither effect changes any ordering above.
+- Compliance over all partners: competing 229 / 240, avoiding 240 / 240, accommodating 218 / 240, compromising 194 / 240, collaborating 134 / 240 (it always asks and almost always holds its 60-point floor; what fails is proposing a package that gives each side its top option on a contested decision, 21 to 33 of 40 depending on the partner). The 11 collaborating acceptances below 60 were 7 last-move acceptances, which the rule allows; the check now allows them.
+
+Against the frozen predictions: the joint-payoff ordering (collaborating and accommodating pairs above neutral, competing and avoiding pairs below) and the agreement and cost orderings held; the own-payoff predictions did not: competing was predicted to exploit soft partners and to be the equilibrium, and instead collaborating is the best response almost everywhere and the equilibrium, and the default agent exploits accommodators better than the competing rule does. The prediction that accommodating–accommodating would sit far below the frontier was wrong by the largest margin.
+
+What it means for the map (E2): in this regime, with integrative gain available and no cost on talk, collaborating is the strategy to beat; the conditions that should move it are the ones that remove the integrative gain (a = 0), price the talk (reply budget, move cost) or shorten the horizon (T = 4).
+
 ## Next steps
 
 1. Build the bargaining environment, run E0 on the dev set, and choose the operationalization of the strategies.
