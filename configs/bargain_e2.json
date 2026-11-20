@@ -35,9 +35,9 @@
     "tight_budget": {
       "config": "configs/bargain_e2_tight_budget.json",
       "env": {
-        "output_budget": 150
+        "output_budget": 250
       },
-      "model_condition": "confrontation costs more than it yields (avoiding's condition), as a reply-token budget",
+      "model_condition": "confrontation costs more than it yields (avoiding's condition), as a reply-token budget (250 tokens after a scratch calibration; 150 ended most games in a walk)",
       "prediction": "avoiding and accommodating are the best net strategies; collaborating is the worst; the ranking by raw points changes little"
     },
     "distributive": {

@@ -179,6 +179,26 @@ class BargainTest(unittest.TestCase):
             svg = bargain.chart(cfg, summary)
             self.assertTrue(svg.startswith("<svg") and "competing" in svg)
 
+    def test_views_and_net_table(self):
+        def row(p1, p2, pay1, pay2, tok1, tok2):
+            return {"error": False, "p1": p1, "p2": p2, "payoff_p1": pay1, "payoff_p2": pay2, "p1_tokens": tok1, "p2_tokens": tok2}
+        table = [row("competing", "neutral", 70, 40, 3000, 2000), row("neutral", "competing", 45, 65, 2000, 3000),
+                 row("avoiding", "neutral", 40, 60, 500, 1500), row("neutral", "neutral", 55, 55, 2000, 2000)]
+        v = bargain.views(table)
+        self.assertEqual(len(v["competing"]["vs_neutral"]["both"]), 2)
+        self.assertEqual(len(v["neutral"]["vs_competing"]["both"]), 2)
+        self.assertEqual(len(v["neutral"]["symmetric"]["both"]), 2)
+        net = bargain.net_table({s: v[s]["vs_neutral"]["both"] for s in v})
+        self.assertEqual(net["best"]["0"], "competing")
+        self.assertEqual(net["best"]["10"], "competing")  # 67.5 - 30 = 37.5 > 40 - 5 = 35
+        self.assertEqual(net["best"]["20"], "avoiding")  # 67.5 - 60 = 7.5 < 40 - 10 = 30
+        self.assertEqual(net["switch_lambda"], "20")
+        self.assertEqual(net["strategies"]["competing"]["regret"]["0"], 0.0)
+        out = {"study": "t", "question": "q", "lambdas": list(bargain.LAMBDAS),
+               "conditions": {"c": {"games": 4, "errors": 0, "model_condition": "", "prediction": "",
+                                    "readings": {r: {"both": net} for r in bargain.READINGS}}}}
+        self.assertIn("avoiding", bargain.map_chart(out))
+
 
 if __name__ == "__main__":
     unittest.main()

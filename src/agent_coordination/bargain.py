@@ -718,6 +718,106 @@ def chart(config, summary):
     return "\n".join(s)
 
 
+# ---------------------------------------------------------------- condition map
+
+READINGS = ("symmetric", "vs_neutral", "vs_competing")
+LAMBDAS = (0, 1, 2, 5, 10, 20)
+
+
+def views(table, strategies=("neutral", *STYLES)):
+    """Per strategy, reading and seat: the (payoff, tokens) of every game where it played in that reading.
+
+    symmetric: both sides use the strategy; vs_neutral / vs_competing: the partner uses that one. Seat 'both' pools."""
+    out = {s: {r: {"p1": [], "p2": [], "both": []} for r in READINGS} for s in strategies}
+    for row in table:
+        if row["error"]:
+            continue
+        for seat, other in (("p1", "p2"), ("p2", "p1")):
+            s, t = row[seat], row[other]
+            if s not in out:
+                continue
+            entry = (row[f"payoff_{seat}"], row.get(f"{seat}_tokens") or 0)
+            for reading, hit in (("symmetric", s == t), ("vs_neutral", t == "neutral"), ("vs_competing", t == "competing")):
+                if hit:
+                    out[s][reading][seat].append(entry)
+                    out[s][reading]["both"].append(entry)
+    return out
+
+
+def net_table(view, lambdas=LAMBDAS):
+    """For one reading and seat: per strategy the mean payoff, mean tokens, and net payoff at each lambda; the best per lambda."""
+    stats = {}
+    for s, games in view.items():
+        if not games:
+            continue
+        payoff = sum(p for p, _ in games) / len(games)
+        tokens = sum(t for _, t in games) / len(games)
+        stats[s] = {"n": len(games), "payoff": round(payoff, 1), "tokens": round(tokens),
+                    "net": {str(l): round(payoff - l * tokens / 1000, 1) for l in lambdas}}
+    best = {str(l): max(stats, key=lambda s: stats[s]["net"][str(l)]) if stats else None for l in lambdas}
+    for s in stats:
+        stats[s]["regret"] = {str(l): round(stats[best[str(l)]]["net"][str(l)] - stats[s]["net"][str(l)], 1) for l in lambdas}
+    switch = next((str(l) for l in lambdas if best[str(l)] != best[str(lambdas[0])]), None)
+    return {"strategies": stats, "best": best, "switch_lambda": switch}
+
+
+def map_report(index, root):
+    """The condition map: for every condition, reading and seat, which strategy is best by payoff and by net payoff."""
+    out = {"study": index["study"], "question": index["question"], "lambdas": list(LAMBDAS), "conditions": {}}
+    for name, cond in index["conditions"].items():
+        config = load_config(root / cond["config"])
+        table = rows(config, root)
+        if not table:
+            continue
+        v = views(table)
+        entry = {"games": sum(1 for r in table if not r["error"]), "errors": sum(1 for r in table if r["error"]),
+                 "model_condition": cond["model_condition"], "prediction": cond["prediction"], "readings": {}}
+        for reading in READINGS:
+            entry["readings"][reading] = {seat: net_table({s: v[s][reading][seat] for s in v}) for seat in ("both", "p1", "p2")}
+        out["conditions"][name] = entry
+    prefix = root / "results" / index["study"]
+    Path(f"{prefix}_map.json").write_text(json.dumps(out, indent=1))
+    Path(f"{prefix}_map.svg").write_text(map_chart(out))
+    for name, e in out["conditions"].items():
+        line = " | ".join(f"{r}: " + ", ".join(f"λ{l}={e['readings'][r]['both']['best'][str(l)]}" for l in (0, 5, 20)) for r in READINGS)
+        print(f"{name:14} n={e['games']:>4}  {line}")
+    return out
+
+
+def map_chart(out):
+    """An SVG grid: conditions down, readings x lambda across, each cell the best strategy."""
+    pal = {"neutral": "#7f8c8d", "competing": "#c0392b", "collaborating": "#2980b9", "compromising": "#8e44ad",
+           "accommodating": "#27ae60", "avoiding": "#95a5a6", None: "#ffffff"}
+    conds = list(out["conditions"])
+    cols = [(r, l) for r in READINGS for l in (0, 5, 20)]
+    x0, y0, cw, ch = 150, 70, 80, 28
+    W, H = x0 + cw * len(cols) + 20, y0 + ch * len(conds) + 60
+    s = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" font-family="Helvetica, Arial, sans-serif" font-size="11">',
+         f'<rect width="{W}" height="{H}" fill="white"/>',
+         f'<text x="{x0}" y="22" font-size="14" font-weight="bold">Best strategy by condition (seats pooled), by reading and by the price of tokens λ</text>']
+    for j, (r, l) in enumerate(cols):
+        x = x0 + j * cw
+        if l == 0:
+            s.append(f'<text x="{x + cw * 1.5:.0f}" y="44" text-anchor="middle" font-weight="bold">{r.replace("_", " ")}</text>')
+        s.append(f'<text x="{x + cw / 2:.0f}" y="60" text-anchor="middle">λ={l}</text>')
+    for i, name in enumerate(conds):
+        y = y0 + i * ch
+        s.append(f'<text x="{x0 - 6}" y="{y + ch / 2 + 4:.0f}" text-anchor="end">{name}</text>')
+        for j, (r, l) in enumerate(cols):
+            best = out["conditions"][name]["readings"][r]["both"]["best"].get(str(l))
+            x = x0 + j * cw
+            s.append(f'<rect x="{x}" y="{y}" width="{cw - 2}" height="{ch - 2}" fill="{pal.get(best, "#fff")}"/>')
+            if best:
+                s.append(f'<text x="{x + cw / 2 - 1:.0f}" y="{y + ch / 2 + 4:.0f}" text-anchor="middle" fill="white" font-size="10">{best[:6]}</text>')
+    lx = x0
+    for name, col in pal.items():
+        if name:
+            s.append(f'<rect x="{lx}" y="{H - 30}" width="12" height="12" fill="{col}"/><text x="{lx + 16}" y="{H - 20}">{name}</text>')
+            lx += 22 + 7 * len(name)
+    s.append("</svg>")
+    return "\n".join(s)
+
+
 def report(config, root):
     table = rows(config, root)
     summary = summarize(config, table)
@@ -750,8 +850,12 @@ def main(argv):
     parser.add_argument("--workers", type=int, default=4)
     parser.add_argument("--limit", type=int)
     parser.add_argument("--cells", help="Comma-separated subset of cell names to play")
+    parser.add_argument("--map", action="store_true", help="The config is a condition index: build the condition map")
     args = parser.parse_args(argv)
     root = Path.cwd()
+    if args.map:
+        map_report(json.loads(Path(args.config).read_text()), root)
+        return 0
     config = load_config(args.config)
     if args.execute:
         execute(config, root, args.workers, args.limit, args.cells.split(",") if args.cells else None)

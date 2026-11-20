@@ -386,6 +386,9 @@ def negotiation_command(root, args):
 
 def bargain_command(root, args):
     config_path = args.config.resolve()
+    if args.map:
+        bargain.map_report(json.loads(config_path.read_text()), root)
+        return 0
     config = bargain.load_config(config_path)
     output = project_path(root, config["output"])
     if args.report:
@@ -549,6 +552,7 @@ def main(argv=None):
     barg.add_argument("--report", action="store_true", help="Summarize; no API")
     barg.add_argument("--limit", type=int, help="At most this many games")
     barg.add_argument("--cells", help="Comma-separated subset of cell names")
+    barg.add_argument("--map", action="store_true", help="Treat the config as a condition index and build the condition map (no API)")
     barg.add_argument("--python", help="CooperBench Python interpreter")
     barg.add_argument("--workers", type=int, help="Concurrent games (default 4)")
     run = subs.add_parser("run", help="Print the command; --execute actually launches it")

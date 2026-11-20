@@ -22,7 +22,8 @@
     "asymmetry": 0.5,
     "visible_weights": false,
     "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
-    "output_budget": 150
+    "output_budget": 250,
+    "note": "calibrated on 2 scratch instances before any E2 game: with 150 reply tokens (about two replies) 3 of 4 games ended in a walk whatever the strategies; 250 leaves room for one concession"
   },
   "instances": {
     "n": 20,

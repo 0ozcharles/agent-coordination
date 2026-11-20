@@ -242,6 +242,13 @@ python3 scripts/project.py bargain configs/bargain_dev.json --report            
 
 Records are under `runs/bargain/<study>/games/<cell>/`; the labeler uses `docs/B_BARGAIN_STYLE_CODEBOOK.md`. gpt-6-luna rejects `temperature` when `reasoning_effort` is anything but `none`, so reasoning stays off in these games.
 
+The environment's knobs live under `environment` in a config: `issues`, `options`, `moves`, `opposition`, `asymmetry`, `outside` (per seat), `stakes` (per seat, scales a side's points and outside option), `move_cost` (points per move that passes), `output_budget` (reply tokens per agent, after which it can only accept or walk), `visible_weights` and `protocol_note`. Rule texts take `{max}`, `{t60}`, `{t50}`, `{outside}` and `{outside10}`, filled on each agent's own scale. The studies: `configs/bargain_e1.json` is the 42-cell strategy matrix; `configs/bargain_e2.json` indexes ten condition configs that each move one knob from the E1 base. The condition map across them needs no API:
+
+```bash
+for c in configs/bargain_e2_*.json; do python3 scripts/project.py bargain $c --execute --workers 10; done
+python3 scripts/project.py bargain configs/bargain_e2.json --map      # results/bargain_e2_map.{json,svg}
+```
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.
