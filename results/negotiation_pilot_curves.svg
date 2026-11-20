@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="1000" height="420" fill="white"/>
+<text x="60" y="22" font-size="14" font-weight="bold">Focal player: share of the surplus claimed, by own proposal</text>
+<line x1="60" y1="340.0" x2="400" y2="340.0" stroke="#ddd"/><text x="52" y="344.0" text-anchor="end">0.0</text>
+<line x1="60" y1="227.2" x2="400" y2="227.2" stroke="#ddd"/><text x="52" y="231.2" text-anchor="end">0.5</text>
+<line x1="60" y1="114.4" x2="400" y2="114.4" stroke="#ddd"/><text x="52" y="118.4" text-anchor="end">1.0</text>
+<text x="60.0" y="356" text-anchor="middle">1</text>
+<text x="173.3" y="356" text-anchor="middle">2</text>
+<text x="286.7" y="356" text-anchor="middle">3</text>
+<text x="400.0" y="356" text-anchor="middle">4</text>
+<text x="230.0" y="374" text-anchor="middle">proposal index</text>
+<polyline fill="none" stroke="#555555" stroke-width="2" points="60.0,71.4 173.3,163.8 286.7,231.1"/>
+<circle cx="60.0" cy="71.4" r="3" fill="#555555"/>
+<circle cx="173.3" cy="163.8" r="3" fill="#555555"/>
+<circle cx="286.7" cy="231.1" r="3" fill="#555555"/>
+<text x="408" y="235.1" fill="#555555">neutral</text>
+<polyline fill="none" stroke="#c0392b" stroke-width="2" points="60.0,125.5 173.3,97.7 286.7,148.3"/>
+<circle cx="60.0" cy="125.5" r="3" fill="#c0392b"/>
+<circle cx="173.3" cy="97.7" r="3" fill="#c0392b"/>
+<circle cx="286.7" cy="148.3" r="3" fill="#c0392b"/>
+<text x="408" y="152.3" fill="#c0392b">competing</text>
+<polyline fill="none" stroke="#2980b9" stroke-width="2" points="60.0,156.6 173.3,185.9 286.7,217.3"/>
+<circle cx="60.0" cy="156.6" r="3" fill="#2980b9"/>
+<circle cx="173.3" cy="185.9" r="3" fill="#2980b9"/>
+<circle cx="286.7" cy="217.3" r="3" fill="#2980b9"/>
+<text x="408" y="221.3" fill="#2980b9">collaborating</text>
+<polyline fill="none" stroke="#8e44ad" stroke-width="2" points="60.0,194.7 173.3,262.2"/>
+<circle cx="60.0" cy="194.7" r="3" fill="#8e44ad"/>
+<circle cx="173.3" cy="262.2" r="3" fill="#8e44ad"/>
+<text x="408" y="266.2" fill="#8e44ad">compromising</text>
+<polyline fill="none" stroke="#27ae60" stroke-width="2" points="60.0,190.0"/>
+<circle cx="60.0" cy="190.0" r="3" fill="#27ae60"/>
+<text x="408" y="194.0" fill="#27ae60">accommodating</text>
+<polyline fill="none" stroke="#e67e22" stroke-width="2" points="60.0,40.0"/>
+<circle cx="60.0" cy="40.0" r="3" fill="#e67e22"/>
+<text x="408" y="44.0" fill="#e67e22">avoiding</text>
+<text x="640" y="22" font-size="14" font-weight="bold">Focal player: labeled style</text>
+<text x="634" y="69.0" text-anchor="end">neutral</text>
+<rect x="640.0" y="44.0" width="16.5" height="42.0" fill="#c0392b"/>
+<text x="648.2" y="69.0" text-anchor="middle" fill="white">1</text>
+<rect x="656.5" y="44.0" width="16.5" height="42.0" fill="#2980b9"/>
+<text x="664.8" y="69.0" text-anchor="middle" fill="white">1</text>
+<rect x="673.0" y="44.0" width="231.0" height="42.0" fill="#8e44ad"/>
+<text x="788.5" y="69.0" text-anchor="middle" fill="white">14</text>
+<rect x="904.0" y="44.0" width="66.0" height="42.0" fill="#27ae60"/>
+<text x="937.0" y="69.0" text-anchor="middle" fill="white">4</text>
+<text x="634" y="119.0" text-anchor="end">competing</text>
+<rect x="640.0" y="94.0" width="33.0" height="42.0" fill="#c0392b"/>
+<text x="656.5" y="119.0" text-anchor="middle" fill="white">2</text>
+<rect x="673.0" y="94.0" width="214.5" height="42.0" fill="#8e44ad"/>
+<text x="780.2" y="119.0" text-anchor="middle" fill="white">13</text>
+<rect x="887.5" y="94.0" width="82.5" height="42.0" fill="#27ae60"/>
+<text x="928.8" y="119.0" text-anchor="middle" fill="white">5</text>
+<text x="634" y="169.0" text-anchor="end">collaborating</text>
+<rect x="640.0" y="144.0" width="82.5" height="42.0" fill="#2980b9"/>
+<text x="681.2" y="169.0" text-anchor="middle" fill="white">5</text>
+<rect x="722.5" y="144.0" width="49.5" height="42.0" fill="#8e44ad"/>
+<text x="747.2" y="169.0" text-anchor="middle" fill="white">3</text>
+<rect x="772.0" y="144.0" width="198.0" height="42.0" fill="#27ae60"/>
+<text x="871.0" y="169.0" text-anchor="middle" fill="white">12</text>
+<text x="634" y="219.0" text-anchor="end">compromising</text>
+<rect x="640.0" y="194.0" width="66.0" height="42.0" fill="#2980b9"/>
+<text x="673.0" y="219.0" text-anchor="middle" fill="white">4</text>
+<rect x="706.0" y="194.0" width="66.0" height="42.0" fill="#8e44ad"/>
+<text x="739.0" y="219.0" text-anchor="middle" fill="white">4</text>
+<rect x="772.0" y="194.0" width="198.0" height="42.0" fill="#27ae60"/>
+<text x="871.0" y="219.0" text-anchor="middle" fill="white">12</text>
+<text x="634" y="269.0" text-anchor="end">accommodating</text>
+<rect x="640.0" y="244.0" width="33.0" height="42.0" fill="#2980b9"/>
+<text x="656.5" y="269.0" text-anchor="middle" fill="white">2</text>
+<rect x="673.0" y="244.0" width="115.5" height="42.0" fill="#8e44ad"/>
+<text x="730.8" y="269.0" text-anchor="middle" fill="white">7</text>
+<rect x="788.5" y="244.0" width="181.5" height="42.0" fill="#27ae60"/>
+<text x="879.2" y="269.0" text-anchor="middle" fill="white">11</text>
+<text x="634" y="319.0" text-anchor="end">avoiding</text>
+<rect x="640.0" y="294.0" width="82.5" height="42.0" fill="#c0392b"/>
+<text x="681.2" y="319.0" text-anchor="middle" fill="white">5</text>
+<rect x="722.5" y="294.0" width="99.0" height="42.0" fill="#8e44ad"/>
+<text x="772.0" y="319.0" text-anchor="middle" fill="white">6</text>
+<rect x="821.5" y="294.0" width="148.5" height="42.0" fill="#27ae60"/>
+<text x="895.8" y="319.0" text-anchor="middle" fill="white">9</text>
+<rect x="640" y="352" width="12" height="12" fill="#c0392b"/><text x="656" y="362">competing</text>
+<rect x="723" y="352" width="12" height="12" fill="#2980b9"/><text x="739" y="362">collaborating</text>
+<rect x="834" y="352" width="12" height="12" fill="#8e44ad"/><text x="850" y="362">compromising</text>
+<rect x="938" y="352" width="12" height="12" fill="#27ae60"/><text x="954" y="362">accommodating</text>
+<rect x="1049" y="352" width="12" height="12" fill="#95a5a6"/><text x="1065" y="362">avoiding</text>
+</svg>

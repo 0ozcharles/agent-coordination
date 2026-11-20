@@ -214,6 +214,21 @@ python3 scripts/project.py conflict-states configs/parallact_conflict_states.jso
 
 The reference check confirms, per instance, that the base commit fails the combined tests, each reference patch passes its own tests, the reconciled patch passes the combined tests, and a plain git merge of the two reference patches does not.
 
+## Negotiation games
+
+`src/agent_coordination/negotiation.py` runs [NegotiationArena](https://github.com/vinid/NegotiationArena)'s buy-sell game (MIT) with our style instructions: one player gets an instruction, the other the plain prompt, and every condition plays the same instances. The games need no Docker and cost about $0.001 each. Clone the arena at the pinned commit:
+
+```bash
+git clone https://github.com/vinid/NegotiationArena external/NegotiationArena
+git -C external/NegotiationArena checkout c447fafd439a20b84cdedeb2f8a85c4fad764745
+python3 scripts/project.py negotiation configs/negotiation_pilot.json                       # preview
+python3 scripts/project.py negotiation configs/negotiation_pilot.json --execute --workers 8  # play (paid API)
+python3 scripts/project.py negotiation configs/negotiation_pilot.json --label --workers 8    # style labels (paid API)
+python3 scripts/project.py negotiation configs/negotiation_pilot.json --report               # no API
+```
+
+Each game's record (proposals, messages, payoffs, label) is under `runs/negotiation/<study>/games/<condition>/`; the arena's own logs are next to them. The style labeler uses `docs/N_NEGOTIATION_STYLE_CODEBOOK.md`, the negotiation counterpart of the coordination codebook. The arena's `agents` package imports the `anthropic` SDK unconditionally; the module stubs it when the package is missing, since only the litellm agent is used. The players get an explicit payoff line (price minus cost, or limit minus price); without it the seller opened at cost and the buyer accepted at once.
+
 ## Notes
 
 - CooperBench's 600 s test timeout does not work with the Docker backend: `exec_run` runs inside a `with ThreadPoolExecutor` block, which waits for the command after the timeout. A test that loops forever hangs its worker. `scripts/test_watchdog.py` kills tests that run longer than 600 s and logs each kill; the feature then fails, as it would under the intended timeout.

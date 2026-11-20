@@ -628,6 +628,34 @@ What it shows:
 - For our study, part of what looked like coordination failure on ParallACT was a weak merge step. Comparisons of handling styles should be scored with the aware whole-file merge. The exploratory rescoring above does not change the style result: no arm moves above neutral (29).
 - Limits: one model, one resolution per run and method; the rescoring of style arms was not planned before the run.
 
+### Negotiation pilot: manipulation check of the style instructions (2026-11-20)
+
+The next study analyses how handling strategies change each agent's payoff in a conflict of interest, in an environment with explicit per-agent payoffs (design draft shared with the team on 2026-11-20). Before building that environment, this pilot asks whether the style sentences from the coding studies change how an LLM negotiates when the payoff is explicit and continuous. Setting: [NegotiationArena](https://github.com/vinid/NegotiationArena)'s buy-sell game (MIT, commit c447faf): one object, the seller knows its cost, the buyer its limit, alternating proposals in ZUP, at most four own proposals each, ACCEPT or REJECT ends the game. We add one line to each role stating its payoff (price minus cost, or limit minus price); without it the seller opened at cost and the buyer accepted at once. Config, written before any game: [configs/negotiation_pilot.json](../configs/negotiation_pilot.json); 20 instances (cost 30 to 60, surplus 10 to 30), the instructed player is the seller in even instances and the buyer in odd ones, the other player gets the plain prompt; six conditions (neutral and the five styles, each sentence reworded from the coding arms), 120 games, gpt-6-luna on both sides. Styles were labeled from the public moves with [docs/N_NEGOTIATION_STYLE_CODEBOOK.md](N_NEGOTIATION_STYLE_CODEBOOK.md), the negotiation counterpart of the coordination codebook. Cost: $0.07 for the games and $0.04 for the labels. Per-game data: [results/negotiation_pilot_rows.csv](../results/negotiation_pilot_rows.csv); curves: [results/negotiation_pilot_curves.svg](../results/negotiation_pilot_curves.svg).
+
+Share is the instructed player's share of the surplus (0 when there is no deal); comparisons with neutral are paired by instance (exact sign test).
+
+| Condition | Deals | Share (partner) | Moves | First claim | Concession | Labeled style: competing / collaborating / compromising / accommodating / avoiding | In target (neutral) | Assertiveness, cooperativeness |
+|---|---|---|---|---|---|---|---|---|
+| Neutral | 19 | 0.52 (0.43) | 4.2 | 1.19 | 0.37 | 1 / 1 / 14 / 4 / 0 | | 1.15, 1.05 |
+| Competing | 20 | 0.52 (0.48) | 4.2 | 0.95 | 0.17 | 2 / 0 / 13 / 5 / 0 | 2 (1) | 1.45, 1.10 |
+| Collaborating | 20 | 0.37 (0.63) | 3.9 | 0.81 | 0.10 | 0 / 5 / 3 / 12 / 0 | 5 (1) | 1.10, 1.85 |
+| Compromising | 20 | **0.22** (0.78), lower in 13 of 16, p = 0.02 | 3.3 | 0.64 | 0.15 | 0 / 4 / 4 / 12 / 0 | 4 (14) | 0.80, 1.45 |
+| Accommodating | 18 | 0.28 (0.62) | 2.8 | 0.67 | 0.09 | 0 / 2 / 7 / 11 / 0 | 11 (4) | 0.95, 1.50 |
+| Avoiding | 18 | 0.39 (0.51) | 2.7 | 1.33 | 0.00 | 5 / 0 / 6 / 9 / 0 | 0 (0) | 0.85, 0.75 |
+
+- **The default is compromising, and the seller gives its cost away.** Under neutral 14 of 20 instructed players are labeled compromising, and the seller states its production cost in its first message in 20 of 20 games. The first mover does better: instructed sellers take 0.68 of the surplus, instructed buyers 0.36.
+- **The instructions move the payoff.** The instructed player's share falls from 0.52 under neutral to 0.37 (collaborating), 0.28 (accommodating) and 0.22 (compromising); only the last is significant with 20 games. Deals are reached in 115 of 120 games, so the sentences redistribute the surplus rather than destroy it; in a one-issue game there is no value to create.
+- **Which styles the sentences induce.** Accommodating: yes (11 labeled against 4 under neutral; share 0.28). Collaborating: in talk (11 of 20 ask what the other side needs, against 0; cooperativeness 1.85) but not in the outcome: 12 of 20 are labeled accommodating, because with one issue "a deal good for both" can only mean conceding. Compromising: no; the sentence turns the compromising default into accommodating (4 compromising against 14, 12 accommodating), as on CooperBench, where the compromising arm was the one that hurt. Competing: no; the label does not move (2 against 1, 13 still compromising) and the share stays at 0.52: the player concedes less (0.17 against 0.37) but also opens lower (0.95 against 1.19). Avoiding: never labeled avoiding, because the game forces a move and the player makes its one proposal and then accepts or holds, but its behaviour is the most distinct: 2.7 moves, no concession, the fewest messages, and only 8 of 20 sellers disclose their cost.
+- **The two scores move where the categorical label does not.** Every sentence shifts assertiveness and cooperativeness in the predicted direction (competing +0.30 assertiveness; collaborating +0.80 cooperativeness; avoiding −0.30 and −0.30); the 3 × 3 grid rounds several of these away.
+
+What it decides for the main study:
+
+- A one-issue price game is the zero-sum pole: collaborating cannot differ from accommodating in it. The main environment needs several decision points with different private weights, as the design draft says, so that integrative deals exist.
+- Competing, avoiding and compromising need behavioural rules (a reservation price, a concession schedule, a walk-away rule, an explicit split of the difference); the sentences alone give compromising-as-accommodating and competing-as-neutral. Accommodating and collaborating sentences work as talk.
+- Report assertiveness and cooperativeness alongside the style label, and measure disclosure: the seller's habit of stating its cost is an information treatment in itself.
+- Cost is not a constraint: $0.001 per game, so the planned 1200 games cost about $2 plus labels.
+- Limits: one model, 20 games per condition, single-pass labels (no repeat, so no agreement figure). The arena's engine does not end a game on REJECT; moves after a REJECT are discarded (5 games), and the three games whose end-of-game summary crashed were replayed with the engine ending on REJECT.
+
 ## Next steps
 
 1. Run the same-harness scoring on all pairs, not a sample, to narrow these intervals. Then run the audit, the census and the same-harness scoring on the paper's other three models and on its no-communication runs.

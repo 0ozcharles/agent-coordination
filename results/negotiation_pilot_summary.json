@@ -1,0 +1,395 @@
+{
+ "study": "negotiation_pilot",
+ "question": "Manipulation check before the payoff study: do the conflict-handling instructions from the coding studies, reworded for a price negotiation, change how an LLM player negotiates? Measured on NegotiationArena's buy-sell game by the labeled style, the concession curve and the share of the surplus the instructed player gets.",
+ "control": "neutral",
+ "conditions": {
+  "neutral": {
+   "games": 20,
+   "errors": 0,
+   "deals": 19,
+   "focal_share": 0.522,
+   "partner_share": 0.428,
+   "turns": 4.15,
+   "focal_messages": 2.05,
+   "first_claim": 1.191,
+   "concession": 0.365,
+   "walked_away": 0,
+   "focal_style": {
+    "competing": 1,
+    "collaborating": 1,
+    "compromising": 14,
+    "accommodating": 4,
+    "avoiding": 0
+   },
+   "labeled": 20,
+   "first_concession_focal": 7,
+   "asks_needs": 0,
+   "cost_usd": 0.013,
+   "target": null
+  },
+  "competing": {
+   "games": 20,
+   "errors": 0,
+   "deals": 20,
+   "focal_share": 0.521,
+   "partner_share": 0.479,
+   "turns": 4.2,
+   "focal_messages": 1.95,
+   "first_claim": 0.951,
+   "concession": 0.169,
+   "walked_away": 0,
+   "focal_style": {
+    "competing": 2,
+    "collaborating": 0,
+    "compromising": 13,
+    "accommodating": 5,
+    "avoiding": 0
+   },
+   "labeled": 20,
+   "first_concession_focal": 3,
+   "asks_needs": 0,
+   "cost_usd": 0.013,
+   "target": "competing",
+   "in_target_style": 2,
+   "vs_control": {
+    "pairs": 20,
+    "focal_share": {
+     "higher": 8,
+     "lower": 6,
+     "p": 0.7905
+    },
+    "concession": {
+     "higher": 3,
+     "lower": 8,
+     "p": 0.2266
+    },
+    "turns": {
+     "higher": 6,
+     "lower": 8,
+     "p": 0.7905
+    },
+    "focal_messages": {
+     "higher": 6,
+     "lower": 8,
+     "p": 0.7905
+    },
+    "first_claim": {
+     "higher": 3,
+     "lower": 8,
+     "p": 0.2266
+    },
+    "in_target_style": {
+     "arm": 2,
+     "control": 1
+    }
+   }
+  },
+  "collaborating": {
+   "games": 20,
+   "errors": 0,
+   "deals": 20,
+   "focal_share": 0.374,
+   "partner_share": 0.626,
+   "turns": 3.9,
+   "focal_messages": 1.95,
+   "first_claim": 0.813,
+   "concession": 0.101,
+   "walked_away": 0,
+   "focal_style": {
+    "competing": 0,
+    "collaborating": 5,
+    "compromising": 3,
+    "accommodating": 12,
+    "avoiding": 0
+   },
+   "labeled": 20,
+   "first_concession_focal": 3,
+   "asks_needs": 11,
+   "cost_usd": 0.012,
+   "target": "collaborating",
+   "in_target_style": 5,
+   "vs_control": {
+    "pairs": 20,
+    "focal_share": {
+     "higher": 5,
+     "lower": 12,
+     "p": 0.1435
+    },
+    "concession": {
+     "higher": 2,
+     "lower": 9,
+     "p": 0.0654
+    },
+    "turns": {
+     "higher": 7,
+     "lower": 9,
+     "p": 0.8036
+    },
+    "focal_messages": {
+     "higher": 6,
+     "lower": 8,
+     "p": 0.7905
+    },
+    "first_claim": {
+     "higher": 4,
+     "lower": 8,
+     "p": 0.3877
+    },
+    "in_target_style": {
+     "arm": 5,
+     "control": 1
+    }
+   }
+  },
+  "compromising": {
+   "games": 20,
+   "errors": 0,
+   "deals": 20,
+   "focal_share": 0.219,
+   "partner_share": 0.781,
+   "turns": 3.25,
+   "focal_messages": 1.65,
+   "first_claim": 0.644,
+   "concession": 0.145,
+   "walked_away": 0,
+   "focal_style": {
+    "competing": 0,
+    "collaborating": 4,
+    "compromising": 4,
+    "accommodating": 12,
+    "avoiding": 0
+   },
+   "labeled": 20,
+   "first_concession_focal": 5,
+   "asks_needs": 0,
+   "cost_usd": 0.01,
+   "target": "compromising",
+   "in_target_style": 4,
+   "vs_control": {
+    "pairs": 20,
+    "focal_share": {
+     "higher": 3,
+     "lower": 13,
+     "p": 0.0213
+    },
+    "concession": {
+     "higher": 3,
+     "lower": 7,
+     "p": 0.3438
+    },
+    "turns": {
+     "higher": 2,
+     "lower": 10,
+     "p": 0.0386
+    },
+    "focal_messages": {
+     "higher": 1,
+     "lower": 7,
+     "p": 0.0703
+    },
+    "first_claim": {
+     "higher": 0,
+     "lower": 11,
+     "p": 0.001
+    },
+    "in_target_style": {
+     "arm": 4,
+     "control": 14
+    }
+   }
+  },
+  "accommodating": {
+   "games": 20,
+   "errors": 0,
+   "deals": 18,
+   "focal_share": 0.278,
+   "partner_share": 0.622,
+   "turns": 2.8,
+   "focal_messages": 1.35,
+   "first_claim": 0.665,
+   "concession": 0.088,
+   "walked_away": 0,
+   "focal_style": {
+    "competing": 0,
+    "collaborating": 2,
+    "compromising": 7,
+    "accommodating": 11,
+    "avoiding": 0
+   },
+   "labeled": 20,
+   "first_concession_focal": 1,
+   "asks_needs": 10,
+   "cost_usd": 0.01,
+   "target": "accommodating",
+   "in_target_style": 11,
+   "vs_control": {
+    "pairs": 20,
+    "focal_share": {
+     "higher": 4,
+     "lower": 12,
+     "p": 0.0768
+    },
+    "concession": {
+     "higher": 1,
+     "lower": 8,
+     "p": 0.0391
+    },
+    "turns": {
+     "higher": 0,
+     "lower": 12,
+     "p": 0.0005
+    },
+    "focal_messages": {
+     "higher": 0,
+     "lower": 9,
+     "p": 0.0039
+    },
+    "first_claim": {
+     "higher": 1,
+     "lower": 9,
+     "p": 0.0215
+    },
+    "in_target_style": {
+     "arm": 11,
+     "control": 4
+    }
+   }
+  },
+  "avoiding": {
+   "games": 20,
+   "errors": 0,
+   "deals": 18,
+   "focal_share": 0.391,
+   "partner_share": 0.509,
+   "turns": 2.7,
+   "focal_messages": 1.2,
+   "first_claim": 1.33,
+   "concession": 0.0,
+   "walked_away": 1,
+   "focal_style": {
+    "competing": 5,
+    "collaborating": 0,
+    "compromising": 6,
+    "accommodating": 9,
+    "avoiding": 0
+   },
+   "labeled": 20,
+   "first_concession_focal": 0,
+   "asks_needs": 0,
+   "cost_usd": 0.01,
+   "target": "avoiding",
+   "in_target_style": 0,
+   "vs_control": {
+    "pairs": 20,
+    "focal_share": {
+     "higher": 7,
+     "lower": 9,
+     "p": 0.8036
+    },
+    "concession": {
+     "higher": 0,
+     "lower": 10,
+     "p": 0.002
+    },
+    "turns": {
+     "higher": 1,
+     "lower": 13,
+     "p": 0.0018
+    },
+    "focal_messages": {
+     "higher": 0,
+     "lower": 11,
+     "p": 0.001
+    },
+    "first_claim": {
+     "higher": 3,
+     "lower": 7,
+     "p": 0.3438
+    },
+    "in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  }
+ },
+ "curves": {
+  "neutral": {
+   "1": {
+    "mean": 1.191,
+    "n": 19
+   },
+   "2": {
+    "mean": 0.781,
+    "n": 10
+   },
+   "3": {
+    "mean": 0.483,
+    "n": 3
+   }
+  },
+  "competing": {
+   "1": {
+    "mean": 0.951,
+    "n": 20
+   },
+   "2": {
+    "mean": 1.074,
+    "n": 10
+   },
+   "3": {
+    "mean": 0.85,
+    "n": 3
+   },
+   "4": {
+    "mean": 0.85,
+    "n": 1
+   }
+  },
+  "collaborating": {
+   "1": {
+    "mean": 0.813,
+    "n": 20
+   },
+   "2": {
+    "mean": 0.683,
+    "n": 5
+   },
+   "3": {
+    "mean": 0.544,
+    "n": 3
+   },
+   "4": {
+    "mean": 0.3,
+    "n": 1
+   }
+  },
+  "compromising": {
+   "1": {
+    "mean": 0.644,
+    "n": 18
+   },
+   "2": {
+    "mean": 0.345,
+    "n": 4
+   }
+  },
+  "accommodating": {
+   "1": {
+    "mean": 0.665,
+    "n": 17
+   },
+   "2": {
+    "mean": 0.225,
+    "n": 2
+   }
+  },
+  "avoiding": {
+   "1": {
+    "mean": 1.33,
+    "n": 17
+   }
+  }
+ },
+ "cost_usd": 0.105
+}

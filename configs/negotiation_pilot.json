@@ -1,0 +1,47 @@
+{
+  "study": "negotiation_pilot",
+  "question": "Manipulation check before the payoff study: do the conflict-handling instructions from the coding studies, reworded for a price negotiation, change how an LLM player negotiates? Measured on NegotiationArena's buy-sell game by the labeled style, the concession curve and the share of the surplus the instructed player gets.",
+  "source": {"path": "external/NegotiationArena", "commit": "c447fafd439a20b84cdedeb2f8a85c4fad764745", "license": "MIT",
+             "game": "buy_sell: one object X; the seller knows its cost, the buyer its limit; alternating proposals in ZUP, at most 4 own proposals each, ACCEPT or REJECT ends the game (iterations 10)"},
+  "model": "gpt-6-luna",
+  "model_kwargs": {"temperature": 0.7, "top_p": 0.8, "extra_body": {"reasoning_effort": "none"}},
+  "max_tokens": 600,
+  "iterations": 10,
+  "instances": {"n": 20, "seed": 20261120, "cost": [30, 60], "surplus": [10, 15, 20, 25, 30], "buyer_money": 1000,
+                "focal_role": "alternate",
+                "note": "20 instances shared by every condition; the instructed (focal) player is the seller in even instances and the buyer in odd ones; the other player gets the game's plain prompt"},
+  "payoff_statement": {
+    "seller": "Your payoff is the price you receive minus your production cost of {cost} ZUP if the trade happens, and 0 if it does not. Try to get as high a payoff as you can.",
+    "buyer": "Your payoff is your limit of {limit} ZUP minus the price you pay if the trade happens, and 0 if it does not. Try to get as high a payoff as you can.",
+    "note": "appended to each player's role line; NegotiationArena's own prompt states only the cost or limit, and with it the seller opened at cost and the buyer accepted at once in the smoke test"
+  },
+  "instruction_prefix": "[Guidance] You and the other player want different things from this trade: you want a price that is good for your side, they want one that is good for theirs. ",
+  "partner_instruction": "",
+  "conditions": {
+    "neutral": {"instruction": "Handle this in whatever way you think best.",
+                "note": "control: draws the same attention to the conflict of interest as the style conditions"},
+    "competing": {"target": "competing",
+                  "instruction": "Handle it like this: hold out for the price your side needs. Tell the other player what you need and ask them to come to you. Do not give ground for their sake."},
+    "collaborating": {"target": "collaborating",
+                      "instruction": "Handle it like this: work out with the other player a deal that is good for both of you. Ask what they need and why, say what you need, and look for a price and terms you can both fully accept."},
+    "compromising": {"target": "compromising",
+                     "instruction": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other player halfway, give up a little if needed, and do not drag the negotiation out."},
+    "accommodating": {"target": "accommodating",
+                      "instruction": "Handle it like this: put the other player's needs first. Ask what they need, accept a price that works for them, and give ground whenever that helps them."},
+    "avoiding": {"target": "avoiding",
+                 "instruction": "Handle it like this: do not haggle over the price. Keep messages to a minimum, make at most one proposal of your own, and if the other player does not accept it, end the negotiation rather than argue."}
+  },
+  "control": "neutral",
+  "predictions": {
+    "manipulation": "each style condition moves the focal player's labeled style toward its target more often than neutral does; the coding studies induced collaborating, compromising and avoiding but not competing or accommodating",
+    "payoff": "competing raises the focal player's share of the surplus and lowers the deal rate; accommodating lowers the focal share; avoiding lowers the deal rate and the number of messages; collaborating and compromising stay near neutral on share",
+    "decision": "a condition counts as induced when its target style is labeled in more games than under neutral (paired by instance) and the concession curve differs in the predicted direction; conditions that are not induced need behavioural rules instead of style sentences before the main study"
+  },
+  "labeler": {"model": "gpt-6-luna", "model_kwargs": {"extra_body": {"reasoning_effort": "low"}},
+              "codebook": "docs/N_NEGOTIATION_STYLE_CODEBOOK.md", "attempts": 2,
+              "input": "the public moves and messages in order; not the valuations, the private reasoning, the instruction or the outcome"},
+  "budget_usd": 5.0,
+  "output": "runs/negotiation/pilot",
+  "results_prefix": "results/negotiation_pilot",
+  "status": "written 2026-11-20 before any game was played"
+}

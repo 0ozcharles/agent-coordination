@@ -1,0 +1,121 @@
+condition,instance,focal_role,cost,limit,surplus,error,deal,price,focal_share,partner_share,turns,focal_proposals,focal_messages,first_claim,last_claim,concession,accepted_by,rejected_by,focal_style,partner_style,focal_assertiveness,focal_cooperativeness,first_concession,focal_asks_needs,cost_usd
+neutral,0,seller,44,74,30,False,True,49,0.167,0.833,7,60 52 50,4,0.5333333333333333,0.2,0.3333333333333333,focal,,compromising,compromising,1,1,focal,False,0.0010991599999999999
+neutral,1,buyer,46,71,25,False,True,50,0.84,0.16,3,50,1,0.84,0.84,0.0,partner,,compromising,accommodating,1,1,none,False,0.00044689999999999997
+neutral,2,seller,39,54,15,False,True,50,0.733,0.267,4,60 50,2,1.4,0.7333333333333333,0.6666666666666666,partner,,compromising,accommodating,1,1,focal,False,0.0006517999999999999
+neutral,3,buyer,52,67,15,False,True,53,0.933,0.067,5,52 53,2,1.0,0.9333333333333333,0.06666666666666665,partner,,compromising,accommodating,2,1,partner,False,0.0008079
+neutral,4,seller,43,53,10,False,True,53,1.0,0.0,3,60,2,1.7,1.7,0.0,focal,,compromising,avoiding,1,1,none,False,0.00044699999999999997
+neutral,5,buyer,59,84,25,False,True,70,0.56,0.44,3,70,1,0.56,0.56,0.0,partner,,compromising,accommodating,2,1,partner,False,0.00043049999999999995
+neutral,6,seller,34,49,15,False,True,40,0.4,0.6,4,50 40,2,1.0666666666666667,0.4,0.6666666666666666,partner,,compromising,compromising,1,1,focal,False,0.0006232999999999999
+neutral,7,buyer,39,54,15,False,True,54,0.0,1.0,3,54,1,0.0,0.0,0.0,partner,,collaborating,accommodating,2,2,none,False,0.00043789999999999996
+neutral,8,seller,58,83,25,False,True,68,0.4,0.6,5,80 72,3,0.88,0.56,0.31999999999999995,focal,,compromising,compromising,1,1,focal,False,0.0008045999999999999
+neutral,9,buyer,41,61,20,False,True,48,0.65,0.35,5,41 48,2,1.0,0.65,0.35,partner,,accommodating,compromising,1,2,partner,False,0.0008169
+neutral,10,seller,35,65,30,False,True,51,0.533,0.467,7,60 55 53,4,0.8333333333333334,0.6,0.2333333333333334,focal,,compromising,accommodating,1,1,focal,False,0.00114822
+neutral,11,buyer,51,81,30,False,True,81,0.0,1.0,3,81,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,none,False,0.00043639999999999993
+neutral,12,seller,39,49,10,False,True,49,1.0,0.0,3,60,2,2.1,2.1,0.0,focal,,accommodating,competing,0,1,none,False,0.0004478
+neutral,13,buyer,39,49,10,False,True,49,0.0,1.0,5,39 49,2,1.0,0.0,1.0,partner,,compromising,compromising,1,1,partner,False,0.000791
+neutral,14,seller,33,53,20,False,True,53,1.0,0.0,3,60,2,1.35,1.35,0.0,focal,,accommodating,collaborating,0,1,none,False,0.00045079999999999995
+neutral,15,buyer,48,73,25,False,True,60,0.52,0.48,3,60,1,0.52,0.52,0.0,partner,,compromising,accommodating,2,1,none,False,0.00042699999999999997
+neutral,16,seller,41,61,20,False,True,53,0.6,0.4,7,60 55 54,4,0.95,0.65,0.29999999999999993,focal,,compromising,compromising,1,1,focal,False,0.00116474
+neutral,17,buyer,42,62,20,False,True,60,0.1,0.9,2,,1,,,,focal,,accommodating,competing,0,1,none,False,0.0002827
+neutral,18,seller,41,51,10,False,True,51,1.0,0.0,5,100 70,3,5.9,2.9,3.0000000000000004,focal,,compromising,compromising,1,1,focal,False,0.000798
+neutral,19,buyer,54,84,30,False,False,,0.0,0.0,3,54,1,1.0,1.0,0.0,,partner,competing,competing,2,0,none,False,0.0007991
+competing,0,seller,44,74,30,False,True,50,0.2,0.8,4,60 50,2,0.5333333333333333,0.2,0.3333333333333333,partner,,accommodating,compromising,1,2,focal,False,0.0006418
+competing,1,buyer,46,71,25,False,True,47,0.96,0.04,5,46 47,2,1.0,0.96,0.040000000000000036,partner,,compromising,accommodating,1,1,partner,False,0.0008257
+competing,2,seller,39,54,15,False,True,40,0.067,0.933,2,40,1,0.06666666666666667,0.06666666666666667,0.0,partner,,competing,accommodating,2,0,none,False,0.0002921
+competing,3,buyer,52,67,15,False,True,67,0.0,1.0,3,67,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,none,False,0.0004695
+competing,4,seller,43,53,10,False,True,53,1.0,0.0,3,60,1,1.7,1.7,0.0,focal,,accommodating,compromising,0,1,none,False,0.00045799999999999997
+competing,5,buyer,59,84,25,False,True,84,0.0,1.0,3,84,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,none,False,0.0004544
+competing,6,seller,34,49,15,False,True,49,1.0,0.0,3,50,2,1.0666666666666667,1.0666666666666667,0.0,focal,,compromising,compromising,1,1,none,False,0.00046489999999999997
+competing,7,buyer,39,54,15,False,True,54,0.0,1.0,5,54 54,2,0.0,0.0,0.0,partner,,compromising,compromising,2,1,partner,False,0.0008202999999999999
+competing,8,seller,58,83,25,False,True,83,1.0,0.0,5,100 90,3,1.68,1.28,0.3999999999999999,focal,,accommodating,accommodating,1,2,focal,False,0.0008389
+competing,9,buyer,41,61,20,False,True,61,0.0,1.0,3,61,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,none,False,0.0004522
+competing,10,seller,35,65,30,False,True,65,1.0,0.0,3,100,2,2.1666666666666665,2.1666666666666665,0.0,focal,,accommodating,avoiding,0,2,none,False,0.000454
+competing,11,buyer,51,81,30,False,True,81,0.0,1.0,3,81,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,partner,False,0.00044929999999999997
+competing,12,seller,39,49,10,False,True,49,1.0,0.0,7,50 50 50,4,1.1,1.1,0.0,focal,,compromising,compromising,2,1,partner,False,0.0011611
+competing,13,buyer,39,49,10,False,True,49,0.0,1.0,3,49,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,none,False,0.0004483
+competing,14,seller,33,53,20,False,True,50,0.85,0.15,8,50 50 50 50,4,0.85,0.85,0.0,partner,,compromising,compromising,2,1,partner,False,0.00129694
+competing,15,buyer,48,73,25,False,True,73,0.0,1.0,3,73,1,0.0,0.0,0.0,partner,,competing,accommodating,2,0,none,False,0.00045309999999999995
+competing,16,seller,41,61,20,False,True,60,0.95,0.05,4,60 60,2,0.95,0.95,0.0,partner,,compromising,accommodating,2,1,none,False,0.0006344
+competing,17,buyer,42,62,20,False,True,50,0.6,0.4,7,42 48 50,3,1.0,0.6,0.4,partner,,compromising,accommodating,1,1,partner,False,0.00111274
+competing,18,seller,41,51,10,False,True,51,1.0,0.0,5,100 80,3,5.9,3.9,2.0000000000000004,focal,,accommodating,compromising,1,2,focal,False,0.0008363
+competing,19,buyer,54,84,30,False,True,60,0.8,0.2,5,54 60,2,1.0,0.8,0.19999999999999996,partner,,compromising,compromising,1,1,partner,False,0.0008286999999999999
+collaborating,0,seller,44,74,30,False,True,45,0.033,0.967,3,60,2,0.5333333333333333,0.5333333333333333,0.0,focal,,accommodating,compromising,0,2,none,True,0.0004622
+collaborating,1,buyer,46,71,25,False,True,60,0.44,0.56,4,46,2,1.0,1.0,0.0,focal,,collaborating,compromising,2,2,partner,True,0.0006552999999999999
+collaborating,2,seller,39,54,15,False,True,54,1.0,0.0,3,60,2,1.4,1.4,0.0,focal,,accommodating,compromising,0,2,none,True,0.0004594
+collaborating,3,buyer,52,67,15,False,True,67,0.0,1.0,3,67,1,0.0,0.0,0.0,partner,,collaborating,accommodating,2,2,none,False,0.00046929999999999997
+collaborating,4,seller,43,53,10,False,True,46,0.3,0.7,7,60 53 50,4,1.7,0.7,1.0,focal,,accommodating,compromising,1,2,focal,True,0.00112546
+collaborating,5,buyer,59,84,25,False,True,84,0.0,1.0,4,60,2,0.96,0.96,0.0,focal,,accommodating,accommodating,1,2,partner,False,0.0006879999999999999
+collaborating,6,seller,34,49,15,False,True,36,0.133,0.867,5,40 38,3,0.4,0.26666666666666666,0.13333333333333336,focal,,accommodating,compromising,1,2,focal,True,0.0008368999999999999
+collaborating,7,buyer,39,54,15,False,True,58,-0.267,1.267,4,54,2,0.0,0.0,0.0,focal,,collaborating,compromising,2,2,partner,False,0.0006565
+collaborating,8,seller,58,83,25,False,True,59,0.04,0.96,3,75,2,0.68,0.68,0.0,focal,,accommodating,accommodating,0,2,none,True,0.0004681
+collaborating,9,buyer,41,61,20,False,True,50,0.55,0.45,3,50,1,0.55,0.55,0.0,partner,,accommodating,accommodating,1,2,none,False,0.0004561
+collaborating,10,seller,35,65,30,False,True,44,0.3,0.7,8,60 50 45 44,4,0.8333333333333334,0.3,0.5333333333333334,partner,,accommodating,accommodating,1,2,focal,True,0.00130359
+collaborating,11,buyer,51,81,30,False,True,60,0.7,0.3,3,60,1,0.7,0.7,0.0,partner,,accommodating,accommodating,1,2,none,False,0.00045569999999999996
+collaborating,12,seller,39,49,10,False,True,40,0.1,0.9,3,60,2,2.1,2.1,0.0,focal,,accommodating,collaborating,0,2,none,True,0.0004697999999999999
+collaborating,13,buyer,39,49,10,False,True,49,0.0,1.0,3,49,1,0.0,0.0,0.0,partner,,collaborating,accommodating,2,2,none,False,0.0004646
+collaborating,14,seller,33,53,20,False,True,50,0.85,0.15,2,50,1,0.85,0.85,0.0,partner,,accommodating,accommodating,1,2,none,True,0.0002912
+collaborating,15,buyer,48,73,25,False,True,54,0.76,0.24,3,54,1,0.76,0.76,0.0,partner,,compromising,accommodating,1,1,none,False,0.0004516
+collaborating,16,seller,41,61,20,False,True,60,0.95,0.05,4,60 60,2,0.95,0.95,0.0,partner,,collaborating,accommodating,2,2,none,True,0.0006694
+collaborating,17,buyer,42,62,20,False,True,50,0.6,0.4,7,43 48 50,3,0.95,0.6,0.35,partner,,compromising,compromising,1,1,partner,False,0.00114299
+collaborating,18,seller,41,51,10,False,True,51,1.0,0.0,3,60,2,1.9,1.9,0.0,focal,,accommodating,compromising,1,2,none,True,0.00045620000000000003
+collaborating,19,buyer,54,84,30,False,True,84,0.0,1.0,3,84,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,none,False,0.0004466
+compromising,0,seller,44,74,30,False,True,52,0.267,0.733,3,60,2,0.5333333333333333,0.5333333333333333,0.0,focal,,accommodating,compromising,0,1,none,False,0.00046159999999999994
+compromising,1,buyer,46,71,25,False,True,70,0.04,0.96,2,,1,,,,focal,,accommodating,avoiding,0,1,none,False,0.00027509999999999996
+compromising,2,seller,39,54,15,False,True,40,0.067,0.933,3,50,2,0.7333333333333333,0.7333333333333333,0.0,focal,,accommodating,compromising,0,1,none,False,0.00048189999999999995
+compromising,3,buyer,52,67,15,False,True,67,0.0,1.0,5,60 67,2,0.4666666666666667,0.0,0.4666666666666667,partner,,collaborating,compromising,2,2,partner,False,0.0008512999999999999
+compromising,4,seller,43,53,10,False,True,50,0.7,0.3,2,50,1,0.7,0.7,0.0,partner,,compromising,accommodating,1,1,none,False,0.0002977
+compromising,5,buyer,59,84,25,False,True,70,0.56,0.44,3,70,1,0.56,0.56,0.0,partner,,compromising,compromising,1,1,none,False,0.0004535
+compromising,6,seller,34,49,15,False,True,35,0.067,0.933,3,40,2,0.4,0.4,0.0,focal,,accommodating,compromising,0,1,focal,False,0.0004434
+compromising,7,buyer,39,54,15,False,True,54,0.0,1.0,3,54,1,0.0,0.0,0.0,partner,,accommodating,accommodating,1,2,none,False,0.00044439999999999996
+compromising,8,seller,58,83,25,False,True,62,0.16,0.84,5,70 65,3,0.48,0.28,0.19999999999999996,focal,,accommodating,accommodating,1,2,focal,False,0.0008315
+compromising,9,buyer,41,61,20,False,True,60,0.05,0.95,2,,1,,,,focal,,accommodating,compromising,0,1,none,False,0.00027209999999999995
+compromising,10,seller,35,65,30,False,True,40,0.167,0.833,3,50,2,0.5,0.5,0.0,focal,,accommodating,compromising,0,1,focal,False,0.0004563999999999999
+compromising,11,buyer,51,81,30,False,True,81,0.0,1.0,3,81,1,0.0,0.0,0.0,partner,,compromising,accommodating,1,1,none,False,0.0004563
+compromising,12,seller,39,49,10,False,True,42,0.3,0.7,5,60 45,3,2.1,0.6,1.5,focal,,accommodating,compromising,1,2,focal,False,0.0008382
+compromising,13,buyer,39,49,10,False,True,44,0.5,0.5,3,44,1,0.5,0.5,0.0,partner,,collaborating,accommodating,2,2,none,False,0.0004671
+compromising,14,seller,33,53,20,False,True,40,0.35,0.65,3,50,2,0.85,0.85,0.0,focal,,accommodating,compromising,0,2,none,False,0.0004517
+compromising,15,buyer,48,73,25,False,True,64,0.36,0.64,3,64,1,0.36,0.36,0.0,partner,,compromising,accommodating,1,1,none,False,0.0004632
+compromising,16,seller,41,61,20,False,True,46,0.25,0.75,5,60 51,3,0.95,0.5,0.44999999999999996,focal,,accommodating,accommodating,1,2,focal,False,0.0008366999999999999
+compromising,17,buyer,42,62,20,False,True,51,0.55,0.45,3,51,1,0.55,0.55,0.0,partner,,collaborating,accommodating,2,2,none,False,0.00045219999999999993
+compromising,18,seller,41,51,10,False,True,41,0.0,1.0,3,60,2,1.9,1.9,0.0,focal,,accommodating,compromising,0,1,none,False,0.0004393
+compromising,19,buyer,54,84,30,False,True,84,0.0,1.0,3,84,1,0.0,0.0,0.0,partner,,collaborating,accommodating,2,2,none,False,0.0004374
+accommodating,0,seller,44,74,30,False,True,60,0.533,0.467,2,60,1,0.5333333333333333,0.5333333333333333,0.0,partner,,accommodating,accommodating,1,2,none,True,0.0002788
+accommodating,1,buyer,46,71,25,False,True,70,0.04,0.96,2,,1,,,,focal,,accommodating,accommodating,0,1,none,False,0.000278
+accommodating,2,seller,39,54,15,False,True,45,0.4,0.6,3,50,2,0.7333333333333333,0.7333333333333333,0.0,focal,,accommodating,compromising,1,2,none,True,0.00044320000000000004
+accommodating,3,buyer,52,67,15,False,True,67,0.0,1.0,3,67,1,0.0,0.0,0.0,partner,,compromising,compromising,2,1,none,False,0.00045149999999999997
+accommodating,4,seller,43,53,10,False,False,,0.0,0.0,2,60,1,1.7,1.7,0.0,,partner,collaborating,avoiding,2,2,none,True,0.001
+accommodating,5,buyer,59,84,25,False,True,84,0.0,1.0,3,84,1,0.0,0.0,0.0,partner,,compromising,accommodating,1,1,none,False,0.0004429
+accommodating,6,seller,34,49,15,False,False,,0.0,0.0,2,50,1,1.0666666666666667,1.0666666666666667,0.0,,partner,accommodating,avoiding,1,2,none,True,0.00111468
+accommodating,7,buyer,39,54,15,False,True,54,0.0,1.0,3,54,1,0.0,0.0,0.0,partner,,compromising,accommodating,1,1,none,False,0.0004508
+accommodating,8,seller,58,83,25,False,True,80,0.88,0.12,2,80,1,0.88,0.88,0.0,partner,,accommodating,accommodating,1,2,none,True,0.00029
+accommodating,9,buyer,41,61,20,False,True,50,0.55,0.45,3,50,1,0.55,0.55,0.0,partner,,compromising,accommodating,2,1,none,False,0.00044339999999999994
+accommodating,10,seller,35,65,30,False,True,50,0.5,0.5,2,50,1,0.5,0.5,0.0,partner,,collaborating,accommodating,2,2,none,True,0.0002764
+accommodating,11,buyer,51,81,30,False,True,65,0.533,0.467,3,65,1,0.5333333333333333,0.5333333333333333,0.0,partner,,compromising,accommodating,1,1,none,False,0.00046
+accommodating,12,seller,39,49,10,False,True,49,1.0,0.0,3,50,2,1.1,1.1,0.0,focal,,accommodating,compromising,0,2,none,True,0.0004525
+accommodating,13,buyer,39,49,10,False,True,49,0.0,1.0,5,39 49,2,1.0,0.0,1.0,partner,,compromising,compromising,1,1,partner,False,0.0008318999999999999
+accommodating,14,seller,33,53,20,False,True,45,0.6,0.4,3,50,2,0.85,0.85,0.0,focal,,accommodating,compromising,0,2,none,True,0.00045049999999999995
+accommodating,15,buyer,48,73,25,False,True,73,0.0,1.0,3,73,1,0.0,0.0,0.0,partner,,compromising,compromising,2,1,none,False,0.00044809999999999994
+accommodating,16,seller,41,61,20,False,True,45,0.2,0.8,5,60 50,3,0.95,0.45,0.49999999999999994,focal,,accommodating,accommodating,1,2,focal,True,0.0008361999999999999
+accommodating,17,buyer,42,62,20,False,True,60,0.1,0.9,2,,1,,,,focal,,accommodating,avoiding,0,1,none,False,0.00028189999999999997
+accommodating,18,seller,41,51,10,False,True,42,0.1,0.9,3,50,2,0.9,0.9,0.0,focal,,accommodating,compromising,0,2,none,True,0.0004432
+accommodating,19,buyer,54,84,30,False,True,80,0.133,0.867,2,,1,,,,focal,,accommodating,compromising,0,1,none,False,0.0002786
+avoiding,0,seller,44,74,30,False,True,60,0.533,0.467,2,60,1,0.5333333333333333,0.5333333333333333,0.0,partner,,competing,accommodating,2,0,none,False,0.00027519999999999997
+avoiding,1,buyer,46,71,25,False,True,70,0.04,0.96,2,,1,,,,focal,,accommodating,compromising,0,1,none,False,0.00027499999999999996
+avoiding,2,seller,39,54,15,False,True,54,1.0,0.0,3,60,1,1.4,1.4,0.0,focal,,accommodating,compromising,0,1,none,False,0.0004392
+avoiding,3,buyer,52,67,15,False,True,67,0.0,1.0,3,67,1,0.0,0.0,0.0,partner,,compromising,accommodating,1,1,none,False,0.0004253
+avoiding,4,seller,43,53,10,False,True,53,1.0,0.0,3,60,2,1.7,1.7,0.0,focal,,accommodating,compromising,0,1,none,False,0.0004274
+avoiding,5,buyer,59,84,25,False,True,84,0.0,1.0,3,84,1,0.0,0.0,0.0,partner,,compromising,accommodating,1,1,none,False,0.00043359999999999997
+avoiding,6,seller,34,49,15,False,True,49,1.0,0.0,3,100,2,4.4,4.4,0.0,focal,,accommodating,compromising,0,1,none,False,0.00044249999999999997
+avoiding,7,buyer,39,54,15,False,True,50,0.267,0.733,2,,1,,,,focal,,accommodating,avoiding,0,1,none,False,0.0002606
+avoiding,8,seller,58,83,25,False,False,,0.0,0.0,2,100,1,1.68,1.68,0.0,,partner,competing,avoiding,2,0,none,False,0.00123523
+avoiding,9,buyer,41,61,20,False,True,61,0.0,1.0,3,61,1,0.0,0.0,0.0,partner,,competing,accommodating,2,0,none,False,0.0004508
+avoiding,10,seller,35,65,30,False,True,50,0.5,0.5,2,50,1,0.5,0.5,0.0,partner,,competing,accommodating,2,0,none,False,0.0002744
+avoiding,11,buyer,51,81,30,False,True,81,0.0,1.0,3,81,1,0.0,0.0,0.0,partner,,compromising,accommodating,2,1,none,False,0.00044909999999999997
+avoiding,12,seller,39,49,10,False,True,49,1.0,0.0,3,60,1,2.1,2.1,0.0,focal,,accommodating,compromising,0,1,none,False,0.00043729999999999995
+avoiding,13,buyer,39,49,10,False,True,49,0.0,1.0,3,49,1,0.0,0.0,0.0,partner,,compromising,compromising,1,1,none,False,0.0004450999999999999
+avoiding,14,seller,33,53,20,False,True,49,0.8,0.2,3,50,2,0.85,0.85,0.0,focal,,accommodating,compromising,0,1,partner,False,0.0004313
+avoiding,15,buyer,48,73,25,False,True,73,0.0,1.0,3,73,1,0.0,0.0,0.0,partner,,compromising,accommodating,1,1,partner,False,0.00043439999999999993
+avoiding,16,seller,41,61,20,False,True,60,0.95,0.05,3,100,2,2.95,2.95,0.0,focal,,accommodating,compromising,0,1,none,False,0.0004337
+avoiding,17,buyer,42,62,20,False,True,50,0.6,0.4,3,50,1,0.6,0.6,0.0,partner,,compromising,accommodating,1,1,none,False,0.00047190000000000003
+avoiding,18,seller,41,51,10,False,False,,0.0,0.0,3,100,2,5.9,5.9,0.0,,focal,competing,compromising,2,0,none,False,0.00124599
+avoiding,19,buyer,54,84,30,False,True,80,0.133,0.867,2,,0,,,,focal,,accommodating,competing,0,1,none,False,0.000271
