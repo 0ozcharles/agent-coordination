@@ -1,0 +1,99 @@
+{
+  "study": "bargain_e2",
+  "question": "E2 condition map: in each situational condition of the Thomas-Kilmann model, operationalized as one environment knob moved from the E1 base, which strategy pays best, for whom and at what cost in tokens and moves?",
+  "instances": {
+    "n": 20,
+    "seed": 20261123,
+    "first_mover": "alternate",
+    "note": "shared by every condition; disjoint from the dev and E1 seeds"
+  },
+  "cells": "the diagonal, every strategy against neutral and against competing in both seats: 24 cells, 480 games per condition",
+  "analysis": "per condition: best strategy in symmetric play, against neutral and against competing, by points and by net payoff (points minus lambda x tokens/1000) for lambda swept from 0 to 20; regret of every strategy against the best in its condition; the lambda at which the best strategy changes",
+  "conditions": {
+    "base": {
+      "config": "configs/bargain_e2_base.json",
+      "env": {},
+      "model_condition": "the E1 regime, replayed on the shared E2 instances",
+      "prediction": "as E1"
+    },
+    "urgent": {
+      "config": "configs/bargain_e2_urgent.json",
+      "env": {
+        "moves": 4
+      },
+      "model_condition": "urgent, decisive action needed (competing's condition)",
+      "prediction": "fast closers win: competing against neutral, accommodating otherwise; collaborating loses most; agreement falls"
+    },
+    "time_cost": {
+      "config": "configs/bargain_e2_time_cost.json",
+      "env": {
+        "move_cost": 3
+      },
+      "model_condition": "every round costs (urgency in points)",
+      "prediction": "like urgent; avoiding and accommodating gain relative to the base; competing pairs pay the most in move costs"
+    },
+    "tight_budget": {
+      "config": "configs/bargain_e2_tight_budget.json",
+      "env": {
+        "output_budget": 150
+      },
+      "model_condition": "confrontation costs more than it yields (avoiding's condition), as a reply-token budget",
+      "prediction": "avoiding and accommodating are the best net strategies; collaborating is the worst; the ranking by raw points changes little"
+    },
+    "distributive": {
+      "config": "configs/bargain_e2_distributive.json",
+      "env": {
+        "asymmetry": 0.0
+      },
+      "model_condition": "conflicting goals, nothing to trade (compromising's condition)",
+      "prediction": "collaborating equals compromising; competing exploits the soft strategies most"
+    },
+    "integrative": {
+      "config": "configs/bargain_e2_integrative.json",
+      "env": {
+        "asymmetry": 1.0
+      },
+      "model_condition": "complex problem that needs both perspectives (collaborating's condition)",
+      "prediction": "collaborating beats compromising by the largest margin, in own and joint payoff"
+    },
+    "all_contested": {
+      "config": "configs/bargain_e2_all_contested.json",
+      "env": {
+        "opposition": 1.0
+      },
+      "model_condition": "every decision is contested",
+      "prediction": "more impasses under competing; compromising's relative standing improves"
+    },
+    "low_stakes_p2": {
+      "config": "configs/bargain_e2_low_stakes_p2.json",
+      "env": {
+        "stakes": [
+          1.0,
+          0.3
+        ]
+      },
+      "model_condition": "the issue matters more to the other side (accommodating's condition for the low-stakes side)",
+      "prediction": "the low-stakes side does best by accommodating and worst by competing; the high-stakes side does best by competing"
+    },
+    "power_p1": {
+      "config": "configs/bargain_e2_power_p1.json",
+      "env": {
+        "outside": [
+          45,
+          15
+        ]
+      },
+      "model_condition": "unequal power",
+      "prediction": "the strong side does best by competing, the weak side by compromising or accommodating; every pair gives the strong side more"
+    },
+    "open_info": {
+      "config": "configs/bargain_e2_open_info.json",
+      "env": {
+        "visible_weights": true
+      },
+      "model_condition": "both sides see both sides' interests",
+      "prediction": "collaborating's advantage over compromising shrinks and competing's exploitation of neutral shrinks"
+    }
+  },
+  "status": "frozen 2026-11-20 before any E2 game was played; E1 was running and unseen"
+}
