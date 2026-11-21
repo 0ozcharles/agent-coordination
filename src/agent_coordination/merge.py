@@ -192,16 +192,15 @@ git diff --name-only --diff-filter=U
 
 def ask_model(config, prompt):
     import litellm
+    from .models import route, cost_of
     kwargs = config.get("model_kwargs", {})
+    model, extra, name = route(config["model"])
     last = None
     for _ in range(3):
         try:
-            response = litellm.completion(model=f"openai/{config['model']}", drop_params=True,
-                                          messages=[{"role": "user", "content": prompt}], **kwargs)
-            try:
-                cost = litellm.completion_cost(completion_response=response)
-            except Exception:
-                cost = None
+            response = litellm.completion(model=model, drop_params=True,
+                                          messages=[{"role": "user", "content": prompt}], **extra, **kwargs)
+            cost = cost_of(response, name)
             return response.choices[0].message.content or "", cost
         except Exception as exc:  # transient API errors
             last = exc

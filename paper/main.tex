@@ -25,7 +25,9 @@
 \usepackage{mathtools}
 \usepackage{amsthm}
 \usepackage[capitalize,noabbrev]{cleveref}
-\usepackage[textsize=tiny]{todonotes}
+% Block notes (\todo[inline]) hold the plan for sections not yet written; they are hidden in the PDF.
+% Drop 'disable' to show them as orange boxes while writing.
+\usepackage[disable,textsize=tiny]{todonotes}
 \newcommand{\tbd}[1]{\textcolor{red}{[TODO: #1]}}  % inline marker; \todo[inline] for block notes
 
 \newcommand{\tki}{Thomas--Kilmann}

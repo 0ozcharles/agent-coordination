@@ -324,17 +324,16 @@ def call(config, messages):
     """One model reply: text, cost in dollars, and usage (prompt and completion tokens, seconds)."""
     import litellm
     import time
+    from .models import route, cost_of
+    model, extra, name = route(config["model"])  # a provider prefix (ai2s/, together/) picks the endpoint and key
     last = None
     for _ in range(3):
         started = time.time()
         try:
-            response = litellm.completion(model=f"openai/{config['model']}", messages=messages,
+            response = litellm.completion(model=model, messages=messages,
                                           max_completion_tokens=config.get("max_tokens", 700), drop_params=True,
-                                          timeout=180, **config.get("model_kwargs", {}))
-            try:
-                cost = litellm.completion_cost(completion_response=response)
-            except Exception:
-                cost = None
+                                          timeout=180, **extra, **config.get("model_kwargs", {}))
+            cost = cost_of(response, name)
             usage = getattr(response, "usage", None)
             used = {"prompt": getattr(usage, "prompt_tokens", 0) or 0, "completion": getattr(usage, "completion_tokens", 0) or 0,
                     "seconds": round(time.time() - started, 2)}
