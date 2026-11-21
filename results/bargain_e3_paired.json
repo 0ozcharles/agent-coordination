@@ -1,0 +1,1807 @@
+{
+ "arms": [
+  "luna_0.7_E1",
+  "luna_t1",
+  "haiku_5_5",
+  "sonnet_5_5",
+  "sol_6_1"
+ ],
+ "cells": {
+  "neutral-neutral": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 127.6,
+    "p1": 65.0,
+    "p2": 62.6,
+    "agree": 40,
+    "frontier": 20,
+    "gap": 14.0,
+    "moves": 4.88,
+    "tokens": 3762,
+    "p1_comply": 0,
+    "p1_known": 0,
+    "passes": 0,
+    "walks": 0
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 129.4,
+    "p1": 64.5,
+    "p2": 64.9,
+    "agree": 40,
+    "frontier": 22,
+    "gap": 12.2,
+    "moves": 4.7,
+    "tokens": 3630,
+    "p1_comply": 0,
+    "p1_known": 0,
+    "passes": 0,
+    "walks": 0
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 135.0,
+    "p1": 69.1,
+    "p2": 66.0,
+    "agree": 40,
+    "frontier": 29,
+    "gap": 6.6,
+    "moves": 4.45,
+    "tokens": 6136,
+    "p1_comply": 0,
+    "p1_known": 0,
+    "passes": 0,
+    "walks": 0
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 138.1,
+    "p1": 68.9,
+    "p2": 69.3,
+    "agree": 40,
+    "frontier": 28,
+    "gap": 3.5,
+    "moves": 5.2,
+    "tokens": 7050,
+    "p1_comply": 0,
+    "p1_known": 0,
+    "passes": 0,
+    "walks": 0
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 138.8,
+    "p1": 68.6,
+    "p2": 70.3,
+    "agree": 40,
+    "frontier": 34,
+    "gap": 2.8,
+    "moves": 7.9,
+    "tokens": 8680,
+    "p1_comply": 0,
+    "p1_known": 0,
+    "passes": 0,
+    "walks": 0
+   }
+  },
+  "competing-competing": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 102.5,
+    "p1": 50.1,
+    "p2": 52.4,
+    "agree": 25,
+    "frontier": 2,
+    "gap": 39.1,
+    "moves": 8.6,
+    "tokens": 8021,
+    "p1_comply": 39,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 15
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 94.1,
+    "p1": 46.9,
+    "p2": 47.2,
+    "agree": 20,
+    "frontier": 4,
+    "gap": 47.5,
+    "moves": 8.6,
+    "tokens": 8119,
+    "p1_comply": 36,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 20
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 117.1,
+    "p1": 57.4,
+    "p2": 59.8,
+    "agree": 32,
+    "frontier": 9,
+    "gap": 24.5,
+    "moves": 6.58,
+    "tokens": 10746,
+    "p1_comply": 16,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 8
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 103.8,
+    "p1": 51.9,
+    "p2": 51.9,
+    "agree": 25,
+    "frontier": 0,
+    "gap": 37.8,
+    "moves": 8.53,
+    "tokens": 13427,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 1,
+    "walks": 15
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 110.1,
+    "p1": 55.8,
+    "p2": 54.4,
+    "agree": 29,
+    "frontier": 0,
+    "gap": 31.5,
+    "moves": 8.25,
+    "tokens": 8753,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 11
+   }
+  },
+  "collaborating-collaborating": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 135.5,
+    "p1": 68.6,
+    "p2": 66.8,
+    "agree": 39,
+    "frontier": 25,
+    "gap": 6.1,
+    "moves": 5.58,
+    "tokens": 5388,
+    "p1_comply": 24,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 1
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 135.4,
+    "p1": 66.3,
+    "p2": 69.1,
+    "agree": 39,
+    "frontier": 27,
+    "gap": 6.2,
+    "moves": 4.97,
+    "tokens": 4685,
+    "p1_comply": 23,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 1
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 140.4,
+    "p1": 69.1,
+    "p2": 71.2,
+    "agree": 40,
+    "frontier": 36,
+    "gap": 1.2,
+    "moves": 4.22,
+    "tokens": 6494,
+    "p1_comply": 26,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 140.6,
+    "p1": 69.7,
+    "p2": 70.9,
+    "agree": 40,
+    "frontier": 36,
+    "gap": 1.0,
+    "moves": 4.3,
+    "tokens": 7147,
+    "p1_comply": 37,
+    "p1_known": 40,
+    "passes": 2,
+    "walks": 0
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 140.6,
+    "p1": 69.6,
+    "p2": 71.0,
+    "agree": 40,
+    "frontier": 36,
+    "gap": 1.0,
+    "moves": 3.45,
+    "tokens": 3196,
+    "p1_comply": 32,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   }
+  },
+  "compromising-compromising": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 114.9,
+    "p1": 59.9,
+    "p2": 55.0,
+    "agree": 37,
+    "frontier": 8,
+    "gap": 26.7,
+    "moves": 3.73,
+    "tokens": 2793,
+    "p1_comply": 36,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 3
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 114.4,
+    "p1": 60.8,
+    "p2": 53.6,
+    "agree": 39,
+    "frontier": 6,
+    "gap": 27.2,
+    "moves": 3.98,
+    "tokens": 3016,
+    "p1_comply": 37,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 126.4,
+    "p1": 63.5,
+    "p2": 63.0,
+    "agree": 39,
+    "frontier": 10,
+    "gap": 15.2,
+    "moves": 4.97,
+    "tokens": 7274,
+    "p1_comply": 35,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 1
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 132.1,
+    "p1": 65.5,
+    "p2": 66.6,
+    "agree": 40,
+    "frontier": 14,
+    "gap": 9.5,
+    "moves": 4.58,
+    "tokens": 6321,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 1,
+    "walks": 0
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 130.6,
+    "p1": 64.9,
+    "p2": 65.7,
+    "agree": 40,
+    "frontier": 4,
+    "gap": 11.0,
+    "moves": 3.4,
+    "tokens": 2694,
+    "p1_comply": 39,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   }
+  },
+  "accommodating-accommodating": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 136.3,
+    "p1": 66.5,
+    "p2": 69.7,
+    "agree": 40,
+    "frontier": 28,
+    "gap": 5.3,
+    "moves": 3.83,
+    "tokens": 2766,
+    "p1_comply": 36,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 136.2,
+    "p1": 67.5,
+    "p2": 68.7,
+    "agree": 40,
+    "frontier": 32,
+    "gap": 5.4,
+    "moves": 3.8,
+    "tokens": 2758,
+    "p1_comply": 32,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 136.1,
+    "p1": 65.7,
+    "p2": 70.4,
+    "agree": 40,
+    "frontier": 30,
+    "gap": 5.5,
+    "moves": 4.25,
+    "tokens": 5170,
+    "p1_comply": 35,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 138.0,
+    "p1": 72.2,
+    "p2": 65.8,
+    "agree": 40,
+    "frontier": 35,
+    "gap": 3.6,
+    "moves": 3.2,
+    "tokens": 3384,
+    "p1_comply": 39,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 135.1,
+    "p1": 66.9,
+    "p2": 68.2,
+    "agree": 40,
+    "frontier": 32,
+    "gap": 6.5,
+    "moves": 2.85,
+    "tokens": 2080,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   }
+  },
+  "avoiding-avoiding": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 112.8,
+    "p1": 58.7,
+    "p2": 54.0,
+    "agree": 32,
+    "frontier": 17,
+    "gap": 28.8,
+    "moves": 2.62,
+    "tokens": 1662,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 8
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 106.7,
+    "p1": 54.0,
+    "p2": 52.7,
+    "agree": 28,
+    "frontier": 16,
+    "gap": 34.9,
+    "moves": 2.67,
+    "tokens": 1689,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 12
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 105.9,
+    "p1": 51.7,
+    "p2": 54.2,
+    "agree": 24,
+    "frontier": 22,
+    "gap": 35.7,
+    "moves": 2.67,
+    "tokens": 2566,
+    "p1_comply": 38,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 16
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 125.7,
+    "p1": 59.9,
+    "p2": 65.8,
+    "agree": 34,
+    "frontier": 27,
+    "gap": 15.9,
+    "moves": 2.88,
+    "tokens": 2826,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 6
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 127.9,
+    "p1": 62.4,
+    "p2": 65.6,
+    "agree": 36,
+    "frontier": 20,
+    "gap": 13.7,
+    "moves": 3,
+    "tokens": 2250,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 4
+   }
+  },
+  "competing-neutral": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 118.7,
+    "p1": 67.7,
+    "p2": 51.1,
+    "agree": 35,
+    "frontier": 10,
+    "gap": 22.9,
+    "moves": 6.38,
+    "tokens": 5510,
+    "p1_comply": 39,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 5
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 115.6,
+    "p1": 65.8,
+    "p2": 49.8,
+    "agree": 35,
+    "frontier": 10,
+    "gap": 26.0,
+    "moves": 6.62,
+    "tokens": 5865,
+    "p1_comply": 33,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 5
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 133.6,
+    "p1": 71.3,
+    "p2": 62.2,
+    "agree": 39,
+    "frontier": 26,
+    "gap": 8.1,
+    "moves": 5.05,
+    "tokens": 7054,
+    "p1_comply": 30,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 1
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 138.4,
+    "p1": 68.7,
+    "p2": 69.8,
+    "agree": 40,
+    "frontier": 30,
+    "gap": 3.2,
+    "moves": 5.3,
+    "tokens": 6993,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 136.6,
+    "p1": 69.6,
+    "p2": 67.0,
+    "agree": 40,
+    "frontier": 27,
+    "gap": 5.0,
+    "moves": 6.83,
+    "tokens": 6968,
+    "p1_comply": 40,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   }
+  },
+  "collaborating-neutral": {
+   "luna_0.7_E1": {
+    "n": 40,
+    "joint": 134.3,
+    "p1": 72.3,
+    "p2": 61.9,
+    "agree": 39,
+    "frontier": 29,
+    "gap": 7.3,
+    "moves": 5.4,
+    "tokens": 4826,
+    "p1_comply": 21,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 1
+   },
+   "luna_t1": {
+    "n": 40,
+    "joint": 136.7,
+    "p1": 70.2,
+    "p2": 66.5,
+    "agree": 40,
+    "frontier": 27,
+    "gap": 4.9,
+    "moves": 5.47,
+    "tokens": 4864,
+    "p1_comply": 22,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "haiku_5_5": {
+    "n": 40,
+    "joint": 137.7,
+    "p1": 70.0,
+    "p2": 67.7,
+    "agree": 40,
+    "frontier": 31,
+    "gap": 3.9,
+    "moves": 4.05,
+    "tokens": 5608,
+    "p1_comply": 26,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   },
+   "sonnet_5_5": {
+    "n": 40,
+    "joint": 139.9,
+    "p1": 68.0,
+    "p2": 71.9,
+    "agree": 40,
+    "frontier": 36,
+    "gap": 1.7,
+    "moves": 4.58,
+    "tokens": 7020,
+    "p1_comply": 34,
+    "p1_known": 40,
+    "passes": 1,
+    "walks": 0
+   },
+   "sol_6_1": {
+    "n": 40,
+    "joint": 139.5,
+    "p1": 65.4,
+    "p2": 74.1,
+    "agree": 40,
+    "frontier": 37,
+    "gap": 2.1,
+    "moves": 4.97,
+    "tokens": 4909,
+    "p1_comply": 32,
+    "p1_known": 40,
+    "passes": 0,
+    "walks": 0
+   }
+  }
+ },
+ "diagonal_vs_neutral": {
+  "luna_0.7_E1": {
+   "competing-competing": [
+    -25.0,
+    10,
+    29,
+    0.003
+   ],
+   "collaborating-collaborating": [
+    7.9,
+    22,
+    10,
+    0.05
+   ],
+   "compromising-compromising": [
+    -12.7,
+    10,
+    26,
+    0.011
+   ],
+   "accommodating-accommodating": [
+    8.7,
+    23,
+    7,
+    0.005
+   ],
+   "avoiding-avoiding": [
+    -14.8,
+    11,
+    23,
+    0.058
+   ]
+  },
+  "luna_t1": {
+   "competing-competing": [
+    -35.3,
+    6,
+    34,
+    0.0
+   ],
+   "collaborating-collaborating": [
+    6.0,
+    25,
+    11,
+    0.029
+   ],
+   "compromising-compromising": [
+    -15.0,
+    9,
+    30,
+    0.001
+   ],
+   "accommodating-accommodating": [
+    6.8,
+    22,
+    10,
+    0.05
+   ],
+   "avoiding-avoiding": [
+    -22.7,
+    9,
+    22,
+    0.029
+   ]
+  },
+  "haiku_5_5": {
+   "competing-competing": [
+    -17.9,
+    8,
+    30,
+    0.0
+   ],
+   "collaborating-collaborating": [
+    5.3,
+    21,
+    7,
+    0.013
+   ],
+   "compromising-compromising": [
+    -8.6,
+    12,
+    25,
+    0.047
+   ],
+   "accommodating-accommodating": [
+    1.1,
+    17,
+    15,
+    0.86
+   ],
+   "avoiding-avoiding": [
+    -29.1,
+    6,
+    28,
+    0.0
+   ]
+  },
+  "sonnet_5_5": {
+   "competing-competing": [
+    -34.4,
+    1,
+    38,
+    0.0
+   ],
+   "collaborating-collaborating": [
+    2.5,
+    21,
+    4,
+    0.001
+   ],
+   "compromising-compromising": [
+    -6.1,
+    5,
+    30,
+    0.0
+   ],
+   "accommodating-accommodating": [
+    -0.2,
+    14,
+    12,
+    0.845
+   ],
+   "avoiding-avoiding": [
+    -12.5,
+    11,
+    20,
+    0.15
+   ]
+  },
+  "sol_6_1": {
+   "competing-competing": [
+    -28.7,
+    0,
+    40,
+    0.0
+   ],
+   "collaborating-collaborating": [
+    1.7,
+    22,
+    7,
+    0.008
+   ],
+   "compromising-compromising": [
+    -8.2,
+    2,
+    35,
+    0.0
+   ],
+   "accommodating-accommodating": [
+    -3.8,
+    13,
+    21,
+    0.229
+   ],
+   "avoiding-avoiding": [
+    -10.9,
+    10,
+    26,
+    0.011
+   ]
+  }
+ },
+ "unilateral": {
+  "competing-neutral": {
+   "luna_0.7_E1": {
+    "own": [
+     2.7,
+     22,
+     17,
+     0.522
+    ],
+    "partner": [
+     -11.6,
+     13,
+     26,
+     0.053
+    ],
+    "joint": [
+     -8.8,
+     12,
+     24,
+     0.065
+    ]
+   },
+   "luna_t1": {
+    "own": [
+     1.3,
+     19,
+     18,
+     1.0
+    ],
+    "partner": [
+     -15.1,
+     11,
+     26,
+     0.02
+    ],
+    "joint": [
+     -13.8,
+     11,
+     24,
+     0.041
+    ]
+   },
+   "haiku_5_5": {
+    "own": [
+     2.3,
+     19,
+     15,
+     0.608
+    ],
+    "partner": [
+     -3.7,
+     14,
+     20,
+     0.392
+    ],
+    "joint": [
+     -1.5,
+     18,
+     16,
+     0.864
+    ]
+   },
+   "sonnet_5_5": {
+    "own": [
+     -0.2,
+     13,
+     15,
+     0.851
+    ],
+    "partner": [
+     0.5,
+     14,
+     13,
+     1.0
+    ],
+    "joint": [
+     0.3,
+     15,
+     14,
+     1.0
+    ]
+   },
+   "sol_6_1": {
+    "own": [
+     1.1,
+     14,
+     10,
+     0.541
+    ],
+    "partner": [
+     -3.3,
+     8,
+     17,
+     0.108
+    ],
+    "joint": [
+     -2.3,
+     8,
+     18,
+     0.076
+    ]
+   }
+  },
+  "collaborating-neutral": {
+   "luna_0.7_E1": {
+    "own": [
+     7.4,
+     25,
+     10,
+     0.017
+    ],
+    "partner": [
+     -0.7,
+     18,
+     19,
+     1.0
+    ],
+    "joint": [
+     6.7,
+     23,
+     13,
+     0.132
+    ]
+   },
+   "luna_t1": {
+    "own": [
+     5.7,
+     20,
+     15,
+     0.5
+    ],
+    "partner": [
+     1.6,
+     20,
+     16,
+     0.618
+    ],
+    "joint": [
+     7.3,
+     26,
+     10,
+     0.011
+    ]
+   },
+   "haiku_5_5": {
+    "own": [
+     0.9,
+     16,
+     18,
+     0.864
+    ],
+    "partner": [
+     1.7,
+     19,
+     16,
+     0.736
+    ],
+    "joint": [
+     2.6,
+     21,
+     13,
+     0.229
+    ]
+   },
+   "sonnet_5_5": {
+    "own": [
+     -0.8,
+     11,
+     16,
+     0.442
+    ],
+    "partner": [
+     2.6,
+     18,
+     10,
+     0.185
+    ],
+    "joint": [
+     1.8,
+     20,
+     9,
+     0.061
+    ]
+   },
+   "sol_6_1": {
+    "own": [
+     -3.1,
+     5,
+     18,
+     0.011
+    ],
+    "partner": [
+     3.8,
+     19,
+     5,
+     0.007
+    ],
+    "joint": [
+     0.7,
+     15,
+     8,
+     0.21
+    ]
+   }
+  }
+ },
+ "vs_e1_twin": {
+  "neutral-neutral": {
+   "luna_t1": {
+    "joint": [
+     1.8,
+     19,
+     14,
+     0.487
+    ],
+    "p1": [
+     -0.4,
+     16,
+     18,
+     0.864
+    ],
+    "tokens": [
+     -131.5,
+     22,
+     18,
+     0.636
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     7.5,
+     26,
+     11,
+     0.02
+    ],
+    "p1": [
+     4.1,
+     23,
+     16,
+     0.337
+    ],
+    "tokens": [
+     2374.5,
+     34,
+     6,
+     0.0
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     10.6,
+     29,
+     7,
+     0.0
+    ],
+    "p1": [
+     3.9,
+     22,
+     15,
+     0.324
+    ],
+    "tokens": [
+     3287.9,
+     36,
+     4,
+     0.0
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     11.3,
+     32,
+     6,
+     0.0
+    ],
+    "p1": [
+     3.6,
+     21,
+     16,
+     0.511
+    ],
+    "tokens": [
+     4917.7,
+     38,
+     2,
+     0.0
+    ]
+   }
+  },
+  "competing-competing": {
+   "luna_t1": {
+    "joint": [
+     -8.4,
+     9,
+     18,
+     0.122
+    ],
+    "p1": [
+     -3.2,
+     9,
+     17,
+     0.169
+    ],
+    "tokens": [
+     97.9,
+     20,
+     20,
+     1.0
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     14.6,
+     20,
+     10,
+     0.099
+    ],
+    "p1": [
+     7.2,
+     18,
+     11,
+     0.265
+    ],
+    "tokens": [
+     2725.2,
+     28,
+     12,
+     0.017
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     1.2,
+     10,
+     10,
+     1.0
+    ],
+    "p1": [
+     1.8,
+     11,
+     10,
+     1.0
+    ],
+    "tokens": [
+     5406.6,
+     39,
+     1,
+     0.0
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     7.6,
+     12,
+     8,
+     0.503
+    ],
+    "p1": [
+     5.7,
+     14,
+     6,
+     0.115
+    ],
+    "tokens": [
+     732.6,
+     26,
+     14,
+     0.081
+    ]
+   }
+  },
+  "collaborating-collaborating": {
+   "luna_t1": {
+    "joint": [
+     -0.1,
+     13,
+     12,
+     1.0
+    ],
+    "p1": [
+     -2.3,
+     9,
+     15,
+     0.307
+    ],
+    "tokens": [
+     -703.4,
+     17,
+     23,
+     0.43
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     4.9,
+     21,
+     4,
+     0.001
+    ],
+    "p1": [
+     0.5,
+     12,
+     14,
+     0.845
+    ],
+    "tokens": [
+     1105.7,
+     24,
+     16,
+     0.268
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     5.2,
+     22,
+     4,
+     0.001
+    ],
+    "p1": [
+     1.1,
+     13,
+     12,
+     1.0
+    ],
+    "tokens": [
+     1758.1,
+     27,
+     13,
+     0.038
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     5.1,
+     21,
+     8,
+     0.024
+    ],
+    "p1": [
+     1.0,
+     14,
+     15,
+     1.0
+    ],
+    "tokens": [
+     -2192.9,
+     11,
+     29,
+     0.006
+    ]
+   }
+  },
+  "compromising-compromising": {
+   "luna_t1": {
+    "joint": [
+     -0.5,
+     13,
+     20,
+     0.296
+    ],
+    "p1": [
+     0.9,
+     16,
+     17,
+     1.0
+    ],
+    "tokens": [
+     222.9,
+     23,
+     17,
+     0.43
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     11.5,
+     26,
+     13,
+     0.053
+    ],
+    "p1": [
+     3.6,
+     22,
+     17,
+     0.522
+    ],
+    "tokens": [
+     4481.2,
+     35,
+     5,
+     0.0
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     17.2,
+     25,
+     10,
+     0.017
+    ],
+    "p1": [
+     5.6,
+     23,
+     13,
+     0.132
+    ],
+    "tokens": [
+     3528.3,
+     35,
+     5,
+     0.0
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     15.7,
+     25,
+     12,
+     0.047
+    ],
+    "p1": [
+     5.0,
+     22,
+     14,
+     0.243
+    ],
+    "tokens": [
+     -98.2,
+     29,
+     11,
+     0.006
+    ]
+   }
+  },
+  "accommodating-accommodating": {
+   "luna_t1": {
+    "joint": [
+     -0.1,
+     12,
+     11,
+     1.0
+    ],
+    "p1": [
+     0.9,
+     11,
+     14,
+     0.69
+    ],
+    "tokens": [
+     -8.4,
+     21,
+     19,
+     0.875
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     -0.1,
+     14,
+     17,
+     0.72
+    ],
+    "p1": [
+     -0.8,
+     16,
+     18,
+     0.864
+    ],
+    "tokens": [
+     2403.9,
+     39,
+     1,
+     0.0
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     1.7,
+     16,
+     12,
+     0.572
+    ],
+    "p1": [
+     5.7,
+     19,
+     8,
+     0.052
+    ],
+    "tokens": [
+     617.7,
+     33,
+     7,
+     0.0
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     -1.2,
+     13,
+     15,
+     0.851
+    ],
+    "p1": [
+     0.3,
+     16,
+     14,
+     0.856
+    ],
+    "tokens": [
+     -686.2,
+     8,
+     32,
+     0.0
+    ]
+   }
+  },
+  "avoiding-avoiding": {
+   "luna_t1": {
+    "joint": [
+     -6.0,
+     10,
+     14,
+     0.541
+    ],
+    "p1": [
+     -4.7,
+     11,
+     13,
+     0.839
+    ],
+    "tokens": [
+     26.7,
+     20,
+     20,
+     1.0
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     -6.9,
+     10,
+     10,
+     1.0
+    ],
+    "p1": [
+     -7.1,
+     6,
+     14,
+     0.115
+    ],
+    "tokens": [
+     903.3,
+     35,
+     5,
+     0.0
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     12.9,
+     24,
+     7,
+     0.003
+    ],
+    "p1": [
+     1.1,
+     17,
+     15,
+     0.86
+    ],
+    "tokens": [
+     1163.7,
+     39,
+     1,
+     0.0
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     15.2,
+     23,
+     12,
+     0.09
+    ],
+    "p1": [
+     3.6,
+     19,
+     18,
+     1.0
+    ],
+    "tokens": [
+     587.5,
+     40,
+     0,
+     0.0
+    ]
+   }
+  },
+  "competing-neutral": {
+   "luna_t1": {
+    "joint": [
+     -3.1,
+     19,
+     17,
+     0.868
+    ],
+    "p1": [
+     -1.9,
+     15,
+     21,
+     0.405
+    ],
+    "tokens": [
+     354.9,
+     22,
+     18,
+     0.636
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     14.8,
+     27,
+     11,
+     0.014
+    ],
+    "p1": [
+     3.7,
+     21,
+     18,
+     0.749
+    ],
+    "tokens": [
+     1543.8,
+     28,
+     12,
+     0.017
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     19.7,
+     33,
+     2,
+     0.0
+    ],
+    "p1": [
+     1.0,
+     18,
+     17,
+     1.0
+    ],
+    "tokens": [
+     1482.8,
+     26,
+     14,
+     0.081
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     17.8,
+     32,
+     7,
+     0.0
+    ],
+    "p1": [
+     1.9,
+     21,
+     17,
+     0.627
+    ],
+    "tokens": [
+     1457.9,
+     26,
+     14,
+     0.081
+    ]
+   }
+  },
+  "collaborating-neutral": {
+   "luna_t1": {
+    "joint": [
+     2.5,
+     20,
+     12,
+     0.215
+    ],
+    "p1": [
+     -2.1,
+     14,
+     18,
+     0.597
+    ],
+    "tokens": [
+     38.5,
+     23,
+     17,
+     0.43
+    ]
+   },
+   "haiku_5_5": {
+    "joint": [
+     3.4,
+     19,
+     12,
+     0.281
+    ],
+    "p1": [
+     -2.4,
+     10,
+     20,
+     0.099
+    ],
+    "tokens": [
+     782.4,
+     24,
+     16,
+     0.268
+    ]
+   },
+   "sonnet_5_5": {
+    "joint": [
+     5.7,
+     22,
+     7,
+     0.008
+    ],
+    "p1": [
+     -4.3,
+     8,
+     22,
+     0.016
+    ],
+    "tokens": [
+     2194.3,
+     29,
+     11,
+     0.006
+    ]
+   },
+   "sol_6_1": {
+    "joint": [
+     5.2,
+     21,
+     8,
+     0.024
+    ],
+    "p1": [
+     -6.9,
+     5,
+     25,
+     0.0
+    ],
+    "tokens": [
+     83.2,
+     21,
+     19,
+     0.875
+    ]
+   }
+  }
+ },
+ "compliance": {
+  "luna_0.7_E1": {
+   "competing": [
+    78,
+    80
+   ],
+   "collaborating": [
+    45,
+    80
+   ],
+   "compromising": [
+    36,
+    40
+   ],
+   "accommodating": [
+    36,
+    40
+   ],
+   "avoiding": [
+    40,
+    40
+   ]
+  },
+  "luna_t1": {
+   "competing": [
+    69,
+    80
+   ],
+   "collaborating": [
+    45,
+    80
+   ],
+   "compromising": [
+    37,
+    40
+   ],
+   "accommodating": [
+    32,
+    40
+   ],
+   "avoiding": [
+    40,
+    40
+   ]
+  },
+  "haiku_5_5": {
+   "competing": [
+    46,
+    80
+   ],
+   "collaborating": [
+    52,
+    80
+   ],
+   "compromising": [
+    35,
+    40
+   ],
+   "accommodating": [
+    35,
+    40
+   ],
+   "avoiding": [
+    38,
+    40
+   ]
+  },
+  "sonnet_5_5": {
+   "competing": [
+    80,
+    80
+   ],
+   "collaborating": [
+    71,
+    80
+   ],
+   "compromising": [
+    40,
+    40
+   ],
+   "accommodating": [
+    39,
+    40
+   ],
+   "avoiding": [
+    40,
+    40
+   ]
+  },
+  "sol_6_1": {
+   "competing": [
+    80,
+    80
+   ],
+   "collaborating": [
+    64,
+    80
+   ],
+   "compromising": [
+    39,
+    40
+   ],
+   "accommodating": [
+    40,
+    40
+   ],
+   "avoiding": [
+    40,
+    40
+   ]
+  }
+ },
+ "process": {
+  "luna_0.7_E1": {
+   "discloses": 51,
+   "asks": 37,
+   "first": 94.6,
+   "chars": 444,
+   "rejected": 0,
+   "calls": 1640
+  },
+  "luna_t1": {
+   "discloses": 51,
+   "asks": 41,
+   "first": 95.8,
+   "chars": 444,
+   "rejected": 2,
+   "calls": 1635
+  },
+  "haiku_5_5": {
+   "discloses": 37,
+   "asks": 69,
+   "first": 93.9,
+   "chars": 598,
+   "rejected": 14,
+   "calls": 1464
+  },
+  "sonnet_5_5": {
+   "discloses": 8,
+   "asks": 80,
+   "first": 91.4,
+   "chars": 557,
+   "rejected": 49,
+   "calls": 1586
+  },
+  "sol_6_1": {
+   "discloses": 30,
+   "asks": 80,
+   "first": 91.5,
+   "chars": 886,
+   "rejected": 3,
+   "calls": 1629
+  }
+ }
+}

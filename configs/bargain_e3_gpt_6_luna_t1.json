@@ -1,9 +1,11 @@
 {
   "study": "bargain_e3_gpt_6_luna_t1",
-  "question": "E3, ai2s/gpt-6-luna: E1's eight reading cells on E1's 40 instances. E1's model at the default temperature, through the proxy: the control for the sampling difference between E1 (0.7, top-p 0.8) and the other E3 arms.",
-  "model": "ai2s/gpt-6-luna",
+  "question": "E3, gpt-6-luna at the default temperature (OpenAI directly, reasoning off): E1's eight reading cells on E1's 40 instances. The control for the sampling difference between E1 (0.7, top-p 0.8) and the other E3 arms.",
+  "model": "gpt-6-luna",
   "model_kwargs": {
-    "reasoning_effort": "none"
+    "extra_body": {
+      "reasoning_effort": "none"
+    }
   },
   "max_tokens": 700,
   "environment": {
@@ -109,5 +111,6 @@
   "budget_usd": 1.0,
   "output": "runs/bargain/e3_gpt_6_luna_t1",
   "results_prefix": "results/bargain_e3_gpt_6_luna_t1",
-  "status": "frozen 2026-11-21 before any E3 game was played; rules, instances and seats byte-identical to E1"
+  "status": "frozen 2026-11-21; rules, instances and seats byte-identical to E1; rerun the same day against OpenAI directly after the proxy run turned out to reason (see model_kwargs_note)",
+  "model_kwargs_note": "Through the proxy (ai2s/gpt-6-luna with reasoning_effort none at the top level) the first run of this arm had hidden reasoning after all: 284 of 1,761 calls returned 700 completion tokens with an empty or truncated reply (286 rejected replies, 57 lost moves), so the proxy does not honour reasoning_effort for this model. Rerun 2026-11-21 directly against OpenAI, as E1 was, with reasoning off and no temperature or top-p (the model's defaults), which is the control E1 needs; the proxy run's games are kept under runs/bargain/e3_gpt_6_luna_t1_proxy and are not reported."
 }
