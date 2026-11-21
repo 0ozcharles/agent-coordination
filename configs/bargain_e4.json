@@ -1,0 +1,46 @@
+{
+  "study": "bargain_e4",
+  "question": "E4 scenario skins: does the strategy map depend on the surface framing? E1's 40 instances rendered as a software design, a quarterly team plan and a joint release plan, with the rule diagonal and the two unilateral deviations against neutral; E1 itself is the abstract rendering of the same games.",
+  "instances": {
+    "n": 40,
+    "seed": 20261122,
+    "first_mover": "alternate",
+    "note": "E1's test set; identical structures under every skin"
+  },
+  "cells": "the six rule-diagonal pairs plus competing-neutral and collaborating-neutral: 8 cells, 320 games per skin, 960 in all",
+  "analysis": "per skin as E1; across skins every cell is paired by instance with its abstract twin in E1 and with the other skins; the condition map treats the skins as conditions and E1 as the abstract one",
+  "conditions": {
+    "abstract": {
+      "config": "configs/bargain_e1.json",
+      "env": {},
+      "model_condition": "E1: Developer 1 and 2, Decision 1, Option A",
+      "prediction": "the reference"
+    },
+    "software_design": {
+      "config": "configs/bargain_e4_software_design.json",
+      "env": {
+        "skin": "software_design"
+      },
+      "model_condition": "two developers design a shared module",
+      "prediction": "as E1"
+    },
+    "team_plan": {
+      "config": "configs/bargain_e4_team_plan.json",
+      "env": {
+        "skin": "team_plan"
+      },
+      "model_condition": "two team leads plan a quarter",
+      "prediction": "as E1"
+    },
+    "release_plan": {
+      "config": "configs/bargain_e4_release_plan.json",
+      "env": {
+        "skin": "release_plan"
+      },
+      "model_condition": "two product owners plan a release",
+      "prediction": "as E1"
+    }
+  },
+  "budget_usd": 3.0,
+  "status": "frozen 2026-11-20 before any E4 game was played"
+}

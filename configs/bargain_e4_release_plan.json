@@ -1,0 +1,129 @@
+{
+  "study": "bargain_e4_release_plan",
+  "question": "E4 scenario skins, release_plan: E1's instances rendered as a joint release plan between two product owners (release date, first platform, pricing, launch region). Same structures, weights, seats and rules as E1; only the words change. Does the rule diagonal keep E1's order, and do competing and collaborating keep their edge against neutral?",
+  "model": "gpt-6-luna",
+  "model_kwargs": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "extra_body": {
+      "reasoning_effort": "none"
+    }
+  },
+  "max_tokens": 700,
+  "environment": {
+    "issues": 4,
+    "options": 3,
+    "moves": 10,
+    "outside": [
+      30,
+      30
+    ],
+    "opposition": 0.75,
+    "asymmetry": 0.5,
+    "visible_weights": false,
+    "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+    "skin": "release_plan",
+    "note": "E1's regime; 'skin' picks the rendering from configs/bargain_skins.json"
+  },
+  "instances": {
+    "n": 40,
+    "seed": 20261122,
+    "first_mover": "alternate",
+    "note": "E1's test set (same seed): every game has an abstract twin in runs/bargain/e1"
+  },
+  "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+  "strategies": {
+    "shared": {
+      "neutral": "Handle this in whatever way you think best."
+    },
+    "prompted": {
+      "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+      "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+      "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+      "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+      "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+    },
+    "rules": {
+      "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+      "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+      "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+      "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+      "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+    },
+    "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+  },
+  "cells": [
+    {
+      "name": "neutral-neutral",
+      "p1": "neutral",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "competing-competing",
+      "p1": "competing",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "collaborating-collaborating",
+      "p1": "collaborating",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-compromising",
+      "p1": "compromising",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-accommodating",
+      "p1": "accommodating",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-avoiding",
+      "p1": "avoiding",
+      "p2": "avoiding",
+      "op": "rules"
+    },
+    {
+      "name": "competing-neutral",
+      "p1": "competing",
+      "p2": "neutral",
+      "op": "rules",
+      "note": "secondary: the unilateral deviation E2 compares across conditions; abstract baseline is E1's cell of the same name"
+    },
+    {
+      "name": "collaborating-neutral",
+      "p1": "collaborating",
+      "p2": "neutral",
+      "op": "rules",
+      "note": "secondary, as competing-neutral"
+    }
+  ],
+  "control": "neutral-neutral",
+  "predictions": {
+    "primary": "the rule diagonal keeps E1's order of joint payoff (collaborating and accommodating pairs above neutral, competing and avoiding pairs below) under every skin; paired by instance against E1's abstract twin, no pair's joint payoff moves by more than 5 points out of 200",
+    "secondary": "competing against neutral and collaborating against neutral both keep a positive own-payoff edge over the neutral pair, as in E1 and E2 base",
+    "where_it_could_fail": "option names with a prior (for example 'the existing SQL tables', 'two senior engineers') could pull both agents toward one option whatever their scores; a skin whose issues read as one party's turf (release date, pricing) could make accommodating more natural; team_plan and release_plan also rename the design a plan, which touches the rule texts through reskin",
+    "analysis": "per skin, the E1 analysis (joint by pair against neutral-neutral, own-payoff matrix, sign tests paired by instance); across skins, each cell paired by instance with its abstract twin from E1 and with the other skins; the condition map with the skins as conditions and E1 as the abstract condition; tokens and moves per skin"
+  },
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {
+      "extra_body": {
+        "reasoning_effort": "low"
+      }
+    },
+    "codebook": "docs/B_BARGAIN_STYLE_CODEBOOK.md",
+    "attempts": 2,
+    "input": "the public moves and messages in order; not the scores, the private reasoning, the guidance or the payoffs"
+  },
+  "budget_usd": 1.0,
+  "output": "runs/bargain/e4_release_plan",
+  "results_prefix": "results/bargain_e4_release_plan",
+  "status": "frozen 2026-11-20 before any E4 game was played; strategies and rule texts byte-identical to E1 (round-3 collaborating text: with three contested decisions per instance the one-contested clause of the revised rule never applies, and keeping E1's text leaves the skin as the only difference from the abstract twin)"
+}
