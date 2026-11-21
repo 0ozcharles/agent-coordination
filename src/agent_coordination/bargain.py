@@ -178,7 +178,8 @@ def instances(config):
         specs = json.loads(Path(spec["path"]).read_text())
         for i, s in enumerate(specs[: spec.get("n") or len(specs)]):
             first = ("p1", "p2")[i % 2] if spec.get("first_mover", "alternate") == "alternate" else spec["first_mover"]
-            out.append(assemble(env, i, first, s["importance"], s["rankings"], s["opposed"], seed=s.get("source"), skin=s.get("skin")))
+            skin = spec["skin"] if "skin" in spec else s.get("skin")  # instances.skin overrides the file's inline skins
+            out.append(assemble(env, i, first, s["importance"], s["rankings"], s["opposed"], seed=s.get("source"), skin=skin))
         return out
     rng = random.Random(spec["seed"])
     for i in range(spec["n"]):

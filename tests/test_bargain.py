@@ -259,6 +259,16 @@ class SkinAndGroundTest(unittest.TestCase):
         self.assertIn("You are working on the fast path; the other developer on the batch API.", text_b)
         self.assertIn("Input shape: A (one) = 30, B (two) = 0, C (three) = 60", text_a)
         self.assertIn("8 moves in total", text_a)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "specs.json"
+            path.write_text(json.dumps([spec]))
+            cfg = config(instances={"path": str(path), "skin": "abstract"}, environment={"moves": 8, "outside": [30, 30]})
+            plain = bargain.instances(cfg)[0]
+        self.assertEqual(plain["weights"], inst["weights"])  # the override changes the rendering only
+        text = bargain.system_prompt(cfg, plain, "p1", "neutral", "prompted")
+        self.assertIn("You are Developer 1, one of two developers who must agree on a shared design with 2 decisions. For each", text)
+        self.assertIn("Decision 1: Option A = 30, Option B = 0, Option C = 60", text)
+        self.assertNotIn("Context here", text)
 
     def test_ground_validation_and_spec(self):
         from agent_coordination import ground
