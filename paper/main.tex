@@ -13,6 +13,7 @@
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{tikz}
+\usepackage{float}
 
 % Use the following line for the initial blind version submitted for review:
 \usepackage{icml2027}
@@ -69,6 +70,9 @@
 ]
 
 \printAffiliationsAndNotice{}  % required even if empty
+% The style's running-head check measures the title's height against 6.25pt; under XeTeX (tectonic) the Latin Modern
+% ascenders exceed that by a hair and the head is replaced by "Title Suppressed Due to Excessive Size". Restore it.
+\makeatletter\gdef\@icmltitlerunning{Conflict-Handling Strategies for LLM Agents}\makeatother
 
 \begin{abstract}
 When two LLM agents want different things from a shared decision, how should each of them handle the conflict? Organizational psychology names five conflict-handling strategies (competing, collaborating, compromising, accommodating and avoiding) and claims that each fits some situations and not others. We test those claims on LLM agents. We build a parametric multi-issue bargaining environment with an exact efficiency frontier, operationalize each strategy twice (as a prompted style and as behavioural rules on the agent's own point scale, so that compliance is checked from the moves without a judge) and play about 13{,}000 games across the full strategy matrix, ten situational conditions, three surface framings of the same instances and 85 instances derived from real conflicts between code changes. Rules are enacted and style sentences mostly are not. In the matrix, rule-based collaborating is the best response to almost every partner and the attractor of replicator dynamics, competing pays only against a partner that cannot push back and pays by transfer, and two accommodating agents are the most efficient pair; the situational conditions move the map, but not as the textbook prescribes, and a price on tokens moves the answer toward the cheap strategies long before a token costs a point. The map is the same under four framings of the same games; what a realistic framing changes is who captures collaborating's gain, and when the options make the partner's needs legible the default agent finds the frontier on its own. The environment and all transcripts are released.
@@ -440,7 +444,7 @@ Every guidance text follows the sentence ``You and the other developer want diff
 
 \section{Conditions}
 \label{app:conditions}
-\begin{table}[h]
+\begin{table}[H]
 \caption{The E2 conditions: the knob moved from the E1 regime, the \tki{} situation it operationalizes, the prediction frozen before the run and the result.}
 \label{tab:conditions}
 \centering\small
