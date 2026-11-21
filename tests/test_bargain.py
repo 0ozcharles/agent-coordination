@@ -336,6 +336,14 @@ class CollaboratingRuleTest(unittest.TestCase):
         moves = [move(1, "p1", "propose", [0, 0, 0], message=asks, inst=one), move(2, "p2", "accept")]
         agreement = {"by": "p1", "design": [0, 0, 0], "values": moves[0]["values"]}
         self.assertFalse(bargain.compliance("collaborating", one, moves, agreement, "p1")["proposes_trade"])
+        # accepting the partner's proposal that takes the contested decision away from the agent counts as the concession
+        moves = [move(1, "p1", "propose", [0, 0, 0], message=asks, inst=one), move(2, "p2", "propose", [2, 0, 0], inst=one), move(3, "p1", "accept")]
+        agreement = {"by": "p2", "design": [2, 0, 0], "values": moves[1]["values"]}
+        c = bargain.compliance("collaborating", one, moves, agreement, "p1")
+        self.assertTrue(c["proposes_trade"])
+        moves = [move(1, "p1", "propose", [0, 0, 0], message=asks, inst=one), move(2, "p2", "propose", [0, 1, 0], inst=one), move(3, "p1", "accept")]
+        agreement = {"by": "p2", "design": [0, 1, 0], "values": moves[1]["values"]}
+        self.assertFalse(bargain.compliance("collaborating", one, moves, agreement, "p1")["proposes_trade"])  # kept its top
         none = self.spec_instance([False, False])
         moves = [move(1, "p1", "propose", [0, 0], message=asks, inst=none), move(2, "p2", "accept")]
         agreement = {"by": "p1", "design": [0, 0], "values": moves[0]["values"]}

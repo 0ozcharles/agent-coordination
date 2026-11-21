@@ -522,8 +522,13 @@ def compliance(strategy, inst, moves, agreement, agent):
                   "one_decision_per_step": m["max_changed"] is None or m["max_changed"] <= 1,
                   "accepts_60": accepted is None or accepted >= t["t60"]}
     elif strategy == "collaborating":
+        # with one contested decision, accepting a proposal of the partner's that does not give the agent its top
+        # option on it is the concession the rule asks for ("give the other developer their preferred option on it")
+        conceded_by_accepting = (sum(inst["opposed"]) == 1 and agreement is not None and moves[-1]["by"] == agent
+                                 and moves[-1]["action"] == "accept" and bool(collaborative_proposal(inst, agreement["design"], agent)))
+        trade = None if not any(inst["opposed"]) else ((m["collaborative"] or conceded_by_accepting) if (own or conceded_by_accepting) else None)
         checks = {"asks_first": m["asks"], "accepts_60": accepted is None or accepted >= t["t60"] or at_last_move,
-                  "proposes_trade": (m["collaborative"] if own else None) if any(inst["opposed"]) else None}
+                  "proposes_trade": trade}
     elif strategy == "compromising":
         checks = {"accepts_50": accepted is None or accepted >= t["t50"],
                   "steps_of_two_decisions": m["max_changed"] is None or m["max_changed"] <= 2,
