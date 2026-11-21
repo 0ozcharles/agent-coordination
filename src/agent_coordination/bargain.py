@@ -394,6 +394,7 @@ def play(config, inst, cell):
     budget = inst.get("output_budget")
     mover = inst["first_mover"]
     standing, last, moves, agreement, ended_by, cost, invalid = None, None, [], None, "moves_exhausted", 0.0, 0
+    rejected = []  # replies that could not be used, kept for diagnosis
     for n in range(1, T + 1):
         other = "p2" if mover == "p1" else "p1"
         left = (budget - usage[mover]["completion"]) if budget else None
@@ -416,6 +417,7 @@ def play(config, inst, cell):
                 break
             except ValueError as exc:
                 invalid += 1
+                rejected.append({"n": n, "by": mover, "error": str(exc), "raw": reply[:2000], "completion_tokens": used["completion"]})
                 if attempt == 0:
                     conv[mover].append({"role": "user", "content": f"Your reply could not be used ({exc}). "
                                         "Reply again with exactly one JSON object in one of the given forms."})
@@ -434,7 +436,7 @@ def play(config, inst, cell):
             break
         last, mover = move, other
     return {"cell": cell["name"], "instance": inst, "strategies": strategies, "ops": ops, "moves": moves,
-            "agreement": agreement, "ended_by": ended_by, "invalid_replies": invalid, "cost_usd": cost, "error": None,
+            "agreement": agreement, "ended_by": ended_by, "invalid_replies": invalid, "rejected": rejected, "cost_usd": cost, "error": None,
             "usage": usage, **outcome(inst, moves, agreement),
             "metrics": {a: agent_metrics(inst, moves, agreement, a) for a in AGENTS},
             "compliance": {a: compliance(strategies[a], inst, moves, agreement, a) for a in AGENTS}}

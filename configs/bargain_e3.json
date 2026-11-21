@@ -36,6 +36,6 @@
     }
   },
   "budget_usd": 22.0,
-  "sampling": "The proxy's Claude models accept temperature 1 only, and gpt-6.1-sol rejects any other temperature as well, so every E3 arm runs at the model's default temperature; the gpt-6-luna arm at the default temperature measures what that changes against E1 (checked on 2 smoke games per Claude model and 3 probe calls on 2026-11-21).",
+  "sampling": "The proxy's Claude models accept temperature 1 only, and gpt-6.1-sol rejects any other temperature as well, so every E3 arm runs at the model's default temperature; the gpt-6-luna arm at the default temperature measures what that changes against E1 (checked on 2 smoke games per Claude model and 3 probe calls on 2026-11-21). The Claude models also think by default through the proxy; the arms run with thinking disabled, so no arm has hidden reasoning (the first 46 haiku games, played with thinking on, hit the 700-token reply cap in a quarter of the calls and were discarded).",
   "status": "frozen 2026-11-21 before any E3 game was played"
 }
