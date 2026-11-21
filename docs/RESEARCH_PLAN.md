@@ -837,9 +837,28 @@ Config: [configs/bargain_grounded.json](../configs/bargain_grounded.json), E2 ba
 
 **Reading.** Two things differ from the synthetic core at once: the structure (fewer decisions, shared decisions, a middle option that is a genuine compromise) and the semantics (each side is told its own ticket and the other's, and the option names say which ticket each serves, so the partner's needs are legible as under open information). Either can explain why the default agent finds the frontier and the strategies have little to add. The cheap control is to replay the same 85 structures under the abstract skin (Decision 1, Option A; about $0.9): if collaborating's edge returns, it is the semantics; if not, the structure. Until then the grounded layer says that on real-conflict structures the conflict-handling strategy matters less than in the generated regime, and that the ranking of what not to do (avoid, match a hard bargainer, pair competing with competing, concede unilaterally) is unchanged.
 
+### Strategy payoff study: grounded control, structure against semantics (2026-11-20)
+
+Config, frozen before the run: [configs/bargain_grounded_abstract.json](../configs/bargain_grounded_abstract.json): the same 85 structures, option letters, seats and 24 cells as the grounded run, rendered under the abstract skin (Developer 1 and 2, Decision 1, Option A; no ticket context, no roles). 2040 games, $0.82, no errors. Results: `results/bargain_grounded_abstract_{rows.csv,summary.json,chart.svg,matrix.svg}`. Own payoff as control / grounded / E2 base:
+
+| strategy | both sides use it | adopted alone against neutral | against a competing partner |
+|---|---|---|---|
+| neutral | 68.7 / 74.3 / 62.6 | 68.7 / 74.3 / 62.6 | 63.1 / 67.0 / 50.4 |
+| competing | 58.6 / 64.1 / 46.9 | 73.9 / 75.0 / 63.7 | 58.6 / 64.1 / 46.9 |
+| collaborating | 73.0 / 74.7 / 65.6 | 75.4 / 74.8 / 69.6 | 66.5 / 69.1 / 53.6 |
+| compromising | 59.2 / 69.4 / 58.4 | 62.8 / 69.6 / 54.9 | 55.5 / 64.0 / 42.6 |
+| accommodating | 74.6 / 73.9 / 65.7 | 62.8 / 70.4 / 60.8 | 59.3 / 66.9 / 50.0 |
+| avoiding | 59.5 / 63.6 / 52.1 | 55.2 / 59.1 / 47.8 | 50.8 / 53.9 / 36.3 |
+
+- **The map comes back.** On the same structures without the ticket context, collaborating adopted alone beats neutral by 6.7 points (69 wins to 41, p = .010), against +0.5 with the context and +7.0 in the E2 base; competing alone gains 5.2 (not significant), compromising and accommodating alone lose 5.9 each (p < .01), avoiding 13.5. Accommodating pairs are again the most efficient cell (+5.9 over the neutral pair, p = .067; gap 5.4, 82 of 85 on the frontier) with collaborating pairs next (+4.3); competing pairs lose 10.1 and avoiding pairs 9.2. Against a competing partner collaborating is again the best reply (+3.4), matching costs 4.5 (p = .001) and avoiding 12.3. The best responses are E1's: collaborating to neutral, to competing and to collaborating.
+- **The default pair leaves the frontier.** Neutral pairs end on the frontier in 61 of 85 games (77 with the context) with a gap of 17.2 (6.0); paired by instance and seat the first seat loses 6.7 points (p = .044) and the second 4.4. Their talk changes with the framing: without it the neutral agents state their scores in 53 of 85 games and ask in 38 (11 and 24 with the context); with the tickets they negotiate in terms of what each side's change needs, without them in numbers.
+- **So the grounded flattening is semantic, not structural.** Fewer decisions and shared decisions are held fixed here and the strategy effects return, so what removed them was the ticket context: it makes the partner's needs legible, as open information did in E2, and the default agent then finds the frontier on its own. Tokens and compliance are as in the grounded run (neutral 1,470, competing 2,460, collaborating 1,790, accommodating 980, avoiding 730 per agent and game; collaborating by rule complied with in 38 of 85 games, for the structural reason noted above).
+
+**Reading for the paper.** The strategy map of the synthetic core is a property of bargaining under hidden interests. A realistic framing that reveals what the other side needs takes most of the strategic room away from the default agent, and what survives the framing is the list of what not to do: avoid, concede alone, match a hard bargainer, pair competing with competing. This is the argument for keeping both layers in the environment: the core measures the strategies where interests are hidden, the grounded layer measures how much of that a realistic framing removes, and the pair of runs on identical structures is the manipulation check for the framing itself.
+
 ## Next steps
 
-1. Replay the grounded structures under the abstract skin to separate structure from semantics; rewrite the collaborating rule in shares of contested decisions, or skip infeasible rules in the compliance check.
+1. Rewrite the collaborating rule in shares of contested decisions, or skip infeasible rules in the compliance check; then compare the grounded cells strategy by strategy.
 2. Run the skins run (E4) on gpt-6-luna; label a sample of E2 and of the grounded games; have a teammate spot-check ten extractions against the tickets.
 3. Add models as access arrives (E3): claude-haiku-5-5 and claude-sonnet-5-5 need an Anthropic key, gpt-6.2-sol the OpenAI key; gpt-oss-120B runs on Together. The code must take provider-prefixed model names first.
 4. Reduce LLM-Deliberation to two parties (E5, with a teammate); optionally re-run 80 ParallACT instances on a second model.
