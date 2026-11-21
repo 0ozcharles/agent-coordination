@@ -201,7 +201,7 @@ def frontier(inst):
     egal = max(points, key=lambda p: (min(p[0], p[1]), p[0] + p[1]))
     # the issue-by-issue compromise: the shared top option where rankings agree, the middle option where they clash
     t1 = [max(range(inst["m"]), key=lambda o: inst["weights"]["p1"][i][o]) for i in range(inst["k"])]
-    compromise = [1 if (opp and inst["m"] == 3) else t1[i] for i, opp in enumerate(inst["opposed"])]
+    compromise = [middle_option(inst, i) if (opp and inst["m"] == 3) else t1[i] for i, opp in enumerate(inst["opposed"])]
     compromise_joint = value(inst, "p1", compromise) + value(inst, "p2", compromise)
     max_joint = max(p[0] + p[1] for p in points)
     return {"max_joint": max_joint, "pareto": sorted({(p[0], p[1]) for p in pareto}),
@@ -477,12 +477,19 @@ def collaborative_proposal(inst, design, agent):
     return design[contested[0]] != tops(inst, agent)[contested[0]]
 
 
+def middle_option(inst, i):
+    """The option of issue i that Developer 1 ranks second; where the sides clash it is the middle option for both.
+    Option indices carry no order: the generator draws the rankings and the grounded layer shuffles the letters."""
+    w = inst["weights"]["p1"][i]
+    return sorted(range(inst["m"]), key=lambda o: -w[o])[1]
+
+
 def middle_share(inst, design):
     """The share of contested decisions set to the middle option (defined for three options)."""
     contested = [i for i, opp in enumerate(inst["opposed"]) if opp]
     if inst["m"] != 3 or not contested or design is None:
         return None
-    return round(sum(1 for i in contested if design[i] == 1) / len(contested), 2)
+    return round(sum(1 for i in contested if design[i] == middle_option(inst, i)) / len(contested), 2)
 
 
 def agent_metrics(inst, moves, agreement, agent):

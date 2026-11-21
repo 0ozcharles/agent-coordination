@@ -107,7 +107,7 @@ class BargainTest(unittest.TestCase):
         inst = self.inst
         best1 = [max(range(3), key=lambda o: inst["weights"]["p1"][i][o]) for i in range(4)]
         best2 = [max(range(3), key=lambda o: inst["weights"]["p2"][i][o]) for i in range(4)]
-        middle = [1, 1, 1, 1]
+        middle = [bargain.middle_option(inst, i) for i in range(4)]  # the value-middle option, not index 1
         moves = [move(1, "p1", "propose", best1, "I need Decision 1, it matters most to me. What matters to you?", inst),
                  move(2, "p2", "propose", best2, "Mine.", inst),
                  move(3, "p1", "propose", middle, "Middle then.", inst),

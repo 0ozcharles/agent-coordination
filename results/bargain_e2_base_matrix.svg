@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1184" height="270" font-family="Helvetica, Arial, sans-serif" font-size="11">
+<rect width="1184" height="270" fill="white"/>
+<text x="150" y="22" font-size="13" font-weight="bold">Own payoff (row strategy) against the partner's strategy (column)</text>
+<text x="186" y="52" text-anchor="middle">neutral</text>
+<text x="258" y="52" text-anchor="middle">competi</text>
+<text x="330" y="52" text-anchor="middle">collabo</text>
+<text x="402" y="52" text-anchor="middle">comprom</text>
+<text x="474" y="52" text-anchor="middle">accommo</text>
+<text x="546" y="52" text-anchor="middle">avoidin</text>
+<text x="144" y="79" text-anchor="end">neutral</text>
+<rect x="150" y="60" width="70" height="28" fill="rgb(134,183,114)"/>
+<text x="185" y="79" text-anchor="middle">63</text>
+<rect x="222" y="60" width="70" height="28" fill="rgb(178,154,126)"/>
+<text x="257" y="79" text-anchor="middle">50</text>
+<rect x="294" y="60" width="70" height="28" fill="rgb(132,185,113)"/>
+<text x="329" y="79" text-anchor="middle">63</text>
+<rect x="366" y="60" width="70" height="28" fill="rgb(125,189,112)"/>
+<text x="401" y="79" text-anchor="middle">65</text>
+<rect x="438" y="60" width="70" height="28" fill="rgb(100,206,105)"/>
+<text x="473" y="79" text-anchor="middle">72</text>
+<rect x="510" y="60" width="70" height="28" fill="rgb(144,177,117)"/>
+<text x="545" y="79" text-anchor="middle">60</text>
+<text x="144" y="109" text-anchor="end">competing</text>
+<rect x="150" y="90" width="70" height="28" fill="rgb(130,186,113)"/>
+<text x="185" y="109" text-anchor="middle">64</text>
+<rect x="222" y="90" width="70" height="28" fill="rgb(191,145,129)"/>
+<text x="257" y="109" text-anchor="middle">47</text>
+<rect x="294" y="90" width="70" height="28" fill="rgb(136,182,115)"/>
+<text x="329" y="109" text-anchor="middle">62</text>
+<rect x="366" y="90" width="70" height="28" fill="rgb(117,195,109)"/>
+<text x="401" y="109" text-anchor="middle">67</text>
+<rect x="438" y="90" width="70" height="28" fill="rgb(80,220,100)"/>
+<text x="473" y="109" text-anchor="middle">78</text>
+<rect x="510" y="90" width="70" height="28" fill="rgb(149,173,118)"/>
+<text x="545" y="109" text-anchor="middle">58</text>
+<text x="144" y="139" text-anchor="end">collaborating</text>
+<rect x="150" y="120" width="70" height="28" fill="rgb(109,200,107)"/>
+<text x="185" y="139" text-anchor="middle">70</text>
+<rect x="222" y="120" width="70" height="28" fill="rgb(167,161,123)"/>
+<text x="257" y="139" text-anchor="middle">54</text>
+<rect x="294" y="120" width="70" height="28" fill="rgb(123,190,111)"/>
+<text x="329" y="139" text-anchor="middle">66</text>
+<text x="144" y="169" text-anchor="end">compromising</text>
+<rect x="150" y="150" width="70" height="28" fill="rgb(162,164,122)"/>
+<text x="185" y="169" text-anchor="middle">55</text>
+<rect x="222" y="150" width="70" height="28" fill="rgb(207,135,133)"/>
+<text x="257" y="169" text-anchor="middle">43</text>
+<rect x="366" y="150" width="70" height="28" fill="rgb(149,173,118)"/>
+<text x="401" y="169" text-anchor="middle">58</text>
+<text x="144" y="199" text-anchor="end">accommodating</text>
+<rect x="150" y="180" width="70" height="28" fill="rgb(140,179,116)"/>
+<text x="185" y="199" text-anchor="middle">61</text>
+<rect x="222" y="180" width="70" height="28" fill="rgb(180,153,126)"/>
+<text x="257" y="199" text-anchor="middle">50</text>
+<rect x="438" y="180" width="70" height="28" fill="rgb(123,191,111)"/>
+<text x="473" y="199" text-anchor="middle">66</text>
+<text x="144" y="229" text-anchor="end">avoiding</text>
+<rect x="150" y="210" width="70" height="28" fill="rgb(188,147,128)"/>
+<text x="185" y="229" text-anchor="middle">48</text>
+<rect x="222" y="210" width="70" height="28" fill="rgb(230,120,140)"/>
+<text x="257" y="229" text-anchor="middle">36</text>
+<rect x="510" y="210" width="70" height="28" fill="rgb(172,158,124)"/>
+<text x="545" y="229" text-anchor="middle">52</text>
+<text x="732" y="22" font-size="13" font-weight="bold">Joint payoff by pair</text>
+<text x="768" y="52" text-anchor="middle">neutral</text>
+<text x="840" y="52" text-anchor="middle">competi</text>
+<text x="912" y="52" text-anchor="middle">collabo</text>
+<text x="984" y="52" text-anchor="middle">comprom</text>
+<text x="1056" y="52" text-anchor="middle">accommo</text>
+<text x="1128" y="52" text-anchor="middle">avoidin</text>
+<text x="726" y="79" text-anchor="end">neutral</text>
+<rect x="732" y="60" width="70" height="28" fill="rgb(109,200,107)"/>
+<text x="767" y="79" text-anchor="middle">125</text>
+<rect x="804" y="60" width="70" height="28" fill="rgb(152,171,119)"/>
+<text x="839" y="79" text-anchor="middle">114</text>
+<rect x="876" y="60" width="70" height="28" fill="rgb(80,219,100)"/>
+<text x="911" y="79" text-anchor="middle">133</text>
+<rect x="948" y="60" width="70" height="28" fill="rgb(129,186,113)"/>
+<text x="983" y="79" text-anchor="middle">120</text>
+<rect x="1020" y="60" width="70" height="28" fill="rgb(80,220,100)"/>
+<text x="1055" y="79" text-anchor="middle">133</text>
+<rect x="1092" y="60" width="70" height="28" fill="rgb(176,155,125)"/>
+<text x="1127" y="79" text-anchor="middle">108</text>
+<text x="726" y="109" text-anchor="end">competing</text>
+<rect x="732" y="90" width="70" height="28" fill="rgb(152,171,119)"/>
+<text x="767" y="109" text-anchor="middle">114</text>
+<rect x="804" y="90" width="70" height="28" fill="rgb(230,120,140)"/>
+<text x="839" y="109" text-anchor="middle">94</text>
+<rect x="876" y="90" width="70" height="28" fill="rgb(145,176,117)"/>
+<text x="911" y="109" text-anchor="middle">116</text>
+<rect x="948" y="90" width="70" height="28" fill="rgb(167,161,123)"/>
+<text x="983" y="109" text-anchor="middle">110</text>
+<rect x="1020" y="90" width="70" height="28" fill="rgb(100,206,105)"/>
+<text x="1055" y="109" text-anchor="middle">128</text>
+<rect x="1092" y="90" width="70" height="28" fill="rgb(226,122,139)"/>
+<text x="1127" y="109" text-anchor="middle">95</text>
+<text x="726" y="139" text-anchor="end">collaborating</text>
+<rect x="732" y="120" width="70" height="28" fill="rgb(80,219,100)"/>
+<text x="767" y="139" text-anchor="middle">133</text>
+<rect x="804" y="120" width="70" height="28" fill="rgb(145,176,117)"/>
+<text x="839" y="139" text-anchor="middle">116</text>
+<rect x="876" y="120" width="70" height="28" fill="rgb(86,215,101)"/>
+<text x="911" y="139" text-anchor="middle">131</text>
+<text x="726" y="169" text-anchor="end">compromising</text>
+<rect x="732" y="150" width="70" height="28" fill="rgb(129,186,113)"/>
+<text x="767" y="169" text-anchor="middle">120</text>
+<rect x="804" y="150" width="70" height="28" fill="rgb(167,161,123)"/>
+<text x="839" y="169" text-anchor="middle">110</text>
+<rect x="948" y="150" width="70" height="28" fill="rgb(141,178,116)"/>
+<text x="983" y="169" text-anchor="middle">117</text>
+<text x="726" y="199" text-anchor="end">accommodating</text>
+<rect x="732" y="180" width="70" height="28" fill="rgb(80,220,100)"/>
+<text x="767" y="199" text-anchor="middle">133</text>
+<rect x="804" y="180" width="70" height="28" fill="rgb(100,206,105)"/>
+<text x="839" y="199" text-anchor="middle">128</text>
+<rect x="1020" y="180" width="70" height="28" fill="rgb(85,216,101)"/>
+<text x="1055" y="199" text-anchor="middle">131</text>
+<text x="726" y="229" text-anchor="end">avoiding</text>
+<rect x="732" y="210" width="70" height="28" fill="rgb(176,155,125)"/>
+<text x="767" y="229" text-anchor="middle">108</text>
+<rect x="804" y="210" width="70" height="28" fill="rgb(226,122,139)"/>
+<text x="839" y="229" text-anchor="middle">95</text>
+<rect x="1092" y="210" width="70" height="28" fill="rgb(190,146,129)"/>
+<text x="1127" y="229" text-anchor="middle">104</text>
+</svg>

@@ -1,0 +1,602 @@
+{
+ "study": "bargain_e4_release_plan",
+ "question": "E4 scenario skins, release_plan: E1's instances rendered as a joint release plan between two product owners (release date, first platform, pricing, launch region). Same structures, weights, seats and rules as E1; only the words change. Does the rule diagonal keep E1's order, and do competing and collaborating keep their edge against neutral?",
+ "control": "neutral-neutral",
+ "cells": {
+  "neutral-neutral": {
+   "p1": "neutral",
+   "p2": "neutral",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 40,
+   "payoff_p1": 62.425,
+   "payoff_p2": 64.125,
+   "joint": 126.55,
+   "joint_gap": 15.05,
+   "on_frontier": 14,
+   "moves": 4.925,
+   "p1_first": 92.287,
+   "p1_concession": 18.325,
+   "p1_complies": 0,
+   "p1_compliance_known": 0,
+   "p1_asks": 18,
+   "p1_discloses": 30,
+   "p1_logroll": 21,
+   "p1_trade": 17,
+   "middle_share": 0.258,
+   "p1_walked": 0,
+   "p1_tokens": 2167.325,
+   "p2_tokens": 2131.475,
+   "p1_out_tokens": 212.15,
+   "p1_seconds": 3.806,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.023
+  },
+  "competing-competing": {
+   "p1": "competing",
+   "p2": "competing",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 31,
+   "payoff_p1": 57.413,
+   "payoff_p2": 56.125,
+   "joint": 113.537,
+   "joint_gap": 28.062,
+   "on_frontier": 4,
+   "moves": 8.325,
+   "p1_first": 99.5,
+   "p1_concession": 29.225,
+   "p1_complies": 37,
+   "p1_compliance_known": 40,
+   "p1_asks": 2,
+   "p1_discloses": 38,
+   "p1_logroll": 29,
+   "p1_trade": 5,
+   "middle_share": 0.732,
+   "p1_walked": 2,
+   "p1_tokens": 4363.625,
+   "p2_tokens": 4391.7,
+   "p1_out_tokens": 320.15,
+   "p1_seconds": 5.77,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.039,
+   "p1_in_target_style": 0,
+   "vs_control": {
+    "pairs": 40,
+    "payoff_p1": {
+     "higher": 17,
+     "lower": 21,
+     "p": 0.6271
+    },
+    "payoff_p2": {
+     "higher": 12,
+     "lower": 26,
+     "p": 0.0336
+    },
+    "joint": {
+     "higher": 17,
+     "lower": 21,
+     "p": 0.6271
+    },
+    "moves": {
+     "higher": 37,
+     "lower": 1,
+     "p": 0.0
+    },
+    "p1_concession": {
+     "higher": 26,
+     "lower": 13,
+     "p": 0.0533
+    },
+    "p1_in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  },
+  "collaborating-collaborating": {
+   "p1": "collaborating",
+   "p2": "collaborating",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 40,
+   "payoff_p1": 67.487,
+   "payoff_p2": 71.325,
+   "joint": 138.812,
+   "joint_gap": 2.788,
+   "on_frontier": 31,
+   "moves": 4.8,
+   "p1_first": 92.713,
+   "p1_concession": 12.838,
+   "p1_complies": 25,
+   "p1_compliance_known": 40,
+   "p1_asks": 40,
+   "p1_discloses": 24,
+   "p1_logroll": 27,
+   "p1_trade": 26,
+   "middle_share": 0.025,
+   "p1_walked": 0,
+   "p1_tokens": 2405.975,
+   "p2_tokens": 2324.7,
+   "p1_out_tokens": 203.7,
+   "p1_seconds": 3.912,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.024,
+   "p1_in_target_style": 0,
+   "vs_control": {
+    "pairs": 40,
+    "payoff_p1": {
+     "higher": 22,
+     "lower": 13,
+     "p": 0.1755
+    },
+    "payoff_p2": {
+     "higher": 26,
+     "lower": 9,
+     "p": 0.006
+    },
+    "joint": {
+     "higher": 32,
+     "lower": 3,
+     "p": 0.0
+    },
+    "moves": {
+     "higher": 14,
+     "lower": 21,
+     "p": 0.3105
+    },
+    "p1_concession": {
+     "higher": 12,
+     "lower": 14,
+     "p": 0.845
+    },
+    "p1_in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  },
+  "compromising-compromising": {
+   "p1": "compromising",
+   "p2": "compromising",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 40,
+   "payoff_p1": 58.962,
+   "payoff_p2": 63.487,
+   "joint": 122.45,
+   "joint_gap": 19.15,
+   "on_frontier": 12,
+   "moves": 3.425,
+   "p1_first": 72.176,
+   "p1_concession": 5.676,
+   "p1_complies": 39,
+   "p1_compliance_known": 40,
+   "p1_asks": 13,
+   "p1_discloses": 33,
+   "p1_logroll": 7,
+   "p1_trade": 13,
+   "middle_share": 0.333,
+   "p1_walked": 0,
+   "p1_tokens": 1434.625,
+   "p2_tokens": 1390.1,
+   "p1_out_tokens": 109.7,
+   "p1_seconds": 2.3,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.015,
+   "p1_in_target_style": 0,
+   "vs_control": {
+    "pairs": 40,
+    "payoff_p1": {
+     "higher": 16,
+     "lower": 23,
+     "p": 0.3368
+    },
+    "payoff_p2": {
+     "higher": 21,
+     "lower": 18,
+     "p": 0.7493
+    },
+    "joint": {
+     "higher": 15,
+     "lower": 24,
+     "p": 0.1996
+    },
+    "moves": {
+     "higher": 6,
+     "lower": 27,
+     "p": 0.0003
+    },
+    "p1_concession": {
+     "higher": 6,
+     "lower": 19,
+     "p": 0.0146
+    },
+    "p1_in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  },
+  "accommodating-accommodating": {
+   "p1": "accommodating",
+   "p2": "accommodating",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 40,
+   "payoff_p1": 68.9,
+   "payoff_p2": 63.475,
+   "joint": 132.375,
+   "joint_gap": 9.225,
+   "on_frontier": 27,
+   "moves": 3.7,
+   "p1_first": 96.737,
+   "p1_concession": 16.342,
+   "p1_complies": 39,
+   "p1_compliance_known": 40,
+   "p1_asks": 40,
+   "p1_discloses": 22,
+   "p1_logroll": 26,
+   "p1_trade": 18,
+   "middle_share": 0.041,
+   "p1_walked": 0,
+   "p1_tokens": 1476.875,
+   "p2_tokens": 1522.45,
+   "p1_out_tokens": 139.1,
+   "p1_seconds": 2.616,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.016,
+   "p1_in_target_style": 0,
+   "vs_control": {
+    "pairs": 40,
+    "payoff_p1": {
+     "higher": 21,
+     "lower": 14,
+     "p": 0.3105
+    },
+    "payoff_p2": {
+     "higher": 19,
+     "lower": 15,
+     "p": 0.6076
+    },
+    "joint": {
+     "higher": 23,
+     "lower": 9,
+     "p": 0.0201
+    },
+    "moves": {
+     "higher": 4,
+     "lower": 23,
+     "p": 0.0003
+    },
+    "p1_concession": {
+     "higher": 9,
+     "lower": 15,
+     "p": 0.3075
+    },
+    "p1_in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  },
+  "avoiding-avoiding": {
+   "p1": "avoiding",
+   "p2": "avoiding",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 23,
+   "payoff_p1": 44.725,
+   "payoff_p2": 51.55,
+   "joint": 96.275,
+   "joint_gap": 45.325,
+   "on_frontier": 12,
+   "moves": 2.7,
+   "p1_first": 87.758,
+   "p1_concession": 0.0,
+   "p1_complies": 40,
+   "p1_compliance_known": 40,
+   "p1_asks": 3,
+   "p1_discloses": 30,
+   "p1_logroll": 12,
+   "p1_trade": 2,
+   "middle_share": 0.275,
+   "p1_walked": 11,
+   "p1_tokens": 1049.4,
+   "p2_tokens": 936.775,
+   "p1_out_tokens": 80.325,
+   "p1_seconds": 1.778,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.011,
+   "p1_in_target_style": 0,
+   "vs_control": {
+    "pairs": 40,
+    "payoff_p1": {
+     "higher": 11,
+     "lower": 29,
+     "p": 0.0064
+    },
+    "payoff_p2": {
+     "higher": 13,
+     "lower": 27,
+     "p": 0.0385
+    },
+    "joint": {
+     "higher": 10,
+     "lower": 26,
+     "p": 0.0113
+    },
+    "moves": {
+     "higher": 0,
+     "lower": 37,
+     "p": 0.0
+    },
+    "p1_concession": {
+     "higher": 1,
+     "lower": 20,
+     "p": 0.0
+    },
+    "p1_in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  },
+  "competing-neutral": {
+   "p1": "competing",
+   "p2": "neutral",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 35,
+   "payoff_p1": 62.263,
+   "payoff_p2": 57.45,
+   "joint": 119.713,
+   "joint_gap": 21.887,
+   "on_frontier": 13,
+   "moves": 6.425,
+   "p1_first": 98.744,
+   "p1_concession": 21.359,
+   "p1_complies": 38,
+   "p1_compliance_known": 40,
+   "p1_asks": 11,
+   "p1_discloses": 39,
+   "p1_logroll": 22,
+   "p1_trade": 13,
+   "middle_share": 0.323,
+   "p1_walked": 5,
+   "p1_tokens": 3360.625,
+   "p2_tokens": 3067.025,
+   "p1_out_tokens": 247.5,
+   "p1_seconds": 4.672,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.031,
+   "p1_in_target_style": 0,
+   "vs_control": {
+    "pairs": 40,
+    "payoff_p1": {
+     "higher": 22,
+     "lower": 17,
+     "p": 0.5224
+    },
+    "payoff_p2": {
+     "higher": 11,
+     "lower": 27,
+     "p": 0.0139
+    },
+    "joint": {
+     "higher": 20,
+     "lower": 17,
+     "p": 0.7428
+    },
+    "moves": {
+     "higher": 24,
+     "lower": 8,
+     "p": 0.007
+    },
+    "p1_concession": {
+     "higher": 17,
+     "lower": 15,
+     "p": 0.8601
+    },
+    "p1_in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  },
+  "collaborating-neutral": {
+   "p1": "collaborating",
+   "p2": "neutral",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 40,
+   "payoff_p1": 67.763,
+   "payoff_p2": 66.8,
+   "joint": 134.562,
+   "joint_gap": 7.037,
+   "on_frontier": 26,
+   "moves": 4.45,
+   "p1_first": 94.974,
+   "p1_concession": 11.295,
+   "p1_complies": 22,
+   "p1_compliance_known": 40,
+   "p1_asks": 40,
+   "p1_discloses": 20,
+   "p1_logroll": 26,
+   "p1_trade": 21,
+   "middle_share": 0.066,
+   "p1_walked": 0,
+   "p1_tokens": 2205.275,
+   "p2_tokens": 1837.625,
+   "p1_out_tokens": 191.6,
+   "p1_seconds": 3.587,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.022,
+   "p1_in_target_style": 0,
+   "vs_control": {
+    "pairs": 40,
+    "payoff_p1": {
+     "higher": 21,
+     "lower": 16,
+     "p": 0.5114
+    },
+    "payoff_p2": {
+     "higher": 20,
+     "lower": 16,
+     "p": 0.6177
+    },
+    "joint": {
+     "higher": 27,
+     "lower": 10,
+     "p": 0.0076
+    },
+    "moves": {
+     "higher": 11,
+     "lower": 17,
+     "p": 0.3449
+    },
+    "p1_concession": {
+     "higher": 9,
+     "lower": 17,
+     "p": 0.1686
+    },
+    "p1_in_target_style": {
+     "arm": 0,
+     "control": 0
+    }
+   }
+  }
+ },
+ "matrix": {
+  "neutral": {
+   "neutral": 63.275,
+   "competing": 57.45,
+   "collaborating": 66.8,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "competing": {
+   "neutral": 62.263,
+   "competing": 56.769,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "collaborating": {
+   "neutral": 67.763,
+   "competing": null,
+   "collaborating": 69.406,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "compromising": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": 61.225,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "accommodating": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": 66.188,
+   "avoiding": null
+  },
+  "avoiding": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": 48.138
+  }
+ },
+ "best_responses": {
+  "neutral": "collaborating",
+  "competing": "neutral",
+  "collaborating": "collaborating",
+  "compromising": "compromising",
+  "accommodating": "accommodating",
+  "avoiding": "avoiding"
+ },
+ "replicator": {},
+ "cost_usd": 0.18
+}
