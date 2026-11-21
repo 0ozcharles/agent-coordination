@@ -302,3 +302,41 @@ class SkinAndGroundTest(unittest.TestCase):
                 ground.validate(broken)
         self.assertEqual(ground.short_artifact("src/a.js: the thing"), "src/a.js")
         self.assertEqual(ground.short_artifact("src/a.js"), "src/a.js")
+
+
+class CollaboratingRuleTest(unittest.TestCase):
+    def spec_instance(self, opposed):
+        k = len(opposed)
+        importance = {"p1": [round(100 / k, 1)] * k, "p2": [round(100 / k, 1)] * k}
+        importance["p1"][-1] = importance["p2"][-1] = round(100 - sum(importance["p1"][:-1]), 1)
+        rankings = {"p1": [[0, 1, 2]] * k, "p2": [[2, 1, 0] if o else [0, 1, 2] for o in opposed]}
+        return bargain.assemble({"moves": 10, "outside": [30, 30]}, 0, "p1", importance, rankings, opposed)
+
+    def test_collaborative_proposal_by_number_of_contested_decisions(self):
+        two = self.spec_instance([True, True, False])
+        self.assertTrue(bargain.collaborative_proposal(two, [0, 2, 0], "p1"))   # a trade: p1's top on 0, p2's top on 1
+        self.assertFalse(bargain.collaborative_proposal(two, [0, 0, 0], "p1"))  # p1 keeps both contested tops
+        self.assertFalse(bargain.collaborative_proposal(two, [1, 1, 0], "p1"))  # all middle: nobody's top
+        one = self.spec_instance([True, False, False])
+        self.assertFalse(bargain.collaborative_proposal(one, [0, 0, 0], "p1"))  # insists on its top
+        self.assertTrue(bargain.collaborative_proposal(one, [1, 0, 0], "p1"))   # the middle option
+        self.assertTrue(bargain.collaborative_proposal(one, [2, 0, 0], "p1"))   # the partner's top
+        self.assertTrue(bargain.collaborative_proposal(one, [0, 0, 0], "p2"))   # for p2 option 0 is the concession
+        self.assertFalse(bargain.is_trade(one, [1, 0, 0]))                       # the old test could never pass here
+        self.assertIsNone(bargain.collaborative_proposal(self.spec_instance([False, False]), [0, 0], "p1"))
+
+    def test_compliance_uses_the_applicable_clause(self):
+        one = self.spec_instance([True, False, False])
+        asks = "Which decisions matter most to you? Decision 1 matters most to me."
+        moves = [move(1, "p1", "propose", [1, 0, 0], message=asks, inst=one), move(2, "p2", "accept")]
+        agreement = {"by": "p1", "design": [1, 0, 0], "values": moves[0]["values"]}
+        c = bargain.compliance("collaborating", one, moves, agreement, "p1")
+        self.assertTrue(c["proposes_trade"])
+        self.assertTrue(c["overall"])
+        moves = [move(1, "p1", "propose", [0, 0, 0], message=asks, inst=one), move(2, "p2", "accept")]
+        agreement = {"by": "p1", "design": [0, 0, 0], "values": moves[0]["values"]}
+        self.assertFalse(bargain.compliance("collaborating", one, moves, agreement, "p1")["proposes_trade"])
+        none = self.spec_instance([False, False])
+        moves = [move(1, "p1", "propose", [0, 0], message=asks, inst=none), move(2, "p2", "accept")]
+        agreement = {"by": "p1", "design": [0, 0], "values": moves[0]["values"]}
+        self.assertIsNone(bargain.compliance("collaborating", none, moves, agreement, "p1")["proposes_trade"])

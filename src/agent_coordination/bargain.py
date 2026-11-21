@@ -466,6 +466,17 @@ def is_trade(inst, design):
     return (any(design[i] == t1[i] for i in contested) and any(design[i] == t2[i] for i in contested)) if contested else False
 
 
+def collaborative_proposal(inst, design, agent):
+    """What the collaborating rule asks of a proposal: with two or more contested decisions, a trade (each side's top
+    option on at least one of them); with one, not insisting on one's own top option on it; None with none."""
+    contested = [i for i, opp in enumerate(inst["opposed"]) if opp]
+    if not contested:
+        return None
+    if len(contested) >= 2:
+        return is_trade(inst, design)
+    return design[contested[0]] != tops(inst, agent)[contested[0]]
+
+
 def middle_share(inst, design):
     """The share of contested decisions set to the middle option (defined for three options)."""
     contested = [i for i, opp in enumerate(inst["opposed"]) if opp]
@@ -489,6 +500,7 @@ def agent_metrics(inst, moves, agreement, agent):
             "chars": len(text), "asks": bool(ASKS.search(first_msg)), "asks_any": bool(ASKS.search(text)),
             "discloses": bool(DISCLOSES.search(text)),
             "logroll": any(sum(m["values"].values()) >= 0.9 * inst["frontier"]["max_joint"] for m in proposals),
+            "collaborative": any(collaborative_proposal(inst, m["design"], agent) for m in proposals),
             "trade": any(is_trade(inst, m["design"]) for m in proposals),
             "middle_share": middle_share(inst, agreement["design"]) if agreement else None,
             "accepted_value": agreement["values"][agent] if agreement and moves[-1]["by"] == agent and moves[-1]["action"] == "accept" else None,
@@ -511,7 +523,7 @@ def compliance(strategy, inst, moves, agreement, agent):
                   "accepts_60": accepted is None or accepted >= t["t60"]}
     elif strategy == "collaborating":
         checks = {"asks_first": m["asks"], "accepts_60": accepted is None or accepted >= t["t60"] or at_last_move,
-                  "proposes_trade": m["trade"] if own else None}
+                  "proposes_trade": (m["collaborative"] if own else None) if any(inst["opposed"]) else None}
     elif strategy == "compromising":
         checks = {"accepts_50": accepted is None or accepted >= t["t50"],
                   "steps_of_two_decisions": m["max_changed"] is None or m["max_changed"] <= 2,
