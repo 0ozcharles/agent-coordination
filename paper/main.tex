@@ -1,0 +1,279 @@
+% ICML 2027 submission: skeleton (2026-11-20). Compiles on Overleaf with the icml2027 style files in this folder.
+% Conventions for this draft: \todo{} marks what is missing; numbers are copied from results/*.json and docs/RESEARCH_PLAN.md
+% (the source file is named in a comment beside each table); [E3] marks text that waits for the other models.
+% Figures: the SVG charts in results/ have to be converted to PDF for pdflatex (see paper/figures/README.md).
+
+\documentclass{article}
+
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+% Use the following line for the initial blind version submitted for review:
+\usepackage{icml2027}
+% If accepted, instead use the following line for the camera-ready submission:
+% \usepackage[accepted]{icml2027}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage[capitalize,noabbrev]{cleveref}
+\usepackage[textsize=tiny]{todonotes}
+
+\newcommand{\tki}{Thomas--Kilmann}
+\newcommand{\eg}{e.g.,}
+\newcommand{\ie}{i.e.,}
+\newcommand{\lam}{\lambda}
+\newcommand{\strategy}[1]{\textsc{#1}}
+\newcommand{\neutral}{\strategy{neutral}}
+\newcommand{\competing}{\strategy{competing}}
+\newcommand{\collaborating}{\strategy{collaborating}}
+\newcommand{\compromising}{\strategy{compromising}}
+\newcommand{\accommodating}{\strategy{accommodating}}
+\newcommand{\avoiding}{\strategy{avoiding}}
+
+\icmltitlerunning{Which Conflict-Handling Strategy Should an LLM Agent Use?}
+
+\begin{document}
+
+\twocolumn[
+\icmltitle{Which Conflict-Handling Strategy Should an LLM Agent Use?\\
+  Payoffs, Costs and Efficiency of the \tki{} Styles in Multi-Issue Bargaining}
+
+% Author information is removed automatically for the blind version.
+\icmlsetsymbol{equal}{*}
+\begin{icmlauthorlist}
+  \icmlauthor{Zhaoxu Zheng}{ua}
+  \icmlauthor{\todo{coauthors}}{ua}
+\end{icmlauthorlist}
+\icmlaffiliation{ua}{University of Arizona, Tucson, AZ, USA}
+\icmlcorrespondingauthor{Zhaoxu Zheng}{\todo{email}}
+
+\icmlkeywords{LLM agents, negotiation, multi-agent, conflict handling, bargaining, Thomas-Kilmann}
+\vskip 0.3in
+]
+
+\printAffiliationsAndNotice{}  % required even if empty
+
+\begin{abstract}
+When two LLM agents want different things from a shared decision, how should each of them handle the conflict? Organizational psychology names five conflict-handling strategies (competing, collaborating, compromising, accommodating and avoiding) and claims that each fits some situations and not others. We test those claims on LLM agents. We build a parametric multi-issue bargaining environment with an exact efficiency frontier, operationalize each strategy twice (as a prompted style and as behavioural rules on the agent's own point scale, so that compliance is checked from the moves without a judge) and play \todo{N} games across the full strategy matrix, ten situational conditions, three surface framings of the same instances and 85 instances derived from real conflicts between code changes. \todo{Headline results in three sentences: the matrix and its best responses; the condition map and where the textbook is right and wrong; cost in tokens and the price of tokens at which the best strategy changes; the framing and grounding checks.} The environment and all transcripts are released.
+\end{abstract}
+
+% ------------------------------------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+\todo[inline]{Opening: LLM agents increasingly negotiate with other agents on behalf of people (scheduling, procurement, code integration). When their principals' interests conflict, the agent's \emph{conflict-handling strategy} is a design choice that someone makes, usually in a system prompt and usually by intuition.}
+
+\todo[inline]{The \tki{} model \citep{thomas1974tki,thomas1992conflict}: two dimensions, assertiveness and cooperativeness, five styles. Its situational claims \citep{thomas1977toward}: compete when the matter is urgent or vital and you are right; collaborate when both concerns are too important to compromise and there is something to integrate; compromise under time pressure with moderate stakes; accommodate when the issue matters more to the other side or to preserve the relationship; avoid when the issue is trivial or the cost of confrontation outweighs the benefit. These are claims about outcomes, which for LLM agents can be measured.}
+
+\todo[inline]{What we do (one paragraph): the environment; the two operationalizations; E0 (do agents enact the strategies), E1 (the $6\times6$ strategy matrix), E2 (ten situational conditions), E4 (three framings), the grounded layer (ParallACT), E3 (models) [E3].}
+
+\paragraph{Contributions.}
+\begin{itemize}
+  \item A parametric multi-issue bargaining environment for LLM agents with private weights, outside options, an alternating-offer protocol, an exact Pareto frontier and knobs for the situational variables the \tki{} literature names (urgency, stakes, power, information, integrative potential). Three layers: a synthetic core, scenario skins that render the same instance as different realistic conflicts, and instances derived from real conflicts between code changes.
+  \item A behavioural operationalization of the five strategies as rules on the agent's own point scale, with a checker that tests compliance from the moves, and a comparison with the usual prompted style sentences.
+  \item A payoff map: the strategy matrix with its best responses and replicator attractor, a condition map of which strategy pays in which situation, for whom and at what cost in tokens, and the price of tokens at which the answer changes.
+  \item Two robustness checks that are results in their own right: the map is the same under four framings of the same games, and on real-conflict structures the legibility of the options, not the structure, is what flattens the strategies' advantage.
+\end{itemize}
+
+\paragraph{Findings in brief.} \todo{One sentence each, filled from \cref{sec:results}.}
+
+% ------------------------------------------------------------------------------------------------
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Conflict-handling styles.} \citet{blake1964managerial} managerial grid; \citet{thomas1974tki} and the TKI; \citet{rahim1983measure} ROCI-II; the dual-concern model \citep{pruitt1986social}; measurement critiques \citep{vandevliert1990toward}. \todo{Two sentences on what the human literature found about outcomes of each style (meta-analytic evidence is thin; mostly self-report).}
+
+\paragraph{LLM agents in negotiation.} Negotiation dialogue systems before LLMs \citep{lewis2017deal,he2018decoupling,chawla2021casino}. LLM negotiation benchmarks: NegotiationArena \citep{bianchi2024negotiationarena}, LLM-Deliberation \citep{abdelnabi2024cooperation}, multifaceted evaluation \citep{kwon2024effective}, bargaining benchmarks \citep{xia2024measuring}, agency evaluation \citep{davidson2024evaluating}, self-play improvement \citep{fu2023improving}, repeated games \citep{akata2023playing}, strategic reasoning \citep{gandhi2023strategic}, survey \citep{zhan2024negotiate}. Personas and styles in negotiation prompts \citep{noh2024llms}. \todo{Position: these measure how well LLMs negotiate or which prompt wins a given game; none asks which conflict-handling strategy a designer should give an agent as a function of the situation, with efficiency and cost on the same scale.}
+
+\paragraph{Game-theoretic workflows.} \citet{hua2024gametheoretic} give LLM agents a game-theoretic workflow for negotiation games. \todo{Differentiate: they propose a method and evaluate it on classical games; we propose no method and map the payoff landscape of a psychological taxonomy on a parametric environment, including cost and framing. State this plainly in one sentence.}
+
+\paragraph{Coordination between coding agents.} CooperBench \citep{cooperbench} and ParallACT \citep{parallact} study agents that edit the same code; conflicts there are binary (whose change lands). \todo{One sentence on how our grounded layer uses ParallACT's contradictory pairs, and that our earlier coding-study results are the boundary case (see \cref{sec:discussion}).}
+
+% ------------------------------------------------------------------------------------------------
+\section{A Parametric Multi-Issue Bargaining Environment}
+\label{sec:env}
+
+\subsection{The game}
+Two agents $a \in \{1,2\}$ must agree on a \emph{design} $d = (d_1,\dots,d_K)$ that picks one of $M$ options on each of $K$ issues ($K=4$, $M=3$ in the core). Agent $a$ has a private importance vector $I_a \in \mathbb{R}^K_{\ge 0}$ with $\sum_i I_{a,i} = 100$ and a private ranking of the options on every issue; the value of option $o$ on issue $i$ is $w_{a,i,o} = I_{a,i}\,\bigl(1 - r_{a,i}(o)/(M-1)\bigr)$, where $r_{a,i}(o)\in\{0,\dots,M-1\}$ is the option's rank, so that each agent's ideal design is worth 100 points and $v_a(d) = \sum_i w_{a,i,d_i}$. An issue is \emph{contested} when the two rankings are reversed and \emph{shared} when they agree. If the agents agree on $d$ each receives $v_a(d)$; otherwise each receives an outside option $u_a$ ($u_a = 30$ in the core).
+
+\paragraph{Generator.} The \emph{opposition} $p$ fixes the fraction of contested issues (three of four in the core). The two importance vectors are mirror-image mixtures of one latent vector and its rank reversal, with the \emph{asymmetry} parameter controlling how far they differ (0: identical priorities, no scope for trade; 1: reversed priorities, maximal integrative potential; $0.5$ in the core), so that neither seat has the more concentrated profile. \todo{Cite the design rationale: Raiffa's logrolling \citep{raiffa1982art}; the structure is the standard multi-issue bargaining task of the behavioural literature.}
+
+\paragraph{Protocol.} Moves alternate for at most $T$ moves ($T=10$). On each move the agent sends a message and either proposes a complete design, accepts the partner's latest proposal or walks away. Scores are private unless stated; messages are free text, so an agent may disclose or misstate anything. Agents reply in JSON; malformed replies are retried once and then count as a pass. \todo{Append the system prompt in \cref{app:prompts}.}
+
+\subsection{Efficiency}
+With $M^K = 81$ designs the Pareto frontier, the maximal joint value, the Nash and egalitarian points and the issue-by-issue compromise are computed exactly for every instance. We report the \emph{joint gap} (maximal joint value minus the joint value reached, with outside options when no agreement), whether the agreement is on the frontier, and the agreement rate.
+
+\subsection{Five strategies, two operationalizations}
+\label{sec:strategies}
+Each strategy is given to an agent as guidance appended to its system prompt. In the \emph{prompted} operationalization the guidance is a style sentence in the \tki{} wording (\eg\ \competing: ``hold out for the design your side needs \dots\ do not give ground for their sake''). In the \emph{rule-based} operationalization it is a short list of behavioural rules stated on the agent's own point scale: thresholds $\{t_{60}, t_{50}, u, u{+}10\}$ are 60\% and 50\% of the agent's ideal, its outside option and that plus 10\% of the ideal, so the same text applies whatever the stakes. \Cref{tab:rules} gives the rules; a checker tests each from the moves (\eg\ \competing{} opens with its ideal, changes at most one issue per proposal and never accepts below $t_{60}$), which gives compliance without a judge. A \neutral{} sentence (``handle this in whatever way you think best'') is the control, and ``no guidance'' the default.
+
+\begin{table}[t]
+\caption{The rule-based strategies (abridged; full texts in \cref{app:rules}). Thresholds are on the agent's own scale.}
+\label{tab:rules}
+\centering\small
+\begin{tabular}{@{}p{0.2\linewidth}p{0.72\linewidth}@{}}
+\toprule
+\competing & open with your ideal; change at most one issue per proposal, top to middle only; accept only $\ge t_{60}$; walk rather than accept less on the last move. \\
+\collaborating & say which issues matter most to you and ask which matter to them; trade whole issues so each side gets its top option where it cares most; accept $\ge t_{60}$. \\
+\compromising & move contested issues to the middle option, one or two per proposal, never raising your own value; accept $\ge t_{50}$. \\
+\accommodating & ask what they need; accept the first proposal worth $\ge u{+}10$; build proposals around what they said. \\
+\avoiding & at most one proposal; do not argue; accept $\ge u$, otherwise walk. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Layers: skins and grounded instances}
+\label{sec:layers}
+A \emph{scenario skin} renders a generated instance as a realistic conflict without touching its payoffs: the same structure appears as the design of a shared software module between two developers, a quarterly plan between two team leads or a joint release plan between two product owners, with named issues and options. The default rendering is abstract (``Decision 1, Option A''). \emph{Grounded instances} come from ParallACT's contradictory pairs \citep{parallact}: two tickets on the same repository that rewrite the same code in incompatible ways. An extractor model reduces each pair to the two to four design decisions the developers would have to settle, three options per decision (each ticket's need and a middle ground) and each side's importance; \cref{sec:grounded} gives the validation. Opposition and asymmetry are then properties of the conflict rather than knobs: of 85 instances, 34 have two decisions, 47 three and 4 four; 152 of 225 decisions are contested.
+
+\subsection{Measures}
+Outcome: own and partner payoff in points, joint payoff, agreement, joint gap, frontier rate. Cost: prompt and completion tokens, moves, wall-clock seconds. Efficiency under a price of tokens: the \emph{net payoff} $v_a - \lam \cdot \text{tokens}/1000$ for $\lam \in \{0,1,2,5,10,20\}$, and the $\lam$ at which the best strategy changes. Process: rule compliance, first-proposal value, concession, whether the agent asks about or discloses priorities, whether its proposals trade whole issues, and (secondary) the style a judge model assigns from the public transcript.
+
+% ------------------------------------------------------------------------------------------------
+\section{Experimental Design}
+\label{sec:design}
+
+\paragraph{Model.} All games in E0 to E2 and E4 use \texttt{gpt-6-luna} with reasoning off ($T{=}0.7$, top-$p$ $0.8$, 700 output tokens per move); E3 adds \todo{claude-haiku-5-5, claude-sonnet-5-5, gpt-6.1-sol [E3]}.
+
+\paragraph{E0: manipulation check.} On a development set of 10 instances, Developer 1 receives each strategy in each operationalization against a \neutral{} partner. Rules were revised over three rounds until compliance was high for every strategy (\cref{sec:e0}); the test instances use a different seed.
+
+\paragraph{E1: the strategy matrix.} All 36 ordered pairs of $\{\neutral, \competing, \collaborating, \compromising, \accommodating, \avoiding\}$ in the rule-based operationalization, the prompted diagonal and no guidance on both sides, on 40 instances (1{,}680 games). Primary analyses, registered before the run: joint payoff by pair against the \neutral{} pair and the own-payoff matrix, paired by instance with exact sign tests, bootstrap intervals clustered by instance and Holm correction within each family; best responses per column; the attractor of replicator dynamics on the empirical $6\times6$ game.
+
+\paragraph{E2: the condition map.} Ten conditions, each one knob moved from the E1 regime, on 20 shared instances and the 24 cells that read the map (the diagonal, every strategy against \neutral{} and against \competing{} in both seats; 4{,}800 games): urgency ($T{=}4$), a cost per move, a reply-token budget, nothing to trade (identical priorities), everything to trade (reversed priorities), every issue contested, unequal stakes, unequal power (outside options) and open information (visible scores). \todo{Table of knob values in \cref{app:conditions}.} For each condition and each reading (symmetric play, against \neutral, against \competing) we report the best strategy by points and by net payoff over $\lam$.
+
+\paragraph{E4: framing.} E1's 40 instances under the three skins, with the rule diagonal and the two unilateral deviations against \neutral{} (960 games); every game has an abstract twin in E1.
+
+\paragraph{Grounded.} E2's 24 cells on the 85 ParallACT-derived instances (2{,}040 games), the same structures replayed under the abstract skin as a control (2{,}040 games), and a replay of the \collaborating{} cells with a rule clause for single-contested-decision instances (1{,}360 games).
+
+\paragraph{Cost of the study.} \todo{Total games and dollars: E1 \$1.51, E2 \$2.50, grounded \$0.86 + \$0.82 + \$0.65, E4 \$0.56; E3 [E3].}
+
+% ------------------------------------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+
+\subsection{Do the agents enact the strategies?}
+\label{sec:e0}
+\todo[inline]{From E0 (docs/RESEARCH\_PLAN.md, E0 rounds 1--3): prompted sentences move behaviour little except for \accommodating{} and \avoiding; rules reach compliance $\ge 90\%$ for \competing, \accommodating, \avoiding, about 90\% for \compromising, and about 60\% for \collaborating{} (the trade clause is the hard one); why point-sized concession steps fail on a discrete design and rules are written in decisions per proposal. The judge model separates the cooperative styles but not \competing{} from \compromising. Report compliance in E1 and E4: \competing{} 39/40, \compromising{} 36/40, \accommodating{} 36/40, \avoiding{} 40/40, \collaborating{} 24/40 (E1, first seat).}
+
+\subsection{The strategy matrix}
+\label{sec:e1}
+\Cref{tab:matrix} gives the own-payoff matrix and the joint payoff by pair. \todo[inline]{Narrative: (i) \collaborating{} is the best response to every partner except \compromising{} (where \competing{} is) and \accommodating{} (where \neutral{} is), and replicator dynamics on the empirical game converge to all-\collaborating; (ii) \competing{} exploits \accommodating{} (75.3) and \compromising{} (68.3) but loses against itself (54.7, agreement in 25 of 40); (iii) \accommodating{} pairs are the most efficient symmetric cell by joint payoff (136.3) with \collaborating{} pairs next (135.5), the \neutral{} pair at 127.6 and no guidance at 128.9, which leaves 13 points of 141 on the table; (iv) \compromising{} and \avoiding{} destroy value; (v) the prompted diagonal differs from the rule diagonal most for \competing. Significance from the paired sign tests (docs/RESEARCH\_PLAN.md, E1 section).}
+
+\begin{table*}[t]
+\caption{E1, 40 instances per cell, \texttt{gpt-6-luna}. Left: own payoff of the row strategy against the column strategy (points out of 100; outside option 30). Right: joint payoff of the pair (maximal joint value 141 on average). Source: \texttt{results/bargain\_e1\_summary.json}.}
+\label{tab:matrix}
+\centering\small
+\begin{tabular}{@{}l rrrrrr @{\hskip 1.5em} rrrrrr@{}}
+\toprule
+ & \multicolumn{6}{c}{Own payoff against partner} & \multicolumn{6}{c}{Joint payoff of the pair} \\
+\cmidrule(r){2-7}\cmidrule(l){8-13}
+ & neu. & cmpt. & coll. & cmpr. & acc. & avd. & neu. & cmpt. & coll. & cmpr. & acc. & avd. \\
+\midrule
+\neutral       & 63.8 & 52.8 & 64.1 & 63.9 & 79.8 & 58.1 & 127.6 & 120.9 & 138.3 & 118.7 & 132.1 & 97.2 \\
+\competing     & 67.0 & 54.7 & 58.6 & 68.3 & 75.3 & 63.6 & 118.7 & 102.5 & 110.7 & 117.5 & 125.0 & 97.5 \\
+\collaborating & 72.2 & 55.2 & 67.5 & 66.5 & 73.3 & 67.5 & 134.3 & 116.8 & 135.5 & 119.7 & 134.1 & 114.3 \\
+\compromising  & 57.6 & 50.5 & 58.3 & 59.3 & 66.8 & 58.8 & 124.2 & 120.0 & 129.9 & 114.9 & 127.6 & 117.5 \\
+\accommodating & 51.7 & 51.5 & 61.1 & 61.0 & 66.9 & 59.4 & 130.9 & 128.6 & 134.8 & 128.0 & 136.3 & 123.8 \\
+\avoiding      & 45.3 & 36.0 & 47.8 & 56.6 & 60.4 & 50.9 & 109.8 & 101.8 & 116.2 & 113.2 & 115.8 & 112.8 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{The condition map}
+\label{sec:e2}
+\begin{figure}[t]
+\centering
+% \includegraphics[width=\linewidth]{figures/e2_map.pdf}   % from results/bargain_e2_map.svg
+\fbox{\parbox{0.95\linewidth}{\centering\vspace{3em}\todo{Figure: the condition map, conditions down, readings $\times$ $\lam$ across, cell colour = best strategy.}\vspace{3em}}}
+\caption{Best strategy by condition (seats pooled), by reading and by the price of tokens $\lam$. Source: \texttt{results/bargain\_e2\_map.svg}.}
+\label{fig:map}
+\end{figure}
+
+\todo[inline]{Narrative from E2 (docs/RESEARCH\_PLAN.md, E2 section): symmetric play: \accommodating{} pairs are the efficient cell in 7 of 10 conditions, \collaborating{} pairs under integrative, power and open information, \neutral{} when every issue is contested. Adopted alone against the default agent: \collaborating{} pays in 5 conditions (base +7.0, time cost, integrative, all contested, low stakes), \competing{} in 4 (tight budget, distributive, power, open information +9.4, $p=.047$), \accommodating{} only under urgency. Against a \competing{} partner: \collaborating{} is the best reply in 8 of 10 (open information $p=.035$); matching never pays; \avoiding{} is worst. Seats: the low-stakes side's best reply is \competing, the high-stakes side's \collaborating; power shows through the outside-option-keyed rules (\avoiding{} pairs 77.6 against 27.8). Textbook scorecard: right for integrative; half right for urgent, time cost, distributive, all contested; wrong for tight budget, low stakes, open information.}
+
+\subsection{What the strategies cost}
+\label{sec:cost}
+\todo[inline]{Token order in every condition: \competing{} $>$ \collaborating{} $>$ \neutral{} $>$ \compromising{} $>$ \accommodating{} $>$ \avoiding; moves likewise. The best strategy by net payoff switches between $\lam = 2$ and $10$ in most conditions (from \collaborating{} to \accommodating{} in symmetric play once tokens cost 5 points per thousand). Give the switch $\lam$ per condition in a small table; interpret 1{,}000 tokens as a share of the surplus.}
+
+\subsection{Does the map depend on the framing?}
+\label{sec:e4}
+\Cref{tab:e4} compares the same 40 games under four renderings. \todo[inline]{From the E4 section: the order of the symmetric pairs is the same under every skin (\collaborating{} $>$ \accommodating{} $>$ \neutral{} $>$ \compromising{} $>$ \competing{} $>$ \avoiding, with the abstract rendering swapping the two top and the two bottom pairs within noise); the sign of every pair's difference from the \neutral{} pair, the condition map's best strategy and the verdict on \competing{} as a unilateral deviation are unchanged; paired with its abstract twin a skinned cell's joint payoff moves by less than 5 points in 17 of 24 comparisons, the exceptions being the knife-edge \avoiding{} and \competing{} pairs. What the names change: \collaborating's unilateral gain goes to the partner (own +7.4, $p=.017$, abstract; +0.7 to +5.3 under the skins, partner +2.7 to +5.1). Option names carry a prior: the option that reads as moderate is agreed on 43--46\% of contested decisions against 37\%, with no rise in the true middle option and no visible cost.}
+
+\begin{table}[t]
+\caption{E4: joint payoff by cell under four renderings of the same 40 instances; first seat's strategy first. Source: \texttt{results/bargain\_e4\_paired.json}.}
+\label{tab:e4}
+\centering\small
+\begin{tabular}{@{}l rrrr@{}}
+\toprule
+Cell & abstract & software & team plan & release \\
+\midrule
+neutral--neutral             & 127.6 & 130.3 & 128.7 & 126.5 \\
+competing--competing         & 102.5 & 102.0 & 113.5 & 113.5 \\
+collaborating--collaborating & 135.5 & 135.1 & 135.0 & 138.8 \\
+compromising--compromising   & 114.9 & 121.2 & 119.8 & 122.5 \\
+accommodating--accommodating & 136.3 & 134.9 & 134.0 & 132.4 \\
+avoiding--avoiding           & 112.8 &  98.2 & 106.5 &  96.3 \\
+competing--neutral           & 118.7 & 121.9 & 119.7 & 119.7 \\
+collaborating--neutral       & 134.3 & 136.1 & 136.9 & 134.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Real-conflict structures}
+\label{sec:grounded}
+\todo[inline]{Extraction and validation (ground.py: explicit labels for each ticket's need and the middle ground, validation, one corrective retry; 85 of 85 pairs for \$0.07; human spot-check of ten extractions \todo{pending}). Results: the default agent is already efficient (85/85 agreements, 77 on the frontier, gap 6 of 155); no strategy beats \neutral{} alone; the ranking of what not to do is unchanged. Control: the same structures under the abstract skin bring the map back (\collaborating{} alone +6.7, $p=.010$; \neutral{} pair gap 17.2, 61/85 on the frontier; the \neutral{} agent discloses its scores in 53 of 85 games with the ticket context against 11 without). Conclusion: the semantics, not the structure, flatten the strategies' edge; E4 shows the weak form of the same effect with named options alone. The single-contested-decision clause and the replay: compliance of \collaborating{} no longer depends on the number of contested decisions (about 60\% in both renderings) and payoffs are unchanged.}
+
+\subsection{Across models}
+\label{sec:e3}
+\todo[inline]{[E3] The strategy matrix diagonal and the two unilateral deviations on claude-haiku-5-5, claude-sonnet-5-5 and gpt-6.1-sol; which findings replicate, which are model-specific (compliance, the \competing{} impasse rate, disclosure under named options).}
+
+% ------------------------------------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+\todo[inline]{(1) For agent designers: do not prompt an agent to compete against an unknown partner; the rule-based \collaborating{} strategy is the best response to almost everything and the replicator attractor, but it pays the deviator only when the options are opaque; when both sides can be configured, soft-on-both-sides is the efficient cell once tokens cost anything. (2) The textbook's situational claims: where they hold (integrative potential) and where they fail (time pressure favours the fast closer, not the compromiser; open information favours assertiveness, not collaboration). (3) The semantics effect as a general caution for negotiation benchmarks: what the names of the options reveal is a treatment. (4) Relation to the coding studies: with a binary conflict (whose change lands) there is nothing to trade and conceding is the only cooperative move; the multi-issue setting is where strategy matters. (5) Limits: one model family so far [E3]; strategies are rules we wrote, not the only possible operationalization; the payoff structure (top, half, nothing) is imposed on the grounded instances; the extractor's judgment; English prompts only; no repeated play or reputation.}
+
+\section{Conclusion}
+\label{sec:conclusion}
+\todo[inline]{Three sentences.}
+
+\section*{Impact Statement}
+This paper presents work whose goal is to advance the field of machine learning, specifically the design of LLM agents that negotiate on behalf of people. \todo{Say what could go wrong: strategies that exploit soft partners are measurable here, which cuts both ways; recommend disclosure of an agent's strategy to its counterpart's principal; no personal data; ParallACT's text is not redistributed.}
+
+\section*{Reproducibility}
+\todo{Code, configs frozen before each run, every transcript and the exact frontier computations are at \url{https://github.com/0ozcharles/agent-coordination}; the grounded instances ship as extracted structure only.}
+
+\bibliography{references}
+\bibliographystyle{icml2027}
+
+% ------------------------------------------------------------------------------------------------
+\newpage
+\appendix
+\onecolumn
+
+\section{Prompts}
+\label{app:prompts}
+\todo[inline]{The system prompt (abstract rendering) with the protocol note; one skinned rendering; the grounded rendering with roles. Copy from \texttt{bargain.system\_prompt} output.}
+
+\section{Strategy texts}
+\label{app:rules}
+\todo[inline]{Prompted sentences and full rule texts for the five strategies, with the placeholders and the revision history (rounds 1--3 and the single-contested-decision clause). Source: \texttt{configs/bargain\_dev.json}.}
+
+\section{Conditions}
+\label{app:conditions}
+\todo[inline]{Table: condition, knob, value, the textbook's prediction, our result. Source: \texttt{configs/bargain\_e2.json}.}
+
+\section{Skins and grounded extraction}
+\label{app:skins}
+\todo[inline]{The three skins (\texttt{configs/bargain\_skins.json}); the extraction prompt and validation rules (\texttt{ground.py}); the distribution of decisions and contested decisions; two example extractions.}
+
+\section{Additional results}
+\label{app:more}
+\todo[inline]{Per-condition matrices (results/bargain\_e2\_*\_matrix.svg); seat-level results; net payoff tables over $\lam$; compliance by cell; the judge's labels; the E4 paired statistics and the option-name prior; the grounded control tables.}
+
+\end{document}
