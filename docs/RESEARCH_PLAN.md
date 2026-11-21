@@ -817,10 +817,30 @@ Own payoff in points at λ = 0; in brackets the gain over neutral in the same re
 
 **Reading for the paper.** In TKI terms the map says: the situational conditions matter, but not as the model's prescriptions say. Collaborating is the robust unilateral strategy for an LLM agent (never worse than neutral, best against a hard bargainer in 8 of 10 conditions); competing pays only against a partner that cannot or will not push back, and pays by transfer; accommodating is efficient only when both sides do it and is otherwise exploited; compromising and avoiding have no condition of their own in this environment, including the ones the model assigns them (nothing to trade; confrontation costs more than it yields). The cost axis moves the answer toward the cheap strategies long before λ reaches the price of a token in points. Caveats: one model, 20 instances per cell, pooled seats, unlabeled, λ swept rather than measured.
 
+### Strategy payoff study: grounded instances (2026-11-20)
+
+Config: [configs/bargain_grounded.json](../configs/bargain_grounded.json), E2 base's 24 cells on the 85 instances extracted from ParallACT's contradictory pairs (two to four decisions each, 152 of 225 contested; outside option 30, 10 moves, weights hidden, the ticket context as the framing): 2040 games, gpt-6-luna on both sides, $0.86, no errors, not labeled. Results: [results/bargain_grounded_rows.csv](../results/bargain_grounded_rows.csv), [summary](../results/bargain_grounded_summary.json), [matrix](../results/bargain_grounded_matrix.svg). Comparisons with neutral pair 170 games by instance and seat (exact sign test). Own payoff in points, with the E2 base value in brackets and the gain over neutral in the same reading:
+
+| strategy | both sides use it | adopted alone against neutral | against a competing partner |
+|---|---|---|---|
+| neutral | 74.3 (62.6) | 74.3 (62.6) | 67.0 (50.4) |
+| competing | 64.1 (46.9), −10.2, p < .001 | 75.0 (63.7), +0.7 | 64.1 (46.9), −2.9 |
+| collaborating | 74.7 (65.6), +0.4 | 74.8 (69.6), +0.5 | 69.1 (53.6), +2.1 |
+| compromising | 69.4 (58.4), −4.9 | 69.6 (54.9), −4.7, p = .008 | 64.0 (42.6), −3.1 |
+| accommodating | 73.9 (65.7), −0.4 | 70.4 (60.8), −3.9, p = .004 | 66.9 (50.0), −0.1 |
+| avoiding | 63.6 (52.1), −10.6, p = .002 | 59.1 (47.8), −15.2, p < .001 | 53.9 (36.3), −13.1, p < .001 |
+
+- **The default agent is already efficient here.** Neutral pairs agree in 85 of 85 games, in 4.0 moves, and end on the frontier in 77 (joint 148.6 of a maximal 154.6, gap 6.0); in the E2 base the same pair ends on the frontier in 8 of 20 with a gap of 14.6. The grounded instances have more joint value (maximal joint 155 against 140; integrative gain 21.4 against 17.9) because 55 of 85 contain a decision both sides want the same way, and fewer decisions (two in 34, three in 47).
+- **So the map flattens, in the direction the synthetic core predicts for a partner that cannot be exploited.** Nothing beats neutral when adopted alone: collaborating's +7.0 of the base becomes +0.5 and competing's +1.1 becomes +0.7; the soft strategies still lose (compromising −4.7, accommodating −3.9, both significant; avoiding −15.2); competing pairs still destroy value (−10.2; 59 of 85 agreements) and so do avoiding pairs (−10.6; 62 of 85). Against a competing partner collaborating is still the best reply (+2.1) and matching still costs (−2.9), with avoiding the worst reply (−13.1). The 30 instances contested on every decision show the same picture (collaborating against neutral +0.7, competing pairs −17.3, avoiding pairs −23.5).
+- **Cost keeps its order but shrinks**, tokens per agent and game in symmetric play: competing 2,490 (4,080 in the base; games end in 5.2 moves instead of 8.7), collaborating 1,820, neutral 1,670, compromising 1,540, accommodating 1,260, avoiding 890.
+- **Rule compliance is lower, partly for structural reasons.** Collaborating by rule is complied with in 33 of 85 games against neutral, 4 of 33 on instances with one contested decision (the rule asks every proposal to give each side its top option on a contested decision, impossible with one) and 29 of 52 with two or more; competing 69 of 85, accommodating 55 of 85, compromising 72 of 85, avoiding 84 of 85. The grounded manipulation of collaborating is therefore weaker than in the core; a rule written in shares of contested decisions, or a compliance check that skips infeasible rules, is needed before the grounded cells are compared strategy by strategy.
+
+**Reading.** Two things differ from the synthetic core at once: the structure (fewer decisions, shared decisions, a middle option that is a genuine compromise) and the semantics (each side is told its own ticket and the other's, and the option names say which ticket each serves, so the partner's needs are legible as under open information). Either can explain why the default agent finds the frontier and the strategies have little to add. The cheap control is to replay the same 85 structures under the abstract skin (Decision 1, Option A; about $0.9): if collaborating's edge returns, it is the semantics; if not, the structure. Until then the grounded layer says that on real-conflict structures the conflict-handling strategy matters less than in the generated regime, and that the ranking of what not to do (avoid, match a hard bargainer, pair competing with competing, concede unilaterally) is unchanged.
+
 ## Next steps
 
-1. Label a sample of E2 (talk against moves across conditions) and check the condition map on the grounded instances once they are played.
-2. Run the grounded cells and the skins run (E4) on gpt-6-luna; have a teammate spot-check ten extractions against the tickets.
+1. Replay the grounded structures under the abstract skin to separate structure from semantics; rewrite the collaborating rule in shares of contested decisions, or skip infeasible rules in the compliance check.
+2. Run the skins run (E4) on gpt-6-luna; label a sample of E2 and of the grounded games; have a teammate spot-check ten extractions against the tickets.
 3. Add models as access arrives (E3): claude-haiku-5-5 and claude-sonnet-5-5 need an Anthropic key, gpt-6.2-sol the OpenAI key; gpt-oss-120B runs on Together. The code must take provider-prefixed model names first.
 4. Reduce LLM-Deliberation to two parties (E5, with a teammate); optionally re-run 80 ParallACT instances on a second model.
 5. Outline the paper: the TKI map as the main result, the coding studies as the binary boundary case, the negotiation pilot as the zero-sum pole.
