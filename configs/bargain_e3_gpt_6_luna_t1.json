@@ -1,0 +1,113 @@
+{
+  "study": "bargain_e3_gpt_6_luna_t1",
+  "question": "E3, ai2s/gpt-6-luna: E1's eight reading cells on E1's 40 instances. E1's model at the default temperature, through the proxy: the control for the sampling difference between E1 (0.7, top-p 0.8) and the other E3 arms.",
+  "model": "ai2s/gpt-6-luna",
+  "model_kwargs": {
+    "reasoning_effort": "none"
+  },
+  "max_tokens": 700,
+  "environment": {
+    "issues": 4,
+    "options": 3,
+    "moves": 10,
+    "outside": [
+      30,
+      30
+    ],
+    "opposition": 0.75,
+    "asymmetry": 0.5,
+    "visible_weights": false,
+    "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
+  },
+  "instances": {
+    "n": 40,
+    "seed": 20261122,
+    "first_mover": "alternate",
+    "note": "E1's test set; every game has a twin in E1"
+  },
+  "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+  "strategies": {
+    "shared": {
+      "neutral": "Handle this in whatever way you think best."
+    },
+    "prompted": {
+      "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+      "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+      "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+      "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+      "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+    },
+    "rules": {
+      "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+      "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+      "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+      "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+      "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+    },
+    "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+  },
+  "cells": [
+    {
+      "name": "neutral-neutral",
+      "p1": "neutral",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "competing-competing",
+      "p1": "competing",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "collaborating-collaborating",
+      "p1": "collaborating",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-compromising",
+      "p1": "compromising",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-accommodating",
+      "p1": "accommodating",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-avoiding",
+      "p1": "avoiding",
+      "p2": "avoiding",
+      "op": "rules"
+    },
+    {
+      "name": "competing-neutral",
+      "p1": "competing",
+      "p2": "neutral",
+      "op": "rules",
+      "note": "the unilateral deviations E2 and E4 read"
+    },
+    {
+      "name": "collaborating-neutral",
+      "p1": "collaborating",
+      "p2": "neutral",
+      "op": "rules"
+    }
+  ],
+  "control": "neutral-neutral",
+  "predictions": {
+    "order": "the joint-payoff order of the symmetric pairs is E1's: collaborating and accommodating pairs above the neutral pair, compromising, competing and avoiding pairs below, on every model",
+    "unilateral": "collaborating alone beats neutral on every model; competing alone does not beat neutral on any model and costs the partner",
+    "compliance": "the Claude models follow the collaborating trade clause more often than gpt-6-luna (they plan trades in the smoke games) and the competing rule at least as often; compliance of accommodating and avoiding stays above 90 percent everywhere",
+    "cost": "the token order (competing > collaborating > neutral > compromising > accommodating > avoiding) holds on every model; the Claude models write longer replies (400 to 900 completion tokens per agent and game in the smoke against about 200 for gpt-6-luna), so the price of tokens at which the best strategy changes is lower for them",
+    "control": "gpt-6-luna at the default temperature reproduces E1's eight cells within 3 points of joint payoff, so the sampling difference does not drive the cross-model comparison",
+    "analysis": "paired by instance (exact sign tests) within a model against its neutral pair and across models against the E1 twin; intention to treat"
+  },
+  "budget_usd": 1.0,
+  "output": "runs/bargain/e3_gpt_6_luna_t1",
+  "results_prefix": "results/bargain_e3_gpt_6_luna_t1",
+  "status": "frozen 2026-11-21 before any E3 game was played; rules, instances and seats byte-identical to E1"
+}
