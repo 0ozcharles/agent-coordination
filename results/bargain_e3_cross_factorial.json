@@ -1,0 +1,351 @@
+{
+ "instances": 40,
+ "collaborating": {
+  "adopter's own gain": {
+   "adopter luna, partner luna": {
+    "n": 40,
+    "mean": 5.6875,
+    "sd": 21.3928,
+    "dz": 0.2659,
+    "ci95": [
+     -1.0625,
+     12.1875
+    ],
+    "wins": 20,
+    "losses": 15,
+    "p_sign": 0.4996,
+    "p_wilcoxon": 0.1048
+   },
+   "adopter luna, partner sonnet": {
+    "n": 40,
+    "mean": -2.8188,
+    "sd": 9.4137,
+    "dz": -0.2994,
+    "ci95": [
+     -5.6,
+     0.125
+    ],
+    "wins": 12,
+    "losses": 25,
+    "p_sign": 0.047,
+    "p_wilcoxon": 0.0726
+   },
+   "adopter sonnet, partner luna": {
+    "n": 40,
+    "mean": 2.05,
+    "sd": 10.259,
+    "dz": 0.1998,
+    "ci95": [
+     -1.0,
+     5.175
+    ],
+    "wins": 21,
+    "losses": 17,
+    "p_sign": 0.6271,
+    "p_wilcoxon": 0.2177
+   },
+   "adopter sonnet, partner sonnet": {
+    "n": 40,
+    "mean": -0.8125,
+    "sd": 10.7701,
+    "dz": -0.0754,
+    "ci95": [
+     -3.975,
+     2.5125
+    ],
+    "wins": 11,
+    "losses": 16,
+    "p_sign": 0.4421,
+    "p_wilcoxon": 0.3936
+   },
+   "partner effect (partner luna - partner sonnet), adopters averaged": {
+    "n": 40,
+    "mean": 5.6844,
+    "sd": 13.3672,
+    "dz": 0.4252,
+    "ci95": [
+     1.5063,
+     9.875
+    ],
+    "wins": 30,
+    "losses": 10,
+    "p_sign": 0.0022,
+    "p_wilcoxon": 0.0139
+   },
+   "adopter effect (adopter luna - adopter sonnet), partners averaged": {
+    "n": 40,
+    "mean": 0.8156,
+    "sd": 15.5779,
+    "dz": 0.0524,
+    "ci95": [
+     -3.9813,
+     5.4906
+    ],
+    "wins": 23,
+    "losses": 17,
+    "p_sign": 0.4296,
+    "p_wilcoxon": 0.472
+   }
+  },
+  "partner's change": {
+   "adopter luna, partner luna": {
+    "n": 40,
+    "mean": 1.6375,
+    "sd": 23.6627,
+    "dz": 0.0692,
+    "ci95": [
+     -5.6375,
+     9.0
+    ],
+    "wins": 20,
+    "losses": 16,
+    "p_sign": 0.6177,
+    "p_wilcoxon": 0.6771
+   },
+   "adopter luna, partner sonnet": {
+    "n": 40,
+    "mean": 4.8375,
+    "sd": 10.9122,
+    "dz": 0.4433,
+    "ci95": [
+     1.5375,
+     8.0875
+    ],
+    "wins": 27,
+    "losses": 9,
+    "p_sign": 0.0039,
+    "p_wilcoxon": 0.0155
+   },
+   "adopter sonnet, partner luna": {
+    "n": 40,
+    "mean": -0.8125,
+    "sd": 11.3175,
+    "dz": -0.0718,
+    "ci95": [
+     -4.275,
+     2.6437
+    ],
+    "wins": 19,
+    "losses": 19,
+    "p_sign": 1.0,
+    "p_wilcoxon": 0.6117
+   },
+   "adopter sonnet, partner sonnet": {
+    "n": 40,
+    "mean": 2.6,
+    "sd": 9.941,
+    "dz": 0.2615,
+    "ci95": [
+     -0.3875,
+     5.6
+    ],
+    "wins": 18,
+    "losses": 10,
+    "p_sign": 0.1849,
+    "p_wilcoxon": 0.0986
+   },
+   "partner effect (partner luna - partner sonnet), adopters averaged": {
+    "n": 40,
+    "mean": -3.3062,
+    "sd": 13.8883,
+    "dz": -0.2381,
+    "ci95": [
+     -7.5375,
+     1.0656
+    ],
+    "wins": 16,
+    "losses": 24,
+    "p_sign": 0.2682,
+    "p_wilcoxon": 0.1704
+   },
+   "adopter effect (adopter luna - adopter sonnet), partners averaged": {
+    "n": 40,
+    "mean": 2.3438,
+    "sd": 16.9147,
+    "dz": 0.1386,
+    "ci95": [
+     -2.7281,
+     7.6813
+    ],
+    "wins": 21,
+    "losses": 19,
+    "p_sign": 0.8746,
+    "p_wilcoxon": 0.5542
+   }
+  }
+ },
+ "competing": {
+  "adopter's own gain": {
+   "adopter luna, partner luna": {
+    "n": 40,
+    "mean": 1.2625,
+    "sd": 27.6545,
+    "dz": 0.0457,
+    "ci95": [
+     -7.3875,
+     9.65
+    ],
+    "wins": 19,
+    "losses": 18,
+    "p_sign": 1.0,
+    "p_wilcoxon": 0.608
+   },
+   "adopter luna, partner sonnet": {
+    "n": 40,
+    "mean": 2.8188,
+    "sd": 8.8488,
+    "dz": 0.3185,
+    "ci95": [
+     0.15,
+     5.575
+    ],
+    "wins": 24,
+    "losses": 14,
+    "p_sign": 0.1433,
+    "p_wilcoxon": 0.0633
+   },
+   "adopter sonnet, partner luna": {
+    "n": 40,
+    "mean": 3.125,
+    "sd": 11.438,
+    "dz": 0.2732,
+    "ci95": [
+     -0.4188,
+     6.575
+    ],
+    "wins": 26,
+    "losses": 14,
+    "p_sign": 0.0807,
+    "p_wilcoxon": 0.0513
+   },
+   "adopter sonnet, partner sonnet": {
+    "n": 40,
+    "mean": -0.2,
+    "sd": 8.6416,
+    "dz": -0.0231,
+    "ci95": [
+     -2.7875,
+     2.45
+    ],
+    "wins": 13,
+    "losses": 15,
+    "p_sign": 0.8506,
+    "p_wilcoxon": 0.7241
+   },
+   "partner effect (partner luna - partner sonnet), adopters averaged": {
+    "n": 40,
+    "mean": 0.8844,
+    "sd": 16.839,
+    "dz": 0.0525,
+    "ci95": [
+     -4.4313,
+     6.0812
+    ],
+    "wins": 25,
+    "losses": 15,
+    "p_sign": 0.1539,
+    "p_wilcoxon": 0.6001
+   },
+   "adopter effect (adopter luna - adopter sonnet), partners averaged": {
+    "n": 40,
+    "mean": 0.5781,
+    "sd": 16.8514,
+    "dz": 0.0343,
+    "ci95": [
+     -4.5656,
+     5.7656
+    ],
+    "wins": 22,
+    "losses": 18,
+    "p_sign": 0.6358,
+    "p_wilcoxon": 0.8825
+   }
+  },
+  "partner's change": {
+   "adopter luna, partner luna": {
+    "n": 40,
+    "mean": -15.075,
+    "sd": 27.3495,
+    "dz": -0.5512,
+    "ci95": [
+     -23.75,
+     -6.925
+    ],
+    "wins": 11,
+    "losses": 26,
+    "p_sign": 0.0201,
+    "p_wilcoxon": 0.0029
+   },
+   "adopter luna, partner sonnet": {
+    "n": 40,
+    "mean": -2.7375,
+    "sd": 10.4199,
+    "dz": -0.2627,
+    "ci95": [
+     -5.8875,
+     0.45
+    ],
+    "wins": 15,
+    "losses": 23,
+    "p_sign": 0.2559,
+    "p_wilcoxon": 0.0883
+   },
+   "adopter sonnet, partner luna": {
+    "n": 40,
+    "mean": -12.2188,
+    "sd": 10.7629,
+    "dz": -1.1353,
+    "ci95": [
+     -15.5437,
+     -9.025
+    ],
+    "wins": 5,
+    "losses": 34,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "adopter sonnet, partner sonnet": {
+    "n": 40,
+    "mean": 0.475,
+    "sd": 8.8448,
+    "dz": 0.0537,
+    "ci95": [
+     -2.225,
+     3.2
+    ],
+    "wins": 14,
+    "losses": 13,
+    "p_sign": 1.0,
+    "p_wilcoxon": 0.6653
+   },
+   "partner effect (partner luna - partner sonnet), adopters averaged": {
+    "n": 40,
+    "mean": -12.5156,
+    "sd": 16.175,
+    "dz": -0.7738,
+    "ci95": [
+     -17.6531,
+     -7.5625
+    ],
+    "wins": 11,
+    "losses": 29,
+    "p_sign": 0.0064,
+    "p_wilcoxon": 0.0001
+   },
+   "adopter effect (adopter luna - adopter sonnet), partners averaged": {
+    "n": 40,
+    "mean": -3.0344,
+    "sd": 17.887,
+    "dz": -0.1696,
+    "ci95": [
+     -8.4938,
+     2.3625
+    ],
+    "wins": 17,
+    "losses": 23,
+    "p_sign": 0.4296,
+    "p_wilcoxon": 0.4046
+   }
+  }
+ }
+}
