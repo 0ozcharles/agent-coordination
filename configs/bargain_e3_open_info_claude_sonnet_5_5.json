@@ -9,7 +9,7 @@
       }
     }
   },
-  "max_tokens": 700,
+  "max_tokens": 1500,
   "environment": {
     "issues": 4,
     "options": 3,
@@ -157,6 +157,7 @@
   "budget_usd": 20.0,
   "output": "runs/bargain/e3_open_info_claude_sonnet_5_5",
   "results_prefix": "results/bargain_e3_open_info_claude_sonnet_5_5",
-  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E2's condition config, cells reduced to 16",
-  "model_kwargs_note": "sampling and thinking settings as the E3 base arm of this model (see configs/bargain_e3_<model>.json)"
+  "status": "frozen 2026-11-21; replayed the same day with a 1,500-token reply cap (see max_tokens_note); environment, rules, instances, seats and cells unchanged",
+  "model_kwargs_note": "sampling and thinking settings as the E3 base arm of this model (see configs/bargain_e3_<model>.json)",
+  "max_tokens_note": "1,500 instead of E1's 700: with both score tables visible sonnet's replies run long, and in the first run of this arm (2026-11-21, kept under runs/bargain/e3_open_info_claude_sonnet_5_5_cap700, not reported) 342 of 1,620 calls hit the 700-token cap with the JSON cut off, 78 moves were lost. The cap never bound for gpt-6-luna (about 200 tokens per reply) and binds for no other arm beyond a handful of calls; raising it removes a truncation artefact and leaves the game unchanged."
 }

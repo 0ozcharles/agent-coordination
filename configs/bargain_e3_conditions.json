@@ -43,7 +43,7 @@
         "visible_weights": true,
         "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
       },
-      "model_condition": "claude-sonnet-5-5 through the proxy, thinking disabled",
+      "model_condition": "claude-sonnet-5-5 through the proxy, thinking disabled; reply cap 1,500 tokens (the first run at 700 lost 78 moves to truncation and was set aside)",
       "prediction": "on the stronger models the default pair reaches the frontier in almost every game, so no unilateral strategy gains more than 3 points over neutral and competing alone no longer exploits the partner (own gain under 3, partner's loss under 5); collaborating and accommodating pairs tie with the neutral pair; competing pairs remain the worst cell"
     },
     "open_info_gpt_6_1_sol": {
