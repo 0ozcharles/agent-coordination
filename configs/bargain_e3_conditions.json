@@ -1,0 +1,136 @@
+{
+  "study": "bargain_e3_conditions",
+  "question": "E3 follow-up: do the two conditions that moved the map most on gpt-6-luna (open information, unequal stakes) move it the same way on claude-sonnet-5-5 and gpt-6.1-sol? E2's 20 instances, 16 cells (the rule diagonal and every strategy against neutral in both seats).",
+  "instances": {
+    "n": 20,
+    "seed": 20261123,
+    "first_mover": "alternate",
+    "note": "E2's shared instances; every game has a twin in the E2 condition run on gpt-6-luna"
+  },
+  "cells": "16 of E2's 24: the six diagonal pairs and every strategy against neutral in both seats; the eight cells against competing are left out to fit the month's proxy budget",
+  "analysis": "per arm as E2 (best strategy in symmetric play and against neutral, by points and by net payoff over lambda; seats separately for unequal stakes); across models each cell paired by instance with its E2 twin; the model-by-condition map with --map",
+  "conditions": {
+    "open_info_gpt_6_luna_E2": {
+      "config": "configs/bargain_e2_open_info.json",
+      "env": {
+        "issues": 4,
+        "options": 3,
+        "moves": 10,
+        "outside": [
+          30,
+          30
+        ],
+        "opposition": 0.75,
+        "asymmetry": 0.5,
+        "visible_weights": true,
+        "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
+      },
+      "model_condition": "E2's run of this condition on gpt-6-luna (24 cells; the 16 shared ones are compared)",
+      "prediction": "on gpt-6-luna, open information made competing the best unilateral strategy (+9.4 against neutral, p = .047) by exploiting a default partner that could see the competing side's scores, and collaborating the best reply to competing (+6.8, p = .035); the default pair was the most efficient of all conditions (gap 12.3)"
+    },
+    "open_info_claude_sonnet_5_5": {
+      "config": "configs/bargain_e3_open_info_claude_sonnet_5_5.json",
+      "env": {
+        "issues": 4,
+        "options": 3,
+        "moves": 10,
+        "outside": [
+          30,
+          30
+        ],
+        "opposition": 0.75,
+        "asymmetry": 0.5,
+        "visible_weights": true,
+        "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
+      },
+      "model_condition": "claude-sonnet-5-5 through the proxy, thinking disabled",
+      "prediction": "on the stronger models the default pair reaches the frontier in almost every game, so no unilateral strategy gains more than 3 points over neutral and competing alone no longer exploits the partner (own gain under 3, partner's loss under 5); collaborating and accommodating pairs tie with the neutral pair; competing pairs remain the worst cell"
+    },
+    "open_info_gpt_6_1_sol": {
+      "config": "configs/bargain_e3_open_info_gpt_6_1_sol.json",
+      "env": {
+        "issues": 4,
+        "options": 3,
+        "moves": 10,
+        "outside": [
+          30,
+          30
+        ],
+        "opposition": 0.75,
+        "asymmetry": 0.5,
+        "visible_weights": true,
+        "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
+      },
+      "model_condition": "gpt-6.1-sol through the proxy, reasoning off",
+      "prediction": "on the stronger models the default pair reaches the frontier in almost every game, so no unilateral strategy gains more than 3 points over neutral and competing alone no longer exploits the partner (own gain under 3, partner's loss under 5); collaborating and accommodating pairs tie with the neutral pair; competing pairs remain the worst cell"
+    },
+    "low_stakes_p2_gpt_6_luna_E2": {
+      "config": "configs/bargain_e2_low_stakes_p2.json",
+      "env": {
+        "issues": 4,
+        "options": 3,
+        "moves": 10,
+        "outside": [
+          30,
+          30
+        ],
+        "opposition": 0.75,
+        "asymmetry": 0.5,
+        "visible_weights": false,
+        "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+        "stakes": [
+          1.0,
+          0.3
+        ]
+      },
+      "model_condition": "E2's run of this condition on gpt-6-luna (24 cells; the 16 shared ones are compared)",
+      "prediction": "on gpt-6-luna with stakes 1 against 0.3, the high-stakes side did best by collaborating against neutral (68.1 against 57.4) and the low-stakes side's best unilateral strategy was competing (23.1 against 20.5 of 30), its worst accommodating and avoiding (17.1, 17.0)"
+    },
+    "low_stakes_p2_claude_sonnet_5_5": {
+      "config": "configs/bargain_e3_low_stakes_p2_claude_sonnet_5_5.json",
+      "env": {
+        "issues": 4,
+        "options": 3,
+        "moves": 10,
+        "outside": [
+          30,
+          30
+        ],
+        "opposition": 0.75,
+        "asymmetry": 0.5,
+        "visible_weights": false,
+        "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+        "stakes": [
+          1.0,
+          0.3
+        ]
+      },
+      "model_condition": "claude-sonnet-5-5 through the proxy, thinking disabled",
+      "prediction": "the seat asymmetry survives on the stronger models: the low-stakes side still gains nothing by accommodating (own payoff below neutral's) and its joint gain goes to the high-stakes side; but the high-stakes side's collaborating edge over neutral shrinks below 5 points, as the default partner concedes the low-stakes issues by itself"
+    },
+    "low_stakes_p2_gpt_6_1_sol": {
+      "config": "configs/bargain_e3_low_stakes_p2_gpt_6_1_sol.json",
+      "env": {
+        "issues": 4,
+        "options": 3,
+        "moves": 10,
+        "outside": [
+          30,
+          30
+        ],
+        "opposition": 0.75,
+        "asymmetry": 0.5,
+        "visible_weights": false,
+        "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+        "stakes": [
+          1.0,
+          0.3
+        ]
+      },
+      "model_condition": "gpt-6.1-sol through the proxy, reasoning off",
+      "prediction": "the seat asymmetry survives on the stronger models: the low-stakes side still gains nothing by accommodating (own payoff below neutral's) and its joint gain goes to the high-stakes side; but the high-stakes side's collaborating edge over neutral shrinks below 5 points, as the default partner concedes the low-stakes issues by itself"
+    }
+  },
+  "budget_usd": 72.0,
+  "status": "frozen 2026-11-21 before any game was played"
+}
