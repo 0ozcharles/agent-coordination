@@ -1,0 +1,218 @@
+item,repository,"ticket pair (local file, not redistributed)",colliding code,extracted structure
+C01,NodeBB/NodeBB,external/ParallACT/dataset/v1/generated/contradictory/instance_NodeBB__NodeBB-05f2236193f407cf8e2072757fbd6bb170bc13f0-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e.json,src/topics/sorted.js — sortTids dispatch block and topic-order comparators,"Context told to both: The shared code selects ordering behavior for topic queries and applies comparators to the returned topics. One ticket needs chronological ordering in the opposite direction from the usual recent-first order, while the other needs a reliable tie-breaker for equally popular topics. You are working on Add oldest-first topic sorting; the other developer on Stabilize popular-topic tie ordering.
+Developer A's ticket: Add oldest-first topic sorting
+Developer B's ticket: Stabilize popular-topic tie ordering
+Decision 1: Old sort direction (shared; importance A 5, B 1 on 1-5)
+   A. Descending last-post time
+   B. No dedicated old-sort behavior
+   C. Ascending last-post time <- A needs this <- B needs this
+Decision 2: Old sort query scope (shared; importance A 5, B 1 on 1-5)
+   A. Tag and category queries only
+   B. Global queries only
+   C. Global, tag, and category queries <- A needs this <- B needs this
+Decision 3: Popular-sort tie-breaker (contested; importance A 1, B 5 on 1-5)
+   A. Most recent last-post time <- B needs this
+   B. Highest view count
+   C. Candidate source order <- A needs this"
+C02,NodeBB/NodeBB,external/ParallACT/dataset/v1/generated/contradictory/instance_NodeBB__NodeBB-3c85b944e30a0ba8b3ec9e1f441c74f383625a15-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed.json,src/middleware/maintenance.js — maintenanceMode authorization branch after login-route handling,"Context told to both: The shared middleware decides whether requests may continue while Maintenance Mode is enabled or are sent to the maintenance page. Both tickets add a non-admin bypass condition to that authorization decision, while requiring normal behavior to remain unchanged when Maintenance Mode is disabled. You are working on Configure group-based maintenance exemptions; the other developer on Configure trusted client-IP exemptions.
+Developer A's ticket: Configure group-based maintenance exemptions
+Developer B's ticket: Configure trusted client-IP exemptions
+Decision 1: Bypass eligibility (contested; importance A 5, B 5 on 1-5)
+   A. Administrators and configured IPs <- B needs this
+   B. Administrators and configured groups <- A needs this
+   C. Administrators, configured groups, or configured IPs
+Decision 2: Group-list fallback (contested; importance A 5, B 1 on 1-5)
+   A. Default to administrators and Global Moderators <- A needs this
+   B. Treat an empty list as no group exemptions <- B needs this
+   C. Use configured groups, falling back only to administrators
+Decision 3: IP-list interpretation (contested; importance A 1, B 5 on 1-5)
+   A. Parse arrays or comma- or whitespace-separated values and normalize mapped IPv4 <- B needs this
+   B. Accept only array-valued exact IP entries
+   C. Parse arrays or separated values without address normalization <- A needs this"
+C03,flipt-io/flipt,external/ParallACT/dataset/v1/generated/contradictory/instance_flipt-io__flipt-b6cef5cdc0daff3ee99e5974ed60a1dc6b4b0d67.json,internal/server/auth/http.go: Middleware.Handler authentication-cookie deletion loop,"Context told to both: The shared code expires authentication cookies by adding deletion headers to HTTP responses. One ticket needs this behavior for unauthenticated responses, while the other changes the security attributes on logout deletion headers. You are working on Clear cookies after unauthenticated responses; the other developer on Harden logout cookie deletion headers.
+Developer A's ticket: Clear cookies after unauthenticated responses
+Developer B's ticket: Harden logout cookie deletion headers
+Decision 1: Expiry response scope (contested; importance A 5, B 3 on 1-5)
+   A. Logout and unauthenticated errors <- A needs this
+   B. All authentication failures
+   C. Explicit logout only <- B needs this
+Decision 2: Deletion cookie attributes (contested; importance A 1, B 5 on 1-5)
+   A. Existing deletion attributes <- A needs this
+   B. Configured Secure only
+   C. Secure, HttpOnly, SameSite=Strict <- B needs this"
+C04,flipt-io/flipt,external/ParallACT/dataset/v1/generated/contradictory/instance_flipt-io__flipt-dae029cba7cdb98dfb1a6b416c00d324241e6063.json,internal/ext/importer.go: Import's top-level flag and segment nil-entry guards,"Context told to both: The importer reads flags and segments from configuration documents and checks them against items already in the database. The shared entry guards affect both how existing items are handled and whether malformed null entries are accepted. You are working on Add incremental import that skips existing items; the other developer on Reject null entries in import documents.
+Developer A's ticket: Add incremental import that skips existing items
+Developer B's ticket: Reject null entries in import documents
+Decision 1: Existing-item behavior (shared; importance A 5, B 3 on 1-5)
+   A. Skip existing items <- A needs this <- B needs this
+   B. Overwrite existing items
+   C. Fail on existing items
+Decision 2: Null-entry handling (contested; importance A 2, B 5 on 1-5)
+   A. Silently ignore null entries <- A needs this
+   B. Return a generic error
+   C. Return an indexed type-specific error <- B needs this"
+C05,protonmail/webclients,external/ParallACT/dataset/v1/generated/contradictory/instance_protonmail__webclients-c8117f446c3d1d7e117adc6e0e46b0ece9b0b90e.json,applications/drive/src/app/utils/lastActivePersistedUserSession.ts — getLastPersistedLocalID parsing and fallback logic,"Context told to both: This utility scans persisted-session entries in localStorage to identify a local ID for session restoration. One change depends on distinguishing the absence of a usable session from ID 0, while another must recover a usable session even if a different entry is malformed. You are working on Restore public sessions during initial handshake; the other developer on Recover sessions despite corrupt records.
+Developer A's ticket: Restore public sessions during initial handshake
+Developer B's ticket: Recover sessions despite corrupt records
+Decision 1: Malformed record handling (contested; importance A 4, B 5 on 1-5)
+   A. Silently skip malformed records <- A needs this
+   B. Abort lookup and return null
+   C. Report and skip malformed records <- B needs this
+Decision 2: No-result sentinel (shared; importance A 5, B 3 on 1-5)
+   A. Return default local ID
+   B. Return null <- A needs this <- B needs this
+   C. Return zero
+Decision 3: Session selection order (shared; importance A 3, B 5 on 1-5)
+   A. Largest numeric local ID
+   B. First valid record encountered
+   C. Newest persistedAt value <- A needs this <- B needs this"
+C06,qutebrowser/qutebrowser,external/ParallACT/dataset/v1/generated/contradictory/instance_qutebrowser__qutebrowser-fec187c2cb53d769c2682b35ca77858a811414a8-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d.json,qutebrowser/utils/urlutils.py: _parse_search_term search-engine selection logic,"Context told to both: This utility selects a configured search engine from address-bar input and prepares the remaining text for search URL construction. The shared parser must also distinguish a bare engine shortcut from a shortcut followed by a search term. You are working on Correct search-term parsing and URL encoding; the other developer on Case-insensitive search-engine shortcut recognition.
+Developer A's ticket: Correct search-term parsing and URL encoding
+Developer B's ticket: Case-insensitive search-engine shortcut recognition
+Decision 1: Shortcut matching (contested; importance A 3, B 5 on 1-5)
+   A. Exact configured keys only <- A needs this
+   B. Exact first, unique case-insensitive fallback <- B needs this
+   C. Case-insensitive first match
+Decision 2: Bare shortcut handling (shared; importance A 5, B 1 on 1-5)
+   A. Format an empty search term
+   B. Return no search term <- A needs this <- B needs this
+   C. Use the default search engine
+Decision 3: Search-term encoding (shared; importance A 5, B 1 on 1-5)
+   A. Percent-encode the search term <- A needs this <- B needs this
+   B. Encode the completed URL
+   C. Interpolate the raw search term"
+C07,element-hq/element-web,external/ParallACT/dataset/v1/generated/contradictory/instance_element-hq__element-web-33299af5c9b7a7ec5a9c31d578d4ec5b18088fb7-vnan.json,src/components/views/rooms/RoomHeader.tsx — RoomHeader imports and JSX return block,"Context told to both: The room header presents room identity and may receive a Room or out-of-band room data. Both tickets change its shared layout and behavior, so the design must account for optional room information while keeping the header usable. You are working on Add room-aware avatar and name layout; the other developer on Add topic preview and Room Summary control.
+Developer A's ticket: Add room-aware avatar and name layout
+Developer B's ticket: Add topic preview and Room Summary control
+Decision 1: Avatar selection (shared; importance A 5, B 1 on 1-5)
+   A. Decorated room avatar with fallback <- A needs this <- B needs this
+   B. Room avatar for every header
+   C. No header avatar
+Decision 2: Header details (shared; importance A 4, B 5 on 1-5)
+   A. Avatar beside name and optional topic <- A needs this <- B needs this
+   B. Avatar beside name only
+   C. Name and topic without avatar
+Decision 3: Panel click behavior (contested; importance A 1, B 5 on 1-5)
+   A. Always open Room Summary on click
+   B. Header is not a panel control <- A needs this
+   C. Toggle Room Summary on click <- B needs this
+Decision 4: Optional Room handling (shared; importance A 5, B 4 on 1-5)
+   A. Require a Room to render
+   B. Render safely without a Room <- A needs this <- B needs this
+   C. Show a placeholder without a Room"
+C08,future-architect/vuls,external/ParallACT/dataset/v1/generated/contradictory/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e.json,scanner/utils.go: isRunningKernel Red Hat-family package-name classification switch,"Context told to both: The shared classifier identifies installed Red Hat-family packages whose versions should be matched against the running kernel release. One ticket needs it to recognize bootable debug variants, while the other needs development packages to remain independent of that release. You are working on Recognize running debug kernel variants; the other developer on Preserve newer kernel-devel inventory.
+Developer A's ticket: Recognize running debug kernel variants
+Developer B's ticket: Preserve newer kernel-devel inventory
+Decision 1: Runtime package coverage (contested; importance A 5, B 2 on 1-5)
+   A. All kernel-prefixed packages
+   B. Generic runtime packages only <- B needs this
+   C. Generic and debug runtime packages <- A needs this
+Decision 2: Development package filtering (shared; importance A 2, B 5 on 1-5)
+   A. Match kernel-devel to uname
+   B. Leave kernel-devel outside filtering <- A needs this <- B needs this
+   C. Exclude kernel-devel from inventory"
+C09,NodeBB/NodeBB,external/ParallACT/dataset/v1/generated/contradictory/instance_NodeBB__NodeBB-bad15643013ca15affe408b75eba9e47cc604bb2-vd59a5728dfc977f44533186ace531248c2917516.json,src/meta/index.js — Meta.userOrGroupExists normalization and existence-result return path,"Context told to both: The shared helper normalizes names and determines whether they identify users or groups. One change expands that flow to handle batches, while the other changes which group identities count as existing. You are working on Add batch slug existence lookups; the other developer on Reserve built-in pseudo-group usernames.
+Developer A's ticket: Add batch slug existence lookups
+Developer B's ticket: Reserve built-in pseudo-group usernames
+Decision 1: Accepted input shape (shared; importance A 5, B 2 on 1-5)
+   A. Array input only
+   B. Scalar input only
+   C. Scalar or array input <- A needs this <- B needs this
+Decision 2: Slug normalization (shared; importance A 5, B 5 on 1-5)
+   A. Normalize every input before lookup <- A needs this <- B needs this
+   B. Normalize scalar inputs only
+   C. Match raw input exactly
+Decision 3: Ephemeral group handling (contested; importance A 2, B 5 on 1-5)
+   A. Check persisted groups only <- A needs this
+   B. Count built-in groups as existing <- B needs this
+   C. Reserve names in username generation only
+Decision 4: Bulk user lookup results (contested; importance A 5, B 1 on 1-5)
+   A. Preserve input order and missing entries <- A needs this
+   B. Preserve order but omit missing entries
+   C. Issue separate lookups and assemble results <- B needs this"
+C10,element-hq/element-web,external/ParallACT/dataset/v1/generated/contradictory/instance_element-hq__element-web-f0359a5c180b8fec4329c77adcf967c8d3b7b787-vnan.json,src/components/views/settings/devices/LoginWithQRSection.tsx — capability checks and offerShowQr computation in LoginWithQRSection.render(),"Context told to both: The shared component decides whether to show the QR sign-in section using homeserver capability data. Its visibility also needs to reflect an application-level setting, while malformed capability values must not be mistaken for support. You are working on Add an off-by-default QR sign-in setting; the other developer on Reject non-boolean QR capability values.
+Developer A's ticket: Add an off-by-default QR sign-in setting
+Developer B's ticket: Reject non-boolean QR capability values
+Decision 1: Feature gate default (contested; importance A 5, B 1 on 1-5)
+   A. On-by-default setting
+   B. No application-level setting <- B needs this
+   C. Off-by-default experimental setting <- A needs this
+Decision 2: Capability value handling (contested; importance A 2, B 5 on 1-5)
+   A. JavaScript truthiness <- A needs this
+   B. Literal boolean true only <- B needs this
+   C. Explicit value normalization"
+C11,flipt-io/flipt,external/ParallACT/dataset/v1/generated/contradictory/instance_flipt-io__flipt-05d7234fa582df632f70a7cd10194d61bd7043b9.json,"internal/storage/fs/object/file.go: File.Stat FileInfo construction, especially the modTime assignment","Context told to both: The object-storage adapter turns bucket objects into filesystem files, and `File.Stat` constructs the metadata consumers see. Namespace versioning needs a revision identifier reachable from a file, while metadata normalization affects the reported name and modification time. You are working on Add namespace versions and file ETags; the other developer on Normalize object-backed file metadata.
+Developer A's ticket: Add namespace versions and file ETags
+Developer B's ticket: Normalize object-backed file metadata
+Decision 1: Reported file name (contested; importance A 1, B 5 on 1-5)
+   A. Return the full bucket key <- A needs this
+   B. Make name handling configurable
+   C. Return only the basename <- B needs this
+Decision 2: Modification time location (contested; importance A 2, B 5 on 1-5)
+   A. Keep the original internally, normalize metadata to UTC
+   B. Return the time in UTC <- B needs this
+   C. Preserve the provider location <- A needs this
+Decision 3: ETag exposure (contested; importance A 5, B 1 on 1-5)
+   A. Expose the ETag only on the file
+   B. Do not expose the ETag <- B needs this
+   C. Expose the ETag in file metadata <- A needs this"
+C12,future-architect/vuls,external/ParallACT/dataset/v1/generated/contradictory/instance_future-architect__vuls-3c1489e588dacea455ccf4c352a3b1006902e2d4.json,models/vulninfos.go: VulnInfos.CountGroupBySeverity signature and score-selection body,"Context told to both: VulnInfos.CountGroupBySeverity counts vulnerabilities by the severity of a selected CVSS score. One change corrects how scores and severity-only data are represented and counted, while the other adds version-specific grouping for audit exports. You are working on Correct CVSS data modeling and severity counts; the other developer on Add CVSS-version selection for audit grouping.
+Developer A's ticket: Correct CVSS data modeling and severity counts
+Developer B's ticket: Add CVSS-version selection for audit grouping
+Decision 1: Default score precedence (contested; importance A 5, B 5 on 1-5)
+   A. CVSS3-first fallback <- A needs this
+   B. CVSS2-first fallback <- B needs this
+   C. Caller-configurable precedence
+Decision 2: Version selection (shared; importance A 2, B 5 on 1-5)
+   A. No version selector
+   B. Required strict version selector
+   C. Optional strict version selector <- A needs this <- B needs this
+Decision 3: Critical score bucket (contested; importance A 5, B 2 on 1-5)
+   A. Separate Critical bucket <- A needs this
+   B. Omit scores above High
+   C. Include Critical in High <- B needs this"
+C13,gravitational/teleport,external/ParallACT/dataset/v1/generated/contradictory/instance_gravitational__teleport-0cb341c926713bdfcbb490c69659a9b101df99eb.json,roles.go: ParseRoles parsing/validation loop and the adjacent built-in role validation path,"Context told to both: This shared code parses role names and validates built-in roles used by the application. Changes to parsing affect which role values are accepted, while collection validation and equality determine how lists of roles behave. You are working on Validate role collections and compare them as sets; the other developer on Register RemoteProxy and parse role names case-insensitively.
+Developer A's ticket: Validate role collections and compare them as sets
+Developer B's ticket: Register RemoteProxy and parse role names case-insensitively
+Decision 1: Validation scope (contested; importance A 5, B 5 on 1-5)
+   A. Validate each parsed token only <- B needs this
+   B. Resolve each token, then validate the completed list <- A needs this
+   C. Validate the completed role list only
+Decision 2: Role-name resolution (shared; importance A 3, B 5 on 1-5)
+   A. Normalize spelling and accept unregistered names
+   B. Case-insensitive canonical-name lookup <- A needs this <- B needs this
+   C. Case-sensitive canonical-name lookup
+Decision 3: Collection equality (shared; importance A 5, B 1 on 1-5)
+   A. Order-sensitive list equality
+   B. Set equality ignoring repetitions <- A needs this <- B needs this
+   C. Equal-length comparison with membership checks"
+C14,gravitational/teleport,external/ParallACT/dataset/v1/generated/contradictory/instance_gravitational__teleport-bb69574e02bd62e5ccd3cebb25e1c992641afb2a.json,lib/utils/parse/parse.go: walk's *ast.BasicLit case,"Context told to both: The shared parser walks Go AST literals while parsing templated expressions, and its handling determines how bracket keys become trait names. The same parsing and resolution path is also being extended to support plain values as literal expressions. You are working on Add plain-string literal expressions; the other developer on Support numeric bracket trait keys.
+Developer A's ticket: Add plain-string literal expressions
+Developer B's ticket: Support numeric bracket trait keys
+Decision 1: Literal token spelling (contested; importance A 4, B 5 on 1-5)
+   A. Unquote every literal token
+   B. Preserve every token spelling <- A needs this
+   C. Unquote quoted tokens only <- B needs this
+Decision 2: Literal API scope (shared; importance A 5, B 2 on 1-5)
+   A. Add a separate literal parser
+   B. Add literals to Variable only <- A needs this <- B needs this
+   C. Add literals to every parser
+Decision 3: Literal resolution (shared; importance A 5, B 4 on 1-5)
+   A. Resolve every expression through traits
+   B. Return literals only when traits are absent
+   C. Return literal without trait lookup <- A needs this <- B needs this"
+C15,navidrome/navidrome,external/ParallACT/dataset/v1/generated/contradictory/instance_navidrome__navidrome-0a650de357babdcc8ce910fe37fee84acf4ed2fe.json,server/subsonic/responses/responses.go: ArtistID3 OpenSubsonic extension fields,"Context told to both: The shared response code converts artist data into OpenSubsonic ID3 responses and defines the structure and serialization of those fields. One change addresses artist grouping and consistently serialized metadata, while the other exposes an artist URL already stored in the domain model. You are working on Correct artist response schema and metadata; the other developer on Expose canonical artist URLs in ID3 responses.
+Developer A's ticket: Correct artist response schema and metadata
+Developer B's ticket: Expose canonical artist URLs in ID3 responses
+Decision 1: Artist grouping (contested; importance A 5, B 1 on 1-5)
+   A. Keep flat Indexes structure <- B needs this
+   B. Return grouped and flat structures
+   C. Use grouped IndexID3 structure <- A needs this
+Decision 2: Field serialization (shared; importance A 5, B 4 on 1-5)
+   A. Always serialize every field
+   B. Always serialize core metadata; omit empty URL <- A needs this <- B needs this
+   C. Omit every empty field
+Decision 3: External URL mapping (contested; importance A 1, B 5 on 1-5)
+   A. Expose field without converter mapping
+   B. Expose optional field and map model URL <- B needs this
+   C. Do not expose external URL <- A needs this"
