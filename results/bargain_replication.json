@@ -1,0 +1,1403 @@
+{
+ "study": "bargain_replication",
+ "test": "two-sided Wilcoxon signed-rank test on the per-instance differences of the confirmation sample alone; Holm correction over all 26 hypotheses at alpha = .05. A hypothesis is confirmed when its Holm-adjusted p is below .05 and the mean difference has the stated direction. The exact sign test, the mean difference with a bootstrap 95% interval (10,000 resamples of instances) and d_z are reported beside it, as are the same statistics on the discovery sample and on both pooled.",
+ "hypotheses": [
+  {
+   "id": "H01",
+   "claim": "Collaborating adopted alone against the default agent raises its user's own payoff.",
+   "direction": "+",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": 5.955,
+    "sd": 11.4027,
+    "dz": 0.5222,
+    "ci95": [
+     3.745,
+     8.1625
+    ],
+    "wins": 66,
+    "losses": 25,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": 8.4,
+    "sd": 11.2117,
+    "dz": 0.7492,
+    "ci95": [
+     4.9688,
+     11.9062
+    ],
+    "wins": 30,
+    "losses": 7,
+    "p_sign": 0.0002,
+    "p_wilcoxon": 0.0001
+   },
+   "pooled": {
+    "n": 140,
+    "mean": 6.6536,
+    "sd": 11.3624,
+    "dz": 0.5856,
+    "ci95": [
+     4.7839,
+     8.5393
+    ],
+    "wins": 96,
+    "losses": 32,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H02",
+   "claim": "Competing adopted alone lowers the partner's payoff.",
+   "direction": "-",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": -11.695,
+    "sd": 14.2762,
+    "dz": -0.8192,
+    "ci95": [
+     -14.3775,
+     -8.9425
+    ],
+    "wins": 18,
+    "losses": 82,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": -10.9625,
+    "sd": 14.5322,
+    "dz": -0.7544,
+    "ci95": [
+     -15.3938,
+     -6.4
+    ],
+    "wins": 5,
+    "losses": 35,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0001
+   },
+   "pooled": {
+    "n": 140,
+    "mean": -11.4857,
+    "sd": 14.3012,
+    "dz": -0.8031,
+    "ci95": [
+     -13.8161,
+     -9.1
+    ],
+    "wins": 23,
+    "losses": 117,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H03",
+   "claim": "Accommodating adopted alone lowers its user's own payoff.",
+   "direction": "-",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": -7.1925,
+    "sd": 16.7831,
+    "dz": -0.4286,
+    "ci95": [
+     -10.4625,
+     -3.9375
+    ],
+    "wins": 28,
+    "losses": 70,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": -12.1312,
+    "sd": 11.3899,
+    "dz": -1.0651,
+    "ci95": [
+     -15.5813,
+     -8.7438
+    ],
+    "wins": 7,
+    "losses": 32,
+    "p_sign": 0.0001,
+    "p_wilcoxon": 0.0
+   },
+   "pooled": {
+    "n": 140,
+    "mean": -8.6036,
+    "sd": 15.5572,
+    "dz": -0.553,
+    "ci95": [
+     -11.1714,
+     -6.0482
+    ],
+    "wins": 35,
+    "losses": 102,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0003,
+   "confirmed": true
+  },
+  {
+   "id": "H04",
+   "claim": "Compromising adopted alone lowers its user's own payoff.",
+   "direction": "-",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": -8.1375,
+    "sd": 12.9882,
+    "dz": -0.6265,
+    "ci95": [
+     -10.755,
+     -5.5575
+    ],
+    "wins": 27,
+    "losses": 72,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": -6.225,
+    "sd": 11.674,
+    "dz": -0.5332,
+    "ci95": [
+     -9.8562,
+     -2.6875
+    ],
+    "wins": 13,
+    "losses": 26,
+    "p_sign": 0.0533,
+    "p_wilcoxon": 0.0035
+   },
+   "pooled": {
+    "n": 140,
+    "mean": -7.5911,
+    "sd": 12.6149,
+    "dz": -0.6018,
+    "ci95": [
+     -9.6375,
+     -5.55
+    ],
+    "wins": 40,
+    "losses": 98,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H05",
+   "claim": "Avoiding adopted alone lowers its user's own payoff.",
+   "direction": "-",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": -16.58,
+    "sd": 16.2499,
+    "dz": -1.0203,
+    "ci95": [
+     -19.7,
+     -13.4425
+    ],
+    "wins": 18,
+    "losses": 77,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": -18.4812,
+    "sd": 15.2213,
+    "dz": -1.2142,
+    "ci95": [
+     -22.9312,
+     -13.675
+    ],
+    "wins": 2,
+    "losses": 35,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pooled": {
+    "n": 140,
+    "mean": -17.1232,
+    "sd": 15.9317,
+    "dz": -1.0748,
+    "ci95": [
+     -19.7393,
+     -14.5554
+    ],
+    "wins": 20,
+    "losses": 112,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H06",
+   "claim": "Two competing agents reach a lower joint payoff than the default pair.",
+   "direction": "-",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": -37.58,
+    "sd": 33.0955,
+    "dz": -1.1355,
+    "ci95": [
+     -44.06,
+     -31.05
+    ],
+    "wins": 7,
+    "losses": 87,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": -25.0375,
+    "sd": 34.32,
+    "dz": -0.7295,
+    "ci95": [
+     -35.6375,
+     -14.7375
+    ],
+    "wins": 10,
+    "losses": 29,
+    "p_sign": 0.0034,
+    "p_wilcoxon": 0.0005
+   },
+   "pooled": {
+    "n": 140,
+    "mean": -33.9964,
+    "sd": 33.8072,
+    "dz": -1.0056,
+    "ci95": [
+     -39.5536,
+     -28.3107
+    ],
+    "wins": 17,
+    "losses": 116,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H07",
+   "claim": "Two compromising agents reach a lower joint payoff than the default pair.",
+   "direction": "-",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": -11.02,
+    "sd": 25.0613,
+    "dz": -0.4397,
+    "ci95": [
+     -15.99,
+     -6.165
+    ],
+    "wins": 26,
+    "losses": 64,
+    "p_sign": 0.0001,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": -12.675,
+    "sd": 25.7467,
+    "dz": -0.4923,
+    "ci95": [
+     -20.9125,
+     -5.0
+    ],
+    "wins": 10,
+    "losses": 26,
+    "p_sign": 0.0113,
+    "p_wilcoxon": 0.005
+   },
+   "pooled": {
+    "n": 140,
+    "mean": -11.4929,
+    "sd": 25.1771,
+    "dz": -0.4565,
+    "ci95": [
+     -15.6857,
+     -7.3179
+    ],
+    "wins": 36,
+    "losses": 90,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0002,
+   "confirmed": true
+  },
+  {
+   "id": "H08",
+   "claim": "Two avoiding agents reach a lower joint payoff than the default pair.",
+   "direction": "-",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": -27.415,
+    "sd": 37.2302,
+    "dz": -0.7364,
+    "ci95": [
+     -34.6,
+     -20.245
+    ],
+    "wins": 21,
+    "losses": 67,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 40,
+    "mean": -14.8125,
+    "sd": 31.0722,
+    "dz": -0.4767,
+    "ci95": [
+     -24.4875,
+     -5.3875
+    ],
+    "wins": 11,
+    "losses": 23,
+    "p_sign": 0.0576,
+    "p_wilcoxon": 0.0167
+   },
+   "pooled": {
+    "n": 140,
+    "mean": -23.8143,
+    "sd": 35.9271,
+    "dz": -0.6629,
+    "ci95": [
+     -29.8036,
+     -17.8607
+    ],
+    "wins": 32,
+    "losses": 90,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H09",
+   "claim": "Two accommodating agents reach a higher joint payoff than the default pair.",
+   "direction": "+",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": 7.55,
+    "sd": 18.6769,
+    "dz": 0.4042,
+    "ci95": [
+     3.945,
+     11.23
+    ],
+    "wins": 58,
+    "losses": 20,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0001
+   },
+   "discovery": {
+    "n": 40,
+    "mean": 8.6875,
+    "sd": 15.7707,
+    "dz": 0.5509,
+    "ci95": [
+     4.05,
+     13.75
+    ],
+    "wins": 23,
+    "losses": 7,
+    "p_sign": 0.0052,
+    "p_wilcoxon": 0.002
+   },
+   "pooled": {
+    "n": 140,
+    "mean": 7.875,
+    "sd": 17.8464,
+    "dz": 0.4413,
+    "ci95": [
+     4.9786,
+     10.8286
+    ],
+    "wins": 81,
+    "losses": 27,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0009,
+   "confirmed": true
+  },
+  {
+   "id": "H10",
+   "claim": "Two collaborating agents reach a higher joint payoff than the default pair.",
+   "direction": "+",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": 6.1,
+    "sd": 26.3742,
+    "dz": 0.2313,
+    "ci95": [
+     0.855,
+     11.04
+    ],
+    "wins": 54,
+    "losses": 25,
+    "p_sign": 0.0015,
+    "p_wilcoxon": 0.0006
+   },
+   "discovery": {
+    "n": 40,
+    "mean": 7.8875,
+    "sd": 20.1804,
+    "dz": 0.3908,
+    "ci95": [
+     1.55,
+     14.0125
+    ],
+    "wins": 22,
+    "losses": 10,
+    "p_sign": 0.0501,
+    "p_wilcoxon": 0.0047
+   },
+   "pooled": {
+    "n": 140,
+    "mean": 6.6107,
+    "sd": 24.7052,
+    "dz": 0.2676,
+    "ci95": [
+     2.4429,
+     10.6464
+    ],
+    "wins": 76,
+    "losses": 35,
+    "p_sign": 0.0001,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0033,
+   "confirmed": true
+  },
+  {
+   "id": "H11",
+   "claim": "Adopted alone against the default agent, collaborating earns its user more than competing does.",
+   "direction": "+",
+   "arms": [
+    "e1r"
+   ],
+   "confirmation": {
+    "n": 100,
+    "mean": 2.21,
+    "sd": 14.8337,
+    "dz": 0.149,
+    "ci95": [
+     -0.67,
+     5.1375
+    ],
+    "wins": 54,
+    "losses": 45,
+    "p_sign": 0.4215,
+    "p_wilcoxon": 0.1996
+   },
+   "discovery": {
+    "n": 40,
+    "mean": 5.175,
+    "sd": 13.8474,
+    "dz": 0.3737,
+    "ci95": [
+     1.0375,
+     9.275
+    ],
+    "wins": 24,
+    "losses": 16,
+    "p_sign": 0.2682,
+    "p_wilcoxon": 0.0342
+   },
+   "pooled": {
+    "n": 140,
+    "mean": 3.0571,
+    "sd": 14.5714,
+    "dz": 0.2098,
+    "ci95": [
+     0.6589,
+     5.4714
+    ],
+    "wins": 78,
+    "losses": 61,
+    "p_sign": 0.1745,
+    "p_wilcoxon": 0.0253
+   },
+   "p_holm": 0.7983,
+   "confirmed": false
+  },
+  {
+   "id": "H12",
+   "claim": "Under urgency (4 moves) the textbook's competing, adopted alone, earns less than accommodating.",
+   "direction": "+",
+   "arms": [
+    "e2r_urgent"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": -0.3438,
+    "sd": 23.3726,
+    "dz": -0.0147,
+    "ci95": [
+     -5.4344,
+     4.7438
+    ],
+    "wins": 35,
+    "losses": 44,
+    "p_sign": 0.3682,
+    "p_wilcoxon": 0.7067
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 2.1875,
+    "sd": 21.624,
+    "dz": 0.1012,
+    "ci95": [
+     -6.975,
+     12.1375
+    ],
+    "wins": 10,
+    "losses": 10,
+    "p_sign": 1.0,
+    "p_wilcoxon": 0.7841
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 0.1625,
+    "sd": 22.9498,
+    "dz": 0.0071,
+    "ci95": [
+     -4.295,
+     4.6025
+    ],
+    "wins": 45,
+    "losses": 54,
+    "p_sign": 0.4215,
+    "p_wilcoxon": 0.8752
+   },
+   "p_holm": 1.0,
+   "confirmed": false
+  },
+  {
+   "id": "H13",
+   "claim": "Under a cost per move the textbook's compromising, adopted alone, earns less than collaborating.",
+   "direction": "+",
+   "arms": [
+    "e2r_time_cost"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 14.5875,
+    "sd": 18.452,
+    "dz": 0.7906,
+    "ci95": [
+     10.6312,
+     18.6656
+    ],
+    "wins": 65,
+    "losses": 15,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 8.6875,
+    "sd": 9.9545,
+    "dz": 0.8727,
+    "ci95": [
+     4.325,
+     12.8125
+    ],
+    "wins": 15,
+    "losses": 5,
+    "p_sign": 0.0414,
+    "p_wilcoxon": 0.0048
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 13.4075,
+    "sd": 17.2144,
+    "dz": 0.7789,
+    "ci95": [
+     10.03,
+     16.89
+    ],
+    "wins": 80,
+    "losses": 20,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H14",
+   "claim": "Under a reply budget the textbook's avoiding, adopted alone, earns less than competing.",
+   "direction": "+",
+   "arms": [
+    "e2r_tight_budget"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 16.025,
+    "sd": 20.1219,
+    "dz": 0.7964,
+    "ci95": [
+     11.7031,
+     20.5125
+    ],
+    "wins": 59,
+    "losses": 20,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 22.95,
+    "sd": 19.0794,
+    "dz": 1.2029,
+    "ci95": [
+     14.7,
+     31.0375
+    ],
+    "wins": 19,
+    "losses": 1,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 17.41,
+    "sd": 20.0177,
+    "dz": 0.8697,
+    "ci95": [
+     13.55,
+     21.37
+    ],
+    "wins": 78,
+    "losses": 21,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H15",
+   "claim": "With nothing to trade the textbook's compromising, adopted alone, earns less than competing.",
+   "direction": "+",
+   "arms": [
+    "e2r_distributive"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 15.7156,
+    "sd": 17.9279,
+    "dz": 0.8766,
+    "ci95": [
+     11.8031,
+     19.6438
+    ],
+    "wins": 68,
+    "losses": 11,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 10.15,
+    "sd": 15.2416,
+    "dz": 0.6659,
+    "ci95": [
+     3.475,
+     16.375
+    ],
+    "wins": 14,
+    "losses": 6,
+    "p_sign": 0.1153,
+    "p_wilcoxon": 0.0137
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 14.6025,
+    "sd": 17.4948,
+    "dz": 0.8347,
+    "ci95": [
+     11.185,
+     18.045
+    ],
+    "wins": 82,
+    "losses": 17,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H16",
+   "claim": "Under unequal stakes the low-stakes side (seat 2) earns less by accommodating than as the default agent.",
+   "direction": "-",
+   "arms": [
+    "e2r_low_stakes_p2"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": -12.2583,
+    "sd": 24.8572,
+    "dz": -0.4931,
+    "ci95": [
+     -17.6583,
+     -6.9333
+    ],
+    "wins": 20,
+    "losses": 51,
+    "p_sign": 0.0003,
+    "p_wilcoxon": 0.0001
+   },
+   "discovery": {
+    "n": 20,
+    "mean": -11.2667,
+    "sd": 25.0145,
+    "dz": -0.4504,
+    "ci95": [
+     -22.3167,
+     -0.7167
+    ],
+    "wins": 5,
+    "losses": 11,
+    "p_sign": 0.2101,
+    "p_wilcoxon": 0.0577
+   },
+   "pooled": {
+    "n": 100,
+    "mean": -12.06,
+    "sd": 24.765,
+    "dz": -0.487,
+    "ci95": [
+     -16.8767,
+     -7.28
+    ],
+    "wins": 25,
+    "losses": 62,
+    "p_sign": 0.0001,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0009,
+   "confirmed": true
+  },
+  {
+   "id": "H17",
+   "claim": "With everything to trade the textbook's collaborating, adopted alone, raises its user's own payoff.",
+   "direction": "+",
+   "arms": [
+    "e2r_integrative"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 4.9437,
+    "sd": 13.1605,
+    "dz": 0.3757,
+    "ci95": [
+     2.1969,
+     7.8875
+    ],
+    "wins": 44,
+    "losses": 30,
+    "p_sign": 0.1302,
+    "p_wilcoxon": 0.0058
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 6.8875,
+    "sd": 9.9428,
+    "dz": 0.6927,
+    "ci95": [
+     2.6625,
+     11.2625
+    ],
+    "wins": 12,
+    "losses": 7,
+    "p_sign": 0.3593,
+    "p_wilcoxon": 0.0106
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 5.3325,
+    "sd": 12.5616,
+    "dz": 0.4245,
+    "ci95": [
+     2.9175,
+     7.82
+    ],
+    "wins": 56,
+    "losses": 37,
+    "p_sign": 0.0614,
+    "p_wilcoxon": 0.0003
+   },
+   "p_holm": 0.0288,
+   "confirmed": true
+  },
+  {
+   "id": "H18",
+   "claim": "Under open information competing adopted alone raises its user's own payoff.",
+   "direction": "+",
+   "arms": [
+    "e2r_open_info"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 7.8406,
+    "sd": 12.8419,
+    "dz": 0.6105,
+    "ci95": [
+     5.0312,
+     10.5563
+    ],
+    "wins": 62,
+    "losses": 15,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 9.3625,
+    "sd": 13.111,
+    "dz": 0.7141,
+    "ci95": [
+     3.825,
+     15.1
+    ],
+    "wins": 14,
+    "losses": 6,
+    "p_sign": 0.1153,
+    "p_wilcoxon": 0.008
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 8.145,
+    "sd": 12.8438,
+    "dz": 0.6342,
+    "ci95": [
+     5.625,
+     10.635
+    ],
+    "wins": 76,
+    "losses": 21,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H19",
+   "claim": "Under a reply budget competing adopted alone raises its user's own payoff.",
+   "direction": "+",
+   "arms": [
+    "e2r_tight_budget"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": -0.5344,
+    "sd": 17.5764,
+    "dz": -0.0304,
+    "ci95": [
+     -4.3156,
+     3.2313
+    ],
+    "wins": 37,
+    "losses": 41,
+    "p_sign": 0.7343,
+    "p_wilcoxon": 0.6343
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 6.7625,
+    "sd": 22.4507,
+    "dz": 0.3012,
+    "ci95": [
+     -2.775,
+     16.2
+    ],
+    "wins": 13,
+    "losses": 7,
+    "p_sign": 0.2632,
+    "p_wilcoxon": 0.156
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 0.925,
+    "sd": 18.7579,
+    "dz": 0.0493,
+    "ci95": [
+     -2.675,
+     4.5375
+    ],
+    "wins": 50,
+    "losses": 48,
+    "p_sign": 0.9196,
+    "p_wilcoxon": 0.7579
+   },
+   "p_holm": 1.0,
+   "confirmed": false
+  },
+  {
+   "id": "H20",
+   "claim": "With the better outside option on either side (unequal power) competing adopted alone raises its user's own payoff.",
+   "direction": "+",
+   "arms": [
+    "e2r_power_p1"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 1.4406,
+    "sd": 17.506,
+    "dz": 0.0823,
+    "ci95": [
+     -2.2938,
+     5.2406
+    ],
+    "wins": 45,
+    "losses": 35,
+    "p_sign": 0.3143,
+    "p_wilcoxon": 0.5204
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 6.425,
+    "sd": 13.9673,
+    "dz": 0.46,
+    "ci95": [
+     0.7375,
+     12.525
+    ],
+    "wins": 12,
+    "losses": 8,
+    "p_sign": 0.5034,
+    "p_wilcoxon": 0.0646
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 2.4375,
+    "sd": 16.9117,
+    "dz": 0.1441,
+    "ci95": [
+     -0.8275,
+     5.7575
+    ],
+    "wins": 57,
+    "losses": 43,
+    "p_sign": 0.1933,
+    "p_wilcoxon": 0.1884
+   },
+   "p_holm": 1.0,
+   "confirmed": false
+  },
+  {
+   "id": "H21",
+   "claim": "With nothing to trade competing adopted alone raises its user's own payoff.",
+   "direction": "+",
+   "arms": [
+    "e2r_distributive"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 6.4844,
+    "sd": 13.0735,
+    "dz": 0.496,
+    "ci95": [
+     3.6437,
+     9.275
+    ],
+    "wins": 55,
+    "losses": 19,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 4.125,
+    "sd": 12.3284,
+    "dz": 0.3346,
+    "ci95": [
+     -1.2625,
+     9.25
+    ],
+    "wins": 12,
+    "losses": 6,
+    "p_sign": 0.2379,
+    "p_wilcoxon": 0.1168
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 6.0125,
+    "sd": 12.9018,
+    "dz": 0.466,
+    "ci95": [
+     3.4875,
+     8.4875
+    ],
+    "wins": 67,
+    "losses": 25,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0003,
+   "confirmed": true
+  },
+  {
+   "id": "H22",
+   "claim": "Against a competing partner, collaborating earns more than the default reply (over the eight conditions where E2 found it the best reply).",
+   "direction": "+",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_integrative",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 5.1807,
+    "sd": 8.4472,
+    "dz": 0.6133,
+    "ci95": [
+     3.3681,
+     7.0359
+    ],
+    "wins": 57,
+    "losses": 23,
+    "p_sign": 0.0002,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 5.0521,
+    "sd": 9.7083,
+    "dz": 0.5204,
+    "ci95": [
+     0.9255,
+     9.101
+    ],
+    "wins": 15,
+    "losses": 5,
+    "p_sign": 0.0414,
+    "p_wilcoxon": 0.0296
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 5.155,
+    "sd": 8.662,
+    "dz": 0.5951,
+    "ci95": [
+     3.4707,
+     6.8611
+    ],
+    "wins": 72,
+    "losses": 28,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H23",
+   "claim": "Against a competing partner, matching it with competing earns less than the default reply (over the ten conditions).",
+   "direction": "-",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": -6.7202,
+    "sd": 6.3094,
+    "dz": -1.0651,
+    "ci95": [
+     -8.0759,
+     -5.362
+    ],
+    "wins": 11,
+    "losses": 69,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": -5.1533,
+    "sd": 7.5405,
+    "dz": -0.6834,
+    "ci95": [
+     -8.3408,
+     -1.92
+    ],
+    "wins": 5,
+    "losses": 15,
+    "p_sign": 0.0414,
+    "p_wilcoxon": 0.0083
+   },
+   "pooled": {
+    "n": 100,
+    "mean": -6.4068,
+    "sd": 6.5632,
+    "dz": -0.9762,
+    "ci95": [
+     -7.6808,
+     -5.1289
+    ],
+    "wins": 16,
+    "losses": 84,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H24",
+   "claim": "Two accommodating agents reach a higher joint payoff than the default pair (over the ten conditions).",
+   "direction": "+",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": 8.5809,
+    "sd": 8.1971,
+    "dz": 1.0468,
+    "ci95": [
+     6.7604,
+     10.3379
+    ],
+    "wins": 68,
+    "losses": 12,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": 8.261,
+    "sd": 6.9007,
+    "dz": 1.1971,
+    "ci95": [
+     5.3825,
+     11.272
+    ],
+    "wins": 18,
+    "losses": 2,
+    "p_sign": 0.0004,
+    "p_wilcoxon": 0.0
+   },
+   "pooled": {
+    "n": 100,
+    "mean": 8.5169,
+    "sd": 7.923,
+    "dz": 1.075,
+    "ci95": [
+     7.002,
+     10.0277
+    ],
+    "wins": 86,
+    "losses": 14,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H25",
+   "claim": "Two competing agents reach a lower joint payoff than the default pair (over the ten conditions).",
+   "direction": "-",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": -37.9412,
+    "sd": 14.6313,
+    "dz": -2.5932,
+    "ci95": [
+     -41.0678,
+     -34.7854
+    ],
+    "wins": 0,
+    "losses": 80,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": -35.1185,
+    "sd": 11.6167,
+    "dz": -3.0231,
+    "ci95": [
+     -39.9825,
+     -30.229
+    ],
+    "wins": 0,
+    "losses": 20,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pooled": {
+    "n": 100,
+    "mean": -37.3767,
+    "sd": 14.0718,
+    "dz": -2.6561,
+    "ci95": [
+     -40.1029,
+     -34.6189
+    ],
+    "wins": 0,
+    "losses": 100,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "H26",
+   "claim": "Avoiding adopted alone lowers its user's own payoff (over the ten conditions).",
+   "direction": "-",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "confirmation": {
+    "n": 80,
+    "mean": -14.0962,
+    "sd": 6.3406,
+    "dz": -2.2232,
+    "ci95": [
+     -15.4705,
+     -12.7001
+    ],
+    "wins": 1,
+    "losses": 79,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "discovery": {
+    "n": 20,
+    "mean": -14.625,
+    "sd": 5.3115,
+    "dz": -2.7535,
+    "ci95": [
+     -16.8779,
+     -12.3521
+    ],
+    "wins": 0,
+    "losses": 20,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pooled": {
+    "n": 100,
+    "mean": -14.202,
+    "sd": 6.1271,
+    "dz": -2.3179,
+    "ci95": [
+     -15.3947,
+     -12.9776
+    ],
+    "wins": 1,
+    "losses": 99,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "p_holm": 0.0,
+   "confirmed": true
+  }
+ ],
+ "evaluated": 26,
+ "confirmed": 22
+}

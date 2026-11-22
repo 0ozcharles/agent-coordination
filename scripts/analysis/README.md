@@ -16,10 +16,14 @@ for s in e3_models e4_framings e3_conditions e3_vs_competing benchmarks e3_cross
 | `e3_cross.py` | Cross-model pairs, luna against sonnet | `bargain_e3_cross_paired.json` |
 | `grounded_haiku.py` | The grounded layer on claude-haiku-5-5 against luna's | `bargain_grounded_haiku_paired.json` |
 | `labels.py` | Style labels per study | `bargain_labels_summary.json` |
+| `instance_level.py` | Every comparison of the existing arms with the instance as the unit: bootstrap intervals, d_z, sign and Wilcoxon tests | `bargain_instance_level.json` |
+| `replication.py` | The 26 pre-registered hypotheses on the confirmation sample (E1-R, E2-R), Holm-corrected, with the discovery and pooled samples beside them | `bargain_replication.json` |
+| `robustness.py` | E5: every rule variant alone, against itself and against the original rule | `bargain_e5_rules_robustness.json` |
+| `cross_factorial.py` | The cross-model 2 x 2 as a factorial: partner effect and adopter effect | `bargain_e3_cross_factorial.json` |
 | `annotation_agreement.py` | The human annotation study: agreement between annotators, with the judge and with the checker. Reads what came back under `annotation/returned/` (workbooks, or exports of the annotation page) and the keys, not the game records | `annotation_agreement.json`, `annotation_disagreements.csv`, `annotation/answers.csv` |
 
 The game records (one JSON file per game: the prompts, every move and message, token usage and the computed outcome) are not in the repository. `runs/` is ignored because it holds about 20,000 files and 184 MB. With the records in place, the scripts reproduce the committed files byte for byte (checked 2026-11-22).
 
 Everything else in `results/` (rows, summaries, charts, maps) is written by `python3 scripts/project.py bargain <config> --report` and `--map`, which also need the records. The paper's figures are written by `python3 paper/figures/make_figures.py`, which needs only `results/`.
 
-All tests are exact two-sided sign tests on differences paired by instance, or by instance and seat where both seats are pooled.
+The `*_paired.json` files use exact two-sided sign tests on differences paired by instance, or by instance and seat where both seats are pooled; the four scripts above them in the table use the instance as the unit throughout (`stats.py`).

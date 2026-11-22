@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1184" height="270" font-family="Helvetica, Arial, sans-serif" font-size="11">
+<rect width="1184" height="270" fill="white"/>
+<text x="150" y="22" font-size="13" font-weight="bold">Own payoff (row strategy) against the partner's strategy (column)</text>
+<text x="186" y="52" text-anchor="middle">neutral</text>
+<text x="258" y="52" text-anchor="middle">competi</text>
+<text x="330" y="52" text-anchor="middle">collabo</text>
+<text x="402" y="52" text-anchor="middle">comprom</text>
+<text x="474" y="52" text-anchor="middle">accommo</text>
+<text x="546" y="52" text-anchor="middle">avoidin</text>
+<text x="144" y="79" text-anchor="end">neutral</text>
+<rect x="150" y="60" width="70" height="28" fill="rgb(129,187,113)"/>
+<text x="185" y="79" text-anchor="middle">64</text>
+<rect x="222" y="60" width="70" height="28" fill="rgb(170,159,124)"/>
+<text x="257" y="79" text-anchor="middle">53</text>
+<rect x="294" y="60" width="70" height="28" fill="rgb(122,191,111)"/>
+<text x="329" y="79" text-anchor="middle">67</text>
+<rect x="366" y="60" width="70" height="28" fill="rgb(123,190,111)"/>
+<text x="401" y="79" text-anchor="middle">66</text>
+<rect x="438" y="60" width="70" height="28" fill="rgb(93,211,103)"/>
+<text x="473" y="79" text-anchor="middle">75</text>
+<rect x="510" y="60" width="70" height="28" fill="rgb(150,173,118)"/>
+<text x="545" y="79" text-anchor="middle">59</text>
+<text x="144" y="109" text-anchor="end">competing</text>
+<rect x="150" y="90" width="70" height="28" fill="rgb(116,195,109)"/>
+<text x="185" y="109" text-anchor="middle">68</text>
+<rect x="222" y="90" width="70" height="28" fill="rgb(195,142,130)"/>
+<text x="257" y="109" text-anchor="middle">46</text>
+<rect x="294" y="90" width="70" height="28" fill="rgb(145,176,117)"/>
+<text x="329" y="109" text-anchor="middle">60</text>
+<rect x="366" y="90" width="70" height="28" fill="rgb(115,196,109)"/>
+<text x="401" y="109" text-anchor="middle">68</text>
+<rect x="438" y="90" width="70" height="28" fill="rgb(80,220,100)"/>
+<text x="473" y="109" text-anchor="middle">78</text>
+<rect x="510" y="90" width="70" height="28" fill="rgb(140,179,116)"/>
+<text x="545" y="109" text-anchor="middle">61</text>
+<text x="144" y="139" text-anchor="end">collaborating</text>
+<rect x="150" y="120" width="70" height="28" fill="rgb(108,201,107)"/>
+<text x="185" y="139" text-anchor="middle">70</text>
+<rect x="222" y="120" width="70" height="28" fill="rgb(153,170,119)"/>
+<text x="257" y="139" text-anchor="middle">57</text>
+<rect x="294" y="120" width="70" height="28" fill="rgb(118,194,110)"/>
+<text x="329" y="139" text-anchor="middle">67</text>
+<rect x="366" y="120" width="70" height="28" fill="rgb(124,190,111)"/>
+<text x="401" y="139" text-anchor="middle">66</text>
+<rect x="438" y="120" width="70" height="28" fill="rgb(89,213,102)"/>
+<text x="473" y="139" text-anchor="middle">76</text>
+<rect x="510" y="120" width="70" height="28" fill="rgb(113,197,108)"/>
+<text x="545" y="139" text-anchor="middle">69</text>
+<text x="144" y="169" text-anchor="end">compromising</text>
+<rect x="150" y="150" width="70" height="28" fill="rgb(158,167,120)"/>
+<text x="185" y="169" text-anchor="middle">56</text>
+<rect x="222" y="150" width="70" height="28" fill="rgb(185,149,128)"/>
+<text x="257" y="169" text-anchor="middle">49</text>
+<rect x="294" y="150" width="70" height="28" fill="rgb(162,164,122)"/>
+<text x="329" y="169" text-anchor="middle">55</text>
+<rect x="366" y="150" width="70" height="28" fill="rgb(148,174,118)"/>
+<text x="401" y="169" text-anchor="middle">59</text>
+<rect x="438" y="150" width="70" height="28" fill="rgb(127,188,112)"/>
+<text x="473" y="169" text-anchor="middle">65</text>
+<rect x="510" y="150" width="70" height="28" fill="rgb(158,167,121)"/>
+<text x="545" y="169" text-anchor="middle">56</text>
+<text x="144" y="199" text-anchor="end">accommodating</text>
+<rect x="150" y="180" width="70" height="28" fill="rgb(154,170,119)"/>
+<text x="185" y="199" text-anchor="middle">57</text>
+<rect x="222" y="180" width="70" height="28" fill="rgb(175,156,125)"/>
+<text x="257" y="199" text-anchor="middle">51</text>
+<rect x="294" y="180" width="70" height="28" fill="rgb(141,179,116)"/>
+<text x="329" y="199" text-anchor="middle">61</text>
+<rect x="366" y="180" width="70" height="28" fill="rgb(141,178,116)"/>
+<text x="401" y="199" text-anchor="middle">61</text>
+<rect x="438" y="180" width="70" height="28" fill="rgb(116,195,109)"/>
+<text x="473" y="199" text-anchor="middle">68</text>
+<rect x="510" y="180" width="70" height="28" fill="rgb(145,176,117)"/>
+<text x="545" y="199" text-anchor="middle">60</text>
+<text x="144" y="229" text-anchor="end">avoiding</text>
+<rect x="150" y="210" width="70" height="28" fill="rgb(187,148,128)"/>
+<text x="185" y="229" text-anchor="middle">48</text>
+<rect x="222" y="210" width="70" height="28" fill="rgb(230,120,140)"/>
+<text x="257" y="229" text-anchor="middle">36</text>
+<rect x="294" y="210" width="70" height="28" fill="rgb(185,149,128)"/>
+<text x="329" y="229" text-anchor="middle">49</text>
+<rect x="366" y="210" width="70" height="28" fill="rgb(158,167,120)"/>
+<text x="401" y="229" text-anchor="middle">56</text>
+<rect x="438" y="210" width="70" height="28" fill="rgb(157,168,120)"/>
+<text x="473" y="229" text-anchor="middle">57</text>
+<rect x="510" y="210" width="70" height="28" fill="rgb(177,154,126)"/>
+<text x="545" y="229" text-anchor="middle">51</text>
+<text x="732" y="22" font-size="13" font-weight="bold">Joint payoff by pair</text>
+<text x="768" y="52" text-anchor="middle">neutral</text>
+<text x="840" y="52" text-anchor="middle">competi</text>
+<text x="912" y="52" text-anchor="middle">collabo</text>
+<text x="984" y="52" text-anchor="middle">comprom</text>
+<text x="1056" y="52" text-anchor="middle">accommo</text>
+<text x="1128" y="52" text-anchor="middle">avoidin</text>
+<text x="726" y="79" text-anchor="end">neutral</text>
+<rect x="732" y="60" width="70" height="28" fill="rgb(106,202,107)"/>
+<text x="767" y="79" text-anchor="middle">129</text>
+<rect x="804" y="60" width="70" height="28" fill="rgb(132,184,114)"/>
+<text x="839" y="79" text-anchor="middle">121</text>
+<rect x="876" y="60" width="70" height="28" fill="rgb(80,219,100)"/>
+<text x="911" y="79" text-anchor="middle">137</text>
+<rect x="948" y="60" width="70" height="28" fill="rgb(128,187,112)"/>
+<text x="983" y="79" text-anchor="middle">122</text>
+<rect x="1020" y="60" width="70" height="28" fill="rgb(96,209,104)"/>
+<text x="1055" y="79" text-anchor="middle">132</text>
+<rect x="1092" y="60" width="70" height="28" fill="rgb(180,153,126)"/>
+<text x="1127" y="79" text-anchor="middle">106</text>
+<text x="726" y="109" text-anchor="end">competing</text>
+<rect x="732" y="90" width="70" height="28" fill="rgb(132,184,114)"/>
+<text x="767" y="109" text-anchor="middle">121</text>
+<rect x="804" y="90" width="70" height="28" fill="rgb(230,120,140)"/>
+<text x="839" y="109" text-anchor="middle">91</text>
+<rect x="876" y="90" width="70" height="28" fill="rgb(144,177,117)"/>
+<text x="911" y="109" text-anchor="middle">117</text>
+<rect x="948" y="90" width="70" height="28" fill="rgb(145,176,117)"/>
+<text x="983" y="109" text-anchor="middle">117</text>
+<rect x="1020" y="90" width="70" height="28" fill="rgb(103,204,106)"/>
+<text x="1055" y="109" text-anchor="middle">130</text>
+<rect x="1092" y="90" width="70" height="28" fill="rgb(210,133,134)"/>
+<text x="1127" y="109" text-anchor="middle">97</text>
+<text x="726" y="139" text-anchor="end">collaborating</text>
+<rect x="732" y="120" width="70" height="28" fill="rgb(80,219,100)"/>
+<text x="767" y="139" text-anchor="middle">137</text>
+<rect x="804" y="120" width="70" height="28" fill="rgb(144,177,117)"/>
+<text x="839" y="139" text-anchor="middle">117</text>
+<rect x="876" y="120" width="70" height="28" fill="rgb(86,215,101)"/>
+<text x="911" y="139" text-anchor="middle">135</text>
+<rect x="948" y="120" width="70" height="28" fill="rgb(132,184,114)"/>
+<text x="983" y="139" text-anchor="middle">121</text>
+<rect x="1020" y="120" width="70" height="28" fill="rgb(80,220,100)"/>
+<text x="1055" y="139" text-anchor="middle">137</text>
+<rect x="1092" y="120" width="70" height="28" fill="rgb(143,177,116)"/>
+<text x="1127" y="139" text-anchor="middle">118</text>
+<text x="726" y="169" text-anchor="end">compromising</text>
+<rect x="732" y="150" width="70" height="28" fill="rgb(128,187,112)"/>
+<text x="767" y="169" text-anchor="middle">122</text>
+<rect x="804" y="150" width="70" height="28" fill="rgb(145,176,117)"/>
+<text x="839" y="169" text-anchor="middle">117</text>
+<rect x="876" y="150" width="70" height="28" fill="rgb(132,184,114)"/>
+<text x="911" y="169" text-anchor="middle">121</text>
+<rect x="948" y="150" width="70" height="28" fill="rgb(142,178,116)"/>
+<text x="983" y="169" text-anchor="middle">118</text>
+<rect x="1020" y="150" width="70" height="28" fill="rgb(115,196,109)"/>
+<text x="1055" y="169" text-anchor="middle">126</text>
+<rect x="1092" y="150" width="70" height="28" fill="rgb(160,166,121)"/>
+<text x="1127" y="169" text-anchor="middle">112</text>
+<text x="726" y="199" text-anchor="end">accommodating</text>
+<rect x="732" y="180" width="70" height="28" fill="rgb(96,209,104)"/>
+<text x="767" y="199" text-anchor="middle">132</text>
+<rect x="804" y="180" width="70" height="28" fill="rgb(103,204,106)"/>
+<text x="839" y="199" text-anchor="middle">130</text>
+<rect x="876" y="180" width="70" height="28" fill="rgb(80,220,100)"/>
+<text x="911" y="199" text-anchor="middle">137</text>
+<rect x="948" y="180" width="70" height="28" fill="rgb(115,196,109)"/>
+<text x="983" y="199" text-anchor="middle">126</text>
+<rect x="1020" y="180" width="70" height="28" fill="rgb(81,218,100)"/>
+<text x="1055" y="199" text-anchor="middle">136</text>
+<rect x="1092" y="180" width="70" height="28" fill="rgb(146,175,117)"/>
+<text x="1127" y="199" text-anchor="middle">117</text>
+<text x="726" y="229" text-anchor="end">avoiding</text>
+<rect x="732" y="210" width="70" height="28" fill="rgb(180,153,126)"/>
+<text x="767" y="229" text-anchor="middle">106</text>
+<rect x="804" y="210" width="70" height="28" fill="rgb(210,133,134)"/>
+<text x="839" y="229" text-anchor="middle">97</text>
+<rect x="876" y="210" width="70" height="28" fill="rgb(143,177,116)"/>
+<text x="911" y="229" text-anchor="middle">118</text>
+<rect x="948" y="210" width="70" height="28" fill="rgb(160,166,121)"/>
+<text x="983" y="229" text-anchor="middle">112</text>
+<rect x="1020" y="210" width="70" height="28" fill="rgb(146,175,117)"/>
+<text x="1055" y="229" text-anchor="middle">117</text>
+<rect x="1092" y="210" width="70" height="28" fill="rgb(196,142,131)"/>
+<text x="1127" y="229" text-anchor="middle">101</text>
+</svg>

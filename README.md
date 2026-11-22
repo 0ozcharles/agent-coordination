@@ -2,26 +2,32 @@
 
 Research code and results for two connected studies of LLM agents that work on the same thing and want different things.
 
-1. **Strategy payoff study** (current; the paper draft in [`paper/`](paper/)): which conflict-handling strategy should an LLM agent use? Two agents bargain over a multi-issue design in a parametric environment with an exact efficiency frontier. Each of the five Thomas-Kilmann strategies (competing, collaborating, compromising, accommodating, avoiding) is given as behavioural rules whose compliance is checked from the moves. 19,768 games, four models, $78.
+1. **Strategy payoff study** (current; the paper draft in [`paper/`](paper/)): which conflict-handling strategy should an LLM agent use? Two agents bargain over a multi-issue design in a parametric environment with an exact efficiency frontier. Each of the five Thomas-Kilmann strategies (competing, collaborating, compromising, accommodating, avoiding) is given as behavioural rules whose compliance is checked from the moves. 48,268 games, four models, $93: 19,768 in the studies below and 28,500 in a pre-registered replication on fresh instances and in rule variants.
 2. **Diagnosis phase** (earlier): why do two coding agents fail on CooperBench and ParallACT, and does a conflict-handling style help? It does not there, because the conflict is binary (whose change lands). That result is why the first study exists.
 
 ## Strategy payoff study
 
 ### Findings
 
-- **Rules are enacted, style sentences mostly are not.** Rules stated in moves are followed in 91 to 100 percent of games; a prompted "be competitive" sentence changes the words, not the moves.
-- **In the core regime collaborating dominates.** Adopted alone it earns its user 8.4 points of 100 more than the default agent earns (p = .004) while the partner keeps what it had; it is the best response to four of six partners and the replicator attractor. Competing gains nothing significant and costs the partner 11 points. Two accommodators are the most efficient pair. Compromising and avoiding destroy value.
-- **The situation moves the map, but not as the textbook prescribes.** Of the six conditions for which the Thomas-Kilmann model names a strategy, that strategy is the best one to adopt in one (everything to trade: collaborate).
-- **Cost orders the strategies the other way round.** Competing is the most expensive strategy and among the least rewarding; a modest price on tokens hands the answer to the cheap strategies.
+The numbers are from the confirmation sample (E1-R and E2-R: fresh instances, 26 hypotheses and the analysis fixed before any game, Wilcoxon tests over instances with Holm correction; 22 of the 26 confirmed) unless a study is named.
+
+- **Rules are enacted, style sentences mostly are not.** Four of the five rules are followed in 86 to 100 percent of games and the collaborating rule, which also says what to talk about and what to trade, in 56; a prompted "be competitive" sentence changes the words, not the moves. Every analysis counts all games.
+- **Collaborating is the one strategy that pays its user without taking from the partner.** Adopted alone it earns its user 6.0 points of 100 more than the default agent earns [3.7, 8.2] and the partner loses nothing; the gain is there in nine of ten conditions and under three wordings of the rule. It is the best response to four of six partners and the replicator attractor. Two collaborating agents gain 6.1 [0.9, 11.0], an effect one of two paraphrases does not reproduce.
+- **Competing pays its user about as much, out of the partner's pocket.** Adopted alone it earns +4.7 [2.7, 6.6] over 240 instances of the core regime, not distinguishable from collaborating's +6.1, and takes 11.7 from the partner; the pair loses 8.0, two competing agents lose 37.6, and a harder competing rule earns nothing more. (The discovery sample read this as "competing gains nothing"; the replication corrected it.)
+- **Compromising and avoiding lose everywhere; accommodating gives.** Adopted alone they cost their user 8.1 and 16.6 points and pairs of them fall 11.0 and 27.4 below the default pair, in all ten conditions. Accommodating costs its user 7.2 and gives the partner 10.3; two accommodators are the most efficient pair (+7.5).
+- **The situation moves the map, but not as the textbook prescribes.** Of the six conditions for which the Thomas-Kilmann model names a strategy, that strategy is right in one (everything to trade: collaborate), wrong in four, and makes no difference in one (urgency). Which strategy has the largest mean in a condition changed in five of ten conditions between 20 and 80 instances; the signs of the strategies did not.
+- **Cost orders the strategies the other way round.** Competing is the most expensive strategy in tokens; a modest price on tokens hands the answer to the cheap strategies.
 - **What not to do transfers; who keeps collaborating's gain does not.** Across 29 settings (framings, real-conflict structures, four models, cross-model pairs, two external benchmarks) competing, compromising and avoiding pairs fall below the default pair in 80 of 81 comparisons. A collaborating rule raises the joint payoff in 25 of 29 settings, and its user keeps the gain only against a partner that cannot find the frontier alone: pairs of different models show that the partner's model decides, not the adopter's.
 
-Caveats that belong next to these: most cells of the condition map are directions (20 instances each); the relation between the room the default pair leaves and collaborating's gain holds among the 23 settings with the standard protocol and equal stakes (r = .81), not over all 29 (r = .32); the strategies are rules we wrote; games are one-shot.
+Caveats that belong next to these: the paper draft and its figures still carry the discovery sample's wording and numbers ([what changes](docs/RESEARCH_PLAN.md#strategy-payoff-study-the-confirmatory-replication-and-the-rule-variants-results-2026-11-22)); the transfer settings below were not replicated and most have 20 to 40 instances; the relation between the room the default pair leaves and collaborating's gain holds among the 23 settings with the standard protocol and equal stakes (r = .81), not over all 29 (r = .32); the strategies are rules we wrote; games are one-shot.
 
 ### Experiments
 
 | Study | Games | Config | Results | What it shows |
 |---|---|---|---|---|
 | E0 manipulation check | 360 | [`bargain_dev.json`](configs/bargain_dev.json) | `bargain_dev_*` | rules are followed, prompted sentences mostly not; fixed the rule texts |
+| E1-R, E2-R replication | 22,800 | [`bargain_replication.json`](configs/bargain_replication.json), [`bargain_e1r.json`](configs/bargain_e1r.json), [`bargain_e2r.json`](configs/bargain_e2r.json) | `bargain_e1r_*`, `bargain_e2r_*`, `bargain_replication.json` | E1's 36 cells on 100 fresh instances and E2's ten conditions on 80; 22 of 26 pre-registered hypotheses confirmed |
+| E5 rule variants | 5,700 | [`bargain_e5_rules.json`](configs/bargain_e5_rules.json) | `bargain_e5_rules_*` | two paraphrase sets, moved floors, the collaborating rule taken apart; signs hold in 26 of 26 |
 | E1 strategy matrix | 1,680 | [`bargain_e1.json`](configs/bargain_e1.json) | `bargain_e1_*` | all 36 pairs of six strategies; collaborating dominates, competing does not pay |
 | E2 condition map | 4,800 | [`bargain_e2.json`](configs/bargain_e2.json) and ten arms | `bargain_e2_*` | ten situations, one knob each; the textbook is right in one of six |
 | E4 framings | 960 | [`bargain_e4.json`](configs/bargain_e4.json) | `bargain_e4_*` | three realistic skins; the map is unchanged, collaborating's gain goes to the partner |

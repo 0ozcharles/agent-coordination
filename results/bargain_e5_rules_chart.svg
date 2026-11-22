@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1582" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="1582" fill="white"/>
+<text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
+<text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
+<line x1="190.0" y1="36" x2="190.0" y2="1522" stroke="#eee"/><text x="190.0" y="1534" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="1522" stroke="#eee"/><text x="295.0" y="1534" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="1522" stroke="#eee"/><text x="400.0" y="1534" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="1522" stroke="#eee"/><text x="505.0" y="1534" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="1522" stroke="#eee"/><text x="610.0" y="1534" text-anchor="middle">100</text>
+<text x="184" y="56" text-anchor="end">competing_v2-neutral</text>
+<rect x="190" y="43" width="280.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="53" width="238.7" height="9" fill="#95a5a6"/>
+<text x="624" y="56">91/100</text><text x="674" y="56">81/100</text><text x="734" y="56">20.1</text>
+<text x="184" y="82" text-anchor="end">neutral-competing_v2</text>
+<rect x="190" y="69" width="235.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="79" width="289.8" height="9" fill="#95a5a6"/>
+<text x="624" y="82">93/100</text><text x="674" y="82">n/a</text><text x="734" y="82">18.56</text>
+<text x="184" y="108" text-anchor="end">competing_v2-competing_v2</text>
+<rect x="190" y="95" width="206.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="105" width="202.5" height="9" fill="#95a5a6"/>
+<text x="624" y="108">54/100</text><text x="674" y="108">73/100</text><text x="734" y="108">46.31</text>
+<text x="184" y="134" text-anchor="end">competing_v3-neutral</text>
+<rect x="190" y="121" width="279.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="131" width="222.8" height="9" fill="#95a5a6"/>
+<text x="624" y="134">88/100</text><text x="674" y="134">97/100</text><text x="734" y="134">23.925</text>
+<text x="184" y="160" text-anchor="end">neutral-competing_v3</text>
+<rect x="190" y="147" width="220.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="157" width="294.6" height="9" fill="#95a5a6"/>
+<text x="624" y="160">89/100</text><text x="674" y="160">n/a</text><text x="734" y="160">21.06</text>
+<text x="184" y="186" text-anchor="end">competing_v3-competing_v3</text>
+<rect x="190" y="173" width="198.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="183" width="199.4" height="9" fill="#95a5a6"/>
+<text x="624" y="186">52/100</text><text x="674" y="186">96/100</text><text x="734" y="186">48.795</text>
+<text x="184" y="212" text-anchor="end">collaborating_v2-neutral</text>
+<rect x="190" y="199" width="307.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="209" width="276.1" height="9" fill="#95a5a6"/>
+<text x="624" y="212">99/100</text><text x="674" y="212">50/100</text><text x="734" y="212">4.715</text>
+<text x="184" y="238" text-anchor="end">neutral-collaborating_v2</text>
+<rect x="190" y="225" width="277.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="235" width="298.6" height="9" fill="#95a5a6"/>
+<text x="624" y="238">98/100</text><text x="674" y="238">n/a</text><text x="734" y="238">6.395</text>
+<text x="184" y="264" text-anchor="end">collaborating_v2-collaborating_v2</text>
+<rect x="190" y="251" width="268.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="261" width="273.9" height="9" fill="#95a5a6"/>
+<text x="624" y="264">86/100</text><text x="674" y="264">62/100</text><text x="734" y="264">14.575</text>
+<text x="184" y="290" text-anchor="end">collaborating_v3-neutral</text>
+<rect x="190" y="277" width="293.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="287" width="288.9" height="9" fill="#95a5a6"/>
+<text x="624" y="290">99/100</text><text x="674" y="290">53/100</text><text x="734" y="290">5.09</text>
+<text x="184" y="316" text-anchor="end">neutral-collaborating_v3</text>
+<rect x="190" y="303" width="297.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="313" width="290.1" height="9" fill="#95a5a6"/>
+<text x="624" y="316">100/100</text><text x="674" y="316">n/a</text><text x="734" y="316">3.725</text>
+<text x="184" y="342" text-anchor="end">collaborating_v3-collaborating_v3</text>
+<rect x="190" y="329" width="301.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="339" width="283.3" height="9" fill="#95a5a6"/>
+<text x="624" y="342">100/100</text><text x="674" y="342">61/100</text><text x="734" y="342">4.29</text>
+<text x="184" y="368" text-anchor="end">compromising_v2-neutral</text>
+<rect x="190" y="355" width="269.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="365" width="266.4" height="9" fill="#95a5a6"/>
+<text x="624" y="368">99/100</text><text x="674" y="368">82/100</text><text x="734" y="368">15.93</text>
+<text x="184" y="394" text-anchor="end">neutral-compromising_v2</text>
+<rect x="190" y="381" width="270.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="391" width="263.0" height="9" fill="#95a5a6"/>
+<text x="624" y="394">97/100</text><text x="674" y="394">n/a</text><text x="734" y="394">16.72</text>
+<text x="184" y="420" text-anchor="end">compromising_v2-compromising_v2</text>
+<rect x="190" y="407" width="267.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="417" width="252.8" height="9" fill="#95a5a6"/>
+<text x="624" y="420">96/100</text><text x="674" y="420">85/100</text><text x="734" y="420">19.72</text>
+<text x="184" y="446" text-anchor="end">compromising_v3-neutral</text>
+<rect x="190" y="433" width="237.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="443" width="279.5" height="9" fill="#95a5a6"/>
+<text x="624" y="446">96/100</text><text x="674" y="446">83/100</text><text x="734" y="446">20.48</text>
+<text x="184" y="472" text-anchor="end">neutral-compromising_v3</text>
+<rect x="190" y="459" width="266.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="469" width="252.0" height="9" fill="#95a5a6"/>
+<text x="624" y="472">97/100</text><text x="674" y="472">n/a</text><text x="734" y="472">20.085</text>
+<text x="184" y="498" text-anchor="end">compromising_v3-compromising_v3</text>
+<rect x="190" y="485" width="260.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="495" width="235.9" height="9" fill="#95a5a6"/>
+<text x="624" y="498">98/100</text><text x="674" y="498">96/100</text><text x="734" y="498">25.38</text>
+<text x="184" y="524" text-anchor="end">accommodating_v2-neutral</text>
+<rect x="190" y="511" width="258.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="521" width="305.0" height="9" fill="#95a5a6"/>
+<text x="624" y="524">99/100</text><text x="674" y="524">93/100</text><text x="734" y="524">9.445</text>
+<text x="184" y="550" text-anchor="end">neutral-accommodating_v2</text>
+<rect x="190" y="537" width="314.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="547" width="241.2" height="9" fill="#95a5a6"/>
+<text x="624" y="550">100/100</text><text x="674" y="550">n/a</text><text x="734" y="550">11.245</text>
+<text x="184" y="576" text-anchor="end">accommodating_v2-accommodating_v2</text>
+<rect x="190" y="563" width="280.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="573" width="284.2" height="9" fill="#95a5a6"/>
+<text x="624" y="576">100/100</text><text x="674" y="576">89/100</text><text x="734" y="576">9.135</text>
+<text x="184" y="602" text-anchor="end">accommodating_v3-neutral</text>
+<rect x="190" y="589" width="244.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="599" width="310.7" height="9" fill="#95a5a6"/>
+<text x="624" y="602">98/100</text><text x="674" y="602">96/100</text><text x="734" y="602">11.525</text>
+<text x="184" y="628" text-anchor="end">neutral-accommodating_v3</text>
+<rect x="190" y="615" width="308.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="625" width="254.3" height="9" fill="#95a5a6"/>
+<text x="624" y="628">100/100</text><text x="674" y="628">n/a</text><text x="734" y="628">9.55</text>
+<text x="184" y="654" text-anchor="end">accommodating_v3-accommodating_v3</text>
+<rect x="190" y="641" width="282.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="651" width="287.3" height="9" fill="#95a5a6"/>
+<text x="624" y="654">100/100</text><text x="674" y="654">82/100</text><text x="734" y="654">8.03</text>
+<text x="184" y="680" text-anchor="end">avoiding_v2-neutral</text>
+<rect x="190" y="667" width="188.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="677" width="245.6" height="9" fill="#95a5a6"/>
+<text x="624" y="680">65/100</text><text x="674" y="680">100/100</text><text x="734" y="680">40.295</text>
+<text x="184" y="706" text-anchor="end">neutral-avoiding_v2</text>
+<rect x="190" y="693" width="255.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="703" width="195.2" height="9" fill="#95a5a6"/>
+<text x="624" y="706">68/100</text><text x="674" y="706">n/a</text><text x="734" y="706">36.44</text>
+<text x="184" y="732" text-anchor="end">avoiding_v2-avoiding_v2</text>
+<rect x="190" y="719" width="202.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="729" width="205.7" height="9" fill="#95a5a6"/>
+<text x="624" y="732">56/100</text><text x="674" y="732">100/100</text><text x="734" y="732">46.445</text>
+<text x="184" y="758" text-anchor="end">avoiding_v3-neutral</text>
+<rect x="190" y="745" width="212.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="755" width="265.9" height="9" fill="#95a5a6"/>
+<text x="624" y="758">77/100</text><text x="674" y="758">100/100</text><text x="734" y="758">29.735</text>
+<text x="184" y="784" text-anchor="end">neutral-avoiding_v3</text>
+<rect x="190" y="771" width="234.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="781" width="196.7" height="9" fill="#95a5a6"/>
+<text x="624" y="784">62/100</text><text x="674" y="784">n/a</text><text x="734" y="784">41.01</text>
+<text x="184" y="810" text-anchor="end">avoiding_v3-avoiding_v3</text>
+<rect x="190" y="797" width="204.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="807" width="191.9" height="9" fill="#95a5a6"/>
+<text x="624" y="810">50/100</text><text x="674" y="810">100/100</text><text x="734" y="810">49.23</text>
+<text x="184" y="836" text-anchor="end">competing_f50-neutral</text>
+<rect x="190" y="823" width="281.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="833" width="237.7" height="9" fill="#95a5a6"/>
+<text x="624" y="836">90/100</text><text x="674" y="836">n/a</text><text x="734" y="836">19.935</text>
+<text x="184" y="862" text-anchor="end">neutral-competing_f50</text>
+<rect x="190" y="849" width="253.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="859" width="275.4" height="9" fill="#95a5a6"/>
+<text x="624" y="862">91/100</text><text x="674" y="862">n/a</text><text x="734" y="862">17.775</text>
+<text x="184" y="888" text-anchor="end">competing_f50-competing_f50</text>
+<rect x="190" y="875" width="239.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="885" width="236.3" height="9" fill="#95a5a6"/>
+<text x="624" y="888">77/100</text><text x="674" y="888">n/a</text><text x="734" y="888">30.355</text>
+<text x="184" y="914" text-anchor="end">competing_f70-neutral</text>
+<rect x="190" y="901" width="277.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="911" width="196.2" height="9" fill="#95a5a6"/>
+<text x="624" y="914">79/100</text><text x="674" y="914">n/a</text><text x="734" y="914">30.78</text>
+<text x="184" y="940" text-anchor="end">neutral-competing_f70</text>
+<rect x="190" y="927" width="196.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="937" width="266.6" height="9" fill="#95a5a6"/>
+<text x="624" y="940">71/100</text><text x="674" y="940">n/a</text><text x="734" y="940">33.435</text>
+<text x="184" y="966" text-anchor="end">competing_f70-competing_f70</text>
+<rect x="190" y="953" width="150.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="963" width="147.0" height="9" fill="#95a5a6"/>
+<text x="624" y="966">15/100</text><text x="674" y="966">n/a</text><text x="734" y="966">72.77</text>
+<text x="184" y="992" text-anchor="end">compromising_f40-neutral</text>
+<rect x="190" y="979" width="222.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="989" width="294.2" height="9" fill="#95a5a6"/>
+<text x="624" y="992">99/100</text><text x="674" y="992">n/a</text><text x="734" y="992">20.53</text>
+<text x="184" y="1018" text-anchor="end">neutral-compromising_f40</text>
+<rect x="190" y="1005" width="295.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="1015" width="223.7" height="9" fill="#95a5a6"/>
+<text x="624" y="1018">99/100</text><text x="674" y="1018">n/a</text><text x="734" y="1018">19.97</text>
+<text x="184" y="1044" text-anchor="end">compromising_f40-compromising_f40</text>
+<rect x="190" y="1031" width="252.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1041" width="238.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1044">99/100</text><text x="674" y="1044">n/a</text><text x="734" y="1044">26.745</text>
+<text x="184" y="1070" text-anchor="end">compromising_f60-neutral</text>
+<rect x="190" y="1057" width="255.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1067" width="244.7" height="9" fill="#95a5a6"/>
+<text x="624" y="1070">89/100</text><text x="674" y="1070">n/a</text><text x="734" y="1070">24.65</text>
+<text x="184" y="1096" text-anchor="end">neutral-compromising_f60</text>
+<rect x="190" y="1083" width="249.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1093" width="233.4" height="9" fill="#95a5a6"/>
+<text x="624" y="1096">84/100</text><text x="674" y="1096">n/a</text><text x="734" y="1096">28.675</text>
+<text x="184" y="1122" text-anchor="end">compromising_f60-compromising_f60</text>
+<rect x="190" y="1109" width="237.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="1119" width="225.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1122">77/100</text><text x="674" y="1122">n/a</text><text x="734" y="1122">33.275</text>
+<text x="184" y="1148" text-anchor="end">accommodating_u0-neutral</text>
+<rect x="190" y="1135" width="220.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1145" width="333.9" height="9" fill="#95a5a6"/>
+<text x="624" y="1148">99/100</text><text x="674" y="1148">n/a</text><text x="734" y="1148">11.66</text>
+<text x="184" y="1174" text-anchor="end">neutral-accommodating_u0</text>
+<rect x="190" y="1161" width="348.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1171" width="201.9" height="9" fill="#95a5a6"/>
+<text x="624" y="1174">100/100</text><text x="674" y="1174">n/a</text><text x="734" y="1174">12.635</text>
+<text x="184" y="1200" text-anchor="end">accommodating_u0-accommodating_u0</text>
+<rect x="190" y="1187" width="290.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="1197" width="278.5" height="9" fill="#95a5a6"/>
+<text x="624" y="1200">100/100</text><text x="674" y="1200">n/a</text><text x="734" y="1200">8.13</text>
+<text x="184" y="1226" text-anchor="end">accommodating_u20-neutral</text>
+<rect x="190" y="1213" width="250.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1223" width="309.4" height="9" fill="#95a5a6"/>
+<text x="624" y="1226">99/100</text><text x="674" y="1226">n/a</text><text x="734" y="1226">10.395</text>
+<text x="184" y="1252" text-anchor="end">neutral-accommodating_u20</text>
+<rect x="190" y="1239" width="307.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1249" width="263.4" height="9" fill="#95a5a6"/>
+<text x="624" y="1252">100/100</text><text x="674" y="1252">n/a</text><text x="734" y="1252">7.745</text>
+<text x="184" y="1278" text-anchor="end">accommodating_u20-accommodating_u20</text>
+<rect x="190" y="1265" width="290.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1275" width="286.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1278">100/100</text><text x="674" y="1278">n/a</text><text x="734" y="1278">6.345</text>
+<text x="184" y="1304" text-anchor="end">collaborating_floor-neutral</text>
+<rect x="190" y="1291" width="291.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="1301" width="231.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1304">91/100</text><text x="674" y="1304">n/a</text><text x="734" y="1304">19.165</text>
+<text x="184" y="1330" text-anchor="end">neutral-collaborating_floor</text>
+<rect x="190" y="1317" width="227.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1327" width="310.2" height="9" fill="#95a5a6"/>
+<text x="624" y="1330">96/100</text><text x="674" y="1330">n/a</text><text x="734" y="1330">15.63</text>
+<text x="184" y="1356" text-anchor="end">collaborating_floor-collaborating_floor</text>
+<rect x="190" y="1343" width="220.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="1353" width="236.1" height="9" fill="#95a5a6"/>
+<text x="624" y="1356">67/100</text><text x="674" y="1356">n/a</text><text x="734" y="1356">34.905</text>
+<text x="184" y="1382" text-anchor="end">collaborating_talk-neutral</text>
+<rect x="190" y="1369" width="303.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1379" width="261.8" height="9" fill="#95a5a6"/>
+<text x="624" y="1382">98/100</text><text x="674" y="1382">n/a</text><text x="734" y="1382">9.06</text>
+<text x="184" y="1408" text-anchor="end">neutral-collaborating_talk</text>
+<rect x="190" y="1395" width="265.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1405" width="293.1" height="9" fill="#95a5a6"/>
+<text x="624" y="1408">97/100</text><text x="674" y="1408">n/a</text><text x="734" y="1408">10.7</text>
+<text x="184" y="1434" text-anchor="end">collaborating_talk-collaborating_talk</text>
+<rect x="190" y="1421" width="263.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1431" width="274.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1434">85/100</text><text x="674" y="1434">n/a</text><text x="734" y="1434">15.52</text>
+<text x="184" y="1460" text-anchor="end">collaborating_trade-neutral</text>
+<rect x="190" y="1447" width="283.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1457" width="269.0" height="9" fill="#95a5a6"/>
+<text x="624" y="1460">96/100</text><text x="674" y="1460">n/a</text><text x="734" y="1460">12.145</text>
+<text x="184" y="1486" text-anchor="end">neutral-collaborating_trade</text>
+<rect x="190" y="1473" width="259.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1483" width="290.4" height="9" fill="#95a5a6"/>
+<text x="624" y="1486">96/100</text><text x="674" y="1486">n/a</text><text x="734" y="1486">12.83</text>
+<text x="184" y="1512" text-anchor="end">collaborating_trade-collaborating_trade</text>
+<rect x="190" y="1499" width="260.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1509" width="270.7" height="9" fill="#95a5a6"/>
+<text x="624" y="1512">86/100</text><text x="674" y="1512">n/a</text><text x="734" y="1512">17.285</text>
+</svg>

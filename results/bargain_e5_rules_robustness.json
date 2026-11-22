@@ -1,0 +1,2700 @@
+{
+ "instances": 100,
+ "original": {
+  "competing": {
+   "own": {
+    "n": 100,
+    "mean": 3.745,
+    "sd": 16.3869,
+    "dz": 0.2285,
+    "ci95": [
+     0.535,
+     7.015
+    ],
+    "wins": 56,
+    "losses": 44,
+    "p_sign": 0.2713,
+    "p_wilcoxon": 0.0496
+   },
+   "partner": {
+    "n": 100,
+    "mean": -11.695,
+    "sd": 14.2762,
+    "dz": -0.8192,
+    "ci95": [
+     -14.3775,
+     -8.9425
+    ],
+    "wins": 18,
+    "losses": 82,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -7.95,
+    "sd": 25.2162,
+    "dz": -0.3153,
+    "ci95": [
+     -12.7875,
+     -3.035
+    ],
+    "wins": 31,
+    "losses": 68,
+    "p_sign": 0.0003,
+    "p_wilcoxon": 0.0004
+   },
+   "pair": {
+    "n": 100,
+    "mean": -37.58,
+    "sd": 33.0955,
+    "dz": -1.1355,
+    "ci95": [
+     -44.06,
+     -31.05
+    ],
+    "wins": 7,
+    "losses": 87,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 175,
+    "pair": 45
+   }
+  },
+  "collaborating": {
+   "own": {
+    "n": 100,
+    "mean": 5.955,
+    "sd": 11.4027,
+    "dz": 0.5222,
+    "ci95": [
+     3.745,
+     8.1625
+    ],
+    "wins": 66,
+    "losses": 25,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": 2.08,
+    "sd": 13.9497,
+    "dz": 0.1491,
+    "ci95": [
+     -0.65,
+     4.8925
+    ],
+    "wins": 53,
+    "losses": 38,
+    "p_sign": 0.1418,
+    "p_wilcoxon": 0.1261
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 8.035,
+    "sd": 19.6207,
+    "dz": 0.4095,
+    "ci95": [
+     4.3075,
+     11.935
+    ],
+    "wins": 60,
+    "losses": 31,
+    "p_sign": 0.0031,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": 6.1,
+    "sd": 26.3742,
+    "dz": 0.2313,
+    "ci95": [
+     0.855,
+     11.04
+    ],
+    "wins": 54,
+    "losses": 25,
+    "p_sign": 0.0015,
+    "p_wilcoxon": 0.0006
+   },
+   "agreements": {
+    "alone": 198,
+    "pair": 93
+   }
+  },
+  "compromising": {
+   "own": {
+    "n": 100,
+    "mean": -8.1375,
+    "sd": 12.9882,
+    "dz": -0.6265,
+    "ci95": [
+     -10.755,
+     -5.5575
+    ],
+    "wins": 27,
+    "losses": 72,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": 1.625,
+    "sd": 13.9128,
+    "dz": 0.1168,
+    "ci95": [
+     -1.1725,
+     4.2775
+    ],
+    "wins": 56,
+    "losses": 41,
+    "p_sign": 0.1548,
+    "p_wilcoxon": 0.1784
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -6.5125,
+    "sd": 19.6657,
+    "dz": -0.3312,
+    "ci95": [
+     -10.345,
+     -2.67
+    ],
+    "wins": 30,
+    "losses": 68,
+    "p_sign": 0.0002,
+    "p_wilcoxon": 0.0002
+   },
+   "pair": {
+    "n": 100,
+    "mean": -11.02,
+    "sd": 25.0613,
+    "dz": -0.4397,
+    "ci95": [
+     -15.99,
+     -6.165
+    ],
+    "wins": 26,
+    "losses": 64,
+    "p_sign": 0.0001,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 189,
+    "pair": 94
+   }
+  },
+  "accommodating": {
+   "own": {
+    "n": 100,
+    "mean": -7.1925,
+    "sd": 16.7831,
+    "dz": -0.4286,
+    "ci95": [
+     -10.4625,
+     -3.9375
+    ],
+    "wins": 28,
+    "losses": 70,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": 10.3125,
+    "sd": 12.3689,
+    "dz": 0.8337,
+    "ci95": [
+     7.9375,
+     12.725
+    ],
+    "wins": 77,
+    "losses": 21,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 3.12,
+    "sd": 17.5626,
+    "dz": 0.1776,
+    "ci95": [
+     -0.19,
+     6.58
+    ],
+    "wins": 44,
+    "losses": 49,
+    "p_sign": 0.6785,
+    "p_wilcoxon": 0.7403
+   },
+   "pair": {
+    "n": 100,
+    "mean": 7.55,
+    "sd": 18.6769,
+    "dz": 0.4042,
+    "ci95": [
+     3.945,
+     11.23
+    ],
+    "wins": 58,
+    "losses": 20,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0001
+   },
+   "agreements": {
+    "alone": 199,
+    "pair": 100
+   }
+  },
+  "avoiding": {
+   "own": {
+    "n": 100,
+    "mean": -16.58,
+    "sd": 16.2499,
+    "dz": -1.0203,
+    "ci95": [
+     -19.7,
+     -13.4425
+    ],
+    "wins": 18,
+    "losses": 77,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": -5.8525,
+    "sd": 16.0948,
+    "dz": -0.3636,
+    "ci95": [
+     -9.01,
+     -2.73
+    ],
+    "wins": 30,
+    "losses": 66,
+    "p_sign": 0.0003,
+    "p_wilcoxon": 0.0003
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -22.4325,
+    "sd": 23.6252,
+    "dz": -0.9495,
+    "ci95": [
+     -26.9825,
+     -17.9675
+    ],
+    "wins": 17,
+    "losses": 79,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": -27.415,
+    "sd": 37.2302,
+    "dz": -0.7364,
+    "ci95": [
+     -34.6,
+     -20.245
+    ],
+    "wins": 21,
+    "losses": 67,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 138,
+    "pair": 62
+   }
+  }
+ },
+ "variants": {
+  "competing_v2": {
+   "base": "competing",
+   "kind": "paraphrase",
+   "by": "the authors",
+   "own": {
+    "n": 100,
+    "mean": 3.415,
+    "sd": 14.9124,
+    "dz": 0.229,
+    "ci95": [
+     0.51,
+     6.2525
+    ],
+    "wins": 58,
+    "losses": 38,
+    "p_sign": 0.0519,
+    "p_wilcoxon": 0.0238
+   },
+   "partner": {
+    "n": 100,
+    "mean": -7.965,
+    "sd": 12.8851,
+    "dz": -0.6182,
+    "ci95": [
+     -10.435,
+     -5.4675
+    ],
+    "wins": 23,
+    "losses": 74,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -4.55,
+    "sd": 22.1529,
+    "dz": -0.2054,
+    "ci95": [
+     -8.93,
+     -0.2925
+    ],
+    "wins": 37,
+    "losses": 59,
+    "p_sign": 0.0315,
+    "p_wilcoxon": 0.0458
+   },
+   "pair": {
+    "n": 100,
+    "mean": -31.53,
+    "sd": 38.7954,
+    "dz": -0.8127,
+    "ci95": [
+     -39.11,
+     -23.955
+    ],
+    "wins": 18,
+    "losses": 78,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 184,
+    "pair": 54
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -0.33,
+     "sd": 17.7859,
+     "dz": -0.0186,
+     "ci95": [
+      -3.7375,
+      3.1525
+     ],
+     "wins": 49,
+     "losses": 51,
+     "p_sign": 0.9204,
+     "p_wilcoxon": 0.6749
+    },
+    "partner": {
+     "n": 100,
+     "mean": 3.73,
+     "sd": 16.0601,
+     "dz": 0.2323,
+     "ci95": [
+      0.6675,
+      6.855
+     ],
+     "wins": 60,
+     "losses": 40,
+     "p_sign": 0.0569,
+     "p_wilcoxon": 0.0159
+    },
+    "pair": {
+     "n": 100,
+     "mean": 6.05,
+     "sd": 43.4686,
+     "dz": 0.1392,
+     "ci95": [
+      -2.525,
+      14.64
+     ],
+     "wins": 33,
+     "losses": 24,
+     "p_sign": 0.2892,
+     "p_wilcoxon": 0.1527
+    }
+   }
+  },
+  "competing_v3": {
+   "base": "competing",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5",
+   "own": {
+    "n": 100,
+    "mean": 3.9675,
+    "sd": 14.5344,
+    "dz": 0.273,
+    "ci95": [
+     1.085,
+     6.8475
+    ],
+    "wins": 58,
+    "losses": 40,
+    "p_sign": 0.0854,
+    "p_wilcoxon": 0.0127
+   },
+   "partner": {
+    "n": 100,
+    "mean": -11.68,
+    "sd": 13.0037,
+    "dz": -0.8982,
+    "ci95": [
+     -14.1875,
+     -9.21
+    ],
+    "wins": 15,
+    "losses": 83,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -7.7125,
+    "sd": 22.8408,
+    "dz": -0.3377,
+    "ci95": [
+     -12.175,
+     -3.25
+    ],
+    "wins": 30,
+    "losses": 66,
+    "p_sign": 0.0003,
+    "p_wilcoxon": 0.0005
+   },
+   "pair": {
+    "n": 100,
+    "mean": -34.015,
+    "sd": 35.5189,
+    "dz": -0.9577,
+    "ci95": [
+     -41.02,
+     -27.09
+    ],
+    "wins": 13,
+    "losses": 83,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 177,
+    "pair": 52
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 0.2225,
+     "sd": 18.4502,
+     "dz": 0.0121,
+     "ci95": [
+      -3.3875,
+      3.8625
+     ],
+     "wins": 45,
+     "losses": 52,
+     "p_sign": 0.5426,
+     "p_wilcoxon": 0.9355
+    },
+    "partner": {
+     "n": 100,
+     "mean": 0.015,
+     "sd": 15.7368,
+     "dz": 0.001,
+     "ci95": [
+      -3.0825,
+      3.0325
+     ],
+     "wins": 48,
+     "losses": 49,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.877
+    },
+    "pair": {
+     "n": 100,
+     "mean": 3.565,
+     "sd": 36.373,
+     "dz": 0.098,
+     "ci95": [
+      -3.54,
+      10.73
+     ],
+     "wins": 25,
+     "losses": 23,
+     "p_sign": 0.8854,
+     "p_wilcoxon": 0.4417
+    }
+   }
+  },
+  "collaborating_v2": {
+   "base": "collaborating",
+   "kind": "paraphrase",
+   "by": "the authors",
+   "own": {
+    "n": 100,
+    "mean": 7.7075,
+    "sd": 11.5779,
+    "dz": 0.6657,
+    "ci95": [
+     5.485,
+     9.9475
+    ],
+    "wins": 72,
+    "losses": 22,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": 1.5175,
+    "sd": 13.3211,
+    "dz": 0.1139,
+    "ci95": [
+     -1.0675,
+     4.11
+    ],
+    "wins": 56,
+    "losses": 38,
+    "p_sign": 0.079,
+    "p_wilcoxon": 0.2182
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 9.225,
+    "sd": 19.3929,
+    "dz": 0.4757,
+    "ci95": [
+     5.45,
+     13.045
+    ],
+    "wins": 66,
+    "losses": 25,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": 0.205,
+    "sd": 32.0846,
+    "dz": 0.0064,
+    "ci95": [
+     -6.12,
+     6.445
+    ],
+    "wins": 49,
+    "losses": 28,
+    "p_sign": 0.022,
+    "p_wilcoxon": 0.1963
+   },
+   "agreements": {
+    "alone": 197,
+    "pair": 86
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 1.7525,
+     "sd": 11.5425,
+     "dz": 0.1518,
+     "ci95": [
+      -0.505,
+      3.965
+     ],
+     "wins": 42,
+     "losses": 43,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.1857
+    },
+    "partner": {
+     "n": 100,
+     "mean": -0.5625,
+     "sd": 14.7554,
+     "dz": -0.0381,
+     "ci95": [
+      -3.395,
+      2.3325
+     ],
+     "wins": 43,
+     "losses": 42,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.8011
+    },
+    "pair": {
+     "n": 100,
+     "mean": -5.895,
+     "sd": 27.9787,
+     "dz": -0.2107,
+     "ci95": [
+      -11.535,
+      -0.57
+     ],
+     "wins": 23,
+     "losses": 29,
+     "p_sign": 0.4885,
+     "p_wilcoxon": 0.1634
+    }
+   }
+  },
+  "collaborating_v3": {
+   "base": "collaborating",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5",
+   "own": {
+    "n": 100,
+    "mean": 4.9925,
+    "sd": 12.526,
+    "dz": 0.3986,
+    "ci95": [
+     2.5725,
+     7.43
+    ],
+    "wins": 56,
+    "losses": 28,
+    "p_sign": 0.003,
+    "p_wilcoxon": 0.0002
+   },
+   "partner": {
+    "n": 100,
+    "mean": 5.38,
+    "sd": 11.2728,
+    "dz": 0.4773,
+    "ci95": [
+     3.2325,
+     7.555
+    ],
+    "wins": 62,
+    "losses": 22,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 10.3725,
+    "sd": 18.597,
+    "dz": 0.5578,
+    "ci95": [
+     6.7825,
+     14.0525
+    ],
+    "wins": 62,
+    "losses": 21,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": 10.49,
+    "sd": 18.4826,
+    "dz": 0.5676,
+    "ci95": [
+     6.92,
+     14.15
+    ],
+    "wins": 62,
+    "losses": 17,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 199,
+    "pair": 100
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -0.9625,
+     "sd": 10.0089,
+     "dz": -0.0962,
+     "ci95": [
+      -2.915,
+      0.985
+     ],
+     "wins": 35,
+     "losses": 45,
+     "p_sign": 0.3143,
+     "p_wilcoxon": 0.4385
+    },
+    "partner": {
+     "n": 100,
+     "mean": 3.3,
+     "sd": 14.075,
+     "dz": 0.2345,
+     "ci95": [
+      0.515,
+      6.085
+     ],
+     "wins": 47,
+     "losses": 33,
+     "p_sign": 0.1456,
+     "p_wilcoxon": 0.0285
+    },
+    "pair": {
+     "n": 100,
+     "mean": 4.39,
+     "sd": 20.4634,
+     "dz": 0.2145,
+     "ci95": [
+      0.725,
+      8.655
+     ],
+     "wins": 34,
+     "losses": 23,
+     "p_sign": 0.1849,
+     "p_wilcoxon": 0.0867
+    }
+   }
+  },
+  "compromising_v2": {
+   "base": "compromising",
+   "kind": "paraphrase",
+   "by": "the authors",
+   "own": {
+    "n": 100,
+    "mean": -0.98,
+    "sd": 13.9864,
+    "dz": -0.0701,
+    "ci95": [
+     -3.7375,
+     1.7375
+    ],
+    "wins": 43,
+    "losses": 54,
+    "p_sign": 0.3099,
+    "p_wilcoxon": 0.3908
+   },
+   "partner": {
+    "n": 100,
+    "mean": -0.565,
+    "sd": 13.7145,
+    "dz": -0.0412,
+    "ci95": [
+     -3.2,
+     2.05
+    ],
+    "wins": 47,
+    "losses": 50,
+    "p_sign": 0.8392,
+    "p_wilcoxon": 0.7831
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -1.545,
+    "sd": 20.1901,
+    "dz": -0.0765,
+    "ci95": [
+     -5.4225,
+     2.355
+    ],
+    "wins": 42,
+    "losses": 53,
+    "p_sign": 0.3049,
+    "p_wilcoxon": 0.3317
+   },
+   "pair": {
+    "n": 100,
+    "mean": -4.94,
+    "sd": 23.4989,
+    "dz": -0.2102,
+    "ci95": [
+     -9.57,
+     -0.475
+    ],
+    "wins": 34,
+    "losses": 58,
+    "p_sign": 0.016,
+    "p_wilcoxon": 0.0109
+   },
+   "agreements": {
+    "alone": 196,
+    "pair": 96
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 7.1575,
+     "sd": 14.5833,
+     "dz": 0.4908,
+     "ci95": [
+      4.2825,
+      10.1075
+     ],
+     "wins": 63,
+     "losses": 35,
+     "p_sign": 0.0061,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -2.19,
+     "sd": 15.9979,
+     "dz": -0.1369,
+     "ci95": [
+      -5.3,
+      1.01
+     ],
+     "wins": 48,
+     "losses": 50,
+     "p_sign": 0.9196,
+     "p_wilcoxon": 0.2869
+    },
+    "pair": {
+     "n": 100,
+     "mean": 6.08,
+     "sd": 28.8306,
+     "dz": 0.2109,
+     "ci95": [
+      0.42,
+      11.74
+     ],
+     "wins": 53,
+     "losses": 33,
+     "p_sign": 0.0399,
+     "p_wilcoxon": 0.0085
+    }
+   }
+  },
+  "compromising_v3": {
+   "base": "compromising",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5",
+   "own": {
+    "n": 100,
+    "mean": -6.1275,
+    "sd": 14.2292,
+    "dz": -0.4306,
+    "ci95": [
+     -8.8925,
+     -3.3775
+    ],
+    "wins": 33,
+    "losses": 65,
+    "p_sign": 0.0016,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": 0.625,
+    "sd": 12.9701,
+    "dz": 0.0482,
+    "ci95": [
+     -1.93,
+     3.0925
+    ],
+    "wins": 53,
+    "losses": 45,
+    "p_sign": 0.4797,
+    "p_wilcoxon": 0.6668
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -5.5025,
+    "sd": 19.1338,
+    "dz": -0.2876,
+    "ci95": [
+     -9.2425,
+     -1.7825
+    ],
+    "wins": 30,
+    "losses": 68,
+    "p_sign": 0.0002,
+    "p_wilcoxon": 0.0011
+   },
+   "pair": {
+    "n": 100,
+    "mean": -10.6,
+    "sd": 26.5067,
+    "dz": -0.3999,
+    "ci95": [
+     -15.795,
+     -5.46
+    ],
+    "wins": 26,
+    "losses": 66,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0001
+   },
+   "agreements": {
+    "alone": 193,
+    "pair": 98
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 2.01,
+     "sd": 15.3305,
+     "dz": 0.1311,
+     "ci95": [
+      -1.02,
+      5.0025
+     ],
+     "wins": 57,
+     "losses": 39,
+     "p_sign": 0.0822,
+     "p_wilcoxon": 0.1388
+    },
+    "partner": {
+     "n": 100,
+     "mean": -1.0,
+     "sd": 16.1883,
+     "dz": -0.0618,
+     "ci95": [
+      -4.1275,
+      2.145
+     ],
+     "wins": 41,
+     "losses": 55,
+     "p_sign": 0.1843,
+     "p_wilcoxon": 0.3301
+    },
+    "pair": {
+     "n": 100,
+     "mean": 0.42,
+     "sd": 28.2336,
+     "dz": 0.0149,
+     "ci95": [
+      -5.03,
+      5.975
+     ],
+     "wins": 43,
+     "losses": 43,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.9194
+    }
+   }
+  },
+  "accommodating_v2": {
+   "base": "accommodating",
+   "kind": "paraphrase",
+   "by": "the authors",
+   "own": {
+    "n": 100,
+    "mean": -4.92,
+    "sd": 14.0909,
+    "dz": -0.3492,
+    "ci95": [
+     -7.6575,
+     -2.185
+    ],
+    "wins": 35,
+    "losses": 57,
+    "p_sign": 0.028,
+    "p_wilcoxon": 0.0012
+   },
+   "partner": {
+    "n": 100,
+    "mean": 9.355,
+    "sd": 11.5436,
+    "dz": 0.8104,
+    "ci95": [
+     7.115,
+     11.6525
+    ],
+    "wins": 79,
+    "losses": 13,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 4.435,
+    "sd": 17.0282,
+    "dz": 0.2605,
+    "ci95": [
+     1.245,
+     7.8075
+    ],
+    "wins": 49,
+    "losses": 39,
+    "p_sign": 0.3374,
+    "p_wilcoxon": 0.0629
+   },
+   "pair": {
+    "n": 100,
+    "mean": 5.645,
+    "sd": 20.4619,
+    "dz": 0.2759,
+    "ci95": [
+     1.64,
+     9.53
+    ],
+    "wins": 56,
+    "losses": 31,
+    "p_sign": 0.0097,
+    "p_wilcoxon": 0.0037
+   },
+   "agreements": {
+    "alone": 199,
+    "pair": 100
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 2.2725,
+     "sd": 17.356,
+     "dz": 0.1309,
+     "ci95": [
+      -1.095,
+      5.67
+     ],
+     "wins": 47,
+     "losses": 47,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.305
+    },
+    "partner": {
+     "n": 100,
+     "mean": -0.9575,
+     "sd": 13.1889,
+     "dz": -0.0726,
+     "ci95": [
+      -3.56,
+      1.57
+     ],
+     "wins": 46,
+     "losses": 48,
+     "p_sign": 0.9179,
+     "p_wilcoxon": 0.4795
+    },
+    "pair": {
+     "n": 100,
+     "mean": -1.905,
+     "sd": 14.5744,
+     "dz": -0.1307,
+     "ci95": [
+      -4.78,
+      0.835
+     ],
+     "wins": 30,
+     "losses": 37,
+     "p_sign": 0.4638,
+     "p_wilcoxon": 0.2231
+    }
+   }
+  },
+  "accommodating_v3": {
+   "base": "accommodating",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5",
+   "own": {
+    "n": 100,
+    "mean": -5.08,
+    "sd": 13.656,
+    "dz": -0.372,
+    "ci95": [
+     -7.7,
+     -2.425
+    ],
+    "wins": 33,
+    "losses": 63,
+    "p_sign": 0.0029,
+    "p_wilcoxon": 0.0002
+   },
+   "partner": {
+    "n": 100,
+    "mean": 9.3225,
+    "sd": 14.0744,
+    "dz": 0.6624,
+    "ci95": [
+     6.5175,
+     12.1
+    ],
+    "wins": 74,
+    "losses": 24,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 4.2425,
+    "sd": 17.8671,
+    "dz": 0.2374,
+    "ci95": [
+     0.7875,
+     7.7475
+    ],
+    "wins": 54,
+    "losses": 39,
+    "p_sign": 0.1462,
+    "p_wilcoxon": 0.0537
+   },
+   "pair": {
+    "n": 100,
+    "mean": 6.75,
+    "sd": 19.6147,
+    "dz": 0.3441,
+    "ci95": [
+     2.935,
+     10.515
+    ],
+    "wins": 56,
+    "losses": 22,
+    "p_sign": 0.0001,
+    "p_wilcoxon": 0.0001
+   },
+   "agreements": {
+    "alone": 198,
+    "pair": 100
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 2.1125,
+     "sd": 18.1228,
+     "dz": 0.1166,
+     "ci95": [
+      -1.4425,
+      5.65
+     ],
+     "wins": 58,
+     "losses": 37,
+     "p_sign": 0.0396,
+     "p_wilcoxon": 0.2423
+    },
+    "partner": {
+     "n": 100,
+     "mean": -0.99,
+     "sd": 15.9714,
+     "dz": -0.062,
+     "ci95": [
+      -4.2025,
+      2.095
+     ],
+     "wins": 44,
+     "losses": 51,
+     "p_sign": 0.5384,
+     "p_wilcoxon": 0.5256
+    },
+    "pair": {
+     "n": 100,
+     "mean": -0.8,
+     "sd": 15.5195,
+     "dz": -0.0515,
+     "ci95": [
+      -3.91,
+      2.145
+     ],
+     "wins": 28,
+     "losses": 31,
+     "p_sign": 0.7948,
+     "p_wilcoxon": 0.8179
+    }
+   }
+  },
+  "avoiding_v2": {
+   "base": "avoiding",
+   "kind": "paraphrase",
+   "by": "the authors",
+   "own": {
+    "n": 100,
+    "mean": -18.755,
+    "sd": 16.6642,
+    "dz": -1.1255,
+    "ci95": [
+     -21.93,
+     -15.445
+    ],
+    "wins": 18,
+    "losses": 79,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": -4.8325,
+    "sd": 17.2165,
+    "dz": -0.2807,
+    "ci95": [
+     -8.1575,
+     -1.575
+    ],
+    "wins": 35,
+    "losses": 61,
+    "p_sign": 0.0103,
+    "p_wilcoxon": 0.0073
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -23.5875,
+    "sd": 26.3882,
+    "dz": -0.8939,
+    "ci95": [
+     -28.665,
+     -18.535
+    ],
+    "wins": 16,
+    "losses": 79,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": -31.665,
+    "sd": 36.2557,
+    "dz": -0.8734,
+    "ci95": [
+     -38.68,
+     -24.58
+    ],
+    "wins": 17,
+    "losses": 71,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 133,
+    "pair": 56
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -2.175,
+     "sd": 21.7446,
+     "dz": -0.1,
+     "ci95": [
+      -6.3525,
+      2.1075
+     ],
+     "wins": 33,
+     "losses": 49,
+     "p_sign": 0.097,
+     "p_wilcoxon": 0.2276
+    },
+    "partner": {
+     "n": 100,
+     "mean": 1.02,
+     "sd": 18.5321,
+     "dz": 0.055,
+     "ci95": [
+      -2.5875,
+      4.615
+     ],
+     "wins": 41,
+     "losses": 40,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.7152
+    },
+    "pair": {
+     "n": 100,
+     "mean": -4.25,
+     "sd": 41.0097,
+     "dz": -0.1036,
+     "ci95": [
+      -12.23,
+      3.77
+     ],
+     "wins": 25,
+     "losses": 32,
+     "p_sign": 0.427,
+     "p_wilcoxon": 0.3016
+    }
+   }
+  },
+  "avoiding_v3": {
+   "base": "avoiding",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5",
+   "own": {
+    "n": 100,
+    "mean": -15.7125,
+    "sd": 15.7374,
+    "dz": -0.9984,
+    "ci95": [
+     -18.815,
+     -12.7225
+    ],
+    "wins": 15,
+    "losses": 77,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": -4.88,
+    "sd": 16.2638,
+    "dz": -0.3001,
+    "ci95": [
+     -8.02,
+     -1.72
+    ],
+    "wins": 31,
+    "losses": 61,
+    "p_sign": 0.0023,
+    "p_wilcoxon": 0.0019
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -20.5925,
+    "sd": 25.9235,
+    "dz": -0.7944,
+    "ci95": [
+     -25.8325,
+     -15.51
+    ],
+    "wins": 15,
+    "losses": 77,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": -34.45,
+    "sd": 36.3234,
+    "dz": -0.9484,
+    "ci95": [
+     -41.51,
+     -27.215
+    ],
+    "wins": 13,
+    "losses": 70,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 139,
+    "pair": 50
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 0.8675,
+     "sd": 21.6583,
+     "dz": 0.0401,
+     "ci95": [
+      -3.375,
+      5.0575
+     ],
+     "wins": 43,
+     "losses": 46,
+     "p_sign": 0.8323,
+     "p_wilcoxon": 0.7005
+    },
+    "partner": {
+     "n": 100,
+     "mean": 0.9725,
+     "sd": 19.5449,
+     "dz": 0.0498,
+     "ci95": [
+      -2.875,
+      4.8525
+     ],
+     "wins": 46,
+     "losses": 43,
+     "p_sign": 0.8323,
+     "p_wilcoxon": 0.8061
+    },
+    "pair": {
+     "n": 100,
+     "mean": -7.035,
+     "sd": 37.709,
+     "dz": -0.1866,
+     "ci95": [
+      -14.39,
+      0.4
+     ],
+     "wins": 17,
+     "losses": 32,
+     "p_sign": 0.0444,
+     "p_wilcoxon": 0.075
+    }
+   }
+  },
+  "competing_f50": {
+   "base": "competing",
+   "kind": "threshold",
+   "level": 50,
+   "own": {
+    "n": 100,
+    "mean": 1.9075,
+    "sd": 14.9928,
+    "dz": 0.1272,
+    "ci95": [
+     -1.1375,
+     4.82
+    ],
+    "wins": 54,
+    "losses": 38,
+    "p_sign": 0.1174,
+    "p_wilcoxon": 0.1069
+   },
+   "partner": {
+    "n": 100,
+    "mean": -5.9825,
+    "sd": 14.846,
+    "dz": -0.403,
+    "ci95": [
+     -8.8825,
+     -3.075
+    ],
+    "wins": 32,
+    "losses": 63,
+    "p_sign": 0.0019,
+    "p_wilcoxon": 0.0001
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -4.075,
+    "sd": 22.059,
+    "dz": -0.1847,
+    "ci95": [
+     -8.4925,
+     0.2425
+    ],
+    "wins": 39,
+    "losses": 52,
+    "p_sign": 0.2082,
+    "p_wilcoxon": 0.0499
+   },
+   "pair": {
+    "n": 100,
+    "mean": -15.575,
+    "sd": 34.8753,
+    "dz": -0.4466,
+    "ci95": [
+     -22.465,
+     -8.8
+    ],
+    "wins": 30,
+    "losses": 60,
+    "p_sign": 0.0021,
+    "p_wilcoxon": 0.0001
+   },
+   "agreements": {
+    "alone": 181,
+    "pair": 77
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -1.8375,
+     "sd": 16.7791,
+     "dz": -0.1095,
+     "ci95": [
+      -5.09,
+      1.5125
+     ],
+     "wins": 42,
+     "losses": 56,
+     "p_sign": 0.1888,
+     "p_wilcoxon": 0.1886
+    },
+    "partner": {
+     "n": 100,
+     "mean": 5.7125,
+     "sd": 17.3531,
+     "dz": 0.3292,
+     "ci95": [
+      2.3275,
+      9.0925
+     ],
+     "wins": 61,
+     "losses": 37,
+     "p_sign": 0.0197,
+     "p_wilcoxon": 0.002
+    },
+    "pair": {
+     "n": 100,
+     "mean": 22.005,
+     "sd": 37.6418,
+     "dz": 0.5846,
+     "ci95": [
+      14.565,
+      29.6
+     ],
+     "wins": 59,
+     "losses": 18,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    }
+   }
+  },
+  "competing_f70": {
+   "base": "competing",
+   "kind": "threshold",
+   "level": 70,
+   "own": {
+    "n": 100,
+    "mean": 0.3875,
+    "sd": 18.0313,
+    "dz": 0.0215,
+    "ci95": [
+     -3.055,
+     3.9125
+    ],
+    "wins": 50,
+    "losses": 49,
+    "p_sign": 1.0,
+    "p_wilcoxon": 0.7587
+   },
+   "partner": {
+    "n": 100,
+    "mean": -17.715,
+    "sd": 13.1523,
+    "dz": -1.3469,
+    "ci95": [
+     -20.245,
+     -15.0875
+    ],
+    "wins": 10,
+    "losses": 89,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -17.3275,
+    "sd": 27.1582,
+    "dz": -0.638,
+    "ci95": [
+     -22.6375,
+     -11.91
+    ],
+    "wins": 24,
+    "losses": 74,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": -57.99,
+    "sd": 28.4995,
+    "dz": -2.0348,
+    "ci95": [
+     -63.32,
+     -52.365
+    ],
+    "wins": 4,
+    "losses": 95,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 150,
+    "pair": 15
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -3.3575,
+     "sd": 20.8047,
+     "dz": -0.1614,
+     "ci95": [
+      -7.375,
+      0.685
+     ],
+     "wins": 42,
+     "losses": 56,
+     "p_sign": 0.1888,
+     "p_wilcoxon": 0.1132
+    },
+    "partner": {
+     "n": 100,
+     "mean": -6.02,
+     "sd": 16.1802,
+     "dz": -0.3721,
+     "ci95": [
+      -9.1225,
+      -2.85
+     ],
+     "wins": 28,
+     "losses": 70,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0003
+    },
+    "pair": {
+     "n": 100,
+     "mean": -20.41,
+     "sd": 35.2639,
+     "dz": -0.5788,
+     "ci95": [
+      -27.28,
+      -13.57
+     ],
+     "wins": 10,
+     "losses": 37,
+     "p_sign": 0.0001,
+     "p_wilcoxon": 0.0
+    }
+   }
+  },
+  "compromising_f40": {
+   "base": "compromising",
+   "kind": "threshold",
+   "level": 40,
+   "own": {
+    "n": 100,
+    "mean": -11.27,
+    "sd": 14.5189,
+    "dz": -0.7762,
+    "ci95": [
+     -14.1075,
+     -8.46
+    ],
+    "wins": 15,
+    "losses": 82,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": 5.8,
+    "sd": 15.3502,
+    "dz": 0.3778,
+    "ci95": [
+     2.8175,
+     8.6925
+    ],
+    "wins": 62,
+    "losses": 37,
+    "p_sign": 0.0154,
+    "p_wilcoxon": 0.0005
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -5.47,
+    "sd": 20.8648,
+    "dz": -0.2622,
+    "ci95": [
+     -9.5625,
+     -1.47
+    ],
+    "wins": 32,
+    "losses": 66,
+    "p_sign": 0.0008,
+    "p_wilcoxon": 0.0022
+   },
+   "pair": {
+    "n": 100,
+    "mean": -11.965,
+    "sd": 24.5804,
+    "dz": -0.4868,
+    "ci95": [
+     -16.885,
+     -7.225
+    ],
+    "wins": 28,
+    "losses": 68,
+    "p_sign": 0.0001,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 198,
+    "pair": 99
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -3.1325,
+     "sd": 17.0319,
+     "dz": -0.1839,
+     "ci95": [
+      -6.425,
+      0.205
+     ],
+     "wins": 39,
+     "losses": 58,
+     "p_sign": 0.0671,
+     "p_wilcoxon": 0.0549
+    },
+    "partner": {
+     "n": 100,
+     "mean": 4.175,
+     "sd": 17.4915,
+     "dz": 0.2387,
+     "ci95": [
+      0.755,
+      7.6475
+     ],
+     "wins": 54,
+     "losses": 43,
+     "p_sign": 0.3099,
+     "p_wilcoxon": 0.0464
+    },
+    "pair": {
+     "n": 100,
+     "mean": -0.945,
+     "sd": 27.3739,
+     "dz": -0.0345,
+     "ci95": [
+      -6.255,
+      4.425
+     ],
+     "wins": 43,
+     "losses": 43,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.7631
+    }
+   }
+  },
+  "compromising_f60": {
+   "base": "compromising",
+   "kind": "threshold",
+   "level": 60,
+   "own": {
+    "n": 100,
+    "mean": -6.28,
+    "sd": 16.2629,
+    "dz": -0.3862,
+    "ci95": [
+     -9.52,
+     -3.1175
+    ],
+    "wins": 33,
+    "losses": 67,
+    "p_sign": 0.0009,
+    "p_wilcoxon": 0.0003
+   },
+   "partner": {
+    "n": 100,
+    "mean": -5.6025,
+    "sd": 15.5413,
+    "dz": -0.3605,
+    "ci95": [
+     -8.6075,
+     -2.66
+    ],
+    "wins": 37,
+    "losses": 63,
+    "p_sign": 0.012,
+    "p_wilcoxon": 0.0004
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -11.8825,
+    "sd": 25.0446,
+    "dz": -0.4745,
+    "ci95": [
+     -16.84,
+     -7.105
+    ],
+    "wins": 23,
+    "losses": 77,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "pair": {
+    "n": 100,
+    "mean": -18.495,
+    "sd": 32.6227,
+    "dz": -0.5669,
+    "ci95": [
+     -24.92,
+     -12.33
+    ],
+    "wins": 29,
+    "losses": 65,
+    "p_sign": 0.0003,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 173,
+    "pair": 77
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 1.8575,
+     "sd": 16.0014,
+     "dz": 0.1161,
+     "ci95": [
+      -1.305,
+      4.865
+     ],
+     "wins": 54,
+     "losses": 44,
+     "p_sign": 0.3634,
+     "p_wilcoxon": 0.2071
+    },
+    "partner": {
+     "n": 100,
+     "mean": -7.2275,
+     "sd": 17.3797,
+     "dz": -0.4159,
+     "ci95": [
+      -10.6325,
+      -3.8675
+     ],
+     "wins": 35,
+     "losses": 63,
+     "p_sign": 0.0061,
+     "p_wilcoxon": 0.0001
+    },
+    "pair": {
+     "n": 100,
+     "mean": -7.475,
+     "sd": 35.9536,
+     "dz": -0.2079,
+     "ci95": [
+      -14.515,
+      -0.56
+     ],
+     "wins": 38,
+     "losses": 51,
+     "p_sign": 0.2031,
+     "p_wilcoxon": 0.0532
+    }
+   }
+  },
+  "accommodating_u0": {
+   "base": "accommodating",
+   "kind": "threshold",
+   "level": 0,
+   "own": {
+    "n": 100,
+    "mean": -14.1625,
+    "sd": 14.9089,
+    "dz": -0.9499,
+    "ci95": [
+     -17.0325,
+     -11.1975
+    ],
+    "wins": 17,
+    "losses": 81,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": 16.795,
+    "sd": 13.0958,
+    "dz": 1.2825,
+    "ci95": [
+     14.185,
+     19.3525
+    ],
+    "wins": 88,
+    "losses": 10,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 2.6325,
+    "sd": 18.0119,
+    "dz": 0.1462,
+    "ci95": [
+     -0.84,
+     6.2725
+    ],
+    "wins": 41,
+    "losses": 51,
+    "p_sign": 0.3481,
+    "p_wilcoxon": 0.9224
+   },
+   "pair": {
+    "n": 100,
+    "mean": 6.65,
+    "sd": 18.5834,
+    "dz": 0.3578,
+    "ci95": [
+     3.05,
+     10.31
+    ],
+    "wins": 47,
+    "losses": 25,
+    "p_sign": 0.0128,
+    "p_wilcoxon": 0.0008
+   },
+   "agreements": {
+    "alone": 199,
+    "pair": 100
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -6.97,
+     "sd": 19.0923,
+     "dz": -0.3651,
+     "ci95": [
+      -10.6025,
+      -3.2025
+     ],
+     "wins": 33,
+     "losses": 60,
+     "p_sign": 0.0067,
+     "p_wilcoxon": 0.0004
+    },
+    "partner": {
+     "n": 100,
+     "mean": 6.4825,
+     "sd": 16.584,
+     "dz": 0.3909,
+     "ci95": [
+      3.19,
+      9.645
+     ],
+     "wins": 67,
+     "losses": 26,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0003
+    },
+    "pair": {
+     "n": 100,
+     "mean": -0.9,
+     "sd": 13.8788,
+     "dz": -0.0648,
+     "ci95": [
+      -3.62,
+      1.805
+     ],
+     "wins": 24,
+     "losses": 36,
+     "p_sign": 0.155,
+     "p_wilcoxon": 0.4179
+    }
+   }
+  },
+  "accommodating_u20": {
+   "base": "accommodating",
+   "kind": "threshold",
+   "level": 20,
+   "own": {
+    "n": 100,
+    "mean": -3.285,
+    "sd": 13.0893,
+    "dz": -0.251,
+    "ci95": [
+     -5.905,
+     -0.7875
+    ],
+    "wins": 34,
+    "losses": 55,
+    "p_sign": 0.0334,
+    "p_wilcoxon": 0.0167
+   },
+   "partner": {
+    "n": 100,
+    "mean": 8.995,
+    "sd": 11.1521,
+    "dz": 0.8066,
+    "ci95": [
+     6.745,
+     11.175
+    ],
+    "wins": 71,
+    "losses": 17,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 5.71,
+    "sd": 16.3868,
+    "dz": 0.3485,
+    "ci95": [
+     2.5825,
+     8.9
+    ],
+    "wins": 50,
+    "losses": 36,
+    "p_sign": 0.1606,
+    "p_wilcoxon": 0.0063
+   },
+   "pair": {
+    "n": 100,
+    "mean": 8.435,
+    "sd": 19.1804,
+    "dz": 0.4398,
+    "ci95": [
+     4.795,
+     12.225
+    ],
+    "wins": 57,
+    "losses": 20,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0001
+   },
+   "agreements": {
+    "alone": 199,
+    "pair": 100
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 3.9075,
+     "sd": 16.989,
+     "dz": 0.23,
+     "ci95": [
+      0.5875,
+      7.2675
+     ],
+     "wins": 58,
+     "losses": 36,
+     "p_sign": 0.0298,
+     "p_wilcoxon": 0.0138
+    },
+    "partner": {
+     "n": 100,
+     "mean": -1.3175,
+     "sd": 14.5841,
+     "dz": -0.0903,
+     "ci95": [
+      -4.2275,
+      1.5325
+     ],
+     "wins": 43,
+     "losses": 51,
+     "p_sign": 0.4705,
+     "p_wilcoxon": 0.3993
+    },
+    "pair": {
+     "n": 100,
+     "mean": 0.885,
+     "sd": 11.7821,
+     "dz": 0.0751,
+     "ci95": [
+      -1.385,
+      3.19
+     ],
+     "wins": 34,
+     "losses": 22,
+     "p_sign": 0.1409,
+     "p_wilcoxon": 0.2761
+    }
+   }
+  },
+  "collaborating_floor": {
+   "base": "collaborating",
+   "kind": "ablation",
+   "part": "the acceptance floor alone",
+   "own": {
+    "n": 100,
+    "mean": 7.2,
+    "sd": 14.6327,
+    "dz": 0.492,
+    "ci95": [
+     4.3425,
+     9.97
+    ],
+    "wins": 74,
+    "losses": 25,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": -9.8175,
+    "sd": 15.4714,
+    "dz": -0.6346,
+    "ci95": [
+     -12.725,
+     -6.72
+    ],
+    "wins": 24,
+    "losses": 75,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": -2.6175,
+    "sd": 20.8716,
+    "dz": -0.1254,
+    "ci95": [
+     -6.6825,
+     1.4575
+    ],
+    "wins": 40,
+    "losses": 58,
+    "p_sign": 0.0854,
+    "p_wilcoxon": 0.0735
+   },
+   "pair": {
+    "n": 100,
+    "mean": -20.125,
+    "sd": 37.5577,
+    "dz": -0.5358,
+    "ci95": [
+     -27.56,
+     -12.76
+    ],
+    "wins": 30,
+    "losses": 63,
+    "p_sign": 0.0008,
+    "p_wilcoxon": 0.0
+   },
+   "agreements": {
+    "alone": 187,
+    "pair": 67
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 1.245,
+     "sd": 16.142,
+     "dz": 0.0771,
+     "ci95": [
+      -1.835,
+      4.44
+     ],
+     "wins": 53,
+     "losses": 45,
+     "p_sign": 0.4797,
+     "p_wilcoxon": 0.5019
+    },
+    "partner": {
+     "n": 100,
+     "mean": -11.8975,
+     "sd": 16.2931,
+     "dz": -0.7302,
+     "ci95": [
+      -15.115,
+      -8.6875
+     ],
+     "wins": 23,
+     "losses": 75,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "pair": {
+     "n": 100,
+     "mean": -26.225,
+     "sd": 41.0187,
+     "dz": -0.6393,
+     "ci95": [
+      -34.325,
+      -18.19
+     ],
+     "wins": 15,
+     "losses": 67,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    }
+   }
+  },
+  "collaborating_talk": {
+   "base": "collaborating",
+   "kind": "ablation",
+   "part": "ask and disclose, with the floor",
+   "own": {
+    "n": 100,
+    "mean": 6.5825,
+    "sd": 12.8456,
+    "dz": 0.5124,
+    "ci95": [
+     4.04,
+     9.075
+    ],
+    "wins": 69,
+    "losses": 24,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "partner": {
+    "n": 100,
+    "mean": -1.6825,
+    "sd": 14.083,
+    "dz": -0.1195,
+    "ci95": [
+     -4.3775,
+     1.125
+    ],
+    "wins": 41,
+    "losses": 51,
+    "p_sign": 0.3481,
+    "p_wilcoxon": 0.0952
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 4.9,
+    "sd": 20.1062,
+    "dz": 0.2437,
+    "ci95": [
+     1.0575,
+     8.9575
+    ],
+    "wins": 49,
+    "losses": 43,
+    "p_sign": 0.6024,
+    "p_wilcoxon": 0.104
+   },
+   "pair": {
+    "n": 100,
+    "mean": -0.74,
+    "sd": 31.7491,
+    "dz": -0.0233,
+    "ci95": [
+     -7.165,
+     5.36
+    ],
+    "wins": 45,
+    "losses": 34,
+    "p_sign": 0.2604,
+    "p_wilcoxon": 0.4635
+   },
+   "agreements": {
+    "alone": 195,
+    "pair": 85
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": 0.6275,
+     "sd": 12.511,
+     "dz": 0.0502,
+     "ci95": [
+      -1.8075,
+      3.0975
+     ],
+     "wins": 48,
+     "losses": 43,
+     "p_sign": 0.6752,
+     "p_wilcoxon": 0.6762
+    },
+    "partner": {
+     "n": 100,
+     "mean": -3.7625,
+     "sd": 14.4364,
+     "dz": -0.2606,
+     "ci95": [
+      -6.57,
+      -0.8425
+     ],
+     "wins": 34,
+     "losses": 58,
+     "p_sign": 0.016,
+     "p_wilcoxon": 0.0109
+    },
+    "pair": {
+     "n": 100,
+     "mean": -6.84,
+     "sd": 27.563,
+     "dz": -0.2482,
+     "ci95": [
+      -12.37,
+      -1.555
+     ],
+     "wins": 26,
+     "losses": 36,
+     "p_sign": 0.2529,
+     "p_wilcoxon": 0.0287
+    }
+   }
+  },
+  "collaborating_trade": {
+   "base": "collaborating",
+   "kind": "ablation",
+   "part": "the trade clause, with the floor",
+   "own": {
+    "n": 100,
+    "mean": 3.87,
+    "sd": 12.4504,
+    "dz": 0.3108,
+    "ci95": [
+     1.465,
+     6.3725
+    ],
+    "wins": 60,
+    "losses": 35,
+    "p_sign": 0.0134,
+    "p_wilcoxon": 0.004
+   },
+   "partner": {
+    "n": 100,
+    "mean": -1.5775,
+    "sd": 14.0052,
+    "dz": -0.1126,
+    "ci95": [
+     -4.3175,
+     1.13
+    ],
+    "wins": 45,
+    "losses": 51,
+    "p_sign": 0.6101,
+    "p_wilcoxon": 0.2596
+   },
+   "joint_alone": {
+    "n": 100,
+    "mean": 2.2925,
+    "sd": 20.4727,
+    "dz": 0.112,
+    "ci95": [
+     -1.775,
+     6.335
+    ],
+    "wins": 49,
+    "losses": 46,
+    "p_sign": 0.8376,
+    "p_wilcoxon": 0.4216
+   },
+   "pair": {
+    "n": 100,
+    "mean": -2.505,
+    "sd": 31.1572,
+    "dz": -0.0804,
+    "ci95": [
+     -8.635,
+     3.47
+    ],
+    "wins": 46,
+    "losses": 39,
+    "p_sign": 0.5154,
+    "p_wilcoxon": 0.9145
+   },
+   "agreements": {
+    "alone": 192,
+    "pair": 86
+   },
+   "vs_original": {
+    "own": {
+     "n": 100,
+     "mean": -2.085,
+     "sd": 13.6397,
+     "dz": -0.1529,
+     "ci95": [
+      -4.8075,
+      0.62
+     ],
+     "wins": 43,
+     "losses": 49,
+     "p_sign": 0.6024,
+     "p_wilcoxon": 0.091
+    },
+    "partner": {
+     "n": 100,
+     "mean": -3.6575,
+     "sd": 14.122,
+     "dz": -0.259,
+     "ci95": [
+      -6.39,
+      -0.855
+     ],
+     "wins": 31,
+     "losses": 62,
+     "p_sign": 0.0017,
+     "p_wilcoxon": 0.0171
+    },
+    "pair": {
+     "n": 100,
+     "mean": -8.605,
+     "sd": 33.6174,
+     "dz": -0.256,
+     "ci95": [
+      -15.145,
+      -2.11
+     ],
+     "wins": 24,
+     "losses": 44,
+     "p_sign": 0.0205,
+     "p_wilcoxon": 0.0038
+    }
+   }
+  }
+ },
+ "paraphrase_checks": {
+  "effects": [
+   {
+    "variant": "competing_v2",
+    "effect": "own",
+    "original": 3.745,
+    "paraphrase": 3.415,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -0.33,
+    "within_5": true
+   },
+   {
+    "variant": "competing_v2",
+    "effect": "partner",
+    "original": -11.695,
+    "paraphrase": -7.965,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 3.73,
+    "within_5": true
+   },
+   {
+    "variant": "competing_v2",
+    "effect": "pair",
+    "original": -37.58,
+    "paraphrase": -31.53,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 6.05,
+    "within_5": false
+   },
+   {
+    "variant": "competing_v3",
+    "effect": "own",
+    "original": 3.745,
+    "paraphrase": 3.9675,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 0.2225,
+    "within_5": true
+   },
+   {
+    "variant": "competing_v3",
+    "effect": "partner",
+    "original": -11.695,
+    "paraphrase": -11.68,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 0.015,
+    "within_5": true
+   },
+   {
+    "variant": "competing_v3",
+    "effect": "pair",
+    "original": -37.58,
+    "paraphrase": -34.015,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 3.565,
+    "within_5": true
+   },
+   {
+    "variant": "collaborating_v2",
+    "effect": "own",
+    "original": 5.955,
+    "paraphrase": 7.7075,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 1.7525,
+    "within_5": true
+   },
+   {
+    "variant": "collaborating_v2",
+    "effect": "partner",
+    "original": 2.08,
+    "paraphrase": 1.5175,
+    "original_significant": false,
+    "same_sign": true,
+    "difference": -0.5625,
+    "within_5": true
+   },
+   {
+    "variant": "collaborating_v2",
+    "effect": "pair",
+    "original": 6.1,
+    "paraphrase": 0.205,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -5.895,
+    "within_5": false
+   },
+   {
+    "variant": "collaborating_v3",
+    "effect": "own",
+    "original": 5.955,
+    "paraphrase": 4.9925,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -0.9625,
+    "within_5": true
+   },
+   {
+    "variant": "collaborating_v3",
+    "effect": "partner",
+    "original": 2.08,
+    "paraphrase": 5.38,
+    "original_significant": false,
+    "same_sign": true,
+    "difference": 3.3,
+    "within_5": true
+   },
+   {
+    "variant": "collaborating_v3",
+    "effect": "pair",
+    "original": 6.1,
+    "paraphrase": 10.49,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 4.39,
+    "within_5": true
+   },
+   {
+    "variant": "compromising_v2",
+    "effect": "own",
+    "original": -8.1375,
+    "paraphrase": -0.98,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 7.1575,
+    "within_5": false
+   },
+   {
+    "variant": "compromising_v2",
+    "effect": "partner",
+    "original": 1.625,
+    "paraphrase": -0.565,
+    "original_significant": false,
+    "same_sign": false,
+    "difference": -2.19,
+    "within_5": true
+   },
+   {
+    "variant": "compromising_v2",
+    "effect": "pair",
+    "original": -11.02,
+    "paraphrase": -4.94,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 6.08,
+    "within_5": false
+   },
+   {
+    "variant": "compromising_v3",
+    "effect": "own",
+    "original": -8.1375,
+    "paraphrase": -6.1275,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 2.01,
+    "within_5": true
+   },
+   {
+    "variant": "compromising_v3",
+    "effect": "partner",
+    "original": 1.625,
+    "paraphrase": 0.625,
+    "original_significant": false,
+    "same_sign": true,
+    "difference": -1.0,
+    "within_5": true
+   },
+   {
+    "variant": "compromising_v3",
+    "effect": "pair",
+    "original": -11.02,
+    "paraphrase": -10.6,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 0.42,
+    "within_5": true
+   },
+   {
+    "variant": "accommodating_v2",
+    "effect": "own",
+    "original": -7.1925,
+    "paraphrase": -4.92,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 2.2725,
+    "within_5": true
+   },
+   {
+    "variant": "accommodating_v2",
+    "effect": "partner",
+    "original": 10.3125,
+    "paraphrase": 9.355,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -0.9575,
+    "within_5": true
+   },
+   {
+    "variant": "accommodating_v2",
+    "effect": "pair",
+    "original": 7.55,
+    "paraphrase": 5.645,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -1.905,
+    "within_5": true
+   },
+   {
+    "variant": "accommodating_v3",
+    "effect": "own",
+    "original": -7.1925,
+    "paraphrase": -5.08,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 2.1125,
+    "within_5": true
+   },
+   {
+    "variant": "accommodating_v3",
+    "effect": "partner",
+    "original": 10.3125,
+    "paraphrase": 9.3225,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -0.99,
+    "within_5": true
+   },
+   {
+    "variant": "accommodating_v3",
+    "effect": "pair",
+    "original": 7.55,
+    "paraphrase": 6.75,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -0.8,
+    "within_5": true
+   },
+   {
+    "variant": "avoiding_v2",
+    "effect": "own",
+    "original": -16.58,
+    "paraphrase": -18.755,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -2.175,
+    "within_5": true
+   },
+   {
+    "variant": "avoiding_v2",
+    "effect": "partner",
+    "original": -5.8525,
+    "paraphrase": -4.8325,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 1.02,
+    "within_5": true
+   },
+   {
+    "variant": "avoiding_v2",
+    "effect": "pair",
+    "original": -27.415,
+    "paraphrase": -31.665,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -4.25,
+    "within_5": true
+   },
+   {
+    "variant": "avoiding_v3",
+    "effect": "own",
+    "original": -16.58,
+    "paraphrase": -15.7125,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 0.8675,
+    "within_5": true
+   },
+   {
+    "variant": "avoiding_v3",
+    "effect": "partner",
+    "original": -5.8525,
+    "paraphrase": -4.88,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": 0.9725,
+    "within_5": true
+   },
+   {
+    "variant": "avoiding_v3",
+    "effect": "pair",
+    "original": -27.415,
+    "paraphrase": -34.45,
+    "original_significant": true,
+    "same_sign": true,
+    "difference": -7.035,
+    "within_5": false
+   }
+  ],
+  "same_sign_where_significant": [
+   26,
+   26
+  ],
+  "within_5_points": [
+   25,
+   30
+  ]
+ }
+}
