@@ -109,5 +109,17 @@
   "budget_usd": 10.0,
   "output": "runs/bargain/e3_gpt_6_1_sol",
   "results_prefix": "results/bargain_e3_gpt_6_1_sol",
-  "status": "frozen 2026-11-21 before any E3 game was played; rules, instances and seats byte-identical to E1"
+  "status": "frozen 2026-11-21 before any E3 game was played; rules, instances and seats byte-identical to E1",
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {
+      "extra_body": {
+        "reasoning_effort": "low"
+      }
+    },
+    "codebook": "docs/B_BARGAIN_STYLE_CODEBOOK.md",
+    "attempts": 2,
+    "input": "the public moves and messages in order; not the scores, the private reasoning, the guidance or the payoffs"
+  },
+  "labeler_note": "added 2026-11-21 after the games were played and reported: E1's style labeler (gpt-6-luna, low reasoning, the public transcript only) as the secondary measure; the labels change no game"
 }

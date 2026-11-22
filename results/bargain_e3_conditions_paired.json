@@ -1404,7 +1404,1225 @@
     ]
    }
   },
-  "seats": {}
+  "seats": {},
+  "vs_competing": {
+   "reply": {
+    "neutral": {
+     "luna_E2": {
+      "n": 40,
+      "own": 50.2,
+      "competing_side": 73.2,
+      "joint": 123.4,
+      "agree": 38,
+      "moves": 4.4,
+      "tokens": 1773
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 69.2,
+      "competing_side": 68.1,
+      "joint": 137.3,
+      "agree": 40,
+      "moves": 4.8,
+      "tokens": 3780
+     },
+     "sol": {
+      "n": 40,
+      "own": 68.9,
+      "competing_side": 69.2,
+      "joint": 138.1,
+      "agree": 40,
+      "moves": 6.1,
+      "tokens": 3105
+     }
+    },
+    "competing": {
+     "luna_E2": {
+      "n": 40,
+      "own": 49.6,
+      "competing_side": 49.6,
+      "joint": 99.2,
+      "agree": 24,
+      "moves": 7.8,
+      "tokens": 4017
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 52.1,
+      "competing_side": 52.1,
+      "joint": 104.3,
+      "agree": 26,
+      "moves": 8.6,
+      "tokens": 7434
+     },
+     "sol": {
+      "n": 40,
+      "own": 53.6,
+      "competing_side": 53.6,
+      "joint": 107.2,
+      "agree": 28,
+      "moves": 8.2,
+      "tokens": 4561
+     }
+    },
+    "collaborating": {
+     "luna_E2": {
+      "n": 40,
+      "own": 57.1,
+      "competing_side": 73.9,
+      "joint": 131.0,
+      "agree": 38,
+      "moves": 3.9,
+      "tokens": 1681
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 68.4,
+      "competing_side": 69.1,
+      "joint": 137.5,
+      "agree": 40,
+      "moves": 4.4,
+      "tokens": 3696
+     },
+     "sol": {
+      "n": 40,
+      "own": 68.0,
+      "competing_side": 69.8,
+      "joint": 137.7,
+      "agree": 40,
+      "moves": 5.1,
+      "tokens": 2470
+     }
+    },
+    "compromising": {
+     "luna_E2": {
+      "n": 40,
+      "own": 43.7,
+      "competing_side": 72.4,
+      "joint": 116.0,
+      "agree": 36,
+      "moves": 4.7,
+      "tokens": 2030
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 59.5,
+      "competing_side": 70.0,
+      "joint": 129.5,
+      "agree": 39,
+      "moves": 6.1,
+      "tokens": 5069
+     },
+     "sol": {
+      "n": 40,
+      "own": 58.4,
+      "competing_side": 66.5,
+      "joint": 124.9,
+      "agree": 39,
+      "moves": 5.6,
+      "tokens": 2770
+     }
+    },
+    "accommodating": {
+     "luna_E2": {
+      "n": 40,
+      "own": 51.8,
+      "competing_side": 79.2,
+      "joint": 131.0,
+      "agree": 39,
+      "moves": 4.0,
+      "tokens": 1579
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 58.5,
+      "competing_side": 77.6,
+      "joint": 136.1,
+      "agree": 40,
+      "moves": 4.3,
+      "tokens": 3121
+     },
+     "sol": {
+      "n": 40,
+      "own": 57.0,
+      "competing_side": 79.2,
+      "joint": 136.2,
+      "agree": 40,
+      "moves": 3.9,
+      "tokens": 1691
+     }
+    },
+    "avoiding": {
+     "luna_E2": {
+      "n": 40,
+      "own": 37.4,
+      "competing_side": 68.1,
+      "joint": 105.5,
+      "agree": 27,
+      "moves": 3.0,
+      "tokens": 1240
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 44.3,
+      "competing_side": 64.5,
+      "joint": 108.8,
+      "agree": 26,
+      "moves": 3.1,
+      "tokens": 2213
+     },
+     "sol": {
+      "n": 40,
+      "own": 35.8,
+      "competing_side": 66.9,
+      "joint": 102.7,
+      "agree": 24,
+      "moves": 3.5,
+      "tokens": 1690
+     }
+    }
+   },
+   "vs_neutral_reply": {
+    "competing": {
+     "luna_E2": {
+      "own": {
+       "mean": -0.6,
+       "wins": 19,
+       "losses": 18,
+       "n": 40,
+       "p": 1.0
+      },
+      "competing_side": {
+       "mean": -23.5,
+       "wins": 5,
+       "losses": 32,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -24.1,
+       "wins": 12,
+       "losses": 22,
+       "n": 40,
+       "p": 0.121
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -17.1,
+       "wins": 3,
+       "losses": 34,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -15.9,
+       "wins": 5,
+       "losses": 33,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -33.0,
+       "wins": 0,
+       "losses": 37,
+       "n": 40,
+       "p": 0.0
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -15.3,
+       "wins": 4,
+       "losses": 36,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -15.6,
+       "wins": 3,
+       "losses": 37,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -30.9,
+       "wins": 1,
+       "losses": 39,
+       "n": 40,
+       "p": 0.0
+      }
+     }
+    },
+    "collaborating": {
+     "luna_E2": {
+      "own": {
+       "mean": 6.8,
+       "wins": 23,
+       "losses": 10,
+       "n": 40,
+       "p": 0.035
+      },
+      "competing_side": {
+       "mean": 0.8,
+       "wins": 17,
+       "losses": 16,
+       "n": 40,
+       "p": 1.0
+      },
+      "joint": {
+       "mean": 7.6,
+       "wins": 25,
+       "losses": 8,
+       "n": 40,
+       "p": 0.005
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -0.8,
+       "wins": 6,
+       "losses": 17,
+       "n": 40,
+       "p": 0.035
+      },
+      "competing_side": {
+       "mean": 1.0,
+       "wins": 10,
+       "losses": 13,
+       "n": 40,
+       "p": 0.678
+      },
+      "joint": {
+       "mean": 0.2,
+       "wins": 11,
+       "losses": 12,
+       "n": 40,
+       "p": 1.0
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -0.9,
+       "wins": 1,
+       "losses": 6,
+       "n": 40,
+       "p": 0.125
+      },
+      "competing_side": {
+       "mean": 0.6,
+       "wins": 5,
+       "losses": 3,
+       "n": 40,
+       "p": 0.727
+      },
+      "joint": {
+       "mean": -0.3,
+       "wins": 3,
+       "losses": 5,
+       "n": 40,
+       "p": 0.727
+      }
+     }
+    },
+    "compromising": {
+     "luna_E2": {
+      "own": {
+       "mean": -6.5,
+       "wins": 18,
+       "losses": 20,
+       "n": 40,
+       "p": 0.871
+      },
+      "competing_side": {
+       "mean": -0.8,
+       "wins": 20,
+       "losses": 18,
+       "n": 40,
+       "p": 0.871
+      },
+      "joint": {
+       "mean": -7.3,
+       "wins": 15,
+       "losses": 23,
+       "n": 40,
+       "p": 0.256
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -9.8,
+       "wins": 1,
+       "losses": 36,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": 1.9,
+       "wins": 22,
+       "losses": 15,
+       "n": 40,
+       "p": 0.324
+      },
+      "joint": {
+       "mean": -7.8,
+       "wins": 5,
+       "losses": 32,
+       "n": 40,
+       "p": 0.0
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -10.6,
+       "wins": 2,
+       "losses": 38,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -2.7,
+       "wins": 12,
+       "losses": 28,
+       "n": 40,
+       "p": 0.017
+      },
+      "joint": {
+       "mean": -13.2,
+       "wins": 1,
+       "losses": 39,
+       "n": 40,
+       "p": 0.0
+      }
+     }
+    },
+    "accommodating": {
+     "luna_E2": {
+      "own": {
+       "mean": 1.6,
+       "wins": 20,
+       "losses": 15,
+       "n": 40,
+       "p": 0.5
+      },
+      "competing_side": {
+       "mean": 6.0,
+       "wins": 21,
+       "losses": 14,
+       "n": 40,
+       "p": 0.311
+      },
+      "joint": {
+       "mean": 7.6,
+       "wins": 26,
+       "losses": 9,
+       "n": 40,
+       "p": 0.006
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -10.8,
+       "wins": 2,
+       "losses": 26,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": 9.5,
+       "wins": 22,
+       "losses": 6,
+       "n": 40,
+       "p": 0.004
+      },
+      "joint": {
+       "mean": -1.2,
+       "wins": 7,
+       "losses": 16,
+       "n": 40,
+       "p": 0.093
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -11.9,
+       "wins": 1,
+       "losses": 26,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": 10.0,
+       "wins": 26,
+       "losses": 2,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -1.9,
+       "wins": 7,
+       "losses": 18,
+       "n": 40,
+       "p": 0.043
+      }
+     }
+    },
+    "avoiding": {
+     "luna_E2": {
+      "own": {
+       "mean": -12.8,
+       "wins": 10,
+       "losses": 28,
+       "n": 40,
+       "p": 0.005
+      },
+      "competing_side": {
+       "mean": -5.0,
+       "wins": 20,
+       "losses": 18,
+       "n": 40,
+       "p": 0.871
+      },
+      "joint": {
+       "mean": -17.8,
+       "wins": 13,
+       "losses": 23,
+       "n": 40,
+       "p": 0.132
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -24.9,
+       "wins": 2,
+       "losses": 34,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -3.6,
+       "wins": 19,
+       "losses": 17,
+       "n": 40,
+       "p": 0.868
+      },
+      "joint": {
+       "mean": -28.6,
+       "wins": 5,
+       "losses": 29,
+       "n": 40,
+       "p": 0.0
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -33.1,
+       "wins": 0,
+       "losses": 40,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -2.3,
+       "wins": 24,
+       "losses": 16,
+       "n": 40,
+       "p": 0.268
+      },
+      "joint": {
+       "mean": -35.4,
+       "wins": 1,
+       "losses": 36,
+       "n": 40,
+       "p": 0.0
+      }
+     }
+    }
+   },
+   "joint_vs_competing_pair": {
+    "collaborating": {
+     "luna_E2": {
+      "mean": 31.7,
+      "wins": 27,
+      "losses": 7,
+      "n": 40,
+      "p": 0.001
+     },
+     "sonnet": {
+      "mean": 33.2,
+      "wins": 38,
+      "losses": 1,
+      "n": 40,
+      "p": 0.0
+     },
+     "sol": {
+      "mean": 30.6,
+      "wins": 38,
+      "losses": 0,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "compromising": {
+     "luna_E2": {
+      "mean": 16.8,
+      "wins": 24,
+      "losses": 14,
+      "n": 40,
+      "p": 0.143
+     },
+     "sonnet": {
+      "mean": 25.2,
+      "wins": 27,
+      "losses": 2,
+      "n": 40,
+      "p": 0.0
+     },
+     "sol": {
+      "mean": 17.7,
+      "wins": 18,
+      "losses": 2,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "accommodating": {
+     "luna_E2": {
+      "mean": 31.8,
+      "wins": 28,
+      "losses": 9,
+      "n": 40,
+      "p": 0.003
+     },
+     "sonnet": {
+      "mean": 31.8,
+      "wins": 37,
+      "losses": 1,
+      "n": 40,
+      "p": 0.0
+     },
+     "sol": {
+      "mean": 29.0,
+      "wins": 36,
+      "losses": 1,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "avoiding": {
+     "luna_E2": {
+      "mean": 6.3,
+      "wins": 15,
+      "losses": 18,
+      "n": 40,
+      "p": 0.728
+     },
+     "sonnet": {
+      "mean": 4.5,
+      "wins": 23,
+      "losses": 9,
+      "n": 40,
+      "p": 0.02
+     },
+     "sol": {
+      "mean": -4.4,
+      "wins": 20,
+      "losses": 12,
+      "n": 40,
+      "p": 0.215
+     }
+    }
+   },
+   "seats": {},
+   "compliance": {
+    "luna_E2": {
+     "collaborating": {
+      "reply": [
+       37,
+       40
+      ],
+      "competing": [
+       36,
+       40
+      ]
+     },
+     "compromising": {
+      "reply": [
+       34,
+       40
+      ],
+      "competing": [
+       34,
+       40
+      ]
+     },
+     "accommodating": {
+      "reply": [
+       38,
+       40
+      ],
+      "competing": [
+       33,
+       40
+      ]
+     },
+     "avoiding": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       37,
+       40
+      ]
+     }
+    },
+    "sonnet": {
+     "collaborating": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "compromising": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "accommodating": {
+      "reply": [
+       39,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "avoiding": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     }
+    },
+    "sol": {
+     "collaborating": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "compromising": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "accommodating": {
+      "reply": [
+       39,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "avoiding": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     }
+    }
+   },
+   "vs_e2_twin": {
+    "collaborating-competing": {
+     "sonnet": {
+      "mean": 7.1,
+      "wins": 7,
+      "losses": 7,
+      "n": 20,
+      "p": 1.0
+     },
+     "sol": {
+      "mean": 7.2,
+      "wins": 13,
+      "losses": 7,
+      "n": 20,
+      "p": 0.263
+     }
+    },
+    "competing-collaborating": {
+     "sonnet": {
+      "mean": 6.0,
+      "wins": 7,
+      "losses": 6,
+      "n": 20,
+      "p": 1.0
+     },
+     "sol": {
+      "mean": 6.4,
+      "wins": 10,
+      "losses": 8,
+      "n": 20,
+      "p": 0.815
+     }
+    },
+    "compromising-competing": {
+     "sonnet": {
+      "mean": 14.0,
+      "wins": 12,
+      "losses": 7,
+      "n": 20,
+      "p": 0.359
+     },
+     "sol": {
+      "mean": 7.2,
+      "wins": 10,
+      "losses": 8,
+      "n": 20,
+      "p": 0.815
+     }
+    },
+    "competing-compromising": {
+     "sonnet": {
+      "mean": 13.0,
+      "wins": 13,
+      "losses": 5,
+      "n": 20,
+      "p": 0.096
+     },
+     "sol": {
+      "mean": 10.5,
+      "wins": 13,
+      "losses": 5,
+      "n": 20,
+      "p": 0.096
+     }
+    },
+    "accommodating-competing": {
+     "sonnet": {
+      "mean": 7.2,
+      "wins": 10,
+      "losses": 5,
+      "n": 20,
+      "p": 0.302
+     },
+     "sol": {
+      "mean": 6.9,
+      "wins": 7,
+      "losses": 8,
+      "n": 20,
+      "p": 1.0
+     }
+    },
+    "competing-accommodating": {
+     "sonnet": {
+      "mean": 3.0,
+      "wins": 10,
+      "losses": 7,
+      "n": 20,
+      "p": 0.629
+     },
+     "sol": {
+      "mean": 3.4,
+      "wins": 10,
+      "losses": 5,
+      "n": 20,
+      "p": 0.302
+     }
+    },
+    "avoiding-competing": {
+     "sonnet": {
+      "mean": 1.5,
+      "wins": 8,
+      "losses": 6,
+      "n": 20,
+      "p": 0.791
+     },
+     "sol": {
+      "mean": -7.7,
+      "wins": 5,
+      "losses": 7,
+      "n": 20,
+      "p": 0.774
+     }
+    },
+    "competing-avoiding": {
+     "sonnet": {
+      "mean": 5.0,
+      "wins": 7,
+      "losses": 3,
+      "n": 20,
+      "p": 0.344
+     },
+     "sol": {
+      "mean": 2.1,
+      "wins": 8,
+      "losses": 3,
+      "n": 20,
+      "p": 0.227
+     }
+    }
+   },
+   "cells": {
+    "collaborating-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 130.4,
+      "p1": 56.8,
+      "p2": 73.6,
+      "agree": 19,
+      "frontier": 14,
+      "gap": 9.4,
+      "moves": 3.9,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.009
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 137.6,
+      "p1": 69.8,
+      "p2": 67.7,
+      "agree": 20,
+      "frontier": 14,
+      "gap": 2.3,
+      "moves": 4.4,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.647
+     },
+     "sol": {
+      "n": 20,
+      "joint": 137.6,
+      "p1": 67.5,
+      "p2": 70.0,
+      "agree": 20,
+      "frontier": 18,
+      "gap": 2.2,
+      "moves": 5.3,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.445
+     }
+    },
+    "competing-collaborating": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 131.5,
+      "p1": 74.2,
+      "p2": 57.3,
+      "agree": 19,
+      "frontier": 16,
+      "gap": 8.3,
+      "moves": 3.8,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.009
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 137.5,
+      "p1": 70.5,
+      "p2": 67.0,
+      "agree": 20,
+      "frontier": 16,
+      "gap": 2.4,
+      "moves": 4.4,
+      "passes": 0,
+      "rejected": 1,
+      "cost": 0.658
+     },
+     "sol": {
+      "n": 20,
+      "joint": 137.9,
+      "p1": 69.5,
+      "p2": 68.4,
+      "agree": 20,
+      "frontier": 19,
+      "gap": 2.0,
+      "moves": 4.8,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.419
+     }
+    },
+    "compromising-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 118.8,
+      "p1": 44.6,
+      "p2": 74.2,
+      "agree": 18,
+      "frontier": 5,
+      "gap": 21.0,
+      "moves": 4.7,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.01
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 132.8,
+      "p1": 59.5,
+      "p2": 73.3,
+      "agree": 20,
+      "frontier": 7,
+      "gap": 7.0,
+      "moves": 6.0,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.713
+     },
+     "sol": {
+      "n": 20,
+      "joint": 126.0,
+      "p1": 58.7,
+      "p2": 67.3,
+      "agree": 20,
+      "frontier": 2,
+      "gap": 13.8,
+      "moves": 5.3,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.43
+     }
+    },
+    "competing-compromising": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 113.2,
+      "p1": 70.5,
+      "p2": 42.7,
+      "agree": 18,
+      "frontier": 4,
+      "gap": 26.6,
+      "moves": 4.8,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.011
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 126.2,
+      "p1": 66.8,
+      "p2": 59.5,
+      "agree": 19,
+      "frontier": 2,
+      "gap": 13.7,
+      "moves": 6.2,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.784
+     },
+     "sol": {
+      "n": 20,
+      "joint": 123.7,
+      "p1": 65.7,
+      "p2": 58.0,
+      "agree": 19,
+      "frontier": 1,
+      "gap": 16.1,
+      "moves": 5.9,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.489
+     }
+    },
+    "accommodating-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 129.8,
+      "p1": 50.4,
+      "p2": 79.4,
+      "agree": 19,
+      "frontier": 14,
+      "gap": 10.1,
+      "moves": 4.2,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.009
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 136.9,
+      "p1": 58.5,
+      "p2": 78.4,
+      "agree": 20,
+      "frontier": 18,
+      "gap": 2.9,
+      "moves": 4.1,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.454
+     },
+     "sol": {
+      "n": 20,
+      "joint": 136.7,
+      "p1": 58.1,
+      "p2": 78.6,
+      "agree": 20,
+      "frontier": 17,
+      "gap": 3.1,
+      "moves": 3.9,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.298
+     }
+    },
+    "competing-accommodating": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 132.2,
+      "p1": 79.0,
+      "p2": 53.3,
+      "agree": 20,
+      "frontier": 15,
+      "gap": 7.6,
+      "moves": 3.8,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.008
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 135.3,
+      "p1": 76.8,
+      "p2": 58.5,
+      "agree": 20,
+      "frontier": 17,
+      "gap": 4.6,
+      "moves": 4.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.507
+     },
+     "sol": {
+      "n": 20,
+      "joint": 135.6,
+      "p1": 79.8,
+      "p2": 55.9,
+      "agree": 20,
+      "frontier": 19,
+      "gap": 4.2,
+      "moves": 3.9,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.294
+     }
+    },
+    "avoiding-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 110.7,
+      "p1": 39.4,
+      "p2": 71.3,
+      "agree": 15,
+      "frontier": 10,
+      "gap": 29.2,
+      "moves": 3.1,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.006
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 112.2,
+      "p1": 46.6,
+      "p2": 65.6,
+      "agree": 14,
+      "frontier": 12,
+      "gap": 27.6,
+      "moves": 3.1,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.301
+     },
+     "sol": {
+      "n": 20,
+      "joint": 103.0,
+      "p1": 36.5,
+      "p2": 66.5,
+      "agree": 12,
+      "frontier": 12,
+      "gap": 36.9,
+      "moves": 3.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.214
+     }
+    },
+    "competing-avoiding": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 100.4,
+      "p1": 64.9,
+      "p2": 35.5,
+      "agree": 12,
+      "frontier": 8,
+      "gap": 39.5,
+      "moves": 3,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.006
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 105.3,
+      "p1": 63.3,
+      "p2": 42.0,
+      "agree": 12,
+      "frontier": 11,
+      "gap": 34.5,
+      "moves": 3.2,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.302
+     },
+     "sol": {
+      "n": 20,
+      "joint": 102.5,
+      "p1": 67.3,
+      "p2": 35.1,
+      "agree": 12,
+      "frontier": 12,
+      "gap": 37.4,
+      "moves": 3.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.211
+     }
+    }
+   }
+  }
  },
  "low_stakes_p2": {
   "cells": {
@@ -2876,6 +4094,1303 @@
     "avoiding": {
      "high_side": 55.6,
      "low_side": 16.1
+    }
+   }
+  },
+  "vs_competing": {
+   "reply": {
+    "neutral": {
+     "luna_E2": {
+      "n": 40,
+      "own": 33.8,
+      "competing_side": 37.6,
+      "joint": 71.3,
+      "agree": 32,
+      "moves": 6.8,
+      "tokens": 2918
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 41.6,
+      "competing_side": 46.6,
+      "joint": 88.2,
+      "agree": 40,
+      "moves": 5.4,
+      "tokens": 3453
+     },
+     "sol": {
+      "n": 40,
+      "own": 42.1,
+      "competing_side": 46.0,
+      "joint": 88.1,
+      "agree": 40,
+      "moves": 7.2,
+      "tokens": 3414
+     }
+    },
+    "competing": {
+     "luna_E2": {
+      "n": 40,
+      "own": 27.7,
+      "competing_side": 27.7,
+      "joint": 55.3,
+      "agree": 16,
+      "moves": 8.7,
+      "tokens": 4111
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 31.9,
+      "competing_side": 31.9,
+      "joint": 63.8,
+      "agree": 24,
+      "moves": 8.8,
+      "tokens": 7114
+     },
+     "sol": {
+      "n": 40,
+      "own": 33.9,
+      "competing_side": 33.9,
+      "joint": 67.8,
+      "agree": 26,
+      "moves": 8.5,
+      "tokens": 4496
+     }
+    },
+    "collaborating": {
+     "luna_E2": {
+      "n": 40,
+      "own": 38.4,
+      "competing_side": 37.3,
+      "joint": 75.6,
+      "agree": 30,
+      "moves": 6.6,
+      "tokens": 3077
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 43.8,
+      "competing_side": 47.0,
+      "joint": 90.7,
+      "agree": 40,
+      "moves": 5.5,
+      "tokens": 4627
+     },
+     "sol": {
+      "n": 40,
+      "own": 43.1,
+      "competing_side": 46.9,
+      "joint": 90.0,
+      "agree": 40,
+      "moves": 6.6,
+      "tokens": 3267
+     }
+    },
+    "compromising": {
+     "luna_E2": {
+      "n": 40,
+      "own": 32.0,
+      "competing_side": 46.2,
+      "joint": 78.2,
+      "agree": 35,
+      "moves": 5.8,
+      "tokens": 2372
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 39.5,
+      "competing_side": 45.2,
+      "joint": 84.7,
+      "agree": 39,
+      "moves": 6.5,
+      "tokens": 5287
+     },
+     "sol": {
+      "n": 40,
+      "own": 36.0,
+      "competing_side": 43.8,
+      "joint": 79.8,
+      "agree": 38,
+      "moves": 6.6,
+      "tokens": 3217
+     }
+    },
+    "accommodating": {
+     "luna_E2": {
+      "n": 40,
+      "own": 32.1,
+      "competing_side": 49.3,
+      "joint": 81.4,
+      "agree": 38,
+      "moves": 5.2,
+      "tokens": 2146
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 34.6,
+      "competing_side": 52.9,
+      "joint": 87.5,
+      "agree": 40,
+      "moves": 4.7,
+      "tokens": 3060
+     },
+     "sol": {
+      "n": 40,
+      "own": 30.1,
+      "competing_side": 55.7,
+      "joint": 85.8,
+      "agree": 40,
+      "moves": 4.5,
+      "tokens": 1766
+     }
+    },
+    "avoiding": {
+     "luna_E2": {
+      "n": 40,
+      "own": 20.9,
+      "competing_side": 37.2,
+      "joint": 58.0,
+      "agree": 17,
+      "moves": 3.3,
+      "tokens": 1270
+     },
+     "sonnet": {
+      "n": 40,
+      "own": 24.8,
+      "competing_side": 40.4,
+      "joint": 65.2,
+      "agree": 22,
+      "moves": 3.4,
+      "tokens": 1969
+     },
+     "sol": {
+      "n": 40,
+      "own": 23.2,
+      "competing_side": 43.2,
+      "joint": 66.4,
+      "agree": 24,
+      "moves": 3.5,
+      "tokens": 1544
+     }
+    }
+   },
+   "vs_neutral_reply": {
+    "competing": {
+     "luna_E2": {
+      "own": {
+       "mean": -6.1,
+       "wins": 7,
+       "losses": 26,
+       "n": 40,
+       "p": 0.001
+      },
+      "competing_side": {
+       "mean": -9.9,
+       "wins": 5,
+       "losses": 28,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -16.0,
+       "wins": 7,
+       "losses": 26,
+       "n": 40,
+       "p": 0.001
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -9.7,
+       "wins": 9,
+       "losses": 30,
+       "n": 40,
+       "p": 0.001
+      },
+      "competing_side": {
+       "mean": -14.7,
+       "wins": 5,
+       "losses": 35,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -24.4,
+       "wins": 3,
+       "losses": 37,
+       "n": 40,
+       "p": 0.0
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -8.2,
+       "wins": 6,
+       "losses": 32,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -12.1,
+       "wins": 1,
+       "losses": 37,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -20.3,
+       "wins": 2,
+       "losses": 36,
+       "n": 40,
+       "p": 0.0
+      }
+     }
+    },
+    "collaborating": {
+     "luna_E2": {
+      "own": {
+       "mean": 4.6,
+       "wins": 21,
+       "losses": 16,
+       "n": 40,
+       "p": 0.511
+      },
+      "competing_side": {
+       "mean": -0.3,
+       "wins": 15,
+       "losses": 22,
+       "n": 40,
+       "p": 0.324
+      },
+      "joint": {
+       "mean": 4.3,
+       "wins": 23,
+       "losses": 14,
+       "n": 40,
+       "p": 0.188
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": 2.2,
+       "wins": 18,
+       "losses": 8,
+       "n": 40,
+       "p": 0.076
+      },
+      "competing_side": {
+       "mean": 0.3,
+       "wins": 13,
+       "losses": 13,
+       "n": 40,
+       "p": 1.0
+      },
+      "joint": {
+       "mean": 2.5,
+       "wins": 20,
+       "losses": 6,
+       "n": 40,
+       "p": 0.009
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": 1.0,
+       "wins": 18,
+       "losses": 6,
+       "n": 40,
+       "p": 0.023
+      },
+      "competing_side": {
+       "mean": 0.9,
+       "wins": 15,
+       "losses": 8,
+       "n": 40,
+       "p": 0.21
+      },
+      "joint": {
+       "mean": 2.0,
+       "wins": 19,
+       "losses": 6,
+       "n": 40,
+       "p": 0.015
+      }
+     }
+    },
+    "compromising": {
+     "luna_E2": {
+      "own": {
+       "mean": -1.7,
+       "wins": 19,
+       "losses": 19,
+       "n": 40,
+       "p": 1.0
+      },
+      "competing_side": {
+       "mean": 8.6,
+       "wins": 20,
+       "losses": 19,
+       "n": 40,
+       "p": 1.0
+      },
+      "joint": {
+       "mean": 6.8,
+       "wins": 25,
+       "losses": 14,
+       "n": 40,
+       "p": 0.108
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -2.1,
+       "wins": 12,
+       "losses": 18,
+       "n": 40,
+       "p": 0.362
+      },
+      "competing_side": {
+       "mean": -1.5,
+       "wins": 17,
+       "losses": 14,
+       "n": 40,
+       "p": 0.72
+      },
+      "joint": {
+       "mean": -3.5,
+       "wins": 10,
+       "losses": 21,
+       "n": 40,
+       "p": 0.071
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -6.1,
+       "wins": 3,
+       "losses": 34,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -2.2,
+       "wins": 17,
+       "losses": 19,
+       "n": 40,
+       "p": 0.868
+      },
+      "joint": {
+       "mean": -8.3,
+       "wins": 8,
+       "losses": 29,
+       "n": 40,
+       "p": 0.001
+      }
+     }
+    },
+    "accommodating": {
+     "luna_E2": {
+      "own": {
+       "mean": -1.6,
+       "wins": 15,
+       "losses": 20,
+       "n": 40,
+       "p": 0.5
+      },
+      "competing_side": {
+       "mean": 11.7,
+       "wins": 26,
+       "losses": 9,
+       "n": 40,
+       "p": 0.006
+      },
+      "joint": {
+       "mean": 10.1,
+       "wins": 25,
+       "losses": 10,
+       "n": 40,
+       "p": 0.017
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -7.0,
+       "wins": 5,
+       "losses": 26,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": 6.3,
+       "wins": 27,
+       "losses": 4,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -0.7,
+       "wins": 15,
+       "losses": 16,
+       "n": 40,
+       "p": 1.0
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -11.9,
+       "wins": 0,
+       "losses": 38,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": 9.7,
+       "wins": 37,
+       "losses": 1,
+       "n": 40,
+       "p": 0.0
+      },
+      "joint": {
+       "mean": -2.2,
+       "wins": 18,
+       "losses": 20,
+       "n": 40,
+       "p": 0.871
+      }
+     }
+    },
+    "avoiding": {
+     "luna_E2": {
+      "own": {
+       "mean": -12.9,
+       "wins": 5,
+       "losses": 28,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -0.4,
+       "wins": 14,
+       "losses": 20,
+       "n": 40,
+       "p": 0.392
+      },
+      "joint": {
+       "mean": -13.3,
+       "wins": 12,
+       "losses": 22,
+       "n": 40,
+       "p": 0.121
+      }
+     },
+     "sonnet": {
+      "own": {
+       "mean": -16.9,
+       "wins": 2,
+       "losses": 38,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -6.2,
+       "wins": 20,
+       "losses": 20,
+       "n": 40,
+       "p": 1.0
+      },
+      "joint": {
+       "mean": -23.1,
+       "wins": 11,
+       "losses": 29,
+       "n": 40,
+       "p": 0.006
+      }
+     },
+     "sol": {
+      "own": {
+       "mean": -18.9,
+       "wins": 0,
+       "losses": 40,
+       "n": 40,
+       "p": 0.0
+      },
+      "competing_side": {
+       "mean": -2.8,
+       "wins": 24,
+       "losses": 16,
+       "n": 40,
+       "p": 0.268
+      },
+      "joint": {
+       "mean": -21.7,
+       "wins": 12,
+       "losses": 28,
+       "n": 40,
+       "p": 0.017
+      }
+     }
+    }
+   },
+   "joint_vs_competing_pair": {
+    "collaborating": {
+     "luna_E2": {
+      "mean": 20.3,
+      "wins": 29,
+      "losses": 4,
+      "n": 40,
+      "p": 0.0
+     },
+     "sonnet": {
+      "mean": 26.9,
+      "wins": 39,
+      "losses": 1,
+      "n": 40,
+      "p": 0.0
+     },
+     "sol": {
+      "mean": 22.2,
+      "wins": 36,
+      "losses": 2,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "compromising": {
+     "luna_E2": {
+      "mean": 22.9,
+      "wins": 29,
+      "losses": 7,
+      "n": 40,
+      "p": 0.0
+     },
+     "sonnet": {
+      "mean": 20.9,
+      "wins": 32,
+      "losses": 3,
+      "n": 40,
+      "p": 0.0
+     },
+     "sol": {
+      "mean": 12.0,
+      "wins": 19,
+      "losses": 9,
+      "n": 40,
+      "p": 0.087
+     }
+    },
+    "accommodating": {
+     "luna_E2": {
+      "mean": 26.1,
+      "wins": 34,
+      "losses": 4,
+      "n": 40,
+      "p": 0.0
+     },
+     "sonnet": {
+      "mean": 23.7,
+      "wins": 32,
+      "losses": 8,
+      "n": 40,
+      "p": 0.0
+     },
+     "sol": {
+      "mean": 18.0,
+      "wins": 28,
+      "losses": 12,
+      "n": 40,
+      "p": 0.017
+     }
+    },
+    "avoiding": {
+     "luna_E2": {
+      "mean": 2.7,
+      "wins": 13,
+      "losses": 12,
+      "n": 40,
+      "p": 1.0
+     },
+     "sonnet": {
+      "mean": 1.4,
+      "wins": 16,
+      "losses": 16,
+      "n": 40,
+      "p": 1.0
+     },
+     "sol": {
+      "mean": -1.4,
+      "wins": 15,
+      "losses": 19,
+      "n": 40,
+      "p": 0.608
+     }
+    }
+   },
+   "seats": {
+    "luna_E2": {
+     "neutral": {
+      "high_side": 52.1,
+      "low_side": 15.4
+     },
+     "competing": {
+      "high_side": 42.1,
+      "low_side": 13.2
+     },
+     "collaborating": {
+      "high_side": 59.4,
+      "low_side": 17.3
+     },
+     "compromising": {
+      "high_side": 48.9,
+      "low_side": 15.1
+     },
+     "accommodating": {
+      "high_side": 50.5,
+      "low_side": 13.7
+     },
+     "avoiding": {
+      "high_side": 32.2,
+      "low_side": 9.6
+     }
+    },
+    "sonnet": {
+     "neutral": {
+      "high_side": 63.9,
+      "low_side": 19.3
+     },
+     "competing": {
+      "high_side": 49.1,
+      "low_side": 14.7
+     },
+     "collaborating": {
+      "high_side": 68.1,
+      "low_side": 19.4
+     },
+     "compromising": {
+      "high_side": 62.0,
+      "low_side": 17.1
+     },
+     "accommodating": {
+      "high_side": 54.0,
+      "low_side": 15.3
+     },
+     "avoiding": {
+      "high_side": 38.1,
+      "low_side": 11.4
+     }
+    },
+    "sol": {
+     "neutral": {
+      "high_side": 65.0,
+      "low_side": 19.1
+     },
+     "competing": {
+      "high_side": 52.1,
+      "low_side": 15.7
+     },
+     "collaborating": {
+      "high_side": 66.5,
+      "low_side": 19.8
+     },
+     "compromising": {
+      "high_side": 55.8,
+      "low_side": 16.2
+     },
+     "accommodating": {
+      "high_side": 46.6,
+      "low_side": 13.7
+     },
+     "avoiding": {
+      "high_side": 35.8,
+      "low_side": 10.5
+     }
+    }
+   },
+   "compliance": {
+    "luna_E2": {
+     "collaborating": {
+      "reply": [
+       32,
+       40
+      ],
+      "competing": [
+       32,
+       40
+      ]
+     },
+     "compromising": {
+      "reply": [
+       30,
+       40
+      ],
+      "competing": [
+       39,
+       40
+      ]
+     },
+     "accommodating": {
+      "reply": [
+       36,
+       40
+      ],
+      "competing": [
+       35,
+       40
+      ]
+     },
+     "avoiding": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     }
+    },
+    "sonnet": {
+     "collaborating": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       39,
+       40
+      ]
+     },
+     "compromising": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "accommodating": {
+      "reply": [
+       39,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "avoiding": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     }
+    },
+    "sol": {
+     "collaborating": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "compromising": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "accommodating": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     },
+     "avoiding": {
+      "reply": [
+       40,
+       40
+      ],
+      "competing": [
+       40,
+       40
+      ]
+     }
+    }
+   },
+   "vs_e2_twin": {
+    "collaborating-competing": {
+     "sonnet": {
+      "mean": 10.4,
+      "wins": 11,
+      "losses": 1,
+      "n": 20,
+      "p": 0.006
+     },
+     "sol": {
+      "mean": 9.7,
+      "wins": 12,
+      "losses": 7,
+      "n": 20,
+      "p": 0.359
+     }
+    },
+    "competing-collaborating": {
+     "sonnet": {
+      "mean": 19.8,
+      "wins": 16,
+      "losses": 1,
+      "n": 20,
+      "p": 0.0
+     },
+     "sol": {
+      "mean": 19.1,
+      "wins": 15,
+      "losses": 1,
+      "n": 20,
+      "p": 0.001
+     }
+    },
+    "compromising-competing": {
+     "sonnet": {
+      "mean": 15.7,
+      "wins": 15,
+      "losses": 3,
+      "n": 20,
+      "p": 0.008
+     },
+     "sol": {
+      "mean": 9.2,
+      "wins": 11,
+      "losses": 5,
+      "n": 20,
+      "p": 0.21
+     }
+    },
+    "competing-compromising": {
+     "sonnet": {
+      "mean": -2.7,
+      "wins": 8,
+      "losses": 11,
+      "n": 20,
+      "p": 0.648
+     },
+     "sol": {
+      "mean": -6.0,
+      "wins": 8,
+      "losses": 10,
+      "n": 20,
+      "p": 0.815
+     }
+    },
+    "accommodating-competing": {
+     "sonnet": {
+      "mean": 3.7,
+      "wins": 10,
+      "losses": 5,
+      "n": 20,
+      "p": 0.302
+     },
+     "sol": {
+      "mean": -2.2,
+      "wins": 8,
+      "losses": 8,
+      "n": 20,
+      "p": 1.0
+     }
+    },
+    "competing-accommodating": {
+     "sonnet": {
+      "mean": 8.5,
+      "wins": 10,
+      "losses": 6,
+      "n": 20,
+      "p": 0.454
+     },
+     "sol": {
+      "mean": 11.0,
+      "wins": 12,
+      "losses": 3,
+      "n": 20,
+      "p": 0.035
+     }
+    },
+    "avoiding-competing": {
+     "sonnet": {
+      "mean": 8.5,
+      "wins": 7,
+      "losses": 1,
+      "n": 20,
+      "p": 0.07
+     },
+     "sol": {
+      "mean": 7.4,
+      "wins": 8,
+      "losses": 1,
+      "n": 20,
+      "p": 0.039
+     }
+    },
+    "competing-avoiding": {
+     "sonnet": {
+      "mean": 5.8,
+      "wins": 4,
+      "losses": 2,
+      "n": 20,
+      "p": 0.688
+     },
+     "sol": {
+      "mean": 9.4,
+      "wins": 6,
+      "losses": 2,
+      "n": 20,
+      "p": 0.289
+     }
+    }
+   },
+   "cells": {
+    "collaborating-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 78.2,
+      "p1": 59.4,
+      "p2": 18.8,
+      "agree": 16,
+      "frontier": 11,
+      "gap": 28.6,
+      "moves": 6.2,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.015
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 88.6,
+      "p1": 68.1,
+      "p2": 20.4,
+      "agree": 20,
+      "frontier": 12,
+      "gap": 18.2,
+      "moves": 5.6,
+      "passes": 1,
+      "rejected": 10,
+      "cost": 0.739
+     },
+     "sol": {
+      "n": 20,
+      "joint": 87.9,
+      "p1": 66.5,
+      "p2": 21.4,
+      "agree": 20,
+      "frontier": 18,
+      "gap": 18.9,
+      "moves": 7.0,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.545
+     }
+    },
+    "competing-collaborating": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 73.0,
+      "p1": 55.7,
+      "p2": 17.3,
+      "agree": 14,
+      "frontier": 9,
+      "gap": 33.8,
+      "moves": 7.0,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.017
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 92.9,
+      "p1": 73.5,
+      "p2": 19.4,
+      "agree": 20,
+      "frontier": 19,
+      "gap": 13.9,
+      "moves": 5.5,
+      "passes": 1,
+      "rejected": 6,
+      "cost": 0.618
+     },
+     "sol": {
+      "n": 20,
+      "joint": 92.2,
+      "p1": 72.4,
+      "p2": 19.8,
+      "agree": 20,
+      "frontier": 19,
+      "gap": 14.6,
+      "moves": 6.2,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.468
+     }
+    },
+    "compromising-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 67.6,
+      "p1": 48.9,
+      "p2": 18.7,
+      "agree": 16,
+      "frontier": 3,
+      "gap": 39.2,
+      "moves": 6.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.014
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 83.3,
+      "p1": 62.0,
+      "p2": 21.3,
+      "agree": 20,
+      "frontier": 8,
+      "gap": 23.5,
+      "moves": 6.2,
+      "passes": 1,
+      "rejected": 5,
+      "cost": 0.649
+     },
+     "sol": {
+      "n": 20,
+      "joint": 76.8,
+      "p1": 55.8,
+      "p2": 21.0,
+      "agree": 20,
+      "frontier": 2,
+      "gap": 30.0,
+      "moves": 6.8,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.494
+     }
+    },
+    "competing-compromising": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 88.8,
+      "p1": 73.7,
+      "p2": 15.1,
+      "agree": 19,
+      "frontier": 5,
+      "gap": 18.0,
+      "moves": 5.0,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.011
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 86.1,
+      "p1": 69.0,
+      "p2": 17.1,
+      "agree": 19,
+      "frontier": 6,
+      "gap": 20.7,
+      "moves": 6.8,
+      "passes": 3,
+      "rejected": 11,
+      "cost": 0.777
+     },
+     "sol": {
+      "n": 20,
+      "joint": 82.8,
+      "p1": 66.6,
+      "p2": 16.2,
+      "agree": 18,
+      "frontier": 3,
+      "gap": 24.0,
+      "moves": 6.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.481
+     }
+    },
+    "accommodating-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 74.4,
+      "p1": 50.5,
+      "p2": 23.9,
+      "agree": 20,
+      "frontier": 12,
+      "gap": 32.4,
+      "moves": 4.7,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.01
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 78.1,
+      "p1": 54.0,
+      "p2": 24.2,
+      "agree": 20,
+      "frontier": 16,
+      "gap": 28.7,
+      "moves": 4.5,
+      "passes": 0,
+      "rejected": 2,
+      "cost": 0.389
+     },
+     "sol": {
+      "n": 20,
+      "joint": 72.3,
+      "p1": 46.6,
+      "p2": 25.7,
+      "agree": 20,
+      "frontier": 12,
+      "gap": 34.5,
+      "moves": 4.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.265
+     }
+    },
+    "competing-accommodating": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 88.4,
+      "p1": 74.7,
+      "p2": 13.7,
+      "agree": 18,
+      "frontier": 10,
+      "gap": 18.4,
+      "moves": 5.8,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.013
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 96.9,
+      "p1": 81.6,
+      "p2": 15.3,
+      "agree": 20,
+      "frontier": 15,
+      "gap": 9.9,
+      "moves": 4.8,
+      "passes": 0,
+      "rejected": 2,
+      "cost": 0.435
+     },
+     "sol": {
+      "n": 20,
+      "joint": 99.4,
+      "p1": 85.7,
+      "p2": 13.7,
+      "agree": 20,
+      "frontier": 18,
+      "gap": 7.4,
+      "moves": 4.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.269
+     }
+    },
+    "avoiding-competing": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 48.3,
+      "p1": 32.2,
+      "p2": 16.2,
+      "agree": 8,
+      "frontier": 5,
+      "gap": 58.5,
+      "moves": 3.2,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.006
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 56.8,
+      "p1": 38.1,
+      "p2": 18.7,
+      "agree": 11,
+      "frontier": 10,
+      "gap": 50.0,
+      "moves": 3.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.215
+     },
+     "sol": {
+      "n": 20,
+      "joint": 55.7,
+      "p1": 35.8,
+      "p2": 19.9,
+      "agree": 12,
+      "frontier": 9,
+      "gap": 51.1,
+      "moves": 3.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.196
+     }
+    },
+    "competing-avoiding": {
+     "luna_E2": {
+      "n": 20,
+      "joint": 67.7,
+      "p1": 58.1,
+      "p2": 9.6,
+      "agree": 9,
+      "frontier": 6,
+      "gap": 39.1,
+      "moves": 3.3,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.006
+     },
+     "sonnet": {
+      "n": 20,
+      "joint": 73.6,
+      "p1": 62.1,
+      "p2": 11.4,
+      "agree": 11,
+      "frontier": 9,
+      "gap": 33.2,
+      "moves": 3.4,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.203
+     },
+     "sol": {
+      "n": 20,
+      "joint": 77.1,
+      "p1": 66.5,
+      "p2": 10.5,
+      "agree": 12,
+      "frontier": 11,
+      "gap": 29.7,
+      "moves": 3.5,
+      "passes": 0,
+      "rejected": 0,
+      "cost": 0.182
+     }
     }
    }
   }

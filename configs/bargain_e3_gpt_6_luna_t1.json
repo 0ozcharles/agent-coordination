@@ -112,5 +112,17 @@
   "output": "runs/bargain/e3_gpt_6_luna_t1",
   "results_prefix": "results/bargain_e3_gpt_6_luna_t1",
   "status": "frozen 2026-11-21; rules, instances and seats byte-identical to E1; rerun the same day against OpenAI directly after the proxy run turned out to reason (see model_kwargs_note)",
-  "model_kwargs_note": "Through the proxy (ai2s/gpt-6-luna with reasoning_effort none at the top level) the first run of this arm had hidden reasoning after all: 284 of 1,761 calls returned 700 completion tokens with an empty or truncated reply (286 rejected replies, 57 lost moves), so the proxy does not honour reasoning_effort for this model. Rerun 2026-11-21 directly against OpenAI, as E1 was, with reasoning off and no temperature or top-p (the model's defaults), which is the control E1 needs; the proxy run's games are kept under runs/bargain/e3_gpt_6_luna_t1_proxy and are not reported."
+  "model_kwargs_note": "Through the proxy (ai2s/gpt-6-luna with reasoning_effort none at the top level) the first run of this arm had hidden reasoning after all: 284 of 1,761 calls returned 700 completion tokens with an empty or truncated reply (286 rejected replies, 57 lost moves), so the proxy does not honour reasoning_effort for this model. Rerun 2026-11-21 directly against OpenAI, as E1 was, with reasoning off and no temperature or top-p (the model's defaults), which is the control E1 needs; the proxy run's games are kept under runs/bargain/e3_gpt_6_luna_t1_proxy and are not reported.",
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {
+      "extra_body": {
+        "reasoning_effort": "low"
+      }
+    },
+    "codebook": "docs/B_BARGAIN_STYLE_CODEBOOK.md",
+    "attempts": 2,
+    "input": "the public moves and messages in order; not the scores, the private reasoning, the guidance or the payoffs"
+  },
+  "labeler_note": "added 2026-11-21 after the games were played and reported: E1's style labeler (gpt-6-luna, low reasoning, the public transcript only) as the secondary measure; the labels change no game"
 }

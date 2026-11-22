@@ -178,8 +178,9 @@
     "soft_alone": "Compromising, accommodating and avoiding adopted alone lose for whichever model adopts them, and lose more when the partner is sonnet than when it is luna.",
     "analysis": "Paired by instance (exact sign tests) against the arm's own mixed default pair, with the two arms pooled by model (seat 1 of one arm and seat 2 of the other play the same model), 80 games per direction when both arms are played; the same-model twins are E3's luna control and sonnet arms on the same 40 instances."
   },
-  "budget_usd": 6.0,
+  "budget_usd": 10.0,
   "output": "runs/bargain/e3_cross_luna_sonnet",
   "results_prefix": "results/bargain_e3_cross_luna_sonnet",
-  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E3 (E1's 40 instances), 16 cells as the E3 follow-up"
+  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E3 (E1's 40 instances), 16 cells as the E3 follow-up",
+  "budget_note": "raised from 6 to 10 on 2026-11-21 after the first arm stopped at its cap with 419 of 640 games played: with the 1,500-token cap sonnet's seat writes about 1,000 completion tokens a game and a game costs about $0.015, not the $0.008 of the estimate; nothing else changed"
 }

@@ -1,12 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="516" font-family="Helvetica, Arial, sans-serif" font-size="12">
-<rect width="900" height="516" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="724" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="724" fill="white"/>
 <text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
 <text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
-<line x1="190.0" y1="36" x2="190.0" y2="456" stroke="#eee"/><text x="190.0" y="468" text-anchor="middle">0</text>
-<line x1="295.0" y1="36" x2="295.0" y2="456" stroke="#eee"/><text x="295.0" y="468" text-anchor="middle">25</text>
-<line x1="400.0" y1="36" x2="400.0" y2="456" stroke="#eee"/><text x="400.0" y="468" text-anchor="middle">50</text>
-<line x1="505.0" y1="36" x2="505.0" y2="456" stroke="#eee"/><text x="505.0" y="468" text-anchor="middle">75</text>
-<line x1="610.0" y1="36" x2="610.0" y2="456" stroke="#eee"/><text x="610.0" y="468" text-anchor="middle">100</text>
+<line x1="190.0" y1="36" x2="190.0" y2="664" stroke="#eee"/><text x="190.0" y="676" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="664" stroke="#eee"/><text x="295.0" y="676" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="664" stroke="#eee"/><text x="400.0" y="676" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="664" stroke="#eee"/><text x="505.0" y="676" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="664" stroke="#eee"/><text x="610.0" y="676" text-anchor="middle">100</text>
 <text x="184" y="56" text-anchor="end">neutral-neutral</text>
 <rect x="190" y="43" width="283.7" height="9" fill="#2c3e50"/>
 <rect x="190" y="53" width="89.7" height="9" fill="#95a5a6"/>
@@ -71,4 +71,36 @@
 <rect x="190" y="433" width="327.5" height="9" fill="#2c3e50"/>
 <rect x="190" y="443" width="67.8" height="9" fill="#95a5a6"/>
 <text x="624" y="446">20/20</text><text x="674" y="446">n/a</text><text x="734" y="446">12.69</text>
+<text x="184" y="472" text-anchor="end">collaborating-competing</text>
+<rect x="190" y="459" width="279.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="469" width="90.0" height="9" fill="#95a5a6"/>
+<text x="624" y="472">20/20</text><text x="674" y="472">20/20</text><text x="734" y="472">18.9</text>
+<text x="184" y="498" text-anchor="end">competing-collaborating</text>
+<rect x="190" y="485" width="304.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="495" width="83.0" height="9" fill="#95a5a6"/>
+<text x="624" y="498">20/20</text><text x="674" y="498">20/20</text><text x="734" y="498">14.625</text>
+<text x="184" y="524" text-anchor="end">compromising-competing</text>
+<rect x="190" y="511" width="234.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="521" width="88.3" height="9" fill="#95a5a6"/>
+<text x="624" y="524">20/20</text><text x="674" y="524">20/20</text><text x="734" y="524">30.025</text>
+<text x="184" y="550" text-anchor="end">competing-compromising</text>
+<rect x="190" y="537" width="279.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="547" width="68.1" height="9" fill="#95a5a6"/>
+<text x="624" y="550">18/20</text><text x="674" y="550">20/20</text><text x="734" y="550">23.98</text>
+<text x="184" y="576" text-anchor="end">accommodating-competing</text>
+<rect x="190" y="563" width="195.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="573" width="107.8" height="9" fill="#95a5a6"/>
+<text x="624" y="576">20/20</text><text x="674" y="576">20/20</text><text x="734" y="576">34.525</text>
+<text x="184" y="602" text-anchor="end">competing-accommodating</text>
+<rect x="190" y="589" width="360.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="599" width="57.4" height="9" fill="#95a5a6"/>
+<text x="624" y="602">20/20</text><text x="674" y="602">20/20</text><text x="734" y="602">7.41</text>
+<text x="184" y="628" text-anchor="end">avoiding-competing</text>
+<rect x="190" y="615" width="150.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="625" width="83.5" height="9" fill="#95a5a6"/>
+<text x="624" y="628">12/20</text><text x="674" y="628">20/20</text><text x="734" y="628">51.1</text>
+<text x="184" y="654" text-anchor="end">competing-avoiding</text>
+<rect x="190" y="641" width="279.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="651" width="44.3" height="9" fill="#95a5a6"/>
+<text x="624" y="654">12/20</text><text x="674" y="654">20/20</text><text x="734" y="654">29.72</text>
 </svg>

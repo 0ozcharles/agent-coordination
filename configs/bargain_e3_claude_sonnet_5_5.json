@@ -114,5 +114,17 @@
   "output": "runs/bargain/e3_claude_sonnet_5_5",
   "results_prefix": "results/bargain_e3_claude_sonnet_5_5",
   "status": "frozen 2026-11-21; rules, instances and seats byte-identical to E1; restarted the same day with thinking disabled (see model_kwargs_note) after 46 games with thinking on, which were discarded",
-  "model_kwargs_note": "thinking off: the proxy's Claude models think by default (about 170 hidden tokens per reply, counted and billed as completion tokens), and with the 700-token reply cap of E1 the thinking truncated the JSON in about a quarter of the calls in a first start of this arm (65 rejected replies and 12 passes in 46 games, discarded); `thinking: disabled` is accepted and matches the reasoning-off setting of the gpt arms. Changed 2026-11-21 before the arm was restarted; the proxy ignores reasoning_effort for Claude and rejects any temperature but 1"
+  "model_kwargs_note": "thinking off: the proxy's Claude models think by default (about 170 hidden tokens per reply, counted and billed as completion tokens), and with the 700-token reply cap of E1 the thinking truncated the JSON in about a quarter of the calls in a first start of this arm (65 rejected replies and 12 passes in 46 games, discarded); `thinking: disabled` is accepted and matches the reasoning-off setting of the gpt arms. Changed 2026-11-21 before the arm was restarted; the proxy ignores reasoning_effort for Claude and rejects any temperature but 1",
+  "labeler": {
+    "model": "gpt-6-luna",
+    "model_kwargs": {
+      "extra_body": {
+        "reasoning_effort": "low"
+      }
+    },
+    "codebook": "docs/B_BARGAIN_STYLE_CODEBOOK.md",
+    "attempts": 2,
+    "input": "the public moves and messages in order; not the scores, the private reasoning, the guidance or the payoffs"
+  },
+  "labeler_note": "added 2026-11-21 after the games were played and reported: E1's style labeler (gpt-6-luna, low reasoning, the public transcript only) as the secondary measure; the labels change no game"
 }

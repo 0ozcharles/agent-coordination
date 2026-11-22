@@ -1,0 +1,172 @@
+{
+ "study": "bargain_grounded_claude_haiku_5_5",
+ "question": "Grounded layer on a second model: the 85 ParallACT-derived instances with the ticket context, 16 cells (the rule diagonal and every strategy against neutral in both seats), claude-haiku-5-5 through the proxy with thinking disabled. Does the grounded map of gpt-6-luna (a default pair on the frontier in 77 of 85 games and nothing to gain from a strategy adopted alone) hold on a model whose default agent is stronger?",
+ "model": "ai2s/claude-haiku-5-5",
+ "model_kwargs": {
+  "extra_body": {
+   "thinking": {
+    "type": "disabled"
+   }
+  }
+ },
+ "max_tokens": 700,
+ "environment": {
+  "moves": 10,
+  "outside": [
+   30,
+   30
+  ],
+  "visible_weights": false,
+  "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+  "note": "grounded instances: structure from data/bargain_grounded_instances.json (see ground.py); opposition and asymmetry are properties of each extracted conflict, not knobs; outside option, moves and the protocol note as in E2 base"
+ },
+ "instances": {
+  "path": "data/bargain_grounded_instances.json",
+  "first_mover": "alternate",
+  "source": "ParallACT v1 contradictory pairs (external/ParallACT/dataset/v1/*/contradictory); decisions extracted by gpt-6-luna with ground.py",
+  "note": "n omitted: every extracted instance is used"
+ },
+ "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+ "strategies": {
+  "shared": {
+   "neutral": "Handle this in whatever way you think best."
+  },
+  "prompted": {
+   "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+   "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+   "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+   "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+   "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+  },
+  "rules": {
+   "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+   "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+   "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+   "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+   "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+  },
+  "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+ },
+ "cells": [
+  {
+   "name": "neutral-neutral",
+   "p1": "neutral",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "competing-competing",
+   "p1": "competing",
+   "p2": "competing",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating-collaborating",
+   "p1": "collaborating",
+   "p2": "collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "compromising-compromising",
+   "p1": "compromising",
+   "p2": "compromising",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating-accommodating",
+   "p1": "accommodating",
+   "p2": "accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "avoiding-avoiding",
+   "p1": "avoiding",
+   "p2": "avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "competing-neutral",
+   "p1": "competing",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-competing",
+   "p1": "neutral",
+   "p2": "competing",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating-neutral",
+   "p1": "collaborating",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-collaborating",
+   "p1": "neutral",
+   "p2": "collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "compromising-neutral",
+   "p1": "compromising",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-compromising",
+   "p1": "neutral",
+   "p2": "compromising",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating-neutral",
+   "p1": "accommodating",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-accommodating",
+   "p1": "neutral",
+   "p2": "accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "avoiding-neutral",
+   "p1": "avoiding",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-avoiding",
+   "p1": "neutral",
+   "p2": "avoiding",
+   "op": "rules"
+  }
+ ],
+ "control": "neutral-neutral",
+ "predictions": {
+  "default_pair": "the default pair agrees in at least 80 of 85 games and ends on the frontier in at least as many as luna's (77 of 85), with a joint gap under 7",
+  "unilateral": "adopted alone against neutral, collaborating and competing are within 3 points of neutral's own payoff in the default pair and competing costs the partner under 5; compromising and accommodating lose at least 3 points each and avoiding at least 10, with the partner gaining",
+  "symmetric": "collaborating pairs within 3 points of the default pair's joint payoff; competing pairs and avoiding pairs the two worst cells, each at least 8 points below the default pair; competing pairs less destructive than on sonnet and sol because haiku follows the competing rule in about half of its games (46 of 80 in E3)",
+  "compliance": "the collaborating trade clause is met in fewer than half of the games for the structural reason found on luna (instances with one contested decision cannot satisfy it); accommodating and avoiding above 80 percent",
+  "analysis": "as the grounded run: comparisons with the neutral pair paired by instance and seat (170 pairs); each cell paired by instance with luna's grounded twin; the 30 all-contested instances separately"
+ },
+ "labeler": {
+  "model": "gpt-6-luna",
+  "model_kwargs": {
+   "extra_body": {
+    "reasoning_effort": "low"
+   }
+  },
+  "codebook": "docs/B_BARGAIN_STYLE_CODEBOOK.md",
+  "attempts": 2,
+  "input": "the public moves and messages in order; not the scores, the private reasoning, the guidance or the payoffs"
+ },
+ "budget_usd": 3.0,
+ "output": "runs/bargain/grounded_claude_haiku_5_5",
+ "results_prefix": "results/bargain_grounded_claude_haiku_5_5",
+ "status": "frozen 2026-11-21 before any game was played; instances, seats, skin and rules as the grounded run on gpt-6-luna, cells reduced to 16 as in the E3 follow-up, model settings as haiku's E3 arm",
+ "max_tokens_note": "700 as in E1 and haiku's E3 arm, checked on a six-game smoke of the default pair on 2026-11-21: 240 to 290 completion tokens per call on average, the longest seat 457, no rejected reply; $0.0012 per game"
+}
