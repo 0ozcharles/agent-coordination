@@ -407,6 +407,8 @@ def parse_reply(text, inst):
             v = str(val).strip().lower()
             if v not in aliases and v.replace("option", "").strip() in aliases:
                 v = v.replace("option", "").strip()
+            if v not in aliases and re.match(r"^[a-z]\s*\(", v) and v[0] in aliases:
+                v = v[0]  # "C (Near the border...)" with the name shortened: the letter is the option
             if v not in aliases:
                 raise ValueError(f"unknown option {val!r} for {names[i]}")
             chosen[i] = aliases[v]

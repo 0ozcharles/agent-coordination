@@ -97,6 +97,9 @@ class DeliberationTest(unittest.TestCase):
         self.assertIn("Compensation to other cities: A (", text)
         move = bargain.parse_reply('{"message": "", "action": "propose", "proposal": {"Infrastructure Mix": "A", "Ecological Impact": "C", "Employment Rules": "D", "Federal Loan": "A", "Compensation to other cities": "E"}}', inst)
         self.assertEqual(move["design"], [0, 2, 3, 0, 4])
+        # a long option name shortened by the model still parses by its letter
+        move = bargain.parse_reply('{"message": "", "action": "propose", "proposal": {"Infrastructure Mix": "A", "Ecological Impact": "C", "Employment Rules": "D (No Union pref.)", "Federal Loan": "a ($3 billion)", "Compensation to other cities": "E (SportCo pays nothing)"}}', inst)
+        self.assertEqual(move["design"], [0, 2, 3, 0, 4])
         self.assertEqual(bargain.value(inst, "p1", move["design"]), 14 + 0 + 17 + 35 + 23)
 
 
