@@ -13,7 +13,8 @@ and 10 items and every pair of annotators shares some. Five, five and one more i
 One worked example per task is shown filled in and is nobody's item.
 
 Writes the item files, assignment.csv, keys/ (which game an item is, the judge's labels, the checker's verdicts; kept
-out of the repository until the answers are in, with their hashes in keys.sha256) and, with openpyxl installed, one
+out of the repository until the answers are in, with their hashes in keys.sha256; the games of the first pack, whose
+key was published, are excluded) and, with openpyxl installed, one
 workbook per annotator under workbooks/. Run from the repository root; needs runs/bargain (not in the repository).
 """
 import csv
@@ -120,6 +121,8 @@ def build(rng):
     by_game = {game(r): r for rs in recs.values() for r in rs}
     pairs = list(itertools.combinations(RATERS, 2))
     tasks, keys, assignment = {}, {}, []
+    # games of the first pack (commit 7aceb39), whose key is in the repository's history, are not drawn again
+    published = {tuple(x) for x in json.loads((OUT / "excluded_games.json").read_text())}
 
     def number(task, main, practice, example):
         """Deal the main items (in the stratified order they were drawn) to the pairs, then number them in a random order."""
@@ -133,7 +136,7 @@ def build(rng):
         return items
 
     # ---- Task A
-    used = {EXAMPLE_A[0]}
+    used = {EXAMPLE_A[0]} | published
     def take(run, cell, k):
         pool = [r for r in recs[run] if r["cell"] == cell and game(r) not in used and (r.get("label") or {}).get("label")]
         chosen = rng.sample(pool, k)
@@ -166,7 +169,8 @@ def build(rng):
     example_b = (by_game[EXAMPLE_B[0][:3]], EXAMPLE_B[0][3])
     taken = {(game(example_b[0]), example_b[1])}
     def draw(strategy, verdict, k):
-        pool = [u for u in units.get((strategy, verdict), []) if (game(u[0]), u[1]) not in taken and game(u[0]) not in {g for g, _ in taken}]
+        seen = {g for g, _ in taken} | published
+        pool = [u for u in units.get((strategy, verdict), []) if game(u[0]) not in seen]
         chosen = rng.sample(pool, min(k, len(pool)))
         taken.update((game(r), a) for r, a in chosen)
         return chosen

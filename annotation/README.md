@@ -15,7 +15,7 @@ Five, five and one more items are practice items that all six annotators rate be
 - `GUIDE_zh.md`: the instructions the annotators read (Chinese; the codebook definitions are quoted in English as the judge model received them). It is also the first sheet of every workbook.
 - `workbooks/annotator_R1.xlsx` to `annotator_R6.xlsx`: what each annotator fills in. One sheet per task; answers go in the yellow cells.
 - `task_a_style_items.csv`, `task_b_compliance_items.csv`, `task_c_extraction_items.csv`: every item as text. `assignment.csv`: which two annotators rate each item.
-- `keys/`: which game each item is, the judge's labels and the checker's verdicts. Not in the repository until the answers are in; `keys.sha256` commits to their content now, so the keys published later can be checked against it. The builder reproduces them from the game records.
+- `keys/`: which game each item is, the judge's labels and the checker's verdicts. Not in the repository until the answers are in; `keys.sha256` commits to their content now, so the keys published later can be checked against it. The builder reproduces them from the game records. A first, smaller pack (commit 7aceb39) had its key in the repository; the 212 games it used are listed in `excluded_games.json` and are not drawn again.
 - `returned/`: the workbooks as they come back (not in the repository, they carry names). `answers.csv`, written by the analysis, is the record of every answer under the annotator ids.
 
 ## Procedure
