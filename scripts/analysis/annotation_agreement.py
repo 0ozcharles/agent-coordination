@@ -1,6 +1,7 @@
 """Agreement in the human annotation study: between the annotators, with the judge model and with the checker.
 
-Reads the workbooks the annotators returned (annotation/returned/*.xlsx), the assignment and the keys; writes
+Reads what the annotators returned (annotation/returned/: the workbooks, *.xlsx, or the exports of the annotation
+page, *.json), the assignment and the keys; writes
 annotation/answers.csv (every answer, one row a cell), results/annotation_agreement.json and
 results/annotation_disagreements.csv (the items a third person should look at). Works on a partial return, and prints
 the practice items side by side for the calibration meeting. Run from the repository root.
@@ -63,16 +64,20 @@ def main(argv=None):
         assigned[r["task"].lower()][r["item"]] = (r["kind"], None if r["kind"] == "practice" else {r["annotator_1"], r["annotator_2"]})
 
     raw, problems = {}, []
-    for f in sorted(glob.glob(f"{args.returned}/*.xlsx")):
+    for f in sorted(glob.glob(f"{args.returned}/*.xlsx") + glob.glob(f"{args.returned}/*.json")):
         if Path(f).name.startswith("~$"):
             continue
-        who, answers = ann.workbook_answers(f)
+        try:
+            who, answers = ann.workbook_answers(f) if f.endswith(".xlsx") else ann.web_answers(f)
+        except (ValueError, KeyError, OSError) as e:
+            problems.append(f"{f}: cannot be read ({e}); skipped")
+            continue
         if who is None or who in raw:
             problems.append(f"{f}: {'no annotator id found' if who is None else 'a second file for ' + who}; skipped")
             continue
         raw[who] = answers
     if not raw:
-        print(f"no workbooks under {args.returned}: put the returned annotator_R*.xlsx files there")
+        print(f"nothing under {args.returned}: put the returned workbooks (*.xlsx) or the page's exports (*.json) there")
         return 1
 
     # ---- every answer, and how complete each return is

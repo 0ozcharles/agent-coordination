@@ -10,13 +10,21 @@ Three tasks check by hand the three places where the study relies on a model or 
 
 Five, five and one more items are practice items that all six annotators rate before the main items; they are reported apart and are not part of the agreement figures. One worked example per task is shown filled in.
 
+## Two ways to answer
+
+- **The annotation page** (`web/`, published as a private artifact from this session; the six annotators pick their number, 01 to 06, and get their own items one at a time). Answers save as they are given. For an annotator who may write to the artifact's database (a member of the owner's organization with Contributor access, or an invited editor) they go to `answers/<viewer id>/items/<item>`, which only the artifact's owner can read; `scripts/annotation_collect.py` turns a dump of those documents into files for the analysis. For everyone else the platform allows no writes, so the page keeps the answers in the annotator's browser and its Export button gives a block of text (or a file) to send back; save each as `returned/<anything>.json`. The page opens the main items only after the practice items are complete and the annotator confirms that the calibration meeting has taken place, and locks the practice answers from then on.
+- **The workbooks** (`workbooks/`), one per annotator, for anyone who prefers a spreadsheet. Same items, same guide.
+
+The analysis reads both kinds of return from `returned/`.
+
 ## Files
 
 - `GUIDE_zh.md`: the instructions the annotators read (Chinese; the codebook definitions are quoted in English as the judge model received them). It is also the first sheet of every workbook.
+- `web/index.html` and `web/data_{a,b,c}.json`: the annotation page and its items (written by the builder; the page quotes the same definitions, which the builder checks).
 - `workbooks/annotator_R1.xlsx` to `annotator_R6.xlsx`: what each annotator fills in. One sheet per task; answers go in the yellow cells.
 - `task_a_style_items.csv`, `task_b_compliance_items.csv`, `task_c_extraction_items.csv`: every item as text. `assignment.csv`: which two annotators rate each item.
 - `keys/`: which game each item is, the judge's labels and the checker's verdicts. Not in the repository until the answers are in; `keys.sha256` commits to their content now, so the keys published later can be checked against it. The builder reproduces them from the game records. A first, smaller pack (commit 7aceb39) had its key in the repository; the 209 games it used are listed in `excluded_games.json` and are not drawn again.
-- `returned/`: the workbooks as they come back (not in the repository, they carry names). `answers.csv`, written by the analysis, is the record of every answer under the annotator ids.
+- `returned/`: the workbooks and the page's exports as they come back (not in the repository; the workbooks carry names). `answers.csv`, written by the analysis, is the record of every answer under the annotator ids.
 
 ## Procedure
 

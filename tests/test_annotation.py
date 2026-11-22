@@ -106,5 +106,19 @@ class WorkbookTest(unittest.TestCase):
         self.assertEqual(answers["c"], {})
 
 
+class WebExportTest(unittest.TestCase):
+    def test_export_of_the_annotation_page(self):
+        data = {"format": "bargain-annotation-web/1", "annotator": "R3", "started": True,
+                "answers": {"AP1": {"agent1_assertiveness": 2, "agent1_asks_needs": "no", "agent1_note": "x"}, "B017": {"followed": "no", "broken_clauses": "1,4"},
+                            "C005": {"q1_decisions": "partly"}, "EXAMPLE": {"followed": "yes"}}}
+        who, answers = ann.web_answers(data)
+        self.assertEqual(who, "R3")
+        self.assertEqual(answers, {"a": {"AP1": {"agent1_assertiveness": 2, "agent1_asks_needs": "no", "agent1_note": "x"}},
+                                   "b": {"B017": {"followed": "no", "broken_clauses": "1,4"}}, "c": {"C005": {"q1_decisions": "partly"}}})
+        self.assertEqual(ann.clause_numbers(answers["b"]["B017"]["broken_clauses"]), [1, 4])
+        self.assertEqual(ann.web_answers({"format": "something else", "annotator": "R3", "answers": {}}), (None, {}))
+        self.assertEqual(ann.web_answers({"annotator": "nobody", "answers": {}}), (None, {}))
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -3,6 +3,7 @@
 Standard library only, so that the analysis runs wherever the project runs; only building the workbooks needs openpyxl
 (scripts/make_annotation_pack.py)."""
 import itertools
+import json
 import re
 import zipfile
 from collections import Counter
@@ -183,3 +184,20 @@ def workbook_answers(path):
                     answers.setdefault(item, {})[prefix + key] = cells[(row, c)]
         out[task] = answers
     return (found.group(0) if found else None), out
+
+
+WEB_FORMAT = "bargain-annotation-web/1"
+
+
+def web_answers(path_or_data):
+    """What one annotator filled in on the annotation page (annotation/web), in the shape workbook_answers gives:
+    (annotator id, {"a" | "b" | "c": {item: {field: value}}}). Takes the page's export (a JSON file or its content);
+    the documents the page keeps in the artifact's database, gathered into {"annotator", "answers"}, read the same."""
+    data = path_or_data if isinstance(path_or_data, dict) else json.loads(open(path_or_data, encoding="utf-8").read())
+    if data.get("format", WEB_FORMAT) != WEB_FORMAT or not re.fullmatch(r"R\d+", str(data.get("annotator"))):
+        return None, {}
+    out = {"a": {}, "b": {}, "c": {}}
+    for item, fields in data.get("answers", {}).items():
+        if re.fullmatch(r"[ABC]P?\d+", item) and isinstance(fields, dict):
+            out[item[0].lower()][item] = dict(fields)
+    return data["annotator"], out

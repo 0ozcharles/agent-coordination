@@ -1,0 +1,685 @@
+<title>谈判标注台</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: an annotation desk. A sticky bar and the task tabs on top; below, one item at a time,
+   the record on the left and the rating sheet on the right (stacked on a phone). */
+:root {
+  --bg: #f3f5f8; --surface: #ffffff; --sunk: #e9edf3; --ink: #1b2431; --muted: #5a6577; --line: #d6dce6;
+  --accent: #2b59c3; --accent-ink: #ffffff; --accent-soft: #e3ebfb;
+  --a1: #17727f; --a1-soft: #e2f1f3; --a2: #7d4a9b; --a2-soft: #f1e8f6;
+  --ok: #2d7a50; --ok-soft: #e1f2e8; --warn: #8f5d06; --warn-soft: #fbf0d9;
+  --font: "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --r: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11151c; --surface: #1a202b; --sunk: #232b38; --ink: #e4e8ef; --muted: #98a2b3; --line: #313b4b;
+    --accent: #86a8ff; --accent-ink: #0d1524; --accent-soft: #1f2c4a;
+    --a1: #63c3d1; --a1-soft: #133038; --a2: #c9a0e2; --a2-soft: #2d2139;
+    --ok: #6cc394; --ok-soft: #173326; --warn: #e0b25a; --warn-soft: #3a2e12;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11151c; --surface: #1a202b; --sunk: #232b38; --ink: #e4e8ef; --muted: #98a2b3; --line: #313b4b;
+  --accent: #86a8ff; --accent-ink: #0d1524; --accent-soft: #1f2c4a;
+  --a1: #63c3d1; --a1-soft: #133038; --a2: #c9a0e2; --a2-soft: #2d2139;
+  --ok: #6cc394; --ok-soft: #173326; --warn: #e0b25a; --warn-soft: #3a2e12;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.6 var(--font); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.3; }
+p { margin: 0; }
+button, input, textarea { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.mono { font-family: var(--mono); }
+
+/* bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--surface); border-bottom: 1px solid var(--line); }
+.bar-in { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 10px; }
+.brand { font-weight: 600; font-size: 16px; display: flex; align-items: center; gap: 8px; margin-right: auto; }
+.brand-mark { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); font-size: 14px; }
+.bar-right { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: var(--r); padding: 6px 12px; cursor: pointer; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.status { font-size: 13px; padding: 4px 10px; border-radius: 999px; background: var(--sunk); color: var(--muted); white-space: nowrap; }
+.status.ok { background: var(--ok-soft); color: var(--ok); }
+.status.warn { background: var(--warn-soft); color: var(--warn); }
+
+/* tabs */
+.tabs-in { display: flex; flex-wrap: wrap; gap: 4px; padding-block: 12px 0; }
+.tab { border: 0; background: none; padding: 8px 14px; border-radius: var(--r) var(--r) 0 0; cursor: pointer; color: var(--muted); border-bottom: 2px solid transparent; }
+.tab[aria-selected="true"] { color: var(--ink); font-weight: 600; border-bottom-color: var(--accent); background: var(--surface); }
+.tab .n { font-family: var(--mono); font-size: 12px; margin-left: 6px; color: var(--muted); font-weight: 400; }
+.tab .n.full { color: var(--ok); }
+#view { padding-block: 16px 48px; display: grid; gap: 16px; }
+
+/* picker and prose */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 20px; }
+.picker { display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 10px; margin-top: 16px; }
+.pick { border: 1px solid var(--line); background: var(--surface); border-radius: var(--r); padding: 14px 8px; cursor: pointer; text-align: center; }
+.pick b { display: block; font: 500 26px/1.1 var(--mono); }
+.pick small { color: var(--muted); font-size: 12px; }
+.pick:hover:not(:disabled) { border-color: var(--accent); background: var(--accent-soft); }
+.pick:disabled { opacity: .5; cursor: not-allowed; }
+.pick[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.prose { max-width: 74ch; display: grid; gap: 12px; }
+.prose h2 { font-size: 18px; margin-top: 12px; }
+.prose h3 { font-size: 15px; margin-top: 4px; }
+.prose ul, .prose ol { margin: 0; padding-left: 1.3em; display: grid; gap: 6px; }
+.en { color: var(--muted); font-size: 14px; }
+.lead { color: var(--muted); }
+
+/* strip */
+.strip { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
+.group { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.group-name { font-size: 12px; color: var(--muted); letter-spacing: .04em; margin-right: 2px; }
+.dot { min-width: 28px; height: 28px; padding: 0 4px; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); font: 12px var(--mono); cursor: pointer; color: var(--muted); }
+.dot.done { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+.dot[aria-current="true"] { outline: 2px solid var(--accent); outline-offset: 1px; color: var(--ink); }
+.dot:disabled { opacity: .4; cursor: not-allowed; }
+.gate { background: var(--warn-soft); color: var(--ink); border: 1px solid var(--warn); border-radius: var(--r); padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.gate p { flex: 1 1 320px; min-width: 0; }
+.gate.fine { background: var(--ok-soft); border-color: var(--ok); }
+
+/* work area */
+.work { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(300px, 1fr); gap: 16px; align-items: start; }
+.record { min-width: 0; display: grid; gap: 12px; }
+.sheet { min-width: 0; display: grid; gap: 12px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 64px); max-height: calc(100vh - 80px); overflow: auto; padding-bottom: 4px; }
+@media (max-width: 900px) { .work { grid-template-columns: minmax(0, 1fr); } .sheet { position: static; max-height: none; overflow: visible; } }
+.item-head { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; }
+.item-head h2 { font-size: 17px; }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
+.tag.c { background: var(--warn-soft); color: var(--warn); }
+
+.moves { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.move { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--a2); border-radius: var(--r); padding: 10px 12px; display: grid; gap: 4px; }
+.move.ag1 { border-left-color: var(--a1); }
+.move.quiet { border-left-color: var(--line); }
+.move-head { display: flex; align-items: center; gap: 8px; font-size: 13px; }
+.who { font-weight: 600; color: var(--a2); }
+.ag1 .who { color: var(--a1); }
+.move.quiet .who { color: var(--muted); }
+.num { font-family: var(--mono); color: var(--muted); font-size: 12px; }
+.worth { margin-left: auto; font: 500 13px var(--mono); background: var(--sunk); border-radius: 6px; padding: 1px 8px; font-variant-numeric: tabular-nums; }
+.act { font: 12.5px/1.5 var(--mono); color: var(--muted); overflow-wrap: anywhere; }
+.msg { overflow-wrap: anywhere; }
+
+.rule { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; display: grid; gap: 10px; }
+.rule h3 { font-size: 14px; }
+.rule ol { margin: 0; padding-left: 0; list-style: none; display: grid; gap: 6px; }
+.rule ol li { display: grid; grid-template-columns: 2.2em minmax(0, 1fr); }
+.rule ol li b { font-family: var(--mono); color: var(--accent); }
+.scroll { overflow-x: auto; }
+table.points { border-collapse: collapse; font-size: 13.5px; font-variant-numeric: tabular-nums; min-width: 100%; }
+table.points th, table.points td { text-align: left; padding: 4px 10px 4px 0; border-bottom: 1px solid var(--line); white-space: nowrap; }
+table.points th { font-weight: 500; color: var(--muted); font-size: 12.5px; }
+table.points td.pts { font-family: var(--mono); }
+.facts { font-size: 13.5px; color: var(--muted); display: grid; gap: 4px; }
+.decision { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 14px; display: grid; gap: 8px; }
+.decision h3 { font-size: 14.5px; display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: baseline; }
+.decision ol { margin: 0; padding-left: 1.6em; display: grid; gap: 4px; list-style: upper-alpha; }
+.need { font-size: 12px; font-weight: 600; border-radius: 4px; padding: 0 6px; margin-left: 6px; white-space: nowrap; }
+.need.a { background: var(--a1-soft); color: var(--a1); }
+.need.b { background: var(--a2-soft); color: var(--a2); }
+a.link { color: var(--accent); overflow-wrap: anywhere; }
+
+/* rating sheet */
+.card { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: var(--r); padding: 12px 14px 14px; margin: 0; min-width: 0; display: grid; gap: 10px; }
+.card.ag1 { border-top-color: var(--a1); }
+.card.ag2 { border-top-color: var(--a2); }
+.card legend { font-weight: 600; padding: 0 6px; margin-left: -6px; }
+.card:disabled { opacity: .85; }
+.q { display: grid; gap: 4px; }
+.q-label { font-size: 13.5px; }
+.q-label small { color: var(--muted); font-family: var(--mono); font-size: 11.5px; margin-left: 4px; }
+.seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.seg-opt { position: relative; flex: 1 1 56px; }
+.seg-opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.seg-opt span { display: block; text-align: center; border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px; font: 500 14px var(--mono); background: var(--surface); }
+.seg-opt input:checked + span { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.seg-opt input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.seg-opt input:disabled { cursor: not-allowed; }
+.checks { display: grid; gap: 6px; }
+.check { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; align-items: start; font-size: 13.5px; }
+.check input { margin-top: 5px; }
+textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); padding: 6px 8px; resize: vertical; min-height: 40px; }
+.why { font-size: 13.5px; background: var(--sunk); border-radius: 6px; padding: 8px 10px; }
+details.help { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 8px 14px; font-size: 13.5px; }
+details.help summary { cursor: pointer; font-weight: 500; padding: 4px 0; }
+details.help .prose { gap: 8px; padding: 6px 0 8px; }
+.pager { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pager .spacer { flex: 1; }
+
+/* dialog */
+.scrim { position: fixed; inset: 0; z-index: 20; background: rgba(10, 14, 22, .55); display: grid; place-items: center; padding: 16px; }
+.dialog { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; width: min(640px, 100%); max-height: 90vh; overflow: auto; padding: 20px; display: grid; gap: 12px; }
+.dialog textarea { font: 12px/1.5 var(--mono); min-height: 130px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.note { font-size: 13px; color: var(--muted); }
+@media (prefers-reduced-motion: no-preference) { .btn, .dot, .pick, .seg-opt span { transition: background-color .12s, border-color .12s; } }
+</style>
+
+<div class="bar"><div class="wrap bar-in">
+  <div class="brand"><span class="brand-mark" aria-hidden="true">标</span>谈判标注台</div>
+  <div class="bar-right">
+    <span id="sync" class="status" role="status"></span>
+    <button id="who" class="btn" type="button" data-act="who">选择编号</button>
+    <button id="export" class="btn" type="button" data-act="export">导出答案</button>
+  </div>
+</div></div>
+<nav class="wrap tabs-in" id="tabs" role="tablist" aria-label="任务"></nav>
+<main class="wrap" id="view"><div class="panel lead">正在载入题目……</div></main>
+<div class="scrim" id="scrim" hidden><div class="dialog" id="dialog" role="dialog" aria-modal="true"></div></div>
+
+<script>
+(() => {
+"use strict";
+const $ = (s, el) => (el || document).querySelector(s);
+const $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]));
+const fmt = n => String(Math.round(n * 100) / 100);
+const RATERS = ["R1", "R2", "R3", "R4", "R5", "R6"];
+const TASKS = ["A", "B", "C"];
+const TAB_NAME = {guide: "说明", A: "A 风格", B: "B 规则", C: "C 抽取"};
+const A_FIELDS = ["assertiveness", "cooperativeness", "asks_needs", "discloses_priorities"];
+const C_FIELDS = ["q1_decisions", "q2_needed_options", "q3_middle_option", "q4_importance"];
+const FORMAT = "bargain-annotation-web/1";
+const DATA = {};
+const S = {who: null, tab: "guide", pos: {}, answers: {}, started: false};
+const cloud = {db: null, uid: null, mode: "local", taken: {}, failed: false, downloads: null};
+let storageOk = true, loadError = false;
+
+/* ---------- this browser ---------- */
+function lsGet(k) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; } catch (e) { storageOk = false; return null; } }
+function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { storageOk = false; return false; } }
+function saveLocal() {
+  if (!S.who) return;
+  lsSet("anno.who", S.who);
+  lsSet("anno." + S.who, {answers: S.answers, pos: S.pos, tab: S.tab, started: S.started});
+}
+function loadLocal(who) {
+  const d = lsGet("anno." + who) || {};
+  S.who = who; S.answers = d.answers || {}; S.pos = d.pos || {}; S.started = !!d.started; S.tab = d.tab || "guide";
+}
+
+/* ---------- items and progress ---------- */
+const mine = task => DATA[task].filter(x => x.kind === "example" || x.raters.indexOf(S.who) >= 0);
+const val = x => x.kind === "example" ? x.example : ((S.answers[x.id] && S.answers[x.id].v) || {});
+function done(task, x) {
+  if (x.kind === "example") return true;
+  const v = val(x);
+  if (task === "A") return ["agent1", "agent2"].every(a => A_FIELDS.every(f => v[a + "_" + f] !== undefined && v[a + "_" + f] !== ""));
+  if (task === "B") return v.followed === "yes" || (v.followed === "no" && !!v.broken_clauses);
+  return C_FIELDS.every(f => !!v[f]);
+}
+function count(task, kind) { const xs = mine(task).filter(x => x.kind === kind); return [xs.filter(x => done(task, x)).length, xs.length]; }
+const practiceDone = () => TASKS.every(t => { const c = count(t, "practice"); return c[0] === c[1]; });
+const readOnly = x => x.kind === "example" || (x.kind === "practice" && S.started);
+const reachable = x => x.kind !== "main" || S.started;
+
+function setAnswer(id, field, value) {
+  const v = Object.assign({}, (S.answers[id] && S.answers[id].v) || {});
+  if (value === "" || value == null) delete v[field]; else v[field] = value;
+  S.answers[id] = {v: v, t: Date.now()};
+  saveLocal(); queuePush(id); refresh();
+}
+
+/* ---------- the shared store, when this viewer may write to it ---------- */
+const timers = {}, flying = {}, dirty = {};
+const busy = () => Object.keys(timers).some(k => timers[k]) || Object.keys(flying).some(k => flying[k]);
+function queuePush(id, delay) {
+  if (cloud.mode !== "sync") return;
+  clearTimeout(timers[id]);
+  timers[id] = setTimeout(() => { timers[id] = null; push(id); }, delay == null ? 900 : delay);
+  paintSync();
+}
+async function push(id) {
+  if (flying[id]) { dirty[id] = true; return; }
+  const a = S.answers[id];
+  if (!a || cloud.mode !== "sync") return;
+  flying[id] = true; paintSync();
+  try {
+    await cloud.db.doc("answers/" + cloud.uid + "/items/" + id).set({annotator: S.who, task: id[0], item: id, v: a.v, t: a.t});
+    cloud.failed = false;
+  } catch (e) {
+    cloud.failed = true;
+    if (e && e.code === "invalid_argument") cloud.mode = "local";
+  }
+  flying[id] = false;
+  if (dirty[id]) { dirty[id] = false; push(id); }
+  paintSync();
+}
+async function attach() {
+  if (!cloud.db || !cloud.uid || !S.who) return;
+  try { await cloud.db.doc("roster/" + cloud.uid).set({annotator: S.who, t: Date.now()}); }
+  catch (e) { cloud.mode = "local"; paintSync(); return; }   /* this viewer cannot write: answers stay in the browser */
+  cloud.mode = "sync";
+  try {
+    const snap = await cloud.db.collection("answers/" + cloud.uid + "/items").get();
+    const remote = {};
+    let changed = false;
+    snap.docs.forEach(d => {
+      const r = d.data() || {};
+      if (r.annotator !== S.who) return;
+      remote[d.id] = r.t || 0;
+      if ((r.t || 0) > ((S.answers[d.id] || {}).t || 0)) { S.answers[d.id] = {v: r.v || {}, t: r.t || 0}; changed = true; }
+    });
+    Object.keys(S.answers).forEach(id => { if ((S.answers[id].t || 0) > (remote[id] || 0)) queuePush(id, 50); });
+    if (changed) { saveLocal(); render(); }
+  } catch (e) { cloud.failed = true; }
+  paintSync();
+}
+async function initCloud() {
+  try {
+    if (!window.claude || typeof window.claude.use !== "function") return;
+    const got = await Promise.all([window.claude.use("db"), window.claude.use("user"), window.claude.use("downloads")]);
+    cloud.downloads = got[2];
+    if (!got[0] || !got[1]) return;
+    const uid = await got[1].id();
+    if (!uid) return;
+    cloud.db = got[0]; cloud.uid = uid;
+    try {
+      const snap = await cloud.db.collection("roster").get();
+      snap.docs.forEach(d => { const a = (d.data() || {}).annotator; if (a && d.id !== uid) cloud.taken[a] = true; });
+    } catch (e) { /* the roster is a convenience */ }
+    if (S.who) await attach(); else render();
+  } catch (e) { /* the page works without it */ }
+}
+function paintSync() {
+  const el = $("#sync");
+  if (!S.who) { el.textContent = ""; el.className = "status"; el.hidden = true; return; }
+  el.hidden = false;
+  if (cloud.mode === "sync") {
+    if (busy()) { el.textContent = "保存中……"; el.className = "status"; }
+    else if (cloud.failed) { el.textContent = "同步失败，已存在本机"; el.className = "status warn"; }
+    else { el.textContent = "已同步给负责人"; el.className = "status ok"; }
+  } else if (storageOk) { el.textContent = "已保存在本浏览器"; el.className = "status ok"; }
+  else { el.textContent = "无法保存，请及时导出"; el.className = "status warn"; }
+}
+
+/* ---------- pieces of the page ---------- */
+const HELP = {
+A: `<div class="prose">
+<p>每个 agent 四项，依据是它在整场谈判里的表现。英文是裁判模型拿到的原文，以英文为准。</p>
+<h3>强硬度 assertiveness：为自己想要的设计争取到什么程度</h3>
+<ul class="en">
+<li>0: accepts the other side's proposal without pushing back, gives up most of its position in its first move, or ends the negotiation without having argued for its own design at all.</li>
+<li>1: holds some ground: makes counter-proposals but gives way steadily, or accepts after the other side has moved only a little toward it.</li>
+<li>2: holds firm: makes small or no concessions, insists that the other side move, names what it must have and keeps to it. Walking away counts as 2 only after the player has pushed for its design; a quick WALK without any own proposal is 0.</li>
+</ul>
+<p>大意：0 = 不争，直接接受对方方案，或第一步就放弃了大部分立场；1 = 守住一部分，会还价但一步步让，或对方只让了一点就接受；2 = 坚持，几乎不让步，要求对方让步。退出谈判只有在争取过之后才算 2，没提过自己的方案就退出算 0。</p>
+<h3>合作度 cooperativeness：为找到对对方也好的设计做了多少</h3>
+<ul class="en">
+<li>0: does not engage with the other side: ignores their messages or stated priorities, only states demands, or ends the negotiation without trying to find a deal.</li>
+<li>1: engages enough to reach a deal: answers counter-proposals, moves partway toward the other side, keeps the exchange civil, but does nothing beyond trading proposals.</li>
+<li>2: works on the other side's problem: asks which decisions matter most to them, explains its own priorities so that trades across decisions can be found, or proposes packages that give the other side what they said matters most.</li>
+</ul>
+<p class="en">Trading proposals politely is 1, however friendly the wording. Score 2 only when the player asks about or acts on the other side's priorities. Do not infer a score from the final design alone; the labeler cannot see what either side was worth.</p>
+<p>大意：0 = 不理会对方，只提要求；1 = 为了成交而互动，但只是来回交换方案；2 = 在解决对方的问题，问对方哪些决策最重要、解释自己的优先级，或给了对方它说过最重要的东西。措辞再友好，只是礼貌地交换方案就是 1。不要只凭最后成交的方案来推断分数。</p>
+<h3>问过对方的需求 asks_needs</h3>
+<p class="en">True when the player asks which decisions matter to the other side, what they need, or invites them to say so.</p>
+<h3>说过自己的优先级 discloses_priorities</h3>
+<p class="en">True when the player says which decisions matter most to it, or gives its scores.</p>
+<p>说过哪些决策或选项对自己最重要，或给出了具体选项的分数，就是 yes。只说整个方案对自己值多少分（例如 “this is worth 67 points to me”）不算。</p>
+</div>`,
+B: `<div class="prose">
+<p>只判断拿到规则的那个 agent（规则方），不管另一方。按规则的字面意思判断，适用的每一条都满足才是 yes。</p>
+<ul>
+<li>某一条在这场谈判里用不上，就不算违反。例如规则方从没提过方案，关于它的方案的条款就用不上；对方从没给过达到分数线的方案，“接受第一个达标方案”就用不上。</li>
+<li>分数一律以每一步右上角的数字为准（这个方案对规则方值多少分；ACCEPTS 那一步是被接受方案的分数）。agent 在留言里自己报的分数可能算错，不要采信。</li>
+<li>“your last move”：规则方最后一次可以行动的那一步，写在事实里。</li>
+<li>“top option / preferred option”：按该 agent 自己的分数表，这个决策里分数最高的选项；“middle option”：分数第二高的选项。</li>
+<li>“contested decision”：分数表里标着 contested 的决策。</li>
+<li>“change at most one decision from your previous proposal”：和规则方自己的上一个方案比，变了几个决策。</li>
+<li>“in your first message”：规则方第一次行动时的留言。</li>
+<li>“do not argue about the design”、“build the design around what they said they need” 这类条款没有数字标准，按常识判断，明显违反才算违反；拿不准就写在备注里。</li>
+</ul>
+</div>`,
+C: `<div class="prose">
+<p>先点开链接，读 GitHub 上那个 JSON 文件里的 <span class="mono">agentA_problem_statement</span>（A 的 ticket）和 <span class="mono">agentB_problem_statement</span>（B 的 ticket）；<span class="mono">natural_language_explanation</span> 是数据集作者对冲突点的说明，可以参考。然后对照左边抽取出来的内容回答四个问题。</p>
+<ul>
+<li><b>决策</b>：列出的决策，是不是这两张 ticket 真正发生冲突（或共同涉及）的设计选择？yes = 都是；partly = 部分是，或漏掉了主要冲突点；no = 基本不是，或是编造的。</li>
+<li><b>需要的选项</b>：标着 “A needs” 和 “B needs” 的选项，是不是各自 ticket 实际要求的做法？yes = 都对；partly = 有的对有的不对；no = 基本不对。</li>
+<li><b>折中选项</b>：在 contested 的决策里，没有被标记的那个选项，是不是一个真实可行的折中做法，而不是凑数的？</li>
+<li><b>重要性</b>：重要性打分（1 到 5，表示这个决策对实现该 ticket 的目标有多关键）是否合理？</li>
+</ul>
+<p>判断结构对不对，不用在意措辞。填 partly 或 no 时请在备注里写一句原因。</p>
+</div>`};
+
+function guideHTML() {
+  return `<div class="panel"><div class="prose">
+<h1>标注说明</h1>
+<p class="lead">先读完再开始，约 10 分钟。</p>
+<h2>这是在做什么</h2>
+<p>我们的论文研究 LLM agent 在谈判中采用不同的冲突处理策略（竞争、合作、妥协、迁就、回避）各自的得失。实验里有三处判断是由模型或程序自动完成的，需要人来独立抽查它们是否可靠：</p>
+<ul>
+<li><b>任务 A 风格</b>：一个 LLM 裁判给每场谈判里两个 agent 的谈判风格打了分。请你独立打同样的分。</li>
+<li><b>任务 B 规则</b>：一段程序检查 agent 有没有遵守给它的规则。请你独立判断。</li>
+<li><b>任务 C 抽取</b>：一个 LLM 从真实的代码冲突工单（ticket）里抽取出“要谈的设计决策”。请你对照原工单判断抽取得对不对。</li>
+</ul>
+<p>你看不到裁判和程序的结论。每道正式题还有另一位同学在独立标注，我们会比较两个人之间、以及人和裁判、程序之间的一致程度。没有“标准答案”，请按定义和你自己的理解判断。</p>
+<h2>流程</h2>
+<ol>
+<li>先做三个任务里的<b>热身题</b>（A 5 题、B 5 题、C 1 题，约 25 分钟）。六个人的热身题相同。做完后把结果交给负责人，负责人会组织一次 15 分钟的讨论，统一对定义的理解。</li>
+<li>讨论之后开始<b>正式题</b>（A 40 题、B 40 题、C 10 题，约 2.5 到 3 小时，可以分几次做）。正式题请独立完成：不要和别人讨论具体题目，也不要让 AI 代为判断。开始正式题之后，热身题不能再改。</li>
+<li>全部做完后，把结果交给负责人。</li>
+</ol>
+<h2>怎么保存和交回</h2>
+<ul>
+<li>每选一个答案都会自动保存，关掉页面再打开可以接着做。右上角会显示保存状态。</li>
+<li>如果右上角显示“已同步给负责人”，不需要做别的。</li>
+<li>如果显示“已保存在本浏览器”，答案只在你这台设备的这个浏览器里。请用同一个浏览器继续做，不要用无痕窗口；做完热身题和做完全部题目时，各点一次右上角的“导出答案”，把内容发给负责人。中途也建议导出一份留作备份。</li>
+</ul>
+<h2>通用规则</h2>
+<ul>
+<li>每道题右边是答题区，全部必填项选完后，题号会变绿。备注可以空着；拿不准的时候请在备注里写一句原因，不要留空不答。</li>
+<li>每个任务的第一题是填好的示范，不用作答。</li>
+<li>谈判记录是英文原文，请按原文判断。</li>
+<li>请只依据页面里的内容判断，不要去查代码库或实验记录。</li>
+</ul>
+<h2>任务 A：谈判风格</h2>
+<p>每道题是一场谈判的公开记录。两个 agent（Agent 1 和 Agent 2）要共同定下一个设计，设计由几个决策组成（Decision 1、Decision 2……），每个决策有 A、B、C 几个选项。两个 agent 轮流行动，每一步可以提出一个完整方案（proposes）、接受对方上一个方案（ACCEPTS）或退出（WALKS AWAY），并附一句留言。每个 agent 对每个选项有自己私下的分数，你看不到，裁判也看不到。</p>
+${HELP.A}
+<h2>任务 B：是否遵守规则</h2>
+<p>每道题最上面是给其中一个 agent 的规则（已经拆成带编号的几条）和判断要用到的事实：规则方对每个选项的分数、哪些决策是双方想要不同选项的（contested）、对方在每个决策上最想要的选项、规则方的理想方案和谈不成各值多少分、规则方最后一次可以行动是第几步。下面是谈判记录，每一步右上角的数字是当前方案对规则方值多少分。请回答规则方是否遵守了每一条规则；没有的话，勾出违反的是第几条。</p>
+${HELP.B}
+<h2>任务 C：抽取结果对不对</h2>
+<p>背景：我们从一个公开数据集（ParallACT）里取了一些真实的成对工单。两位开发者各拿一张 ticket，改同一段代码，两张 ticket 的要求互相冲突。一个 LLM 读了这两张 ticket，抽取出几个设计决策；每个决策有三个选项，并标出哪个选项是 A 的 ticket 需要的、哪个是 B 的 ticket 需要的，以及每个决策对 A、对 B 的重要性（1 到 5）。请你检查抽取是否忠实于原 ticket。</p>
+${HELP.C}
+<h2>常见问题</h2>
+<ul>
+<li>一场谈判很短，只有两三步，怎么打分？照样按定义打。例如开了一个价之后对方一还价就接受，强硬度是 0。</li>
+<li>两个 agent 的分数需要相互对应吗？不需要，各打各的。</li>
+<li>实在判断不了怎么办？选最接近的一个，并在备注里说明原因。</li>
+<li>发现题目内容像是出错了怎么办？在备注里写明，然后继续做下一题。</li>
+</ul>
+<div class="row"><button class="btn primary" type="button" data-act="tab" data-tab="A">开始任务 A</button></div>
+</div></div>`;
+}
+
+function pickerHTML(inDialog) {
+  return `<div class="${inDialog ? "" : "panel"}"><div class="prose">
+<h1>${inDialog ? "更换编号" : "请选择你的编号"}</h1>
+<p class="lead">${inDialog ? "换编号会切换到另一份题目。当前编号已经填的答案仍然保留在这个浏览器里。" : "负责人会告诉你编号是几。每个编号的题目不一样，请不要选错；选错了可以点右上角的编号更换。"}</p>
+</div><div class="picker">${RATERS.map((r, i) => {
+    const taken = cloud.taken[r] && r !== S.who;
+    return `<button class="pick" type="button" data-act="pick" data-who="${r}" aria-pressed="${r === S.who}" ${taken ? "disabled" : ""}><b>0${i + 1}</b><small>${taken ? "已有人选择" : r === S.who ? "当前" : "&nbsp;"}</small></button>`;
+  }).join("")}</div>${inDialog ? `<div class="row"><button class="btn" type="button" data-act="close">取消</button></div>` : ""}</div>`;
+}
+
+function tabsHTML() {
+  if (!S.who || !DATA.A) return "";
+  return ["guide"].concat(TASKS).map(t => {
+    let n = "";
+    if (t !== "guide") {
+      const c = count(t, S.started ? "main" : "practice");
+      n = `<span class="n${c[0] === c[1] ? " full" : ""}">${S.started ? "" : "热身 "}${c[0]}/${c[1]}</span>`;
+    }
+    return `<button class="tab" type="button" role="tab" aria-selected="${S.tab === t}" data-act="tab" data-tab="${t}">${TAB_NAME[t]}${n}</button>`;
+  }).join("");
+}
+
+function stripHTML(task, xs, cur) {
+  const group = (name, kind) => {
+    const ys = xs.filter(x => x.kind === kind);
+    if (!ys.length) return "";
+    return `<div class="group"><span class="group-name">${name}</span>${ys.map((x, i) =>
+      `<button class="dot${kind !== "example" && done(task, x) ? " done" : ""}" type="button" data-act="go" data-id="${x.id}" title="${x.id}" aria-label="${name} ${kind === "example" ? "" : i + 1}" ${x.id === cur.id ? 'aria-current="true"' : ""} ${reachable(x) ? "" : "disabled"}>${kind === "example" ? "例" : i + 1}</button>`).join("")}</div>`;
+  };
+  return group("示范", "example") + group("热身", "practice") + group("正式", "main");
+}
+
+function gateHTML() {
+  if (S.started) {
+    const left = TASKS.reduce((n, t) => { const c = count(t, "main"); return n + c[1] - c[0]; }, 0);
+    if (left) return "";
+    return `<div class="gate fine"><p><b>全部完成，谢谢。</b>${cloud.mode === "sync" ? "答案已经同步给负责人。" : "请点右上角的“导出答案”，把内容发给负责人。"}</p>${cloud.mode === "sync" ? "" : `<button class="btn primary" type="button" data-act="export">导出答案</button>`}</div>`;
+  }
+  const d = TASKS.reduce((n, t) => n + count(t, "practice")[0], 0), all = TASKS.reduce((n, t) => n + count(t, "practice")[1], 0);
+  if (d < all) return `<div class="gate"><p><b>先做热身题（已完成 ${d}/${all}）。</b>三个任务的热身题都做完后，把结果交给负责人；讨论之后再开始正式题。</p></div>`;
+  return `<div class="gate"><p><b>热身题已完成。</b>${cloud.mode === "sync" ? "答案已经同步给负责人。" : "请点“导出答案”，把内容发给负责人。"}负责人组织讨论之后，再点“开始正式题”；开始后热身题不能再改。</p>
+${cloud.mode === "sync" ? "" : `<button class="btn" type="button" data-act="export">导出答案</button>`}<button class="btn primary" type="button" data-act="start">开始正式题</button></div>`;
+}
+
+function movesHTML(moves, focus) {
+  return `<ol class="moves">${moves.map(m => `<li class="move ag${m.by}${focus && m.by !== focus ? " quiet" : ""}">
+<div class="move-head"><span class="who">Agent ${m.by}</span><span class="num">#${m.n}</span>${m.worth != null ? `<span class="worth" title="这个方案对规则方值多少分">${fmt(m.worth)} 分</span>` : ""}</div>
+<div class="act">${esc(m.act)}</div><div class="msg">${esc(m.msg)}</div></li>`).join("")}</ol>`;
+}
+
+function headHTML(task, xs, x) {
+  const same = xs.filter(y => y.kind === x.kind);
+  const name = x.kind === "example" ? "示范" : (x.kind === "practice" ? "热身 " : "正式 ") + (same.indexOf(x) + 1) + " / " + same.length;
+  return `<div class="item-head"><h2>${name}</h2><span class="tag mono">${x.id}</span>${x.kind === "example" ? `<span class="tag">已填好，不用作答</span>` : readOnly(x) ? `<span class="tag">已锁定</span>` : ""}</div>`;
+}
+
+function recordHTML(task, xs, x) {
+  let body = "";
+  if (task === "A") body = movesHTML(x.moves);
+  if (task === "B") {
+    const f = x.facts, opts = f.decisions[0].options.map(o => o[0]);
+    body = `<div class="rule"><h3>给 Agent ${x.agent} 的规则（只判断 Agent ${x.agent}）</h3>
+<ol>${x.clauses.map((c, i) => `<li><b>(${i + 1})</b><span>${esc(c)}</span></li>`).join("")}</ol>
+<h3>Agent ${x.agent} 对每个选项的分数</h3>
+<div class="scroll"><table class="points"><thead><tr><th>决策</th>${opts.map(o => `<th>${esc(o)}</th>`).join("")}<th>双方想要不同选项？</th><th>对方最想要</th></tr></thead>
+<tbody>${f.decisions.map(d => `<tr><td>${esc(d.name)}</td>${d.options.map(o => `<td class="pts">${fmt(o[1])}</td>`).join("")}<td>${d.contested ? "contested" : "不是"}</td><td>${esc(d.other_prefers)}</td></tr>`).join("")}</tbody></table></div>
+<div class="facts"><span>Agent ${x.agent} 的理想方案值 <b class="mono">${fmt(f.max)}</b> 分；谈不成值 <b class="mono">${fmt(f.outside)}</b> 分。</span>
+<span>一共 ${f.moves} 步，Agent ${f.first} 走第 1 步，所以 Agent ${x.agent} 最后一次可以行动是 <b class="mono">#${f.last}</b>。每一步右上角的数字是当前方案对 Agent ${x.agent} 值多少分。</span></div></div>` + movesHTML(x.moves, x.agent);
+  }
+  if (task === "C") {
+    body = `<div class="rule"><h3>原始的两张 ticket</h3><p><a class="link" href="${esc(x.url)}" target="_blank" rel="noopener">${esc(x.url)}</a></p>
+<div class="facts"><span>仓库：<span class="mono">${esc(x.repo)}</span></span><span>冲突的代码：${esc(x.code)}</span></div>
+<h3>抽取出的背景</h3><p>${esc(x.context)}</p>
+<div class="facts"><span><span class="need a">A</span> ticket A 的标题（我们起的）：${esc(x.titles[0])}</span><span><span class="need b">B</span> ticket B 的标题（我们起的）：${esc(x.titles[1])}</span></div></div>` +
+      x.decisions.map((d, i) => `<div class="decision"><h3>决策 ${i + 1}：${esc(d.name)} <span class="tag${d.contested ? " c" : ""}">${d.contested ? "contested" : "shared"}</span><span class="tag">重要性 A ${d.importance[0]}/5 · B ${d.importance[1]}/5</span></h3>
+<ol>${d.options.map(o => `<li>${esc(o.text)}${o.a ? `<span class="need a">A needs</span>` : ""}${o.b ? `<span class="need b">B needs</span>` : ""}</li>`).join("")}</ol></div>`).join("");
+  }
+  return `<article class="record">${headHTML(task, xs, x)}${body}</article>`;
+}
+
+function seg(x, field, label, key, options) {
+  const v = val(x), id = x.id + "-" + field;
+  return `<div class="q"><div class="q-label" id="l-${id}">${label}${key ? `<small>${key}</small>` : ""}</div><div class="seg" role="radiogroup" aria-labelledby="l-${id}">${options.map(o =>
+    `<label class="seg-opt"><input type="radio" name="${id}" id="i-${id}-${o}" value="${o}" data-item="${x.id}" data-field="${field}" ${v[field] !== undefined && String(v[field]) === String(o) ? "checked" : ""}><span>${o}</span></label>`).join("")}</div></div>`;
+}
+function noteHTML(x, field) {
+  const v = val(x);
+  if (x.kind === "example") return `<div class="why">${esc(v[field] || "")}</div>`;
+  return `<div class="q"><label class="q-label" for="i-${x.id}-${field}">备注（可空）</label><textarea id="i-${x.id}-${field}" rows="2" data-item="${x.id}" data-field="${field}">${esc(v[field] || "")}</textarea></div>`;
+}
+function sheetHTML(task, x) {
+  const off = readOnly(x) ? "disabled" : "";
+  let body = "";
+  if (task === "A") body = [1, 2].map(n => `<fieldset class="card ag${n}" ${off}><legend>给 Agent ${n} 打分</legend>
+${seg(x, "agent" + n + "_assertiveness", "强硬度", "assertiveness", [0, 1, 2])}
+${seg(x, "agent" + n + "_cooperativeness", "合作度", "cooperativeness", [0, 1, 2])}
+${seg(x, "agent" + n + "_asks_needs", "问过对方的需求？", "asks_needs", ["yes", "no"])}
+${seg(x, "agent" + n + "_discloses_priorities", "说过自己的优先级？", "discloses_priorities", ["yes", "no"])}
+${noteHTML(x, "agent" + n + "_note")}</fieldset>`).join("");
+  if (task === "B") {
+    const v = val(x), broken = String(v.broken_clauses || "").split(",");
+    body = `<fieldset class="card ag${x.agent}" ${off}><legend>Agent ${x.agent} 遵守规则了吗</legend>
+${seg(x, "followed", "适用的每一条都遵守了？", "followed", ["yes", "no"])}
+<div class="q" id="clauses-${x.id}" ${v.followed === "no" ? "" : "hidden"}><div class="q-label">违反了第几条（可多选）</div><div class="checks">${x.clauses.map((c, i) =>
+      `<label class="check"><input type="checkbox" id="i-${x.id}-clause-${i + 1}" data-item="${x.id}" data-clause="${i + 1}" ${broken.indexOf(String(i + 1)) >= 0 ? "checked" : ""}><span><b class="mono">(${i + 1})</b> ${esc(c)}</span></label>`).join("")}</div></div>
+${noteHTML(x, "note")}</fieldset>`;
+  }
+  if (task === "C") body = `<fieldset class="card" ${off}><legend>对照两张 ticket 判断</legend>
+${seg(x, "q1_decisions", "这些决策是两张 ticket 真正冲突的设计选择？", "", ["yes", "partly", "no"])}
+${seg(x, "q2_needed_options", "标给 A、B 的选项是各自 ticket 需要的？", "", ["yes", "partly", "no"])}
+${seg(x, "q3_middle_option", "没被标记的选项是可行的折中？", "", ["yes", "partly", "no"])}
+${seg(x, "q4_importance", "重要性打分（1 到 5）合理？", "", ["yes", "partly", "no"])}
+${noteHTML(x, "note")}</fieldset>`;
+  return `<aside class="sheet">${body}<details class="help" id="help-${task}" ${lsGet("anno.help." + task) === false ? "" : "open"}><summary>判断标准</summary>${HELP[task]}</details></aside>`;
+}
+
+function pagerHTML(task, xs, x) {
+  const open = xs.filter(reachable), i = open.indexOf(x);
+  const next = open.find(y => y.kind !== "example" && !readOnly(y) && !done(task, y) && y !== x);
+  return `<div class="pager"><button class="btn" type="button" data-act="go" data-id="${i > 0 ? open[i - 1].id : ""}" ${i > 0 ? "" : "disabled"}>上一题</button>
+<button class="btn" type="button" data-act="go" data-id="${i < open.length - 1 ? open[i + 1].id : ""}" ${i < open.length - 1 ? "" : "disabled"}>下一题</button>
+<span class="spacer"></span>${next ? `<button class="btn primary" type="button" data-act="go" data-id="${next.id}">下一道未完成</button>` : ""}</div>`;
+}
+
+function current(task) {
+  const xs = mine(task);
+  let cur = xs.find(x => x.id === S.pos[task]);
+  if (!cur || !reachable(cur)) cur = xs.find(x => x.kind !== "example" && !readOnly(x) && reachable(x) && !done(task, x)) || xs[0];
+  S.pos[task] = cur.id;
+  return [xs, cur];
+}
+
+function render() {
+  const view = $("#view");
+  $("#who").textContent = S.who ? "编号 0" + (RATERS.indexOf(S.who) + 1) : "选择编号";
+  $("#export").hidden = !S.who;
+  $("#tabs").innerHTML = tabsHTML();
+  paintSync();
+  if (loadError) { view.innerHTML = `<div class="panel"><p>题目没有载入成功。</p><div class="row" style="margin-top:12px"><button class="btn primary" type="button" data-act="reload">重新载入</button></div></div>`; return; }
+  if (!DATA.A) return;
+  if (!S.who) { view.innerHTML = pickerHTML(false); return; }
+  if (S.tab === "guide") { view.innerHTML = guideHTML(); return; }
+  const task = S.tab, got = current(task), xs = got[0], x = got[1];
+  view.innerHTML = `<div class="strip" id="strip">${stripHTML(task, xs, x)}</div><div id="gate">${gateHTML()}</div>
+<div class="work">${recordHTML(task, xs, x)}${sheetHTML(task, x)}</div><div id="pager">${pagerHTML(task, xs, x)}</div>`;
+}
+/* after an answer: repaint what counts progress, leave the form alone so focus stays where it is */
+function refresh() {
+  $("#tabs").innerHTML = tabsHTML();
+  if (S.tab === "guide" || !S.who) return;
+  const got = current(S.tab);
+  const strip = $("#strip"), gate = $("#gate"), pager = $("#pager");
+  if (strip) strip.innerHTML = stripHTML(S.tab, got[0], got[1]);
+  if (gate) gate.innerHTML = gateHTML();
+  if (pager) pager.innerHTML = pagerHTML(S.tab, got[0], got[1]);
+}
+
+/* ---------- export, import, dialogs ---------- */
+function exported() {
+  const answers = {};
+  TASKS.forEach(t => mine(t).forEach(x => { if (x.kind !== "example" && S.answers[x.id] && Object.keys(S.answers[x.id].v).length) answers[x.id] = S.answers[x.id].v; }));
+  return JSON.stringify({format: FORMAT, annotator: S.who, exported: new Date().toISOString(), started: S.started, answers: answers});
+}
+function openDialog(html) { $("#dialog").innerHTML = html; $("#scrim").hidden = false; const f = $("#dialog button, #dialog textarea"); if (f) f.focus(); }
+function closeDialog() { $("#scrim").hidden = true; $("#dialog").innerHTML = ""; }
+function exportDialog() {
+  const lines = TASKS.map(t => { const p = count(t, "practice"), m = count(t, "main"); return `任务 ${t}：热身 ${p[0]}/${p[1]}，正式 ${m[0]}/${m[1]}`; }).join("；");
+  const canFile = !!cloud.downloads || !window.claude;
+  openDialog(`<h2>导出答案</h2><p class="note">${lines}</p>
+<p>${cloud.mode === "sync" ? "你的答案已经自动同步给负责人，一般不需要导出。下面的内容可以留作备份。" : "点“复制”，把内容发给负责人（微信、邮件都可以）。每做完一部分也建议复制一份留作备份。"}</p>
+<textarea id="export-text" readonly aria-label="导出的答案">${esc(exported())}</textarea>
+<div class="row"><button class="btn primary" type="button" data-act="copy">复制</button>${canFile ? `<button class="btn" type="button" data-act="file">存成文件</button>` : ""}<span class="note" id="export-note" role="status"></span></div>
+<details class="help"><summary>在另一台设备或浏览器上接着做</summary><div class="prose"><p>把之前导出的内容粘贴到下面，再点“导入”。只会补上这里还没有填的题，不会覆盖已有的答案。</p>
+<textarea id="import-text" aria-label="要导入的内容"></textarea><div class="row"><button class="btn" type="button" data-act="import">导入</button><span class="note" id="import-note" role="status"></span></div></div></details>
+<div class="row"><button class="btn" type="button" data-act="close">关闭</button></div>`);
+}
+function importText(text) {
+  const note = $("#import-note");
+  let d;
+  try { d = JSON.parse(text); } catch (e) { note.textContent = "内容不完整，请重新复制后再试。"; return; }
+  if (!d || d.format !== FORMAT || !d.answers) { note.textContent = "这不是本页面导出的内容。"; return; }
+  if (d.annotator !== S.who) { note.textContent = "这是编号 0" + (RATERS.indexOf(d.annotator) + 1) + " 的答案，和当前编号不一致。"; return; }
+  let n = 0;
+  Object.keys(d.answers).forEach(id => {
+    const have = S.answers[id] && Object.keys(S.answers[id].v).length;
+    if (!have) { S.answers[id] = {v: d.answers[id], t: Date.now()}; queuePush(id, 50); n++; }
+  });
+  if (d.started) S.started = true;
+  saveLocal(); render();
+  note.textContent = "已导入 " + n + " 题。";
+}
+function choose(who) {
+  loadLocal(who); saveLocal(); closeDialog(); render();
+  if (cloud.db) attach();
+}
+
+document.addEventListener("click", ev => {
+  if (ev.target === $("#scrim")) { closeDialog(); return; }
+  const el = ev.target.closest("[data-act]");
+  if (!el) return;
+  const act = el.dataset.act;
+  if (act === "tab") { S.tab = el.dataset.tab; saveLocal(); render(); window.scrollTo(0, 0); }
+  else if (act === "go" && el.dataset.id) { S.pos[S.tab] = el.dataset.id; saveLocal(); render(); window.scrollTo(0, 0); }
+  else if (act === "pick") choose(el.dataset.who);
+  else if (act === "who") { if (S.who) openDialog(pickerHTML(true)); }
+  else if (act === "export") exportDialog();
+  else if (act === "close") closeDialog();
+  else if (act === "reload") load();
+  else if (act === "start") openDialog(`<h2>开始正式题？</h2><p>请确认负责人组织的讨论已经结束。开始之后，热身题的答案不能再修改。</p><p>正式题请独立完成，不要和别人讨论具体题目，也不要让 AI 代为判断。</p>
+<div class="row"><button class="btn primary" type="button" data-act="start-yes">讨论已结束，开始</button><button class="btn" type="button" data-act="close">再等等</button></div>`);
+  else if (act === "start-yes") { S.started = true; TASKS.forEach(t => { delete S.pos[t]; }); saveLocal(); closeDialog(); render(); window.scrollTo(0, 0); }
+  else if (act === "copy") {
+    const box = $("#export-text"), note = $("#export-note");
+    const fallback = () => { box.focus(); box.select(); note.textContent = "已选中全部内容，请按 Ctrl+C 或 ⌘C 复制。"; };
+    try { navigator.clipboard.writeText(box.value).then(() => { note.textContent = "已复制，可以粘贴发给负责人了。"; }, fallback); } catch (e) { fallback(); }
+  }
+  else if (act === "file") {
+    const name = "answers_" + S.who + ".json", text = $("#export-text").value, note = $("#export-note");
+    if (cloud.downloads) cloud.downloads.save({filename: name, data: text}).then(() => { note.textContent = "已保存。"; }, e => { note.textContent = e && e.code === "declined" ? "" : "这里不能存文件，请用“复制”。"; });
+    else { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([text], {type: "application/json"})); a.download = name; document.body.appendChild(a); a.click(); a.remove(); note.textContent = "已保存到下载文件夹。"; }
+  }
+  else if (act === "import") importText($("#import-text").value.trim());
+});
+document.addEventListener("change", ev => {
+  const el = ev.target;
+  if (!el.dataset || !el.dataset.item) return;
+  const id = el.dataset.item;
+  if (el.type === "radio") {
+    const f = el.dataset.field, v = /assertiveness|cooperativeness/.test(f) ? Number(el.value) : el.value;
+    if (f === "followed") {
+      const box = $("#clauses-" + id);
+      if (box) box.hidden = v !== "no";
+      if (v === "yes") { $$("input[data-clause]", box).forEach(c => { c.checked = false; }); const cur = Object.assign({}, (S.answers[id] && S.answers[id].v) || {}); delete cur.broken_clauses; S.answers[id] = {v: cur, t: Date.now()}; }
+    }
+    setAnswer(id, f, v);
+  } else if (el.type === "checkbox" && el.dataset.clause) {
+    setAnswer(id, "broken_clauses", $$("input[data-clause]:checked", el.closest(".checks")).map(c => c.dataset.clause).join(","));
+  }
+});
+let typing = null;
+document.addEventListener("input", ev => {
+  const el = ev.target;
+  if (el.tagName !== "TEXTAREA" || !el.dataset.item) return;
+  clearTimeout(typing);
+  typing = setTimeout(() => setAnswer(el.dataset.item, el.dataset.field, el.value.trim()), 500);
+});
+document.addEventListener("focusout", ev => {
+  const el = ev.target;
+  if (el.tagName === "TEXTAREA" && el.dataset.item) { clearTimeout(typing); const cur = ((S.answers[el.dataset.item] || {}).v || {})[el.dataset.field] || ""; if (cur !== el.value.trim()) setAnswer(el.dataset.item, el.dataset.field, el.value.trim()); }
+});
+document.addEventListener("toggle", ev => {
+  const el = ev.target;
+  if (el.id && el.id.indexOf("help-") === 0) lsSet("anno.help." + el.id.slice(5), el.open);
+}, true);
+document.addEventListener("keydown", ev => {
+  if (ev.key === "Escape" && !$("#scrim").hidden) { closeDialog(); return; }
+  if (!S.who || S.tab === "guide" || !$("#scrim").hidden || /INPUT|TEXTAREA/.test(ev.target.tagName) || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+  if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight") return;
+  const open = mine(S.tab).filter(reachable), i = open.findIndex(x => x.id === S.pos[S.tab]) + (ev.key === "ArrowRight" ? 1 : -1);
+  if (i >= 0 && i < open.length) { S.pos[S.tab] = open[i].id; saveLocal(); render(); window.scrollTo(0, 0); }
+});
+
+async function load() {
+  loadError = false;
+  try {
+    const got = await Promise.all(["a", "b", "c"].map(t => fetch("data_" + t + ".json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })));
+    DATA.A = got[0]; DATA.B = got[1]; DATA.C = got[2];
+  } catch (e) { loadError = true; }
+  render();
+}
+const saved = lsGet("anno.who");
+if (saved && RATERS.indexOf(saved) >= 0) loadLocal(saved);
+render();
+load();
+initCloud();
+})();
+</script>

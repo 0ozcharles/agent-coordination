@@ -15,7 +15,8 @@ One worked example per task is shown filled in and is nobody's item.
 Writes the item files, assignment.csv, keys/ (which game an item is, the judge's labels, the checker's verdicts; kept
 out of the repository until the answers are in, with their hashes in keys.sha256; the games of the first pack, whose
 key was published, are excluded) and, with openpyxl installed, one
-workbook per annotator under workbooks/. Run from the repository root; needs runs/bargain (not in the repository).
+workbook per annotator under workbooks/, and the same items as data for the annotation web page under web/. Run from
+the repository root; needs runs/bargain (not in the repository).
 """
 import csv
 import glob
@@ -84,20 +85,27 @@ def numbered_rule(config, strategy, inst, agent):
     return "\n".join(f"({n}) {part}" for n, part in enumerate(parts, 1))
 
 
-def facts(record, agent):
-    inst, other, name = record["instance"], "p2" if agent == "p1" else "p1", agent_name(agent)
+def facts_data(record, agent):
+    """What the rule refers to, for the agent it was given to."""
+    inst, other = record["instance"], "p2" if agent == "p1" else "p1"
     T = inst.get("moves", 10)
-    contested = [i for i, opp in enumerate(inst["opposed"]) if opp]
     theirs = bargain.tops(inst, other)
     names = bargain.issue_names(inst)
-    last = T if (T % 2 == 0) == (inst["first_mover"] != agent) else T - 1
     t = bargain.thresholds(inst, agent)
+    return {"decisions": [{"name": names[i], "contested": bool(inst["opposed"][i]), "other_prefers": bargain.option_labels(inst, i)[theirs[i]],
+                           "options": [[label, inst["weights"][agent][i][o]] for o, label in enumerate(bargain.option_labels(inst, i))]} for i in range(inst["k"])],
+            "max": t["max"], "outside": t["outside"], "moves": T, "first": 1 if inst["first_mover"] == "p1" else 2,
+            "last": T if (T % 2 == 0) == (inst["first_mover"] != agent) else T - 1}
+
+
+def facts(record, agent):
+    f, name = facts_data(record, agent), agent_name(agent)
     return (f"{name}'s points for each option (its top option on a decision is the one with the most points, its middle option the second):\n"
-            f"{bargain.scores_table(inst, agent)}\n"
-            f"Contested decisions (the two agents want different options): {', '.join(names[i] for i in contested) or 'none'}. "
-            f"The other agent's preferred options: {', '.join(f'{names[i]} {bargain.option_labels(inst, i)[theirs[i]]}' for i in range(inst['k']))}.\n"
-            f"{name}'s ideal design is worth {t['max']:g} points to it; no deal is worth {t['outside']:g} points to it. "
-            f"The game has {T} moves; {agent_name(inst['first_mover'])} makes move #1, so {name}'s last possible move is #{last}.")
+            f"{bargain.scores_table(record['instance'], agent)}\n"
+            f"Contested decisions (the two agents want different options): {', '.join(d['name'] for d in f['decisions'] if d['contested']) or 'none'}. "
+            f"The other agent's preferred options: {', '.join(d['name'] + ' ' + d['other_prefers'] for d in f['decisions'])}.\n"
+            f"{name}'s ideal design is worth {f['max']:g} points to it; no deal is worth {f['outside']:g} points to it. "
+            f"The game has {f['moves']} moves; Agent {f['first']} makes move #1, so {name}'s last possible move is #{f['last']}.")
 
 
 def load_runs():
@@ -238,6 +246,57 @@ def write_files(tasks, keys, assignment, configs):
         path.write_text(json.dumps(keys[task], indent=1) + "\n")
         digests.append(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  keys/{path.name}")
     (OUT / "keys.sha256").write_text("\n".join(digests) + "\n")
+
+
+# ---------------------------------------------------------------- the web page
+
+def write_web(tasks, configs):
+    """The items as data for the annotation page (annotation/web/index.html): one JSON array per task, a record per line."""
+    def moves_of(r, values=None):
+        out = []
+        for n, m in enumerate(r["moves"]):
+            who, text = move_cells(r["instance"], m)
+            act, msg = text.split(": ", 1) if m["action"] != "propose" or not m.get("design") else (f"proposes {bargain.design_text(r['instance'], m['design'])}", m["message"] or "(no message)")
+            assert f"{act}: {msg}" == text
+            out.append({"n": m["n"], "by": 1 if m["by"] == "p1" else 2, "act": act, "msg": msg, **({"worth": values[n]} if values and values[n] is not None else {})})
+        return out
+    def base(x):
+        return {"id": x["item"], "kind": x["kind"], "raters": list(x["raters"])}
+    a, b, c = [], [], []
+    for x in tasks["A"]:
+        rec = {**base(x), "moves": moves_of(x["what"])}
+        if x["kind"] == "example":
+            rec["example"] = {f"{agent}_{f}": v for agent, vals in EXAMPLE_A[1].items() for f, v in zip((*annotation.A_FIELDS, "note"), vals)}
+        a.append(rec)
+    for x in tasks["B"]:
+        r, agent = x["what"]
+        rule = numbered_rule(configs[r["_run"]], r["strategies"][agent], r["instance"], agent)
+        rec = {**base(x), "agent": 1 if agent == "p1" else 2, "clauses": [line.split(") ", 1)[1] for line in rule.split("\n")], "facts": facts_data(r, agent), "moves": moves_of(r, worth(r, agent))}
+        if x["kind"] == "example":
+            rec["example"] = dict(zip(("followed", "broken_clauses", "note"), EXAMPLE_B[1]))
+        b.append(rec)
+    for x in tasks["C"]:
+        g = x["what"]
+        skin = g["skin"]
+        rec = {**base(x), "url": TICKETS.format(source=g["source"]), "repo": g["repo"], "code": g["artifact"],
+               "context": skin["intro"].replace("{role}", "ticket A").replace("{other_role}", "ticket B"), "titles": skin["roles"],
+               "decisions": [{"name": issue["name"], "contested": bool(g["opposed"][j]), "importance": [g["raw_importance"]["A"][j], g["raw_importance"]["B"][j]],
+                              "options": [{"text": text, "a": o == g["rankings"]["p1"][j][0], "b": o == g["rankings"]["p2"][j][0]} for o, text in enumerate(issue["options"])]}
+                             for j, issue in enumerate(skin["issues"])]}
+        if x["kind"] == "example":
+            rec["example"] = dict(zip((*annotation.C_FIELDS, "note"), EXAMPLE_C))
+        c.append(rec)
+    (OUT / "web").mkdir(parents=True, exist_ok=True)
+    for name, records in (("a", a), ("b", b), ("c", c)):
+        (OUT / "web" / f"data_{name}.json").write_text("[\n" + ",\n".join(json.dumps(r, ensure_ascii=False) for r in records) + "\n]\n")
+    # the codebook's score definitions are quoted word for word wherever the annotators read them
+    codebook = [line[2:] for line in Path("docs/B_BARGAIN_STYLE_CODEBOOK.md").read_text().split("\n") if line[:5] in ("- 0: ", "- 1: ", "- 2: ")]
+    assert len(codebook) == 6
+    for path in (OUT / "GUIDE_zh.md", OUT / "web" / "index.html"):
+        if path.exists():
+            text = path.read_text().replace("&#39;", "'")
+            missing = [line[:40] for line in codebook if line not in text]
+            assert not missing, f"{path} does not quote the codebook: {missing}"
 
 
 # ---------------------------------------------------------------- workbooks
@@ -397,6 +456,7 @@ def write_workbooks(tasks, configs):
 def main():
     tasks, keys, assignment, configs = build(random.Random(SEED))
     write_files(tasks, keys, assignment, configs)
+    write_web(tasks, configs)
     print("items: " + ", ".join(f"task {t} {sum(x['kind'] == 'main' for x in items)} + {sum(x['kind'] == 'practice' for x in items)} practice" for t, items in tasks.items()))
     try:
         count = write_workbooks(tasks, configs)
