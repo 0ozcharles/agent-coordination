@@ -146,18 +146,68 @@
       "p1": "neutral",
       "p2": "avoiding",
       "op": "rules"
+    },
+    {
+      "name": "collaborating-competing",
+      "p1": "collaborating",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-collaborating",
+      "p1": "competing",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-competing",
+      "p1": "compromising",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-compromising",
+      "p1": "competing",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-competing",
+      "p1": "accommodating",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-accommodating",
+      "p1": "competing",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-competing",
+      "p1": "avoiding",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-avoiding",
+      "p1": "competing",
+      "p2": "avoiding",
+      "op": "rules"
     }
   ],
   "control": "neutral-neutral",
   "predictions": {
     "e2_on_luna": "on gpt-6-luna, open information made competing the best unilateral strategy (+9.4 against neutral, p = .047) by exploiting a default partner that could see the competing side's scores, and collaborating the best reply to competing (+6.8, p = .035); the default pair was the most efficient of all conditions (gap 12.3)",
     "prediction": "on the stronger models the default pair reaches the frontier in almost every game, so no unilateral strategy gains more than 3 points over neutral and competing alone no longer exploits the partner (own gain under 3, partner's loss under 5); collaborating and accommodating pairs tie with the neutral pair; competing pairs remain the worst cell",
-    "analysis": "paired by instance and seat with the arm's own neutral pair and with the E2 twin; intention to treat"
+    "analysis": "paired by instance and seat with the arm's own neutral pair and with the E2 twin; intention to treat",
+    "vs_competing": "On both models no reply to competing beats the neutral reply by more than 3 points of own payoff, and collaborating and neutral are within 3 points of each other as replies (on gpt-6-luna under open information collaborating was the best reply, +6.8, p = .035); accommodating and avoiding are the worst replies by own payoff on every arm (at least 10 points below the neutral reply) and the competing side's own payoff is highest against an accommodator; competing against collaborating or accommodating agrees in at least 15 of 20 games and beats the competing pair's joint payoff on every arm, and competing against avoiding has the fewest agreements after the competing pair."
   },
   "budget_usd": 20.0,
   "output": "runs/bargain/e3_open_info_claude_sonnet_5_5",
   "results_prefix": "results/bargain_e3_open_info_claude_sonnet_5_5",
-  "status": "frozen 2026-11-21; replayed the same day with a 1,500-token reply cap (see max_tokens_note); environment, rules, instances, seats and cells unchanged",
+  "status": "frozen 2026-11-21; replayed the same day with a 1,500-token reply cap (see max_tokens_note); environment, rules, instances, seats and cells unchanged; the eight cells against competing added 2026-11-21 (see cells_note)",
   "model_kwargs_note": "sampling and thinking settings as the E3 base arm of this model (see configs/bargain_e3_<model>.json)",
-  "max_tokens_note": "1,500 instead of E1's 700: with both score tables visible sonnet's replies run long, and in the first run of this arm (2026-11-21, kept under runs/bargain/e3_open_info_claude_sonnet_5_5_cap700, not reported) 342 of 1,620 calls hit the 700-token cap with the JSON cut off, 78 moves were lost. The cap never bound for gpt-6-luna (about 200 tokens per reply) and binds for no other arm beyond a handful of calls; raising it removes a truncation artefact and leaves the game unchanged."
+  "max_tokens_note": "1,500 instead of E1's 700: with both score tables visible sonnet's replies run long, and in the first run of this arm (2026-11-21, kept under runs/bargain/e3_open_info_claude_sonnet_5_5_cap700, not reported) 342 of 1,620 calls hit the 700-token cap with the JSON cut off, 78 moves were lost. The cap never bound for gpt-6-luna (about 200 tokens per reply) and binds for no other arm beyond a handful of calls; raising it removes a truncation artefact and leaves the game unchanged.",
+  "cells_note": "The eight cells against competing (E2's cells 17 to 24) were added on 2026-11-21 after the 16-cell results were reported, once the month's proxy budget allowed them; the 16 played cells are untouched (finished games are never replayed) and the prediction for the new cells (predictions.vs_competing) was written before any of them was played."
 }

@@ -150,17 +150,67 @@
       "p1": "neutral",
       "p2": "avoiding",
       "op": "rules"
+    },
+    {
+      "name": "collaborating-competing",
+      "p1": "collaborating",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-collaborating",
+      "p1": "competing",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-competing",
+      "p1": "compromising",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-compromising",
+      "p1": "competing",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-competing",
+      "p1": "accommodating",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-accommodating",
+      "p1": "competing",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-competing",
+      "p1": "avoiding",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "competing-avoiding",
+      "p1": "competing",
+      "p2": "avoiding",
+      "op": "rules"
     }
   ],
   "control": "neutral-neutral",
   "predictions": {
     "e2_on_luna": "on gpt-6-luna with stakes 1 against 0.3, the high-stakes side did best by collaborating against neutral (68.1 against 57.4) and the low-stakes side's best unilateral strategy was competing (23.1 against 20.5 of 30), its worst accommodating and avoiding (17.1, 17.0)",
     "prediction": "the seat asymmetry survives on the stronger models: the low-stakes side still gains nothing by accommodating (own payoff below neutral's) and its joint gain goes to the high-stakes side; but the high-stakes side's collaborating edge over neutral shrinks below 5 points, as the default partner concedes the low-stakes issues by itself",
-    "analysis": "paired by instance and seat with the arm's own neutral pair and with the E2 twin; intention to treat"
+    "analysis": "paired by instance and seat with the arm's own neutral pair and with the E2 twin; intention to treat",
+    "vs_competing": "On both models no reply to competing beats the neutral reply by more than 3 points of own payoff, and collaborating and neutral are within 3 points of each other as replies (on gpt-6-luna under open information collaborating was the best reply, +6.8, p = .035); accommodating and avoiding are the worst replies by own payoff on every arm (at least 10 points below the neutral reply) and the competing side's own payoff is highest against an accommodator; competing against collaborating or accommodating agrees in at least 15 of 20 games and beats the competing pair's joint payoff on every arm, and competing against avoiding has the fewest agreements after the competing pair. Under unequal stakes the low-stakes side facing a competing partner does best by competing or neutral and worst by accommodating, and the high-stakes side facing competing does best by collaborating or neutral."
   },
   "budget_usd": 20.0,
   "output": "runs/bargain/e3_low_stakes_p2_claude_sonnet_5_5",
   "results_prefix": "results/bargain_e3_low_stakes_p2_claude_sonnet_5_5",
-  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E2's condition config, cells reduced to 16",
-  "model_kwargs_note": "sampling and thinking settings as the E3 base arm of this model (see configs/bargain_e3_<model>.json)"
+  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E2's condition config, cells reduced to 16; the eight cells against competing added 2026-11-21 (see cells_note)",
+  "model_kwargs_note": "sampling and thinking settings as the E3 base arm of this model (see configs/bargain_e3_<model>.json)",
+  "cells_note": "The eight cells against competing (E2's cells 17 to 24) were added on 2026-11-21 after the 16-cell results were reported, once the month's proxy budget allowed them; the 16 played cells are untouched (finished games are never replayed) and the prediction for the new cells (predictions.vs_competing) was written before any of them was played."
 }

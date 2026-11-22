@@ -147,6 +147,39 @@ class BargainTest(unittest.TestCase):
         self.assertIn("#1 Agent 1 proposes Decision 1: Option A", text)
         self.assertIn("#2 Agent 2 WALKS AWAY: (no message)", text)
 
+    def test_seats_can_play_different_models(self):
+        from unittest import mock
+        cfg = config(model="gpt-6-luna", max_tokens=700, model_kwargs={"extra_body": {"reasoning_effort": "none"}},
+                     seats={"p2": {"model": "ai2s/claude-sonnet-5-5", "model_kwargs": {}, "max_tokens": 1500}})
+        self.assertEqual(bargain.seat_settings(cfg, "p1"), {"model": "gpt-6-luna", "model_kwargs": {"extra_body": {"reasoning_effort": "none"}}, "max_tokens": 700})
+        self.assertEqual(bargain.seat_settings(cfg, "p2"), {"model": "ai2s/claude-sonnet-5-5", "model_kwargs": {}, "max_tokens": 1500})
+        self.assertEqual(bargain.seat_settings(config(), "p1")["max_tokens"], 700)  # no seats: the config's settings
+        inst = bargain.instances(cfg)[0]
+        seen = []
+
+        def fake(cfg_, messages, agent=None):
+            seen.append((agent, bargain.seat_settings(cfg_, agent)["model"]))
+            if len(seen) == 1:  # the first mover proposes, the other accepts
+                reply = json.dumps({"message": "hi", "action": "propose", "proposal": {f"decision {i + 1}": "A" for i in range(inst["k"])}})
+            else:
+                reply = json.dumps({"message": "ok", "action": "accept"})
+            return reply, 0.002 if agent == "p2" else 0.001, {"prompt": 10, "completion": 5, "seconds": 0.1}
+
+        with mock.patch.object(bargain, "call", fake):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual(record["models"], {"p1": "gpt-6-luna", "p2": "ai2s/claude-sonnet-5-5"})
+        self.assertEqual(seen, [(inst["first_mover"], "gpt-6-luna" if inst["first_mover"] == "p1" else "ai2s/claude-sonnet-5-5"),
+                                ("p2" if inst["first_mover"] == "p1" else "p1", "ai2s/claude-sonnet-5-5" if inst["first_mover"] == "p1" else "gpt-6-luna")])
+        self.assertTrue(record["agreement"])
+        self.assertEqual(round(record["usage"]["p1"]["cost_usd"] + record["usage"]["p2"]["cost_usd"], 3), round(record["cost_usd"], 3))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = bargain.game_path(cfg, root, cfg["cells"][0], inst)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(record))
+            row = bargain.rows(cfg, root)[0]
+        self.assertEqual((row["p1_model"], row["p2_model"]), ("gpt-6-luna", "ai2s/claude-sonnet-5-5"))
+
     def test_rows_summary_matrix_and_replicator(self):
         cfg = config()
         with tempfile.TemporaryDirectory() as tmp:

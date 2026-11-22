@@ -1,0 +1,187 @@
+{
+  "study": "bargain_e3_cross_sonnet_luna",
+  "question": "E3 cross-model pairs, arm 2: seat 1 claude-sonnet-5-5, seat 2 gpt-6-luna; the seats of arm 1 swapped, so that each direction has 80 games when pooled.",
+  "model": "ai2s/claude-sonnet-5-5",
+  "model_kwargs": {
+    "extra_body": {
+      "thinking": {
+        "type": "disabled"
+      }
+    }
+  },
+  "max_tokens": 1500,
+  "seats": {
+    "p1": {
+      "model": "ai2s/claude-sonnet-5-5",
+      "model_kwargs": {
+        "extra_body": {
+          "thinking": {
+            "type": "disabled"
+          }
+        }
+      },
+      "max_tokens": 1500
+    },
+    "p2": {
+      "model": "gpt-6-luna",
+      "model_kwargs": {
+        "extra_body": {
+          "reasoning_effort": "none"
+        }
+      },
+      "max_tokens": 700
+    }
+  },
+  "seats_note": "seats fixes each seat's model, sampling and reply cap; luna as in E3's control (OpenAI directly, reasoning off, default temperature, 700 tokens), sonnet as in its E3 arm (the proxy, thinking disabled, default temperature) with the 1,500-token cap of its open-information replay, which only removes truncation. The first mover alternates by instance, so each model moves first in 20 of 40 games.",
+  "environment": {
+    "issues": 4,
+    "options": 3,
+    "moves": 10,
+    "outside": [
+      30,
+      30
+    ],
+    "opposition": 0.75,
+    "asymmetry": 0.5,
+    "visible_weights": false,
+    "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
+  },
+  "instances": {
+    "n": 40,
+    "seed": 20261122,
+    "first_mover": "alternate",
+    "note": "E1's test set; every game has a twin in E1"
+  },
+  "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+  "strategies": {
+    "shared": {
+      "neutral": "Handle this in whatever way you think best."
+    },
+    "prompted": {
+      "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+      "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+      "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+      "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+      "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+    },
+    "rules": {
+      "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+      "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+      "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+      "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+      "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+    },
+    "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+  },
+  "cells": [
+    {
+      "name": "neutral-neutral",
+      "p1": "neutral",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "competing-competing",
+      "p1": "competing",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "collaborating-collaborating",
+      "p1": "collaborating",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-compromising",
+      "p1": "compromising",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-accommodating",
+      "p1": "accommodating",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-avoiding",
+      "p1": "avoiding",
+      "p2": "avoiding",
+      "op": "rules"
+    },
+    {
+      "name": "competing-neutral",
+      "p1": "competing",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-competing",
+      "p1": "neutral",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "collaborating-neutral",
+      "p1": "collaborating",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-collaborating",
+      "p1": "neutral",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-neutral",
+      "p1": "compromising",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-compromising",
+      "p1": "neutral",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-neutral",
+      "p1": "accommodating",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-accommodating",
+      "p1": "neutral",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-neutral",
+      "p1": "avoiding",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-avoiding",
+      "p1": "neutral",
+      "p2": "avoiding",
+      "op": "rules"
+    }
+  ],
+  "control": "neutral-neutral",
+  "predictions": {
+    "neutral_pair": "In the mixed default pair sonnet's agent takes at least 5 points more than luna's, and the pair's joint payoff lies between the two same-model default pairs (130.0 for luna at the default temperature, 138.1 for sonnet, E3).",
+    "collaborating_alone": "Partner-strength account (ours): luna's collaborating rule against sonnet's default agent does not pay luna (own gain within 3 points of its payoff in the mixed default pair; the joint payoff rises and the gain goes to sonnet), while sonnet's collaborating rule against luna's default agent pays sonnet (+3 or more, p < .05), because luna cannot find the frontier alone. The alternative, that the adopter's own model decides, predicts the opposite pattern (luna gains as in E1, sonnet does not as in E3).",
+    "competing_alone": "sonnet competing against luna's default agent takes at least 8 points from luna (in E1 a competing luna took 11.6 from it) and gains itself (+3 or more); luna competing against sonnet's default agent gains nothing (within 3 points) and takes under 5.",
+    "symmetric": "Collaborating pairs are the best symmetric cell and competing pairs the worst in both arms; the mixed collaborating pair's joint payoff is at least luna's own collaborating pair's (136.8) and the mixed default pair's.",
+    "soft_alone": "Compromising, accommodating and avoiding adopted alone lose for whichever model adopts them, and lose more when the partner is sonnet than when it is luna.",
+    "analysis": "Paired by instance (exact sign tests) against the arm's own mixed default pair, with the two arms pooled by model (seat 1 of one arm and seat 2 of the other play the same model), 80 games per direction when both arms are played; the same-model twins are E3's luna control and sonnet arms on the same 40 instances."
+  },
+  "budget_usd": 6.0,
+  "output": "runs/bargain/e3_cross_sonnet_luna",
+  "results_prefix": "results/bargain_e3_cross_sonnet_luna",
+  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E3 (E1's 40 instances), 16 cells as the E3 follow-up"
+}

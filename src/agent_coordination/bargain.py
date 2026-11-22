@@ -60,7 +60,7 @@ ROW_COLUMNS = ("cell", "instance", "p1", "p2", "op", "first_mover", "error", "ag
                "p1_logroll", "p1_trade", "p1_complies", "p2_first", "p2_last", "p2_concession", "p2_proposals", "p2_asks",
                "p2_discloses", "p2_logroll", "p2_trade", "p2_complies", "p1_style", "p2_style", "p1_assertiveness",
                "p1_cooperativeness", "p1_tokens", "p1_out_tokens", "p1_seconds", "p2_tokens", "p2_out_tokens", "p2_seconds",
-               "move_cost_paid", "invalid_replies", "cost_usd")
+               "move_cost_paid", "invalid_replies", "cost_usd", "p1_model", "p2_model")
 
 
 def load_config(path):
@@ -353,19 +353,28 @@ def describe(inst, move, agent, n, T, budget_left=None):
 
 # ---------------------------------------------------------------- model calls and parsing
 
-def call(config, messages):
+def seat_settings(config, agent=None):
+    """Model, model kwargs and reply cap for one seat: the config's, overridden by config["seats"][agent] where given,
+    so that the two seats can be played by different models (a cross-model pair)."""
+    base = {"model": config["model"], "model_kwargs": config.get("model_kwargs", {}), "max_tokens": config.get("max_tokens", 700)}
+    seat = (config.get("seats") or {}).get(agent) or {}
+    return {**base, **{k: seat[k] for k in base if k in seat}}
+
+
+def call(config, messages, agent=None):
     """One model reply: text, cost in dollars, and usage (prompt and completion tokens, seconds)."""
     import litellm
     import time
     from .models import route, cost_of
-    model, extra, name = route(config["model"])  # a provider prefix (ai2s/, together/) picks the endpoint and key
+    settings = seat_settings(config, agent)
+    model, extra, name = route(settings["model"])  # a provider prefix (ai2s/, together/) picks the endpoint and key
     last = None
     for _ in range(3):
         started = time.time()
         try:
             response = litellm.completion(model=model, messages=messages,
-                                          max_completion_tokens=config.get("max_tokens", 700), drop_params=True,
-                                          timeout=180, **extra, **config.get("model_kwargs", {}))
+                                          max_completion_tokens=settings["max_tokens"], drop_params=True,
+                                          timeout=180, **extra, **settings["model_kwargs"])
             cost = cost_of(response, name)
             usage = getattr(response, "usage", None)
             used = {"prompt": getattr(usage, "prompt_tokens", 0) or 0, "completion": getattr(usage, "completion_tokens", 0) or 0,
@@ -425,7 +434,7 @@ def play(config, inst, cell):
     strategies = {"p1": cell["p1"], "p2": cell["p2"]}
     ops = {"p1": cell.get("op", "rules"), "p2": cell.get("p2_op", cell.get("op", "rules"))}
     conv = {a: [{"role": "system", "content": system_prompt(config, inst, a, strategies[a], ops[a])}] for a in AGENTS}
-    usage = {a: {"prompt": 0, "completion": 0, "seconds": 0.0, "calls": 0} for a in AGENTS}
+    usage = {a: {"prompt": 0, "completion": 0, "seconds": 0.0, "calls": 0, "cost_usd": 0.0} for a in AGENTS}
     budget = inst.get("output_budget")
     mover = inst["first_mover"]
     standing, last, moves, agreement, ended_by, cost, invalid = None, None, [], None, "moves_exhausted", 0.0, 0
@@ -436,8 +445,9 @@ def play(config, inst, cell):
         conv[mover].append({"role": "user", "content": describe(inst, last, mover, n, T, left)})
         move = None
         for attempt in range(2):
-            reply, c, used = call(config, conv[mover])
+            reply, c, used = call(config, conv[mover], mover)
             cost += c
+            usage[mover]["cost_usd"] += c
             for key in ("prompt", "completion", "seconds"):
                 usage[mover][key] += used[key]
             usage[mover]["calls"] += 1
@@ -470,7 +480,8 @@ def play(config, inst, cell):
             ended_by = f"{mover}_walked"
             break
         last, mover = move, other
-    return {"cell": cell["name"], "instance": inst, "strategies": strategies, "ops": ops, "moves": moves,
+    return {"cell": cell["name"], "instance": inst, "strategies": strategies, "ops": ops,
+            "models": {a: seat_settings(config, a)["model"] for a in AGENTS}, "moves": moves,
             "agreement": agreement, "ended_by": ended_by, "invalid_replies": invalid, "rejected": rejected, "cost_usd": cost, "error": None,
             "usage": usage, **outcome(inst, moves, agreement),
             "metrics": {a: agent_metrics(inst, moves, agreement, a) for a in AGENTS},
@@ -744,8 +755,10 @@ def rows(config, root):
     for r in records(config, root):
         inst = r["instance"]
         cell = next(c for c in config["cells"] if c["name"] == r["cell"])
+        models = r.get("models") or {a: seat_settings(config, a)["model"] for a in AGENTS}
         row = {"cell": r["cell"], "instance": inst["id"], "p1": cell["p1"], "p2": cell["p2"], "op": cell.get("op", "rules"),
-               "first_mover": inst["first_mover"], "error": bool(r.get("error")), "cost_usd": r.get("cost_usd", 0.0)}
+               "first_mover": inst["first_mover"], "error": bool(r.get("error")), "cost_usd": r.get("cost_usd", 0.0),
+               "p1_model": models["p1"], "p2_model": models["p2"]}
         if not r.get("error"):
             lab = (r.get("label") or {}).get("label") or {}
             row.update({"agreement": bool(r["agreement"]), "ended_by": r["ended_by"], "moves": len(r["moves"]),

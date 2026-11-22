@@ -7,8 +7,8 @@
     "first_mover": "alternate",
     "note": "E2's shared instances; every game has a twin in the E2 condition run on gpt-6-luna"
   },
-  "cells": "16 of E2's 24: the six diagonal pairs and every strategy against neutral in both seats; the eight cells against competing are left out to fit the month's proxy budget",
-  "analysis": "per arm as E2 (best strategy in symmetric play and against neutral, by points and by net payoff over lambda; seats separately for unequal stakes); across models each cell paired by instance with its E2 twin; the model-by-condition map with --map",
+  "cells": "E2's 24 cells: the six diagonal pairs, every strategy against neutral in both seats, and every strategy against competing in both seats. The first run (2026-11-21) played the 16 cells without competing's opponents to fit the month's proxy budget; the eight cells against competing were added the same day once the budget allowed (cells_note in each arm's config)",
+  "analysis": "per arm as E2 (best strategy in symmetric play, against neutral and against competing, by points and by net payoff over lambda; seats separately for unequal stakes); across models each cell paired by instance with its E2 twin; the model-by-condition map with --map",
   "conditions": {
     "open_info_gpt_6_luna_E2": {
       "config": "configs/bargain_e2_open_info.json",
