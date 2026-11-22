@@ -1,0 +1,104 @@
+import json
+import tempfile
+import unittest
+from pathlib import Path
+
+from agent_coordination import bargain, benchmarks
+
+ENV = {"moves": 10, "visible_weights": False, "protocol_note": "There are {T} moves in total."}
+
+
+def config_for(path):
+    return {"study": "t", "question": "q", "model": "m", "environment": ENV, "instances": {"path": str(path), "first_mover": "alternate"},
+            "strategies": {"shared": {"neutral": "Handle this in whatever way you think best."}, "prompted": {}, "rules": {}},
+            "cells": [], "control": "neutral-neutral", "output": "runs/t"}
+
+
+class CasinoTest(unittest.TestCase):
+    def setUp(self):
+        self.specs = benchmarks.casino_instances()
+
+    def test_full_factorial_of_priority_orders(self):
+        self.assertEqual(len(self.specs), 36)
+        self.assertEqual(len({s["source"] for s in self.specs}), 36)
+
+    def test_points_follow_the_benchmark(self):
+        s = next(x for x in self.specs if x["priorities"] == {"p1": ["Food", "Water", "Firewood"], "p2": ["Firewood", "Water", "Food"]})
+        # Camper 1: food 5 a package, water 4, firewood 3; options run from 3 packages to Camper 1 down to 0
+        self.assertEqual(s["weights"]["p1"], [[15, 10, 5, 0], [12, 8, 4, 0], [9, 6, 3, 0]])
+        # Camper 2 gets the rest: firewood 5, water 4, food 3
+        self.assertEqual(s["weights"]["p2"], [[0, 3, 6, 9], [0, 4, 8, 12], [0, 5, 10, 15]])
+        self.assertEqual((s["outside"], s["max"]), ([5, 5], {"p1": 36, "p2": 36}))
+
+    def test_instances_build_with_four_options_and_an_exact_frontier(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "casino.json"; path.write_text(json.dumps(self.specs))
+            insts = bargain.instances(config_for(path))
+        self.assertEqual(len(insts), 36)
+        inst = insts[0]
+        self.assertEqual((inst["k"], inst["options"], inst["m"]), (3, [4, 4, 4], 4))
+        self.assertEqual(inst["opposed"], [True, True, True])
+        self.assertEqual((inst["outside"]["p1"], inst["max"]["p1"]), (5.0, 36.0))
+        self.assertEqual(bargain.thresholds(inst, "p1")["t60"], 21.6)
+        reversed_ = next(i for i in insts if i["priorities"]["p1"] == ["Food", "Water", "Firewood"] and i["priorities"]["p2"] == ["Firewood", "Water", "Food"])
+        self.assertEqual(reversed_["frontier"]["max_joint"], 15 + 12 + 15)  # each side takes all of its top item, water split 3-0 either way
+        identical = next(i for i in insts if i["priorities"]["p1"] == i["priorities"]["p2"])
+        self.assertEqual(identical["frontier"]["integrative_gain"], 0.0)
+        self.assertIsNone(bargain.middle_share(inst, [1, 1, 1]))  # defined for three options only
+        self.assertEqual(bargain.option_labels(inst, 0)[0], "A (3 to Camper 1, 0 to Camper 2)")
+        self.assertEqual(bargain.option_labels(inst, 0)[3], "D (0 to Camper 1, 3 to Camper 2)")
+
+    def test_prompt_and_parsing_with_four_options(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "casino.json"; path.write_text(json.dumps(self.specs))
+            cfg = config_for(path); inst = bargain.instances(cfg)[1]
+        text = bargain.system_prompt(cfg, inst, "p2", "neutral", "rules")
+        self.assertIn("You are Camper 2, one of two campsite neighbours", text)
+        self.assertIn("a split is worth the sum of your scores", text)
+        self.assertIn("the other camper", text)
+        move = bargain.parse_reply('{"message": "ok", "action": "propose", "proposal": {"Food": "D", "Water": "B (2 to Camper 1, 1 to Camper 2)", "Firewood": "a"}}', inst)
+        self.assertEqual(move["design"], [3, 1, 0])
+        with self.assertRaises(ValueError):
+            bargain.parse_reply('{"message": "", "action": "propose", "proposal": {"Food": "E", "Water": "A", "Firewood": "A"}}', inst)
+
+
+class DeliberationTest(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.available = benchmarks.DELIBERATION_ROOT.is_dir()
+        cls.specs = benchmarks.deliberation_instances() if cls.available else []
+
+    def test_pairs_with_a_contested_decision(self):
+        if not self.available:
+            self.skipTest("external/LLM-Deliberation is not checked out")
+        self.assertEqual(len(self.specs), 57)
+        base = [s for s in self.specs if s["benchmark"] == "llm_deliberation/base"]
+        self.assertEqual(len(base), 14)  # the environmental league and other cities share no contested decision
+        s = next(x for x in self.specs if x["source"].endswith("SportCo_vs_enviroment"))
+        self.assertEqual([len(w) for w in s["weights"]["p1"]], [3, 3, 4, 4, 5])
+        self.assertEqual((s["max"], s["thresholds"], s["outside"]), ({"p1": 100, "p2": 100}, {"p1": 55, "p2": 55}, [30.0, 30.0]))
+        self.assertEqual(s["skin"]["issues"][0]["options"], ["water-based", "water/land-based", "land-based"])
+        self.assertEqual(s["skin"]["issues"][2]["options"][1], "Union quota of 2:1")
+
+    def test_instances_and_prompt(self):
+        if not self.available:
+            self.skipTest("external/LLM-Deliberation is not checked out")
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "delib.json"; path.write_text(json.dumps(self.specs))
+            cfg = config_for(path); insts = bargain.instances(cfg)
+        inst = next(i for i in insts if i["seed"].endswith("SportCo_vs_enviroment"))
+        self.assertEqual(inst["options"], [3, 3, 4, 4, 5])
+        # the league is indifferent on C, D and E, so only A and B are contested
+        self.assertEqual(inst["opposed"], [True, True, False, False, False])
+        self.assertEqual(len(inst["frontier"]["pareto"]) > 1, True)
+        text = bargain.system_prompt(cfg, inst, "p1", "neutral", "rules")
+        self.assertIn('You are SportCo, one of two parties', text)
+        self.assertIn('You are the "SportCo"; the other party is the "Environmental League"', text)
+        self.assertIn("Compensation to other cities: A (", text)
+        move = bargain.parse_reply('{"message": "", "action": "propose", "proposal": {"Infrastructure Mix": "A", "Ecological Impact": "C", "Employment Rules": "D", "Federal Loan": "A", "Compensation to other cities": "E"}}', inst)
+        self.assertEqual(move["design"], [0, 2, 3, 0, 4])
+        self.assertEqual(bargain.value(inst, "p1", move["design"]), 14 + 0 + 17 + 35 + 23)
+
+
+if __name__ == "__main__":
+    unittest.main()

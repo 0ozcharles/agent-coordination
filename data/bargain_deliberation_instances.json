@@ -1,0 +1,8324 @@
+[
+ {
+  "source": "llm_deliberation/base/mayor_vs_other_cities",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Mayor",
+   "Other cities"
+  ],
+  "weights": {
+   "p1": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     12,
+     8,
+     0
+    ],
+    [
+     24,
+     18,
+     12,
+     0
+    ],
+    [
+     40,
+     30,
+     23,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     7,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     10
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     12,
+     8,
+     6,
+     0
+    ],
+    [
+     0,
+     8,
+     13,
+     18
+    ],
+    [
+     60,
+     45,
+     30,
+     15,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 30,
+   "p2": 31
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Mayor",
+    "Other cities"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Mayor\"",
+    "the \"Other cities\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/mayor_vs_union",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Mayor",
+   "Local Labour Union"
+  ],
+  "weights": {
+   "p1": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     12,
+     8,
+     0
+    ],
+    [
+     24,
+     18,
+     12,
+     0
+    ],
+    [
+     40,
+     30,
+     23,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     7,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     15,
+     20,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     42,
+     35,
+     25,
+     0
+    ],
+    [
+     30,
+     20,
+     10,
+     0
+    ],
+    [
+     2,
+     4,
+     6,
+     8,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 30,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Mayor",
+    "Local Labour Union"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Mayor\"",
+    "the \"Local Labour Union\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/mayor_vs_SportCo",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Mayor",
+   "SportCo"
+  ],
+  "weights": {
+   "p1": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     12,
+     8,
+     0
+    ],
+    [
+     24,
+     18,
+     12,
+     0
+    ],
+    [
+     40,
+     30,
+     23,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     7,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     11,
+     7,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     17
+    ],
+    [
+     35,
+     29,
+     20,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     15,
+     23
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 30,
+   "p2": 55
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Mayor",
+    "SportCo"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Mayor\"",
+    "the \"SportCo\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/mayor_vs_DoT",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Mayor",
+   "Department of Tourism"
+  ],
+  "weights": {
+   "p1": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     12,
+     8,
+     0
+    ],
+    [
+     24,
+     18,
+     12,
+     0
+    ],
+    [
+     40,
+     30,
+     23,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     7,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     11,
+     5
+    ],
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     0,
+     2,
+     4,
+     9
+    ],
+    [
+     10,
+     26,
+     40,
+     0
+    ],
+    [
+     4,
+     8,
+     15,
+     12,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 30,
+   "p2": 65
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Mayor",
+    "Department of Tourism"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Mayor\"",
+    "the \"Department of Tourism\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/mayor_vs_enviroment",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Mayor",
+   "Environmental League"
+  ],
+  "weights": {
+   "p1": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     12,
+     8,
+     0
+    ],
+    [
+     24,
+     18,
+     12,
+     0
+    ],
+    [
+     40,
+     30,
+     23,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     7,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     22,
+     45
+    ],
+    [
+     0,
+     25,
+     55
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 30,
+   "p2": 55
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Mayor",
+    "Environmental League"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Mayor\"",
+    "the \"Environmental League\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/other_cities_vs_union",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Other cities",
+   "Local Labour Union"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     4,
+     10
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     12,
+     8,
+     6,
+     0
+    ],
+    [
+     0,
+     8,
+     13,
+     18
+    ],
+    [
+     60,
+     45,
+     30,
+     15,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     15,
+     20,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     42,
+     35,
+     25,
+     0
+    ],
+    [
+     30,
+     20,
+     10,
+     0
+    ],
+    [
+     2,
+     4,
+     6,
+     8,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 31,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Other cities",
+    "Local Labour Union"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Other cities\"",
+    "the \"Local Labour Union\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/other_cities_vs_SportCo",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Other cities",
+   "SportCo"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     4,
+     10
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     12,
+     8,
+     6,
+     0
+    ],
+    [
+     0,
+     8,
+     13,
+     18
+    ],
+    [
+     60,
+     45,
+     30,
+     15,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     11,
+     7,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     17
+    ],
+    [
+     35,
+     29,
+     20,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     15,
+     23
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 31,
+   "p2": 55
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Other cities",
+    "SportCo"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Other cities\"",
+    "the \"SportCo\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/other_cities_vs_DoT",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Other cities",
+   "Department of Tourism"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     4,
+     10
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     12,
+     8,
+     6,
+     0
+    ],
+    [
+     0,
+     8,
+     13,
+     18
+    ],
+    [
+     60,
+     45,
+     30,
+     15,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     11,
+     5
+    ],
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     0,
+     2,
+     4,
+     9
+    ],
+    [
+     10,
+     26,
+     40,
+     0
+    ],
+    [
+     4,
+     8,
+     15,
+     12,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 31,
+   "p2": 65
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Other cities",
+    "Department of Tourism"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Other cities\"",
+    "the \"Department of Tourism\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/union_vs_SportCo",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Local Labour Union",
+   "SportCo"
+  ],
+  "weights": {
+   "p1": [
+    [
+     15,
+     20,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     42,
+     35,
+     25,
+     0
+    ],
+    [
+     30,
+     20,
+     10,
+     0
+    ],
+    [
+     2,
+     4,
+     6,
+     8,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     11,
+     7,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     17
+    ],
+    [
+     35,
+     29,
+     20,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     15,
+     23
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 50,
+   "p2": 55
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Local Labour Union",
+    "SportCo"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Local Labour Union\"",
+    "the \"SportCo\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/union_vs_DoT",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Local Labour Union",
+   "Department of Tourism"
+  ],
+  "weights": {
+   "p1": [
+    [
+     15,
+     20,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     42,
+     35,
+     25,
+     0
+    ],
+    [
+     30,
+     20,
+     10,
+     0
+    ],
+    [
+     2,
+     4,
+     6,
+     8,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     11,
+     5
+    ],
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     0,
+     2,
+     4,
+     9
+    ],
+    [
+     10,
+     26,
+     40,
+     0
+    ],
+    [
+     4,
+     8,
+     15,
+     12,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 50,
+   "p2": 65
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Local Labour Union",
+    "Department of Tourism"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Local Labour Union\"",
+    "the \"Department of Tourism\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/union_vs_enviroment",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Local Labour Union",
+   "Environmental League"
+  ],
+  "weights": {
+   "p1": [
+    [
+     15,
+     20,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     42,
+     35,
+     25,
+     0
+    ],
+    [
+     30,
+     20,
+     10,
+     0
+    ],
+    [
+     2,
+     4,
+     6,
+     8,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     22,
+     45
+    ],
+    [
+     0,
+     25,
+     55
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 50,
+   "p2": 55
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Local Labour Union",
+    "Environmental League"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Local Labour Union\"",
+    "the \"Environmental League\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/SportCo_vs_DoT",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "SportCo",
+   "Department of Tourism"
+  ],
+  "weights": {
+   "p1": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     11,
+     7,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     17
+    ],
+    [
+     35,
+     29,
+     20,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     15,
+     23
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     11,
+     5
+    ],
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     0,
+     2,
+     4,
+     9
+    ],
+    [
+     10,
+     26,
+     40,
+     0
+    ],
+    [
+     4,
+     8,
+     15,
+     12,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 55,
+   "p2": 65
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "SportCo",
+    "Department of Tourism"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"SportCo\"",
+    "the \"Department of Tourism\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/SportCo_vs_enviroment",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "SportCo",
+   "Environmental League"
+  ],
+  "weights": {
+   "p1": [
+    [
+     14,
+     8,
+     0
+    ],
+    [
+     11,
+     7,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     17
+    ],
+    [
+     35,
+     29,
+     20,
+     0
+    ],
+    [
+     0,
+     5,
+     10,
+     15,
+     23
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     22,
+     45
+    ],
+    [
+     0,
+     25,
+     55
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 55,
+   "p2": 55
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "SportCo",
+    "Environmental League"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"SportCo\"",
+    "the \"Environmental League\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/base/DoT_vs_enviroment",
+  "benchmark": "llm_deliberation/base",
+  "pair": [
+   "Department of Tourism",
+   "Environmental League"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     11,
+     5
+    ],
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     0,
+     2,
+     4,
+     9
+    ],
+    [
+     10,
+     26,
+     40,
+     0
+    ],
+    [
+     4,
+     8,
+     15,
+     12,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     22,
+     45
+    ],
+    [
+     0,
+     25,
+     55
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 65,
+   "p2": 55
+  },
+  "skin": {
+   "name": "deliberation/base",
+   "parties": [
+    "Department of Tourism",
+    "Environmental League"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the Harbour Sport Park project",
+   "thing": "deal",
+   "intro": "\"SportCo\" is a company that is interested in building a new \"Harbour Sport Park\" in England to host major sports events. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Department of Tourism\"",
+    "the \"Environmental League\""
+   ],
+   "issues": [
+    {
+     "name": "Infrastructure Mix",
+     "options": [
+      "water-based",
+      "water/land-based",
+      "land-based"
+     ]
+    },
+    {
+     "name": "Ecological Impact",
+     "options": [
+      "some damage",
+      "Maintain balance",
+      "Improve"
+     ]
+    },
+    {
+     "name": "Employment Rules",
+     "options": [
+      "unlimited union preference",
+      "Union quota of 2:1",
+      "Union quota of 1:1",
+      "No Union preference"
+     ]
+    },
+    {
+     "name": "Federal Loan",
+     "options": [
+      "$3 billion",
+      "$2 billion",
+      "$1 billion",
+      "no federal loan"
+     ]
+    },
+    {
+     "name": "Compensation to other cities",
+     "options": [
+      "\"SportCo\" pays $600 million to \"Other cities\"",
+      "\"SportCo\" pays $450 million to \"Other cities\"",
+      "\"SportCo\" pays $300 million to \"Other cities\"",
+      "\"SportCo\" pays $150 million to \"Other cities\"",
+      "\"SportCo\" pays no compensation to \"Other cities\""
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/bank_vs_enviroment",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "international development bank",
+   "environmental NGO"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     9,
+     13
+    ],
+    [
+     10,
+     26,
+     40,
+     10
+    ],
+    [
+     0,
+     15,
+     20,
+     25
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     7,
+     0,
+     4
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     11,
+     9,
+     5,
+     0
+    ],
+    [
+     0,
+     10,
+     29,
+     40
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     2,
+     5,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 60
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "international development bank",
+    "environmental NGO"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"international development bank\"",
+    "the \"environmental NGO\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/bank_vs_proposing",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "international development bank",
+   "government"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     9,
+     13
+    ],
+    [
+     10,
+     26,
+     40,
+     10
+    ],
+    [
+     0,
+     15,
+     20,
+     25
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     7,
+     0,
+     4
+    ]
+   ],
+   "p2": [
+    [
+     17,
+     5,
+     9
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     8,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     23,
+     17
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 60
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "international development bank",
+    "government"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"international development bank\"",
+    "the \"government\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/bank_vs_construction",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "international development bank",
+   "construction company"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     9,
+     13
+    ],
+    [
+     10,
+     26,
+     40,
+     10
+    ],
+    [
+     0,
+     15,
+     20,
+     25
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     7,
+     0,
+     4
+    ]
+   ],
+   "p2": [
+    [
+     15,
+     22,
+     5
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     6,
+     10,
+     2,
+     0
+    ],
+    [
+     0,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     22,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "international development bank",
+    "construction company"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"international development bank\"",
+    "the \"construction company\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/bank_vs_community",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "international development bank",
+   "indigenous community"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     9,
+     13
+    ],
+    [
+     10,
+     26,
+     40,
+     10
+    ],
+    [
+     0,
+     15,
+     20,
+     25
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     7,
+     0,
+     4
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     45,
+     25
+    ],
+    [
+     10,
+     8,
+     2,
+     0
+    ],
+    [
+     0,
+     5,
+     15,
+     9
+    ],
+    [
+     0,
+     15,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 47
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "international development bank",
+    "indigenous community"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"international development bank\"",
+    "the \"indigenous community\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/bank_vs_tourism",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "international development bank",
+   "local tourism association"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     9,
+     13
+    ],
+    [
+     10,
+     26,
+     40,
+     10
+    ],
+    [
+     0,
+     15,
+     20,
+     25
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     7,
+     0,
+     4
+    ]
+   ],
+   "p2": [
+    [
+     30,
+     0,
+     25
+    ],
+    [
+     10,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     9,
+     5,
+     2,
+     0
+    ],
+    [
+     10,
+     5,
+     17
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "international development bank",
+    "local tourism association"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"international development bank\"",
+    "the \"local tourism association\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/enviroment_vs_proposing",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "environmental NGO",
+   "government"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     11,
+     9,
+     5,
+     0
+    ],
+    [
+     0,
+     10,
+     29,
+     40
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     2,
+     5,
+     9
+    ]
+   ],
+   "p2": [
+    [
+     17,
+     5,
+     9
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     8,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     23,
+     17
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 60
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "environmental NGO",
+    "government"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"environmental NGO\"",
+    "the \"government\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/enviroment_vs_construction",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "environmental NGO",
+   "construction company"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     11,
+     9,
+     5,
+     0
+    ],
+    [
+     0,
+     10,
+     29,
+     40
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     2,
+     5,
+     9
+    ]
+   ],
+   "p2": [
+    [
+     15,
+     22,
+     5
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     6,
+     10,
+     2,
+     0
+    ],
+    [
+     0,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     22,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "environmental NGO",
+    "construction company"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"environmental NGO\"",
+    "the \"construction company\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/enviroment_vs_community",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "environmental NGO",
+   "indigenous community"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     11,
+     9,
+     5,
+     0
+    ],
+    [
+     0,
+     10,
+     29,
+     40
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     2,
+     5,
+     9
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     45,
+     25
+    ],
+    [
+     10,
+     8,
+     2,
+     0
+    ],
+    [
+     0,
+     5,
+     15,
+     9
+    ],
+    [
+     0,
+     15,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 47
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "environmental NGO",
+    "indigenous community"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"environmental NGO\"",
+    "the \"indigenous community\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/enviroment_vs_tourism",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "environmental NGO",
+   "local tourism association"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     20,
+     25
+    ],
+    [
+     11,
+     9,
+     5,
+     0
+    ],
+    [
+     0,
+     10,
+     29,
+     40
+    ],
+    [
+     0,
+     9,
+     11,
+     13,
+     15
+    ],
+    [
+     2,
+     5,
+     9
+    ]
+   ],
+   "p2": [
+    [
+     30,
+     0,
+     25
+    ],
+    [
+     10,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     9,
+     5,
+     2,
+     0
+    ],
+    [
+     10,
+     5,
+     17
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "environmental NGO",
+    "local tourism association"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"environmental NGO\"",
+    "the \"local tourism association\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/proposing_vs_construction",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "government",
+   "construction company"
+  ],
+  "weights": {
+   "p1": [
+    [
+     17,
+     5,
+     9
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     8,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     23,
+     17
+    ]
+   ],
+   "p2": [
+    [
+     15,
+     22,
+     5
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     6,
+     10,
+     2,
+     0
+    ],
+    [
+     0,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     22,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "government",
+    "construction company"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"government\"",
+    "the \"construction company\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/proposing_vs_community",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "government",
+   "indigenous community"
+  ],
+  "weights": {
+   "p1": [
+    [
+     17,
+     5,
+     9
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     8,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     23,
+     17
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     45,
+     25
+    ],
+    [
+     10,
+     8,
+     2,
+     0
+    ],
+    [
+     0,
+     5,
+     15,
+     9
+    ],
+    [
+     0,
+     15,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 47
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "government",
+    "indigenous community"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"government\"",
+    "the \"indigenous community\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/proposing_vs_tourism",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "government",
+   "local tourism association"
+  ],
+  "weights": {
+   "p1": [
+    [
+     17,
+     5,
+     9
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     8,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     23,
+     17
+    ]
+   ],
+   "p2": [
+    [
+     30,
+     0,
+     25
+    ],
+    [
+     10,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     9,
+     5,
+     2,
+     0
+    ],
+    [
+     10,
+     5,
+     17
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "government",
+    "local tourism association"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"government\"",
+    "the \"local tourism association\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/construction_vs_community",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "construction company",
+   "indigenous community"
+  ],
+  "weights": {
+   "p1": [
+    [
+     15,
+     22,
+     5
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     6,
+     10,
+     2,
+     0
+    ],
+    [
+     0,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     22,
+     15
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     45,
+     25
+    ],
+    [
+     10,
+     8,
+     2,
+     0
+    ],
+    [
+     0,
+     5,
+     15,
+     9
+    ],
+    [
+     0,
+     15,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 57,
+   "p2": 47
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "construction company",
+    "indigenous community"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"construction company\"",
+    "the \"indigenous community\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/construction_vs_tourism",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "construction company",
+   "local tourism association"
+  ],
+  "weights": {
+   "p1": [
+    [
+     15,
+     22,
+     5
+    ],
+    [
+     10,
+     15,
+     29,
+     40
+    ],
+    [
+     6,
+     10,
+     2,
+     0
+    ],
+    [
+     0,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     22,
+     15
+    ]
+   ],
+   "p2": [
+    [
+     30,
+     0,
+     25
+    ],
+    [
+     10,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     9,
+     5,
+     2,
+     0
+    ],
+    [
+     10,
+     5,
+     17
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 57,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "construction company",
+    "local tourism association"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"construction company\"",
+    "the \"local tourism association\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game1/community_vs_tourism",
+  "benchmark": "llm_deliberation/game1",
+  "pair": [
+   "indigenous community",
+   "local tourism association"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     45,
+     25
+    ],
+    [
+     10,
+     8,
+     2,
+     0
+    ],
+    [
+     0,
+     5,
+     15,
+     9
+    ],
+    [
+     0,
+     15,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     30,
+     0,
+     25
+    ],
+    [
+     10,
+     20,
+     25,
+     30
+    ],
+    [
+     0,
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     9,
+     5,
+     2,
+     0
+    ],
+    [
+     10,
+     5,
+     17
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 47,
+   "p2": 57
+  },
+  "skin": {
+   "name": "deliberation/game1",
+   "parties": [
+    "indigenous community",
+    "local tourism association"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport project",
+   "thing": "deal",
+   "intro": "The \"government\" of a small island nation is proposing a project to construct a new airport. The airport is expected to boost the tourism and economy of the country, but other parties are concerned that it has environmental and social impacts on the local communities and wildlife. You are engaging in a negotiation that will determine if the project is going to be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"indigenous community\"",
+    "the \"local tourism association\""
+   ],
+   "issues": [
+    {
+     "name": "Location",
+     "options": [
+      "A coastal area near the capital city",
+      "A midland city",
+      "An artificial island in the southern region"
+     ]
+    },
+    {
+     "name": "Budget",
+     "options": [
+      "very low budget of $300 million",
+      "low budget of $500 million",
+      "moderate budget of $800 million",
+      "high budget of $1.2 billion"
+     ]
+    },
+    {
+     "name": "The environmental measures",
+     "options": [
+      "No mitigation",
+      "Basic mitigation",
+      "Moderate mitigation",
+      "Advanced mitigation"
+     ]
+    },
+    {
+     "name": "The social impact assessment",
+     "options": [
+      "No assessment",
+      "Basic assessment",
+      "Moderate assessment",
+      "High assessment",
+      "Very high assessment"
+     ]
+    },
+    {
+     "name": "The profit-sharing scheme",
+     "options": [
+      "Fixed scheme",
+      "Variable scheme",
+      "Hybrid scheme"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/foreign_agency_vs_project_manager",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Foreign aid agency",
+   "Project manager"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     15,
+     25,
+     20,
+     0
+    ],
+    [
+     0,
+     7,
+     4
+    ],
+    [
+     15,
+     5,
+     0,
+     10
+    ],
+    [
+     13,
+     0,
+     9
+    ],
+    [
+     26,
+     40,
+     10,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     5,
+     10,
+     23,
+     15,
+     5
+    ],
+    [
+     35,
+     25,
+     0
+    ],
+    [
+     17,
+     0,
+     5,
+     10
+    ],
+    [
+     0,
+     14,
+     8
+    ],
+    [
+     11,
+     0,
+     7,
+     7
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 59
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Foreign aid agency",
+    "Project manager"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Foreign aid agency\"",
+    "the \"Project manager\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/foreign_agency_vs_government",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Foreign aid agency",
+   "Local government"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     15,
+     25,
+     20,
+     0
+    ],
+    [
+     0,
+     7,
+     4
+    ],
+    [
+     15,
+     5,
+     0,
+     10
+    ],
+    [
+     13,
+     0,
+     9
+    ],
+    [
+     26,
+     40,
+     10,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     10,
+     15,
+     20,
+     25
+    ],
+    [
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     0,
+     35,
+     25
+    ],
+    [
+     0,
+     9,
+     5
+    ],
+    [
+     0,
+     0,
+     17,
+     10
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 37
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Foreign aid agency",
+    "Local government"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Foreign aid agency\"",
+    "the \"Local government\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/foreign_agency_vs_landowners",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Foreign aid agency",
+   "Landowners"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     15,
+     25,
+     20,
+     0
+    ],
+    [
+     0,
+     7,
+     4
+    ],
+    [
+     15,
+     5,
+     0,
+     10
+    ],
+    [
+     13,
+     0,
+     9
+    ],
+    [
+     26,
+     40,
+     10,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     5,
+     10,
+     20,
+     30,
+     40
+    ],
+    [
+     16,
+     12,
+     5
+    ],
+    [
+     22,
+     0,
+     10,
+     15
+    ],
+    [
+     0,
+     22,
+     17
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 40
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Foreign aid agency",
+    "Landowners"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Foreign aid agency\"",
+    "the \"Landowners\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/foreign_agency_vs_NGO",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Foreign aid agency",
+   "Local NGO"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     15,
+     25,
+     20,
+     0
+    ],
+    [
+     0,
+     7,
+     4
+    ],
+    [
+     15,
+     5,
+     0,
+     10
+    ],
+    [
+     13,
+     0,
+     9
+    ],
+    [
+     26,
+     40,
+     10,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     25,
+     20,
+     15,
+     10,
+     5
+    ],
+    [
+     0,
+     35,
+     40
+    ],
+    [
+     0,
+     11,
+     5,
+     9
+    ],
+    [
+     15,
+     0,
+     12
+    ],
+    [
+     2,
+     0,
+     5,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Foreign aid agency",
+    "Local NGO"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Foreign aid agency\"",
+    "the \"Local NGO\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/foreign_agency_vs_activists",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Foreign aid agency",
+   "Local Activists"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     15,
+     25,
+     20,
+     0
+    ],
+    [
+     0,
+     7,
+     4
+    ],
+    [
+     15,
+     5,
+     0,
+     10
+    ],
+    [
+     13,
+     0,
+     9
+    ],
+    [
+     26,
+     40,
+     10,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     10,
+     8,
+     6,
+     2,
+     0
+    ],
+    [
+     0,
+     12,
+     14
+    ],
+    [
+     0,
+     40,
+     35,
+     0
+    ],
+    [
+     11,
+     0,
+     5
+    ],
+    [
+     0,
+     0,
+     20,
+     25
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 60,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Foreign aid agency",
+    "Local Activists"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Foreign aid agency\"",
+    "the \"Local Activists\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/project_manager_vs_government",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Project manager",
+   "Local government"
+  ],
+  "weights": {
+   "p1": [
+    [
+     5,
+     10,
+     23,
+     15,
+     5
+    ],
+    [
+     35,
+     25,
+     0
+    ],
+    [
+     17,
+     0,
+     5,
+     10
+    ],
+    [
+     0,
+     14,
+     8
+    ],
+    [
+     11,
+     0,
+     7,
+     7
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     10,
+     15,
+     20,
+     25
+    ],
+    [
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     0,
+     35,
+     25
+    ],
+    [
+     0,
+     9,
+     5
+    ],
+    [
+     0,
+     0,
+     17,
+     10
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 59,
+   "p2": 37
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Project manager",
+    "Local government"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Project manager\"",
+    "the \"Local government\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/project_manager_vs_landowners",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Project manager",
+   "Landowners"
+  ],
+  "weights": {
+   "p1": [
+    [
+     5,
+     10,
+     23,
+     15,
+     5
+    ],
+    [
+     35,
+     25,
+     0
+    ],
+    [
+     17,
+     0,
+     5,
+     10
+    ],
+    [
+     0,
+     14,
+     8
+    ],
+    [
+     11,
+     0,
+     7,
+     7
+    ]
+   ],
+   "p2": [
+    [
+     5,
+     10,
+     20,
+     30,
+     40
+    ],
+    [
+     16,
+     12,
+     5
+    ],
+    [
+     22,
+     0,
+     10,
+     15
+    ],
+    [
+     0,
+     22,
+     17
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 59,
+   "p2": 40
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Project manager",
+    "Landowners"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Project manager\"",
+    "the \"Landowners\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/project_manager_vs_NGO",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Project manager",
+   "Local NGO"
+  ],
+  "weights": {
+   "p1": [
+    [
+     5,
+     10,
+     23,
+     15,
+     5
+    ],
+    [
+     35,
+     25,
+     0
+    ],
+    [
+     17,
+     0,
+     5,
+     10
+    ],
+    [
+     0,
+     14,
+     8
+    ],
+    [
+     11,
+     0,
+     7,
+     7
+    ]
+   ],
+   "p2": [
+    [
+     25,
+     20,
+     15,
+     10,
+     5
+    ],
+    [
+     0,
+     35,
+     40
+    ],
+    [
+     0,
+     11,
+     5,
+     9
+    ],
+    [
+     15,
+     0,
+     12
+    ],
+    [
+     2,
+     0,
+     5,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 59,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Project manager",
+    "Local NGO"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Project manager\"",
+    "the \"Local NGO\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/project_manager_vs_activists",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Project manager",
+   "Local Activists"
+  ],
+  "weights": {
+   "p1": [
+    [
+     5,
+     10,
+     23,
+     15,
+     5
+    ],
+    [
+     35,
+     25,
+     0
+    ],
+    [
+     17,
+     0,
+     5,
+     10
+    ],
+    [
+     0,
+     14,
+     8
+    ],
+    [
+     11,
+     0,
+     7,
+     7
+    ]
+   ],
+   "p2": [
+    [
+     10,
+     8,
+     6,
+     2,
+     0
+    ],
+    [
+     0,
+     12,
+     14
+    ],
+    [
+     0,
+     40,
+     35,
+     0
+    ],
+    [
+     11,
+     0,
+     5
+    ],
+    [
+     0,
+     0,
+     20,
+     25
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 59,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Project manager",
+    "Local Activists"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Project manager\"",
+    "the \"Local Activists\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/government_vs_landowners",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Local government",
+   "Landowners"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     10,
+     15,
+     20,
+     25
+    ],
+    [
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     0,
+     35,
+     25
+    ],
+    [
+     0,
+     9,
+     5
+    ],
+    [
+     0,
+     0,
+     17,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     5,
+     10,
+     20,
+     30,
+     40
+    ],
+    [
+     16,
+     12,
+     5
+    ],
+    [
+     22,
+     0,
+     10,
+     15
+    ],
+    [
+     0,
+     22,
+     17
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 37,
+   "p2": 40
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Local government",
+    "Landowners"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Local government\"",
+    "the \"Landowners\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/government_vs_NGO",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Local government",
+   "Local NGO"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     10,
+     15,
+     20,
+     25
+    ],
+    [
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     0,
+     35,
+     25
+    ],
+    [
+     0,
+     9,
+     5
+    ],
+    [
+     0,
+     0,
+     17,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     25,
+     20,
+     15,
+     10,
+     5
+    ],
+    [
+     0,
+     35,
+     40
+    ],
+    [
+     0,
+     11,
+     5,
+     9
+    ],
+    [
+     15,
+     0,
+     12
+    ],
+    [
+     2,
+     0,
+     5,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 37,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Local government",
+    "Local NGO"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Local government\"",
+    "the \"Local NGO\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/government_vs_activists",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Local government",
+   "Local Activists"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     10,
+     15,
+     20,
+     25
+    ],
+    [
+     14,
+     7,
+     0
+    ],
+    [
+     0,
+     0,
+     35,
+     25
+    ],
+    [
+     0,
+     9,
+     5
+    ],
+    [
+     0,
+     0,
+     17,
+     10
+    ]
+   ],
+   "p2": [
+    [
+     10,
+     8,
+     6,
+     2,
+     0
+    ],
+    [
+     0,
+     12,
+     14
+    ],
+    [
+     0,
+     40,
+     35,
+     0
+    ],
+    [
+     11,
+     0,
+     5
+    ],
+    [
+     0,
+     0,
+     20,
+     25
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 37,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Local government",
+    "Local Activists"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Local government\"",
+    "the \"Local Activists\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/landowners_vs_NGO",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Landowners",
+   "Local NGO"
+  ],
+  "weights": {
+   "p1": [
+    [
+     5,
+     10,
+     20,
+     30,
+     40
+    ],
+    [
+     16,
+     12,
+     5
+    ],
+    [
+     22,
+     0,
+     10,
+     15
+    ],
+    [
+     0,
+     22,
+     17
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     25,
+     20,
+     15,
+     10,
+     5
+    ],
+    [
+     0,
+     35,
+     40
+    ],
+    [
+     0,
+     11,
+     5,
+     9
+    ],
+    [
+     15,
+     0,
+     12
+    ],
+    [
+     2,
+     0,
+     5,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 40,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Landowners",
+    "Local NGO"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Landowners\"",
+    "the \"Local NGO\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game2/landowners_vs_activists",
+  "benchmark": "llm_deliberation/game2",
+  "pair": [
+   "Landowners",
+   "Local Activists"
+  ],
+  "weights": {
+   "p1": [
+    [
+     5,
+     10,
+     20,
+     30,
+     40
+    ],
+    [
+     16,
+     12,
+     5
+    ],
+    [
+     22,
+     0,
+     10,
+     15
+    ],
+    [
+     0,
+     22,
+     17
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     10,
+     8,
+     6,
+     2,
+     0
+    ],
+    [
+     0,
+     12,
+     14
+    ],
+    [
+     0,
+     40,
+     35,
+     0
+    ],
+    [
+     11,
+     0,
+     5
+    ],
+    [
+     0,
+     0,
+     20,
+     25
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 40,
+   "p2": 30
+  },
+  "skin": {
+   "name": "deliberation/game2",
+   "parties": [
+    "Landowners",
+    "Local Activists"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new solar power plant",
+   "thing": "deal",
+   "intro": "A \"Project manager\" is proposing a project to construct a new solar power plant in a developing country. The project aims to provide clean and renewable energy for the local population and reduce the dependence on fossil fuels. The project is funded by a \"Foreign aid agency\" and supported by a \"Local NGO\". However, other parties are concerned that it has environmental and social impacts on the local communities and some security issues. You are engaging in a negotiation that will determine if the project will be approved. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Landowners\"",
+    "the \"Local Activists\""
+   ],
+   "issues": [
+    {
+     "name": "Size",
+     "options": [
+      "50 hectares",
+      "150 hectares",
+      "250 hectares",
+      "350 hectares",
+      "450 hectares"
+     ]
+    },
+    {
+     "name": "Location",
+     "options": [
+      "Near a city",
+      "Near a village",
+      "In a remote area"
+     ]
+    },
+    {
+     "name": "Ownership",
+     "options": [
+      "The \"Foreign aid agency\"",
+      "The \"Local NGO\"",
+      "The \"Local government\"",
+      "A joint venture between two or more parties"
+     ]
+    },
+    {
+     "name": "Generated Power Distribution",
+     "options": [
+      "Only the local community",
+      "Only the urban areas",
+      "Equally among all regions"
+     ]
+    },
+    {
+     "name": "Security",
+     "options": [
+      "Private security guards managed by the \"Project manager\"",
+      "Military assistance from the \"Foreign aid agency\"",
+      "By the local police force",
+      "Community-based security measures"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/federal_vs_private_investors",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Federal government of Germany",
+   "Private investors"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     40,
+     10,
+     29
+    ],
+    [
+     0,
+     25,
+     20
+    ],
+    [
+     10,
+     14,
+     6,
+     0
+    ],
+    [
+     0,
+     9,
+     13,
+     7,
+     0
+    ],
+    [
+     0,
+     8,
+     5
+    ]
+   ],
+   "p2": [
+    [
+     25,
+     20,
+     0,
+     10
+    ],
+    [
+     18,
+     13,
+     0
+    ],
+    [
+     25,
+     10,
+     0,
+     32
+    ],
+    [
+     15,
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     10,
+     5,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 55,
+   "p2": 63
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Federal government of Germany",
+    "Private investors"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Federal government of Germany\"",
+    "the \"Private investors\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/federal_vs_state",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Federal government of Germany",
+   "State government of Saarland"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     40,
+     10,
+     29
+    ],
+    [
+     0,
+     25,
+     20
+    ],
+    [
+     10,
+     14,
+     6,
+     0
+    ],
+    [
+     0,
+     9,
+     13,
+     7,
+     0
+    ],
+    [
+     0,
+     8,
+     5
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     3,
+     7
+    ],
+    [
+     0,
+     24,
+     30
+    ],
+    [
+     24,
+     12,
+     30,
+     0
+    ],
+    [
+     0,
+     11,
+     17,
+     15,
+     5
+    ],
+    [
+     0,
+     11,
+     16
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 55,
+   "p2": 45
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Federal government of Germany",
+    "State government of Saarland"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Federal government of Germany\"",
+    "the \"State government of Saarland\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/federal_vs_activists",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Federal government of Germany",
+   "Environmental activists"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     40,
+     10,
+     29
+    ],
+    [
+     0,
+     25,
+     20
+    ],
+    [
+     10,
+     14,
+     6,
+     0
+    ],
+    [
+     0,
+     9,
+     13,
+     7,
+     0
+    ],
+    [
+     0,
+     8,
+     5
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     40,
+     65
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     10,
+     20,
+     35,
+     25
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 55,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Federal government of Germany",
+    "Environmental activists"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Federal government of Germany\"",
+    "the \"Environmental activists\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/federal_vs_france",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Federal government of Germany",
+   "France"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     40,
+     10,
+     29
+    ],
+    [
+     0,
+     25,
+     20
+    ],
+    [
+     10,
+     14,
+     6,
+     0
+    ],
+    [
+     0,
+     9,
+     13,
+     7,
+     0
+    ],
+    [
+     0,
+     8,
+     5
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     45,
+     20,
+     20
+    ],
+    [
+     0,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     20,
+     25
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 55,
+   "p2": 65
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Federal government of Germany",
+    "France"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Federal government of Germany\"",
+    "the \"France\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/federal_vs_community",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Federal government of Germany",
+   "Local community of Neunkirchen"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     40,
+     10,
+     29
+    ],
+    [
+     0,
+     25,
+     20
+    ],
+    [
+     10,
+     14,
+     6,
+     0
+    ],
+    [
+     0,
+     9,
+     13,
+     7,
+     0
+    ],
+    [
+     0,
+     8,
+     5
+    ]
+   ],
+   "p2": [
+    [
+     20,
+     20,
+     25,
+     0
+    ],
+    [
+     0,
+     15,
+     20
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     17,
+     25,
+     30,
+     35
+    ],
+    [
+     0,
+     15,
+     20
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 55,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Federal government of Germany",
+    "Local community of Neunkirchen"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Federal government of Germany\"",
+    "the \"Local community of Neunkirchen\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/private_investors_vs_state",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Private investors",
+   "State government of Saarland"
+  ],
+  "weights": {
+   "p1": [
+    [
+     25,
+     20,
+     0,
+     10
+    ],
+    [
+     18,
+     13,
+     0
+    ],
+    [
+     25,
+     10,
+     0,
+     32
+    ],
+    [
+     15,
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     3,
+     7
+    ],
+    [
+     0,
+     24,
+     30
+    ],
+    [
+     24,
+     12,
+     30,
+     0
+    ],
+    [
+     0,
+     11,
+     17,
+     15,
+     5
+    ],
+    [
+     0,
+     11,
+     16
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 63,
+   "p2": 45
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Private investors",
+    "State government of Saarland"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Private investors\"",
+    "the \"State government of Saarland\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/private_investors_vs_activists",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Private investors",
+   "Environmental activists"
+  ],
+  "weights": {
+   "p1": [
+    [
+     25,
+     20,
+     0,
+     10
+    ],
+    [
+     18,
+     13,
+     0
+    ],
+    [
+     25,
+     10,
+     0,
+     32
+    ],
+    [
+     15,
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     40,
+     65
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     10,
+     20,
+     35,
+     25
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 63,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Private investors",
+    "Environmental activists"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Private investors\"",
+    "the \"Environmental activists\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/private_investors_vs_france",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Private investors",
+   "France"
+  ],
+  "weights": {
+   "p1": [
+    [
+     25,
+     20,
+     0,
+     10
+    ],
+    [
+     18,
+     13,
+     0
+    ],
+    [
+     25,
+     10,
+     0,
+     32
+    ],
+    [
+     15,
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     45,
+     20,
+     20
+    ],
+    [
+     0,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     20,
+     25
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 63,
+   "p2": 65
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Private investors",
+    "France"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Private investors\"",
+    "the \"France\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/private_investors_vs_community",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Private investors",
+   "Local community of Neunkirchen"
+  ],
+  "weights": {
+   "p1": [
+    [
+     25,
+     20,
+     0,
+     10
+    ],
+    [
+     18,
+     13,
+     0
+    ],
+    [
+     25,
+     10,
+     0,
+     32
+    ],
+    [
+     15,
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     20,
+     20,
+     25,
+     0
+    ],
+    [
+     0,
+     15,
+     20
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     17,
+     25,
+     30,
+     35
+    ],
+    [
+     0,
+     15,
+     20
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 63,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Private investors",
+    "Local community of Neunkirchen"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Private investors\"",
+    "the \"Local community of Neunkirchen\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/state_vs_activists",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "State government of Saarland",
+   "Environmental activists"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     5,
+     3,
+     7
+    ],
+    [
+     0,
+     24,
+     30
+    ],
+    [
+     24,
+     12,
+     30,
+     0
+    ],
+    [
+     0,
+     11,
+     17,
+     15,
+     5
+    ],
+    [
+     0,
+     11,
+     16
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     40,
+     65
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     10,
+     20,
+     35,
+     25
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 45,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "State government of Saarland",
+    "Environmental activists"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"State government of Saarland\"",
+    "the \"Environmental activists\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/state_vs_france",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "State government of Saarland",
+   "France"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     5,
+     3,
+     7
+    ],
+    [
+     0,
+     24,
+     30
+    ],
+    [
+     24,
+     12,
+     30,
+     0
+    ],
+    [
+     0,
+     11,
+     17,
+     15,
+     5
+    ],
+    [
+     0,
+     11,
+     16
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     45,
+     20,
+     20
+    ],
+    [
+     0,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     20,
+     25
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 45,
+   "p2": 65
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "State government of Saarland",
+    "France"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"State government of Saarland\"",
+    "the \"France\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/state_vs_community",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "State government of Saarland",
+   "Local community of Neunkirchen"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     5,
+     3,
+     7
+    ],
+    [
+     0,
+     24,
+     30
+    ],
+    [
+     24,
+     12,
+     30,
+     0
+    ],
+    [
+     0,
+     11,
+     17,
+     15,
+     5
+    ],
+    [
+     0,
+     11,
+     16
+    ]
+   ],
+   "p2": [
+    [
+     20,
+     20,
+     25,
+     0
+    ],
+    [
+     0,
+     15,
+     20
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     17,
+     25,
+     30,
+     35
+    ],
+    [
+     0,
+     15,
+     20
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 45,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "State government of Saarland",
+    "Local community of Neunkirchen"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"State government of Saarland\"",
+    "the \"Local community of Neunkirchen\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/activists_vs_community",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "Environmental activists",
+   "Local community of Neunkirchen"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     40,
+     65
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     10,
+     20,
+     35,
+     25
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     20,
+     20,
+     25,
+     0
+    ],
+    [
+     0,
+     15,
+     20
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     17,
+     25,
+     30,
+     35
+    ],
+    [
+     0,
+     15,
+     20
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 50,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "Environmental activists",
+    "Local community of Neunkirchen"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"Environmental activists\"",
+    "the \"Local community of Neunkirchen\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "llm_deliberation/game3/france_vs_community",
+  "benchmark": "llm_deliberation/game3",
+  "pair": [
+   "France",
+   "Local community of Neunkirchen"
+  ],
+  "weights": {
+   "p1": [
+    [
+     0,
+     45,
+     20,
+     20
+    ],
+    [
+     0,
+     25,
+     30
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     20,
+     25
+    ]
+   ],
+   "p2": [
+    [
+     20,
+     20,
+     25,
+     0
+    ],
+    [
+     0,
+     15,
+     20
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     17,
+     25,
+     30,
+     35
+    ],
+    [
+     0,
+     15,
+     20
+    ]
+   ]
+  },
+  "outside": [
+   30.0,
+   30.0
+  ],
+  "max": {
+   "p1": 100,
+   "p2": 100
+  },
+  "thresholds": {
+   "p1": 65,
+   "p2": 50
+  },
+  "skin": {
+   "name": "deliberation/game3",
+   "parties": [
+    "France",
+    "Local community of Neunkirchen"
+   ],
+   "party_kind": "parties",
+   "other": "the other party",
+   "artifact": "the terms of the new airport in Saarland",
+   "thing": "deal",
+   "intro": "Different parties are engaging in a negotiation regarding building a new airport in Saarland, Germany, to boost the economy and tourism of the region. The airport will be located near the city of Saarbr\u00fccken and will have a capacity of 10 million passengers per year. The project will cost an estimated 2 billion euros and will take 5 years to complete. The project is funded by the \"Federal government of Germany\", \"Private investors\", and the \"State government of Saarland\". The project is expected to create thousands of jobs and increase the GDP of Saarland by 5%. You are {role}; the other party is {other_role}. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "roles": [
+    "the \"France\"",
+    "the \"Local community of Neunkirchen\""
+   ],
+   "issues": [
+    {
+     "name": "The location of the airport",
+     "options": [
+      "Near the border with France",
+      "Near the border with Luxembourg, close to the existing",
+      "Near the border with Rhineland-Palatinate, close to the",
+      "In the center of Saarland, close to the existing"
+     ]
+    },
+    {
+     "name": "The environmental impact of the airport",
+     "options": [
+      "High impact",
+      "Moderate impact",
+      "Low impact"
+     ]
+    },
+    {
+     "name": "The distribution of profits from the airport",
+     "options": [
+      "Equal distribution",
+      "Federal favor",
+      "State favor",
+      "Private favor"
+     ]
+    },
+    {
+     "name": "The compensation for the affected communities",
+     "options": [
+      "No compensation",
+      "Low compensation - A one-time payment of 10 million euros",
+      "Moderate compensation - A yearly payment of 5 million euros",
+      "High compensation - A yearly payment of 10 million euros",
+      "Very high compensation"
+     ]
+    },
+    {
+     "name": "The involvement of local businesses in the airport",
+     "options": [
+      "No involvement",
+      "Partial involvement",
+      "Full involvement"
+     ]
+    }
+   ]
+  }
+ }
+]

@@ -1,0 +1,157 @@
+{
+  "study": "bargain_casino",
+  "question": "External benchmark 1, CaSiNo (Chawla et al. 2021): two campers split three packages each of food, water and firewood with the benchmark's points (5, 4, 3 a package by priority; walk-away 5 of 36). All 36 ordered pairs of priority orders, the rule diagonal and every strategy against neutral in both seats, on gpt-6-luna. Does the strategy map of the core hold on a human-designed multi-issue game with a low outside option and a divisible resource?",
+  "model": "gpt-6-luna",
+  "model_kwargs": {
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "extra_body": {
+      "reasoning_effort": "none"
+    }
+  },
+  "max_tokens": 700,
+  "environment": {
+    "moves": 10,
+    "visible_weights": false,
+    "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+    "note": "the benchmark's own outside options and maxima come from the instance file; the protocol, move count and hidden scores are the core's"
+  },
+  "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+  "strategies": {
+    "shared": {
+      "neutral": "Handle this in whatever way you think best."
+    },
+    "prompted": {
+      "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+      "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+      "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+      "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+      "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+    },
+    "rules": {
+      "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+      "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. If you want different options on two or more decisions, trade them: give the other developer their preferred option on the decision they say matters most to them and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. If you want different options on only one decision, propose its middle option, and give the other developer their preferred option on it if it matters more to them than to you. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+      "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+      "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+      "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+    },
+    "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+  },
+  "cells": [
+    {
+      "name": "neutral-neutral",
+      "p1": "neutral",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "competing-competing",
+      "p1": "competing",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "collaborating-collaborating",
+      "p1": "collaborating",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-compromising",
+      "p1": "compromising",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-accommodating",
+      "p1": "accommodating",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-avoiding",
+      "p1": "avoiding",
+      "p2": "avoiding",
+      "op": "rules"
+    },
+    {
+      "name": "competing-neutral",
+      "p1": "competing",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "collaborating-neutral",
+      "p1": "collaborating",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "compromising-neutral",
+      "p1": "compromising",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "accommodating-neutral",
+      "p1": "accommodating",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "avoiding-neutral",
+      "p1": "avoiding",
+      "p2": "neutral",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-competing",
+      "p1": "neutral",
+      "p2": "competing",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-collaborating",
+      "p1": "neutral",
+      "p2": "collaborating",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-compromising",
+      "p1": "neutral",
+      "p2": "compromising",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-accommodating",
+      "p1": "neutral",
+      "p2": "accommodating",
+      "op": "rules"
+    },
+    {
+      "name": "neutral-avoiding",
+      "p1": "neutral",
+      "p2": "avoiding",
+      "op": "rules"
+    }
+  ],
+  "control": "neutral-neutral",
+  "analysis": "per cell as E1 and E2 (joint by symmetric pair against the neutral pair, own payoff of each strategy adopted alone against neutral in both seats, paired by instance with exact sign tests); compliance, tokens and moves; the share of agreements on the frontier",
+  "instances": {
+    "path": "data/bargain_casino_instances.json",
+    "first_mover": "alternate",
+    "source": "the benchmark's rules (external/CaSiNo, CC BY 4.0); no dialogue text is used",
+    "note": "36 instances: every ordered pair of priority orders; 6 are distributive (identical priorities), 6 fully reversed"
+  },
+  "predictions": {
+    "order": "collaborating pairs have the highest joint payoff and accommodating pairs are close, as in E1; competing pairs are the worst cell with the most walk-aways; compromising and avoiding pairs below the neutral pair",
+    "unilateral": "collaborating alone beats neutral on the instances whose priorities differ and not on the six distributive ones; competing alone does not beat neutral; with the walk-away worth only 5 of 36, the accommodating rule accepts at 8.6 points and loses most of any strategy adopted alone, and avoiding walks rarely",
+    "default": "the neutral pair agrees in nearly every game and leaves a smaller gap than in the core (the trades are obvious: each side's top item), between 2 and 6 of a maximal 42 to 45",
+    "compliance": "every rule is followed at least as often as in E1; the collaborating trade clause (each side's top item in full) is met in more than 70 percent of games",
+    "analysis": "as E1, paired by instance; the six distributive and six fully reversed pairs reported separately"
+  },
+  "budget_usd": 2.0,
+  "output": "runs/bargain/casino",
+  "results_prefix": "results/bargain_casino",
+  "status": "frozen 2026-11-21 before any game was played; strategies as the current rules (the revised collaborating clause), model settings as E1"
+}

@@ -1,0 +1,3854 @@
+[
+ {
+  "source": "casino/Fo-Wa-Fi_vs_Fo-Wa-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Water",
+    "Firewood"
+   ],
+   "p2": [
+    "Food",
+    "Water",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Wa-Fi_vs_Fo-Fi-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Water",
+    "Firewood"
+   ],
+   "p2": [
+    "Food",
+    "Firewood",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Wa-Fi_vs_Wa-Fo-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Water",
+    "Firewood"
+   ],
+   "p2": [
+    "Water",
+    "Food",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Wa-Fi_vs_Wa-Fi-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Water",
+    "Firewood"
+   ],
+   "p2": [
+    "Water",
+    "Firewood",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Wa-Fi_vs_Fi-Fo-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Water",
+    "Firewood"
+   ],
+   "p2": [
+    "Firewood",
+    "Food",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Wa-Fi_vs_Fi-Wa-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Water",
+    "Firewood"
+   ],
+   "p2": [
+    "Firewood",
+    "Water",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Fi-Wa_vs_Fo-Wa-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Firewood",
+    "Water"
+   ],
+   "p2": [
+    "Food",
+    "Water",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Fi-Wa_vs_Fo-Fi-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Firewood",
+    "Water"
+   ],
+   "p2": [
+    "Food",
+    "Firewood",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Fi-Wa_vs_Wa-Fo-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Firewood",
+    "Water"
+   ],
+   "p2": [
+    "Water",
+    "Food",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Fi-Wa_vs_Wa-Fi-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Firewood",
+    "Water"
+   ],
+   "p2": [
+    "Water",
+    "Firewood",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Fi-Wa_vs_Fi-Fo-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Firewood",
+    "Water"
+   ],
+   "p2": [
+    "Firewood",
+    "Food",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fo-Fi-Wa_vs_Fi-Wa-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Food",
+    "Firewood",
+    "Water"
+   ],
+   "p2": [
+    "Firewood",
+    "Water",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fo-Fi_vs_Fo-Wa-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Food",
+    "Firewood"
+   ],
+   "p2": [
+    "Food",
+    "Water",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fo-Fi_vs_Fo-Fi-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Food",
+    "Firewood"
+   ],
+   "p2": [
+    "Food",
+    "Firewood",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fo-Fi_vs_Wa-Fo-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Food",
+    "Firewood"
+   ],
+   "p2": [
+    "Water",
+    "Food",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fo-Fi_vs_Wa-Fi-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Food",
+    "Firewood"
+   ],
+   "p2": [
+    "Water",
+    "Firewood",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fo-Fi_vs_Fi-Fo-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Food",
+    "Firewood"
+   ],
+   "p2": [
+    "Firewood",
+    "Food",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fo-Fi_vs_Fi-Wa-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Food",
+    "Firewood"
+   ],
+   "p2": [
+    "Firewood",
+    "Water",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fi-Fo_vs_Fo-Wa-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Firewood",
+    "Food"
+   ],
+   "p2": [
+    "Food",
+    "Water",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fi-Fo_vs_Fo-Fi-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Firewood",
+    "Food"
+   ],
+   "p2": [
+    "Food",
+    "Firewood",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fi-Fo_vs_Wa-Fo-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Firewood",
+    "Food"
+   ],
+   "p2": [
+    "Water",
+    "Food",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fi-Fo_vs_Wa-Fi-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Firewood",
+    "Food"
+   ],
+   "p2": [
+    "Water",
+    "Firewood",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fi-Fo_vs_Fi-Fo-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Firewood",
+    "Food"
+   ],
+   "p2": [
+    "Firewood",
+    "Food",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Wa-Fi-Fo_vs_Fi-Wa-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Water",
+    "Firewood",
+    "Food"
+   ],
+   "p2": [
+    "Firewood",
+    "Water",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Fo-Wa_vs_Fo-Wa-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Food",
+    "Water"
+   ],
+   "p2": [
+    "Food",
+    "Water",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Fo-Wa_vs_Fo-Fi-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Food",
+    "Water"
+   ],
+   "p2": [
+    "Food",
+    "Firewood",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Fo-Wa_vs_Wa-Fo-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Food",
+    "Water"
+   ],
+   "p2": [
+    "Water",
+    "Food",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Fo-Wa_vs_Wa-Fi-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Food",
+    "Water"
+   ],
+   "p2": [
+    "Water",
+    "Firewood",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Fo-Wa_vs_Fi-Fo-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Food",
+    "Water"
+   ],
+   "p2": [
+    "Firewood",
+    "Food",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Fo-Wa_vs_Fi-Wa-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Food",
+    "Water"
+   ],
+   "p2": [
+    "Firewood",
+    "Water",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Wa-Fo_vs_Fo-Wa-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Water",
+    "Food"
+   ],
+   "p2": [
+    "Food",
+    "Water",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Wa-Fo_vs_Fo-Fi-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Water",
+    "Food"
+   ],
+   "p2": [
+    "Food",
+    "Firewood",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Wa-Fo_vs_Wa-Fo-Fi",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Water",
+    "Food"
+   ],
+   "p2": [
+    "Water",
+    "Food",
+    "Firewood"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Wa-Fo_vs_Wa-Fi-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Water",
+    "Food"
+   ],
+   "p2": [
+    "Water",
+    "Firewood",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Wa-Fo_vs_Fi-Fo-Wa",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Water",
+    "Food"
+   ],
+   "p2": [
+    "Firewood",
+    "Food",
+    "Water"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "casino/Fi-Wa-Fo_vs_Fi-Wa-Fo",
+  "benchmark": "casino",
+  "priorities": {
+   "p1": [
+    "Firewood",
+    "Water",
+    "Food"
+   ],
+   "p2": [
+    "Firewood",
+    "Water",
+    "Food"
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     12,
+     8,
+     4,
+     0
+    ],
+    [
+     15,
+     10,
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6,
+     9
+    ],
+    [
+     0,
+     4,
+     8,
+     12
+    ],
+    [
+     0,
+     5,
+     10,
+     15
+    ]
+   ]
+  },
+  "outside": [
+   5,
+   5
+  ],
+  "max": {
+   "p1": 36,
+   "p2": 36
+  },
+  "skin": {
+   "name": "casino",
+   "parties": [
+    "Camper 1",
+    "Camper 2"
+   ],
+   "party_kind": "campsite neighbours",
+   "other": "the other camper",
+   "artifact": "how to split the extra supplies",
+   "thing": "split",
+   "intro": "You are camping next to each other and a few extra packages are available: three of food, three of water and three of firewood. Each decision splits one kind of package between you; your scores say what each package is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes.",
+   "issues": [
+    {
+     "name": "Food",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Water",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    },
+    {
+     "name": "Firewood",
+     "options": [
+      "3 to Camper 1, 0 to Camper 2",
+      "2 to Camper 1, 1 to Camper 2",
+      "1 to Camper 1, 2 to Camper 2",
+      "0 to Camper 1, 3 to Camper 2"
+     ]
+    }
+   ]
+  }
+ }
+]

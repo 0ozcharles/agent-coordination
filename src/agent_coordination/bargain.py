@@ -104,6 +104,11 @@ def reversed_ranks(values):
     return out
 
 
+def n_opts(inst, i):
+    """How many options issue i has: uniform `m` in the core, per issue (`options`) on benchmark instances."""
+    return inst.get("options", [inst["m"]] * inst["k"])[i]
+
+
 def issue_names(inst):
     sk, k = skin_of(inst), inst["k"]
     if sk.get("issues"):
@@ -113,7 +118,7 @@ def issue_names(inst):
 
 def option_labels(inst, i):
     """How issue i's options are shown: 'Option A' in the abstract skin, 'A (the name)' in a scenario skin."""
-    sk, m = skin_of(inst), inst["m"]
+    sk, m = skin_of(inst), n_opts(inst, i)
     letters = [chr(65 + j) for j in range(m)]
     if sk.get("issues"):
         return [f"{letters[j]} ({sk['issues'][i]['options'][j]})" for j in range(m)]
@@ -122,7 +127,7 @@ def option_labels(inst, i):
 
 def option_aliases(inst, i):
     """Every spelling accepted for issue i's options, lower-cased, mapped to the option index."""
-    sk, m = skin_of(inst), inst["m"]
+    sk, m = skin_of(inst), n_opts(inst, i)
     out = {}
     for j in range(m):
         letter = chr(65 + j)
@@ -154,6 +159,30 @@ def assemble(env, index, first_mover, importance, rankings, opposed, seed=None, 
     return inst
 
 
+def from_weights(env, index, first_mover, weights, skin, outside=None, top=None, source=None, extra=None):
+    """An instance from explicit score tables (benchmark reductions): `weights[agent][i]` lists option values; issues may
+    differ in their number of options. A decision is contested when the two sides' top options differ and both sides'
+    scores vary on it; a side that scores every option alike is indifferent and the decision counts as shared."""
+    k = len(weights["p1"]); options = [len(weights["p1"][i]) for i in range(k)]
+    assert all(len(weights["p2"][i]) == options[i] for i in range(k)), "both sides need the same options"
+    def top_of(a, i): return max(range(options[i]), key=lambda o: weights[a][i][o])
+    varies = lambda a, i: max(weights[a][i]) > min(weights[a][i])
+    opposed = [varies("p1", i) and varies("p2", i) and top_of("p1", i) != top_of("p2", i) for i in range(k)]
+    maxima = {a: round(sum(max(weights[a][i]) for i in range(k)), 1) for a in AGENTS}
+    top = top or maxima
+    out = outside if outside is not None else env.get("outside", [20, 20])
+    inst = {"id": index, "seed": source, "k": k, "m": max(options), "options": options,
+            "opposition": round(sum(opposed) / k, 2), "asymmetry": None,
+            "importance": {a: [round(max(weights[a][i]) - min(weights[a][i]), 1) for i in range(k)] for a in AGENTS},
+            "weights": {a: [[float(v) for v in weights[a][i]] for i in range(k)] for a in AGENTS}, "opposed": opposed,
+            "outside": {"p1": float(out[0]), "p2": float(out[1])}, "max": {a: float(top[a]) for a in AGENTS},
+            "first_mover": first_mover, "visible_weights": bool(env.get("visible_weights", False)),
+            "move_cost": env.get("move_cost", 0), "output_budget": env.get("output_budget"), "moves": env.get("moves", 10),
+            "skin": skin, **(extra or {})}
+    inst["frontier"] = frontier(inst)
+    return inst
+
+
 def make_instance(env, seed, index, first_mover):
     rng = random.Random(seed)
     k, m = env["issues"], env["options"]
@@ -179,6 +208,10 @@ def instances(config):
         for i, s in enumerate(specs[: spec.get("n") or len(specs)]):
             first = ("p1", "p2")[i % 2] if spec.get("first_mover", "alternate") == "alternate" else spec["first_mover"]
             skin = spec["skin"] if "skin" in spec else s.get("skin")  # instances.skin overrides the file's inline skins
+            if "weights" in s:  # a benchmark reduction: explicit score tables, the benchmark's own outside options and maxima
+                out.append(from_weights(env, i, first, s["weights"], skin, outside=s.get("outside"), top=s.get("max"), source=s.get("source"),
+                                        extra={k: v for k, v in s.items() if k in ("benchmark", "pair", "thresholds", "priorities")}))
+                continue
             out.append(assemble(env, i, first, s["importance"], s["rankings"], s["opposed"], seed=s.get("source"), skin=skin))
         return out
     rng = random.Random(spec["seed"])
@@ -193,15 +226,15 @@ def value(inst, agent, design):
 
 
 def frontier(inst):
-    points = [(value(inst, "p1", d), value(inst, "p2", d), list(d)) for d in itertools.product(range(inst["m"]), repeat=inst["k"])]
+    points = [(value(inst, "p1", d), value(inst, "p2", d), list(d)) for d in itertools.product(*[range(n_opts(inst, i)) for i in range(inst["k"])])]
     pareto = [p for p in points if not any(q[0] >= p[0] and q[1] >= p[1] and (q[0] > p[0] or q[1] > p[1]) for q in points)]
     d1, d2 = inst["outside"]["p1"], inst["outside"]["p2"]
     feasible = [p for p in points if p[0] >= d1 and p[1] >= d2]
     nash = max(feasible, key=lambda p: ((p[0] - d1) * (p[1] - d2), p[0] + p[1]), default=None)
     egal = max(points, key=lambda p: (min(p[0], p[1]), p[0] + p[1]))
     # the issue-by-issue compromise: the shared top option where rankings agree, the middle option where they clash
-    t1 = [max(range(inst["m"]), key=lambda o: inst["weights"]["p1"][i][o]) for i in range(inst["k"])]
-    compromise = [middle_option(inst, i) if (opp and inst["m"] == 3) else t1[i] for i, opp in enumerate(inst["opposed"])]
+    t1 = [max(range(n_opts(inst, i)), key=lambda o: inst["weights"]["p1"][i][o]) for i in range(inst["k"])]
+    compromise = [middle_option(inst, i) if (opp and n_opts(inst, i) == 3) else t1[i] for i, opp in enumerate(inst["opposed"])]
     compromise_joint = value(inst, "p1", compromise) + value(inst, "p2", compromise)
     max_joint = max(p[0] + p[1] for p in points)
     return {"max_joint": max_joint, "pareto": sorted({(p[0], p[1]) for p in pareto}),
@@ -457,7 +490,7 @@ def outcome(inst, moves, agreement):
 
 
 def tops(inst, agent):
-    return [max(range(inst["m"]), key=lambda o: inst["weights"][agent][i][o]) for i in range(inst["k"])]
+    return [max(range(n_opts(inst, i)), key=lambda o: inst["weights"][agent][i][o]) for i in range(inst["k"])]
 
 
 def is_trade(inst, design):
@@ -482,13 +515,13 @@ def middle_option(inst, i):
     """The option of issue i that Developer 1 ranks second; where the sides clash it is the middle option for both.
     Option indices carry no order: the generator draws the rankings and the grounded layer shuffles the letters."""
     w = inst["weights"]["p1"][i]
-    return sorted(range(inst["m"]), key=lambda o: -w[o])[1]
+    return sorted(range(n_opts(inst, i)), key=lambda o: -w[o])[1]
 
 
 def middle_share(inst, design):
     """The share of contested decisions set to the middle option (defined for three options)."""
     contested = [i for i, opp in enumerate(inst["opposed"]) if opp]
-    if inst["m"] != 3 or not contested or design is None:
+    if any(n_opts(inst, i) != 3 for i in range(inst["k"])) or not contested or design is None:
         return None
     return round(sum(1 for i in contested if design[i] == middle_option(inst, i)) / len(contested), 2)
 
@@ -637,7 +670,7 @@ def transcript(record):
 def label_prompt(codebook, record):
     inst = record["instance"]
     sk = skin_of(inst)
-    letters = ", ".join(chr(65 + j) for j in range(inst["m"]))
+    letters = ", ".join(chr(65 + j) for j in range(max(n_opts(inst, i) for i in range(inst["k"]))))
     return (f"{codebook}\n\n---\n\nTwo {sk['party_kind']} negotiate {sk['artifact']} with {inst['k']} decisions "
             f"({', '.join(issue_names(inst))}), each with options {letters}. "
             f"Each has private scores you do not see.\n\nMoves in the order they happened:\n{transcript(record)}\n\n"
