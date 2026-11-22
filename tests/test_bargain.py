@@ -67,7 +67,8 @@ class BargainTest(unittest.TestCase):
         self.assertEqual((inst["max"]["p1"], inst["max"]["p2"], inst["outside"]["p2"]), (100, 30, 9))
         best2 = [max(range(3), key=lambda o: inst["weights"]["p2"][i][o]) for i in range(4)]
         self.assertAlmostEqual(bargain.value(inst, "p2", best2), 30.0, places=0)
-        self.assertEqual(bargain.thresholds(inst, "p2"), {"max": 30, "t60": 18, "t50": 15, "outside": 9, "outside10": 12})
+        self.assertEqual(bargain.thresholds(inst, "p2"), {"max": 30, "t60": 18, "t50": 15, "outside": 9, "outside10": 12,
+                                                         "t40": 12, "t70": 21, "outside20": 15})
         cfg = config(strategies={"shared": {"neutral": "Do."}, "prompted": {}, "rules": {"competing": "Accept {t60}+, not {outside}."}})
         self.assertEqual(bargain.guidance(cfg, "competing", "rules", inst, "p2"), "[G] Accept 18+, not 9.")
         text = bargain.system_prompt(cfg, inst, "p2", "neutral", "prompted")
@@ -179,6 +180,18 @@ class BargainTest(unittest.TestCase):
             path.write_text(json.dumps(record))
             row = bargain.rows(cfg, root)[0]
         self.assertEqual((row["p1_model"], row["p2_model"]), ("gpt-6-luna", "ai2s/claude-sonnet-5-5"))
+        # a rule variant is checked with its base rule's checker; an unmapped variant has no compliance verdict
+        variant = config(model="m", strategies={"shared": {"neutral": "Do as you like."}, "prompted": {}, "rules": {"competing_v2": "Start with your best design; accept at {t70} or more."}},
+                         cells=[{"name": "competing_v2-neutral", "p1": "competing_v2", "p2": "neutral", "op": "rules"}])
+        self.assertIn("accept at 70 or more", bargain.guidance(variant, "competing_v2", "rules", inst, "p1"))
+        seen.clear()
+        with mock.patch.object(bargain, "call", fake):
+            unmapped = bargain.play(variant, inst, variant["cells"][0])
+        seen.clear()
+        with mock.patch.object(bargain, "call", fake):
+            mapped = bargain.play(dict(variant, strategy_base={"competing_v2": "competing"}), inst, variant["cells"][0])
+        self.assertIsNone(unmapped["compliance"]["p1"]["overall"])
+        self.assertIn("opens_high", mapped["compliance"]["p1"])
 
     def test_rows_summary_matrix_and_replicator(self):
         cfg = config()

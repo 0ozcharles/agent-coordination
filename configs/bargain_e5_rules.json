@@ -1,0 +1,541 @@
+{
+ "study": "bargain_e5_rules",
+ "question": "E5, robustness of the operationalization: do the findings depend on how the five rules are written? On E1-R's 100 instances, each rule in two paraphrases (one by the authors, one by claude-sonnet-5-5), the acceptance floors of competing, compromising and accommodating moved up and down, and the collaborating rule taken apart into its clauses. Each variant is played alone in both seats and against itself; the original rules and the default pair are E1-R's games on the same instances.",
+ "model": "gpt-6-luna",
+ "model_kwargs": {
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "extra_body": {
+   "reasoning_effort": "none"
+  }
+ },
+ "max_tokens": 700,
+ "environment": {
+  "issues": 4,
+  "options": 3,
+  "moves": 10,
+  "outside": [
+   30,
+   30
+  ],
+  "opposition": 0.75,
+  "asymmetry": 0.5,
+  "visible_weights": false,
+  "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
+ },
+ "instances": {
+  "n": 100,
+  "seed": 20261201,
+  "first_mover": "alternate",
+  "note": "fresh instances: a seed used by no earlier study (dev, E1 20261122, E2 20261123)"
+ },
+ "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+ "strategies": {
+  "shared": {
+   "neutral": "Handle this in whatever way you think best."
+  },
+  "prompted": {
+   "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+   "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+   "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+   "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+   "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+  },
+  "rules": {
+   "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+   "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+   "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+   "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+   "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away.",
+   "competing_v2": "Rules for you: start by proposing the design that gives you the most points. Each time you propose again, move on a single decision only, and only one step down, from your best option there to your second-best. Say yes only to a proposal that gives you {t60} points or more. If your last move comes and nothing on the table gives you {t60}, leave without a deal.",
+   "competing_v3": "Your conduct in this negotiation is bound by the following rules. Begin with the design that is worth the most to you. Whenever you make a later proposal, alter no more than one decision relative to your previous proposal, and make that alteration only by moving from your top option to your middle option on that decision. You may accept a proposal only if it is worth at least {t60} points to you, and you must never accept anything below that figure. If you reach your final move and the other developer's proposal is still worth less than {t60}, walk away instead of accepting it.",
+   "collaborating_v2": "Rules for you: open by telling the other developer which decisions you care about most, and ask them the same. Where the two of you want different options, trade: let them have their option on the decision they name as most important, and keep your option on the one most important to you. Whatever you propose must leave each of you with your own option on at least one decision you disagree on. Say yes to a proposal that gives you {t60} points or more, and hold out for that until your last move.",
+   "collaborating_v3": "Your rules are as follows. Open by telling the other developer which decisions matter most to you, and ask them which decisions matter most to them. Wherever the two of you want different options, let the other developer have their preferred option on the decision they name as most important, and keep your own preferred option on the decision that is most important to you. Each proposal you make has to leave both of you with your preferred option on at least one of the contested decisions. Any proposal that is worth {t60} points or more to you should be accepted, but you should not accept anything worth less than that until your last move.",
+   "compromising_v2": "Rules for you: wherever you and the other developer want different options, settle on the option in between, shifting one or two decisions at a time. Never propose something better for you than your last proposal. Say yes to any proposal that gives you {t50} points or more, and no to anything below {t50}.",
+   "compromising_v3": "Abide by the following guidelines. Whenever you and the other developer prefer different options on a decision, shift toward the middle option, changing just one or two decisions in any single proposal. No proposal you make may be worth more to you than the one you made before it. If a proposal is worth {t50} points or more to you, accept it, but never accept one that is worth less than {t50} points to you.",
+   "accommodating_v2": "Rules for you: begin by asking the other developer what they need from the design. As soon as a proposal gives you {outside10} points or more, take it. If you make a proposal, shape it around the needs they told you and hold on only to what you cannot do without.",
+   "accommodating_v3": "Your conduct in this negotiation comes down to three rules. Start your very first message by asking the other developer what they need. After that, whenever a proposal arrives that is worth at least {outside10} points to you, take it, and make it the first one that meets that bar. If you are the one putting forward a proposal, center the design on the needs the other developer has told you about, and hold on to only the elements you can't do without.",
+   "avoiding_v2": "Rules for you: put forward no more than one proposal yourself, and stay out of any argument about the design. From then on, say yes to the other developer's proposal if it gives you {outside} points or more; if it gives you less, leave without a deal.",
+   "avoiding_v3": "Your conduct is governed by these rules: you may put forward no more than one proposal of your own, and you should not debate the design. Once that is done, take the other developer's proposal if it is worth {outside} points or more to you; if it is worth less, walk away.",
+   "competing_f50": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t50} points to you; never accept less, and on your last move walk away rather than accept less than {t50}.",
+   "competing_f70": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t70} points to you; never accept less, and on your last move walk away rather than accept less than {t70}.",
+   "compromising_f40": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t40} points to you, and never accept one worth less than {t40}.",
+   "compromising_f60": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t60} points to you, and never accept one worth less than {t60}.",
+   "accommodating_u0": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+   "accommodating_u20": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside20} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+   "collaborating_floor": "Follow these rules: accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+   "collaborating_talk": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+   "collaborating_trade": "Follow these rules: on the decisions where you want different options, give the other developer their preferred option on the decision that matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move."
+  },
+  "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+ },
+ "cells": [
+  {
+   "name": "competing_v2-neutral",
+   "p1": "competing_v2",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-competing_v2",
+   "p1": "neutral",
+   "p2": "competing_v2",
+   "op": "rules"
+  },
+  {
+   "name": "competing_v2-competing_v2",
+   "p1": "competing_v2",
+   "p2": "competing_v2",
+   "op": "rules"
+  },
+  {
+   "name": "competing_v3-neutral",
+   "p1": "competing_v3",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-competing_v3",
+   "p1": "neutral",
+   "p2": "competing_v3",
+   "op": "rules"
+  },
+  {
+   "name": "competing_v3-competing_v3",
+   "p1": "competing_v3",
+   "p2": "competing_v3",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_v2-neutral",
+   "p1": "collaborating_v2",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-collaborating_v2",
+   "p1": "neutral",
+   "p2": "collaborating_v2",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_v2-collaborating_v2",
+   "p1": "collaborating_v2",
+   "p2": "collaborating_v2",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_v3-neutral",
+   "p1": "collaborating_v3",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-collaborating_v3",
+   "p1": "neutral",
+   "p2": "collaborating_v3",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_v3-collaborating_v3",
+   "p1": "collaborating_v3",
+   "p2": "collaborating_v3",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_v2-neutral",
+   "p1": "compromising_v2",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-compromising_v2",
+   "p1": "neutral",
+   "p2": "compromising_v2",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_v2-compromising_v2",
+   "p1": "compromising_v2",
+   "p2": "compromising_v2",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_v3-neutral",
+   "p1": "compromising_v3",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-compromising_v3",
+   "p1": "neutral",
+   "p2": "compromising_v3",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_v3-compromising_v3",
+   "p1": "compromising_v3",
+   "p2": "compromising_v3",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_v2-neutral",
+   "p1": "accommodating_v2",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-accommodating_v2",
+   "p1": "neutral",
+   "p2": "accommodating_v2",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_v2-accommodating_v2",
+   "p1": "accommodating_v2",
+   "p2": "accommodating_v2",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_v3-neutral",
+   "p1": "accommodating_v3",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-accommodating_v3",
+   "p1": "neutral",
+   "p2": "accommodating_v3",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_v3-accommodating_v3",
+   "p1": "accommodating_v3",
+   "p2": "accommodating_v3",
+   "op": "rules"
+  },
+  {
+   "name": "avoiding_v2-neutral",
+   "p1": "avoiding_v2",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-avoiding_v2",
+   "p1": "neutral",
+   "p2": "avoiding_v2",
+   "op": "rules"
+  },
+  {
+   "name": "avoiding_v2-avoiding_v2",
+   "p1": "avoiding_v2",
+   "p2": "avoiding_v2",
+   "op": "rules"
+  },
+  {
+   "name": "avoiding_v3-neutral",
+   "p1": "avoiding_v3",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-avoiding_v3",
+   "p1": "neutral",
+   "p2": "avoiding_v3",
+   "op": "rules"
+  },
+  {
+   "name": "avoiding_v3-avoiding_v3",
+   "p1": "avoiding_v3",
+   "p2": "avoiding_v3",
+   "op": "rules"
+  },
+  {
+   "name": "competing_f50-neutral",
+   "p1": "competing_f50",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-competing_f50",
+   "p1": "neutral",
+   "p2": "competing_f50",
+   "op": "rules"
+  },
+  {
+   "name": "competing_f50-competing_f50",
+   "p1": "competing_f50",
+   "p2": "competing_f50",
+   "op": "rules"
+  },
+  {
+   "name": "competing_f70-neutral",
+   "p1": "competing_f70",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-competing_f70",
+   "p1": "neutral",
+   "p2": "competing_f70",
+   "op": "rules"
+  },
+  {
+   "name": "competing_f70-competing_f70",
+   "p1": "competing_f70",
+   "p2": "competing_f70",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_f40-neutral",
+   "p1": "compromising_f40",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-compromising_f40",
+   "p1": "neutral",
+   "p2": "compromising_f40",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_f40-compromising_f40",
+   "p1": "compromising_f40",
+   "p2": "compromising_f40",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_f60-neutral",
+   "p1": "compromising_f60",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-compromising_f60",
+   "p1": "neutral",
+   "p2": "compromising_f60",
+   "op": "rules"
+  },
+  {
+   "name": "compromising_f60-compromising_f60",
+   "p1": "compromising_f60",
+   "p2": "compromising_f60",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_u0-neutral",
+   "p1": "accommodating_u0",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-accommodating_u0",
+   "p1": "neutral",
+   "p2": "accommodating_u0",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_u0-accommodating_u0",
+   "p1": "accommodating_u0",
+   "p2": "accommodating_u0",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_u20-neutral",
+   "p1": "accommodating_u20",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-accommodating_u20",
+   "p1": "neutral",
+   "p2": "accommodating_u20",
+   "op": "rules"
+  },
+  {
+   "name": "accommodating_u20-accommodating_u20",
+   "p1": "accommodating_u20",
+   "p2": "accommodating_u20",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_floor-neutral",
+   "p1": "collaborating_floor",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-collaborating_floor",
+   "p1": "neutral",
+   "p2": "collaborating_floor",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_floor-collaborating_floor",
+   "p1": "collaborating_floor",
+   "p2": "collaborating_floor",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_talk-neutral",
+   "p1": "collaborating_talk",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-collaborating_talk",
+   "p1": "neutral",
+   "p2": "collaborating_talk",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_talk-collaborating_talk",
+   "p1": "collaborating_talk",
+   "p2": "collaborating_talk",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_trade-neutral",
+   "p1": "collaborating_trade",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-collaborating_trade",
+   "p1": "neutral",
+   "p2": "collaborating_trade",
+   "op": "rules"
+  },
+  {
+   "name": "collaborating_trade-collaborating_trade",
+   "p1": "collaborating_trade",
+   "p2": "collaborating_trade",
+   "op": "rules"
+  }
+ ],
+ "control": "neutral-neutral",
+ "predictions": {
+  "paraphrase": "For both paraphrase sets and every strategy, the own gain adopted alone, the partner's change and the pair's joint payoff against the default pair have the same sign as under the original rule on the same instances wherever the original effect is significant, and the paired difference between paraphrase and original is under 5 points in absolute value in at least 24 of the 30 effects (5 strategies, 3 effects, 2 sets).",
+  "thresholds": "Dose-response. Competing: the higher the floor (50, 60, 70 percent of the ideal), the fewer agreements against itself and against the default agent and the lower the competing pair's joint payoff. Accommodating: the higher the floor (outside option, plus 10, plus 20), the smaller its own loss adopted alone and the smaller the partner's gain. Compromising: the higher the floor (40, 50, 60), the smaller its own loss adopted alone.",
+  "ablation": "The 60-point floor alone yields less than half of the full collaborating rule's own gain adopted alone; asking and disclosing with the floor yields at least two thirds of it; the trade clause with the floor but without the instruction to ask and disclose yields less than asking and disclosing does. Joint payoff adopted alone: ask-and-disclose at least as high as the trade clause, the floor alone lowest.",
+  "analysis": "instance-level paired differences (stats.py), Wilcoxon signed-rank, mean with bootstrap 95% interval; each variant against the default agent of E1-R and against its original rule in E1-R on the same instance; robustness checks, not part of the confirmatory family of configs/bargain_replication.json; scripts/analysis/robustness.py"
+ },
+ "budget_usd": 5.0,
+ "output": "runs/bargain/e5_rules",
+ "results_prefix": "results/bargain_e5_rules",
+ "status": "frozen 2026-11-22 and pushed before any game was played and before any E1-R result was read; environment, instances, model and sampling as E1-R",
+ "strategy_base": {
+  "competing_v2": "competing",
+  "competing_v3": "competing",
+  "collaborating_v2": "collaborating",
+  "collaborating_v3": "collaborating",
+  "compromising_v2": "compromising",
+  "compromising_v3": "compromising",
+  "accommodating_v2": "accommodating",
+  "accommodating_v3": "accommodating",
+  "avoiding_v2": "avoiding",
+  "avoiding_v3": "avoiding"
+ },
+ "variants": {
+  "competing_v2": {
+   "base": "competing",
+   "kind": "paraphrase",
+   "by": "the authors"
+  },
+  "competing_v3": {
+   "base": "competing",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5"
+  },
+  "collaborating_v2": {
+   "base": "collaborating",
+   "kind": "paraphrase",
+   "by": "the authors"
+  },
+  "collaborating_v3": {
+   "base": "collaborating",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5"
+  },
+  "compromising_v2": {
+   "base": "compromising",
+   "kind": "paraphrase",
+   "by": "the authors"
+  },
+  "compromising_v3": {
+   "base": "compromising",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5"
+  },
+  "accommodating_v2": {
+   "base": "accommodating",
+   "kind": "paraphrase",
+   "by": "the authors"
+  },
+  "accommodating_v3": {
+   "base": "accommodating",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5"
+  },
+  "avoiding_v2": {
+   "base": "avoiding",
+   "kind": "paraphrase",
+   "by": "the authors"
+  },
+  "avoiding_v3": {
+   "base": "avoiding",
+   "kind": "paraphrase",
+   "by": "claude-sonnet-5-5"
+  },
+  "competing_f50": {
+   "base": "competing",
+   "kind": "threshold",
+   "level": 50
+  },
+  "competing_f70": {
+   "base": "competing",
+   "kind": "threshold",
+   "level": 70
+  },
+  "compromising_f40": {
+   "base": "compromising",
+   "kind": "threshold",
+   "level": 40
+  },
+  "compromising_f60": {
+   "base": "compromising",
+   "kind": "threshold",
+   "level": 60
+  },
+  "accommodating_u0": {
+   "base": "accommodating",
+   "kind": "threshold",
+   "level": 0
+  },
+  "accommodating_u20": {
+   "base": "accommodating",
+   "kind": "threshold",
+   "level": 20
+  },
+  "collaborating_floor": {
+   "base": "collaborating",
+   "kind": "ablation",
+   "part": "the acceptance floor alone"
+  },
+  "collaborating_talk": {
+   "base": "collaborating",
+   "kind": "ablation",
+   "part": "ask and disclose, with the floor"
+  },
+  "collaborating_trade": {
+   "base": "collaborating",
+   "kind": "ablation",
+   "part": "the trade clause, with the floor"
+  }
+ },
+ "paraphrase_prompt": {
+  "model": "claude-sonnet-5-5",
+  "prompt": "Below is a rule text that is given to an agent that negotiates a shared design with another developer. Rewrite it in your own words, as one paragraph that another writer might have produced for the same behaviour.\n- Keep every instruction; do not add, drop, strengthen or weaken any of them.\n- Keep every placeholder in curly braces exactly as written (for example {t60}); they are filled with numbers later.\n- Keep the terms 'the other developer', 'decision', 'option' and 'proposal', so that the text fits the rest of the prompt.\n- Change the wording, the sentence structure and, where it does not change the meaning, the order.\nReturn only the rewritten rule text.\n\nRule text:\n",
+  "note": "the v3 texts are the model's replies, unedited; the v2 texts were written by the authors without seeing the v3 texts' results"
+ }
+}

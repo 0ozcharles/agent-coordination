@@ -250,13 +250,16 @@ def thresholds(inst, agent):
     """The point thresholds the rules refer to, on this agent's scale (100 points when the stakes are full)."""
     top, out = inst.get("max", {}).get(agent, 100), inst["outside"][agent]
     return {"max": top, "t60": round(0.6 * top, 1), "t50": round(0.5 * top, 1), "outside": out,
-            "outside10": round(out + 0.1 * top, 1)}
+            "outside10": round(out + 0.1 * top, 1),
+            # further thresholds for rule variants (the robustness study); the five base rules do not use them
+            "t40": round(0.4 * top, 1), "t70": round(0.7 * top, 1), "outside20": round(out + 0.2 * top, 1)}
 
 
 def guidance(config, strategy, op, inst=None, agent=None):
     """The guidance text for a strategy: None for the default, a prefixed sentence or rule otherwise.
 
-    Rule texts may use {max}, {t60}, {t50}, {outside} and {outside10}, filled on the agent's own point scale."""
+    Rule texts may use {max}, {t60}, {t50}, {outside} and {outside10} (and, for rule variants, {t40}, {t70} and
+    {outside20}), filled on the agent's own point scale."""
     if strategy == "default":
         return None
     texts = config["strategies"]
@@ -485,7 +488,9 @@ def play(config, inst, cell):
             "agreement": agreement, "ended_by": ended_by, "invalid_replies": invalid, "rejected": rejected, "cost_usd": cost, "error": None,
             "usage": usage, **outcome(inst, moves, agreement),
             "metrics": {a: agent_metrics(inst, moves, agreement, a) for a in AGENTS},
-            "compliance": {a: compliance(strategies[a], inst, moves, agreement, a) for a in AGENTS}}
+            # a rule variant (a paraphrase of a base rule) is checked with the base rule's checker: config["strategy_base"]
+            "compliance": {a: compliance(config.get("strategy_base", {}).get(strategies[a], strategies[a]), inst, moves, agreement, a)
+                           for a in AGENTS}}
 
 
 def outcome(inst, moves, agreement):
