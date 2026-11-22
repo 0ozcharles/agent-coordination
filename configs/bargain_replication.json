@@ -1,0 +1,386 @@
+{
+ "study": "bargain_replication",
+ "question": "Do the findings of E1 and E2 hold on fresh instances? E1 (40 instances) and E2 (20 per condition) are treated as the discovery sample; E1-R (100 fresh instances, 36 rule cells) and E2-R (80 fresh instances per condition, 24 cells) are the confirmation sample.",
+ "arms": {
+  "e1r": "configs/bargain_e1r.json",
+  "e2r_base": "configs/bargain_e2r_base.json",
+  "e2r_urgent": "configs/bargain_e2r_urgent.json",
+  "e2r_time_cost": "configs/bargain_e2r_time_cost.json",
+  "e2r_tight_budget": "configs/bargain_e2r_tight_budget.json",
+  "e2r_distributive": "configs/bargain_e2r_distributive.json",
+  "e2r_integrative": "configs/bargain_e2r_integrative.json",
+  "e2r_all_contested": "configs/bargain_e2r_all_contested.json",
+  "e2r_low_stakes_p2": "configs/bargain_e2r_low_stakes_p2.json",
+  "e2r_power_p1": "configs/bargain_e2r_power_p1.json",
+  "e2r_open_info": "configs/bargain_e2r_open_info.json"
+ },
+ "unit": "the instance. Where a strategy is played in both seats, the two seat-wise differences of an instance (each against the comparison strategy in the same seat) are averaged into one difference per instance. Where a hypothesis names several arms, the per-instance differences are averaged over those arms (the arms share their instances). Own and partner payoffs are in percent of the seat's maximum under unequal stakes, in points elsewhere.",
+ "test": "two-sided Wilcoxon signed-rank test on the per-instance differences of the confirmation sample alone; Holm correction over all 26 hypotheses at alpha = .05. A hypothesis is confirmed when its Holm-adjusted p is below .05 and the mean difference has the stated direction. The exact sign test, the mean difference with a bootstrap 95% interval (10,000 resamples of instances) and d_z are reported beside it, as are the same statistics on the discovery sample and on both pooled.",
+ "inclusion": "every finished game counts whether or not the agent complied with its rule (intention to treat); a game that errors is replayed; no instance or game is excluded.",
+ "secondary": [
+  "the own-payoff matrix, best responses and replicator attractor on E1-R",
+  "competing adopted alone in the core regime: the 95% interval of its own gain against a margin of 5 points (the claim is that it does not pay; E1: +3.2)",
+  "the condition map (best strategy per condition, reading and price of tokens) on E2-R and pooled with E2",
+  "seat-level payoffs under unequal stakes and unequal power",
+  "rule compliance and tokens per strategy"
+ ],
+ "hypotheses": [
+  {
+   "id": "H01",
+   "claim": "Collaborating adopted alone against the default agent raises its user's own payoff.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "alone",
+   "strategy": "collaborating",
+   "measure": "own",
+   "direction": "+",
+   "found": "E1: +8.4, 40 instances"
+  },
+  {
+   "id": "H02",
+   "claim": "Competing adopted alone lowers the partner's payoff.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "alone",
+   "strategy": "competing",
+   "measure": "partner",
+   "direction": "-",
+   "found": "E1: -11.0"
+  },
+  {
+   "id": "H03",
+   "claim": "Accommodating adopted alone lowers its user's own payoff.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "alone",
+   "strategy": "accommodating",
+   "measure": "own",
+   "direction": "-",
+   "found": "E1: -12.1"
+  },
+  {
+   "id": "H04",
+   "claim": "Compromising adopted alone lowers its user's own payoff.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "alone",
+   "strategy": "compromising",
+   "measure": "own",
+   "direction": "-",
+   "found": "E1: -6.2"
+  },
+  {
+   "id": "H05",
+   "claim": "Avoiding adopted alone lowers its user's own payoff.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "alone",
+   "strategy": "avoiding",
+   "measure": "own",
+   "direction": "-",
+   "found": "E1: -18.5"
+  },
+  {
+   "id": "H06",
+   "claim": "Two competing agents reach a lower joint payoff than the default pair.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "pair",
+   "strategy": "competing",
+   "direction": "-",
+   "found": "E1: -25.0"
+  },
+  {
+   "id": "H07",
+   "claim": "Two compromising agents reach a lower joint payoff than the default pair.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "pair",
+   "strategy": "compromising",
+   "direction": "-",
+   "found": "E1: -12.7"
+  },
+  {
+   "id": "H08",
+   "claim": "Two avoiding agents reach a lower joint payoff than the default pair.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "pair",
+   "strategy": "avoiding",
+   "direction": "-",
+   "found": "E1: -14.8"
+  },
+  {
+   "id": "H09",
+   "claim": "Two accommodating agents reach a higher joint payoff than the default pair.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "pair",
+   "strategy": "accommodating",
+   "direction": "+",
+   "found": "E1: +8.7"
+  },
+  {
+   "id": "H10",
+   "claim": "Two collaborating agents reach a higher joint payoff than the default pair.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "pair",
+   "strategy": "collaborating",
+   "direction": "+",
+   "found": "E1: +7.9"
+  },
+  {
+   "id": "H11",
+   "claim": "Adopted alone against the default agent, collaborating earns its user more than competing does.",
+   "arms": [
+    "e1r"
+   ],
+   "kind": "contrast",
+   "strategy": "collaborating",
+   "other": "competing",
+   "partner": "neutral",
+   "direction": "+",
+   "found": "E1: 72.2 against 67.0"
+  },
+  {
+   "id": "H12",
+   "claim": "Under urgency (4 moves) the textbook's competing, adopted alone, earns less than accommodating.",
+   "arms": [
+    "e2r_urgent"
+   ],
+   "kind": "contrast",
+   "strategy": "accommodating",
+   "other": "competing",
+   "partner": "neutral",
+   "direction": "+",
+   "found": "E2: +1.8 against -0.4"
+  },
+  {
+   "id": "H13",
+   "claim": "Under a cost per move the textbook's compromising, adopted alone, earns less than collaborating.",
+   "arms": [
+    "e2r_time_cost"
+   ],
+   "kind": "contrast",
+   "strategy": "collaborating",
+   "other": "compromising",
+   "partner": "neutral",
+   "direction": "+",
+   "found": "E2: +2.5 against -6.2"
+  },
+  {
+   "id": "H14",
+   "claim": "Under a reply budget the textbook's avoiding, adopted alone, earns less than competing.",
+   "arms": [
+    "e2r_tight_budget"
+   ],
+   "kind": "contrast",
+   "strategy": "competing",
+   "other": "avoiding",
+   "partner": "neutral",
+   "direction": "+",
+   "found": "E2: +6.8 against -16.2"
+  },
+  {
+   "id": "H15",
+   "claim": "With nothing to trade the textbook's compromising, adopted alone, earns less than competing.",
+   "arms": [
+    "e2r_distributive"
+   ],
+   "kind": "contrast",
+   "strategy": "competing",
+   "other": "compromising",
+   "partner": "neutral",
+   "direction": "+",
+   "found": "E2: +4.1 against -6.0"
+  },
+  {
+   "id": "H16",
+   "claim": "Under unequal stakes the low-stakes side (seat 2) earns less by accommodating than as the default agent.",
+   "arms": [
+    "e2r_low_stakes_p2"
+   ],
+   "kind": "seat",
+   "strategy": "accommodating",
+   "seat": "p2",
+   "measure": "own",
+   "direction": "-",
+   "found": "E2: 17.1 against 20.5 of 30"
+  },
+  {
+   "id": "H17",
+   "claim": "With everything to trade the textbook's collaborating, adopted alone, raises its user's own payoff.",
+   "arms": [
+    "e2r_integrative"
+   ],
+   "kind": "alone",
+   "strategy": "collaborating",
+   "measure": "own",
+   "direction": "+",
+   "found": "E2: +6.9"
+  },
+  {
+   "id": "H18",
+   "claim": "Under open information competing adopted alone raises its user's own payoff.",
+   "arms": [
+    "e2r_open_info"
+   ],
+   "kind": "alone",
+   "strategy": "competing",
+   "measure": "own",
+   "direction": "+",
+   "found": "E2: +9.4"
+  },
+  {
+   "id": "H19",
+   "claim": "Under a reply budget competing adopted alone raises its user's own payoff.",
+   "arms": [
+    "e2r_tight_budget"
+   ],
+   "kind": "alone",
+   "strategy": "competing",
+   "measure": "own",
+   "direction": "+",
+   "found": "E2: +6.8"
+  },
+  {
+   "id": "H20",
+   "claim": "With the better outside option on either side (unequal power) competing adopted alone raises its user's own payoff.",
+   "arms": [
+    "e2r_power_p1"
+   ],
+   "kind": "alone",
+   "strategy": "competing",
+   "measure": "own",
+   "direction": "+",
+   "found": "E2: +6.4"
+  },
+  {
+   "id": "H21",
+   "claim": "With nothing to trade competing adopted alone raises its user's own payoff.",
+   "arms": [
+    "e2r_distributive"
+   ],
+   "kind": "alone",
+   "strategy": "competing",
+   "measure": "own",
+   "direction": "+",
+   "found": "E2: +4.1"
+  },
+  {
+   "id": "H22",
+   "claim": "Against a competing partner, collaborating earns more than the default reply (over the eight conditions where E2 found it the best reply).",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_integrative",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "kind": "reply",
+   "strategy": "collaborating",
+   "to": "competing",
+   "base": "neutral",
+   "direction": "+",
+   "found": "E2: +2.7 to +7.1"
+  },
+  {
+   "id": "H23",
+   "claim": "Against a competing partner, matching it with competing earns less than the default reply (over the ten conditions).",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "kind": "reply",
+   "strategy": "competing",
+   "to": "competing",
+   "base": "neutral",
+   "direction": "-",
+   "found": "E2: -10.0 to +0.6"
+  },
+  {
+   "id": "H24",
+   "claim": "Two accommodating agents reach a higher joint payoff than the default pair (over the ten conditions).",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "kind": "pair",
+   "strategy": "accommodating",
+   "direction": "+",
+   "found": "E2: best symmetric cell in 7 of 10"
+  },
+  {
+   "id": "H25",
+   "claim": "Two competing agents reach a lower joint payoff than the default pair (over the ten conditions).",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "kind": "pair",
+   "strategy": "competing",
+   "direction": "-",
+   "found": "E2: worst or second-worst cell in 10 of 10"
+  },
+  {
+   "id": "H26",
+   "claim": "Avoiding adopted alone lowers its user's own payoff (over the ten conditions).",
+   "arms": [
+    "e2r_base",
+    "e2r_urgent",
+    "e2r_time_cost",
+    "e2r_tight_budget",
+    "e2r_distributive",
+    "e2r_integrative",
+    "e2r_all_contested",
+    "e2r_low_stakes_p2",
+    "e2r_power_p1",
+    "e2r_open_info"
+   ],
+   "kind": "alone",
+   "strategy": "avoiding",
+   "measure": "own",
+   "direction": "-",
+   "found": "E2: -2.3 to -19.8"
+  }
+ ],
+ "status": "frozen 2026-11-22 and pushed before any replication game was played; the analysis code is scripts/analysis/replication.py at the same commit"
+}
