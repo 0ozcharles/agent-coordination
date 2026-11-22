@@ -44,8 +44,8 @@ class CostTest(unittest.TestCase):
         self.assertEqual(models.cost_of(Response({"x-litellm-response-cost": 0.002}), "x"), 0.002)
 
     def test_no_header_falls_back_to_litellm_or_none(self):
-        # a bare Response has no usage, so litellm cannot price it and the fallback returns None
-        self.assertIsNone(models.cost_of(Response(), "claude-haiku-5-5"))
+        # a bare Response has no usage: None without litellm, and nothing to pay where litellm is installed
+        self.assertIn(models.cost_of(Response(), "claude-haiku-5-5"), (None, 0.0))
 
 
 if __name__ == "__main__":

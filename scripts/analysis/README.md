@@ -16,6 +16,7 @@ for s in e3_models e4_framings e3_conditions e3_vs_competing benchmarks e3_cross
 | `e3_cross.py` | Cross-model pairs, luna against sonnet | `bargain_e3_cross_paired.json` |
 | `grounded_haiku.py` | The grounded layer on claude-haiku-5-5 against luna's | `bargain_grounded_haiku_paired.json` |
 | `labels.py` | Style labels per study | `bargain_labels_summary.json` |
+| `annotation_agreement.py` | The human annotation study: agreement between annotators, with the judge and with the checker. Reads the returned workbooks under `annotation/returned/` and the keys, not the game records | `annotation_agreement.json`, `annotation_disagreements.csv`, `annotation/answers.csv` |
 
 The game records (one JSON file per game: the prompts, every move and message, token usage and the computed outcome) are not in the repository. `runs/` is ignored because it holds about 20,000 files and 184 MB. With the records in place, the scripts reproduce the committed files byte for byte (checked 2026-11-22).
 

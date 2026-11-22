@@ -1,218 +1,437 @@
-item,repository,"ticket pair (local file, not redistributed)",colliding code,extracted structure
-C01,NodeBB/NodeBB,external/ParallACT/dataset/v1/generated/contradictory/instance_NodeBB__NodeBB-05f2236193f407cf8e2072757fbd6bb170bc13f0-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e.json,src/topics/sorted.js — sortTids dispatch block and topic-order comparators,"Context told to both: The shared code selects ordering behavior for topic queries and applies comparators to the returned topics. One ticket needs chronological ordering in the opposite direction from the usual recent-first order, while the other needs a reliable tie-breaker for equally popular topics. You are working on Add oldest-first topic sorting; the other developer on Stabilize popular-topic tie ordering.
-Developer A's ticket: Add oldest-first topic sorting
-Developer B's ticket: Stabilize popular-topic tie ordering
-Decision 1: Old sort direction (shared; importance A 5, B 1 on 1-5)
-   A. Descending last-post time
-   B. No dedicated old-sort behavior
-   C. Ascending last-post time <- A needs this <- B needs this
-Decision 2: Old sort query scope (shared; importance A 5, B 1 on 1-5)
-   A. Tag and category queries only
-   B. Global queries only
-   C. Global, tag, and category queries <- A needs this <- B needs this
-Decision 3: Popular-sort tie-breaker (contested; importance A 1, B 5 on 1-5)
-   A. Most recent last-post time <- B needs this
-   B. Highest view count
-   C. Candidate source order <- A needs this"
-C02,NodeBB/NodeBB,external/ParallACT/dataset/v1/generated/contradictory/instance_NodeBB__NodeBB-3c85b944e30a0ba8b3ec9e1f441c74f383625a15-v4fbcfae8b15e4ce5d132c408bca69ebb9cf146ed.json,src/middleware/maintenance.js — maintenanceMode authorization branch after login-route handling,"Context told to both: The shared middleware decides whether requests may continue while Maintenance Mode is enabled or are sent to the maintenance page. Both tickets add a non-admin bypass condition to that authorization decision, while requiring normal behavior to remain unchanged when Maintenance Mode is disabled. You are working on Configure group-based maintenance exemptions; the other developer on Configure trusted client-IP exemptions.
-Developer A's ticket: Configure group-based maintenance exemptions
-Developer B's ticket: Configure trusted client-IP exemptions
-Decision 1: Bypass eligibility (contested; importance A 5, B 5 on 1-5)
-   A. Administrators and configured IPs <- B needs this
-   B. Administrators and configured groups <- A needs this
-   C. Administrators, configured groups, or configured IPs
-Decision 2: Group-list fallback (contested; importance A 5, B 1 on 1-5)
-   A. Default to administrators and Global Moderators <- A needs this
-   B. Treat an empty list as no group exemptions <- B needs this
-   C. Use configured groups, falling back only to administrators
-Decision 3: IP-list interpretation (contested; importance A 1, B 5 on 1-5)
-   A. Parse arrays or comma- or whitespace-separated values and normalize mapped IPv4 <- B needs this
-   B. Accept only array-valued exact IP entries
-   C. Parse arrays or separated values without address normalization <- A needs this"
-C03,flipt-io/flipt,external/ParallACT/dataset/v1/generated/contradictory/instance_flipt-io__flipt-b6cef5cdc0daff3ee99e5974ed60a1dc6b4b0d67.json,internal/server/auth/http.go: Middleware.Handler authentication-cookie deletion loop,"Context told to both: The shared code expires authentication cookies by adding deletion headers to HTTP responses. One ticket needs this behavior for unauthenticated responses, while the other changes the security attributes on logout deletion headers. You are working on Clear cookies after unauthenticated responses; the other developer on Harden logout cookie deletion headers.
-Developer A's ticket: Clear cookies after unauthenticated responses
-Developer B's ticket: Harden logout cookie deletion headers
-Decision 1: Expiry response scope (contested; importance A 5, B 3 on 1-5)
-   A. Logout and unauthenticated errors <- A needs this
-   B. All authentication failures
-   C. Explicit logout only <- B needs this
-Decision 2: Deletion cookie attributes (contested; importance A 1, B 5 on 1-5)
-   A. Existing deletion attributes <- A needs this
-   B. Configured Secure only
-   C. Secure, HttpOnly, SameSite=Strict <- B needs this"
-C04,flipt-io/flipt,external/ParallACT/dataset/v1/generated/contradictory/instance_flipt-io__flipt-dae029cba7cdb98dfb1a6b416c00d324241e6063.json,internal/ext/importer.go: Import's top-level flag and segment nil-entry guards,"Context told to both: The importer reads flags and segments from configuration documents and checks them against items already in the database. The shared entry guards affect both how existing items are handled and whether malformed null entries are accepted. You are working on Add incremental import that skips existing items; the other developer on Reject null entries in import documents.
-Developer A's ticket: Add incremental import that skips existing items
-Developer B's ticket: Reject null entries in import documents
-Decision 1: Existing-item behavior (shared; importance A 5, B 3 on 1-5)
-   A. Skip existing items <- A needs this <- B needs this
-   B. Overwrite existing items
-   C. Fail on existing items
-Decision 2: Null-entry handling (contested; importance A 2, B 5 on 1-5)
-   A. Silently ignore null entries <- A needs this
-   B. Return a generic error
-   C. Return an indexed type-specific error <- B needs this"
-C05,protonmail/webclients,external/ParallACT/dataset/v1/generated/contradictory/instance_protonmail__webclients-c8117f446c3d1d7e117adc6e0e46b0ece9b0b90e.json,applications/drive/src/app/utils/lastActivePersistedUserSession.ts — getLastPersistedLocalID parsing and fallback logic,"Context told to both: This utility scans persisted-session entries in localStorage to identify a local ID for session restoration. One change depends on distinguishing the absence of a usable session from ID 0, while another must recover a usable session even if a different entry is malformed. You are working on Restore public sessions during initial handshake; the other developer on Recover sessions despite corrupt records.
-Developer A's ticket: Restore public sessions during initial handshake
-Developer B's ticket: Recover sessions despite corrupt records
-Decision 1: Malformed record handling (contested; importance A 4, B 5 on 1-5)
-   A. Silently skip malformed records <- A needs this
+item,kind,repository,ticket pair,colliding code,extracted structure
+EXAMPLE,example,gravitational/teleport,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_gravitational__teleport-0cb341c926713bdfcbb490c69659a9b101df99eb.json,roles.go: ParseRoles parsing/validation loop and the adjacent built-in role validation path,"Context told to both developers: This shared code parses role names and validates built-in roles used by the application. Changes to parsing affect which role values are accepted, while collection validation and equality determine how lists of roles behave. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Validate role collections and compare them as sets
+Ticket B (Developer B), our title: Register RemoteProxy and parse role names case-insensitively
+Validation scope  [contested; importance to A 5/5, to B 5/5]
+   A. Validate each parsed token only   <- B needs this
+   B. Resolve each token, then validate the completed list   <- A needs this
+   C. Validate the completed role list only
+Role-name resolution  [shared; importance to A 3/5, to B 5/5]
+   A. Normalize spelling and accept unregistered names
+   B. Case-insensitive canonical-name lookup   <- A needs this   <- B needs this
+   C. Case-sensitive canonical-name lookup
+Collection equality  [shared; importance to A 5/5, to B 1/5]
+   A. Order-sensitive list equality
+   B. Set equality ignoring repetitions   <- A needs this   <- B needs this
+   C. Equal-length comparison with membership checks"
+CP1,practice,qutebrowser/qutebrowser,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_qutebrowser__qutebrowser-96b997802e942937e81d2b8a32d08f00d3f4bc4e-v5fc38aaf22415ab0b70567368332beee7955b367.json,"qutebrowser/misc/utilcmds.py: the later command's decorators, signature, argument documentation, and delay setup block","Context told to both developers: The shared command accepts a delay and configures a timer, so its argument handling affects both user-facing syntax and scheduling. One ticket changes how durations are parsed, while the other adds count-based scaling; the design must preserve the relevant behavior of both. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Fix duration parsing and add string delays
+Ticket B (Developer B), our title: Add count-based delay scaling
+Accepted delay inputs  [contested; importance to A 5/5, to B 4/5]
+   A. Integer millisecond delays   <- B needs this
+   B. Duration strings and integer milliseconds
+   C. Validated duration strings   <- A needs this
+Count scaling  [contested; importance to A 1/5, to B 5/5]
+   A. Multiply delay by count   <- B needs this
+   B. Add count to delay
+   C. No count injection   <- A needs this
+Scaling validation order  [shared; importance to A 5/5, to B 5/5]
+   A. Validate before scaling   <- A needs this   <- B needs this
+   B. Skip delay validation
+   C. Scale before validation"
+C001,main,qutebrowser/qutebrowser,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_qutebrowser__qutebrowser-0fc6d1109d041c69a68a896db87cf1b8c194cef7-v2ef375ac784985212b1805e1d0431dc8f1b3c171.json,qutebrowser/completion/models/urlmodel.py: url() category assembly immediately before configured categories are added,"Context told to both developers: URL completion assembles categories before adding the configured categories for :open. Filesystem suggestions need to join that assembly, while private-tab completion must avoid exposing persisted browsing history without removing other categories. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add filesystem path completion
+Ticket B (Developer B), our title: Hide history in private completion
+History visibility  [contested; importance to A 2/5, to B 5/5]
+   A. Exclude history in every tab
+   B. Include history in every tab   <- A needs this
+   C. Exclude history only in private tabs   <- B needs this
+Filesystem registration  [shared; importance to A 5/5, to B 3/5]
+   A. Add Filesystem alongside configured categories   <- A needs this   <- B needs this
+   B. Replace configured categories with Filesystem
+   C. Add Filesystem only for path-like input
+Filesystem category order  [contested; importance to A 3/5, to B 1/5]
+   A. Use a configurable category position   <- A needs this
+   B. Append Filesystem after configured categories   <- B needs this
+   C. Place Filesystem before configured categories"
+C002,main,gravitational/teleport,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_gravitational__teleport-2b15263e49da5625922581569834eec4838a9257-vee9b09fb20c43af7e520f57e9239bbcf46b7113d.json,lib/ai/model/messages.go: TokensUsed declaration and AddTokens implementation,"Context told to both developers: The shared code defines token-usage accounting for model messages and an exported accumulator that counts prompt and completion tokens. The tickets change how usage is represented across model interactions and whether the accumulator works when callers use its zero value. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Redesign assistant token accounting
+Ticket B (Developer B), our title: Make the token accumulator zero-value safe
+Assistant accounting path  [contested; importance to A 5/5, to B 2/5]
+   A. Per-message usage values   <- B needs this
+   B. Both accounting paths
+   C. Aggregate exchange counters   <- A needs this
+Accumulator compatibility  [contested; importance to A 3/5, to B 5/5]
+   A. Keep it in assistant messages
+   B. Remove the exported accumulator   <- A needs this
+   C. Keep it as a standalone compatibility type   <- B needs this
+Tokenizer initialization  [shared; importance to A 1/5, to B 5/5]
+   A. Require a caller-supplied tokenizer
+   B. Require constructor initialization
+   C. Initialize CL100K on first use   <- A needs this   <- B needs this"
+C003,main,flipt-io/flipt,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_flipt-io__flipt-c188284ff0c094a4ee281afebebd849555ebee59.json,internal/oci/file.go: Store.getTarget remote-registry auth.Client construction block,"Context told to both developers: The shared code constructs the remote client used to access OCI registries, including its authentication and network transport settings. Credential resolution and registry-specific TLS behavior both affect that construction, so the choices must preserve the needs of both features. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add per-registry AWS credential resolution
+Ticket B (Developer B), our title: Add opt-in insecure HTTPS for development registries
+Credential source  [contested; importance to A 5/5, to B 4/5]
+   A. Resolver with static fallback
+   B. Configured static credentials   <- B needs this
+   C. Per-registry credential resolver   <- A needs this
+TLS verification  [contested; importance to A 1/5, to B 5/5]
+   A. Normal verification for HTTPS   <- A needs this
+   B. Skip verification for all HTTPS
+   C. Opt-in insecure HTTPS scheme   <- B needs this
+Client construction  [shared; importance to A 5/5, to B 5/5]
+   A. One client with both settings   <- A needs this   <- B needs this
+   B. Separate clients per feature
+   C. Last setting replaces earlier"
+C004,main,qutebrowser/qutebrowser,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_qutebrowser__qutebrowser-3fd8e12949b8feda401930574facf09dd4180bba.json,"qutebrowser/misc/utilcmds.py: repeat_command/cmd_repeat_last decorator, signature, and replay body","Context told to both developers: The shared command replays a remembered command from the current mode, using its existing count behavior. One ticket changes how the command is named, while the other adds an optional way to remove a remembered command after replay. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Standardize the replay command name
+Ticket B (Developer B), our title: Add one-shot replay for remembered commands
+Command naming  [contested; importance to A 5/5, to B 4/5]
+   A. Old name only   <- B needs this
+   B. New name with deprecated alias   <- A needs this
+   C. Both names without deprecation
+Remembered command removal  [contested; importance to A 3/5, to B 5/5]
+   A. Remove before replay
+   B. Never remove   <- A needs this
+   C. Remove after successful replay   <- B needs this
+Replay count handling  [shared; importance to A 4/5, to B 4/5]
+   A. Preserve existing count behavior   <- A needs this   <- B needs this
+   B. Always replay once
+   C. Apply count after replay"
+C005,main,internetarchive/openlibrary,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_internetarchive__openlibrary-798055d1a19b8fa0983153b709f460be97e33064-v13642507b4fc1f8d234172bf8129942da2c2ca26.json,scripts/import_standard_ebooks.py: map_data() language validation and import-record language assignment,"Context told to both developers: The shared function reads Standard Ebooks feed entries, validates their language, and builds import records. Both tickets change how it reads and handles language data, so their choices must work together. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Fix dictionary-based feed parsing
+Ticket B (Developer B), our title: Add French language support
+Entry access  [contested; importance to A 5/5, to B 3/5]
+   A. Attributes only   <- B needs this
+   B. Dictionary keys only   <- A needs this
+   C. Support keys and attributes
+Language field source  [contested; importance to A 5/5, to B 4/5]
+   A. dcterms_language only   <- A needs this
+   B. dcterms_language with language fallback
+   C. language only   <- B needs this
+Language mapping  [contested; importance to A 5/5, to B 5/5]
+   A. Always use eng   <- A needs this
+   B. Map English and French variants   <- B needs this
+   C. Pass through the primary subtag"
+C006,main,element-hq/element-web,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_element-hq__element-web-ee13e23b156fbad9369d6a656c827b6444343d4f-vnan.json,src/components/views/right_panel/RoomHeaderButtons.tsx — PinnedMessagesHeaderButton hook inputs and renderButtons pinning registration,"Context told to both developers: The room header derives controls from room state and registers pinned-message behavior while also handling thread notifications. Changes to its room access, thread handling, and pinning eligibility can affect whether the header renders safely and whether pinned rooms expose their control. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Make room and thread handling crash-safe
+Ticket B (Developer B), our title: Retire the pinned-messages lab flag
+Thread support handling  [shared; importance to A 5/5, to B 2/5]
+   A. Guard thread state and actions; use a safe panel fallback   <- A needs this   <- B needs this
+   B. Access thread state and actions unconditionally
+   C. Guard thread state but open the panel unconditionally
+Missing room behavior  [contested; importance to A 5/5, to B 2/5]
+   A. Render the header shell with optional room reads
+   B. Render no room controls when the room is absent   <- A needs this
+   C. Use optional room access and pass the real room to hooks   <- B needs this
+Pinning feature eligibility  [contested; importance to A 1/5, to B 5/5]
+   A. Gate pinning on the lab setting in rendering   <- A needs this
+   B. Expose pinning without the lab setting   <- B needs this
+   C. Gate pinning on the lab setting in the hooks"
+C007,main,navidrome/navidrome,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_navidrome__navidrome-23bebe4e06124becf1000e88472ae71a6ca7de4c.json,server/subsonic/api.go: Router.routes global middleware chain and protected-route regrouping boundary,"Context told to both developers: The Subsonic router applies middleware to routes that handle both public discovery and authenticated API requests. Its middleware boundaries determine which requests require authentication and whether every response receives cache-prevention headers. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Make extension discovery publicly accessible
+Ticket B (Developer B), our title: Prevent caching of API responses
+Authentication boundary  [shared; importance to A 5/5, to B 3/5]
+   A. Authentication on every route
+   B. No authentication middleware
+   C. Authentication only on protected routes   <- A needs this   <- B needs this
+Cache policy coverage  [contested; importance to A 1/5, to B 5/5]
+   A. Protected-route responses only
+   B. All router responses   <- B needs this
+   C. Registered endpoint responses   <- A needs this
+Middleware ordering  [contested; importance to A 3/5, to B 5/5]
+   A. Parse forms before cache prevention   <- A needs this
+   B. Parse forms only on protected routes
+   C. Apply cache prevention before parsing forms   <- B needs this"
+C008,main,future-architect/vuls,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_future-architect__vuls-edb324c3d9ec3b107bf947f00e38af99d05b3e16.json,scan/base.go: base.detectScanDest wildcard destination expansion and result construction,"Context told to both developers: This code expands listening addresses into destinations for port scanning and prepares those destinations for the scan consumer. One ticket changes how destinations are organized and deduplicated, while the other changes which addresses wildcard listeners cover and how IPv6 destinations are formed. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Refactoring destinations into grouped data
+Ticket B (Developer B), our title: Adding IPv6 wildcard scan coverage
+Destination representation  [contested; importance to A 5/5, to B 2/5]
+   A. Flat socket-address slice   <- B needs this
+   B. Map from IP to socket addresses
+   C. Map from raw IP to ports   <- A needs this
+Wildcard address coverage  [contested; importance to A 2/5, to B 5/5]
+   A. IPv4 addresses only   <- A needs this
+   B. IPv4 and selected IPv6 addresses
+   C. IPv4 and all discovered IPv6 addresses   <- B needs this
+Socket address formatting  [contested; importance to A 1/5, to B 5/5]
+   A. Preformatted socket-address storage
+   B. Manual host-port concatenation   <- A needs this
+   C. Standard host-port joining   <- B needs this"
+C009,main,navidrome/navidrome,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_navidrome__navidrome-b3980532237e57ab15b2b93c49d5cd5b2d050013.json,core/agents/lastfm.go: lastFMConstructor language and credential initialization,"Context told to both developers: The shared constructor initializes the Last.FM client’s credentials and language from configuration. Its handling of missing settings and locale-style language values affects whether requests can be made successfully. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Provide sensible API key and language defaults
+Ticket B (Developer B), our title: Canonicalize regional locale language values
+Missing API key  [shared; importance to A 5/5, to B 1/5]
+   A. Use a built-in shared key   <- A needs this   <- B needs this
+   B. Fail construction
+   C. Keep the key empty
+Configured language handling  [contested; importance to A 3/5, to B 5/5]
+   A. Trim, strip region, and lowercase   <- B needs this
+   B. Trim and lowercase without stripping region
+   C. Pass the configured value unchanged   <- A needs this
+Missing language  [shared; importance to A 4/5, to B 1/5]
+   A. Keep the value empty
+   B. Fail construction
+   C. Fall back to en   <- A needs this   <- B needs this"
+C010,main,flipt-io/flipt,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_flipt-io__flipt-f808b4dd6e36b9dc8b011eb26b196f4e2cc64c41.json,config/config.go DatabaseConfig and Load DB block; storage/db/db.go Open/parse connection pipeline; storage/db/migrator.go NewMigrator,"Context told to both developers: Database configuration is loaded centrally and then used to construct connections and migrations for multiple database backends. The changes affect how connection details are represented and passed through that shared path, as well as how PostgreSQL transport security is applied to URL-based connections. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add discrete database connection settings
+Ticket B (Developer B), our title: Add managed PostgreSQL SSL mode setting
+Connection settings form  [contested; importance to A 5/5, to B 3/5]
+   A. Connection URL only   <- B needs this
+   B. URL with discrete-field fallback
+   C. URL and discrete fields   <- A needs this
+Pipeline input  [contested; importance to A 5/5, to B 4/5]
+   A. Database configuration object   <- A needs this
+   B. Raw connection URL
+   C. SSL-normalized URL   <- B needs this
+SSL mode precedence  [shared; importance to A 1/5, to B 5/5]
+   A. Configured value takes precedence
+   B. Reject conflicting values
+   C. URL value takes precedence   <- A needs this   <- B needs this"
+C011,main,element-hq/element-web,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_element-hq__element-web-404c412bcb694f04ba0c4d5479541203d701bca0-vnan.json,src/MatrixClientPeg.ts — MatrixClientPegClass store-closure handler and the listener registration in assign(),"Context told to both developers: This code assigns the active Matrix client and registers a handler for its store closing. The handler must decide how to respond so the client can recover or the user can restore service. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Handle unexpected store closure with user feedback
+Ticket B (Developer B), our title: Preserve authenticated sessions after storage loss
+Closure response  [contested; importance to A 5/5, to B 5/5]
+   A. Restart authenticated clients and offer reload
+   B. Restart authenticated clients on memory storage   <- B needs this
+   C. Reload guests; offer authenticated users reload   <- A needs this
+Listener ownership  [shared; importance to A 4/5, to B 5/5]
+   A. Listeners added on every assignment
+   B. One listener per client
+   C. One listener per assigned store   <- A needs this   <- B needs this"
+C012,main,navidrome/navidrome,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_navidrome__navidrome-812dc2090f20ac4f8ac271b6ed95be5889d1a3ca.json,"core/media_streamer.go: streamJob fields and Key method, plus the DoStream job construction","Context told to both developers: Streaming jobs carry the information used to build transcoded output and identify its cache entry. Playback offsets and editable transcoding commands can both change which output is correct, so the shared job construction and cache-key design must account for them. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add playback offsets to streaming and transcoding
+Ticket B (Developer B), our title: Invalidate cache entries when profile commands change
+Cache key dimensions  [contested; importance to A 5/5, to B 5/5]
+   A. Include command fingerprint only   <- B needs this
+   B. Include both dimensions
+   C. Include playback offset only   <- A needs this
+Command fingerprint form  [shared; importance to A 1/5, to B 5/5]
+   A. Raw command text
+   B. SHA-256 command digest   <- A needs this   <- B needs this
+   C. No command fingerprint"
+C013,main,navidrome/navidrome,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_navidrome__navidrome-66b74c81f115c78cb69910b0472eeb376750efc4.json,persistence/user_repository.go: userRepository.Put immediately after UpdatedAt assignment,"Context told to both developers: The repository’s Put method prepares user records for persistence, including their passwords. One ticket changes how passwords are stored and retrieved, while the other adds a policy for newly submitted passwords, so their behavior must fit together at this shared point. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Implement reversible password encryption
+Ticket B (Developer B), our title: Enforce minimum password length
+Password validation target  [contested; importance to A 2/5, to B 5/5]
+   A. Validate plaintext and transformed password
+   B. Submitted plaintext   <- B needs this
+   C. Transformed password   <- A needs this
+Stored password form  [shared; importance to A 5/5, to B 1/5]
+   A. Reversibly encrypted password   <- A needs this   <- B needs this
+   B. Plaintext password
+   C. One-way password hash"
+C014,main,ansible/ansible,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_ansible__ansible-9759e0ca494de1fd5fc2df2c5d11c57adbe6007c-v1055803c3a812189a1133297f7f5468579283f86.json,"lib/ansible/galaxy/dependency_resolution/providers.py, CollectionDependencyProvider.find_matches() preinstalled_candidates selection","Context told to both developers: The resolver chooses between installed collections and versions available from configured servers, using the active version requirements to determine acceptable matches. The installation pipeline is adding an opt-in upgrade mode while candidate selection is being corrected to exclude installed versions that do not meet those requirements. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Propagate opt-in collection upgrade mode
+Ticket B (Developer B), our title: Fix installed-version constraint matching
+Installed version eligibility  [shared; importance to A 3/5, to B 5/5]
+   A. Accept versions matching all requirements   <- A needs this   <- B needs this
+   B. Accept every installed version
+   C. Accept versions matching any requirement
+Upgrade candidate preference  [contested; importance to A 4/5, to B 3/5]
+   A. Always prefer a valid installed version   <- B needs this
+   B. Prefer a server version over any valid installed version in upgrade mode
+   C. Prefer a newer server version over a valid installed version in upgrade mode   <- A needs this"
+C015,main,protonmail/webclients,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_protonmail__webclients-09fcf0dbdb87fa4f4a27700800ee4a3caed8b413.json,"applications/mail/src/app/components/list/ItemRowLayout.tsx and ItemColumnLayout.tsx — verified-badge props, imports, and sender-line JSX","Context told to both developers: The mail-list layouts use sender-line code to display verification indicators, and their props determine what verification state the layouts can render. One ticket adds consistent Proton-origin identification, while the other addresses the indicator’s visibility and accessibility across layouts. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add consistent Proton-origin identification
+Ticket B (Developer B), our title: Show accessible verified badges in row layout
+Verification flag source  [contested; importance to A 5/5, to B 4/5]
+   A. Combine origin checks with an upstream flag
+   B. Derive it with an origin utility   <- A needs this
+   C. Pass through an existing verification flag   <- B needs this
+Badge implementation  [contested; importance to A 3/5, to B 4/5]
+   A. Render the badge inline per layout   <- B needs this
+   B. Keep badge rendering in column view only
+   C. Use a shared badge renderer   <- A needs this
+Layout badge coverage  [shared; importance to A 4/5, to B 5/5]
+   A. Show a badge in row view only
+   B. Show badges in both layouts   <- A needs this   <- B needs this
+   C. Show a badge in column view only"
+C016,main,internetarchive/openlibrary,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_internetarchive__openlibrary-3aeec6afed9198d734b7ee1293f03ca94ff970e1-v13642507b4fc1f8d234172bf8129942da2c2ca26.json,openlibrary/core/wikidata.py WikidataEntity profile-builder methods and openlibrary/templates/authors/infobox.html profile rendering block,"Context told to both developers: The shared code builds external profiles for authors from Wikidata data and renders them in the author infobox. Both changes affect how those profiles are assembled and how the template accesses them. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Encapsulate Wikidata profile-building helpers
+Ticket B (Developer B), our title: Aggregate external profiles behind one method
+Helper visibility  [contested; importance to A 5/5, to B 5/5]
+   A. Public low-level builders
+   B. Private low-level builders only   <- A needs this
+   C. Private builders with public aggregation method   <- B needs this
+Template profile interface  [contested; importance to A 5/5, to B 5/5]
+   A. Template-specific combined adapter
+   B. Direct private-builder calls   <- A needs this
+   C. Unified public aggregation method   <- B needs this"
+C017,main,protonmail/webclients,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_protonmail__webclients-c8117f446c3d1d7e117adc6e0e46b0ece9b0b90e.json,applications/drive/src/app/utils/lastActivePersistedUserSession.ts — getLastPersistedLocalID parsing and fallback logic,"Context told to both developers: This utility scans persisted-session entries in localStorage to identify a local ID for session restoration. One change depends on distinguishing the absence of a usable session from ID 0, while another must recover a usable session even if a different entry is malformed. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Restore public sessions during initial handshake
+Ticket B (Developer B), our title: Recover sessions despite corrupt records
+Malformed record handling  [contested; importance to A 4/5, to B 5/5]
+   A. Silently skip malformed records   <- A needs this
    B. Abort lookup and return null
-   C. Report and skip malformed records <- B needs this
-Decision 2: No-result sentinel (shared; importance A 5, B 3 on 1-5)
+   C. Report and skip malformed records   <- B needs this
+No-result sentinel  [shared; importance to A 5/5, to B 3/5]
    A. Return default local ID
-   B. Return null <- A needs this <- B needs this
+   B. Return null   <- A needs this   <- B needs this
    C. Return zero
-Decision 3: Session selection order (shared; importance A 3, B 5 on 1-5)
+Session selection order  [shared; importance to A 3/5, to B 5/5]
    A. Largest numeric local ID
    B. First valid record encountered
-   C. Newest persistedAt value <- A needs this <- B needs this"
-C06,qutebrowser/qutebrowser,external/ParallACT/dataset/v1/generated/contradictory/instance_qutebrowser__qutebrowser-fec187c2cb53d769c2682b35ca77858a811414a8-v363c8a7e5ccdf6968fc7ab84a2053ac78036691d.json,qutebrowser/utils/urlutils.py: _parse_search_term search-engine selection logic,"Context told to both: This utility selects a configured search engine from address-bar input and prepares the remaining text for search URL construction. The shared parser must also distinguish a bare engine shortcut from a shortcut followed by a search term. You are working on Correct search-term parsing and URL encoding; the other developer on Case-insensitive search-engine shortcut recognition.
-Developer A's ticket: Correct search-term parsing and URL encoding
-Developer B's ticket: Case-insensitive search-engine shortcut recognition
-Decision 1: Shortcut matching (contested; importance A 3, B 5 on 1-5)
-   A. Exact configured keys only <- A needs this
-   B. Exact first, unique case-insensitive fallback <- B needs this
-   C. Case-insensitive first match
-Decision 2: Bare shortcut handling (shared; importance A 5, B 1 on 1-5)
-   A. Format an empty search term
-   B. Return no search term <- A needs this <- B needs this
-   C. Use the default search engine
-Decision 3: Search-term encoding (shared; importance A 5, B 1 on 1-5)
-   A. Percent-encode the search term <- A needs this <- B needs this
-   B. Encode the completed URL
-   C. Interpolate the raw search term"
-C07,element-hq/element-web,external/ParallACT/dataset/v1/generated/contradictory/instance_element-hq__element-web-33299af5c9b7a7ec5a9c31d578d4ec5b18088fb7-vnan.json,src/components/views/rooms/RoomHeader.tsx — RoomHeader imports and JSX return block,"Context told to both: The room header presents room identity and may receive a Room or out-of-band room data. Both tickets change its shared layout and behavior, so the design must account for optional room information while keeping the header usable. You are working on Add room-aware avatar and name layout; the other developer on Add topic preview and Room Summary control.
-Developer A's ticket: Add room-aware avatar and name layout
-Developer B's ticket: Add topic preview and Room Summary control
-Decision 1: Avatar selection (shared; importance A 5, B 1 on 1-5)
-   A. Decorated room avatar with fallback <- A needs this <- B needs this
-   B. Room avatar for every header
-   C. No header avatar
-Decision 2: Header details (shared; importance A 4, B 5 on 1-5)
-   A. Avatar beside name and optional topic <- A needs this <- B needs this
-   B. Avatar beside name only
-   C. Name and topic without avatar
-Decision 3: Panel click behavior (contested; importance A 1, B 5 on 1-5)
-   A. Always open Room Summary on click
-   B. Header is not a panel control <- A needs this
-   C. Toggle Room Summary on click <- B needs this
-Decision 4: Optional Room handling (shared; importance A 5, B 4 on 1-5)
-   A. Require a Room to render
-   B. Render safely without a Room <- A needs this <- B needs this
-   C. Show a placeholder without a Room"
-C08,future-architect/vuls,external/ParallACT/dataset/v1/generated/contradictory/instance_future-architect__vuls-5af1a227339e46c7abf3f2815e4c636a0c01098e.json,scanner/utils.go: isRunningKernel Red Hat-family package-name classification switch,"Context told to both: The shared classifier identifies installed Red Hat-family packages whose versions should be matched against the running kernel release. One ticket needs it to recognize bootable debug variants, while the other needs development packages to remain independent of that release. You are working on Recognize running debug kernel variants; the other developer on Preserve newer kernel-devel inventory.
-Developer A's ticket: Recognize running debug kernel variants
-Developer B's ticket: Preserve newer kernel-devel inventory
-Decision 1: Runtime package coverage (contested; importance A 5, B 2 on 1-5)
-   A. All kernel-prefixed packages
-   B. Generic runtime packages only <- B needs this
-   C. Generic and debug runtime packages <- A needs this
-Decision 2: Development package filtering (shared; importance A 2, B 5 on 1-5)
-   A. Match kernel-devel to uname
-   B. Leave kernel-devel outside filtering <- A needs this <- B needs this
-   C. Exclude kernel-devel from inventory"
-C09,NodeBB/NodeBB,external/ParallACT/dataset/v1/generated/contradictory/instance_NodeBB__NodeBB-bad15643013ca15affe408b75eba9e47cc604bb2-vd59a5728dfc977f44533186ace531248c2917516.json,src/meta/index.js — Meta.userOrGroupExists normalization and existence-result return path,"Context told to both: The shared helper normalizes names and determines whether they identify users or groups. One change expands that flow to handle batches, while the other changes which group identities count as existing. You are working on Add batch slug existence lookups; the other developer on Reserve built-in pseudo-group usernames.
-Developer A's ticket: Add batch slug existence lookups
-Developer B's ticket: Reserve built-in pseudo-group usernames
-Decision 1: Accepted input shape (shared; importance A 5, B 2 on 1-5)
-   A. Array input only
-   B. Scalar input only
-   C. Scalar or array input <- A needs this <- B needs this
-Decision 2: Slug normalization (shared; importance A 5, B 5 on 1-5)
-   A. Normalize every input before lookup <- A needs this <- B needs this
-   B. Normalize scalar inputs only
-   C. Match raw input exactly
-Decision 3: Ephemeral group handling (contested; importance A 2, B 5 on 1-5)
-   A. Check persisted groups only <- A needs this
-   B. Count built-in groups as existing <- B needs this
-   C. Reserve names in username generation only
-Decision 4: Bulk user lookup results (contested; importance A 5, B 1 on 1-5)
-   A. Preserve input order and missing entries <- A needs this
-   B. Preserve order but omit missing entries
-   C. Issue separate lookups and assemble results <- B needs this"
-C10,element-hq/element-web,external/ParallACT/dataset/v1/generated/contradictory/instance_element-hq__element-web-f0359a5c180b8fec4329c77adcf967c8d3b7b787-vnan.json,src/components/views/settings/devices/LoginWithQRSection.tsx — capability checks and offerShowQr computation in LoginWithQRSection.render(),"Context told to both: The shared component decides whether to show the QR sign-in section using homeserver capability data. Its visibility also needs to reflect an application-level setting, while malformed capability values must not be mistaken for support. You are working on Add an off-by-default QR sign-in setting; the other developer on Reject non-boolean QR capability values.
-Developer A's ticket: Add an off-by-default QR sign-in setting
-Developer B's ticket: Reject non-boolean QR capability values
-Decision 1: Feature gate default (contested; importance A 5, B 1 on 1-5)
-   A. On-by-default setting
-   B. No application-level setting <- B needs this
-   C. Off-by-default experimental setting <- A needs this
-Decision 2: Capability value handling (contested; importance A 2, B 5 on 1-5)
-   A. JavaScript truthiness <- A needs this
-   B. Literal boolean true only <- B needs this
-   C. Explicit value normalization"
-C11,flipt-io/flipt,external/ParallACT/dataset/v1/generated/contradictory/instance_flipt-io__flipt-05d7234fa582df632f70a7cd10194d61bd7043b9.json,"internal/storage/fs/object/file.go: File.Stat FileInfo construction, especially the modTime assignment","Context told to both: The object-storage adapter turns bucket objects into filesystem files, and `File.Stat` constructs the metadata consumers see. Namespace versioning needs a revision identifier reachable from a file, while metadata normalization affects the reported name and modification time. You are working on Add namespace versions and file ETags; the other developer on Normalize object-backed file metadata.
-Developer A's ticket: Add namespace versions and file ETags
-Developer B's ticket: Normalize object-backed file metadata
-Decision 1: Reported file name (contested; importance A 1, B 5 on 1-5)
-   A. Return the full bucket key <- A needs this
-   B. Make name handling configurable
-   C. Return only the basename <- B needs this
-Decision 2: Modification time location (contested; importance A 2, B 5 on 1-5)
-   A. Keep the original internally, normalize metadata to UTC
-   B. Return the time in UTC <- B needs this
-   C. Preserve the provider location <- A needs this
-Decision 3: ETag exposure (contested; importance A 5, B 1 on 1-5)
-   A. Expose the ETag only on the file
-   B. Do not expose the ETag <- B needs this
-   C. Expose the ETag in file metadata <- A needs this"
-C12,future-architect/vuls,external/ParallACT/dataset/v1/generated/contradictory/instance_future-architect__vuls-3c1489e588dacea455ccf4c352a3b1006902e2d4.json,models/vulninfos.go: VulnInfos.CountGroupBySeverity signature and score-selection body,"Context told to both: VulnInfos.CountGroupBySeverity counts vulnerabilities by the severity of a selected CVSS score. One change corrects how scores and severity-only data are represented and counted, while the other adds version-specific grouping for audit exports. You are working on Correct CVSS data modeling and severity counts; the other developer on Add CVSS-version selection for audit grouping.
-Developer A's ticket: Correct CVSS data modeling and severity counts
-Developer B's ticket: Add CVSS-version selection for audit grouping
-Decision 1: Default score precedence (contested; importance A 5, B 5 on 1-5)
-   A. CVSS3-first fallback <- A needs this
-   B. CVSS2-first fallback <- B needs this
-   C. Caller-configurable precedence
-Decision 2: Version selection (shared; importance A 2, B 5 on 1-5)
-   A. No version selector
-   B. Required strict version selector
-   C. Optional strict version selector <- A needs this <- B needs this
-Decision 3: Critical score bucket (contested; importance A 5, B 2 on 1-5)
-   A. Separate Critical bucket <- A needs this
-   B. Omit scores above High
-   C. Include Critical in High <- B needs this"
-C13,gravitational/teleport,external/ParallACT/dataset/v1/generated/contradictory/instance_gravitational__teleport-0cb341c926713bdfcbb490c69659a9b101df99eb.json,roles.go: ParseRoles parsing/validation loop and the adjacent built-in role validation path,"Context told to both: This shared code parses role names and validates built-in roles used by the application. Changes to parsing affect which role values are accepted, while collection validation and equality determine how lists of roles behave. You are working on Validate role collections and compare them as sets; the other developer on Register RemoteProxy and parse role names case-insensitively.
-Developer A's ticket: Validate role collections and compare them as sets
-Developer B's ticket: Register RemoteProxy and parse role names case-insensitively
-Decision 1: Validation scope (contested; importance A 5, B 5 on 1-5)
-   A. Validate each parsed token only <- B needs this
-   B. Resolve each token, then validate the completed list <- A needs this
-   C. Validate the completed role list only
-Decision 2: Role-name resolution (shared; importance A 3, B 5 on 1-5)
-   A. Normalize spelling and accept unregistered names
-   B. Case-insensitive canonical-name lookup <- A needs this <- B needs this
-   C. Case-sensitive canonical-name lookup
-Decision 3: Collection equality (shared; importance A 5, B 1 on 1-5)
-   A. Order-sensitive list equality
-   B. Set equality ignoring repetitions <- A needs this <- B needs this
-   C. Equal-length comparison with membership checks"
-C14,gravitational/teleport,external/ParallACT/dataset/v1/generated/contradictory/instance_gravitational__teleport-bb69574e02bd62e5ccd3cebb25e1c992641afb2a.json,lib/utils/parse/parse.go: walk's *ast.BasicLit case,"Context told to both: The shared parser walks Go AST literals while parsing templated expressions, and its handling determines how bracket keys become trait names. The same parsing and resolution path is also being extended to support plain values as literal expressions. You are working on Add plain-string literal expressions; the other developer on Support numeric bracket trait keys.
-Developer A's ticket: Add plain-string literal expressions
-Developer B's ticket: Support numeric bracket trait keys
-Decision 1: Literal token spelling (contested; importance A 4, B 5 on 1-5)
-   A. Unquote every literal token
-   B. Preserve every token spelling <- A needs this
-   C. Unquote quoted tokens only <- B needs this
-Decision 2: Literal API scope (shared; importance A 5, B 2 on 1-5)
-   A. Add a separate literal parser
-   B. Add literals to Variable only <- A needs this <- B needs this
-   C. Add literals to every parser
-Decision 3: Literal resolution (shared; importance A 5, B 4 on 1-5)
-   A. Resolve every expression through traits
-   B. Return literals only when traits are absent
-   C. Return literal without trait lookup <- A needs this <- B needs this"
-C15,navidrome/navidrome,external/ParallACT/dataset/v1/generated/contradictory/instance_navidrome__navidrome-0a650de357babdcc8ce910fe37fee84acf4ed2fe.json,server/subsonic/responses/responses.go: ArtistID3 OpenSubsonic extension fields,"Context told to both: The shared response code converts artist data into OpenSubsonic ID3 responses and defines the structure and serialization of those fields. One change addresses artist grouping and consistently serialized metadata, while the other exposes an artist URL already stored in the domain model. You are working on Correct artist response schema and metadata; the other developer on Expose canonical artist URLs in ID3 responses.
-Developer A's ticket: Correct artist response schema and metadata
-Developer B's ticket: Expose canonical artist URLs in ID3 responses
-Decision 1: Artist grouping (contested; importance A 5, B 1 on 1-5)
-   A. Keep flat Indexes structure <- B needs this
-   B. Return grouped and flat structures
-   C. Use grouped IndexID3 structure <- A needs this
-Decision 2: Field serialization (shared; importance A 5, B 4 on 1-5)
-   A. Always serialize every field
-   B. Always serialize core metadata; omit empty URL <- A needs this <- B needs this
-   C. Omit every empty field
-Decision 3: External URL mapping (contested; importance A 1, B 5 on 1-5)
-   A. Expose field without converter mapping
-   B. Expose optional field and map model URL <- B needs this
-   C. Do not expose external URL <- A needs this"
+   C. Newest persistedAt value   <- A needs this   <- B needs this"
+C018,main,ansible/ansible,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_ansible__ansible-1c06c46cc14324df35ac4f39a45fb3ccd602195d-v0f01c69f1e2528b935359cfe578530722bca2c59.json,lib/ansible/plugins/filter/core.py: from_yaml() and from_yaml_all() input-normalization and loader-selection branches,"Context told to both developers: The YAML filters normalize inputs and select a loader before parsing documents. The shared branches must support serialized byte payloads while also preserving trust and source-origin metadata for tagged text. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Preserve YAML trust, origin, and vault behavior
+Ticket B (Developer B), our title: Restore YAML parsing for byte inputs
+Input normalization  [shared; importance to A 5/5, to B 5/5]
+   A. Decode bytes while preserving tagged text   <- A needs this   <- B needs this
+   B. Convert all inputs to plain text
+   C. Leave bytes unparsed as non-strings
+Loader selection  [contested; importance to A 5/5, to B 3/5]
+   A. Instrumented loader for text   <- A needs this
+   B. Separate loaders by input type   <- B needs this
+   C. Standard loader for all inputs"
+C019,main,navidrome/navidrome,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_navidrome__navidrome-f78257235ec3429ef42af6687738cd327ec77ce8.json,log/log.go: SetLevel and the underlying defaultLogger level used by createNewLogger,"Context told to both developers: The shared logging code sets the global level and creates the underlying logger used by ordinary and context-backed log entries. Changes to its filtering behavior affect both source-specific verbosity and whether existing contexts reflect runtime level changes. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add source-path-specific verbosity overrides
+Ticket B (Developer B), our title: Apply runtime verbosity changes to existing contexts
+Underlying logger level  [contested; importance to A 5/5, to B 5/5]
+   A. Keep the logger at trace level   <- A needs this
+   B. Synchronize it to the global level   <- B needs this
+   C. Set it to the least restrictive configured threshold
+Context threshold timing  [shared; importance to A 4/5, to B 5/5]
+   A. Evaluate the current threshold on each call   <- A needs this   <- B needs this
+   B. Use the level captured at creation
+   C. Refresh stored entries when the level changes"
+C020,main,NodeBB/NodeBB,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_NodeBB__NodeBB-4327a09d76f10a79109da9d91c22120428d3bdb9-vnan.json,"src/database/{mongo,postgres,redis}/hash.js — module.getObjects signature and return path","Context told to both developers: The shared database modules retrieve single objects and ordered batches across MongoDB, PostgreSQL, and Redis. The tickets both change bulk-read behavior: one adds field selection, while the other adds a way to omit missing records. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add field projection to object reads
+Ticket B (Developer B), our title: Add compact mode to bulk reads
+Second argument shape  [contested; importance to A 5/5, to B 5/5]
+   A. Arrays for fields, objects for options
+   B. Options objects only   <- B needs this
+   C. Field-name arrays only   <- A needs this
+Missing-record handling  [contested; importance to A 5/5, to B 5/5]
+   A. Always preserve placeholders   <- A needs this
+   B. Always omit missing records
+   C. Omit only in compact mode   <- B needs this"
+C021,main,qutebrowser/qutebrowser,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_qutebrowser__qutebrowser-f8e7fea0becae25ae20606f1422068137189fe9e.json,"qutebrowser/config/qtargs.py: qt_args, _qtwebengine_args, and _qtwebengine_settings_args argument-generation pipeline","Context told to both developers: This pipeline turns Qt arguments and regular settings into QtWebEngine command-line switches. One ticket adds a version-dependent graphics workaround, while the other prevents generated switches from overriding explicitly supplied arguments. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add a version-aware canvas workaround
+Ticket B (Developer B), our title: Preserve explicit Qt switch precedence
+Helper context  [contested; importance to A 5/5, to B 5/5]
+   A. Collected Qt arguments   <- B needs this
+   B. Version and argument context
+   C. Qt version metadata   <- A needs this
+Canvas auto policy  [contested; importance to A 5/5, to B 1/5]
+   A. Disable before Qt 6.6.0   <- A needs this
+   B. Disable on every Qt version
+   C. Never disable automatically   <- B needs this
+Duplicate filtering scope  [contested; importance to A 1/5, to B 5/5]
+   A. Filter all generated switches   <- B needs this
+   B. No generated-switch filtering   <- A needs this
+   C. Filter static generated switches"
+C022,main,protonmail/webclients,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_protonmail__webclients-428cd033fede5fd6ae9dbc7ab634e010b10e4209.json,applications/drive/src/app/store/_photos/usePhotosRecovery.ts — usePhotosRecovery handlePrepareLinks callback,"Context told to both developers: The hook prepares photo IDs from cached listings and submits them to a move operation while tracking recovery progress. Changes to which listings it uses, how it handles repeated entries, and when it submits requests affect both recovery behavior and the reported count. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Recover normal and trashed photos reliably
+Ticket B (Developer B), our title: Prevent duplicate moves from cached listings
+Listing sources  [contested; importance to A 5/5, to B 4/5]
+   A. Normal listing plus conditionally available trash
+   B. Normal and trashed listings   <- A needs this
+   C. Normal listing only   <- B needs this
+Duplicate ID handling  [contested; importance to A 2/5, to B 5/5]
+   A. Preserve every listing entry   <- A needs this
+   B. Deduplicate across all sources
+   C. Deduplicate within each listing   <- B needs this
+Move readiness  [contested; importance to A 5/5, to B 1/5]
+   A. Wait for both listings to load   <- A needs this
+   B. Skip listings that fail to load
+   C. Move when either listing is ready   <- B needs this"
+C023,main,internetarchive/openlibrary,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_internetarchive__openlibrary-b112069e31e0553b2d374abb5f9c5e05e8f3dbbe-ve8c8d62a2b60610a3c4631f5f23ed866bada9818.json,openlibrary/catalog/add_book/__init__.py supplement_rec_with_import_item_metadata() and its metadata-fill condition,"Context told to both developers: This code prepares imported book records, decides whether their metadata is sufficient, and supplements records with metadata from staged or pending imports. One ticket changes which sparse records are accepted and how publisher placeholders are handled, while the other changes when placeholder metadata counts as missing. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Accept sparse strong-identifier imports
+Ticket B (Developer B), our title: Replace sentinel metadata with staged values
+Validation threshold  [contested; importance to A 5/5, to B 1/5]
+   A. Require all five metadata fields   <- B needs this
+   B. Accept any record with a title
+   C. Accept complete records or strong identifiers   <- A needs this
+Placeholder handling  [contested; importance to A 4/5, to B 5/5]
+   A. Strip only placeholder publishers during normalization   <- A needs this
+   B. Treat author, date, and publisher sentinels as missing when filling   <- B needs this
+   C. Normalize all supported sentinels before validation and filling
+Enrichment entry point  [contested; importance to A 4/5, to B 3/5]
+   A. Move enrichment into import parsing and retain a delegating helper
+   B. Keep enrichment in the existing helper   <- B needs this
+   C. Move enrichment into import parsing and remove the helper   <- A needs this"
+C024,main,protonmail/webclients,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_protonmail__webclients-a6e6f617026794e7b505d649d2a7a9cdf17658c8.json,applications/mail/src/app/helpers/transforms/transformStyleAttributes.ts and the transformStyleAttributes hook in transforms.ts,"Context told to both developers: The shared helper mutates inline styles during HTML-message preparation. Both tickets need it to preserve unrelated declarations while addressing different style properties, and both depend on it running in the normal preparation pipeline. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Adapt inline viewport-height sizing
+Ticket B (Developer B), our title: Prevent fixed overlays in messages
+Properties transformed  [contested; importance to A 5/5, to B 5/5]
+   A. Both heights and positioning
+   B. Fixed positioning only   <- B needs this
+   C. Viewport-relative heights only   <- A needs this
+Elements inspected  [shared; importance to A 4/5, to B 4/5]
+   A. Descendants with inline styles   <- A needs this   <- B needs this
+   B. Every descendant regardless of styles
+   C. Root and styled descendants
+Pipeline registration  [shared; importance to A 5/5, to B 5/5]
+   A. No automatic pipeline hook
+   B. One shared pipeline hook   <- A needs this   <- B needs this
+   C. Separate property-specific hooks"
+C025,main,gravitational/teleport,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_gravitational__teleport-89f0432ad5dc70f1f6a30ec3a8363d548371a718.json,lib/utils/utils.go: package import block and the file-reading dependency used by the new ReadAtMost helper,"Context told to both developers: This utility file handles both bounded stream reads and persistent host identity files. The tickets change separate behaviors but can collide over the file’s imports and how file operations are performed. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add bounded HTTP body reads
+Ticket B (Developer B), our title: Protect persistent host identity files
+Stream read dependency  [contested; importance to A 5/5, to B 1/5]
+   A. Use an unaliased ioutil import
+   B. Use io.ReadAll without ioutil   <- B needs this
+   C. Alias ioutil for the bounded read   <- A needs this
+Host UUID creation  [contested; importance to A 1/5, to B 5/5]
+   A. Check for existence before creating
+   B. Create or truncate with a convenience write   <- A needs this
+   C. Create exclusively with O_EXCL   <- B needs this
+Host file access  [contested; importance to A 1/5, to B 5/5]
+   A. Use an explicit read handle only
+   B. Use explicit read and write handles   <- B needs this
+   C. Use convenience file operations   <- A needs this"
+C026,main,internetarchive/openlibrary,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_internetarchive__openlibrary-7edd1ef09d91fe0b435707633c5cc9af41dedddf-v76304ecdb3a5954fcf13feb710e8c40fcf24b73c.json,"openlibrary/plugins/worksearch/autocomplete.py: works_autocomplete.GET Solr request parameters, replaced by autocomplete.GET in Agent A","Context told to both developers: The shared autocomplete code builds Solr requests and formats suggestions for works and other resource types. One ticket consolidates that behavior and corrects work titles in responses, while the other makes work suggestions easier to scan by title without changing their query, filters, limit, or response format. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Unify autocomplete queries and response formatting
+Ticket B (Developer B), our title: Sort work suggestions alphabetically
+Request architecture  [contested; importance to A 5/5, to B 3/5]
+   A. Shared formatting with separate queries
+   B. Shared configurable GET handler   <- A needs this
+   C. Separate resource-specific GET handlers   <- B needs this
+Sort configuration  [shared; importance to A 2/5, to B 5/5]
+   A. Preserve existing work ranking
+   B. Configure sorting per resource   <- A needs this   <- B needs this
+   C. Sort every resource by title
+Work name source  [shared; importance to A 5/5, to B 3/5]
+   A. Use the record key
+   B. Use title with key fallback
+   C. Use the work title   <- A needs this   <- B needs this"
+C027,main,ansible/ansible,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_ansible__ansible-d33bedc48fdd933b5abd65a77c081876298e2f07-v0f01c69f1e2528b935359cfe578530722bca2c59.json,lib/ansible/config/manager.py: ensure_type list and dictionary conversion branches,"Context told to both developers: The configuration manager converts values to requested types, including lists, dictionaries, and booleans. Its list and dictionary branches affect both the concrete type of returned values and whether mutable results share identity with their inputs. The tickets also address how non-strict boolean conversion handles unhashable inputs. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Fix configuration type coercion
+Ticket B (Developer B), our title: Prevent mutable configuration aliasing
+Sequence result type  [contested; importance to A 5/5, to B 2/5]
+   A. Return a concrete list   <- A needs this
+   B. Reject non-list sequences
+   C. Preserve accepted sequence type   <- B needs this
+Native container identity  [contested; importance to A 4/5, to B 5/5]
+   A. Shallow-copy every container   <- B needs this
+   B. Copy only containers with mutable contents
+   C. Return the original container   <- A needs this
+Unhashable boolean input  [shared; importance to A 5/5, to B 1/5]
+   A. Raise a conversion error
+   B. Return a null value
+   C. Use the non-strict false fallback   <- A needs this   <- B needs this"
+C028,main,future-architect/vuls,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_future-architect__vuls-17ae386d1e185ba742eea4668ca77642e22b54c4.json,oval/util.go: isOvalDefAffected version-comparison error return statements,"Context told to both developers: The shared evaluator checks whether an OVAL definition applies by comparing installed and available package versions, and its result also carries fix-status information. Missing architecture metadata and failed version comparisons reach nearby return paths, so changes for either case must preserve the intended handling of the other. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Report missing Oracle and Amazon architecture metadata
+Ticket B (Developer B), our title: Retain definitions when version comparison fails
+Missing architecture handling  [shared; importance to A 5/5, to B 1/5]
+   A. Continue without architecture validation
+   B. Discard the definition silently
+   C. Return an explicit evaluation error   <- A needs this   <- B needs this
+Comparison failure outcome  [contested; importance to A 2/5, to B 5/5]
+   A. Abort evaluation with an error
+   B. Mark affected and unresolved with advisory version   <- B needs this
+   C. Mark not affected with unresolved fix   <- A needs this"
+C029,main,internetarchive/openlibrary,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_internetarchive__openlibrary-5069b09e5f64428dce59b33455c8bb17fe577070-v8717e18970bcdc4e0d2cea3b1527752b21e74866.json,openlibrary/core/db.py — CommonExtras.update_work_id and CommonExtras.update_work_ids_individually collision handling,"Context told to both developers: The shared code consolidates work identifiers and handles cases where an updated row conflicts with an existing row. Both tickets need this path to return structured counts, but their data types require different outcomes for a collision. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Protecting notes during work-ID consolidation
+Ticket B (Developer B), our title: Deduplicating reading-log rows during consolidation
+Collision row handling  [contested; importance to A 5/5, to B 5/5]
+   A. Delete the source row   <- B needs this
+   B. Choose behavior per model
+   C. Preserve the source row   <- A needs this
+Result representation  [shared; importance to A 5/5, to B 5/5]
+   A. Tuple of three counters
+   B. Single changed-row count
+   C. Dictionary of three counters   <- A needs this   <- B needs this"
+C030,main,flipt-io/flipt,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_flipt-io__flipt-dae029cba7cdb98dfb1a6b416c00d324241e6063.json,internal/ext/importer.go: Import's top-level flag and segment nil-entry guards,"Context told to both developers: The importer reads flags and segments from configuration documents and checks them against items already in the database. The shared entry guards affect both how existing items are handled and whether malformed null entries are accepted. You are working on ticket A; the other developer on ticket B.
+Ticket A (Developer A), our title: Add incremental import that skips existing items
+Ticket B (Developer B), our title: Reject null entries in import documents
+Existing-item behavior  [shared; importance to A 5/5, to B 3/5]
+   A. Skip existing items   <- A needs this   <- B needs this
+   B. Overwrite existing items
+   C. Fail on existing items
+Null-entry handling  [contested; importance to A 2/5, to B 5/5]
+   A. Silently ignore null entries   <- A needs this
+   B. Return a generic error
+   C. Return an indexed type-specific error   <- B needs this"

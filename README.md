@@ -76,6 +76,8 @@ src/agent_coordination/
   benchmarks.py     CaSiNo and LLM-Deliberation reduced to the environment's instance format
   ground.py         instances extracted from ParallACT's contradictory ticket pairs
   models.py         model routing by provider prefix and per-call cost
+  stats.py          instance-level tests: sign test, Wilcoxon, bootstrap intervals, Holm correction
+  annotation.py     the human annotation study: assignment, reading returned workbooks, agreement statistics
   negotiation.py    the single-issue negotiation pilot and shared statistics
   s1.py, s2.py, merge.py, census.py, ...   the diagnosis phase on CooperBench
   parallact.py, conflict_states.py, branch.py, synthesis.py   conflict states and style arms on coding benchmarks
@@ -83,6 +85,7 @@ configs/            one frozen config per study arm, with its predictions
 data/               instance sets: grounded, CaSiNo, LLM-Deliberation (structure only)
 results/            rows, summaries, charts and paired statistics (see results/README.md)
 scripts/analysis/   the paired analyses behind results/*_paired.json
+annotation/         the human check of the judge's labels, the compliance checker and the grounded extraction (see annotation/README.md)
 paper/              the ICML 2027 draft; figures/make_figures.py draws its figures from results/
 docs/               research plan (the full log), findings by experiment, development guide, codebooks
 experiments/m0/     the exploration phase (frozen)
@@ -94,6 +97,7 @@ tests/
 - [Findings by experiment](docs/FINDINGS.md): one paragraph with the numbers for every study.
 - [Research plan](docs/RESEARCH_PLAN.md): the chronological log with each study's design, frozen predictions, results and corrections.
 - [Development](docs/DEVELOPMENT.md): setup, running each kind of study, model providers, the paper build and the Overleaf sync.
+- [Human annotation study](annotation/README.md): three tasks, six annotators, every item rated twice; what is measured and how to run it.
 - Codebooks for the judge models: [bargaining styles](docs/B_BARGAIN_STYLE_CODEBOOK.md), [negotiation styles](docs/N_NEGOTIATION_STYLE_CODEBOOK.md), [conflict states](docs/C_CONFLICT_CODEBOOK.md).
 - [M0 retrospective](docs/M0_RETROSPECTIVE.md) and [M0 code map](docs/CODEBASE.md): the exploration phase.
 

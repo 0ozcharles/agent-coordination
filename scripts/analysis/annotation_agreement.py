@@ -1,93 +1,239 @@
-"""Agreement of the human annotations (annotation/*_answers_<name>.csv) with each other, the judge and the checker.
+"""Agreement in the human annotation study: between the annotators, with the judge model and with the checker.
 
-Writes results/annotation_agreement.json. Run from the repository root once at least one annotator has answered.
+Reads the workbooks the annotators returned (annotation/returned/*.xlsx), the assignment and the keys; writes
+annotation/answers.csv (every answer, one row a cell), results/annotation_agreement.json and
+results/annotation_disagreements.csv (the items a third person should look at). Works on a partial return, and prints
+the practice items side by side for the calibration meeting. Run from the repository root.
 """
+import argparse
 import csv
 import glob
-import itertools
 import json
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, "src")
+from agent_coordination import annotation as ann  # noqa: E402
 from agent_coordination.conflict_states import STYLE  # noqa: E402  (assertiveness, cooperativeness) -> style
 
+ORDINAL = ("assertiveness", "cooperativeness")
+PARSE_A = {"assertiveness": ann.score, "cooperativeness": ann.score, "asks_needs": ann.yes_no, "discloses_priorities": ann.yes_no}
 
-def answers(task):
-    out = {}
-    for f in sorted(glob.glob(f"annotation/task_{task}_answers_*.csv")):
-        name = Path(f).stem.split("_answers_")[1]
-        if name != "TEMPLATE":
-            out[name] = {r["item"]: r for r in csv.DictReader(open(f))}
+
+def between(units, ordinal=False):
+    """Agreement between the annotators over units rated by two or more of them: {unit: {annotator: value}}."""
+    values = [[v for v in u.values() if v is not None] for u in units.values()]
+    pairs = [(v[0], v[1]) for v in values if len(v) == 2]
+    return {**ann.agree(pairs, ordinal), "alpha": ann.alpha(values, "interval" if ordinal else "nominal")}
+
+
+def against(units, reference, ordinal=False):
+    """Every human rating against the reference label of its unit (the judge or the checker)."""
+    pairs = [(v, reference[u]) for u, by in units.items() for v in by.values() if v is not None and reference.get(u) is not None]
+    out = {**ann.agree(pairs, ordinal), "kappa": ann.kappa(pairs, weighted=ordinal)}
+    agreed = [(next(iter(by.values())), reference[u]) for u, by in units.items()
+              if len(by) >= 2 and len(set(by.values())) == 1 and None not in by.values() and reference.get(u) is not None]
+    out["where_the_annotators_agree"] = ann.agree(agreed)
     return out
 
 
-def kappa(pairs, weighted=False):
-    """Cohen's kappa over (a, b) pairs; linearly weighted for ordinal 0-2 scores when weighted is True."""
-    pairs = [(a, b) for a, b in pairs if a is not None and b is not None]
-    if not pairs:
-        return None
-    cats = sorted({x for p in pairs for x in p})
-    span = (max(cats) - min(cats)) if weighted and len(cats) > 1 else 1
-    w = (lambda a, b: 1 - abs(a - b) / span) if weighted else (lambda a, b: 1.0 if a == b else 0.0)
-    n = len(pairs)
-    po = sum(w(a, b) for a, b in pairs) / n
-    ca, cb = Counter(a for a, _ in pairs), Counter(b for _, b in pairs)
-    pe = sum(ca[x] * cb[y] * w(x, y) for x in cats for y in cats) / n ** 2
-    return None if pe == 1 else (po - pe) / (1 - pe)
+def shown(task, field, value):
+    """An answer as read, for the side-by-side table; one that cannot be read is shown as typed with a question mark."""
+    name = field[7:] if task == "A" else field
+    if name == "broken_clauses":
+        return ",".join(map(str, ann.clause_numbers(value)))
+    v = PARSE_A[name](value) if task == "A" else ann.yes_no(value) if task == "B" else ann.three_way(value)
+    if v is None:
+        return f"{value}?"
+    return {True: "yes", False: "no"}[v] if isinstance(v, bool) else ("no", "partly", "yes")[v] if task == "C" else str(v)
 
 
-def score(v):
-    try:
-        return int(str(v).strip())
-    except ValueError:
-        return None
+def main(argv=None):
+    p = argparse.ArgumentParser()
+    p.add_argument("--returned", default="annotation/returned")
+    p.add_argument("--pack", default="annotation")
+    p.add_argument("--out", default="results/annotation_agreement.json")
+    p.add_argument("--answers", default=None, help="where to write every answer; default <pack>/answers.csv")
+    args = p.parse_args(argv)
+    pack = Path(args.pack)
+    keys = {t: json.loads((pack / "keys" / f"task_{t}_key.json").read_text()) for t in "abc"}
+    assigned = defaultdict(dict)   # task -> item -> (kind, raters)
+    for r in csv.DictReader(open(pack / "assignment.csv")):
+        assigned[r["task"].lower()][r["item"]] = (r["kind"], None if r["kind"] == "practice" else {r["annotator_1"], r["annotator_2"]})
 
+    raw, problems = {}, []
+    for f in sorted(glob.glob(f"{args.returned}/*.xlsx")):
+        if Path(f).name.startswith("~$"):
+            continue
+        who, answers = ann.workbook_answers(f)
+        if who is None or who in raw:
+            problems.append(f"{f}: {'no annotator id found' if who is None else 'a second file for ' + who}; skipped")
+            continue
+        raw[who] = answers
+    if not raw:
+        print(f"no workbooks under {args.returned}: put the returned annotator_R*.xlsx files there")
+        return 1
 
-def agree(pairs):
-    pairs = [(a, b) for a, b in pairs if a is not None and b is not None]
-    return {"n": len(pairs), "exact": sum(a == b for a, b in pairs), "within_one": sum(abs(a - b) <= 1 for a, b in pairs) if pairs and isinstance(pairs[0][0], int) else None}
+    # ---- every answer, and how complete each return is
+    rows, complete = [], {}
+    for who, answers in sorted(raw.items()):
+        complete[who] = {}
+        for task in "abc":
+            mine = [i for i, (kind, raters) in assigned[task].items() if raters is None or who in raters]
+            per_item = 8 if task == "a" else 1 if task == "b" else 4
+            need = {"a": [f"{a}_{f}" for a in ("agent1", "agent2") for f in ann.A_FIELDS], "b": ["followed"], "c": list(ann.C_FIELDS)}[task]
+            filled = sum(1 for i in mine for k in need if str(answers[task].get(i, {}).get(k, "")).strip() != "")
+            complete[who][task] = {"practice": sum(1 for i in mine if assigned[task][i][0] == "practice" and all(str(answers[task].get(i, {}).get(k, "")).strip() != "" for k in need)),
+                                   "main": sum(1 for i in mine if assigned[task][i][0] == "main" and all(str(answers[task].get(i, {}).get(k, "")).strip() != "" for k in need)),
+                                   "main_assigned": sum(1 for i in mine if assigned[task][i][0] == "main"), "cells_filled": filled, "cells": per_item * len(mine)}
+            for item, fields in sorted(answers[task].items()):
+                if item not in assigned[task] or (assigned[task][item][1] is not None and who not in assigned[task][item][1]):
+                    problems.append(f"{who} answered {item}, which is not one of their items; ignored")
+                    continue
+                rows.extend([task.upper(), item, assigned[task][item][0], who, k, v] for k, v in sorted(fields.items()))
+    answers_path = Path(args.answers) if args.answers else pack / "answers.csv"
+    with open(answers_path, "w", newline="") as handle:
+        w = csv.writer(handle)
+        w.writerow(["task", "item", "kind", "annotator", "field", "value"])
+        w.writerows(rows)
 
+    def collect(task, kind, parse):
+        """{field: {unit: {annotator: parsed value}}} over the items of one kind; a unit is an item (task A: an agent of it)."""
+        out = defaultdict(lambda: defaultdict(dict))
+        for t, item, k, who, field, value in rows:
+            if t.lower() == task and k == kind:
+                unit, name = ((item, field[:6]), field[7:]) if task == "a" else (item, field)
+                if name in parse and parse[name](value) is not None:
+                    out[name][unit][who] = parse[name](value)
+        return out
 
-def main():
-    out = {}
-    # ---- task A
-    key, ann = json.loads(Path("annotation/keys/task_a_key.json").read_text()), answers("a_style")
-    fields = [("agent1", "assertiveness"), ("agent1", "cooperativeness"), ("agent2", "assertiveness"), ("agent2", "cooperativeness")]
-    def series(get):
-        return {dim: [get(item, agent, dim) for item in key for agent in ("agent1", "agent2")] for dim in ("assertiveness", "cooperativeness")}
-    judge = series(lambda item, agent, dim: key[item]["judge"][agent][dim])
-    people = {name: series(lambda item, agent, dim, a=a: score(a.get(item, {}).get(f"{agent}_{dim}"))) for name, a in ann.items()}
-    def style_of(s):
-        return [STYLE.get((x, y)) if x is not None and y is not None else None for x, y in zip(s["assertiveness"], s["cooperativeness"])]
-    a_out = {"annotators": list(people), "against_judge": {}, "between_annotators": {}}
-    for name, s in people.items():
-        a_out["against_judge"][name] = {dim: {**agree(list(zip(s[dim], judge[dim]))), "weighted_kappa": kappa(zip(s[dim], judge[dim]), True)} for dim in s}
-        a_out["against_judge"][name]["style"] = {**agree(list(zip(style_of(s), style_of(judge)))), "kappa": kappa(zip(style_of(s), style_of(judge)))}
-    for (n1, s1), (n2, s2) in itertools.combinations(people.items(), 2):
-        a_out["between_annotators"][f"{n1} / {n2}"] = {dim: {**agree(list(zip(s1[dim], s2[dim]))), "weighted_kappa": kappa(zip(s1[dim], s2[dim]), True)} for dim in s1}
-    out["task_a_style"] = a_out
-    # ---- task B
-    key, ann = json.loads(Path("annotation/keys/task_b_key.json").read_text()), answers("b_compliance")
-    b_out = {}
-    for name, a in ann.items():
-        col = next(c for c in next(iter(a.values())) if c.startswith("agent1_followed"))
-        yes = lambda v: {"yes": True, "y": True, "no": False, "n": False}.get(str(v).strip().lower())
-        per = {}
-        for s in ("all", "competing", "collaborating", "compromising", "accommodating", "avoiding"):
-            pairs = [(yes(a.get(item, {}).get(col)), k["checker"]["overall"]) for item, k in key.items() if s in ("all", k["strategy"])]
-            per[s] = {**{k2: v for k2, v in agree(pairs).items() if k2 != "within_one"}, "kappa": kappa(pairs)}
-        b_out[name] = per
-    out["task_b_compliance"] = b_out
-    # ---- task C
-    ann = answers("c_extraction")
-    out["task_c_extraction"] = {name: {col: dict(Counter(str(r[col]).strip().lower() for r in a.values() if str(r[col]).strip())) for col in next(iter(a.values())) if col not in ("item", "note")} for name, a in ann.items()}
-    Path("results/annotation_agreement.json").write_text(json.dumps(out, indent=1, default=str) + "\n")
-    print(json.dumps(out, indent=1, default=str)[:3000])
-    if not any(out[k] if not isinstance(out[k], dict) or k != "task_a_style" else out[k]["annotators"] for k in out):
-        print("no answers yet: copy the TEMPLATE files to *_answers_<name>.csv and fill them in")
+    out = {"annotators": sorted(raw), "complete": complete, "problems": problems}
+    disagreements = []
+
+    # ---- task A: style scores and episode facts
+    judge = {(item, agent): k["judge"][agent] for item, k in keys["a"].items() for agent in ("agent1", "agent2")}
+    source = {item: ("e1" if k["run"] == "e1" else k["run"][3:]) for item, k in keys["a"].items()}
+    for kind in ("main", "practice"):
+        got = collect("a", kind, PARSE_A)
+        res = {}
+        for field in ann.A_FIELDS:
+            units, ordinal = got[field], field in ORDINAL
+            ref = {u: judge[u][field] for u in units}
+            res[field] = {"between_annotators": between(units, ordinal), "judge": against(units, ref, ordinal),
+                          # the judge as one more rater, on the same scale as the agreement between annotators
+                          "judge_alpha": ann.alpha([[v, ref[u]] for u, by in units.items() for v in by.values()], "interval" if ordinal else "nominal")}
+            if kind == "main":
+                res[field]["judge_by_source"] = {s: against({u: by for u, by in units.items() if source[u[0]] == s}, ref, ordinal) for s in sorted(set(source.values()))}
+                res[field]["judge_by_annotator"] = {who: ann.kappa([(by[who], ref[u]) for u, by in units.items() if who in by], weighted=ordinal) for who in sorted(raw)}
+                for u, by in sorted(units.items()):
+                    if len(by) == 2 and len(set(by.values())) == 2:
+                        (w1, v1), (w2, v2) = sorted(by.items())
+                        if not ordinal or abs(v1 - v2) == 2:
+                            disagreements.append(["A", u[0], f"{u[1]} {field}", w1, v1, w2, v2])
+        styles = defaultdict(dict)
+        for u in set(got["assertiveness"]) | set(got["cooperativeness"]):
+            for who in set(got["assertiveness"].get(u, {})) & set(got["cooperativeness"].get(u, {})):
+                styles[u][who] = STYLE[(got["assertiveness"][u][who], got["cooperativeness"][u][who])]
+        res["style"] = {"between_annotators": between(styles), "judge": against(styles, {u: judge[u]["style"] for u in styles})}
+        out[f"task_a_{kind}"] = res
+
+    # ---- task B: the rule followed or not
+    parse_b = {"followed": ann.yes_no, "broken_clauses": ann.clause_numbers}
+    for kind in ("main", "practice"):
+        got = collect("b", kind, parse_b)
+        units = got["followed"]
+        checker = {i: keys["b"][i]["checker"]["overall"] for i in units}
+        res = {"between_annotators": between(units), "checker": against(units, checker), "by_rule": {}}
+        # the same comparison on the clauses the checker verifies: a human "no" counts only when it cites a checked clause
+        # (or cites none); what is left over is tabulated as violations of clauses the program does not check
+        on_checked, unchecked = defaultdict(dict), Counter()
+        for i, by in units.items():
+            k = keys["b"][i]
+            checked = set(k["checked_clauses"].values())
+            for who, followed in by.items():
+                cited = set(got["broken_clauses"].get(i, {}).get(who, []))
+                on_checked[i][who] = followed or bool(cited and not cited & checked)
+                if not followed and cited and not cited & checked:
+                    unchecked[f"{k['strategy']} clause " + ",".join(map(str, sorted(cited)))] += 1
+        res["checker_on_checked_clauses"] = against(on_checked, checker)
+        res["violations_of_unchecked_clauses_only"] = dict(sorted(unchecked.items()))
+        for verdict, name in ((False, "checker_failed"), (True, "checker_passed")):
+            ratings = [v for i, by in units.items() if checker[i] is verdict for v in by.values()]
+            res[name] = {"ratings": len(ratings), "annotators_say_followed": round(sum(ratings) / len(ratings), 3) if ratings else None}
+        for rule in ann.CHECKED:
+            sub = {i: by for i, by in units.items() if keys["b"][i]["strategy"] == rule}
+            res["by_rule"][rule] = {"between_annotators": between(sub), "checker": against(sub, checker),
+                                    "checker_on_checked_clauses": against({i: on_checked[i] for i in sub}, checker)}
+        if kind == "main":
+            for i, by in sorted(units.items()):
+                if len(by) == 2 and len(set(by.values())) == 2:
+                    (w1, v1), (w2, v2) = sorted(by.items())
+                    disagreements.append(["B", i, f"followed ({keys['b'][i]['strategy']})", w1, v1, w2, v2])
+        out[f"task_b_{kind}"] = res
+
+    # ---- task C: the extraction against the tickets
+    for kind in ("main", "practice"):
+        got = collect("c", kind, {f: ann.three_way for f in ann.C_FIELDS})
+        res = {}
+        for field in ann.C_FIELDS:
+            units = got[field]
+            counts = Counter(v for by in units.values() for v in by.values())
+            res[field] = {"yes": counts[2], "partly": counts[1], "no": counts[0], "between_annotators": between(units, ordinal=True),
+                          "items_all_yes": sum(1 for by in units.values() if len(by) >= 2 and set(by.values()) == {2}), "items_rated_twice": sum(1 for by in units.values() if len(by) >= 2)}
+            if kind == "main":
+                for i, by in sorted(units.items()):
+                    if len(by) == 2 and len(set(by.values())) == 2:
+                        (w1, v1), (w2, v2) = sorted(by.items())
+                        disagreements.append(["C", i, field, w1, "no partly yes".split()[v1], w2, "no partly yes".split()[v2]])
+        out[f"task_c_{kind}"] = res
+
+    Path(args.out).write_text(json.dumps(out, indent=1, ensure_ascii=False) + "\n")
+    with open(Path(args.out).with_name("annotation_disagreements.csv"), "w", newline="") as handle:
+        w = csv.writer(handle)
+        w.writerow(["task", "item", "what", "annotator_1", "value_1", "annotator_2", "value_2"])
+        w.writerows(disagreements)
+
+    # ---- what to read
+    print(f"annotators returned: {', '.join(sorted(raw))}")
+    for who, c in complete.items():
+        print(f"  {who}: " + ", ".join(f"task {t.upper()} practice {c[t]['practice']}, main {c[t]['main']}/{c[t]['main_assigned']}" for t in "abc"))
+    for line in problems:
+        print("  ! " + line)
+    practice = [r for r in rows if r[2] == "practice"]
+    if practice:
+        print("\npractice items, side by side (for the calibration meeting; the judge and the checker are not shown):")
+        table = defaultdict(dict)
+        for t, item, _, who, field, value in practice:
+            if not field.endswith("note"):
+                table[(item, field)][who] = shown(t, field, value)
+        for (item, field), by in sorted(table.items()):
+            spread = len(set(by.values()))
+            print(f"  {item} {field:30} " + "  ".join(f"{who}={by.get(who, '-')}" for who in sorted(raw)) + ("" if spread <= 1 else "   <- differ"))
+    a, b, c = out["task_a_main"], out["task_b_main"], out["task_c_main"]
+    if a["assertiveness"]["between_annotators"]["n"] or a["assertiveness"]["judge"]["n"]:
+        print("\ntask A, main items (alpha between annotators | judge against the annotators: exact, kappa, alpha)")
+        for field in ann.A_FIELDS:
+            x = a[field]
+            print(f"  {field:22} n={x['between_annotators']['n']:>3} exact {x['between_annotators']['exact']} alpha {x['between_annotators']['alpha']} | "
+                  f"n={x['judge']['n']:>3} exact {x['judge']['exact']} kappa {x['judge']['kappa']} alpha {x['judge_alpha']}")
+        print(f"  {'style':22} n={a['style']['between_annotators']['n']:>3} exact {a['style']['between_annotators']['exact']} alpha {a['style']['between_annotators']['alpha']} | "
+              f"n={a['style']['judge']['n']:>3} exact {a['style']['judge']['exact']} kappa {a['style']['judge']['kappa']}")
+    if b["checker"]["n"]:
+        print("\ntask B, main items")
+        print(f"  between annotators: n={b['between_annotators']['n']} exact {b['between_annotators']['exact']} alpha {b['between_annotators']['alpha']}")
+        print(f"  checker against the annotators: exact {b['checker']['exact']} kappa {b['checker']['kappa']}; on the clauses it checks: exact {b['checker_on_checked_clauses']['exact']} kappa {b['checker_on_checked_clauses']['kappa']}")
+        print(f"  games the checker failed: annotators say followed in {b['checker_failed']['annotators_say_followed']} of {b['checker_failed']['ratings']} ratings; "
+              f"games it passed: {b['checker_passed']['annotators_say_followed']} of {b['checker_passed']['ratings']}")
+        print(f"  violations of unchecked clauses only: {b['violations_of_unchecked_clauses_only']}")
+    if any(c[f]["yes"] + c[f]["partly"] + c[f]["no"] for f in ann.C_FIELDS):
+        print("\ntask C, main items (ratings yes / partly / no; items both annotators call yes)")
+        for field in ann.C_FIELDS:
+            x = c[field]
+            print(f"  {field:20} {x['yes']:>3} / {x['partly']:>2} / {x['no']:>2}; both yes on {x['items_all_yes']} of {x['items_rated_twice']}; alpha {x['between_annotators']['alpha']}")
+    print(f"\n{len(disagreements)} disagreements to adjudicate -> {Path(args.out).with_name('annotation_disagreements.csv')}")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

@@ -32,6 +32,11 @@ htmlcov/
 .vscode/
 
 
+# Human annotation: the keys stay out until the answers are in (annotation/keys.sha256 commits to them);
+# the returned workbooks carry the annotators' names
+/annotation/keys/
+/annotation/returned/
+
 # Third-party benchmark checkouts (see docs/DEVELOPMENT.md)
 /external/
 
