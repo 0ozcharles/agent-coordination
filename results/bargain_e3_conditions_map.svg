@@ -41,10 +41,10 @@
 <text x="349" y="116" text-anchor="middle" fill="white" font-size="10">avoidi</text>
 <rect x="390" y="98" width="78" height="26" fill="#7f8c8d"/>
 <text x="429" y="116" text-anchor="middle" fill="white" font-size="10">neutra</text>
-<rect x="470" y="98" width="78" height="26" fill="#95a5a6"/>
-<text x="509" y="116" text-anchor="middle" fill="white" font-size="10">avoidi</text>
-<rect x="550" y="98" width="78" height="26" fill="#95a5a6"/>
-<text x="589" y="116" text-anchor="middle" fill="white" font-size="10">avoidi</text>
+<rect x="470" y="98" width="78" height="26" fill="#c0392b"/>
+<text x="509" y="116" text-anchor="middle" fill="white" font-size="10">compet</text>
+<rect x="550" y="98" width="78" height="26" fill="#27ae60"/>
+<text x="589" y="116" text-anchor="middle" fill="white" font-size="10">accomm</text>
 <rect x="630" y="98" width="78" height="26" fill="#7f8c8d"/>
 <text x="669" y="116" text-anchor="middle" fill="white" font-size="10">neutra</text>
 <rect x="710" y="98" width="78" height="26" fill="#7f8c8d"/>
