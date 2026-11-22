@@ -1,0 +1,352 @@
+{
+ "E1 (luna 0.7)": {
+  "labeled": 1680,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 11,
+   "compromising": 49,
+   "accommodating": 40,
+   "avoiding": 0
+  },
+  "default_n": 80,
+  "default_asks_pct": 40,
+  "default_discloses_pct": 41,
+  "rule_in_own_style": {
+   "competing": [
+    1,
+    160
+   ],
+   "collaborating": [
+    82,
+    160
+   ],
+   "compromising": [
+    130,
+    160
+   ],
+   "accommodating": [
+    117,
+    160
+   ],
+   "avoiding": [
+    18,
+    160
+   ]
+  }
+ },
+ "E2 base (luna)": {
+  "labeled": 480,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 8,
+   "compromising": 50,
+   "accommodating": 42,
+   "avoiding": 0
+  },
+  "default_n": 40,
+  "default_asks_pct": 40,
+  "default_discloses_pct": 35,
+  "rule_in_own_style": {
+   "competing": [
+    0,
+    80
+   ],
+   "collaborating": [
+    32,
+    80
+   ],
+   "compromising": [
+    69,
+    80
+   ],
+   "accommodating": [
+    59,
+    80
+   ],
+   "avoiding": [
+    4,
+    80
+   ]
+  }
+ },
+ "E4 software_design": {
+  "labeled": 320,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 6,
+   "compromising": 54,
+   "accommodating": 40,
+   "avoiding": 0
+  },
+  "default_n": 80,
+  "default_asks_pct": 15,
+  "default_discloses_pct": 70,
+  "rule_in_own_style": {
+   "competing": [
+    1,
+    120
+   ],
+   "collaborating": [
+    42,
+    120
+   ],
+   "compromising": [
+    62,
+    80
+   ],
+   "accommodating": [
+    61,
+    80
+   ],
+   "avoiding": [
+    9,
+    80
+   ]
+  }
+ },
+ "E4 team_plan": {
+  "labeled": 320,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 18,
+   "compromising": 41,
+   "accommodating": 41,
+   "avoiding": 0
+  },
+  "default_n": 80,
+  "default_asks_pct": 25,
+  "default_discloses_pct": 59,
+  "rule_in_own_style": {
+   "competing": [
+    0,
+    120
+   ],
+   "collaborating": [
+    48,
+    120
+   ],
+   "compromising": [
+    62,
+    80
+   ],
+   "accommodating": [
+    59,
+    80
+   ],
+   "avoiding": [
+    6,
+    80
+   ]
+  }
+ },
+ "E4 release_plan": {
+  "labeled": 320,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 15,
+   "compromising": 51,
+   "accommodating": 34,
+   "avoiding": 0
+  },
+  "default_n": 80,
+  "default_asks_pct": 22,
+  "default_discloses_pct": 56,
+  "rule_in_own_style": {
+   "competing": [
+    2,
+    120
+   ],
+   "collaborating": [
+    39,
+    120
+   ],
+   "compromising": [
+    55,
+    80
+   ],
+   "accommodating": [
+    53,
+    80
+   ],
+   "avoiding": [
+    10,
+    80
+   ]
+  }
+ },
+ "grounded (luna)": {
+  "labeled": 2040,
+  "default_style_pct": {
+   "competing": 1,
+   "collaborating": 8,
+   "compromising": 66,
+   "accommodating": 25,
+   "avoiding": 1
+  },
+  "default_n": 170,
+  "default_asks_pct": 4,
+  "default_discloses_pct": 49,
+  "rule_in_own_style": {
+   "competing": [
+    9,
+    340
+   ],
+   "collaborating": [
+    105,
+    340
+   ],
+   "compromising": [
+    238,
+    340
+   ],
+   "accommodating": [
+    241,
+    340
+   ],
+   "avoiding": [
+    42,
+    340
+   ]
+  }
+ },
+ "E3 luna default-T": {
+  "labeled": 320,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 15,
+   "compromising": 41,
+   "accommodating": 42,
+   "avoiding": 1
+  },
+  "default_n": 80,
+  "default_asks_pct": 44,
+  "default_discloses_pct": 48,
+  "rule_in_own_style": {
+   "competing": [
+    3,
+    120
+   ],
+   "collaborating": [
+    52,
+    120
+   ],
+   "compromising": [
+    64,
+    80
+   ],
+   "accommodating": [
+    54,
+    80
+   ],
+   "avoiding": [
+    13,
+    80
+   ]
+  }
+ },
+ "E3 haiku": {
+  "labeled": 320,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 28,
+   "compromising": 8,
+   "accommodating": 65,
+   "avoiding": 0
+  },
+  "default_n": 80,
+  "default_asks_pct": 64,
+  "default_discloses_pct": 94,
+  "rule_in_own_style": {
+   "competing": [
+    0,
+    120
+   ],
+   "collaborating": [
+    59,
+    120
+   ],
+   "compromising": [
+    55,
+    80
+   ],
+   "accommodating": [
+    43,
+    80
+   ],
+   "avoiding": [
+    4,
+    80
+   ]
+  }
+ },
+ "E3 sonnet": {
+  "labeled": 320,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 18,
+   "compromising": 4,
+   "accommodating": 79,
+   "avoiding": 0
+  },
+  "default_n": 80,
+  "default_asks_pct": 85,
+  "default_discloses_pct": 94,
+  "rule_in_own_style": {
+   "competing": [
+    0,
+    120
+   ],
+   "collaborating": [
+    30,
+    120
+   ],
+   "compromising": [
+    18,
+    80
+   ],
+   "accommodating": [
+    63,
+    80
+   ],
+   "avoiding": [
+    3,
+    80
+   ]
+  }
+ },
+ "E3 sol": {
+  "labeled": 320,
+  "default_style_pct": {
+   "competing": 0,
+   "collaborating": 24,
+   "compromising": 1,
+   "accommodating": 75,
+   "avoiding": 0
+  },
+  "default_n": 80,
+  "default_asks_pct": 65,
+  "default_discloses_pct": 96,
+  "rule_in_own_style": {
+   "competing": [
+    0,
+    120
+   ],
+   "collaborating": [
+    21,
+    120
+   ],
+   "compromising": [
+    41,
+    80
+   ],
+   "accommodating": [
+    63,
+    80
+   ],
+   "avoiding": [
+    1,
+    80
+   ]
+  }
+ }
+}

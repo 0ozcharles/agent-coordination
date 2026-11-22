@@ -33,12 +33,12 @@
    "invalid_replies": 3,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 12,
+    "compromising": 2,
+    "accommodating": 26,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.05
   },
   "competing-competing": {
@@ -71,12 +71,12 @@
    "invalid_replies": 1,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 1,
+    "compromising": 34,
+    "accommodating": 5,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.078,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -142,14 +142,14 @@
    "invalid_replies": 4,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 18,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 22,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.05,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 18,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -178,8 +178,8 @@
      "p": 0.3269
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 18,
+     "control": 12
     }
    }
   },
@@ -213,14 +213,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 1,
+    "compromising": 29,
+    "accommodating": 10,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.055,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 29,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -249,8 +249,8 @@
      "p": 0.4869
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 29,
+     "control": 2
     }
    }
   },
@@ -284,14 +284,14 @@
    "invalid_replies": 1,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 13,
+    "compromising": 3,
+    "accommodating": 24,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.039,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 24,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -320,8 +320,8 @@
      "p": 0.7201
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 24,
+     "control": 26
     }
    }
   },
@@ -354,15 +354,15 @@
    "p1_seconds": 1.652,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 8,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 17,
+    "accommodating": 13,
+    "avoiding": 2
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.018,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 2,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -391,7 +391,7 @@
      "p": 0.0001
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 2,
      "control": 0
     }
    }
@@ -426,12 +426,12 @@
    "invalid_replies": 1,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 3,
+    "compromising": 26,
+    "accommodating": 11,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.054,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -497,14 +497,14 @@
    "invalid_replies": 4,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 23,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 17,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.044,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 23,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -533,8 +533,8 @@
      "p": 0.0987
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 23,
+     "control": 12
     }
    }
   }
@@ -598,5 +598,5 @@
   "avoiding": "avoiding"
  },
  "replicator": {},
- "cost_usd": 0.39
+ "cost_usd": 0.533
 }

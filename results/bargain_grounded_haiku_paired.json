@@ -1,0 +1,1083 @@
+{
+ "cells": {
+  "neutral-neutral": {
+   "luna": {
+    "n": 85,
+    "joint": 148.6,
+    "p1": 73.1,
+    "p2": 75.5,
+    "agree": 85,
+    "frontier": 77,
+    "gap": 6.0,
+    "moves": 4.0,
+    "tokens": 1674,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.039
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 142.3,
+    "p1": 70.3,
+    "p2": 72.0,
+    "agree": 84,
+    "frontier": 69,
+    "gap": 12.3,
+    "moves": 4.2,
+    "tokens": 3121,
+    "passes": 0,
+    "rejected": 1,
+    "cost": 0.096
+   }
+  },
+  "competing-competing": {
+   "luna": {
+    "n": 85,
+    "joint": 128.2,
+    "p1": 62.5,
+    "p2": 65.7,
+    "agree": 59,
+    "frontier": 58,
+    "gap": 26.4,
+    "moves": 5.2,
+    "tokens": 2492,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.05
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 134.9,
+    "p1": 64.7,
+    "p2": 70.2,
+    "agree": 71,
+    "frontier": 57,
+    "gap": 19.8,
+    "moves": 5.4,
+    "tokens": 4696,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.135
+   }
+  },
+  "collaborating-collaborating": {
+   "luna": {
+    "n": 85,
+    "joint": 149.5,
+    "p1": 73.2,
+    "p2": 76.3,
+    "agree": 82,
+    "frontier": 77,
+    "gap": 5.1,
+    "moves": 3.8,
+    "tokens": 1822,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.039
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 150.4,
+    "p1": 73.2,
+    "p2": 77.2,
+    "agree": 84,
+    "frontier": 76,
+    "gap": 4.3,
+    "moves": 3.9,
+    "tokens": 3236,
+    "passes": 0,
+    "rejected": 4,
+    "cost": 0.097
+   }
+  },
+  "compromising-compromising": {
+   "luna": {
+    "n": 85,
+    "joint": 138.9,
+    "p1": 70.4,
+    "p2": 68.5,
+    "agree": 81,
+    "frontier": 65,
+    "gap": 15.8,
+    "moves": 3.6,
+    "tokens": 1544,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.033
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 134.7,
+    "p1": 66.0,
+    "p2": 68.7,
+    "agree": 84,
+    "frontier": 53,
+    "gap": 19.9,
+    "moves": 3.8,
+    "tokens": 2907,
+    "passes": 0,
+    "rejected": 1,
+    "cost": 0.088
+   }
+  },
+  "accommodating-accommodating": {
+   "luna": {
+    "n": 85,
+    "joint": 147.8,
+    "p1": 72.5,
+    "p2": 75.2,
+    "agree": 84,
+    "frontier": 80,
+    "gap": 6.9,
+    "moves": 3.1,
+    "tokens": 1262,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.029
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 144.5,
+    "p1": 71.1,
+    "p2": 73.4,
+    "agree": 85,
+    "frontier": 71,
+    "gap": 10.1,
+    "moves": 3.4,
+    "tokens": 2290,
+    "passes": 0,
+    "rejected": 2,
+    "cost": 0.068
+   }
+  },
+  "avoiding-avoiding": {
+   "luna": {
+    "n": 85,
+    "joint": 127.3,
+    "p1": 62.7,
+    "p2": 64.6,
+    "agree": 62,
+    "frontier": 58,
+    "gap": 27.3,
+    "moves": 2.4,
+    "tokens": 890,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.02
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 128.0,
+    "p1": 64.3,
+    "p2": 63.7,
+    "agree": 70,
+    "frontier": 52,
+    "gap": 26.6,
+    "moves": 2.7,
+    "tokens": 1565,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.044
+   }
+  },
+  "competing-neutral": {
+   "luna": {
+    "n": 85,
+    "joint": 140.9,
+    "p1": 73.7,
+    "p2": 67.2,
+    "agree": 78,
+    "frontier": 70,
+    "gap": 13.8,
+    "moves": 4.7,
+    "tokens": 2128,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.046
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 141.4,
+    "p1": 72.8,
+    "p2": 68.7,
+    "agree": 83,
+    "frontier": 66,
+    "gap": 13.2,
+    "moves": 4.8,
+    "tokens": 3928,
+    "passes": 0,
+    "rejected": 2,
+    "cost": 0.118
+   }
+  },
+  "collaborating-neutral": {
+   "luna": {
+    "n": 85,
+    "joint": 151.1,
+    "p1": 73.6,
+    "p2": 77.5,
+    "agree": 85,
+    "frontier": 81,
+    "gap": 3.5,
+    "moves": 3.4,
+    "tokens": 1452,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.033
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 147.6,
+    "p1": 73.5,
+    "p2": 74.1,
+    "agree": 84,
+    "frontier": 73,
+    "gap": 7.0,
+    "moves": 3.9,
+    "tokens": 3120,
+    "passes": 0,
+    "rejected": 3,
+    "cost": 0.095
+   }
+  },
+  "compromising-neutral": {
+   "luna": {
+    "n": 85,
+    "joint": 140.5,
+    "p1": 68.1,
+    "p2": 72.4,
+    "agree": 81,
+    "frontier": 66,
+    "gap": 14.2,
+    "moves": 4.4,
+    "tokens": 1955,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.043
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 140.5,
+    "p1": 68.4,
+    "p2": 72.1,
+    "agree": 84,
+    "frontier": 65,
+    "gap": 14.1,
+    "moves": 4.3,
+    "tokens": 3359,
+    "passes": 0,
+    "rejected": 1,
+    "cost": 0.101
+   }
+  },
+  "accommodating-neutral": {
+   "luna": {
+    "n": 85,
+    "joint": 148.3,
+    "p1": 70.6,
+    "p2": 77.7,
+    "agree": 84,
+    "frontier": 76,
+    "gap": 6.3,
+    "moves": 3.4,
+    "tokens": 1375,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.032
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 142.7,
+    "p1": 64.9,
+    "p2": 77.7,
+    "agree": 85,
+    "frontier": 67,
+    "gap": 12.0,
+    "moves": 3.7,
+    "tokens": 2618,
+    "passes": 0,
+    "rejected": 2,
+    "cost": 0.079
+   }
+  },
+  "avoiding-neutral": {
+   "luna": {
+    "n": 85,
+    "joint": 137.3,
+    "p1": 58.6,
+    "p2": 78.6,
+    "agree": 71,
+    "frontier": 67,
+    "gap": 17.3,
+    "moves": 2.9,
+    "tokens": 1106,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.025
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 140.3,
+    "p1": 62.1,
+    "p2": 78.2,
+    "agree": 81,
+    "frontier": 67,
+    "gap": 14.3,
+    "moves": 3.5,
+    "tokens": 2397,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.073
+   }
+  },
+  "neutral-competing": {
+   "luna": {
+    "n": 85,
+    "joint": 143.1,
+    "p1": 66.9,
+    "p2": 76.3,
+    "agree": 80,
+    "frontier": 70,
+    "gap": 11.5,
+    "moves": 4.7,
+    "tokens": 2063,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.046
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 139.3,
+    "p1": 66.8,
+    "p2": 72.6,
+    "agree": 80,
+    "frontier": 65,
+    "gap": 15.3,
+    "moves": 4.9,
+    "tokens": 3945,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.118
+   }
+  },
+  "neutral-collaborating": {
+   "luna": {
+    "n": 85,
+    "joint": 150.2,
+    "p1": 74.2,
+    "p2": 76.0,
+    "agree": 84,
+    "frontier": 78,
+    "gap": 4.4,
+    "moves": 3.5,
+    "tokens": 1511,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.034
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 147.9,
+    "p1": 72.7,
+    "p2": 75.2,
+    "agree": 85,
+    "frontier": 76,
+    "gap": 6.7,
+    "moves": 4.1,
+    "tokens": 3208,
+    "passes": 0,
+    "rejected": 1,
+    "cost": 0.098
+   }
+  },
+  "neutral-compromising": {
+   "luna": {
+    "n": 85,
+    "joint": 142.9,
+    "p1": 71.7,
+    "p2": 71.2,
+    "agree": 84,
+    "frontier": 67,
+    "gap": 11.8,
+    "moves": 4.3,
+    "tokens": 1838,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.041
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 142.5,
+    "p1": 73.2,
+    "p2": 69.4,
+    "agree": 85,
+    "frontier": 68,
+    "gap": 12.1,
+    "moves": 3.6,
+    "tokens": 2665,
+    "passes": 0,
+    "rejected": 2,
+    "cost": 0.082
+   }
+  },
+  "neutral-accommodating": {
+   "luna": {
+    "n": 85,
+    "joint": 148.0,
+    "p1": 77.9,
+    "p2": 70.2,
+    "agree": 84,
+    "frontier": 77,
+    "gap": 6.6,
+    "moves": 3.3,
+    "tokens": 1295,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.03
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 142.4,
+    "p1": 78.4,
+    "p2": 64.0,
+    "agree": 84,
+    "frontier": 73,
+    "gap": 12.2,
+    "moves": 3.9,
+    "tokens": 2824,
+    "passes": 0,
+    "rejected": 2,
+    "cost": 0.086
+   }
+  },
+  "neutral-avoiding": {
+   "luna": {
+    "n": 85,
+    "joint": 134.0,
+    "p1": 74.5,
+    "p2": 59.6,
+    "agree": 70,
+    "frontier": 66,
+    "gap": 20.6,
+    "moves": 3.0,
+    "tokens": 1133,
+    "passes": 0,
+    "rejected": 0,
+    "cost": 0.026
+   },
+   "haiku": {
+    "n": 85,
+    "joint": 137.2,
+    "p1": 74.0,
+    "p2": 63.2,
+    "agree": 77,
+    "frontier": 65,
+    "gap": 17.4,
+    "moves": 3.4,
+    "tokens": 2283,
+    "passes": 0,
+    "rejected": 2,
+    "cost": 0.068
+   }
+  }
+ },
+ "neutral_pair": {
+  "haiku": {
+   "n": 85,
+   "joint": 142.3,
+   "frontier": 69,
+   "agree": 84,
+   "gap": 12.3,
+   "moves": 4.2,
+   "asks": 80,
+   "discloses": 23,
+   "max_joint": 154.6
+  }
+ },
+ "symmetric": {
+  "luna": {
+   "competing": {
+    "mean": -20.4,
+    "wins": 14,
+    "losses": 38,
+    "n": 85,
+    "p": 0.001
+   },
+   "collaborating": {
+    "mean": 0.9,
+    "wins": 22,
+    "losses": 17,
+    "n": 85,
+    "p": 0.522
+   },
+   "compromising": {
+    "mean": -9.7,
+    "wins": 5,
+    "losses": 44,
+    "n": 85,
+    "p": 0.0
+   },
+   "accommodating": {
+    "mean": -0.8,
+    "wins": 17,
+    "losses": 19,
+    "n": 85,
+    "p": 0.868
+   },
+   "avoiding": {
+    "mean": -21.3,
+    "wins": 9,
+    "losses": 45,
+    "n": 85,
+    "p": 0.0
+   }
+  },
+  "haiku": {
+   "competing": {
+    "mean": -7.5,
+    "wins": 22,
+    "losses": 33,
+    "n": 85,
+    "p": 0.177
+   },
+   "collaborating": {
+    "mean": 8.1,
+    "wins": 38,
+    "losses": 9,
+    "n": 85,
+    "p": 0.0
+   },
+   "compromising": {
+    "mean": -7.6,
+    "wins": 17,
+    "losses": 33,
+    "n": 85,
+    "p": 0.033
+   },
+   "accommodating": {
+    "mean": 2.2,
+    "wins": 25,
+    "losses": 19,
+    "n": 85,
+    "p": 0.451
+   },
+   "avoiding": {
+    "mean": -14.3,
+    "wins": 13,
+    "losses": 45,
+    "n": 85,
+    "p": 0.0
+   }
+  }
+ },
+ "unilateral": {
+  "competing": {
+   "luna": {
+    "own": {
+     "mean": 0.7,
+     "wins": 49,
+     "losses": 37,
+     "n": 170,
+     "p": 0.235
+    },
+    "partner": {
+     "mean": -7.3,
+     "wins": 25,
+     "losses": 63,
+     "n": 170,
+     "p": 0.0
+    },
+    "joint": {
+     "mean": -6.6,
+     "wins": 31,
+     "losses": 52,
+     "n": 170,
+     "p": 0.028
+    }
+   },
+   "haiku": {
+    "own": {
+     "mean": 1.5,
+     "wins": 48,
+     "losses": 38,
+     "n": 170,
+     "p": 0.332
+    },
+    "partner": {
+     "mean": -3.4,
+     "wins": 33,
+     "losses": 54,
+     "n": 170,
+     "p": 0.031
+    },
+    "joint": {
+     "mean": -1.9,
+     "wins": 42,
+     "losses": 44,
+     "n": 170,
+     "p": 0.914
+    }
+   }
+  },
+  "collaborating": {
+   "luna": {
+    "own": {
+     "mean": 0.5,
+     "wins": 30,
+     "losses": 34,
+     "n": 170,
+     "p": 0.708
+    },
+    "partner": {
+     "mean": 1.5,
+     "wins": 39,
+     "losses": 26,
+     "n": 170,
+     "p": 0.136
+    },
+    "joint": {
+     "mean": 2.1,
+     "wins": 40,
+     "losses": 19,
+     "n": 170,
+     "p": 0.009
+    }
+   },
+   "haiku": {
+    "own": {
+     "mean": 3.2,
+     "wins": 50,
+     "losses": 37,
+     "n": 170,
+     "p": 0.198
+    },
+    "partner": {
+     "mean": 2.3,
+     "wins": 45,
+     "losses": 40,
+     "n": 170,
+     "p": 0.665
+    },
+    "joint": {
+     "mean": 5.4,
+     "wins": 60,
+     "losses": 25,
+     "n": 170,
+     "p": 0.0
+    }
+   }
+  },
+  "compromising": {
+   "luna": {
+    "own": {
+     "mean": -4.7,
+     "wins": 35,
+     "losses": 62,
+     "n": 170,
+     "p": 0.008
+    },
+    "partner": {
+     "mean": -2.3,
+     "wins": 45,
+     "losses": 50,
+     "n": 170,
+     "p": 0.682
+    },
+    "joint": {
+     "mean": -6.9,
+     "wins": 24,
+     "losses": 68,
+     "n": 170,
+     "p": 0.0
+    }
+   },
+   "haiku": {
+    "own": {
+     "mean": -2.3,
+     "wins": 36,
+     "losses": 48,
+     "n": 170,
+     "p": 0.23
+    },
+    "partner": {
+     "mean": 1.5,
+     "wins": 44,
+     "losses": 41,
+     "n": 170,
+     "p": 0.828
+    },
+    "joint": {
+     "mean": -0.8,
+     "wins": 38,
+     "losses": 45,
+     "n": 170,
+     "p": 0.51
+    }
+   }
+  },
+  "accommodating": {
+   "luna": {
+    "own": {
+     "mean": -3.9,
+     "wins": 22,
+     "losses": 47,
+     "n": 170,
+     "p": 0.004
+    },
+    "partner": {
+     "mean": 3.5,
+     "wins": 49,
+     "losses": 20,
+     "n": 170,
+     "p": 0.001
+    },
+    "joint": {
+     "mean": -0.4,
+     "wins": 30,
+     "losses": 33,
+     "n": 170,
+     "p": 0.801
+    }
+   },
+   "haiku": {
+    "own": {
+     "mean": -6.7,
+     "wins": 25,
+     "losses": 70,
+     "n": 170,
+     "p": 0.0
+    },
+    "partner": {
+     "mean": 6.9,
+     "wins": 70,
+     "losses": 28,
+     "n": 170,
+     "p": 0.0
+    },
+    "joint": {
+     "mean": 0.2,
+     "wins": 42,
+     "losses": 49,
+     "n": 170,
+     "p": 0.53
+    }
+   }
+  },
+  "avoiding": {
+   "luna": {
+    "own": {
+     "mean": -15.2,
+     "wins": 11,
+     "losses": 78,
+     "n": 170,
+     "p": 0.0
+    },
+    "partner": {
+     "mean": 2.3,
+     "wins": 56,
+     "losses": 32,
+     "n": 170,
+     "p": 0.014
+    },
+    "joint": {
+     "mean": -12.9,
+     "wins": 21,
+     "losses": 63,
+     "n": 170,
+     "p": 0.0
+    }
+   },
+   "haiku": {
+    "own": {
+     "mean": -8.5,
+     "wins": 24,
+     "losses": 77,
+     "n": 170,
+     "p": 0.0
+    },
+    "partner": {
+     "mean": 5.0,
+     "wins": 65,
+     "losses": 37,
+     "n": 170,
+     "p": 0.007
+    },
+    "joint": {
+     "mean": -3.5,
+     "wins": 47,
+     "losses": 52,
+     "n": 170,
+     "p": 0.688
+    }
+   }
+  }
+ },
+ "vs_luna_twin": {
+  "neutral-neutral": {
+   "mean": -6.3,
+   "wins": 9,
+   "losses": 32,
+   "n": 85,
+   "p": 0.0
+  },
+  "competing-competing": {
+   "mean": 6.7,
+   "wins": 27,
+   "losses": 19,
+   "n": 85,
+   "p": 0.302
+  },
+  "collaborating-collaborating": {
+   "mean": 0.9,
+   "wins": 17,
+   "losses": 15,
+   "n": 85,
+   "p": 0.86
+  },
+  "compromising-compromising": {
+   "mean": -4.1,
+   "wins": 22,
+   "losses": 34,
+   "n": 85,
+   "p": 0.141
+  },
+  "accommodating-accommodating": {
+   "mean": -3.2,
+   "wins": 16,
+   "losses": 32,
+   "n": 85,
+   "p": 0.029
+  },
+  "avoiding-avoiding": {
+   "mean": 0.7,
+   "wins": 22,
+   "losses": 23,
+   "n": 85,
+   "p": 1.0
+  },
+  "competing-neutral": {
+   "mean": 0.6,
+   "wins": 16,
+   "losses": 32,
+   "n": 85,
+   "p": 0.029
+  },
+  "collaborating-neutral": {
+   "mean": -3.5,
+   "wins": 12,
+   "losses": 28,
+   "n": 85,
+   "p": 0.017
+  },
+  "compromising-neutral": {
+   "mean": 0.1,
+   "wins": 20,
+   "losses": 24,
+   "n": 85,
+   "p": 0.652
+  },
+  "accommodating-neutral": {
+   "mean": -5.6,
+   "wins": 11,
+   "losses": 33,
+   "n": 85,
+   "p": 0.001
+  },
+  "avoiding-neutral": {
+   "mean": 3.0,
+   "wins": 24,
+   "losses": 25,
+   "n": 85,
+   "p": 1.0
+  },
+  "neutral-competing": {
+   "mean": -3.8,
+   "wins": 18,
+   "losses": 29,
+   "n": 85,
+   "p": 0.144
+  },
+  "neutral-collaborating": {
+   "mean": -2.3,
+   "wins": 8,
+   "losses": 26,
+   "n": 85,
+   "p": 0.003
+  },
+  "neutral-compromising": {
+   "mean": -0.3,
+   "wins": 22,
+   "losses": 29,
+   "n": 85,
+   "p": 0.401
+  },
+  "neutral-accommodating": {
+   "mean": -5.6,
+   "wins": 10,
+   "losses": 35,
+   "n": 85,
+   "p": 0.0
+  },
+  "neutral-avoiding": {
+   "mean": 3.2,
+   "wins": 23,
+   "losses": 19,
+   "n": 85,
+   "p": 0.644
+  }
+ },
+ "compliance": {
+  "luna": {
+   "competing": [
+    272,
+    340
+   ],
+   "collaborating": [
+    132,
+    340
+   ],
+   "compromising": [
+    315,
+    340
+   ],
+   "accommodating": [
+    238,
+    340
+   ],
+   "avoiding": [
+    339,
+    340
+   ]
+  },
+  "haiku": {
+   "competing": [
+    205,
+    340
+   ],
+   "collaborating": [
+    182,
+    340
+   ],
+   "compromising": [
+    304,
+    340
+   ],
+   "accommodating": [
+    191,
+    340
+   ],
+   "avoiding": [
+    290,
+    340
+   ]
+  }
+ },
+ "tokens": {
+  "luna": {
+   "neutral": 1674,
+   "competing": 2492,
+   "collaborating": 1822,
+   "compromising": 1544,
+   "accommodating": 1262,
+   "avoiding": 890
+  },
+  "haiku": {
+   "neutral": 3121,
+   "competing": 4696,
+   "collaborating": 3236,
+   "compromising": 2907,
+   "accommodating": 2290,
+   "avoiding": 1565
+  }
+ },
+ "all_contested": {
+  "competing": {
+   "symmetric": {
+    "mean": -17.8,
+    "wins": 7,
+    "losses": 16,
+    "n": 30,
+    "p": 0.093
+   },
+   "alone": {
+    "mean": 5.3,
+    "wins": 21,
+    "losses": 10,
+    "n": 60,
+    "p": 0.071
+   }
+  },
+  "collaborating": {
+   "symmetric": {
+    "mean": 8.9,
+    "wins": 14,
+    "losses": 7,
+    "n": 30,
+    "p": 0.189
+   },
+   "alone": {
+    "mean": 7.0,
+    "wins": 23,
+    "losses": 9,
+    "n": 60,
+    "p": 0.02
+   }
+  },
+  "compromising": {
+   "symmetric": {
+    "mean": -5.2,
+    "wins": 4,
+    "losses": 11,
+    "n": 30,
+    "p": 0.118
+   },
+   "alone": {
+    "mean": 0.2,
+    "wins": 14,
+    "losses": 14,
+    "n": 60,
+    "p": 1.0
+   }
+  },
+  "accommodating": {
+   "symmetric": {
+    "mean": 2.7,
+    "wins": 10,
+    "losses": 7,
+    "n": 30,
+    "p": 0.629
+   },
+   "alone": {
+    "mean": -3.6,
+    "wins": 11,
+    "losses": 23,
+    "n": 60,
+    "p": 0.058
+   }
+  },
+  "avoiding": {
+   "symmetric": {
+    "mean": -22.7,
+    "wins": 3,
+    "losses": 19,
+    "n": 30,
+    "p": 0.001
+   },
+   "alone": {
+    "mean": -3.7,
+    "wins": 12,
+    "losses": 26,
+    "n": 60,
+    "p": 0.034
+   }
+  }
+ },
+ "games": {
+  "luna": 1360,
+  "haiku": 1360
+ },
+ "cost_usd": {
+  "luna": 0.57,
+  "haiku": 1.45
+ }
+}

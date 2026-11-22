@@ -33,12 +33,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 5,
+    "compromising": 23,
+    "accommodating": 12,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.023
   },
   "competing-competing": {
@@ -70,15 +70,15 @@
    "p1_seconds": 5.77,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 1,
     "collaborating": 0,
-    "compromising": 0,
+    "compromising": 39,
     "accommodating": 0,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.039,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 1,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -107,7 +107,7 @@
      "p": 0.0533
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 1,
      "control": 0
     }
    }
@@ -142,14 +142,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 12,
+    "compromising": 1,
+    "accommodating": 27,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.024,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 12,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -178,8 +178,8 @@
      "p": 0.845
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 12,
+     "control": 5
     }
    }
   },
@@ -214,13 +214,13 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 25,
+    "accommodating": 15,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.015,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 25,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -249,8 +249,8 @@
      "p": 0.0146
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 25,
+     "control": 23
     }
    }
   },
@@ -280,18 +280,18 @@
    "p1_tokens": 1476.875,
    "p2_tokens": 1522.45,
    "p1_out_tokens": 139.1,
-   "p1_seconds": 2.616,
+   "p1_seconds": 2.615,
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 7,
+    "compromising": 5,
+    "accommodating": 28,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.016,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 28,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -320,8 +320,8 @@
      "p": 0.3075
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 28,
+     "control": 12
     }
    }
   },
@@ -354,15 +354,15 @@
    "p1_seconds": 1.778,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 8,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 12,
+    "accommodating": 15,
+    "avoiding": 5
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 5,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -391,7 +391,7 @@
      "p": 0.0
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 5,
      "control": 0
     }
    }
@@ -422,18 +422,18 @@
    "p1_tokens": 3360.625,
    "p2_tokens": 3067.025,
    "p1_out_tokens": 247.5,
-   "p1_seconds": 4.672,
+   "p1_seconds": 4.671,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 1,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 31,
+    "accommodating": 7,
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.031,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 1,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -462,7 +462,7 @@
      "p": 0.8601
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 1,
      "control": 0
     }
    }
@@ -497,14 +497,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 16,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 24,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.022,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 16,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -533,8 +533,8 @@
      "p": 0.1686
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 16,
+     "control": 5
     }
    }
   }
@@ -598,5 +598,5 @@
   "avoiding": "avoiding"
  },
  "replicator": {},
- "cost_usd": 0.18
+ "cost_usd": 0.31
 }

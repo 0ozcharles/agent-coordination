@@ -33,12 +33,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 1,
+    "compromising": 9,
+    "accommodating": 10,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.009
   },
   "competing-competing": {
@@ -67,16 +67,16 @@
    "p1_tokens": 4175.65,
    "p2_tokens": 3981.4,
    "p1_out_tokens": 299.2,
-   "p1_seconds": 5.539,
+   "p1_seconds": 5.538,
    "invalid_replies": 1,
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
+    "compromising": 20,
     "accommodating": 0,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.02,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -142,14 +142,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 4,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 16,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.012,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 4,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -178,8 +178,8 @@
      "p": 0.3018
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 4,
+     "control": 1
     }
    }
   },
@@ -214,13 +214,13 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 18,
+    "accommodating": 2,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.01,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 18,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -249,8 +249,8 @@
      "p": 0.3018
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 18,
+     "control": 9
     }
    }
   },
@@ -275,7 +275,7 @@
    "p1_discloses": 11,
    "p1_logroll": 10,
    "p1_trade": 6,
-   "middle_share": 0.083,
+   "middle_share": 0.084,
    "p1_walked": 0,
    "p1_tokens": 1268.45,
    "p2_tokens": 1197.45,
@@ -284,14 +284,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 4,
+    "compromising": 4,
+    "accommodating": 12,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.007,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 12,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -320,8 +320,8 @@
      "p": 0.7744
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 12,
+     "control": 10
     }
    }
   },
@@ -354,13 +354,13 @@
    "p1_seconds": 1.741,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 3,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 10,
+    "accommodating": 7,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.005,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -427,11 +427,11 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 19,
+    "accommodating": 1,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.017,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -497,12 +497,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 4,
+    "compromising": 5,
+    "accommodating": 11,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.014,
    "vs_control": {
     "pairs": 20,
@@ -563,14 +563,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 8,
+    "compromising": 1,
+    "accommodating": 11,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.014,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 8,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -599,8 +599,8 @@
      "p": 0.6291
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 8,
+     "control": 1
     }
    }
   },
@@ -634,12 +634,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 4,
+    "compromising": 1,
+    "accommodating": 15,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.014,
    "vs_control": {
     "pairs": 20,
@@ -700,14 +700,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 1,
+    "compromising": 17,
+    "accommodating": 2,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 17,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -736,8 +736,8 @@
      "p": 0.5811
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 17,
+     "control": 9
     }
    }
   },
@@ -771,12 +771,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 2,
+    "compromising": 8,
+    "accommodating": 10,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.011,
    "vs_control": {
     "pairs": 20,
@@ -837,14 +837,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 5,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 15,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.009,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 15,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -873,8 +873,8 @@
      "p": 0.3018
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 15,
+     "control": 10
     }
    }
   },
@@ -908,12 +908,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 4,
+    "compromising": 9,
+    "accommodating": 7,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.009,
    "vs_control": {
     "pairs": 20,
@@ -973,15 +973,15 @@
    "p1_seconds": 2.154,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "competing": 7,
+    "collaborating": 1,
+    "compromising": 4,
+    "accommodating": 6,
+    "avoiding": 2
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.006,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 2,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -1010,7 +1010,7 @@
      "p": 0.0654
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 2,
      "control": 0
     }
    }
@@ -1044,13 +1044,13 @@
    "p1_seconds": 1.962,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "competing": 1,
+    "collaborating": 1,
+    "compromising": 13,
+    "accommodating": 5,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.006,
    "vs_control": {
     "pairs": 20,
@@ -1111,14 +1111,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 9,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 11,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.015,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 9,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -1147,8 +1147,8 @@
      "p": 0.2379
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 9,
+     "control": 1
     }
    }
   },
@@ -1182,12 +1182,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 4,
+    "compromising": 9,
+    "accommodating": 7,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.016,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -1254,13 +1254,13 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 19,
+    "accommodating": 1,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 19,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -1289,8 +1289,8 @@
      "p": 0.8036
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 19,
+     "control": 9
     }
    }
   },
@@ -1325,11 +1325,11 @@
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 17,
+    "accommodating": 3,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.012,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -1395,14 +1395,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 2,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 18,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.01,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 18,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -1431,8 +1431,8 @@
      "p": 0.0127
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 18,
+     "control": 10
     }
    }
   },
@@ -1465,15 +1465,15 @@
    "p1_seconds": 3.668,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "competing": 2,
+    "collaborating": 3,
+    "compromising": 12,
+    "accommodating": 2,
+    "avoiding": 1
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.012,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 2,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -1502,7 +1502,7 @@
      "p": 0.6291
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 2,
      "control": 0
     }
    }
@@ -1533,16 +1533,16 @@
    "p1_tokens": 1157.4,
    "p2_tokens": 947.9,
    "p1_out_tokens": 78.95,
-   "p1_seconds": 2.004,
+   "p1_seconds": 2.005,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 10,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 7,
+    "accommodating": 3,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.006,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -1607,15 +1607,15 @@
    "p1_seconds": 1.938,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 6,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 13,
+    "accommodating": 1,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 20,
    "cost_usd": 0.006,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 6,
    "vs_control": {
     "pairs": 20,
     "payoff_p1": {
@@ -1644,7 +1644,7 @@
      "p": 0.5811
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 6,
      "control": 0
     }
    }
@@ -1712,5 +1712,5 @@
   "neutral": 0.757,
   "competing": 0.243
  },
- "cost_usd": 0.261
+ "cost_usd": 0.454
 }

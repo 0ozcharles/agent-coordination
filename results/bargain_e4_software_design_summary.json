@@ -33,12 +33,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 4,
+    "compromising": 23,
+    "accommodating": 13,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.028
   },
   "competing-competing": {
@@ -71,12 +71,12 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
+    "collaborating": 1,
+    "compromising": 39,
     "accommodating": 0,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.04,
    "p1_in_target_style": 0,
    "vs_control": {
@@ -142,14 +142,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 13,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 27,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.022,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 13,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -178,8 +178,8 @@
      "p": 0.0039
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 13,
+     "control": 4
     }
    }
   },
@@ -209,18 +209,18 @@
    "p1_tokens": 2198.325,
    "p2_tokens": 2123.525,
    "p1_out_tokens": 165.15,
-   "p1_seconds": 3.264,
+   "p1_seconds": 3.265,
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 29,
+    "accommodating": 11,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.021,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 29,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -249,8 +249,8 @@
      "p": 0.0003
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 29,
+     "control": 23
     }
    }
   },
@@ -284,14 +284,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "collaborating": 7,
+    "compromising": 2,
+    "accommodating": 31,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.016,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 31,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -320,8 +320,8 @@
      "p": 0.0614
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 31,
+     "control": 13
     }
    }
   },
@@ -354,15 +354,15 @@
    "p1_seconds": 1.742,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 15,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
-    "avoiding": 0
+    "compromising": 11,
+    "accommodating": 9,
+    "avoiding": 5
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.011,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 5,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -391,7 +391,7 @@
      "p": 0.0
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 5,
      "control": 0
     }
    }
@@ -425,15 +425,15 @@
    "p1_seconds": 4.863,
    "invalid_replies": 0,
    "p1_style": {
-    "competing": 0,
+    "competing": 1,
     "collaborating": 0,
-    "compromising": 0,
-    "accommodating": 0,
+    "compromising": 33,
+    "accommodating": 6,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.033,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 1,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -462,7 +462,7 @@
      "p": 0.6177
     },
     "p1_in_target_style": {
-     "arm": 0,
+     "arm": 1,
      "control": 0
     }
    }
@@ -497,14 +497,14 @@
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
-    "collaborating": 0,
+    "collaborating": 13,
     "compromising": 0,
-    "accommodating": 0,
+    "accommodating": 27,
     "avoiding": 0
    },
-   "labeled": 0,
+   "labeled": 40,
    "cost_usd": 0.025,
-   "p1_in_target_style": 0,
+   "p1_in_target_style": 13,
    "vs_control": {
     "pairs": 40,
     "payoff_p1": {
@@ -533,8 +533,8 @@
      "p": 0.0351
     },
     "p1_in_target_style": {
-     "arm": 0,
-     "control": 0
+     "arm": 13,
+     "control": 4
     }
    }
   }
@@ -598,5 +598,5 @@
   "avoiding": "avoiding"
  },
  "replicator": {},
- "cost_usd": 0.196
+ "cost_usd": 0.329
 }
