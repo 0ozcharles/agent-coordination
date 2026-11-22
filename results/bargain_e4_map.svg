@@ -14,8 +14,8 @@
 <text x="750" y="60" text-anchor="middle">λ=5</text>
 <text x="830" y="60" text-anchor="middle">λ=20</text>
 <text x="144" y="88" text-anchor="end">abstract</text>
-<rect x="150" y="70" width="78" height="26" fill="#2980b9"/>
-<text x="189" y="88" text-anchor="middle" fill="white" font-size="10">collab</text>
+<rect x="150" y="70" width="78" height="26" fill="#27ae60"/>
+<text x="189" y="88" text-anchor="middle" fill="white" font-size="10">accomm</text>
 <rect x="230" y="70" width="78" height="26" fill="#27ae60"/>
 <text x="269" y="88" text-anchor="middle" fill="white" font-size="10">accomm</text>
 <rect x="310" y="70" width="78" height="26" fill="#27ae60"/>

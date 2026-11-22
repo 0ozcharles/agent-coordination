@@ -821,12 +821,16 @@ def summarize(config, table):
     return out
 
 
+def rule_rows(table):
+    """The finished games of the rule operationalization: a cell that gives a style as a prompted sentence is left out,
+    so that a study with both operationalizations (E1's prompted diagonal) does not pool them under one strategy name."""
+    return [r for r in table if not r["error"] and not (r.get("op") == "prompted" and (r["p1"] in STYLES or r["p2"] in STYLES))]
+
+
 def matrix(table, strategies=("neutral", *STYLES)):
-    """Mean own payoff by (own strategy, partner strategy), pooling both seats; None where no games."""
+    """Mean own payoff by (own strategy, partner strategy) over the rule cells, pooling both seats; None where no games."""
     cells = {}
-    for r in table:
-        if r["error"]:
-            continue
+    for r in rule_rows(table):
         cells.setdefault((r["p1"], r["p2"]), []).append(r["payoff_p1"])
         cells.setdefault((r["p2"], r["p1"]), []).append(r["payoff_p2"])
     return {s: {t: mean(cells.get((s, t), [])) for t in strategies} for s in strategies}
@@ -893,9 +897,7 @@ def views(table, strategies=("neutral", *STYLES)):
 
     symmetric: both sides use the strategy; vs_neutral / vs_competing: the partner uses that one. Seat 'both' pools."""
     out = {s: {r: {"p1": [], "p2": [], "both": []} for r in READINGS} for s in strategies}
-    for row in table:
-        if row["error"]:
-            continue
+    for row in rule_rows(table):
         for seat, other in (("p1", "p2"), ("p2", "p1")):
             s, t = row[seat], row[other]
             if s not in out:
@@ -1014,9 +1016,7 @@ def matrix_chart(M, J=None, title="Own payoff (row strategy) against the partner
 
 def joint_matrix(table, strategies=("neutral", *STYLES)):
     cells = {}
-    for r in table:
-        if r["error"]:
-            continue
+    for r in rule_rows(table):
         cells.setdefault((r["p1"], r["p2"]), []).append(r["joint"])
         cells.setdefault((r["p2"], r["p1"]), []).append(r["joint"])
     return {s: {t: mean(cells.get((s, t), [])) for t in strategies} for s in strategies}

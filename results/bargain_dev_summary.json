@@ -821,14 +821,14 @@
  "matrix": {
   "neutral": {
    "neutral": 59.5,
-   "competing": 55.5,
-   "collaborating": 65.625,
-   "compromising": 65.7,
-   "accommodating": 72.7,
-   "avoiding": 46.025
+   "competing": 46.4,
+   "collaborating": 61.0,
+   "compromising": 66.05,
+   "accommodating": 76.15,
+   "avoiding": 46.45
   },
   "competing": {
-   "neutral": 67.625,
+   "neutral": 69.35,
    "competing": null,
    "collaborating": null,
    "compromising": null,
@@ -836,7 +836,7 @@
    "avoiding": null
   },
   "collaborating": {
-   "neutral": 66.575,
+   "neutral": 73.4,
    "competing": null,
    "collaborating": null,
    "compromising": null,
@@ -844,7 +844,7 @@
    "avoiding": null
   },
   "compromising": {
-   "neutral": 63.0,
+   "neutral": 67.3,
    "competing": null,
    "collaborating": null,
    "compromising": null,
@@ -852,7 +852,7 @@
    "avoiding": null
   },
   "accommodating": {
-   "neutral": 56.875,
+   "neutral": 58.1,
    "competing": null,
    "collaborating": null,
    "compromising": null,
@@ -860,7 +860,7 @@
    "avoiding": null
   },
   "avoiding": {
-   "neutral": 35.625,
+   "neutral": 36.6,
    "competing": null,
    "collaborating": null,
    "compromising": null,
@@ -869,7 +869,7 @@
   }
  },
  "best_responses": {
-  "neutral": "competing",
+  "neutral": "collaborating",
   "competing": "neutral",
   "collaborating": "neutral",
   "compromising": "neutral",

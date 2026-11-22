@@ -227,6 +227,12 @@ class BargainTest(unittest.TestCase):
         self.assertEqual(net["best"]["20"], "avoiding")  # 67.5 - 60 = 7.5 < 40 - 10 = 30
         self.assertEqual(net["switch_lambda"], "20")
         self.assertEqual(net["strategies"]["competing"]["regret"]["0"], 0.0)
+        # a prompted style cell is not pooled with the rule cell of the same strategy (E1's prompted diagonal)
+        mixed = [dict(row("competing", "competing", 50, 52, 4000, 4000), op="rules"), dict(row("competing", "competing", 60, 58, 3000, 3000), op="prompted"),
+                 dict(row("neutral", "neutral", 55, 57, 2000, 2000), op="prompted")]
+        self.assertEqual(bargain.matrix(mixed)["competing"]["competing"], 51.0)
+        self.assertEqual(bargain.matrix(mixed)["neutral"]["neutral"], 56.0)
+        self.assertEqual(len(bargain.views(mixed)["competing"]["symmetric"]["both"]), 2)
         out = {"study": "t", "question": "q", "lambdas": list(bargain.LAMBDAS),
                "conditions": {"c": {"games": 4, "errors": 0, "model_condition": "", "prediction": "",
                                     "readings": {r: {"both": net} for r in bargain.READINGS}}}}

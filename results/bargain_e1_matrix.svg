@@ -23,8 +23,8 @@
 <text x="144" y="109" text-anchor="end">competing</text>
 <rect x="150" y="90" width="70" height="28" fill="rgb(123,190,111)"/>
 <text x="185" y="109" text-anchor="middle">67</text>
-<rect x="222" y="90" width="70" height="28" fill="rgb(166,162,122)"/>
-<text x="257" y="109" text-anchor="middle">55</text>
+<rect x="222" y="90" width="70" height="28" fill="rgb(177,154,126)"/>
+<text x="257" y="109" text-anchor="middle">51</text>
 <rect x="294" y="90" width="70" height="28" fill="rgb(152,171,119)"/>
 <text x="329" y="109" text-anchor="middle">59</text>
 <rect x="366" y="90" width="70" height="28" fill="rgb(119,193,110)"/>
@@ -38,7 +38,7 @@
 <text x="185" y="139" text-anchor="middle">72</text>
 <rect x="222" y="120" width="70" height="28" fill="rgb(164,163,122)"/>
 <text x="257" y="139" text-anchor="middle">55</text>
-<rect x="294" y="120" width="70" height="28" fill="rgb(122,191,111)"/>
+<rect x="294" y="120" width="70" height="28" fill="rgb(121,192,111)"/>
 <text x="329" y="139" text-anchor="middle">68</text>
 <rect x="366" y="120" width="70" height="28" fill="rgb(125,189,112)"/>
 <text x="401" y="139" text-anchor="middle">67</text>
@@ -53,8 +53,8 @@
 <text x="257" y="169" text-anchor="middle">50</text>
 <rect x="294" y="150" width="70" height="28" fill="rgb(153,170,119)"/>
 <text x="329" y="169" text-anchor="middle">58</text>
-<rect x="366" y="150" width="70" height="28" fill="rgb(150,173,118)"/>
-<text x="401" y="169" text-anchor="middle">59</text>
+<rect x="366" y="150" width="70" height="28" fill="rgb(156,168,120)"/>
+<text x="401" y="169" text-anchor="middle">57</text>
 <rect x="438" y="150" width="70" height="28" fill="rgb(124,190,111)"/>
 <text x="473" y="169" text-anchor="middle">67</text>
 <rect x="510" y="150" width="70" height="28" fill="rgb(152,171,119)"/>
@@ -68,8 +68,8 @@
 <text x="329" y="199" text-anchor="middle">61</text>
 <rect x="366" y="180" width="70" height="28" fill="rgb(144,177,117)"/>
 <text x="401" y="199" text-anchor="middle">61</text>
-<rect x="438" y="180" width="70" height="28" fill="rgb(124,190,111)"/>
-<text x="473" y="199" text-anchor="middle">67</text>
+<rect x="438" y="180" width="70" height="28" fill="rgb(120,193,110)"/>
+<text x="473" y="199" text-anchor="middle">68</text>
 <rect x="510" y="180" width="70" height="28" fill="rgb(149,173,118)"/>
 <text x="545" y="199" text-anchor="middle">59</text>
 <text x="144" y="229" text-anchor="end">avoiding</text>
@@ -83,8 +83,8 @@
 <text x="401" y="229" text-anchor="middle">57</text>
 <rect x="438" y="210" width="70" height="28" fill="rgb(146,175,117)"/>
 <text x="473" y="229" text-anchor="middle">60</text>
-<rect x="510" y="210" width="70" height="28" fill="rgb(179,153,126)"/>
-<text x="545" y="229" text-anchor="middle">51</text>
+<rect x="510" y="210" width="70" height="28" fill="rgb(160,166,121)"/>
+<text x="545" y="229" text-anchor="middle">56</text>
 <text x="732" y="22" font-size="13" font-weight="bold">Joint payoff by pair</text>
 <text x="768" y="52" text-anchor="middle">neutral</text>
 <text x="840" y="52" text-anchor="middle">competi</text>
@@ -108,8 +108,8 @@
 <text x="726" y="109" text-anchor="end">competing</text>
 <rect x="732" y="90" width="70" height="28" fill="rgb(147,175,117)"/>
 <text x="767" y="109" text-anchor="middle">120</text>
-<rect x="804" y="90" width="70" height="28" fill="rgb(189,146,129)"/>
-<text x="839" y="109" text-anchor="middle">109</text>
+<rect x="804" y="90" width="70" height="28" fill="rgb(218,127,136)"/>
+<text x="839" y="109" text-anchor="middle">103</text>
 <rect x="876" y="90" width="70" height="28" fill="rgb(172,158,124)"/>
 <text x="911" y="109" text-anchor="middle">114</text>
 <rect x="948" y="90" width="70" height="28" fill="rgb(151,172,119)"/>
@@ -123,7 +123,7 @@
 <text x="767" y="139" text-anchor="middle">136</text>
 <rect x="804" y="120" width="70" height="28" fill="rgb(172,158,124)"/>
 <text x="839" y="139" text-anchor="middle">114</text>
-<rect x="876" y="120" width="70" height="28" fill="rgb(85,216,101)"/>
+<rect x="876" y="120" width="70" height="28" fill="rgb(83,217,100)"/>
 <text x="911" y="139" text-anchor="middle">135</text>
 <rect x="948" y="120" width="70" height="28" fill="rgb(126,188,112)"/>
 <text x="983" y="139" text-anchor="middle">125</text>
@@ -138,8 +138,8 @@
 <text x="839" y="169" text-anchor="middle">119</text>
 <rect x="876" y="150" width="70" height="28" fill="rgb(126,188,112)"/>
 <text x="911" y="169" text-anchor="middle">125</text>
-<rect x="948" y="150" width="70" height="28" fill="rgb(152,171,119)"/>
-<text x="983" y="169" text-anchor="middle">119</text>
+<rect x="948" y="150" width="70" height="28" fill="rgb(167,161,123)"/>
+<text x="983" y="169" text-anchor="middle">115</text>
 <rect x="1020" y="150" width="70" height="28" fill="rgb(114,196,109)"/>
 <text x="1055" y="169" text-anchor="middle">128</text>
 <rect x="1092" y="150" width="70" height="28" fill="rgb(165,162,122)"/>
@@ -153,8 +153,8 @@
 <text x="911" y="199" text-anchor="middle">134</text>
 <rect x="948" y="180" width="70" height="28" fill="rgb(114,196,109)"/>
 <text x="983" y="199" text-anchor="middle">128</text>
-<rect x="1020" y="180" width="70" height="28" fill="rgb(90,213,102)"/>
-<text x="1055" y="199" text-anchor="middle">134</text>
+<rect x="1020" y="180" width="70" height="28" fill="rgb(80,219,100)"/>
+<text x="1055" y="199" text-anchor="middle">136</text>
 <rect x="1092" y="180" width="70" height="28" fill="rgb(147,175,117)"/>
 <text x="1127" y="199" text-anchor="middle">120</text>
 <text x="726" y="229" text-anchor="end">avoiding</text>
@@ -168,6 +168,6 @@
 <text x="983" y="229" text-anchor="middle">115</text>
 <rect x="1020" y="210" width="70" height="28" fill="rgb(147,175,117)"/>
 <text x="1055" y="229" text-anchor="middle">120</text>
-<rect x="1092" y="210" width="70" height="28" fill="rgb(221,125,137)"/>
-<text x="1127" y="229" text-anchor="middle">102</text>
+<rect x="1092" y="210" width="70" height="28" fill="rgb(176,155,125)"/>
+<text x="1127" y="229" text-anchor="middle">113</text>
 </svg>

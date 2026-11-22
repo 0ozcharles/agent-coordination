@@ -1817,7 +1817,7 @@
    "p1_tokens": 1669.8,
    "p2_tokens": 1665.5,
    "p1_out_tokens": 150.975,
-   "p1_seconds": 2.862,
+   "p1_seconds": 2.861,
    "invalid_replies": 0,
    "p1_style": {
     "competing": 0,
@@ -2934,7 +2934,7 @@
   },
   "competing": {
    "neutral": 67.013,
-   "competing": 54.719,
+   "competing": 51.269,
    "collaborating": 58.606,
    "compromising": 68.281,
    "accommodating": 75.281,
@@ -2943,7 +2943,7 @@
   "collaborating": {
    "neutral": 72.188,
    "competing": 55.175,
-   "collaborating": 67.513,
+   "collaborating": 67.731,
    "compromising": 66.506,
    "accommodating": 73.281,
    "avoiding": 67.481
@@ -2952,7 +2952,7 @@
    "neutral": 57.562,
    "competing": 50.469,
    "collaborating": 58.325,
-   "compromising": 59.337,
+   "compromising": 57.45,
    "accommodating": 66.769,
    "avoiding": 58.756
   },
@@ -2961,7 +2961,7 @@
    "competing": 51.5,
    "collaborating": 61.15,
    "compromising": 61.013,
-   "accommodating": 66.909,
+   "accommodating": 68.131,
    "avoiding": 59.413
   },
   "avoiding": {
@@ -2970,7 +2970,7 @@
    "collaborating": 47.788,
    "compromising": 56.606,
    "accommodating": 60.394,
-   "avoiding": 50.903
+   "avoiding": 56.381
   }
  },
  "best_responses": {

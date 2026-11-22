@@ -1,0 +1,7413 @@
+{
+ "settings": [
+  {
+   "label": "E1 core",
+   "layer": "core",
+   "study": "e1",
+   "model": "luna",
+   "n": 40,
+   "gap_pct": 9.905,
+   "frontier": 20,
+   "joint": 127.575,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -25.038,
+     "wins": 10,
+     "losses": 29,
+     "n": 40,
+     "p": 0.003,
+     "pct": -17.682,
+     "agree": 25
+    },
+    "collaborating": {
+     "mean": 7.888,
+     "wins": 22,
+     "losses": 10,
+     "n": 40,
+     "p": 0.05,
+     "pct": 5.57,
+     "agree": 39
+    },
+    "compromising": {
+     "mean": -12.675,
+     "wins": 10,
+     "losses": 26,
+     "n": 40,
+     "p": 0.011,
+     "pct": -8.951,
+     "agree": 37
+    },
+    "accommodating": {
+     "mean": 8.688,
+     "wins": 23,
+     "losses": 7,
+     "n": 40,
+     "p": 0.005,
+     "pct": 6.135,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -14.812,
+     "wins": 11,
+     "losses": 23,
+     "n": 40,
+     "p": 0.058,
+     "pct": -10.461,
+     "agree": 32
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 3.225,
+      "wins": 43,
+      "losses": 35,
+      "n": 80,
+      "p": 0.428
+     },
+     "partner": {
+      "mean": -10.963,
+      "wins": 26,
+      "losses": 52,
+      "n": 80,
+      "p": 0.004
+     },
+     "own_points": {
+      "mean": 3.225,
+      "wins": 43,
+      "losses": 35,
+      "n": 80,
+      "p": 0.428
+     },
+     "joint": {
+      "mean": -7.737,
+      "wins": 25,
+      "losses": 48,
+      "n": 80,
+      "p": 0.01
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 8.4,
+      "wins": 48,
+      "losses": 23,
+      "n": 80,
+      "p": 0.004
+     },
+     "partner": {
+      "mean": 0.331,
+      "wins": 36,
+      "losses": 35,
+      "n": 80,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": 8.4,
+      "wins": 48,
+      "losses": 23,
+      "n": 80,
+      "p": 0.004
+     },
+     "joint": {
+      "mean": 8.731,
+      "wins": 50,
+      "losses": 20,
+      "n": 80,
+      "p": 0.0
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -6.225,
+      "wins": 28,
+      "losses": 49,
+      "n": 80,
+      "p": 0.022
+     },
+     "partner": {
+      "mean": 0.075,
+      "wins": 35,
+      "losses": 42,
+      "n": 80,
+      "p": 0.494
+     },
+     "own_points": {
+      "mean": -6.225,
+      "wins": 28,
+      "losses": 49,
+      "n": 80,
+      "p": 0.022
+     },
+     "joint": {
+      "mean": -6.15,
+      "wins": 32,
+      "losses": 44,
+      "n": 80,
+      "p": 0.207
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -12.131,
+      "wins": 17,
+      "losses": 55,
+      "n": 80,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 16.031,
+      "wins": 57,
+      "losses": 15,
+      "n": 80,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -12.131,
+      "wins": 17,
+      "losses": 55,
+      "n": 80,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": 3.9,
+      "wins": 41,
+      "losses": 25,
+      "n": 80,
+      "p": 0.064
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -18.481,
+      "wins": 13,
+      "losses": 58,
+      "n": 80,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -5.638,
+      "wins": 29,
+      "losses": 42,
+      "n": 80,
+      "p": 0.154
+     },
+     "own_points": {
+      "mean": -18.481,
+      "wins": 13,
+      "losses": 58,
+      "n": 80,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -24.119,
+      "wins": 21,
+      "losses": 48,
+      "n": 80,
+      "p": 0.002
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 base",
+   "layer": "core",
+   "study": "e2_base",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 10.458,
+   "frontier": 8,
+   "joint": 125.225,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -31.375,
+     "wins": 3,
+     "losses": 17,
+     "n": 20,
+     "p": 0.003,
+     "pct": -22.435,
+     "agree": 10
+    },
+    "collaborating": {
+     "mean": 5.975,
+     "wins": 12,
+     "losses": 6,
+     "n": 20,
+     "p": 0.238,
+     "pct": 4.272,
+     "agree": 19
+    },
+    "compromising": {
+     "mean": -8.45,
+     "wins": 6,
+     "losses": 13,
+     "n": 20,
+     "p": 0.167,
+     "pct": -6.042,
+     "agree": 19
+    },
+    "accommodating": {
+     "mean": 6.15,
+     "wins": 14,
+     "losses": 4,
+     "n": 20,
+     "p": 0.031,
+     "pct": 4.398,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -21.0,
+     "wins": 5,
+     "losses": 13,
+     "n": 20,
+     "p": 0.096,
+     "pct": -15.016,
+     "agree": 14
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 1.1,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     },
+     "partner": {
+      "mean": -12.262,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     },
+     "own_points": {
+      "mean": 1.1,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     },
+     "joint": {
+      "mean": -11.162,
+      "wins": 17,
+      "losses": 20,
+      "n": 40,
+      "p": 0.743
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 6.95,
+      "wins": 22,
+      "losses": 14,
+      "n": 40,
+      "p": 0.243
+     },
+     "partner": {
+      "mean": 0.662,
+      "wins": 19,
+      "losses": 16,
+      "n": 40,
+      "p": 0.736
+     },
+     "own_points": {
+      "mean": 6.95,
+      "wins": 22,
+      "losses": 14,
+      "n": 40,
+      "p": 0.243
+     },
+     "joint": {
+      "mean": 7.612,
+      "wins": 27,
+      "losses": 8,
+      "n": 40,
+      "p": 0.002
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -7.737,
+      "wins": 16,
+      "losses": 23,
+      "n": 40,
+      "p": 0.337
+     },
+     "partner": {
+      "mean": 2.45,
+      "wins": 22,
+      "losses": 17,
+      "n": 40,
+      "p": 0.522
+     },
+     "own_points": {
+      "mean": -7.737,
+      "wins": 16,
+      "losses": 23,
+      "n": 40,
+      "p": 0.337
+     },
+     "joint": {
+      "mean": -5.287,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -1.775,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     },
+     "partner": {
+      "mean": 9.438,
+      "wins": 25,
+      "losses": 13,
+      "n": 40,
+      "p": 0.073
+     },
+     "own_points": {
+      "mean": -1.775,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     },
+     "joint": {
+      "mean": 7.662,
+      "wins": 25,
+      "losses": 13,
+      "n": 40,
+      "p": 0.073
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -14.8,
+      "wins": 10,
+      "losses": 27,
+      "n": 40,
+      "p": 0.008
+     },
+     "partner": {
+      "mean": -2.65,
+      "wins": 15,
+      "losses": 22,
+      "n": 40,
+      "p": 0.324
+     },
+     "own_points": {
+      "mean": -14.8,
+      "wins": 10,
+      "losses": 27,
+      "n": 40,
+      "p": 0.008
+     },
+     "joint": {
+      "mean": -17.45,
+      "wins": 14,
+      "losses": 22,
+      "n": 40,
+      "p": 0.243
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 urgent",
+   "layer": "core",
+   "study": "e2_urgent",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 19.789,
+   "frontier": 7,
+   "joint": 112.175,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -52.175,
+     "wins": 0,
+     "losses": 17,
+     "n": 20,
+     "p": 0.0,
+     "pct": -37.308,
+     "agree": 0
+    },
+    "collaborating": {
+     "mean": -17.225,
+     "wins": 7,
+     "losses": 10,
+     "n": 20,
+     "p": 0.629,
+     "pct": -12.317,
+     "agree": 9
+    },
+    "compromising": {
+     "mean": -16.175,
+     "wins": 6,
+     "losses": 13,
+     "n": 20,
+     "p": 0.167,
+     "pct": -11.566,
+     "agree": 13
+    },
+    "accommodating": {
+     "mean": 17.375,
+     "wins": 14,
+     "losses": 3,
+     "n": 20,
+     "p": 0.013,
+     "pct": 12.424,
+     "agree": 19
+    },
+    "avoiding": {
+     "mean": -20.7,
+     "wins": 6,
+     "losses": 12,
+     "n": 20,
+     "p": 0.238,
+     "pct": -14.802,
+     "agree": 10
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": -0.375,
+      "wins": 14,
+      "losses": 23,
+      "n": 40,
+      "p": 0.188
+     },
+     "partner": {
+      "mean": -16.075,
+      "wins": 11,
+      "losses": 25,
+      "n": 40,
+      "p": 0.029
+     },
+     "own_points": {
+      "mean": -0.375,
+      "wins": 14,
+      "losses": 23,
+      "n": 40,
+      "p": 0.188
+     },
+     "joint": {
+      "mean": -16.45,
+      "wins": 13,
+      "losses": 24,
+      "n": 40,
+      "p": 0.099
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -3.4,
+      "wins": 13,
+      "losses": 23,
+      "n": 40,
+      "p": 0.132
+     },
+     "partner": {
+      "mean": -7.5,
+      "wins": 15,
+      "losses": 21,
+      "n": 40,
+      "p": 0.405
+     },
+     "own_points": {
+      "mean": -3.4,
+      "wins": 13,
+      "losses": 23,
+      "n": 40,
+      "p": 0.132
+     },
+     "joint": {
+      "mean": -10.9,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -3.562,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     },
+     "partner": {
+      "mean": -7.263,
+      "wins": 12,
+      "losses": 24,
+      "n": 40,
+      "p": 0.065
+     },
+     "own_points": {
+      "mean": -3.562,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     },
+     "joint": {
+      "mean": -10.825,
+      "wins": 17,
+      "losses": 19,
+      "n": 40,
+      "p": 0.868
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": 1.812,
+      "wins": 22,
+      "losses": 16,
+      "n": 40,
+      "p": 0.418
+     },
+     "partner": {
+      "mean": 10.213,
+      "wins": 22,
+      "losses": 16,
+      "n": 40,
+      "p": 0.418
+     },
+     "own_points": {
+      "mean": 1.812,
+      "wins": 22,
+      "losses": 16,
+      "n": 40,
+      "p": 0.418
+     },
+     "joint": {
+      "mean": 12.025,
+      "wins": 25,
+      "losses": 12,
+      "n": 40,
+      "p": 0.047
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -8.725,
+      "wins": 14,
+      "losses": 21,
+      "n": 40,
+      "p": 0.311
+     },
+     "partner": {
+      "mean": 2.875,
+      "wins": 17,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": -8.725,
+      "wins": 14,
+      "losses": 21,
+      "n": 40,
+      "p": 0.311
+     },
+     "joint": {
+      "mean": -5.85,
+      "wins": 17,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 time_cost",
+   "layer": "core",
+   "study": "e2_time_cost",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 10.225,
+   "frontier": 8,
+   "joint": 94.65,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -49.6,
+     "wins": 2,
+     "losses": 18,
+     "n": 20,
+     "p": 0.0,
+     "pct": -35.467,
+     "agree": 11
+    },
+    "collaborating": {
+     "mean": 6.25,
+     "wins": 11,
+     "losses": 7,
+     "n": 20,
+     "p": 0.481,
+     "pct": 4.469,
+     "agree": 19
+    },
+    "compromising": {
+     "mean": 2.375,
+     "wins": 9,
+     "losses": 11,
+     "n": 20,
+     "p": 0.824,
+     "pct": 1.698,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 16.425,
+     "wins": 16,
+     "losses": 3,
+     "n": 20,
+     "p": 0.004,
+     "pct": 11.745,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -15.875,
+     "wins": 9,
+     "losses": 11,
+     "n": 20,
+     "p": 0.824,
+     "pct": -11.351,
+     "agree": 11
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": -9.062,
+      "wins": 16,
+      "losses": 22,
+      "n": 40,
+      "p": 0.418
+     },
+     "partner": {
+      "mean": -16.113,
+      "wins": 9,
+      "losses": 30,
+      "n": 40,
+      "p": 0.001
+     },
+     "own_points": {
+      "mean": -9.062,
+      "wins": 16,
+      "losses": 22,
+      "n": 40,
+      "p": 0.418
+     },
+     "joint": {
+      "mean": -25.175,
+      "wins": 14,
+      "losses": 25,
+      "n": 40,
+      "p": 0.108
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 2.525,
+      "wins": 20,
+      "losses": 20,
+      "n": 40,
+      "p": 1.0
+     },
+     "partner": {
+      "mean": 1.625,
+      "wins": 20,
+      "losses": 20,
+      "n": 40,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": 2.525,
+      "wins": 20,
+      "losses": 20,
+      "n": 40,
+      "p": 1.0
+     },
+     "joint": {
+      "mean": 4.15,
+      "wins": 21,
+      "losses": 19,
+      "n": 40,
+      "p": 0.875
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -6.162,
+      "wins": 18,
+      "losses": 22,
+      "n": 40,
+      "p": 0.636
+     },
+     "partner": {
+      "mean": 5.8,
+      "wins": 22,
+      "losses": 17,
+      "n": 40,
+      "p": 0.522
+     },
+     "own_points": {
+      "mean": -6.162,
+      "wins": 18,
+      "losses": 22,
+      "n": 40,
+      "p": 0.636
+     },
+     "joint": {
+      "mean": -0.362,
+      "wins": 20,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -5.4,
+      "wins": 18,
+      "losses": 22,
+      "n": 40,
+      "p": 0.636
+     },
+     "partner": {
+      "mean": 15.838,
+      "wins": 30,
+      "losses": 10,
+      "n": 40,
+      "p": 0.002
+     },
+     "own_points": {
+      "mean": -5.4,
+      "wins": 18,
+      "losses": 22,
+      "n": 40,
+      "p": 0.636
+     },
+     "joint": {
+      "mean": 10.438,
+      "wins": 23,
+      "losses": 16,
+      "n": 40,
+      "p": 0.337
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -13.475,
+      "wins": 12,
+      "losses": 26,
+      "n": 40,
+      "p": 0.034
+     },
+     "partner": {
+      "mean": -3.513,
+      "wins": 17,
+      "losses": 20,
+      "n": 40,
+      "p": 0.743
+     },
+     "own_points": {
+      "mean": -13.475,
+      "wins": 12,
+      "losses": 26,
+      "n": 40,
+      "p": 0.034
+     },
+     "joint": {
+      "mean": -16.988,
+      "wins": 15,
+      "losses": 23,
+      "n": 40,
+      "p": 0.256
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 tight_budget",
+   "layer": "core",
+   "study": "e2_tight_budget",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 11.906,
+   "frontier": 8,
+   "joint": 123.2,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -26.3,
+     "wins": 8,
+     "losses": 12,
+     "n": 20,
+     "p": 0.503,
+     "pct": -18.806,
+     "agree": 11
+    },
+    "collaborating": {
+     "mean": -0.4,
+     "wins": 12,
+     "losses": 5,
+     "n": 20,
+     "p": 0.143,
+     "pct": -0.286,
+     "agree": 16
+    },
+    "compromising": {
+     "mean": -2.25,
+     "wins": 11,
+     "losses": 8,
+     "n": 20,
+     "p": 0.648,
+     "pct": -1.609,
+     "agree": 19
+    },
+    "accommodating": {
+     "mean": 9.25,
+     "wins": 12,
+     "losses": 5,
+     "n": 20,
+     "p": 0.143,
+     "pct": 6.614,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -20.9,
+     "wins": 7,
+     "losses": 12,
+     "n": 20,
+     "p": 0.359,
+     "pct": -14.945,
+     "agree": 12
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 6.763,
+      "wins": 24,
+      "losses": 15,
+      "n": 40,
+      "p": 0.2
+     },
+     "partner": {
+      "mean": -13.762,
+      "wins": 14,
+      "losses": 26,
+      "n": 40,
+      "p": 0.081
+     },
+     "own_points": {
+      "mean": 6.763,
+      "wins": 24,
+      "losses": 15,
+      "n": 40,
+      "p": 0.2
+     },
+     "joint": {
+      "mean": -7.0,
+      "wins": 20,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 0.1,
+      "wins": 18,
+      "losses": 15,
+      "n": 40,
+      "p": 0.728
+     },
+     "partner": {
+      "mean": 2.575,
+      "wins": 15,
+      "losses": 18,
+      "n": 40,
+      "p": 0.728
+     },
+     "own_points": {
+      "mean": 0.1,
+      "wins": 18,
+      "losses": 15,
+      "n": 40,
+      "p": 0.728
+     },
+     "joint": {
+      "mean": 2.675,
+      "wins": 22,
+      "losses": 11,
+      "n": 40,
+      "p": 0.08
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -11.588,
+      "wins": 14,
+      "losses": 26,
+      "n": 40,
+      "p": 0.081
+     },
+     "partner": {
+      "mean": -6.225,
+      "wins": 14,
+      "losses": 25,
+      "n": 40,
+      "p": 0.108
+     },
+     "own_points": {
+      "mean": -11.588,
+      "wins": 14,
+      "losses": 26,
+      "n": 40,
+      "p": 0.081
+     },
+     "joint": {
+      "mean": -17.812,
+      "wins": 11,
+      "losses": 27,
+      "n": 40,
+      "p": 0.014
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -6.862,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     },
+     "partner": {
+      "mean": 13.575,
+      "wins": 24,
+      "losses": 12,
+      "n": 40,
+      "p": 0.065
+     },
+     "own_points": {
+      "mean": -6.862,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     },
+     "joint": {
+      "mean": 6.713,
+      "wins": 24,
+      "losses": 12,
+      "n": 40,
+      "p": 0.065
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -16.188,
+      "wins": 11,
+      "losses": 26,
+      "n": 40,
+      "p": 0.02
+     },
+     "partner": {
+      "mean": -0.9,
+      "wins": 18,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": -16.188,
+      "wins": 11,
+      "losses": 26,
+      "n": 40,
+      "p": 0.02
+     },
+     "joint": {
+      "mean": -17.087,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 distributive",
+   "layer": "core",
+   "study": "e2_distributive",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 2.863,
+   "frontier": 17,
+   "joint": 120.45,
+   "max_joint": 124.0,
+   "sym": {
+    "competing": {
+     "mean": -33.85,
+     "wins": 1,
+     "losses": 12,
+     "n": 20,
+     "p": 0.003,
+     "pct": -27.298,
+     "agree": 8
+    },
+    "collaborating": {
+     "mean": -6.35,
+     "wins": 1,
+     "losses": 3,
+     "n": 20,
+     "p": 0.625,
+     "pct": -5.121,
+     "agree": 17
+    },
+    "compromising": {
+     "mean": -2.6,
+     "wins": 2,
+     "losses": 4,
+     "n": 20,
+     "p": 0.688,
+     "pct": -2.097,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 0.95,
+     "wins": 2,
+     "losses": 1,
+     "n": 20,
+     "p": 1.0,
+     "pct": 0.766,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -43.6,
+     "wins": 0,
+     "losses": 16,
+     "n": 20,
+     "p": 0.0,
+     "pct": -35.161,
+     "agree": 6
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 4.125,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "partner": {
+      "mean": -12.6,
+      "wins": 12,
+      "losses": 25,
+      "n": 40,
+      "p": 0.047
+     },
+     "own_points": {
+      "mean": 4.125,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "joint": {
+      "mean": -8.475,
+      "wins": 4,
+      "losses": 9,
+      "n": 40,
+      "p": 0.267
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 0.45,
+      "wins": 19,
+      "losses": 17,
+      "n": 40,
+      "p": 0.868
+     },
+     "partner": {
+      "mean": -2.475,
+      "wins": 15,
+      "losses": 20,
+      "n": 40,
+      "p": 0.5
+     },
+     "own_points": {
+      "mean": 0.45,
+      "wins": 19,
+      "losses": 17,
+      "n": 40,
+      "p": 0.868
+     },
+     "joint": {
+      "mean": -2.025,
+      "wins": 4,
+      "losses": 4,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -6.025,
+      "wins": 13,
+      "losses": 22,
+      "n": 40,
+      "p": 0.175
+     },
+     "partner": {
+      "mean": 5.375,
+      "wins": 21,
+      "losses": 14,
+      "n": 40,
+      "p": 0.311
+     },
+     "own_points": {
+      "mean": -6.025,
+      "wins": 13,
+      "losses": 22,
+      "n": 40,
+      "p": 0.175
+     },
+     "joint": {
+      "mean": -0.65,
+      "wins": 5,
+      "losses": 6,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -8.438,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     },
+     "partner": {
+      "mean": 10.838,
+      "wins": 25,
+      "losses": 13,
+      "n": 40,
+      "p": 0.073
+     },
+     "own_points": {
+      "mean": -8.438,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     },
+     "joint": {
+      "mean": 2.4,
+      "wins": 6,
+      "losses": 2,
+      "n": 40,
+      "p": 0.289
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -19.75,
+      "wins": 6,
+      "losses": 29,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -9.45,
+      "wins": 11,
+      "losses": 24,
+      "n": 40,
+      "p": 0.041
+     },
+     "own_points": {
+      "mean": -19.75,
+      "wins": 6,
+      "losses": 29,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -29.2,
+      "wins": 3,
+      "losses": 21,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 integrative",
+   "layer": "core",
+   "study": "e2_integrative",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 11.288,
+   "frontier": 12,
+   "joint": 138.125,
+   "max_joint": 155.7,
+   "sym": {
+    "competing": {
+     "mean": -29.025,
+     "wins": 8,
+     "losses": 11,
+     "n": 20,
+     "p": 0.648,
+     "pct": -18.642,
+     "agree": 12
+    },
+    "collaborating": {
+     "mean": 12.775,
+     "wins": 13,
+     "losses": 3,
+     "n": 20,
+     "p": 0.021,
+     "pct": 8.205,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -22.15,
+     "wins": 4,
+     "losses": 15,
+     "n": 20,
+     "p": 0.019,
+     "pct": -14.226,
+     "agree": 17
+    },
+    "accommodating": {
+     "mean": 12.525,
+     "wins": 13,
+     "losses": 2,
+     "n": 20,
+     "p": 0.007,
+     "pct": 8.044,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -23.1,
+     "wins": 6,
+     "losses": 10,
+     "n": 20,
+     "p": 0.454,
+     "pct": -14.836,
+     "agree": 15
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 2.475,
+      "wins": 19,
+      "losses": 15,
+      "n": 40,
+      "p": 0.608
+     },
+     "partner": {
+      "mean": -9.713,
+      "wins": 10,
+      "losses": 24,
+      "n": 40,
+      "p": 0.024
+     },
+     "own_points": {
+      "mean": 2.475,
+      "wins": 19,
+      "losses": 15,
+      "n": 40,
+      "p": 0.608
+     },
+     "joint": {
+      "mean": -7.237,
+      "wins": 18,
+      "losses": 15,
+      "n": 40,
+      "p": 0.728
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 6.888,
+      "wins": 22,
+      "losses": 15,
+      "n": 40,
+      "p": 0.324
+     },
+     "partner": {
+      "mean": 5.287,
+      "wins": 22,
+      "losses": 15,
+      "n": 40,
+      "p": 0.324
+     },
+     "own_points": {
+      "mean": 6.888,
+      "wins": 22,
+      "losses": 15,
+      "n": 40,
+      "p": 0.324
+     },
+     "joint": {
+      "mean": 12.175,
+      "wins": 25,
+      "losses": 12,
+      "n": 40,
+      "p": 0.047
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -5.263,
+      "wins": 14,
+      "losses": 23,
+      "n": 40,
+      "p": 0.188
+     },
+     "partner": {
+      "mean": 2.2,
+      "wins": 21,
+      "losses": 16,
+      "n": 40,
+      "p": 0.511
+     },
+     "own_points": {
+      "mean": -5.263,
+      "wins": 14,
+      "losses": 23,
+      "n": 40,
+      "p": 0.188
+     },
+     "joint": {
+      "mean": -3.062,
+      "wins": 20,
+      "losses": 17,
+      "n": 40,
+      "p": 0.743
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -7.175,
+      "wins": 8,
+      "losses": 22,
+      "n": 40,
+      "p": 0.016
+     },
+     "partner": {
+      "mean": 14.3,
+      "wins": 25,
+      "losses": 5,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -7.175,
+      "wins": 8,
+      "losses": 22,
+      "n": 40,
+      "p": 0.016
+     },
+     "joint": {
+      "mean": 7.125,
+      "wins": 21,
+      "losses": 7,
+      "n": 40,
+      "p": 0.013
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -19.45,
+      "wins": 6,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -7.8,
+      "wins": 14,
+      "losses": 19,
+      "n": 40,
+      "p": 0.487
+     },
+     "own_points": {
+      "mean": -19.45,
+      "wins": 6,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -27.25,
+      "wins": 11,
+      "losses": 22,
+      "n": 40,
+      "p": 0.08
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 all_contested",
+   "layer": "core",
+   "study": "e2_all_contested",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 9.826,
+   "frontier": 8,
+   "joint": 108.525,
+   "max_joint": 120.35,
+   "sym": {
+    "competing": {
+     "mean": -48.525,
+     "wins": 0,
+     "losses": 20,
+     "n": 20,
+     "p": 0.0,
+     "pct": -40.32,
+     "agree": 0
+    },
+    "collaborating": {
+     "mean": -1.325,
+     "wins": 10,
+     "losses": 7,
+     "n": 20,
+     "p": 0.629,
+     "pct": -1.101,
+     "agree": 17
+    },
+    "compromising": {
+     "mean": -8.075,
+     "wins": 7,
+     "losses": 11,
+     "n": 20,
+     "p": 0.481,
+     "pct": -6.71,
+     "agree": 18
+    },
+    "accommodating": {
+     "mean": 0.025,
+     "wins": 9,
+     "losses": 6,
+     "n": 20,
+     "p": 0.607,
+     "pct": 0.021,
+     "agree": 19
+    },
+    "avoiding": {
+     "mean": -40.675,
+     "wins": 2,
+     "losses": 18,
+     "n": 20,
+     "p": 0.0,
+     "pct": -33.797,
+     "agree": 4
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": -4.338,
+      "wins": 15,
+      "losses": 22,
+      "n": 40,
+      "p": 0.324
+     },
+     "partner": {
+      "mean": -16.4,
+      "wins": 6,
+      "losses": 31,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -4.338,
+      "wins": 15,
+      "losses": 22,
+      "n": 40,
+      "p": 0.324
+     },
+     "joint": {
+      "mean": -20.738,
+      "wins": 10,
+      "losses": 24,
+      "n": 40,
+      "p": 0.024
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 2.312,
+      "wins": 18,
+      "losses": 14,
+      "n": 40,
+      "p": 0.597
+     },
+     "partner": {
+      "mean": -2.513,
+      "wins": 12,
+      "losses": 20,
+      "n": 40,
+      "p": 0.215
+     },
+     "own_points": {
+      "mean": 2.312,
+      "wins": 18,
+      "losses": 14,
+      "n": 40,
+      "p": 0.597
+     },
+     "joint": {
+      "mean": -0.2,
+      "wins": 20,
+      "losses": 12,
+      "n": 40,
+      "p": 0.215
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -6.537,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     },
+     "partner": {
+      "mean": -2.987,
+      "wins": 16,
+      "losses": 21,
+      "n": 40,
+      "p": 0.511
+     },
+     "own_points": {
+      "mean": -6.537,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     },
+     "joint": {
+      "mean": -9.525,
+      "wins": 12,
+      "losses": 24,
+      "n": 40,
+      "p": 0.065
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -0.85,
+      "wins": 17,
+      "losses": 19,
+      "n": 40,
+      "p": 0.868
+     },
+     "partner": {
+      "mean": 4.025,
+      "wins": 21,
+      "losses": 16,
+      "n": 40,
+      "p": 0.511
+     },
+     "own_points": {
+      "mean": -0.85,
+      "wins": 17,
+      "losses": 19,
+      "n": 40,
+      "p": 0.868
+     },
+     "joint": {
+      "mean": 3.175,
+      "wins": 20,
+      "losses": 16,
+      "n": 40,
+      "p": 0.618
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -19.387,
+      "wins": 4,
+      "losses": 34,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -16.538,
+      "wins": 8,
+      "losses": 30,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -19.387,
+      "wins": 4,
+      "losses": 34,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -35.925,
+      "wins": 5,
+      "losses": 33,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 low_stakes_p2",
+   "layer": "core",
+   "study": "e2_low_stakes_p2",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 27.146,
+   "frontier": 11,
+   "joint": 77.815,
+   "max_joint": 106.81,
+   "sym": {
+    "competing": {
+     "mean": -22.51,
+     "wins": 4,
+     "losses": 16,
+     "n": 20,
+     "p": 0.012,
+     "pct": -21.075,
+     "agree": 8
+    },
+    "collaborating": {
+     "mean": 6.45,
+     "wins": 10,
+     "losses": 10,
+     "n": 20,
+     "p": 1.0,
+     "pct": 6.039,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -3.32,
+     "wins": 8,
+     "losses": 11,
+     "n": 20,
+     "p": 0.648,
+     "pct": -3.108,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 9.11,
+     "wins": 9,
+     "losses": 6,
+     "n": 20,
+     "p": 0.607,
+     "pct": 8.529,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -18.415,
+     "wins": 2,
+     "losses": 13,
+     "n": 20,
+     "p": 0.007,
+     "pct": -17.241,
+     "agree": 11
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 1.742,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "partner": {
+      "mean": -11.012,
+      "wins": 15,
+      "losses": 22,
+      "n": 40,
+      "p": 0.324
+     },
+     "own_points": {
+      "mean": -1.315,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "joint": {
+      "mean": -6.465,
+      "wins": 17,
+      "losses": 20,
+      "n": 40,
+      "p": 0.743
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 6.467,
+      "wins": 22,
+      "losses": 13,
+      "n": 40,
+      "p": 0.175
+     },
+     "partner": {
+      "mean": 2.138,
+      "wins": 17,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": 5.702,
+      "wins": 22,
+      "losses": 13,
+      "n": 40,
+      "p": 0.175
+     },
+     "joint": {
+      "mean": 7.84,
+      "wins": 21,
+      "losses": 14,
+      "n": 40,
+      "p": 0.311
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -6.838,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     },
+     "partner": {
+      "mean": -0.721,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     },
+     "own_points": {
+      "mean": -4.282,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     },
+     "joint": {
+      "mean": -3.79,
+      "wins": 15,
+      "losses": 23,
+      "n": 40,
+      "p": 0.256
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -6.058,
+      "wins": 13,
+      "losses": 21,
+      "n": 40,
+      "p": 0.229
+     },
+     "partner": {
+      "mean": 9.217,
+      "wins": 24,
+      "losses": 11,
+      "n": 40,
+      "p": 0.041
+     },
+     "own_points": {
+      "mean": -2.115,
+      "wins": 13,
+      "losses": 21,
+      "n": 40,
+      "p": 0.229
+     },
+     "joint": {
+      "mean": 5.077,
+      "wins": 20,
+      "losses": 15,
+      "n": 40,
+      "p": 0.5
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -17.113,
+      "wins": 11,
+      "losses": 24,
+      "n": 40,
+      "p": 0.041
+     },
+     "partner": {
+      "mean": -8.383,
+      "wins": 11,
+      "losses": 24,
+      "n": 40,
+      "p": 0.041
+     },
+     "own_points": {
+      "mean": -13.035,
+      "wins": 11,
+      "losses": 24,
+      "n": 40,
+      "p": 0.041
+     },
+     "joint": {
+      "mean": -15.532,
+      "wins": 8,
+      "losses": 27,
+      "n": 40,
+      "p": 0.002
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 power_p1",
+   "layer": "core",
+   "study": "e2_power_p1",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 12.335,
+   "frontier": 6,
+   "joint": 122.6,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -29.475,
+     "wins": 5,
+     "losses": 15,
+     "n": 20,
+     "p": 0.041,
+     "pct": -21.076,
+     "agree": 10
+    },
+    "collaborating": {
+     "mean": 14.225,
+     "wins": 15,
+     "losses": 3,
+     "n": 20,
+     "p": 0.008,
+     "pct": 10.172,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -2.2,
+     "wins": 10,
+     "losses": 10,
+     "n": 20,
+     "p": 1.0,
+     "pct": -1.573,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 9.45,
+     "wins": 15,
+     "losses": 2,
+     "n": 20,
+     "p": 0.002,
+     "pct": 6.757,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -17.2,
+     "wins": 6,
+     "losses": 12,
+     "n": 20,
+     "p": 0.238,
+     "pct": -12.299,
+     "agree": 14
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 6.425,
+      "wins": 24,
+      "losses": 13,
+      "n": 40,
+      "p": 0.099
+     },
+     "partner": {
+      "mean": -11.075,
+      "wins": 11,
+      "losses": 26,
+      "n": 40,
+      "p": 0.02
+     },
+     "own_points": {
+      "mean": 6.425,
+      "wins": 24,
+      "losses": 13,
+      "n": 40,
+      "p": 0.099
+     },
+     "joint": {
+      "mean": -4.65,
+      "wins": 19,
+      "losses": 16,
+      "n": 40,
+      "p": 0.736
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 4.325,
+      "wins": 25,
+      "losses": 11,
+      "n": 40,
+      "p": 0.029
+     },
+     "partner": {
+      "mean": 4.562,
+      "wins": 25,
+      "losses": 10,
+      "n": 40,
+      "p": 0.017
+     },
+     "own_points": {
+      "mean": 4.325,
+      "wins": 25,
+      "losses": 11,
+      "n": 40,
+      "p": 0.029
+     },
+     "joint": {
+      "mean": 8.887,
+      "wins": 26,
+      "losses": 10,
+      "n": 40,
+      "p": 0.011
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -7.787,
+      "wins": 11,
+      "losses": 29,
+      "n": 40,
+      "p": 0.006
+     },
+     "partner": {
+      "mean": 5.2,
+      "wins": 24,
+      "losses": 16,
+      "n": 40,
+      "p": 0.268
+     },
+     "own_points": {
+      "mean": -7.787,
+      "wins": 11,
+      "losses": 29,
+      "n": 40,
+      "p": 0.006
+     },
+     "joint": {
+      "mean": -2.587,
+      "wins": 18,
+      "losses": 20,
+      "n": 40,
+      "p": 0.871
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -8.463,
+      "wins": 17,
+      "losses": 20,
+      "n": 40,
+      "p": 0.743
+     },
+     "partner": {
+      "mean": 17.562,
+      "wins": 30,
+      "losses": 5,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -8.463,
+      "wins": 17,
+      "losses": 20,
+      "n": 40,
+      "p": 0.743
+     },
+     "joint": {
+      "mean": 9.1,
+      "wins": 26,
+      "losses": 11,
+      "n": 40,
+      "p": 0.02
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -15.088,
+      "wins": 8,
+      "losses": 28,
+      "n": 40,
+      "p": 0.001
+     },
+     "partner": {
+      "mean": -3.163,
+      "wins": 18,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": -15.088,
+      "wins": 8,
+      "losses": 28,
+      "n": 40,
+      "p": 0.001
+     },
+     "joint": {
+      "mean": -18.25,
+      "wins": 11,
+      "losses": 21,
+      "n": 40,
+      "p": 0.11
+     }
+    }
+   }
+  },
+  {
+   "label": "E2 open_info",
+   "layer": "core",
+   "study": "e2_open_info",
+   "model": "luna",
+   "n": 20,
+   "gap_pct": 8.777,
+   "frontier": 12,
+   "joint": 127.575,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -28.35,
+     "wins": 5,
+     "losses": 13,
+     "n": 20,
+     "p": 0.096,
+     "pct": -20.272,
+     "agree": 12
+    },
+    "collaborating": {
+     "mean": 7.55,
+     "wins": 15,
+     "losses": 2,
+     "n": 20,
+     "p": 0.002,
+     "pct": 5.399,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -11.375,
+     "wins": 3,
+     "losses": 15,
+     "n": 20,
+     "p": 0.008,
+     "pct": -8.134,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 1.35,
+     "wins": 10,
+     "losses": 6,
+     "n": 20,
+     "p": 0.454,
+     "pct": 0.965,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -8.875,
+     "wins": 6,
+     "losses": 10,
+     "n": 20,
+     "p": 0.454,
+     "pct": -6.346,
+     "agree": 17
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 9.363,
+      "wins": 25,
+      "losses": 12,
+      "n": 40,
+      "p": 0.047
+     },
+     "partner": {
+      "mean": -13.575,
+      "wins": 9,
+      "losses": 28,
+      "n": 40,
+      "p": 0.003
+     },
+     "own_points": {
+      "mean": 9.363,
+      "wins": 25,
+      "losses": 12,
+      "n": 40,
+      "p": 0.047
+     },
+     "joint": {
+      "mean": -4.213,
+      "wins": 13,
+      "losses": 22,
+      "n": 40,
+      "p": 0.175
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 8.975,
+      "wins": 23,
+      "losses": 14,
+      "n": 40,
+      "p": 0.188
+     },
+     "partner": {
+      "mean": -1.7,
+      "wins": 17,
+      "losses": 20,
+      "n": 40,
+      "p": 0.743
+     },
+     "own_points": {
+      "mean": 8.975,
+      "wins": 23,
+      "losses": 14,
+      "n": 40,
+      "p": 0.188
+     },
+     "joint": {
+      "mean": 7.275,
+      "wins": 27,
+      "losses": 9,
+      "n": 40,
+      "p": 0.004
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": 3.475,
+      "wins": 21,
+      "losses": 15,
+      "n": 40,
+      "p": 0.405
+     },
+     "partner": {
+      "mean": -5.338,
+      "wins": 15,
+      "losses": 21,
+      "n": 40,
+      "p": 0.405
+     },
+     "own_points": {
+      "mean": 3.475,
+      "wins": 21,
+      "losses": 15,
+      "n": 40,
+      "p": 0.405
+     },
+     "joint": {
+      "mean": -1.863,
+      "wins": 17,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -3.388,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     },
+     "partner": {
+      "mean": 3.675,
+      "wins": 18,
+      "losses": 20,
+      "n": 40,
+      "p": 0.871
+     },
+     "own_points": {
+      "mean": -3.388,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     },
+     "joint": {
+      "mean": 0.287,
+      "wins": 18,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -2.275,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     },
+     "partner": {
+      "mean": -1.6,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     },
+     "own_points": {
+      "mean": -2.275,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     },
+     "joint": {
+      "mean": -3.875,
+      "wins": 19,
+      "losses": 17,
+      "n": 40,
+      "p": 0.868
+     }
+    }
+   }
+  },
+  {
+   "label": "skin software_design",
+   "layer": "skin",
+   "study": "e4_software_design",
+   "model": "luna",
+   "n": 40,
+   "gap_pct": 7.971,
+   "frontier": 19,
+   "joint": 130.312,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -28.312,
+     "wins": 9,
+     "losses": 28,
+     "n": 40,
+     "p": 0.003,
+     "pct": -19.995,
+     "agree": 24
+    },
+    "collaborating": {
+     "mean": 4.8,
+     "wins": 25,
+     "losses": 12,
+     "n": 40,
+     "p": 0.047,
+     "pct": 3.39,
+     "agree": 39
+    },
+    "compromising": {
+     "mean": -9.125,
+     "wins": 15,
+     "losses": 22,
+     "n": 40,
+     "p": 0.324,
+     "pct": -6.444,
+     "agree": 38
+    },
+    "accommodating": {
+     "mean": 4.625,
+     "wins": 18,
+     "losses": 13,
+     "n": 40,
+     "p": 0.473,
+     "pct": 3.266,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -32.1,
+     "wins": 10,
+     "losses": 27,
+     "n": 40,
+     "p": 0.008,
+     "pct": -22.669,
+     "agree": 20
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": -1.25,
+      "wins": 18,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "partner": {
+      "mean": -7.162,
+      "wins": 13,
+      "losses": 24,
+      "n": 40,
+      "p": 0.099
+     },
+     "own_points": {
+      "mean": -1.25,
+      "wins": 18,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "joint": {
+      "mean": -8.412,
+      "wins": 13,
+      "losses": 24,
+      "n": 40,
+      "p": 0.099
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 0.713,
+      "wins": 18,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     },
+     "partner": {
+      "mean": 5.1,
+      "wins": 23,
+      "losses": 14,
+      "n": 40,
+      "p": 0.188
+     },
+     "own_points": {
+      "mean": 0.713,
+      "wins": 18,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     },
+     "joint": {
+      "mean": 5.812,
+      "wins": 28,
+      "losses": 9,
+      "n": 40,
+      "p": 0.003
+     }
+    }
+   }
+  },
+  {
+   "label": "skin team_plan",
+   "layer": "skin",
+   "study": "e4_team_plan",
+   "model": "luna",
+   "n": 40,
+   "gap_pct": 9.145,
+   "frontier": 14,
+   "joint": 128.65,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -15.15,
+     "wins": 18,
+     "losses": 20,
+     "n": 40,
+     "p": 0.871,
+     "pct": -10.699,
+     "agree": 30
+    },
+    "collaborating": {
+     "mean": 6.325,
+     "wins": 31,
+     "losses": 6,
+     "n": 40,
+     "p": 0.0,
+     "pct": 4.467,
+     "agree": 38
+    },
+    "compromising": {
+     "mean": -8.812,
+     "wins": 13,
+     "losses": 25,
+     "n": 40,
+     "p": 0.073,
+     "pct": -6.224,
+     "agree": 39
+    },
+    "accommodating": {
+     "mean": 5.362,
+     "wins": 26,
+     "losses": 11,
+     "n": 40,
+     "p": 0.02,
+     "pct": 3.787,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -22.15,
+     "wins": 15,
+     "losses": 23,
+     "n": 40,
+     "p": 0.256,
+     "pct": -15.643,
+     "agree": 28
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 3.737,
+      "wins": 21,
+      "losses": 14,
+      "n": 40,
+      "p": 0.311
+     },
+     "partner": {
+      "mean": -12.7,
+      "wins": 11,
+      "losses": 25,
+      "n": 40,
+      "p": 0.029
+     },
+     "own_points": {
+      "mean": 3.737,
+      "wins": 21,
+      "losses": 14,
+      "n": 40,
+      "p": 0.311
+     },
+     "joint": {
+      "mean": -8.963,
+      "wins": 14,
+      "losses": 21,
+      "n": 40,
+      "p": 0.311
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 3.825,
+      "wins": 20,
+      "losses": 15,
+      "n": 40,
+      "p": 0.5
+     },
+     "partner": {
+      "mean": 4.438,
+      "wins": 19,
+      "losses": 16,
+      "n": 40,
+      "p": 0.736
+     },
+     "own_points": {
+      "mean": 3.825,
+      "wins": 20,
+      "losses": 15,
+      "n": 40,
+      "p": 0.5
+     },
+     "joint": {
+      "mean": 8.262,
+      "wins": 29,
+      "losses": 6,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  {
+   "label": "skin release_plan",
+   "layer": "skin",
+   "study": "e4_release_plan",
+   "model": "luna",
+   "n": 40,
+   "gap_pct": 10.629,
+   "frontier": 14,
+   "joint": 126.55,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -13.012,
+     "wins": 17,
+     "losses": 21,
+     "n": 40,
+     "p": 0.627,
+     "pct": -9.19,
+     "agree": 31
+    },
+    "collaborating": {
+     "mean": 12.262,
+     "wins": 32,
+     "losses": 3,
+     "n": 40,
+     "p": 0.0,
+     "pct": 8.66,
+     "agree": 40
+    },
+    "compromising": {
+     "mean": -4.1,
+     "wins": 15,
+     "losses": 24,
+     "n": 40,
+     "p": 0.2,
+     "pct": -2.895,
+     "agree": 40
+    },
+    "accommodating": {
+     "mean": 5.825,
+     "wins": 23,
+     "losses": 9,
+     "n": 40,
+     "p": 0.02,
+     "pct": 4.114,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -30.275,
+     "wins": 10,
+     "losses": 26,
+     "n": 40,
+     "p": 0.011,
+     "pct": -21.381,
+     "agree": 23
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": -0.163,
+      "wins": 22,
+      "losses": 17,
+      "n": 40,
+      "p": 0.522
+     },
+     "partner": {
+      "mean": -6.675,
+      "wins": 11,
+      "losses": 27,
+      "n": 40,
+      "p": 0.014
+     },
+     "own_points": {
+      "mean": -0.163,
+      "wins": 22,
+      "losses": 17,
+      "n": 40,
+      "p": 0.522
+     },
+     "joint": {
+      "mean": -6.838,
+      "wins": 20,
+      "losses": 17,
+      "n": 40,
+      "p": 0.743
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 5.338,
+      "wins": 21,
+      "losses": 16,
+      "n": 40,
+      "p": 0.511
+     },
+     "partner": {
+      "mean": 2.675,
+      "wins": 20,
+      "losses": 16,
+      "n": 40,
+      "p": 0.618
+     },
+     "own_points": {
+      "mean": 5.338,
+      "wins": 21,
+      "losses": 16,
+      "n": 40,
+      "p": 0.511
+     },
+     "joint": {
+      "mean": 8.012,
+      "wins": 27,
+      "losses": 10,
+      "n": 40,
+      "p": 0.008
+     }
+    }
+   }
+  },
+  {
+   "label": "grounded, tickets",
+   "layer": "grounded",
+   "study": "grounded",
+   "model": "luna",
+   "n": 85,
+   "gap_pct": 3.906,
+   "frontier": 77,
+   "joint": 148.588,
+   "max_joint": 154.628,
+   "sym": {
+    "competing": {
+     "mean": -20.406,
+     "wins": 14,
+     "losses": 38,
+     "n": 85,
+     "p": 0.001,
+     "pct": -13.197,
+     "agree": 59
+    },
+    "collaborating": {
+     "mean": 0.896,
+     "wins": 22,
+     "losses": 17,
+     "n": 85,
+     "p": 0.522,
+     "pct": 0.58,
+     "agree": 82
+    },
+    "compromising": {
+     "mean": -9.721,
+     "wins": 5,
+     "losses": 44,
+     "n": 85,
+     "p": 0.0,
+     "pct": -6.287,
+     "agree": 81
+    },
+    "accommodating": {
+     "mean": -0.835,
+     "wins": 17,
+     "losses": 19,
+     "n": 85,
+     "p": 0.868,
+     "pct": -0.54,
+     "agree": 84
+    },
+    "avoiding": {
+     "mean": -21.299,
+     "wins": 9,
+     "losses": 45,
+     "n": 85,
+     "p": 0.0,
+     "pct": -13.774,
+     "agree": 62
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 0.697,
+      "wins": 49,
+      "losses": 37,
+      "n": 170,
+      "p": 0.235
+     },
+     "partner": {
+      "mean": -7.274,
+      "wins": 25,
+      "losses": 63,
+      "n": 170,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": 0.697,
+      "wins": 49,
+      "losses": 37,
+      "n": 170,
+      "p": 0.235
+     },
+     "joint": {
+      "mean": -6.576,
+      "wins": 31,
+      "losses": 52,
+      "n": 170,
+      "p": 0.028
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 0.534,
+      "wins": 30,
+      "losses": 34,
+      "n": 170,
+      "p": 0.708
+     },
+     "partner": {
+      "mean": 1.54,
+      "wins": 39,
+      "losses": 26,
+      "n": 170,
+      "p": 0.136
+     },
+     "own_points": {
+      "mean": 0.534,
+      "wins": 30,
+      "losses": 34,
+      "n": 170,
+      "p": 0.708
+     },
+     "joint": {
+      "mean": 2.074,
+      "wins": 40,
+      "losses": 19,
+      "n": 170,
+      "p": 0.009
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -4.672,
+      "wins": 35,
+      "losses": 62,
+      "n": 170,
+      "p": 0.008
+     },
+     "partner": {
+      "mean": -2.258,
+      "wins": 45,
+      "losses": 50,
+      "n": 170,
+      "p": 0.682
+     },
+     "own_points": {
+      "mean": -4.672,
+      "wins": 35,
+      "losses": 62,
+      "n": 170,
+      "p": 0.008
+     },
+     "joint": {
+      "mean": -6.93,
+      "wins": 24,
+      "losses": 68,
+      "n": 170,
+      "p": 0.0
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -3.934,
+      "wins": 22,
+      "losses": 47,
+      "n": 170,
+      "p": 0.004
+     },
+     "partner": {
+      "mean": 3.518,
+      "wins": 49,
+      "losses": 20,
+      "n": 170,
+      "p": 0.001
+     },
+     "own_points": {
+      "mean": -3.934,
+      "wins": 22,
+      "losses": 47,
+      "n": 170,
+      "p": 0.004
+     },
+     "joint": {
+      "mean": -0.416,
+      "wins": 30,
+      "losses": 33,
+      "n": 170,
+      "p": 0.801
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -15.196,
+      "wins": 11,
+      "losses": 78,
+      "n": 170,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 2.269,
+      "wins": 56,
+      "losses": 32,
+      "n": 170,
+      "p": 0.014
+     },
+     "own_points": {
+      "mean": -15.196,
+      "wins": 11,
+      "losses": 78,
+      "n": 170,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -12.926,
+      "wins": 21,
+      "losses": 63,
+      "n": 170,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  {
+   "label": "grounded, abstract",
+   "layer": "grounded",
+   "study": "grounded_abstract",
+   "model": "luna",
+   "n": 85,
+   "gap_pct": 11.13,
+   "frontier": 61,
+   "joint": 137.418,
+   "max_joint": 154.628,
+   "sym": {
+    "competing": {
+     "mean": -20.175,
+     "wins": 23,
+     "losses": 48,
+     "n": 85,
+     "p": 0.004,
+     "pct": -13.048,
+     "agree": 50
+    },
+    "collaborating": {
+     "mean": 8.521,
+     "wins": 42,
+     "losses": 15,
+     "n": 85,
+     "p": 0.0,
+     "pct": 5.511,
+     "agree": 80
+    },
+    "compromising": {
+     "mean": -19.031,
+     "wins": 15,
+     "losses": 53,
+     "n": 85,
+     "p": 0.0,
+     "pct": -12.307,
+     "agree": 74
+    },
+    "accommodating": {
+     "mean": 11.86,
+     "wins": 41,
+     "losses": 12,
+     "n": 85,
+     "p": 0.0,
+     "pct": 7.67,
+     "agree": 85
+    },
+    "avoiding": {
+     "mean": -18.401,
+     "wins": 18,
+     "losses": 42,
+     "n": 85,
+     "p": 0.003,
+     "pct": -11.9,
+     "agree": 56
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 5.205,
+      "wins": 68,
+      "losses": 56,
+      "n": 170,
+      "p": 0.323
+     },
+     "partner": {
+      "mean": -5.609,
+      "wins": 42,
+      "losses": 79,
+      "n": 170,
+      "p": 0.001
+     },
+     "own_points": {
+      "mean": 5.205,
+      "wins": 68,
+      "losses": 56,
+      "n": 170,
+      "p": 0.323
+     },
+     "joint": {
+      "mean": -0.404,
+      "wins": 68,
+      "losses": 52,
+      "n": 170,
+      "p": 0.171
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 6.728,
+      "wins": 69,
+      "losses": 41,
+      "n": 170,
+      "p": 0.01
+     },
+     "partner": {
+      "mean": 1.987,
+      "wins": 56,
+      "losses": 55,
+      "n": 170,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": 6.728,
+      "wins": 69,
+      "losses": 41,
+      "n": 170,
+      "p": 0.01
+     },
+     "joint": {
+      "mean": 8.715,
+      "wins": 83,
+      "losses": 28,
+      "n": 170,
+      "p": 0.0
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -5.884,
+      "wins": 44,
+      "losses": 75,
+      "n": 170,
+      "p": 0.006
+     },
+     "partner": {
+      "mean": 2.199,
+      "wins": 70,
+      "losses": 51,
+      "n": 170,
+      "p": 0.101
+     },
+     "own_points": {
+      "mean": -5.884,
+      "wins": 44,
+      "losses": 75,
+      "n": 170,
+      "p": 0.006
+     },
+     "joint": {
+      "mean": -3.685,
+      "wins": 55,
+      "losses": 63,
+      "n": 170,
+      "p": 0.519
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -5.919,
+      "wins": 42,
+      "losses": 74,
+      "n": 170,
+      "p": 0.004
+     },
+     "partner": {
+      "mean": 13.691,
+      "wins": 90,
+      "losses": 27,
+      "n": 170,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -5.919,
+      "wins": 42,
+      "losses": 74,
+      "n": 170,
+      "p": 0.004
+     },
+     "joint": {
+      "mean": 7.771,
+      "wins": 77,
+      "losses": 37,
+      "n": 170,
+      "p": 0.0
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -13.465,
+      "wins": 26,
+      "losses": 99,
+      "n": 170,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -5.12,
+      "wins": 48,
+      "losses": 76,
+      "n": 170,
+      "p": 0.015
+     },
+     "own_points": {
+      "mean": -13.465,
+      "wins": 26,
+      "losses": 99,
+      "n": 170,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -18.585,
+      "wins": 34,
+      "losses": 90,
+      "n": 170,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  {
+   "label": "grounded, tickets (haiku)",
+   "layer": "grounded",
+   "study": "grounded_claude_haiku_5_5",
+   "model": "haiku",
+   "n": 85,
+   "gap_pct": 7.967,
+   "frontier": 69,
+   "joint": 142.308,
+   "max_joint": 154.628,
+   "sym": {
+    "competing": {
+     "mean": -7.455,
+     "wins": 22,
+     "losses": 33,
+     "n": 85,
+     "p": 0.177,
+     "pct": -4.821,
+     "agree": 71
+    },
+    "collaborating": {
+     "mean": 8.062,
+     "wins": 38,
+     "losses": 9,
+     "n": 85,
+     "p": 0.0,
+     "pct": 5.214,
+     "agree": 84
+    },
+    "compromising": {
+     "mean": -7.569,
+     "wins": 17,
+     "losses": 33,
+     "n": 85,
+     "p": 0.033,
+     "pct": -4.895,
+     "agree": 84
+    },
+    "accommodating": {
+     "mean": 2.213,
+     "wins": 25,
+     "losses": 19,
+     "n": 85,
+     "p": 0.451,
+     "pct": 1.431,
+     "agree": 85
+    },
+    "avoiding": {
+     "mean": -14.305,
+     "wins": 13,
+     "losses": 45,
+     "n": 85,
+     "p": 0.0,
+     "pct": -9.251,
+     "agree": 70
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 1.521,
+      "wins": 48,
+      "losses": 38,
+      "n": 170,
+      "p": 0.332
+     },
+     "partner": {
+      "mean": -3.448,
+      "wins": 33,
+      "losses": 54,
+      "n": 170,
+      "p": 0.031
+     },
+     "own_points": {
+      "mean": 1.521,
+      "wins": 48,
+      "losses": 38,
+      "n": 170,
+      "p": 0.332
+     },
+     "joint": {
+      "mean": -1.927,
+      "wins": 42,
+      "losses": 44,
+      "n": 170,
+      "p": 0.914
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 3.177,
+      "wins": 50,
+      "losses": 37,
+      "n": 170,
+      "p": 0.198
+     },
+     "partner": {
+      "mean": 2.258,
+      "wins": 45,
+      "losses": 40,
+      "n": 170,
+      "p": 0.665
+     },
+     "own_points": {
+      "mean": 3.177,
+      "wins": 50,
+      "losses": 37,
+      "n": 170,
+      "p": 0.198
+     },
+     "joint": {
+      "mean": 5.435,
+      "wins": 60,
+      "losses": 25,
+      "n": 170,
+      "p": 0.0
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -2.252,
+      "wins": 36,
+      "losses": 48,
+      "n": 170,
+      "p": 0.23
+     },
+     "partner": {
+      "mean": 1.467,
+      "wins": 44,
+      "losses": 41,
+      "n": 170,
+      "p": 0.828
+     },
+     "own_points": {
+      "mean": -2.252,
+      "wins": 36,
+      "losses": 48,
+      "n": 170,
+      "p": 0.23
+     },
+     "joint": {
+      "mean": -0.785,
+      "wins": 38,
+      "losses": 45,
+      "n": 170,
+      "p": 0.51
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -6.687,
+      "wins": 25,
+      "losses": 70,
+      "n": 170,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 6.905,
+      "wins": 70,
+      "losses": 28,
+      "n": 170,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -6.687,
+      "wins": 25,
+      "losses": 70,
+      "n": 170,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": 0.218,
+      "wins": 42,
+      "losses": 49,
+      "n": 170,
+      "p": 0.53
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -8.505,
+      "wins": 24,
+      "losses": 77,
+      "n": 170,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 4.963,
+      "wins": 65,
+      "losses": 37,
+      "n": 170,
+      "p": 0.007
+     },
+     "own_points": {
+      "mean": -8.505,
+      "wins": 24,
+      "losses": 77,
+      "n": 170,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -3.542,
+      "wins": 47,
+      "losses": 52,
+      "n": 170,
+      "p": 0.688
+     }
+    }
+   }
+  },
+  {
+   "label": "luna, default temp.",
+   "layer": "model",
+   "study": "e3_gpt_6_luna_t1",
+   "model": "luna",
+   "n": 40,
+   "gap_pct": 8.616,
+   "frontier": 22,
+   "joint": 129.4,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -35.288,
+     "wins": 6,
+     "losses": 34,
+     "n": 40,
+     "p": 0.0,
+     "pct": -24.921,
+     "agree": 20
+    },
+    "collaborating": {
+     "mean": 6.013,
+     "wins": 25,
+     "losses": 11,
+     "n": 40,
+     "p": 0.029,
+     "pct": 4.246,
+     "agree": 39
+    },
+    "compromising": {
+     "mean": -14.988,
+     "wins": 9,
+     "losses": 30,
+     "n": 40,
+     "p": 0.001,
+     "pct": -10.584,
+     "agree": 39
+    },
+    "accommodating": {
+     "mean": 6.763,
+     "wins": 22,
+     "losses": 10,
+     "n": 40,
+     "p": 0.05,
+     "pct": 4.776,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -22.663,
+     "wins": 9,
+     "losses": 22,
+     "n": 40,
+     "p": 0.029,
+     "pct": -16.005,
+     "agree": 28
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 1.262,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "partner": {
+      "mean": -15.075,
+      "wins": 11,
+      "losses": 26,
+      "n": 40,
+      "p": 0.02
+     },
+     "own_points": {
+      "mean": 1.262,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     },
+     "joint": {
+      "mean": -13.812,
+      "wins": 11,
+      "losses": 24,
+      "n": 40,
+      "p": 0.041
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 5.688,
+      "wins": 20,
+      "losses": 15,
+      "n": 40,
+      "p": 0.5
+     },
+     "partner": {
+      "mean": 1.637,
+      "wins": 20,
+      "losses": 16,
+      "n": 40,
+      "p": 0.618
+     },
+     "own_points": {
+      "mean": 5.688,
+      "wins": 20,
+      "losses": 15,
+      "n": 40,
+      "p": 0.5
+     },
+     "joint": {
+      "mean": 7.325,
+      "wins": 26,
+      "losses": 10,
+      "n": 40,
+      "p": 0.011
+     }
+    }
+   }
+  },
+  {
+   "label": "haiku",
+   "layer": "model",
+   "study": "e3_claude_haiku_5_5",
+   "model": "haiku",
+   "n": 40,
+   "gap_pct": 4.643,
+   "frontier": 29,
+   "joint": 135.025,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -17.913,
+     "wins": 8,
+     "losses": 30,
+     "n": 40,
+     "p": 0.0,
+     "pct": -12.65,
+     "agree": 32
+    },
+    "collaborating": {
+     "mean": 5.35,
+     "wins": 21,
+     "losses": 7,
+     "n": 40,
+     "p": 0.013,
+     "pct": 3.778,
+     "agree": 40
+    },
+    "compromising": {
+     "mean": -8.6,
+     "wins": 12,
+     "losses": 25,
+     "n": 40,
+     "p": 0.047,
+     "pct": -6.073,
+     "agree": 39
+    },
+    "accommodating": {
+     "mean": 1.1,
+     "wins": 17,
+     "losses": 15,
+     "n": 40,
+     "p": 0.86,
+     "pct": 0.777,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -29.15,
+     "wins": 6,
+     "losses": 28,
+     "n": 40,
+     "p": 0.0,
+     "pct": -20.586,
+     "agree": 24
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 2.263,
+      "wins": 19,
+      "losses": 15,
+      "n": 40,
+      "p": 0.608
+     },
+     "partner": {
+      "mean": -3.737,
+      "wins": 14,
+      "losses": 20,
+      "n": 40,
+      "p": 0.392
+     },
+     "own_points": {
+      "mean": 2.263,
+      "wins": 19,
+      "losses": 15,
+      "n": 40,
+      "p": 0.608
+     },
+     "joint": {
+      "mean": -1.475,
+      "wins": 18,
+      "losses": 16,
+      "n": 40,
+      "p": 0.864
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 0.925,
+      "wins": 16,
+      "losses": 18,
+      "n": 40,
+      "p": 0.864
+     },
+     "partner": {
+      "mean": 1.725,
+      "wins": 19,
+      "losses": 16,
+      "n": 40,
+      "p": 0.736
+     },
+     "own_points": {
+      "mean": 0.925,
+      "wins": 16,
+      "losses": 18,
+      "n": 40,
+      "p": 0.864
+     },
+     "joint": {
+      "mean": 2.65,
+      "wins": 21,
+      "losses": 13,
+      "n": 40,
+      "p": 0.229
+     }
+    }
+   }
+  },
+  {
+   "label": "sonnet",
+   "layer": "model",
+   "study": "e3_claude_sonnet_5_5",
+   "model": "sonnet",
+   "n": 40,
+   "gap_pct": 2.445,
+   "frontier": 28,
+   "joint": 138.137,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -34.35,
+     "wins": 1,
+     "losses": 38,
+     "n": 40,
+     "p": 0.0,
+     "pct": -24.258,
+     "agree": 25
+    },
+    "collaborating": {
+     "mean": 2.475,
+     "wins": 21,
+     "losses": 4,
+     "n": 40,
+     "p": 0.001,
+     "pct": 1.748,
+     "agree": 40
+    },
+    "compromising": {
+     "mean": -6.062,
+     "wins": 5,
+     "losses": 30,
+     "n": 40,
+     "p": 0.0,
+     "pct": -4.281,
+     "agree": 40
+    },
+    "accommodating": {
+     "mean": -0.163,
+     "wins": 14,
+     "losses": 12,
+     "n": 40,
+     "p": 0.845,
+     "pct": -0.115,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -12.463,
+     "wins": 11,
+     "losses": 20,
+     "n": 40,
+     "p": 0.15,
+     "pct": -8.801,
+     "agree": 34
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": -0.2,
+      "wins": 13,
+      "losses": 15,
+      "n": 40,
+      "p": 0.851
+     },
+     "partner": {
+      "mean": 0.475,
+      "wins": 14,
+      "losses": 13,
+      "n": 40,
+      "p": 1.0
+     },
+     "own_points": {
+      "mean": -0.2,
+      "wins": 13,
+      "losses": 15,
+      "n": 40,
+      "p": 0.851
+     },
+     "joint": {
+      "mean": 0.275,
+      "wins": 15,
+      "losses": 14,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -0.812,
+      "wins": 11,
+      "losses": 16,
+      "n": 40,
+      "p": 0.442
+     },
+     "partner": {
+      "mean": 2.6,
+      "wins": 18,
+      "losses": 10,
+      "n": 40,
+      "p": 0.185
+     },
+     "own_points": {
+      "mean": -0.812,
+      "wins": 11,
+      "losses": 16,
+      "n": 40,
+      "p": 0.442
+     },
+     "joint": {
+      "mean": 1.788,
+      "wins": 20,
+      "losses": 9,
+      "n": 40,
+      "p": 0.061
+     }
+    }
+   }
+  },
+  {
+   "label": "sol",
+   "layer": "model",
+   "study": "e3_gpt_6_1_sol",
+   "model": "sol",
+   "n": 40,
+   "gap_pct": 1.951,
+   "frontier": 34,
+   "joint": 138.838,
+   "max_joint": 141.6,
+   "sym": {
+    "competing": {
+     "mean": -28.7,
+     "wins": 0,
+     "losses": 40,
+     "n": 40,
+     "p": 0.0,
+     "pct": -20.268,
+     "agree": 29
+    },
+    "collaborating": {
+     "mean": 1.738,
+     "wins": 22,
+     "losses": 7,
+     "n": 40,
+     "p": 0.008,
+     "pct": 1.227,
+     "agree": 40
+    },
+    "compromising": {
+     "mean": -8.238,
+     "wins": 2,
+     "losses": 35,
+     "n": 40,
+     "p": 0.0,
+     "pct": -5.817,
+     "agree": 40
+    },
+    "accommodating": {
+     "mean": -3.775,
+     "wins": 13,
+     "losses": 21,
+     "n": 40,
+     "p": 0.229,
+     "pct": -2.666,
+     "agree": 40
+    },
+    "avoiding": {
+     "mean": -10.9,
+     "wins": 10,
+     "losses": 26,
+     "n": 40,
+     "p": 0.011,
+     "pct": -7.698,
+     "agree": 36
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 1.05,
+      "wins": 14,
+      "losses": 10,
+      "n": 40,
+      "p": 0.541
+     },
+     "partner": {
+      "mean": -3.325,
+      "wins": 8,
+      "losses": 17,
+      "n": 40,
+      "p": 0.108
+     },
+     "own_points": {
+      "mean": 1.05,
+      "wins": 14,
+      "losses": 10,
+      "n": 40,
+      "p": 0.541
+     },
+     "joint": {
+      "mean": -2.275,
+      "wins": 8,
+      "losses": 18,
+      "n": 40,
+      "p": 0.076
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -3.125,
+      "wins": 5,
+      "losses": 18,
+      "n": 40,
+      "p": 0.011
+     },
+     "partner": {
+      "mean": 3.788,
+      "wins": 19,
+      "losses": 5,
+      "n": 40,
+      "p": 0.007
+     },
+     "own_points": {
+      "mean": -3.125,
+      "wins": 5,
+      "losses": 18,
+      "n": 40,
+      "p": 0.011
+     },
+     "joint": {
+      "mean": 0.662,
+      "wins": 15,
+      "losses": 8,
+      "n": 40,
+      "p": 0.21
+     }
+    }
+   }
+  },
+  {
+   "label": "sonnet, open info",
+   "layer": "model",
+   "study": "e3_open_info_claude_sonnet_5_5",
+   "model": "sonnet",
+   "n": 20,
+   "gap_pct": 1.269,
+   "frontier": 18,
+   "joint": 138.075,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -33.775,
+     "wins": 1,
+     "losses": 19,
+     "n": 20,
+     "p": 0.0,
+     "pct": -24.151,
+     "agree": 13
+    },
+    "collaborating": {
+     "mean": 0.625,
+     "wins": 8,
+     "losses": 4,
+     "n": 20,
+     "p": 0.388,
+     "pct": 0.447,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -6.8,
+     "wins": 2,
+     "losses": 16,
+     "n": 20,
+     "p": 0.001,
+     "pct": -4.862,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": -0.5,
+     "wins": 8,
+     "losses": 10,
+     "n": 20,
+     "p": 0.815,
+     "pct": -0.358,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -1.6,
+     "wins": 8,
+     "losses": 10,
+     "n": 20,
+     "p": 0.815,
+     "pct": -1.144,
+     "agree": 20
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": -0.938,
+      "wins": 6,
+      "losses": 13,
+      "n": 40,
+      "p": 0.167
+     },
+     "partner": {
+      "mean": 0.212,
+      "wins": 11,
+      "losses": 9,
+      "n": 40,
+      "p": 0.824
+     },
+     "own_points": {
+      "mean": -0.938,
+      "wins": 6,
+      "losses": 13,
+      "n": 40,
+      "p": 0.167
+     },
+     "joint": {
+      "mean": -0.725,
+      "wins": 11,
+      "losses": 9,
+      "n": 40,
+      "p": 0.824
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -2.275,
+      "wins": 6,
+      "losses": 15,
+      "n": 40,
+      "p": 0.078
+     },
+     "partner": {
+      "mean": 1.575,
+      "wins": 14,
+      "losses": 8,
+      "n": 40,
+      "p": 0.286
+     },
+     "own_points": {
+      "mean": -2.275,
+      "wins": 6,
+      "losses": 15,
+      "n": 40,
+      "p": 0.078
+     },
+     "joint": {
+      "mean": -0.7,
+      "wins": 10,
+      "losses": 12,
+      "n": 40,
+      "p": 0.832
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -8.95,
+      "wins": 0,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 8.35,
+      "wins": 30,
+      "losses": 2,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -8.95,
+      "wins": 0,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -0.6,
+      "wins": 17,
+      "losses": 15,
+      "n": 40,
+      "p": 0.86
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -13.637,
+      "wins": 0,
+      "losses": 38,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 12.312,
+      "wins": 38,
+      "losses": 0,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -13.637,
+      "wins": 0,
+      "losses": 38,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -1.325,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -10.713,
+      "wins": 1,
+      "losses": 34,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 10.0,
+      "wins": 34,
+      "losses": 1,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -10.713,
+      "wins": 1,
+      "losses": 34,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -0.713,
+      "wins": 18,
+      "losses": 17,
+      "n": 40,
+      "p": 1.0
+     }
+    }
+   }
+  },
+  {
+   "label": "sol, open info",
+   "layer": "model",
+   "study": "e3_open_info_gpt_6_1_sol",
+   "model": "sol",
+   "n": 20,
+   "gap_pct": 1.394,
+   "frontier": 20,
+   "joint": 137.9,
+   "max_joint": 139.85,
+   "sym": {
+    "competing": {
+     "mean": -30.75,
+     "wins": 0,
+     "losses": 20,
+     "n": 20,
+     "p": 0.0,
+     "pct": -21.988,
+     "agree": 14
+    },
+    "collaborating": {
+     "mean": 0.775,
+     "wins": 5,
+     "losses": 3,
+     "n": 20,
+     "p": 0.727,
+     "pct": 0.554,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -10.625,
+     "wins": 0,
+     "losses": 19,
+     "n": 20,
+     "p": 0.0,
+     "pct": -7.597,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 0.2,
+     "wins": 8,
+     "losses": 8,
+     "n": 20,
+     "p": 1.0,
+     "pct": 0.143,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -7.05,
+     "wins": 2,
+     "losses": 18,
+     "n": 20,
+     "p": 0.0,
+     "pct": -5.041,
+     "agree": 20
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 0.237,
+      "wins": 3,
+      "losses": 4,
+      "n": 40,
+      "p": 1.0
+     },
+     "partner": {
+      "mean": -0.05,
+      "wins": 2,
+      "losses": 4,
+      "n": 40,
+      "p": 0.688
+     },
+     "own_points": {
+      "mean": 0.237,
+      "wins": 3,
+      "losses": 4,
+      "n": 40,
+      "p": 1.0
+     },
+     "joint": {
+      "mean": 0.188,
+      "wins": 5,
+      "losses": 2,
+      "n": 40,
+      "p": 0.453
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -2.788,
+      "wins": 0,
+      "losses": 14,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 3.025,
+      "wins": 14,
+      "losses": 0,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -2.788,
+      "wins": 0,
+      "losses": 14,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": 0.237,
+      "wins": 9,
+      "losses": 5,
+      "n": 40,
+      "p": 0.424
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -10.375,
+      "wins": 0,
+      "losses": 38,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 10.512,
+      "wins": 38,
+      "losses": 0,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -10.375,
+      "wins": 0,
+      "losses": 38,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": 0.138,
+      "wins": 20,
+      "losses": 17,
+      "n": 40,
+      "p": 0.743
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -15.15,
+      "wins": 0,
+      "losses": 40,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 13.963,
+      "wins": 40,
+      "losses": 0,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -15.15,
+      "wins": 0,
+      "losses": 40,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -1.188,
+      "wins": 12,
+      "losses": 25,
+      "n": 40,
+      "p": 0.047
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -9.812,
+      "wins": 0,
+      "losses": 33,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 9.588,
+      "wins": 33,
+      "losses": 0,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -9.812,
+      "wins": 0,
+      "losses": 33,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -0.225,
+      "wins": 14,
+      "losses": 18,
+      "n": 40,
+      "p": 0.597
+     }
+    }
+   }
+  },
+  {
+   "label": "sonnet, unequal stakes",
+   "layer": "model",
+   "study": "e3_low_stakes_p2_claude_sonnet_5_5",
+   "model": "sonnet",
+   "n": 20,
+   "gap_pct": 15.827,
+   "frontier": 13,
+   "joint": 89.905,
+   "max_joint": 106.81,
+   "sym": {
+    "competing": {
+     "mean": -26.075,
+     "wins": 0,
+     "losses": 20,
+     "n": 20,
+     "p": 0.0,
+     "pct": -24.413,
+     "agree": 12
+    },
+    "collaborating": {
+     "mean": 0.985,
+     "wins": 8,
+     "losses": 5,
+     "n": 20,
+     "p": 0.581,
+     "pct": 0.922,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -3.66,
+     "wins": 5,
+     "losses": 12,
+     "n": 20,
+     "p": 0.143,
+     "pct": -3.427,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 3.575,
+     "wins": 10,
+     "losses": 5,
+     "n": 20,
+     "p": 0.302,
+     "pct": 3.347,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -9.435,
+     "wins": 6,
+     "losses": 10,
+     "n": 20,
+     "p": 0.454,
+     "pct": -8.833,
+     "agree": 18
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 4.454,
+      "wins": 24,
+      "losses": 8,
+      "n": 40,
+      "p": 0.007
+     },
+     "partner": {
+      "mean": -3.379,
+      "wins": 10,
+      "losses": 22,
+      "n": 40,
+      "p": 0.05
+     },
+     "own_points": {
+      "mean": 1.677,
+      "wins": 24,
+      "losses": 8,
+      "n": 40,
+      "p": 0.007
+     },
+     "joint": {
+      "mean": -1.655,
+      "wins": 16,
+      "losses": 16,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 0.896,
+      "wins": 14,
+      "losses": 11,
+      "n": 40,
+      "p": 0.69
+     },
+     "partner": {
+      "mean": 2.163,
+      "wins": 15,
+      "losses": 10,
+      "n": 40,
+      "p": 0.424
+     },
+     "own_points": {
+      "mean": -0.3,
+      "wins": 14,
+      "losses": 11,
+      "n": 40,
+      "p": 0.69
+     },
+     "joint": {
+      "mean": 0.252,
+      "wins": 12,
+      "losses": 13,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -4.292,
+      "wins": 8,
+      "losses": 21,
+      "n": 40,
+      "p": 0.024
+     },
+     "partner": {
+      "mean": 4.85,
+      "wins": 19,
+      "losses": 10,
+      "n": 40,
+      "p": 0.136
+     },
+     "own_points": {
+      "mean": -3.965,
+      "wins": 8,
+      "losses": 21,
+      "n": 40,
+      "p": 0.024
+     },
+     "joint": {
+      "mean": -1.582,
+      "wins": 12,
+      "losses": 17,
+      "n": 40,
+      "p": 0.458
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -9.042,
+      "wins": 3,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 11.779,
+      "wins": 29,
+      "losses": 2,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -6.843,
+      "wins": 3,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -0.115,
+      "wins": 15,
+      "losses": 16,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -17.8,
+      "wins": 2,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -1.475,
+      "wins": 23,
+      "losses": 11,
+      "n": 40,
+      "p": 0.058
+     },
+     "own_points": {
+      "mean": -12.988,
+      "wins": 2,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -14.83,
+      "wins": 11,
+      "losses": 23,
+      "n": 40,
+      "p": 0.058
+     }
+    }
+   }
+  },
+  {
+   "label": "sol, unequal stakes",
+   "layer": "model",
+   "study": "e3_low_stakes_p2_gpt_6_1_sol",
+   "model": "sol",
+   "n": 20,
+   "gap_pct": 16.759,
+   "frontier": 19,
+   "joint": 88.91,
+   "max_joint": 106.81,
+   "sym": {
+    "competing": {
+     "mean": -21.08,
+     "wins": 2,
+     "losses": 18,
+     "n": 20,
+     "p": 0.0,
+     "pct": -19.736,
+     "agree": 13
+    },
+    "collaborating": {
+     "mean": 0.865,
+     "wins": 6,
+     "losses": 4,
+     "n": 20,
+     "p": 0.754,
+     "pct": 0.81,
+     "agree": 20
+    },
+    "compromising": {
+     "mean": -6.775,
+     "wins": 5,
+     "losses": 15,
+     "n": 20,
+     "p": 0.041,
+     "pct": -6.343,
+     "agree": 20
+    },
+    "accommodating": {
+     "mean": 0.165,
+     "wins": 9,
+     "losses": 8,
+     "n": 20,
+     "p": 1.0,
+     "pct": 0.154,
+     "agree": 20
+    },
+    "avoiding": {
+     "mean": -0.235,
+     "wins": 9,
+     "losses": 5,
+     "n": 20,
+     "p": 0.424,
+     "pct": -0.22,
+     "agree": 19
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 1.433,
+      "wins": 15,
+      "losses": 10,
+      "n": 40,
+      "p": 0.424
+     },
+     "partner": {
+      "mean": -5.008,
+      "wins": 4,
+      "losses": 22,
+      "n": 40,
+      "p": 0.001
+     },
+     "own_points": {
+      "mean": 1.55,
+      "wins": 15,
+      "losses": 10,
+      "n": 40,
+      "p": 0.424
+     },
+     "joint": {
+      "mean": -0.827,
+      "wins": 11,
+      "losses": 16,
+      "n": 40,
+      "p": 0.442
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -2.871,
+      "wins": 4,
+      "losses": 15,
+      "n": 40,
+      "p": 0.019
+     },
+     "partner": {
+      "mean": 2.25,
+      "wins": 14,
+      "losses": 5,
+      "n": 40,
+      "p": 0.064
+     },
+     "own_points": {
+      "mean": -1.045,
+      "wins": 4,
+      "losses": 15,
+      "n": 40,
+      "p": 0.019
+     },
+     "joint": {
+      "mean": 1.188,
+      "wins": 13,
+      "losses": 6,
+      "n": 40,
+      "p": 0.167
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -7.279,
+      "wins": 3,
+      "losses": 26,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 4.367,
+      "wins": 23,
+      "losses": 5,
+      "n": 40,
+      "p": 0.001
+     },
+     "own_points": {
+      "mean": -4.345,
+      "wins": 3,
+      "losses": 26,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -1.565,
+      "wins": 14,
+      "losses": 15,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -17.925,
+      "wins": 0,
+      "losses": 38,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 13.583,
+      "wins": 37,
+      "losses": 1,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -10.592,
+      "wins": 0,
+      "losses": 38,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -1.232,
+      "wins": 19,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -14.679,
+      "wins": 1,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 8.954,
+      "wins": 30,
+      "losses": 3,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -8.595,
+      "wins": 1,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -2.26,
+      "wins": 15,
+      "losses": 18,
+      "n": 40,
+      "p": 0.728
+     }
+    }
+   }
+  },
+  {
+   "label": "luna adopts, sonnet partner",
+   "layer": "cross",
+   "study": "e3_cross",
+   "model": "luna",
+   "sym": {},
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 2.819,
+      "wins": 38,
+      "losses": 23,
+      "n": 80,
+      "p": 0.072
+     },
+     "partner": {
+      "mean": -2.737,
+      "wins": 25,
+      "losses": 37,
+      "n": 80,
+      "p": 0.162
+     },
+     "own_points": {
+      "mean": 2.819,
+      "wins": 38,
+      "losses": 23,
+      "n": 80,
+      "p": 0.072
+     },
+     "joint": {
+      "mean": 0.081,
+      "wins": 23,
+      "losses": 39,
+      "n": 80,
+      "p": 0.056
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -2.819,
+      "wins": 19,
+      "losses": 40,
+      "n": 80,
+      "p": 0.009
+     },
+     "partner": {
+      "mean": 4.838,
+      "wins": 40,
+      "losses": 18,
+      "n": 80,
+      "p": 0.005
+     },
+     "own_points": {
+      "mean": -2.819,
+      "wins": 19,
+      "losses": 40,
+      "n": 80,
+      "p": 0.009
+     },
+     "joint": {
+      "mean": 2.019,
+      "wins": 31,
+      "losses": 26,
+      "n": 80,
+      "p": 0.597
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -12.725,
+      "wins": 6,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 9.988,
+      "wins": 28,
+      "losses": 6,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -12.725,
+      "wins": 6,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -2.737,
+      "wins": 10,
+      "losses": 23,
+      "n": 40,
+      "p": 0.035
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -13.537,
+      "wins": 5,
+      "losses": 25,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 14.55,
+      "wins": 28,
+      "losses": 2,
+      "n": 40,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -13.537,
+      "wins": 5,
+      "losses": 25,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": 1.012,
+      "wins": 15,
+      "losses": 14,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -22.85,
+      "wins": 3,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 6.075,
+      "wins": 25,
+      "losses": 10,
+      "n": 40,
+      "p": 0.017
+     },
+     "own_points": {
+      "mean": -22.85,
+      "wins": 3,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -16.775,
+      "wins": 10,
+      "losses": 23,
+      "n": 40,
+      "p": 0.035
+     }
+    }
+   },
+   "n": 80,
+   "gap_pct": 4.061,
+   "max_joint": 141.6
+  },
+  {
+   "label": "sonnet adopts, luna partner",
+   "layer": "cross",
+   "study": "e3_cross",
+   "model": "sonnet",
+   "sym": {},
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 3.125,
+      "wins": 42,
+      "losses": 27,
+      "n": 80,
+      "p": 0.091
+     },
+     "partner": {
+      "mean": -12.219,
+      "wins": 12,
+      "losses": 57,
+      "n": 80,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": 3.125,
+      "wins": 42,
+      "losses": 27,
+      "n": 80,
+      "p": 0.091
+     },
+     "joint": {
+      "mean": -9.094,
+      "wins": 13,
+      "losses": 58,
+      "n": 80,
+      "p": 0.0
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 2.05,
+      "wins": 33,
+      "losses": 26,
+      "n": 80,
+      "p": 0.435
+     },
+     "partner": {
+      "mean": -0.812,
+      "wins": 27,
+      "losses": 35,
+      "n": 80,
+      "p": 0.374
+     },
+     "own_points": {
+      "mean": 2.05,
+      "wins": 33,
+      "losses": 26,
+      "n": 80,
+      "p": 0.435
+     },
+     "joint": {
+      "mean": 1.238,
+      "wins": 30,
+      "losses": 32,
+      "n": 80,
+      "p": 0.899
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -2.987,
+      "wins": 12,
+      "losses": 22,
+      "n": 40,
+      "p": 0.121
+     },
+     "partner": {
+      "mean": -1.113,
+      "wins": 13,
+      "losses": 23,
+      "n": 40,
+      "p": 0.132
+     },
+     "own_points": {
+      "mean": -2.987,
+      "wins": 12,
+      "losses": 22,
+      "n": 40,
+      "p": 0.121
+     },
+     "joint": {
+      "mean": -4.1,
+      "wins": 6,
+      "losses": 30,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -5.688,
+      "wins": 10,
+      "losses": 21,
+      "n": 40,
+      "p": 0.071
+     },
+     "partner": {
+      "mean": 5.713,
+      "wins": 22,
+      "losses": 10,
+      "n": 40,
+      "p": 0.05
+     },
+     "own_points": {
+      "mean": -5.688,
+      "wins": 10,
+      "losses": 21,
+      "n": 40,
+      "p": 0.071
+     },
+     "joint": {
+      "mean": 0.025,
+      "wins": 11,
+      "losses": 20,
+      "n": 40,
+      "p": 0.15
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -22.688,
+      "wins": 4,
+      "losses": 33,
+      "n": 40,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -10.438,
+      "wins": 17,
+      "losses": 19,
+      "n": 40,
+      "p": 0.868
+     },
+     "own_points": {
+      "mean": -22.688,
+      "wins": 4,
+      "losses": 33,
+      "n": 40,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -33.125,
+      "wins": 5,
+      "losses": 30,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   },
+   "n": 80,
+   "gap_pct": 4.061,
+   "max_joint": 141.6
+  },
+  {
+   "label": "CaSiNo",
+   "layer": "benchmark",
+   "study": "casino",
+   "model": "luna",
+   "n": 36,
+   "gap_pct": 5.833,
+   "frontier": 22,
+   "joint": 37.667,
+   "max_joint": 40.0,
+   "sym": {
+    "competing": {
+     "mean": -27.667,
+     "wins": 0,
+     "losses": 36,
+     "n": 36,
+     "p": 0.0,
+     "pct": -69.167,
+     "agree": 0
+    },
+    "collaborating": {
+     "mean": -0.75,
+     "wins": 12,
+     "losses": 8,
+     "n": 36,
+     "p": 0.503,
+     "pct": -1.875,
+     "agree": 33
+    },
+    "compromising": {
+     "mean": -5.444,
+     "wins": 8,
+     "losses": 20,
+     "n": 36,
+     "p": 0.036,
+     "pct": -13.611,
+     "agree": 30
+    },
+    "accommodating": {
+     "mean": -0.389,
+     "wins": 11,
+     "losses": 12,
+     "n": 36,
+     "p": 1.0,
+     "pct": -0.972,
+     "agree": 36
+    },
+    "avoiding": {
+     "mean": -1.389,
+     "wins": 9,
+     "losses": 12,
+     "n": 36,
+     "p": 0.664,
+     "pct": -3.472,
+     "agree": 34
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 15.586,
+      "wins": 52,
+      "losses": 11,
+      "n": 72,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": -21.026,
+      "wins": 7,
+      "losses": 56,
+      "n": 72,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": 5.611,
+      "wins": 52,
+      "losses": 11,
+      "n": 72,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -1.958,
+      "wins": 18,
+      "losses": 31,
+      "n": 72,
+      "p": 0.085
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": 0.077,
+      "wins": 29,
+      "losses": 33,
+      "n": 72,
+      "p": 0.704
+     },
+     "partner": {
+      "mean": 0.347,
+      "wins": 37,
+      "losses": 27,
+      "n": 72,
+      "p": 0.26
+     },
+     "own_points": {
+      "mean": 0.028,
+      "wins": 29,
+      "losses": 33,
+      "n": 72,
+      "p": 0.704
+     },
+     "joint": {
+      "mean": 0.153,
+      "wins": 24,
+      "losses": 17,
+      "n": 72,
+      "p": 0.349
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": 1.119,
+      "wins": 35,
+      "losses": 31,
+      "n": 72,
+      "p": 0.712
+     },
+     "partner": {
+      "mean": -3.356,
+      "wins": 30,
+      "losses": 36,
+      "n": 72,
+      "p": 0.539
+     },
+     "own_points": {
+      "mean": 0.403,
+      "wins": 35,
+      "losses": 31,
+      "n": 72,
+      "p": 0.712
+     },
+     "joint": {
+      "mean": -0.806,
+      "wins": 18,
+      "losses": 30,
+      "n": 72,
+      "p": 0.111
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -3.125,
+      "wins": 24,
+      "losses": 30,
+      "n": 72,
+      "p": 0.497
+     },
+     "partner": {
+      "mean": 5.285,
+      "wins": 33,
+      "losses": 21,
+      "n": 72,
+      "p": 0.134
+     },
+     "own_points": {
+      "mean": -1.125,
+      "wins": 24,
+      "losses": 30,
+      "n": 72,
+      "p": 0.497
+     },
+     "joint": {
+      "mean": 0.778,
+      "wins": 23,
+      "losses": 12,
+      "n": 72,
+      "p": 0.09
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -7.099,
+      "wins": 21,
+      "losses": 45,
+      "n": 72,
+      "p": 0.004
+     },
+     "partner": {
+      "mean": 2.855,
+      "wins": 39,
+      "losses": 26,
+      "n": 72,
+      "p": 0.136
+     },
+     "own_points": {
+      "mean": -2.556,
+      "wins": 21,
+      "losses": 45,
+      "n": 72,
+      "p": 0.004
+     },
+     "joint": {
+      "mean": -1.528,
+      "wins": 19,
+      "losses": 27,
+      "n": 72,
+      "p": 0.302
+     }
+    }
+   }
+  },
+  {
+   "label": "LLM-Deliberation",
+   "layer": "benchmark",
+   "study": "deliberation",
+   "model": "luna",
+   "n": 57,
+   "gap_pct": 7.56,
+   "frontier": 22,
+   "joint": 158.947,
+   "max_joint": 171.947,
+   "sym": {
+    "competing": {
+     "mean": -15.649,
+     "wins": 20,
+     "losses": 30,
+     "n": 57,
+     "p": 0.203,
+     "pct": -9.101,
+     "agree": 45
+    },
+    "collaborating": {
+     "mean": 1.439,
+     "wins": 24,
+     "losses": 25,
+     "n": 57,
+     "p": 1.0,
+     "pct": 0.837,
+     "agree": 57
+    },
+    "compromising": {
+     "mean": -4.596,
+     "wins": 17,
+     "losses": 29,
+     "n": 57,
+     "p": 0.104,
+     "pct": -2.673,
+     "agree": 57
+    },
+    "accommodating": {
+     "mean": -3.86,
+     "wins": 16,
+     "losses": 34,
+     "n": 57,
+     "p": 0.015,
+     "pct": -2.245,
+     "agree": 57
+    },
+    "avoiding": {
+     "mean": -20.018,
+     "wins": 13,
+     "losses": 41,
+     "n": 57,
+     "p": 0.0,
+     "pct": -11.642,
+     "agree": 46
+    }
+   },
+   "alone": {
+    "competing": {
+     "own": {
+      "mean": 0.404,
+      "wins": 50,
+      "losses": 45,
+      "n": 114,
+      "p": 0.682
+     },
+     "partner": {
+      "mean": 1.307,
+      "wins": 53,
+      "losses": 37,
+      "n": 114,
+      "p": 0.113
+     },
+     "own_points": {
+      "mean": 0.404,
+      "wins": 50,
+      "losses": 45,
+      "n": 114,
+      "p": 0.682
+     },
+     "joint": {
+      "mean": 1.711,
+      "wins": 53,
+      "losses": 38,
+      "n": 114,
+      "p": 0.142
+     }
+    },
+    "collaborating": {
+     "own": {
+      "mean": -1.939,
+      "wins": 39,
+      "losses": 52,
+      "n": 114,
+      "p": 0.208
+     },
+     "partner": {
+      "mean": 3.754,
+      "wins": 60,
+      "losses": 32,
+      "n": 114,
+      "p": 0.005
+     },
+     "own_points": {
+      "mean": -1.939,
+      "wins": 39,
+      "losses": 52,
+      "n": 114,
+      "p": 0.208
+     },
+     "joint": {
+      "mean": 1.816,
+      "wins": 48,
+      "losses": 39,
+      "n": 114,
+      "p": 0.391
+     }
+    },
+    "compromising": {
+     "own": {
+      "mean": -6.781,
+      "wins": 27,
+      "losses": 67,
+      "n": 114,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 3.675,
+      "wins": 56,
+      "losses": 35,
+      "n": 114,
+      "p": 0.035
+     },
+     "own_points": {
+      "mean": -6.781,
+      "wins": 27,
+      "losses": 67,
+      "n": 114,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -3.105,
+      "wins": 37,
+      "losses": 55,
+      "n": 114,
+      "p": 0.076
+     }
+    },
+    "accommodating": {
+     "own": {
+      "mean": -10.877,
+      "wins": 19,
+      "losses": 83,
+      "n": 114,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 8.825,
+      "wins": 83,
+      "losses": 18,
+      "n": 114,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -10.877,
+      "wins": 19,
+      "losses": 83,
+      "n": 114,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -2.053,
+      "wins": 35,
+      "losses": 64,
+      "n": 114,
+      "p": 0.005
+     }
+    },
+    "avoiding": {
+     "own": {
+      "mean": -11.939,
+      "wins": 20,
+      "losses": 77,
+      "n": 114,
+      "p": 0.0
+     },
+     "partner": {
+      "mean": 4.219,
+      "wins": 69,
+      "losses": 26,
+      "n": 114,
+      "p": 0.0
+     },
+     "own_points": {
+      "mean": -11.939,
+      "wins": 20,
+      "losses": 77,
+      "n": 114,
+      "p": 0.0
+     },
+     "joint": {
+      "mean": -7.719,
+      "wins": 35,
+      "losses": 63,
+      "n": 114,
+      "p": 0.006
+     }
+    }
+   }
+  }
+ ],
+ "gap_fit": {
+  "standard_protocol": {
+   "r": 0.813,
+   "slope": 0.868,
+   "intercept": -3.636,
+   "n": 23
+  },
+  "all_settings": {
+   "r": 0.324,
+   "slope": 0.21,
+   "intercept": 0.095,
+   "n": 29
+  },
+  "outside": [
+   "E2 urgent",
+   "E2 time_cost",
+   "E2 tight_budget",
+   "E2 low_stakes_p2",
+   "sonnet, unequal stakes",
+   "sol, unequal stakes"
+  ]
+ },
+ "claims": {
+  "competing_pairs_below": {
+   "holds": 27,
+   "of": 27,
+   "significant": 20,
+   "significant_against": 0
+  },
+  "compromising_pairs_below": {
+   "holds": 26,
+   "of": 27,
+   "significant": 14,
+   "significant_against": 0
+  },
+  "avoiding_pairs_below": {
+   "holds": 27,
+   "of": 27,
+   "significant": 13,
+   "significant_against": 0
+  },
+  "collaborating_pairs_above": {
+   "holds": 22,
+   "of": 27,
+   "significant": 12,
+   "significant_against": 0
+  },
+  "accommodating_pairs_above": {
+   "holds": 21,
+   "of": 27,
+   "significant": 9,
+   "significant_against": 1
+  },
+  "avoiding_alone_loses": {
+   "holds": 22,
+   "of": 22,
+   "significant": 20,
+   "significant_against": 0
+  },
+  "accommodating_alone_loses": {
+   "holds": 21,
+   "of": 22,
+   "significant": 11,
+   "significant_against": 0
+  },
+  "compromising_alone_loses": {
+   "holds": 20,
+   "of": 22,
+   "significant": 10,
+   "significant_against": 0
+  },
+  "competing_alone_costs_partner": {
+   "holds": 26,
+   "of": 29,
+   "significant": 17,
+   "significant_against": 0
+  },
+  "competing_alone_gains": {
+   "holds": 22,
+   "of": 29,
+   "significant": 3,
+   "significant_against": 0
+  },
+  "collaborating_alone_joint": {
+   "holds": 25,
+   "of": 29,
+   "significant": 12,
+   "significant_against": 0
+  },
+  "collaborating_alone_gains": {
+   "holds": 21,
+   "of": 29,
+   "significant": 3,
+   "significant_against": 4
+  }
+ },
+ "cost": {
+  "(a) both sides use it": {
+   "best_at_0": "accommodating",
+   "switches": [],
+   "lines": {
+    "neutral": [
+     63.8,
+     1881
+    ],
+    "competing": [
+     51.3,
+     4010
+    ],
+    "collaborating": [
+     67.7,
+     2694
+    ],
+    "compromising": [
+     57.5,
+     1396
+    ],
+    "accommodating": [
+     68.1,
+     1383
+    ],
+    "avoiding": [
+     56.4,
+     831
+    ]
+   }
+  },
+  "(b) adopted alone": {
+   "best_at_0": "collaborating",
+   "switches": [
+    [
+     10.6,
+     "neutral"
+    ]
+   ],
+   "lines": {
+    "neutral": [
+     63.8,
+     1881
+    ],
+    "competing": [
+     67.0,
+     2851
+    ],
+    "collaborating": [
+     72.2,
+     2675
+    ],
+    "compromising": [
+     57.6,
+     2317
+    ],
+    "accommodating": [
+     51.7,
+     1717
+    ],
+    "avoiding": [
+     45.3,
+     1159
+    ]
+   }
+  }
+ },
+ "reward": {
+  "base": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 62.612,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 46.925,
+     "gain": {
+      "mean": -15.688,
+      "wins": 10,
+      "losses": 30,
+      "n": 40,
+      "p": 0.002
+     }
+    },
+    "collaborating": {
+     "payoff": 65.6,
+     "gain": {
+      "mean": 2.987,
+      "wins": 19,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "compromising": {
+     "payoff": 58.388,
+     "gain": {
+      "mean": -4.225,
+      "wins": 16,
+      "losses": 24,
+      "n": 40,
+      "p": 0.268
+     }
+    },
+    "accommodating": {
+     "payoff": 65.688,
+     "gain": {
+      "mean": 3.075,
+      "wins": 18,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "avoiding": {
+     "payoff": 52.112,
+     "gain": {
+      "mean": -10.5,
+      "wins": 11,
+      "losses": 25,
+      "n": 40,
+      "p": 0.029
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 62.612,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 63.712,
+     "gain": {
+      "mean": 1.1,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     }
+    },
+    "collaborating": {
+     "payoff": 69.562,
+     "gain": {
+      "mean": 6.95,
+      "wins": 22,
+      "losses": 14,
+      "n": 40,
+      "p": 0.243
+     }
+    },
+    "compromising": {
+     "payoff": 54.875,
+     "gain": {
+      "mean": -7.737,
+      "wins": 16,
+      "losses": 23,
+      "n": 40,
+      "p": 0.337
+     }
+    },
+    "accommodating": {
+     "payoff": 60.837,
+     "gain": {
+      "mean": -1.775,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     }
+    },
+    "avoiding": {
+     "payoff": 47.812,
+     "gain": {
+      "mean": -14.8,
+      "wins": 10,
+      "losses": 27,
+      "n": 40,
+      "p": 0.008
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 50.35,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 46.925,
+     "gain": {
+      "mean": -3.425,
+      "wins": 13,
+      "losses": 16,
+      "n": 40,
+      "p": 0.711
+     }
+    },
+    "collaborating": {
+     "payoff": 53.65,
+     "gain": {
+      "mean": 3.3,
+      "wins": 20,
+      "losses": 14,
+      "n": 40,
+      "p": 0.392
+     }
+    },
+    "compromising": {
+     "payoff": 42.562,
+     "gain": {
+      "mean": -7.787,
+      "wins": 13,
+      "losses": 26,
+      "n": 40,
+      "p": 0.053
+     }
+    },
+    "accommodating": {
+     "payoff": 49.975,
+     "gain": {
+      "mean": -0.375,
+      "wins": 15,
+      "losses": 21,
+      "n": 40,
+      "p": 0.405
+     }
+    },
+    "avoiding": {
+     "payoff": 36.275,
+     "gain": {
+      "mean": -14.075,
+      "wins": 6,
+      "losses": 27,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  "urgent": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 56.087,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 30.0,
+     "gain": {
+      "mean": -26.087,
+      "wins": 1,
+      "losses": 33,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "collaborating": {
+     "payoff": 47.475,
+     "gain": {
+      "mean": -8.613,
+      "wins": 14,
+      "losses": 20,
+      "n": 40,
+      "p": 0.392
+     }
+    },
+    "compromising": {
+     "payoff": 48.0,
+     "gain": {
+      "mean": -8.088,
+      "wins": 12,
+      "losses": 25,
+      "n": 40,
+      "p": 0.047
+     }
+    },
+    "accommodating": {
+     "payoff": 64.775,
+     "gain": {
+      "mean": 8.688,
+      "wins": 21,
+      "losses": 13,
+      "n": 40,
+      "p": 0.229
+     }
+    },
+    "avoiding": {
+     "payoff": 45.737,
+     "gain": {
+      "mean": -10.35,
+      "wins": 12,
+      "losses": 24,
+      "n": 40,
+      "p": 0.065
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 56.087,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 55.712,
+     "gain": {
+      "mean": -0.375,
+      "wins": 14,
+      "losses": 23,
+      "n": 40,
+      "p": 0.188
+     }
+    },
+    "collaborating": {
+     "payoff": 52.688,
+     "gain": {
+      "mean": -3.4,
+      "wins": 13,
+      "losses": 23,
+      "n": 40,
+      "p": 0.132
+     }
+    },
+    "compromising": {
+     "payoff": 52.525,
+     "gain": {
+      "mean": -3.562,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     }
+    },
+    "accommodating": {
+     "payoff": 57.9,
+     "gain": {
+      "mean": 1.812,
+      "wins": 22,
+      "losses": 16,
+      "n": 40,
+      "p": 0.418
+     }
+    },
+    "avoiding": {
+     "payoff": 47.362,
+     "gain": {
+      "mean": -8.725,
+      "wins": 14,
+      "losses": 21,
+      "n": 40,
+      "p": 0.311
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 40.013,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 30.0,
+     "gain": {
+      "mean": -10.012,
+      "wins": 0,
+      "losses": 21,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "collaborating": {
+     "payoff": 42.712,
+     "gain": {
+      "mean": 2.7,
+      "wins": 11,
+      "losses": 14,
+      "n": 40,
+      "p": 0.69
+     }
+    },
+    "compromising": {
+     "payoff": 35.788,
+     "gain": {
+      "mean": -4.225,
+      "wins": 13,
+      "losses": 13,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "payoff": 42.638,
+     "gain": {
+      "mean": 2.625,
+      "wins": 17,
+      "losses": 14,
+      "n": 40,
+      "p": 0.72
+     }
+    },
+    "avoiding": {
+     "payoff": 36.95,
+     "gain": {
+      "mean": -3.062,
+      "wins": 11,
+      "losses": 11,
+      "n": 40,
+      "p": 1.0
+     }
+    }
+   }
+  },
+  "time_cost": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 47.325,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 22.525,
+     "gain": {
+      "mean": -24.8,
+      "wins": 8,
+      "losses": 31,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "collaborating": {
+     "payoff": 50.45,
+     "gain": {
+      "mean": 3.125,
+      "wins": 23,
+      "losses": 14,
+      "n": 40,
+      "p": 0.188
+     }
+    },
+    "compromising": {
+     "payoff": 48.513,
+     "gain": {
+      "mean": 1.188,
+      "wins": 23,
+      "losses": 16,
+      "n": 40,
+      "p": 0.337
+     }
+    },
+    "accommodating": {
+     "payoff": 55.538,
+     "gain": {
+      "mean": 8.213,
+      "wins": 22,
+      "losses": 16,
+      "n": 40,
+      "p": 0.418
+     }
+    },
+    "avoiding": {
+     "payoff": 39.388,
+     "gain": {
+      "mean": -7.938,
+      "wins": 18,
+      "losses": 22,
+      "n": 40,
+      "p": 0.636
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 47.325,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 38.263,
+     "gain": {
+      "mean": -9.062,
+      "wins": 16,
+      "losses": 22,
+      "n": 40,
+      "p": 0.418
+     }
+    },
+    "collaborating": {
+     "payoff": 49.85,
+     "gain": {
+      "mean": 2.525,
+      "wins": 20,
+      "losses": 20,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "compromising": {
+     "payoff": 41.163,
+     "gain": {
+      "mean": -6.162,
+      "wins": 18,
+      "losses": 22,
+      "n": 40,
+      "p": 0.636
+     }
+    },
+    "accommodating": {
+     "payoff": 41.925,
+     "gain": {
+      "mean": -5.4,
+      "wins": 18,
+      "losses": 22,
+      "n": 40,
+      "p": 0.636
+     }
+    },
+    "avoiding": {
+     "payoff": 33.85,
+     "gain": {
+      "mean": -13.475,
+      "wins": 12,
+      "losses": 26,
+      "n": 40,
+      "p": 0.034
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 31.212,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 22.525,
+     "gain": {
+      "mean": -8.688,
+      "wins": 12,
+      "losses": 24,
+      "n": 40,
+      "p": 0.065
+     }
+    },
+    "collaborating": {
+     "payoff": 35.513,
+     "gain": {
+      "mean": 4.3,
+      "wins": 22,
+      "losses": 17,
+      "n": 40,
+      "p": 0.522
+     }
+    },
+    "compromising": {
+     "payoff": 30.0,
+     "gain": {
+      "mean": -1.212,
+      "wins": 19,
+      "losses": 20,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "payoff": 35.025,
+     "gain": {
+      "mean": 3.812,
+      "wins": 24,
+      "losses": 14,
+      "n": 40,
+      "p": 0.143
+     }
+    },
+    "avoiding": {
+     "payoff": 26.087,
+     "gain": {
+      "mean": -5.125,
+      "wins": 15,
+      "losses": 24,
+      "n": 40,
+      "p": 0.2
+     }
+    }
+   }
+  },
+  "tight_budget": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 61.6,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 48.45,
+     "gain": {
+      "mean": -13.15,
+      "wins": 13,
+      "losses": 27,
+      "n": 40,
+      "p": 0.038
+     }
+    },
+    "collaborating": {
+     "payoff": 61.4,
+     "gain": {
+      "mean": -0.2,
+      "wins": 17,
+      "losses": 17,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "compromising": {
+     "payoff": 60.475,
+     "gain": {
+      "mean": -1.125,
+      "wins": 17,
+      "losses": 23,
+      "n": 40,
+      "p": 0.43
+     }
+    },
+    "accommodating": {
+     "payoff": 66.225,
+     "gain": {
+      "mean": 4.625,
+      "wins": 20,
+      "losses": 14,
+      "n": 40,
+      "p": 0.392
+     }
+    },
+    "avoiding": {
+     "payoff": 51.15,
+     "gain": {
+      "mean": -10.45,
+      "wins": 14,
+      "losses": 24,
+      "n": 40,
+      "p": 0.143
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 61.6,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 68.362,
+     "gain": {
+      "mean": 6.763,
+      "wins": 24,
+      "losses": 15,
+      "n": 40,
+      "p": 0.2
+     }
+    },
+    "collaborating": {
+     "payoff": 61.7,
+     "gain": {
+      "mean": 0.1,
+      "wins": 18,
+      "losses": 15,
+      "n": 40,
+      "p": 0.728
+     }
+    },
+    "compromising": {
+     "payoff": 50.013,
+     "gain": {
+      "mean": -11.588,
+      "wins": 14,
+      "losses": 26,
+      "n": 40,
+      "p": 0.081
+     }
+    },
+    "accommodating": {
+     "payoff": 54.737,
+     "gain": {
+      "mean": -6.862,
+      "wins": 16,
+      "losses": 20,
+      "n": 40,
+      "p": 0.618
+     }
+    },
+    "avoiding": {
+     "payoff": 45.413,
+     "gain": {
+      "mean": -16.188,
+      "wins": 11,
+      "losses": 26,
+      "n": 40,
+      "p": 0.02
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 47.837,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 48.45,
+     "gain": {
+      "mean": 0.613,
+      "wins": 15,
+      "losses": 20,
+      "n": 40,
+      "p": 0.5
+     }
+    },
+    "collaborating": {
+     "payoff": 54.913,
+     "gain": {
+      "mean": 7.075,
+      "wins": 21,
+      "losses": 12,
+      "n": 40,
+      "p": 0.163
+     }
+    },
+    "compromising": {
+     "payoff": 49.763,
+     "gain": {
+      "mean": 1.925,
+      "wins": 19,
+      "losses": 17,
+      "n": 40,
+      "p": 0.868
+     }
+    },
+    "accommodating": {
+     "payoff": 47.425,
+     "gain": {
+      "mean": -0.412,
+      "wins": 15,
+      "losses": 19,
+      "n": 40,
+      "p": 0.608
+     }
+    },
+    "avoiding": {
+     "payoff": 33.163,
+     "gain": {
+      "mean": -14.675,
+      "wins": 4,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  "distributive": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 60.225,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 43.3,
+     "gain": {
+      "mean": -16.925,
+      "wins": 9,
+      "losses": 31,
+      "n": 40,
+      "p": 0.001
+     }
+    },
+    "collaborating": {
+     "payoff": 57.05,
+     "gain": {
+      "mean": -3.175,
+      "wins": 15,
+      "losses": 21,
+      "n": 40,
+      "p": 0.405
+     }
+    },
+    "compromising": {
+     "payoff": 58.925,
+     "gain": {
+      "mean": -1.3,
+      "wins": 17,
+      "losses": 23,
+      "n": 40,
+      "p": 0.43
+     }
+    },
+    "accommodating": {
+     "payoff": 60.7,
+     "gain": {
+      "mean": 0.475,
+      "wins": 16,
+      "losses": 18,
+      "n": 40,
+      "p": 0.864
+     }
+    },
+    "avoiding": {
+     "payoff": 38.425,
+     "gain": {
+      "mean": -21.8,
+      "wins": 5,
+      "losses": 33,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 60.225,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 64.35,
+     "gain": {
+      "mean": 4.125,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "collaborating": {
+     "payoff": 60.675,
+     "gain": {
+      "mean": 0.45,
+      "wins": 19,
+      "losses": 17,
+      "n": 40,
+      "p": 0.868
+     }
+    },
+    "compromising": {
+     "payoff": 54.2,
+     "gain": {
+      "mean": -6.025,
+      "wins": 13,
+      "losses": 22,
+      "n": 40,
+      "p": 0.175
+     }
+    },
+    "accommodating": {
+     "payoff": 51.788,
+     "gain": {
+      "mean": -8.438,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     }
+    },
+    "avoiding": {
+     "payoff": 40.475,
+     "gain": {
+      "mean": -19.75,
+      "wins": 6,
+      "losses": 29,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 47.625,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 43.3,
+     "gain": {
+      "mean": -4.325,
+      "wins": 12,
+      "losses": 22,
+      "n": 40,
+      "p": 0.121
+     }
+    },
+    "collaborating": {
+     "payoff": 42.888,
+     "gain": {
+      "mean": -4.737,
+      "wins": 15,
+      "losses": 17,
+      "n": 40,
+      "p": 0.86
+     }
+    },
+    "compromising": {
+     "payoff": 44.7,
+     "gain": {
+      "mean": -2.925,
+      "wins": 14,
+      "losses": 18,
+      "n": 40,
+      "p": 0.597
+     }
+    },
+    "accommodating": {
+     "payoff": 45.0,
+     "gain": {
+      "mean": -2.625,
+      "wins": 14,
+      "losses": 19,
+      "n": 40,
+      "p": 0.487
+     }
+    },
+    "avoiding": {
+     "payoff": 34.038,
+     "gain": {
+      "mean": -13.588,
+      "wins": 6,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  "integrative": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 69.062,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 54.55,
+     "gain": {
+      "mean": -14.512,
+      "wins": 11,
+      "losses": 29,
+      "n": 40,
+      "p": 0.006
+     }
+    },
+    "collaborating": {
+     "payoff": 75.45,
+     "gain": {
+      "mean": 6.388,
+      "wins": 21,
+      "losses": 15,
+      "n": 40,
+      "p": 0.405
+     }
+    },
+    "compromising": {
+     "payoff": 57.987,
+     "gain": {
+      "mean": -11.075,
+      "wins": 17,
+      "losses": 23,
+      "n": 40,
+      "p": 0.43
+     }
+    },
+    "accommodating": {
+     "payoff": 75.325,
+     "gain": {
+      "mean": 6.263,
+      "wins": 19,
+      "losses": 13,
+      "n": 40,
+      "p": 0.377
+     }
+    },
+    "avoiding": {
+     "payoff": 57.513,
+     "gain": {
+      "mean": -11.55,
+      "wins": 11,
+      "losses": 23,
+      "n": 40,
+      "p": 0.058
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 69.062,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 71.537,
+     "gain": {
+      "mean": 2.475,
+      "wins": 19,
+      "losses": 15,
+      "n": 40,
+      "p": 0.608
+     }
+    },
+    "collaborating": {
+     "payoff": 75.95,
+     "gain": {
+      "mean": 6.888,
+      "wins": 22,
+      "losses": 15,
+      "n": 40,
+      "p": 0.324
+     }
+    },
+    "compromising": {
+     "payoff": 63.8,
+     "gain": {
+      "mean": -5.263,
+      "wins": 14,
+      "losses": 23,
+      "n": 40,
+      "p": 0.188
+     }
+    },
+    "accommodating": {
+     "payoff": 61.888,
+     "gain": {
+      "mean": -7.175,
+      "wins": 8,
+      "losses": 22,
+      "n": 40,
+      "p": 0.016
+     }
+    },
+    "avoiding": {
+     "payoff": 49.612,
+     "gain": {
+      "mean": -19.45,
+      "wins": 6,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 59.35,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 54.55,
+     "gain": {
+      "mean": -4.8,
+      "wins": 13,
+      "losses": 21,
+      "n": 40,
+      "p": 0.229
+     }
+    },
+    "collaborating": {
+     "payoff": 64.562,
+     "gain": {
+      "mean": 5.213,
+      "wins": 20,
+      "losses": 12,
+      "n": 40,
+      "p": 0.215
+     }
+    },
+    "compromising": {
+     "payoff": 49.487,
+     "gain": {
+      "mean": -9.863,
+      "wins": 12,
+      "losses": 21,
+      "n": 40,
+      "p": 0.163
+     }
+    },
+    "accommodating": {
+     "payoff": 58.737,
+     "gain": {
+      "mean": -0.613,
+      "wins": 15,
+      "losses": 19,
+      "n": 40,
+      "p": 0.608
+     }
+    },
+    "avoiding": {
+     "payoff": 35.913,
+     "gain": {
+      "mean": -23.438,
+      "wins": 1,
+      "losses": 30,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  "all_contested": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 54.263,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 30.0,
+     "gain": {
+      "mean": -24.262,
+      "wins": 2,
+      "losses": 38,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "collaborating": {
+     "payoff": 53.6,
+     "gain": {
+      "mean": -0.662,
+      "wins": 17,
+      "losses": 17,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "compromising": {
+     "payoff": 50.225,
+     "gain": {
+      "mean": -4.037,
+      "wins": 16,
+      "losses": 21,
+      "n": 40,
+      "p": 0.511
+     }
+    },
+    "accommodating": {
+     "payoff": 54.275,
+     "gain": {
+      "mean": 0.013,
+      "wins": 17,
+      "losses": 13,
+      "n": 40,
+      "p": 0.585
+     }
+    },
+    "avoiding": {
+     "payoff": 33.925,
+     "gain": {
+      "mean": -20.337,
+      "wins": 5,
+      "losses": 35,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 54.263,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 49.925,
+     "gain": {
+      "mean": -4.338,
+      "wins": 15,
+      "losses": 22,
+      "n": 40,
+      "p": 0.324
+     }
+    },
+    "collaborating": {
+     "payoff": 56.575,
+     "gain": {
+      "mean": 2.312,
+      "wins": 18,
+      "losses": 14,
+      "n": 40,
+      "p": 0.597
+     }
+    },
+    "compromising": {
+     "payoff": 47.725,
+     "gain": {
+      "mean": -6.537,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     }
+    },
+    "accommodating": {
+     "payoff": 53.413,
+     "gain": {
+      "mean": -0.85,
+      "wins": 17,
+      "losses": 19,
+      "n": 40,
+      "p": 0.868
+     }
+    },
+    "avoiding": {
+     "payoff": 34.875,
+     "gain": {
+      "mean": -19.387,
+      "wins": 4,
+      "losses": 34,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 37.862,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 30.0,
+     "gain": {
+      "mean": -7.862,
+      "wins": 3,
+      "losses": 19,
+      "n": 40,
+      "p": 0.001
+     }
+    },
+    "collaborating": {
+     "payoff": 36.138,
+     "gain": {
+      "mean": -1.725,
+      "wins": 10,
+      "losses": 13,
+      "n": 40,
+      "p": 0.678
+     }
+    },
+    "compromising": {
+     "payoff": 33.237,
+     "gain": {
+      "mean": -4.625,
+      "wins": 11,
+      "losses": 20,
+      "n": 40,
+      "p": 0.15
+     }
+    },
+    "accommodating": {
+     "payoff": 36.375,
+     "gain": {
+      "mean": -1.488,
+      "wins": 16,
+      "losses": 14,
+      "n": 40,
+      "p": 0.856
+     }
+    },
+    "avoiding": {
+     "payoff": 30.288,
+     "gain": {
+      "mean": -7.575,
+      "wins": 3,
+      "losses": 19,
+      "n": 40,
+      "p": 0.001
+     }
+    }
+   }
+  },
+  "low_stakes_p2": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 38.907,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 27.652,
+     "gain": {
+      "mean": -11.255,
+      "wins": 8,
+      "losses": 32,
+      "n": 40,
+      "p": 0.0
+     }
+    },
+    "collaborating": {
+     "payoff": 42.133,
+     "gain": {
+      "mean": 3.225,
+      "wins": 20,
+      "losses": 20,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "compromising": {
+     "payoff": 37.248,
+     "gain": {
+      "mean": -1.66,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     }
+    },
+    "accommodating": {
+     "payoff": 43.462,
+     "gain": {
+      "mean": 4.555,
+      "wins": 14,
+      "losses": 16,
+      "n": 40,
+      "p": 0.856
+     }
+    },
+    "avoiding": {
+     "payoff": 29.7,
+     "gain": {
+      "mean": -9.207,
+      "wins": 8,
+      "losses": 22,
+      "n": 40,
+      "p": 0.016
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 38.907,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 37.593,
+     "gain": {
+      "mean": -1.315,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "collaborating": {
+     "payoff": 44.61,
+     "gain": {
+      "mean": 5.702,
+      "wins": 22,
+      "losses": 13,
+      "n": 40,
+      "p": 0.175
+     }
+    },
+    "compromising": {
+     "payoff": 34.625,
+     "gain": {
+      "mean": -4.282,
+      "wins": 13,
+      "losses": 25,
+      "n": 40,
+      "p": 0.073
+     }
+    },
+    "accommodating": {
+     "payoff": 36.792,
+     "gain": {
+      "mean": -2.115,
+      "wins": 13,
+      "losses": 21,
+      "n": 40,
+      "p": 0.229
+     }
+    },
+    "avoiding": {
+     "payoff": 25.872,
+     "gain": {
+      "mean": -13.035,
+      "wins": 11,
+      "losses": 24,
+      "n": 40,
+      "p": 0.041
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 33.758,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 27.652,
+     "gain": {
+      "mean": -6.105,
+      "wins": 7,
+      "losses": 26,
+      "n": 40,
+      "p": 0.001
+     }
+    },
+    "collaborating": {
+     "payoff": 38.35,
+     "gain": {
+      "mean": 4.593,
+      "wins": 21,
+      "losses": 16,
+      "n": 40,
+      "p": 0.511
+     }
+    },
+    "compromising": {
+     "payoff": 32.017,
+     "gain": {
+      "mean": -1.74,
+      "wins": 19,
+      "losses": 19,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "payoff": 32.12,
+     "gain": {
+      "mean": -1.638,
+      "wins": 15,
+      "losses": 20,
+      "n": 40,
+      "p": 0.5
+     }
+    },
+    "avoiding": {
+     "payoff": 20.878,
+     "gain": {
+      "mean": -12.88,
+      "wins": 5,
+      "losses": 28,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  "power_p1": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 61.3,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 46.562,
+     "gain": {
+      "mean": -14.738,
+      "wins": 11,
+      "losses": 29,
+      "n": 40,
+      "p": 0.006
+     }
+    },
+    "collaborating": {
+     "payoff": 68.412,
+     "gain": {
+      "mean": 7.112,
+      "wins": 23,
+      "losses": 13,
+      "n": 40,
+      "p": 0.132
+     }
+    },
+    "compromising": {
+     "payoff": 60.2,
+     "gain": {
+      "mean": -1.1,
+      "wins": 21,
+      "losses": 19,
+      "n": 40,
+      "p": 0.875
+     }
+    },
+    "accommodating": {
+     "payoff": 66.025,
+     "gain": {
+      "mean": 4.725,
+      "wins": 22,
+      "losses": 14,
+      "n": 40,
+      "p": 0.243
+     }
+    },
+    "avoiding": {
+     "payoff": 52.7,
+     "gain": {
+      "mean": -8.6,
+      "wins": 15,
+      "losses": 23,
+      "n": 40,
+      "p": 0.256
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 61.3,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 67.725,
+     "gain": {
+      "mean": 6.425,
+      "wins": 24,
+      "losses": 13,
+      "n": 40,
+      "p": 0.099
+     }
+    },
+    "collaborating": {
+     "payoff": 65.625,
+     "gain": {
+      "mean": 4.325,
+      "wins": 25,
+      "losses": 11,
+      "n": 40,
+      "p": 0.029
+     }
+    },
+    "compromising": {
+     "payoff": 53.513,
+     "gain": {
+      "mean": -7.787,
+      "wins": 11,
+      "losses": 29,
+      "n": 40,
+      "p": 0.006
+     }
+    },
+    "accommodating": {
+     "payoff": 52.837,
+     "gain": {
+      "mean": -8.463,
+      "wins": 17,
+      "losses": 20,
+      "n": 40,
+      "p": 0.743
+     }
+    },
+    "avoiding": {
+     "payoff": 46.212,
+     "gain": {
+      "mean": -15.088,
+      "wins": 8,
+      "losses": 28,
+      "n": 40,
+      "p": 0.001
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 50.225,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 46.562,
+     "gain": {
+      "mean": -3.663,
+      "wins": 13,
+      "losses": 21,
+      "n": 40,
+      "p": 0.229
+     }
+    },
+    "collaborating": {
+     "payoff": 54.413,
+     "gain": {
+      "mean": 4.188,
+      "wins": 22,
+      "losses": 14,
+      "n": 40,
+      "p": 0.243
+     }
+    },
+    "compromising": {
+     "payoff": 47.2,
+     "gain": {
+      "mean": -3.025,
+      "wins": 18,
+      "losses": 17,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "payoff": 45.975,
+     "gain": {
+      "mean": -4.25,
+      "wins": 16,
+      "losses": 17,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "avoiding": {
+     "payoff": 36.438,
+     "gain": {
+      "mean": -13.787,
+      "wins": 6,
+      "losses": 29,
+      "n": 40,
+      "p": 0.0
+     }
+    }
+   }
+  },
+  "open_info": {
+   "symmetric": {
+    "neutral": {
+     "payoff": 63.788,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 49.612,
+     "gain": {
+      "mean": -14.175,
+      "wins": 15,
+      "losses": 25,
+      "n": 40,
+      "p": 0.154
+     }
+    },
+    "collaborating": {
+     "payoff": 67.562,
+     "gain": {
+      "mean": 3.775,
+      "wins": 20,
+      "losses": 16,
+      "n": 40,
+      "p": 0.618
+     }
+    },
+    "compromising": {
+     "payoff": 58.1,
+     "gain": {
+      "mean": -5.688,
+      "wins": 18,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "accommodating": {
+     "payoff": 64.463,
+     "gain": {
+      "mean": 0.675,
+      "wins": 19,
+      "losses": 17,
+      "n": 40,
+      "p": 0.868
+     }
+    },
+    "avoiding": {
+     "payoff": 59.35,
+     "gain": {
+      "mean": -4.438,
+      "wins": 14,
+      "losses": 20,
+      "n": 40,
+      "p": 0.392
+     }
+    }
+   },
+   "vs_neutral": {
+    "neutral": {
+     "payoff": 63.788,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 73.15,
+     "gain": {
+      "mean": 9.363,
+      "wins": 25,
+      "losses": 12,
+      "n": 40,
+      "p": 0.047
+     }
+    },
+    "collaborating": {
+     "payoff": 72.763,
+     "gain": {
+      "mean": 8.975,
+      "wins": 23,
+      "losses": 14,
+      "n": 40,
+      "p": 0.188
+     }
+    },
+    "compromising": {
+     "payoff": 67.263,
+     "gain": {
+      "mean": 3.475,
+      "wins": 21,
+      "losses": 15,
+      "n": 40,
+      "p": 0.405
+     }
+    },
+    "accommodating": {
+     "payoff": 60.4,
+     "gain": {
+      "mean": -3.388,
+      "wins": 17,
+      "losses": 21,
+      "n": 40,
+      "p": 0.627
+     }
+    },
+    "avoiding": {
+     "payoff": 61.513,
+     "gain": {
+      "mean": -2.275,
+      "wins": 20,
+      "losses": 18,
+      "n": 40,
+      "p": 0.871
+     }
+    }
+   },
+   "vs_competing": {
+    "neutral": {
+     "payoff": 50.212,
+     "gain": {
+      "mean": 0.0,
+      "wins": 0,
+      "losses": 0,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "competing": {
+     "payoff": 49.612,
+     "gain": {
+      "mean": -0.6,
+      "wins": 19,
+      "losses": 18,
+      "n": 40,
+      "p": 1.0
+     }
+    },
+    "collaborating": {
+     "payoff": 57.062,
+     "gain": {
+      "mean": 6.85,
+      "wins": 23,
+      "losses": 10,
+      "n": 40,
+      "p": 0.035
+     }
+    },
+    "compromising": {
+     "payoff": 43.675,
+     "gain": {
+      "mean": -6.537,
+      "wins": 18,
+      "losses": 20,
+      "n": 40,
+      "p": 0.871
+     }
+    },
+    "accommodating": {
+     "payoff": 51.837,
+     "gain": {
+      "mean": 1.625,
+      "wins": 20,
+      "losses": 15,
+      "n": 40,
+      "p": 0.5
+     }
+    },
+    "avoiding": {
+     "payoff": 37.413,
+     "gain": {
+      "mean": -12.8,
+      "wins": 10,
+      "losses": 28,
+      "n": 40,
+      "p": 0.005
+     }
+    }
+   }
+  }
+ }
+}
