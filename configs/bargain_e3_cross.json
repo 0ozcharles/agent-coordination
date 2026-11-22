@@ -32,5 +32,5 @@
     "analysis": "Paired by instance (exact sign tests) against the arm's own mixed default pair, with the two arms pooled by model (seat 1 of one arm and seat 2 of the other play the same model), 80 games per direction when both arms are played; the same-model twins are E3's luna control and sonnet arms on the same 40 instances."
   },
   "budget_usd": 12.0,
-  "status": "frozen 2026-11-21 before any game was played"
+  "status": "frozen 2026-11-21 before any game was played; arm 1 played in full (640 games, $8.17), arm 2 for its five central cells (200 games, $3.38) within what the proxy budget had left; see the arm configs"
 }

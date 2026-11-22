@@ -183,6 +183,6 @@
   "budget_usd": 10.0,
   "output": "runs/bargain/e3_cross_sonnet_luna",
   "results_prefix": "results/bargain_e3_cross_sonnet_luna",
-  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E3 (E1's 40 instances), 16 cells as the E3 follow-up",
+  "status": "frozen 2026-11-21 before any game was played; environment, rules, instances and seats as E3 (E1's 40 instances), 16 cells as the E3 follow-up; played 2026-11-21 for five of its 16 cells (neutral-neutral, competing-neutral, neutral-competing, collaborating-neutral, neutral-collaborating), the cells the two central predictions need, to keep the month's proxy budget: the first arm cost $8.17 for 640 games, and these 200 games give the competing and collaborating comparisons 80 pairs per direction; the other eleven cells rest on the first arm's 40",
   "budget_note": "raised from 6 to 10 on 2026-11-21 after the first arm stopped at its cap with 419 of 640 games played: with the 1,500-token cap sonnet's seat writes about 1,000 completion tokens a game and a game costs about $0.015, not the $0.008 of the estimate; nothing else changed"
 }
