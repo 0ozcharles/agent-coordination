@@ -1354,5 +1354,588 @@
     55
    ]
   }
+ },
+ "dond": {
+  "n": 80,
+  "cost": 0.62,
+  "cells": {
+   "neutral-neutral": {
+    "joint": 13.1,
+    "p1": 6.7,
+    "p2": 6.3,
+    "agree": 79,
+    "frontier": 55,
+    "gap": 1.4,
+    "moves": 4.14,
+    "tokens": 4083,
+    "p1_comply": 0,
+    "p1_known": 0
+   },
+   "competing-competing": {
+    "joint": 7.2,
+    "p1": 3.6,
+    "p2": 3.7,
+    "agree": 41,
+    "frontier": 31,
+    "gap": 7.2,
+    "moves": 7.33,
+    "tokens": 8776,
+    "p1_comply": 75,
+    "p1_known": 80
+   },
+   "collaborating-collaborating": {
+    "joint": 12.8,
+    "p1": 6.8,
+    "p2": 6.1,
+    "agree": 78,
+    "frontier": 56,
+    "gap": 1.6,
+    "moves": 4.12,
+    "tokens": 4714,
+    "p1_comply": 51,
+    "p1_known": 80
+   },
+   "compromising-compromising": {
+    "joint": 10.6,
+    "p1": 5.8,
+    "p2": 4.8,
+    "agree": 66,
+    "frontier": 30,
+    "gap": 3.9,
+    "moves": 4.75,
+    "tokens": 5274,
+    "p1_comply": 71,
+    "p1_known": 80
+   },
+   "accommodating-accommodating": {
+    "joint": 12.4,
+    "p1": 6.3,
+    "p2": 6.1,
+    "agree": 80,
+    "frontier": 51,
+    "gap": 2.0,
+    "moves": 2.52,
+    "tokens": 2188,
+    "p1_comply": 44,
+    "p1_known": 80
+   },
+   "avoiding-avoiding": {
+    "joint": 12.4,
+    "p1": 5.5,
+    "p2": 6.9,
+    "agree": 80,
+    "frontier": 65,
+    "gap": 2.1,
+    "moves": 2.52,
+    "tokens": 2095,
+    "p1_comply": 80,
+    "p1_known": 80
+   },
+   "competing-neutral": {
+    "joint": 10.9,
+    "p1": 6.2,
+    "p2": 4.7,
+    "agree": 65,
+    "frontier": 47,
+    "gap": 3.6,
+    "moves": 6.12,
+    "tokens": 6925,
+    "p1_comply": 75,
+    "p1_known": 80
+   },
+   "collaborating-neutral": {
+    "joint": 13.0,
+    "p1": 6.9,
+    "p2": 6.2,
+    "agree": 77,
+    "frontier": 57,
+    "gap": 1.4,
+    "moves": 4.15,
+    "tokens": 4434,
+    "p1_comply": 44,
+    "p1_known": 80
+   },
+   "compromising-neutral": {
+    "joint": 12.6,
+    "p1": 6.5,
+    "p2": 6.1,
+    "agree": 78,
+    "frontier": 48,
+    "gap": 1.9,
+    "moves": 4.55,
+    "tokens": 4700,
+    "p1_comply": 70,
+    "p1_known": 80
+   },
+   "accommodating-neutral": {
+    "joint": 12.7,
+    "p1": 4.8,
+    "p2": 7.9,
+    "agree": 80,
+    "frontier": 57,
+    "gap": 1.8,
+    "moves": 3.11,
+    "tokens": 2807,
+    "p1_comply": 57,
+    "p1_known": 80
+   },
+   "avoiding-neutral": {
+    "joint": 12.0,
+    "p1": 5.0,
+    "p2": 7.0,
+    "agree": 78,
+    "frontier": 53,
+    "gap": 2.4,
+    "moves": 2.88,
+    "tokens": 2455,
+    "p1_comply": 80,
+    "p1_known": 80
+   },
+   "neutral-competing": {
+    "joint": 12.1,
+    "p1": 5.0,
+    "p2": 7.1,
+    "agree": 72,
+    "frontier": 54,
+    "gap": 2.4,
+    "moves": 4.42,
+    "tokens": 4557,
+    "p1_comply": 0,
+    "p1_known": 0
+   },
+   "neutral-collaborating": {
+    "joint": 13.5,
+    "p1": 7.0,
+    "p2": 6.5,
+    "agree": 80,
+    "frontier": 62,
+    "gap": 0.9,
+    "moves": 3.69,
+    "tokens": 3807,
+    "p1_comply": 0,
+    "p1_known": 0
+   },
+   "neutral-compromising": {
+    "joint": 12.9,
+    "p1": 6.4,
+    "p2": 6.5,
+    "agree": 79,
+    "frontier": 43,
+    "gap": 1.5,
+    "moves": 4.11,
+    "tokens": 4150,
+    "p1_comply": 0,
+    "p1_known": 0
+   },
+   "neutral-accommodating": {
+    "joint": 13.2,
+    "p1": 7.9,
+    "p2": 5.3,
+    "agree": 80,
+    "frontier": 61,
+    "gap": 1.2,
+    "moves": 2.91,
+    "tokens": 2590,
+    "p1_comply": 0,
+    "p1_known": 0
+   },
+   "neutral-avoiding": {
+    "joint": 13.0,
+    "p1": 7.0,
+    "p2": 5.9,
+    "agree": 79,
+    "frontier": 56,
+    "gap": 1.5,
+    "moves": 2.76,
+    "tokens": 2340,
+    "p1_comply": 0,
+    "p1_known": 0
+   }
+  },
+  "symmetric_vs_neutral": {
+   "all": {
+    "competing": [
+     -5.8,
+     13,
+     49,
+     0.0
+    ],
+    "collaborating": [
+     -0.2,
+     23,
+     22,
+     1.0
+    ],
+    "compromising": [
+     -2.5,
+     14,
+     40,
+     0.001
+    ],
+    "accommodating": [
+     -0.6,
+     21,
+     31,
+     0.212
+    ],
+    "avoiding": [
+     -0.7,
+     20,
+     28,
+     0.312
+    ]
+   },
+   "contested=1": {
+    "competing": [
+     -4.3,
+     8,
+     14,
+     0.286
+    ],
+    "collaborating": [
+     -0.4,
+     9,
+     11,
+     0.824
+    ],
+    "compromising": [
+     -3.2,
+     6,
+     19,
+     0.015
+    ],
+    "accommodating": [
+     -0.5,
+     7,
+     13,
+     0.263
+    ],
+    "avoiding": [
+     -0.4,
+     6,
+     13,
+     0.167
+    ]
+   },
+   "contested=2": {
+    "competing": [
+     -6.4,
+     5,
+     26,
+     0.0
+    ],
+    "collaborating": [
+     -0.3,
+     11,
+     11,
+     1.0
+    ],
+    "compromising": [
+     -2.5,
+     7,
+     20,
+     0.019
+    ],
+    "accommodating": [
+     -1.0,
+     11,
+     17,
+     0.345
+    ],
+    "avoiding": [
+     -1.0,
+     12,
+     14,
+     0.845
+    ]
+   },
+   "contested=3": {
+    "competing": [
+     -8.2,
+     0,
+     9,
+     0.004
+    ],
+    "collaborating": [
+     0.5,
+     3,
+     0,
+     0.25
+    ],
+    "compromising": [
+     -0.7,
+     1,
+     1,
+     1.0
+    ],
+    "accommodating": [
+     0.2,
+     3,
+     1,
+     0.625
+    ],
+    "avoiding": [
+     -0.1,
+     2,
+     1,
+     1.0
+    ]
+   }
+  },
+  "unilateral": {
+   "competing": {
+    "pooled": [
+     0.1,
+     62,
+     52,
+     0.399
+    ],
+    "seat1": [
+     -0.6,
+     27,
+     31,
+     0.694
+    ],
+    "seat2": [
+     0.8,
+     35,
+     21,
+     0.081
+    ],
+    "partner": [
+     -1.7,
+     29,
+     86,
+     0.0
+    ],
+    "groups": {
+     "contested=1": [
+      -0.1,
+      21,
+      18,
+      0.749
+     ],
+     "contested=2": [
+      0.1,
+      32,
+      27,
+      0.603
+     ],
+     "contested=3": [
+      0.5,
+      9,
+      7,
+      0.804
+     ]
+    }
+   },
+   "collaborating": {
+    "pooled": [
+     0.2,
+     53,
+     51,
+     0.922
+    ],
+    "seat1": [
+     0.1,
+     27,
+     23,
+     0.672
+    ],
+    "seat2": [
+     0.2,
+     26,
+     28,
+     0.892
+    ],
+    "partner": [
+     0.1,
+     54,
+     48,
+     0.621
+    ],
+    "groups": {
+     "contested=1": [
+      0.2,
+      16,
+      19,
+      0.736
+     ],
+     "contested=2": [
+      0.2,
+      27,
+      24,
+      0.78
+     ],
+     "contested=3": [
+      0.0,
+      10,
+      8,
+      0.815
+     ]
+    }
+   },
+   "compromising": {
+    "pooled": [
+     -0.0,
+     59,
+     57,
+     0.926
+    ],
+    "seat1": [
+     -0.3,
+     28,
+     30,
+     0.896
+    ],
+    "seat2": [
+     0.2,
+     31,
+     27,
+     0.694
+    ],
+    "partner": [
+     -0.3,
+     51,
+     61,
+     0.395
+    ],
+    "groups": {
+     "contested=1": [
+      -0.4,
+      17,
+      25,
+      0.28
+     ],
+     "contested=2": [
+      0.2,
+      32,
+      23,
+      0.281
+     ],
+     "contested=3": [
+      -0.1,
+      10,
+      9,
+      1.0
+     ]
+    }
+   },
+   "accommodating": {
+    "pooled": [
+     -1.5,
+     32,
+     77,
+     0.0
+    ],
+    "seat1": [
+     -1.9,
+     14,
+     44,
+     0.0
+    ],
+    "seat2": [
+     -1.0,
+     18,
+     33,
+     0.049
+    ],
+    "partner": [
+     1.4,
+     76,
+     29,
+     0.0
+    ],
+    "groups": {
+     "contested=1": [
+      -1.2,
+      9,
+      21,
+      0.043
+     ],
+     "contested=2": [
+      -1.7,
+      15,
+      46,
+      0.0
+     ],
+     "contested=3": [
+      -1.3,
+      8,
+      10,
+      0.815
+     ]
+    }
+   },
+   "avoiding": {
+    "pooled": [
+     -1.1,
+     42,
+     62,
+     0.062
+    ],
+    "seat1": [
+     -1.7,
+     16,
+     38,
+     0.004
+    ],
+    "seat2": [
+     -0.4,
+     26,
+     24,
+     0.888
+    ],
+    "partner": [
+     0.5,
+     60,
+     47,
+     0.246
+    ],
+    "groups": {
+     "contested=1": [
+      -1.1,
+      11,
+      17,
+      0.345
+     ],
+     "contested=2": [
+      -1.0,
+      24,
+      35,
+      0.193
+     ],
+     "contested=3": [
+      -1.1,
+      7,
+      10,
+      0.629
+     ]
+    }
+   }
+  },
+  "compliance": {
+   "competing": [
+    227,
+    240
+   ],
+   "collaborating": [
+    155,
+    240
+   ],
+   "compromising": [
+    206,
+    240
+   ],
+   "accommodating": [
+    153,
+    240
+   ],
+   "avoiding": [
+    240,
+    240
+   ]
+  },
+  "groups": {}
  }
 }
