@@ -1,0 +1,36 @@
+\section{Environment and Strategies}
+\label{sec:env}
+
+\subsection{The game}
+\label{sec:game}
+Two agents $a \in \{1,2\}$ must agree on a \emph{design} $d = (d_1,\dots,d_K)$ that picks one of $M$ options on each of $K$ issues ($K=4$, $M=3$ in the core). Agent $a$ has a private importance vector $I_a$ with $\sum_i I_{a,i} = 100$ and a private ranking of the options on every issue; option $o$ on issue $i$ is worth $w_{a,i,o} = I_{a,i}\,(1 - r_{a,i}(o)/(M-1))$, where $r_{a,i}(o)$ is the option's rank, so the top option is worth the issue's importance, the middle option half and the bottom option nothing. A design is worth $v_a(d) = \sum_i w_{a,i,d_i}$ and the agent's ideal design 100 points. An issue is \emph{contested} when the two rankings are reversed and \emph{shared} when they agree. Agreement on $d$ pays each agent $v_a(d)$; otherwise each receives an outside option $u_a$ (30 in the core).
+
+Two knobs set the structure of the conflict. The \emph{opposition} $p$ is the share of contested issues (three of four in the core). The \emph{asymmetry} $a \in [0,1]$ sets how differently the two sides weigh the issues: at $a=0$ they weigh them alike and the game is purely distributive, at $a=1$ their priorities are reversed and trading issues pays most ($a=0.5$ in the core). The two seats are statistically identical by construction, and option letters carry no information. Moves alternate for at most $T=10$ moves; on each an agent sends a free-text message and \emph{proposes} a complete design, \emph{accepts} the partner's latest proposal or \emph{walks}. Scores are private unless the information knob is on, and messages are unconstrained, so an agent may disclose, ask or misstate anything. The remaining knobs are the operational forms of the \tki{} model's situational conditions: the outside options (power), a scale on one side's points (stakes), the number of moves (urgency), a cost per move that passes (time pressure), a budget of reply tokens after which an agent can only accept or walk (the cost of talk), and whether the partner's scores are visible (information).
+
+With $M^K = 81$ designs the Pareto frontier and the maximal joint value are computed exactly for every instance. We report the \emph{joint gap} (the maximal joint value minus the joint value reached, with outside options when there is no agreement), whether the agreement lies on the frontier, and the agreement rate. In the core the maximal joint value is about 141 points and the outside options sum to 60. Prompts are in \cref{app:prompts}.
+
+\subsection{Five strategies as rules}
+\label{sec:strategies}
+A strategy is given to an agent as guidance appended to its system prompt. In the \emph{prompted} operationalization the guidance is a style sentence in the \tki{} wording, as in prior work on prompted negotiation styles. In the \emph{rule-based} operationalization it is a short list of behavioural rules on the agent's own point scale (\cref{tab:rules}; full texts in \cref{app:rules}): the thresholds are shares of the agent's ideal and its outside option, so one text applies whatever the stakes. A checker tests each rule from the moves (\competing, for instance, opens with its ideal, changes at most one issue per proposal and never accepts below $t_{60}$ before its last move), which yields compliance without a judge. A \neutral{} sentence (``handle this in whatever way you think best'') is the control; we call the agent that receives it the \emph{default agent} and two of them the \emph{default pair}.
+
+\begin{table}[t]
+\caption{The rule-based strategies, abridged (full texts in \cref{app:rules}). Thresholds are on the agent's own scale: $t_{60}$ and $t_{50}$ are 60\% and 50\% of its ideal, $u$ its outside option.}
+\label{tab:rules}
+\centering\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.29\linewidth}>{\raggedright\arraybackslash}p{0.64\linewidth}@{}}
+\toprule
+\competing & open with your ideal; change at most one issue per proposal, top to middle only; accept only $\ge t_{60}$; walk rather than accept less on the last move. \\
+\collaborating & say which issues matter most to you and ask which matter to them; trade whole issues so that each side gets its top option where it cares most; accept $\ge t_{60}$. \\
+\compromising & move contested issues to the middle option, one or two per proposal, never raising your own value; accept $\ge t_{50}$. \\
+\accommodating & ask what they need; accept the first proposal worth $\ge u{+}10$; build proposals around what they said. \\
+\avoiding & at most one proposal; do not argue; accept $\ge u$, otherwise walk. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Layers and measures}
+\label{sec:layers}
+A \emph{scenario skin} renders a generated instance as a realistic conflict without touching its payoffs: the design of a software module between two developers, a quarterly plan between two team leads or a release plan between two product owners, with named issues and options (\cref{app:skins}); the default rendering is abstract (``Decision 1, Option A''). \emph{Grounded instances} come from ParallACT's contradictory pairs \citep{parallact}, two tickets whose changes rewrite the same code incompatibly. An extractor model returns the two to four design decisions the developers would have to settle, the option each ticket needs and a middle ground, and each side's importances; each agent is told its own ticket and the other's. Opposition and asymmetry are then properties of the conflict: of 85 instances from 11 repositories, 152 of 225 decisions are contested. The set ships as extracted structure only.
+
+We measure own, partner and joint payoff, agreement, the joint gap and the frontier rate; tokens, moves and seconds; and the \emph{net payoff} $v_a - \lam\cdot\text{tokens}_a/1000$ for a price of tokens $\lam$ that we sweep rather than fix, reporting where the best strategy changes hands. Process measures are rule compliance, whether an agent asks about or discloses priorities and whether its proposals trade whole issues; a judge model's style label from the public transcript is secondary (\cref{app:more}).
+

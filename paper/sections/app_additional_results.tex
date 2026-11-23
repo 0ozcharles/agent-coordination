@@ -1,0 +1,26 @@
+\section{Additional results}
+\label{app:more}
+\todo[inline]{Still to add: per-condition matrices (results/bargain\_e2\_*\_matrix.svg); seat-level results; net payoff tables over $\lam$; compliance by cell; the E4 paired statistics and the option-name prior; the grounded control tables; the E0 round history; the E3 condition arms' 24-cell tables; the benchmark cells.}
+
+\paragraph{Style labels.} \Cref{tab:labels} gives the judge's labels for the default agents and the share of rule-following agents labeled in their own style, per study and model. The labeler sees the public transcript only (moves and messages, no scores, guidance or payoffs) and scores each agent's assertiveness and cooperativeness on three levels, which map to the five styles; it also records whether the agent asked about the partner's needs and whether it disclosed its own priorities.
+
+\begin{table}[H]
+\caption{Style labels (one pass, \texttt{gpt-6-luna} with low reasoning). Default agents: the share of agents in the \neutral{} pair labeled with each style (competing / collaborating / compromising / accommodating / avoiding), and the share that asked about the partner's needs or disclosed its priorities. Rule agents: the share labeled in their own style, per rule, for the seat following the rule in its pair and against \neutral. Source: \texttt{results/bargain\_labels\_summary.json}.}
+\label{tab:labels}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l l l l@{}}
+\toprule
+Study & Default agents (\%) & Asks / discloses (\%) & Rule agents in own style (\%): comp., coll., compr., acc., av. \\
+\midrule
+E1 (luna, 0.7)            & 0 / 11 / 49 / 40 / 0 & 40 / 41 & 1, 51, 81, 73, 11 \\
+E2 base (luna)            & 0 / 8 / 50 / 42 / 0  & 40 / 35 & 0, 40, 86, 74, 5 \\
+E4 skins (luna)           & 0 / 6--18 / 41--54 / 34--41 / 0 & 15--25 / 56--70 & 0--2, 33--40, 69--78, 66--76, 8--13 \\
+Grounded (luna)           & 1 / 8 / 66 / 25 / 1  & 4 / 49  & 3, 31, 70, 71, 12 \\
+E3 luna, default temp.    & 0 / 15 / 41 / 42 / 1 & 44 / 48 & 3, 43, 80, 68, 16 \\
+E3 claude-haiku-5-5       & 0 / 28 / 8 / 65 / 0  & 64 / 94 & 0, 49, 69, 54, 5 \\
+E3 claude-sonnet-5-5      & 0 / 18 / 4 / 79 / 0  & 85 / 94 & 0, 25, 23, 79, 4 \\
+E3 gpt-6.1-sol            & 0 / 24 / 1 / 75 / 0  & 65 / 96 & 0, 18, 51, 79, 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+

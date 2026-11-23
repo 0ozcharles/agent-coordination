@@ -1,0 +1,241 @@
+\section{Detailed results}
+\label{app:results}
+This appendix reports every experiment in full; the body's \cref{sec:results} summarizes it. Numbers for seat 1 alone (40 pairs) appear here beside the seat-pooled ones (80 pairs) used in the body.
+
+\subsection{Do the agents enact the strategies?}
+\label{sec:e0}
+\Cref{tab:compliance} gives rule compliance on the development set after the third round of rule writing, and in E1 over all partners. Rules stated in moves are followed: \competing, \avoiding{} and \accommodating{} comply in 9 or 10 games of 10 on the development set and in 95, 100 and 91 percent of their 240 E1 games. Rules that require the agent to construct a package are followed less often: \compromising{} in 81 percent of E1 games (it occasionally raises its own value again), \collaborating{} in 56 percent. The \collaborating{} agent asks and discloses in every game and holds its 60-point floor; what fails is the trade clause, a proposal that gives each side its top option on a contested issue, which it meets in 21 to 33 of 40 games depending on the partner. The first round of rules, written in points conceded per proposal, was followed in 2 of 10 games by \competing: a discrete design cannot deliver point-sized concessions.
+
+The prompted sentences move behaviour much less. Prompted \competing{} is firm but fair (66 against the partner's 65 on the development set, 6 of 10 compliant with the competing rule; in E1, 32 agreements of 40 against the rule's 25), prompted \collaborating{} is read as accommodating by the judge in 6 games of 10 and pays the partner more than the instructed side (60 against 70), and prompted \compromising{} opens at the middle and holds. Only \accommodating{} and \avoiding{} behave alike under both operationalizations. The judge separates the cooperative styles (the \accommodating{} rule is read as accommodating in 195 of 240 E1 games, the \compromising{} rule as compromising in 168) but not \competing{} from \compromising{}: the \competing{} rule's one-issue concessions are read as meeting halfway in 195 of 240 games and as competing in 10, while the prompted \competing{} sentence is read as competing in 11 of 40 games with a softer payoff. The sentence changes the words, the rule changes the moves. The main experiments therefore use the rules, with the programmatic measures primary and the labels secondary.
+
+\begin{table}[t]
+\caption{Rule compliance: development set after round three (games of 10, Developer 1 against a \neutral{} partner, both operationalizations judged by the same checker) and E1 (rule operationalization, first seat, of 240 games over all partners). Sources: \texttt{results/bargain\_dev\_summary.json}, \texttt{results/bargain\_e1\_summary.json}.}
+\label{tab:compliance}
+\centering\small\setlength{\tabcolsep}{5pt}
+\begin{tabular}{@{}l rr r@{}}
+\toprule
+ & \multicolumn{2}{c}{Development set} & E1 \\
+\cmidrule(lr){2-3}\cmidrule(l){4-4}
+Strategy & prompted & rules & rules \\
+\midrule
+\competing     & 6/10 & 10/10 & 229/240 \\
+\collaborating & 3/10 & 7/10 & 134/240 \\
+\compromising  & 7/10 & 7/10 & 194/240 \\
+\accommodating & 7/10 & 9/10 & 218/240 \\
+\avoiding      & 10/10 & 10/10 & 240/240 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The strategy matrix}
+\label{sec:e1}
+\Cref{tab:matrix} gives the own-payoff matrix and the joint payoff by pair; \cref{tab:pairs} compares the symmetric pairs with the \neutral{} pair. Four things stand out.
+
+\textbf{Collaborating by rule dominates.} It is the best response to \neutral, \competing, \collaborating{} and \avoiding, and replicator dynamics on the empirical $6\times6$ game converge to all-\collaborating. Adopted alone against a \neutral{} partner it earns 72.2 points against the partner's 63.8, that is 7.4 points more than \neutral{} earns in the \neutral{} pair (25 wins to 10 over 40 instances, $p = .017$), while the partner keeps what it had (64.1): the collaborating agent creates value and takes it. Who keeps that value turns out to depend on the partner: under framings that make the partner's needs legible (\cref{sec:e4,sec:grounded}) and against stronger default agents (\cref{sec:e3}) the joint gain remains and goes to the partner. The gain is the same among the games that comply with the rule (72.8) and those that do not (71.9), so it is not an artefact of selecting compliant games.
+
+\textbf{Competing does not pay.} Against \neutral{} it gains 2.7 points ($p = .52$) at the price of impasses in 12 percent of games. Against itself it is the worst cell of the table: 51.3 points each, agreement in 62 percent of games, a 39-point gap, 8.6 moves and 4{,}000 tokens per agent. It is the best response only to \compromising. The exploitation of soft partners that the dual-concern literature predicts goes to the default agent instead: against \accommodating, \neutral{} earns 79.8 and \competing{} 75.3, because the competing rule's one-issue steps and 60-point floor cost it agreements.
+
+\textbf{Accommodating is exploited by everyone, but two accommodators are efficient.} It earns 14.4 points less than \neutral{} against a \neutral{} partner (6 wins to 29, $p < .001$) and least against every partner except \avoiding. Yet \accommodating{} pairs have the highest joint payoff of the table (136.3, gap 5.3, agreement in every game) and the fewest tokens of any agreeing pair: each side takes the other's priorities and the trades happen by default.
+
+\textbf{Compromising and avoiding destroy value.} \compromising{} pairs leave 26.7 points on the table (middle options on contested issues, $-12.7$ against the \neutral{} pair, $p = .011$); \avoiding{} walks away in 20 percent of games against itself and 44 percent against \competing, and earns 16 points less than \neutral{} against a \neutral{} partner.
+
+On the prompted diagonal the \competing{} sentence is softer than the rule (32 against 25 agreements), the \avoiding{} sentence harsher (17 agreements, both sides walk), and the other three within a few points of the rules. In the symmetric rule cells the two seats differ by at most 5 points and no ordering above depends on the seat. Against the frozen predictions, the joint-payoff ordering (\collaborating{} and \accommodating{} pairs above \neutral, \competing{} and \avoiding{} pairs below), the agreement ordering and the cost ordering held; the own-payoff predictions did not: \competing{} was predicted to exploit the soft strategies and to be the equilibrium, and instead \collaborating{} is the best response almost everywhere and the attractor, and the default agent exploits accommodators better than the competing rule does. The prediction that two accommodators would sit far below the frontier was wrong by the largest margin.
+
+\begin{table*}[t]
+\caption{E1, 40 instances per cell, both seats pooled, \texttt{gpt-6-luna}. Left: own payoff of the row strategy against the column strategy (points out of 100; outside option 30). Right: joint payoff of the pair (maximal joint value 141 on average). Source: \texttt{results/bargain\_e1\_summary.json}.}
+\label{tab:matrix}
+\centering\footnotesize\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}l rrrrrr @{\hskip 1.2em} rrrrrr@{}}
+\toprule
+ & \multicolumn{6}{c}{Own payoff against partner} & \multicolumn{6}{c}{Joint payoff of the pair} \\
+\cmidrule(r){2-7}\cmidrule(l){8-13}
+ & neu. & cmpt. & coll. & cmpr. & acc. & avd. & neu. & cmpt. & coll. & cmpr. & acc. & avd. \\
+\midrule
+\neutral       & 63.8 & 52.8 & 64.1 & 63.9 & \textbf{79.8} & 58.1 & 127.6 & 120.9 & 138.3 & 118.7 & 132.1 & 97.2 \\
+\competing     & 67.0 & 51.3 & 58.6 & \textbf{68.3} & 75.3 & 63.6 & 118.7 & 102.5 & 110.7 & 117.5 & 125.0 & 97.5 \\
+\collaborating & \textbf{72.2} & \textbf{55.2} & \textbf{67.7} & 66.5 & 73.3 & \textbf{67.5} & 134.3 & 116.8 & 135.5 & 119.7 & 134.1 & 114.3 \\
+\compromising  & 57.6 & 50.5 & 58.3 & 57.5 & 66.8 & 58.8 & 124.2 & 120.0 & 129.9 & 114.9 & 127.6 & 117.5 \\
+\accommodating & 51.7 & 51.5 & 61.1 & 61.0 & 68.1 & 59.4 & 130.9 & 128.6 & 134.8 & 128.0 & 136.3 & 123.8 \\
+\avoiding      & 45.3 & 36.0 & 47.8 & 56.6 & 60.4 & 56.4 & 109.8 & 101.8 & 116.2 & 113.2 & 115.8 & 112.8 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table}[t]
+\caption{E1 symmetric pairs against the \neutral{} pair: joint payoff, its paired difference $\Delta$ with wins/losses over 40 instances and the exact sign test, agreement rate, joint gap, moves and tokens per agent and game. Source: \texttt{docs/RESEARCH\_PLAN.md}, E1.}
+\label{tab:pairs}
+\centering\scriptsize\setlength{\tabcolsep}{1.9pt}
+\begin{tabular}{@{}l r r l l r r r r@{}}
+\toprule
+Pair & Joint & $\Delta$ & w/l & $p$ & Agr. & Gap & Moves & Tokens \\
+\midrule
+accommodating & 136.3 & $+8.7$ & 23/7 & .005 & 1.00 & 5.3 & 3.8 & 1383 \\
+collaborating & 135.5 & $+7.9$ & 22/10 & .05 & 0.97 & 6.1 & 5.6 & 2694 \\
+no guidance   & 128.9 & $+1.4$ & & .74 & 1.00 & 12.7 & 4.3 & 1437 \\
+neutral       & 127.6 & & & & 1.00 & 14.0 & 4.9 & 1881 \\
+compromising  & 114.9 & $-12.7$ & 10/26 & .011 & 0.93 & 26.7 & 3.7 & 1396 \\
+avoiding      & 112.8 & $-14.8$ & & .058 & 0.80 & 28.8 & 2.6 & 831 \\
+competing     & 102.5 & $-25.0$ & 10/29 & .003 & 0.62 & 39.1 & 8.6 & 4010 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The condition map}
+\label{sec:e2}
+\Cref{fig:map} is the map: for each condition and reading, the strategy with the highest own payoff, at $\lam = 0$ and under two prices of tokens; \cref{tab:map} gives the payoffs behind the $\lam=0$ column and the price at which the best unilateral strategy changes hands. With 20 instances per condition a 7-point gain is at the edge of significance, so the map's entries are directions and the significant ones are named.
+
+\begin{figure*}[t]
+\centering
+\input{figures/e2_map}
+\caption{Best strategy by condition (seats pooled), in three readings and at three prices of tokens $\lam$ (points per thousand tokens). Generated from \texttt{results/bargain\_e2\_map.json}.}
+\label{fig:map}
+\end{figure*}
+
+\textbf{Both sides soft is the efficient pair almost everywhere.} \accommodating{} pairs are the best symmetric cell in 7 of 10 conditions at $\lam = 0$ and in 9 of 10 at $\lam = 20$; \collaborating{} pairs lead where there is something to find (integrative potential, unequal power, open information) and tie with \neutral{} when every issue is contested. \competing{} pairs are the worst cell in every condition, 11 to 26 points below the \neutral{} pair ($p \le .04$ in 9 of 10); under urgency and under full opposition they reach no agreement in 20 games and both sides take their outside options. \avoiding{} pairs lose 4 to 22 points with 4 to 17 agreements in 20. No soft pair's gain over the \neutral{} pair is significant with 40 paired games (best $p = .13$).
+
+\textbf{Adopted alone against the default agent, collaborating or competing pays; compromising, accommodating and avoiding never do.} \collaborating{} is the best unilateral strategy in five conditions (base, time cost, integrative, all contested, unequal stakes; $+2$ to $+7$), \competing{} in four (reply budget, distributive, unequal power, open information; $+4$ to $+9$), and \accommodating{} only under urgency ($+1.8$, when there is no time to ask and trade and \collaborating{} loses 3.4). \competing{} pays by taking from the partner (open information: 73.3 against the partner's 46.1 with 18 agreements in 20; reply budget: 69.0 against 46.7) and it pays exactly where the default partner does not push back: when it can see the competing side's scores, when its reply budget is too short to counter, when there is nothing to trade, and when the competing side has the better outside option. In the base regime \competing{} gains nothing ($+1.1$), replicating E1. \compromising{} loses 4 to 12 points against \neutral{} in every condition but open information ($p = .006$ under unequal power), \accommodating{} 1 to 8, \avoiding{} 9 to 20 ($p < .05$ in 8 of 10).
+
+\textbf{Against a hard bargainer, collaborate; do not match.} \collaborating{} is the best reply to \competing{} in 8 of 10 conditions ($+3$ to $+7$ over answering with \neutral; $p = .035$ under open information); \neutral{} is best when there is nothing to trade or everything is contested. Answering \competing{} with \competing{} never pays ($-1$ to $-10$; no agreement in 21 games under urgency, 3 in 19 under full opposition), and \avoiding{} against \competing{} is the worst reply everywhere ($-8$ to $-23$, $p < .01$ in 9 of 10).
+
+\textbf{Seats.} With stakes 1 against 0.3 the high-stakes side does best by \collaborating{} against \neutral{} (68.1 against 57.4) and in \accommodating{} pairs (67.1); the low-stakes side's best unilateral strategy is \competing{} (23.1 against 20.5 of a possible 30) and its worst are \accommodating{} and \avoiding{} (17.1, 17.0): in payoff terms the side the issue matters less to gains nothing by accommodating, the joint gain goes to the other side. With outside options 45 against 15 the strong side's best unilateral strategy is \competing{} (68.9 against 61.5), as the textbook says, but so is the weak side's (66.5 against 61.0): the default agent does not use its better outside option. Power shows through the rules that key on the outside option: in \avoiding{} pairs the strong side gets 77.6 and the weak side 27.8, in \accommodating{} pairs 73.8 against 58.2, while \collaborating{} and \compromising{} pairs give the weak side more (70.6 against 66.2; 64.5 against 56.0).
+
+\textbf{The textbook's scorecard.} Of the frozen predictions (\cref{tab:conditions}), integrative potential is right in full: \collaborating{} beats \compromising{} by the largest margin of the map there (12.2 points against \neutral). Urgency, time cost, distributive and all-contested are half right (the fast closers and the impasses, not \competing's gains or \compromising's standing). Three are wrong: under a tight reply budget \avoiding{} is the worst strategy rather than the best net one and \competing{} becomes best against \neutral{} by points; under unequal stakes every prediction reverses (the low-stakes side should not accommodate); under open information \competing's exploitation of \neutral{} grows to the largest in the map instead of shrinking. Open information also makes the default pair the most efficient of any condition (3.2 moves, 1{,}200 tokens per agent, gap 12.3).
+
+\begin{table*}[t]
+\caption{E2: best strategy by condition in three readings at $\lam=0$, with own payoff in points and, in brackets, the gain over \neutral{} in the same reading (symmetric: over the \neutral{} pair; against competing: over \neutral's payoff against competing), wins/losses and the sign test where near significance; last column, the price of tokens at which the best unilateral strategy against \neutral{} changes, and to what. 20 instances, 40 games per comparison, seats pooled. Source: \texttt{results/bargain\_e2\_map.json}, \texttt{docs/RESEARCH\_PLAN.md}.}
+\label{tab:map}
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{1.7cm}>{\raggedright\arraybackslash}p{3.1cm}>{\raggedright\arraybackslash}p{3.9cm}>{\raggedright\arraybackslash}p{3.4cm}>{\raggedright\arraybackslash}p{1.9cm}@{}}
+\toprule
+Condition & Knob & Symmetric & Against neutral & Against competing & Switch at $\lam$ \\
+\midrule
+base & E1 regime & accommodating 65.7 ($+3.1$) & collaborating 69.6 ($+7.0$, 22/14, $p{=}.24$) & collaborating 53.6 ($+3.3$) & $10 \to$ neutral \\
+urgent & $T{=}4$ & accommodating 64.8 ($+8.7$) & accommodating 57.9 ($+1.8$) & collaborating 42.7 ($+2.7$) & $20 \to$ neutral \\
+time cost & 3 pts/move & accommodating 55.5 ($+8.2$) & collaborating 49.9 ($+2.5$) & collaborating 35.5 ($+4.3$) & $5 \to$ avoiding \\
+reply budget & 250 tokens & accommodating 66.2 ($+4.6$) & competing 68.4 ($+6.8$, 24/15, $p{=}.20$) & collaborating 54.9 ($+7.1$) & $20 \to$ neutral \\
+distributive & $a{=}0$ & accommodating 60.7 ($+0.5$) & competing 64.3 ($+4.1$) & neutral 47.6 & $5 \to$ neutral \\
+integrative & $a{=}1$ & collaborating 75.5 ($+6.4$) & collaborating 76.0 ($+6.9$) & collaborating 64.6 ($+5.2$) & $20 \to$ neutral \\
+all contested & $p{=}1$ & neutral 54.3 (acc.\ 54.3) & collaborating 56.6 ($+2.3$) & neutral 37.9 & $2 \to$ accommodating \\
+unequal stakes & 1 / 0.3 & accommodating 43.5 ($+4.6$) & collaborating 44.6 ($+5.7$) & collaborating 38.3 ($+4.6$) & $10 \to$ avoiding \\
+unequal power & $u$ 45 / 15 & collaborating 68.4 ($+7.1$) & competing 67.7 ($+6.4$, 24/13, $p{=}.10$) & collaborating 54.4 ($+4.2$) & $5 \to$ neutral \\
+open information & scores visible & collaborating 67.6 ($+3.8$) & competing 73.2 ($+9.4$, 25/12, $p{=}.047$) & collaborating 57.1 ($+6.8$, 23/10, $p{=}.035$) & $5 \to$ avoiding \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{What the strategies cost}
+\label{sec:cost}
+Cost orders the strategies the other way round from payoff, except for \collaborating. Tokens per agent and game in E1, averaged over partners: \competing{} 2{,}688, \collaborating{} 2{,}366, \neutral{} 2{,}082, \compromising{} 1{,}762, \accommodating{} 1{,}570, \avoiding{} 1{,}109; moves follow the same order. The order holds in every E2 condition (symmetric play: \competing{} 3{,}500 to 4{,}650, or 1{,}450 under urgency where the game ends in four moves; \collaborating{} 1{,}700 to 3{,}500; \neutral{} 1{,}200 to 2{,}400; \compromising{} 1{,}100 to 1{,}950; \accommodating{} 1{,}100 to 1{,}700; \avoiding{} 800 to 950). \competing{} is the most expensive strategy and among the least rewarding; \collaborating{} pays for its talk.
+
+Priced, the talk changes the answer early. Against \neutral, the best strategy by net payoff leaves \collaborating{} or \competing{} for a cheap strategy at $\lam$ between 2 and 10 in six conditions, and only at $\lam = 20$ under urgency, a reply budget and integrative potential (\cref{tab:map}, last column). Against \competing, \collaborating{} survives to $\lam = 5$ to $10$ in the base, integrative and power conditions and at every $\lam$ with open information, but gives way at $\lam = 1$ to $2$ under time cost and urgency. In symmetric play \accommodating{} is best at every $\lam$ in six conditions, and at $\lam = 20$ the cheap strategies (\accommodating, \neutral, \avoiding) win every reading but open information against \competing. For scale, $\lam = 5$ prices a 2{,}000-token game at 10 points, a seventh of the ideal design; the answer therefore moves toward the cheap strategies long before a token is worth a point.
+
+\subsection{Does the map depend on the framing?}
+\label{sec:e4}
+E4 renders E1's 40 instances under the three skins and replays the rule diagonal and the two unilateral deviations against \neutral, so that every game has an abstract twin played with the same rule texts (\cref{tab:e4}). The map does not depend on the framing. By joint payoff the symmetric pairs order the same way under every skin, \collaborating{} $>$ \accommodating{} $>$ \neutral{} $>$ \compromising{} $>$ \competing{} $>$ \avoiding, with the abstract rendering swapping the two top and the two bottom pairs within noise; the sign of every pair's difference from the \neutral{} pair is unchanged (\collaborating{} pairs $+4.8$, $+6.3$ and $+12.3$ under the skins, $p \le .047$, against $+7.9$ abstract; \competing{} pairs $-13$ to $-28$; \avoiding{} pairs $-22$ to $-32$); the best symmetric strategy of the condition map is \collaborating{} at $\lam=0$ under the three skins and \accommodating{} by 0.4 points in the abstract rendering, and \accommodating{} in all four once tokens cost 5 points per thousand; and \competing{} against \neutral{} earns the deviator nothing in any rendering ($-1.2$ to $+3.7$) while costing the partner 7 to 13 points. Paired with its abstract twin, a skinned cell's joint payoff moves by less than 5 points in 17 of the 24 skin-by-cell comparisons; the two significant exceptions are the knife-edge cells, \avoiding{} pairs under the release-plan skin ($-16.5$, $p = .02$: their single opening is worth 28 points to the responder under the skins against 32 abstract, right at the 30-point acceptance line, so walks rise from 8 of 40 to 12 to 17) and the first seat of \competing{} pairs under two skins ($+7$, $p \le .05$, binomial noise in a 30 percent impasse rate). Compliance is unchanged, and \collaborating{} pairs settle faster under the skins (4.4 to 4.8 moves against 5.6) and reach the frontier more often (27 to 31 of 40 against 25).
+
+What the names change is who captures \collaborating's unilateral gain. The joint gain over the \neutral{} pair is the same ($+6.7$ abstract; $+5.8$, $+8.3$, $+8.0$ under the skins), but abstractly the deviator takes it (own $+7.4$, $p = .017$; partner $-0.7$) and under the skins the partner does (own $+0.7$, $+3.8$, $+5.3$, none significant; partner $+5.1$, $+4.4$, $+2.7$): paired with its twin the collaborating agent earns 4.6 to 6.5 points less. Option names also carry a prior. Pooled over the eight cells, the agreed option on a contested issue is the second-listed option, which in these skins reads as the moderate choice (``one senior and two junior engineers'', ``Tuesday to Thursday'', ``end of April''), in 43 to 46 percent of cases against 37 abstract, while the share set to the value-middle option does not rise (19 to 24 percent against 25) and on shared issues the second option's share is unchanged. The drift has no visible cost, because the option that sounds moderate is the value middle on only a third of the issues and an agreement still has to pass both acceptance thresholds; but a skin whose option names form a scale invites it, and we report it as a property of the framing.
+
+\begin{table}[t]
+\caption{E4: joint payoff by cell under four renderings of the same 40 instances (first seat's strategy first). Source: \texttt{results/bargain\_e4\_paired.json}.}
+\label{tab:e4}
+\centering\small\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}l rrrr@{}}
+\toprule
+Pair & abstract & software & team & release \\
+\midrule
+neutral, neutral       & 127.6 & 130.3 & 128.7 & 126.5 \\
+competing, competing   & 102.5 & 102.0 & 113.5 & 113.5 \\
+collab., collab.       & 135.5 & 135.1 & 135.0 & 138.8 \\
+compromising, compr.   & 114.9 & 121.2 & 119.8 & 122.5 \\
+accomm., accomm.       & 136.3 & 134.9 & 134.0 & 132.4 \\
+avoiding, avoiding     & 112.8 &  98.2 & 106.5 &  96.3 \\
+competing, neutral     & 118.7 & 121.9 & 119.7 & 119.7 \\
+collab., neutral       & 134.3 & 136.1 & 136.9 & 134.6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Real-conflict structures}
+\label{sec:grounded}
+On the 85 ParallACT-derived instances, played with the ticket context as the framing, the default agent is already efficient: \neutral{} pairs agree in 85 of 85 games, in 4.0 moves, and end on the frontier in 77 (joint 148.6 of a maximal 154.6, gap 6.0), where the same pair ends on the frontier in 8 of 20 games with a gap of 14.6 in the E2 base. The instances have more joint value than the core (maximal joint 155 against 140) because 55 of 85 contain a decision both sides want the same way, and fewer decisions. So the map flattens, in the direction the core predicts for a partner that cannot be exploited (\cref{tab:grounded}): nothing beats \neutral{} when adopted alone (\collaborating{} $+0.5$ against $+7.0$ in the base, \competing{} $+0.7$), while the soft strategies still lose (\compromising{} $-4.7$, $p = .008$; \accommodating{} $-3.9$, $p = .004$; \avoiding{} $-15.2$), \competing{} pairs still destroy value ($-10.2$, $p < .001$, 59 agreements in 85) and so do \avoiding{} pairs ($-10.6$); against a \competing{} partner \collaborating{} is still the best reply ($+2.1$), matching still costs ($-2.9$) and \avoiding{} is the worst reply ($-13.1$, $p < .001$).
+
+Two things differ from the core at once: the structure (fewer decisions, shared decisions, a middle option that is a genuine compromise) and the semantics (each side is told its own ticket and the other's, and the option names say which ticket each serves, so the partner's needs are legible as under open information). The control replays the same 85 structures, letters and seats under the abstract skin, and the map comes back: \collaborating{} adopted alone beats \neutral{} by 6.7 points (69 wins to 41 over instances and seats, $p = .010$), \compromising{} and \accommodating{} alone lose 5.9 each ($p < .01$), \accommodating{} pairs are again the most efficient cell ($+5.9$, 82 of 85 on the frontier) and the best responses are E1's. The default pair leaves the frontier (61 of 85, gap 17.2) and its talk changes: without the tickets the \neutral{} agents state their scores in 53 of 85 games and ask in 38 (11 and 24 with them); with the tickets they negotiate in terms of what each side's change needs, without them in numbers. The grounded flattening is therefore semantic, not structural: a framing that reveals what the other side needs takes most of the strategic room away from the default agent, and what survives it is the list of what not to do (avoid, concede alone, match a hard bargainer, pair \competing{} with \competing). Tokens keep their order and shrink (\competing{} 2{,}490 per agent and game, \collaborating{} 1{,}820, \neutral{} 1{,}670, \accommodating{} 1{,}260, \avoiding{} 890).
+
+Compliance of the \collaborating{} rule was lower here for a structural reason: 33 instances have a single contested decision, on which a trade across decisions is impossible, and the rule was followed in 4 of 33 such games against 29 of 52 with two or more. A revised clause for that case (propose the middle option, and concede the decision if it matters more to the partner) was replayed on the \collaborating{} cells of both renderings: compliance on single-contested instances rose to 104 of 165 and 95 of 165 games and no longer depends on the number of contested decisions, and payoffs did not move (\collaborating{} alone against \neutral{} $+0.9$ with the tickets, $+4.8$ without, $p = .028$). The remaining non-compliant games are those in which the partner accepted the agent's opening proposal, made before the agent had asked what the partner cares about. \tbd{Human spot-check of ten extractions against the tickets.}
+
+On a second model the grounded layer is not flat. \texttt{claude-haiku-5-5}'s default pair, told the tickets, leaves twice as much on the table as \texttt{gpt-6-luna}'s (joint 142.3, gap 12.3, on the frontier in 69 of 85 games, against 148.6, 6.0 and 77; $-6.3$ paired, $p < .001$), and the strategies have room again: \collaborating{} pairs reach 150.4, $+8.1$ over the default pair (38 wins to 9, $p < .001$; $+0.9$ on luna), \collaborating{} adopted alone gains $+3.2$ for its user and $+5.4$ joint ($p < .001$; $+7.0$ own on the 30 instances contested on every decision, $p = .020$), while \compromising{} pairs lose 7.6, \avoiding{} pairs 14.3, and \accommodating{} and \avoiding{} adopted alone 6.7 and 8.5 (all $p \le .033$). The framing's effect is therefore model-specific, and the value of the \collaborating{} rule tracks the room the default pair leaves, a relation \cref{sec:e3} measures directly.
+
+\begin{table*}[t]
+\caption{Grounded instances: own payoff in three readings, as control (the same structures under the abstract skin) / grounded (with the ticket context) / E2 base (the synthetic core), with the gain over \neutral{} in the same reading for the grounded run; 85 instances, 170 games per comparison. Sources: \texttt{results/bargain\_grounded\_summary.json}, \texttt{results/bargain\_grounded\_abstract\_summary.json}.}
+\label{tab:grounded}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{4.5cm}>{\raggedright\arraybackslash}p{4.8cm}>{\raggedright\arraybackslash}p{4.5cm}@{}}
+\toprule
+Strategy & Both sides use it & Adopted alone against neutral & Against a competing partner \\
+\midrule
+\neutral       & 68.7 / 74.3 / 62.6 & 68.7 / 74.3 / 62.6 & 63.1 / 67.0 / 50.4 \\
+\competing     & 58.6 / 64.1 / 46.9 \; ($-10.2$, $p{<}.001$) & 73.9 / 75.0 / 63.7 \; ($+0.7$) & 58.6 / 64.1 / 46.9 \; ($-2.9$) \\
+\collaborating & 73.0 / 74.7 / 65.6 \; ($+0.4$) & 75.4 / 74.8 / 69.6 \; ($+0.5$) & 66.5 / 69.1 / 53.6 \; ($+2.1$) \\
+\compromising  & 59.2 / 69.4 / 58.4 \; ($-4.9$) & 62.8 / 69.6 / 54.9 \; ($-4.7$, $p{=}.008$) & 55.5 / 64.0 / 42.6 \; ($-3.1$) \\
+\accommodating & 74.6 / 73.9 / 65.7 \; ($-0.4$) & 62.8 / 70.4 / 60.8 \; ($-3.9$, $p{=}.004$) & 59.3 / 66.9 / 50.0 \; ($-0.1$) \\
+\avoiding      & 59.5 / 63.6 / 52.1 \; ($-10.6$, $p{=}.002$) & 55.2 / 59.1 / 47.8 \; ($-15.2$, $p{<}.001$) & 50.8 / 53.9 / 36.3 \; ($-13.1$, $p{<}.001$) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\subsection{Two external benchmarks}
+\label{sec:benchmarks}
+Both benchmarks were played by E1's model, so every difference from the core is the game's (\cref{tab:benchmarks}). On CaSiNo the default pair is close to efficient (36 of 36 agreements, joint 37.7 of 40, on the frontier in 22 of 36 games, 4.1 moves): the trades are whole items and obvious. But a walk-away worth 5 of 36 leaves the default agent unable to refuse a poor deal (the lower side averages 13.3 of 36; five agreements give one side under 10), and this is the one setting in the study where \competing{} adopted alone pays its user: $+5.6$ over \neutral{} (52 wins to 11, $p < .001$), taken from the partner ($-7.6$), on identical and mixed priority orders alike. It is the condition the map named for \competing{}: a partner that cannot push back, here because its outside option is too small to refuse anything. Everything else is the picture of the stronger models: \collaborating{} alone gains nothing (0.0), \collaborating, \accommodating{} and \avoiding{} pairs tie with the default pair, \compromising{} pairs lose 5.4 ($p = .036$; 2--1 splits of every item) and \competing{} pairs never agree (0 of 36: with four options an item, one-step concessions from a take-everything opening do not meet in ten moves). Compliance is higher than in the core (the \collaborating{} trade clause 83 percent against 56) because the trade is obvious. On LLM-Deliberation the default pair agrees in 57 of 57 games with joint 158.9 of 171.9 (gap 8 percent, on the frontier in 22 of 57). Nothing adopted alone pays (\competing{} $+0.4$; \collaborating{} $-1.9$ with the partner $+3.8$, $p = .005$; \compromising{} $-6.8$, \accommodating{} $-10.9$, \avoiding{} $-11.9$, $p < .001$); \collaborating{} pairs are the top symmetric cell ($+1.4$, not significant), \avoiding{} and \competing{} pairs the worst ($-20.0$, $p < .001$, and $-15.6$; $-41.6$ and $-34.5$ on the 13 pairs contested on every decision), \accommodating{} pairs $-3.9$ ($p = .015$); 84 percent of all agreements clear both parties' original six-party acceptance thresholds. What transfers to both human-designed games is the list of what not to do and the sign of \collaborating{} pairs against the default pair; what does not is E1's positive claim.
+
+\begin{table}[t]
+\caption{Two external benchmarks on \texttt{gpt-6-luna}: each symmetric pair's joint payoff against the default pair's (CaSiNo 37.7 of 40, LLM-Deliberation 158.9 of 171.9) and the own gain of a strategy adopted alone against \neutral; sign tests over 36 and 57 instances (pairs) or 72 and 114 instance-seats (alone). $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$. Source: \texttt{results/bargain\_benchmarks\_paired.json}.}
+\label{tab:benchmarks}
+\centering\footnotesize\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}l rr rr@{}}
+\toprule
+ & \multicolumn{2}{c}{CaSiNo (of 36)} & \multicolumn{2}{c}{Deliberation (of 100)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Strategy & pair & alone & pair & alone \\
+\midrule
+\competing     & $-27.7^{***}$ & $+5.6^{***}$ & $-15.6$ & $+0.4$ \\
+\collaborating & $-0.8$ & $0.0$ & $+1.4$ & $-1.9$ \\
+\compromising  & $-5.4^{*}$ & $+0.4$ & $-4.6$ & $-6.8^{***}$ \\
+\accommodating & $-0.4$ & $-1.1$ & $-3.9^{*}$ & $-10.9^{***}$ \\
+\avoiding      & $-1.4$ & $-2.6^{**}$ & $-20.0^{***}$ & $-11.9^{***}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Across models}
+\label{sec:e3}
+E3 replays E1's eight reading cells on three further models and on \texttt{gpt-6-luna} at its default temperature (\cref{tab:e3}); every comparison is paired by instance with the arm's own \neutral{} pair and with its E1 twin. The control reproduces E1 within noise in every cell (\neutral{} pair 130.0 against 127.6; \collaborating{} alone $+5.7$ against $+7.4$), so sampling does not drive what follows.
+
+\textbf{The default agent is much stronger on the other models, and the signs of the map hold on all of them.} \neutral{} pairs reach 135.0, 138.1 and 138.8 of a maximal 141 (on the frontier in 29, 28 and 34 of 40 games against 20 for luna; $+7.5$ to $+11.3$ over the E1 twins, $p \le .02$), and they get there by asking rather than telling: the \neutral{} agents ask about the partner's priorities in 69 to 80 of 80 games against 37. On every arm \collaborating{} pairs are the best symmetric cell and above the \neutral{} pair ($+5.3$, $+2.5$, $+1.7$; $p \le .013$), \competing{} pairs the worst ($-18$ to $-34$, $p < .001$), \compromising{} and \avoiding{} pairs below the \neutral{} pair, and \competing{} adopted alone earns nothing ($+2.3$, $-0.2$, $+1.1$) while a \neutral{} agent facing it keeps 62 to 70 points against luna's 51: the power to extract came from the partner's weakness, not from the rule.
+
+\textbf{What changes is who keeps the soft strategies' gain.} Two accommodators are no longer better than two default agents ($+1.1$, $-0.2$, $-3.8$, none significant, against $+8.7$), and \collaborating{} adopted alone no longer pays its user: own $+0.9$, $-0.8$ and $-3.1$ ($p = .011$ on sol), while the partner gains $+1.7$ to $+3.8$ and the joint payoff still rises. Compliance is higher where the rule needs a constructed package (the \collaborating{} trade clause in 52 to 71 of 80 games against 45), except that \texttt{claude-haiku-5-5} follows the \competing{} rule in only 46 of 80 and accordingly loses less in \competing{} pairs. The stronger models write two to three times the tokens per game, so their maps move to the cheap strategies at a lower price of tokens.
+
+\begin{table*}[t]
+\caption{E3: joint payoff of the \neutral{} pair (games on the frontier of 40), each symmetric pair's difference from it, and the own gain of \competing{} and \collaborating{} adopted alone against \neutral{} with the partner's change in brackets; E1's 40 instances and rule texts on every arm; sign tests over 40 instances, $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$. luna is \texttt{gpt-6-luna}, haiku \texttt{claude-haiku-5-5}, sonnet \texttt{claude-sonnet-5-5}, sol \texttt{gpt-6.1-sol}. Source: \texttt{results/bargain\_e3\_paired.json}.}
+\label{tab:e3}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}l r rrrrr rr@{}}
+\toprule
+ & & \multicolumn{5}{c}{symmetric pairs against the \neutral{} pair} & \multicolumn{2}{c}{adopted alone (partner)} \\
+\cmidrule(lr){3-7}\cmidrule(lr){8-9}
+Model & \neutral{} pair & comp. & coll. & compr. & acc. & avoid. & comp. & coll. \\
+\midrule
+luna, 0.7 (E1)   & 127.6 (20) & $-25.0^{**}$ & $+7.9^{*}$ & $-12.7^{*}$ & $+8.7^{**}$ & $-14.8$ & $+2.7$ ($-11.6$) & $+7.4^{*}$ ($-0.7$) \\
+luna, default    & 130.0 (16) & $-35.3^{***}$ & $+6.0^{*}$ & $-15.0^{**}$ & $+6.8^{*}$ & $-22.7^{*}$ & $+1.3$ ($-15.1$) & $+5.7$ ($+1.6$) \\
+haiku            & 135.0 (29) & $-17.9^{***}$ & $+5.3^{*}$ & $-8.6^{*}$ & $+1.1$ & $-29.1^{***}$ & $+2.3$ ($-3.7$) & $+0.9$ ($+1.7$) \\
+sonnet           & 138.1 (28) & $-34.4^{***}$ & $+2.5^{**}$ & $-6.1^{***}$ & $-0.2$ & $-12.5$ & $-0.2$ ($+0.5$) & $-0.8$ ($+2.6$) \\
+sol              & 138.8 (34) & $-28.7^{***}$ & $+1.7^{**}$ & $-8.2^{***}$ & $-3.8$ & $-10.9^{*}$ & $+1.1$ ($-3.3$) & $-3.1^{*}$ ($+3.8$) \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\textbf{The conditions that moved luna's map most move the stronger models' maps less.} All 24 E2 cells of open information and unequal stakes were replayed on \texttt{claude-sonnet-5-5} and \texttt{gpt-6.1-sol}. Under open information their default pair is on the frontier in 19 and 20 of 20 games (gap 1.8), and nothing is left for a strategy to add or to take: \competing{} alone gains nothing ($-0.9$, $+0.2$; $+9.4$ on luna), every soft strategy adopted alone is a transfer to the partner ($-2.3$ to $-15.2$), and a \competing{} partner takes nothing from the default reply (69 against 68, where luna's default kept 50 against 73), so \collaborating{} is no longer the best reply to \competing{} (within a point of \neutral; $+6.8$ on luna) and every other reply loses, matching by 15 to 17 points and \avoiding{} by 25 to 33. Under unequal stakes the high-stakes side's \collaborating{} edge is gone, because the default partner already concedes the low-stakes issues, but the seat result is model-independent: the side the issue matters less to does worst by \accommodating{} on every model (15 to 18 of 30 against 19 to 21 in the default pair; pooled $p < .001$), the one textbook prescription that fails everywhere; facing a \competing{} partner it does best by \collaborating{} or \neutral{} and worst by \avoiding, \accommodating{} or matching, and \collaborating{} is the best reply to \competing{} for both sides on all three models in this condition, by 1 to 5 points. Compliance in the stronger models' cells is 39 to 40 of 40 for every rule.
+
+\textbf{Who keeps the gain is decided by the partner.} E3 leaves two accounts of why \collaborating{} alone pays on luna and not on sonnet: the partner's strength, or the adopter's own model. Cross-model pairs separate them (\cref{tab:cross}). Collaborating by rule pays against a luna partner whichever model adopts it ($+5.7$ for luna, $+2.0$ for sonnet) and costs against a sonnet partner whichever model adopts it ($-2.8$ for luna, 19 wins to 40, $p = .009$; $-0.8$ for sonnet), with the joint payoff up in every cell and the gain going to the sonnet partner ($+4.8$, $p = .005$); \competing{} takes 12 to 15 points from luna's default agent and under 3 from sonnet's, and keeps little either way ($+1.3$ to $+3.1$). The adopter's-model account predicts the opposite diagonal and is ruled out. The mixed default pair is near the frontier (joint 135 to 136, between the two same-model pairs) and the weaker model takes the larger share (71.1 against 64.2, $p = .038$): sonnet's default agent asks for the partner's priorities and gives them, luna's states a price. The grounded layer on \texttt{claude-haiku-5-5} (\cref{sec:grounded}) is the same relation seen from the other side: where the default pair leaves a gap, the rule fills part of it and its user keeps some.
+
+\textbf{Labels.} The judge's style labels, the secondary measure (\cref{app:more}), say what the stronger default agents are in \tki{} terms. Luna's reads as a compromiser or an accommodator that asks about the partner's priorities in 40 percent of its games or fewer; haiku's, sonnet's and sol's read as accommodating (65 to 79 percent) or collaborating (18 to 28) and almost never compromising, and they ask in 64 to 85 percent of their games and state their own priorities in 94 to 96. The labeler recognizes the cooperative rules (\collaborating{} in 18 to 51 percent of the games played under it, \accommodating{} in 54 to 79) and not \competing{} or \avoiding{} (at most 3 and 16 percent), so compliance remains the primary measure for those.
+

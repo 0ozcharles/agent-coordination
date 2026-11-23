@@ -1,0 +1,33 @@
+\section{Prompts}
+\label{app:prompts}
+The system prompt of Developer 1 on an instance of the core regime (abstract rendering), with the \neutral{} guidance. Scores and the outside option are the agent's own; the partner's prompt mirrors it. Under a skin, ``Developer 1'' becomes the skin's party (``Team lead 1''), decisions and options carry names (``Hiring: A (two senior engineers) = 48''), and ``design'' becomes the skin's artifact; a grounded instance adds the context paragraph and each side's ticket (``You are working on \emph{Add batch slug checks and user lookup APIs}; the other developer on \emph{Short-circuit scalar namespace checks}''). Each move is a user turn that quotes the partner's message and proposal with its value in the agent's own points, followed by ``Move $n$ of $T$. Your move.''
+
+{\fontsize{8}{9.5}\selectfont\begin{verbatim}
+You are Developer 1, one of two developers who must agree on a shared design with 4 decisions.
+For each decision exactly one option will be chosen. Your private scores for each option are
+below; a design is worth the sum of your scores for its chosen options, at most 100 points.
+The other developer has their own private scores, which you do not see.
+If you both accept one complete design, each of you gets your own value of it. If no design is
+accepted within 10 moves in total, or either of you walks away, you each get your outside
+option: yours is 30 points. Your goal is to get as many points as you can.
+
+Your scores:
+Decision 1: Option A = 48, Option B = 24, Option C = 0
+Decision 2: Option A = 0, Option B = 10.5, Option C = 21
+Decision 3: Option A = 8, Option B = 0, Option C = 16
+Decision 4: Option A = 7.5, Option B = 0, Option C = 15
+
+Moves alternate. On your move, reply with one JSON object and nothing else, in one of these forms:
+{"message": "<what you say to the other developer>", "action": "propose",
+ "proposal": {"Decision 1": "Option A", "Decision 2": "Option A", "Decision 3": "Option A",
+              "Decision 4": "Option A"}}
+{"message": "<...>", "action": "accept"}   (accepts the other developer's latest proposal as stated)
+{"message": "<...>", "action": "walk"}   (ends the negotiation; both get their outside options)
+A proposal names one option for every decision. You may say anything in the message, including
+your scores, or nothing. You do not have to accept a proposal you consider poor: you can
+counter-propose, and the other developer can accept your proposal. There are 10 moves in total.
+
+[Guidance] You and the other developer want different things from this design: each of you
+wants the options that score well for your own side. Handle this in whatever way you think best.
+\end{verbatim}}
+

@@ -1,0 +1,109 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Rules are enacted; style sentences mostly are not}
+\label{sec:r-enact}
+Rules stated in moves are followed: over 240 E1 games each, \competing{} complies in 95 percent, \avoiding{} in 100 and \accommodating{} in 91. Rules that ask the agent to construct a package are followed less often: \compromising{} in 81 percent and \collaborating{} in 56, where the agent asks, discloses and holds its floor in every game and what fails is the trade clause. Style sentences move behaviour much less. Prompted \competing{} is firm but fair (66 points against the partner's 65 on the development set; 32 agreements of 40 in E1 against the rule's 25) and prompted \collaborating{} pays the partner more than its user (60 against 70). The sentence changes the words, the rule changes the moves, so every experiment below uses the rules (\cref{sec:e0}).
+
+\subsection{The strategy matrix}
+\label{sec:r-matrix}
+
+\begin{figure*}[t]
+\centering
+\FigMatrix
+\caption{The strategy matrix (E1: 40 instances, both seats pooled, 80 games per cell; points out of 100, outside option 30, maximal joint payoff 141 on average). Left: own payoff of the row strategy against the column strategy; the frame marks the best response to each column. Right: joint payoff of the pair; the frame marks the best partner for each column.}
+\label{fig:matrix}
+\end{figure*}
+
+\Cref{fig:matrix} gives own and joint payoff for all 36 pairs of strategies. \textbf{Collaborating dominates.} It is the best response to \neutral, \competing, \collaborating{} and \avoiding, and replicator dynamics on the empirical game converge to all-\collaborating. Adopted alone against the default agent it earns 72.2 points, 8.4 more than the default agent earns in the default pair ($p = .004$ over 80 instance-seats), while the partner keeps what it had ($+0.3$): the rule creates value and its user takes it (\cref{fig:overview}b).
+
+\textbf{Competing does not pay.} Adopted alone it gains 3.2 points ($p = .43$) and costs the partner 11.0. Against itself it is the worst cell: 51.3 points each, agreement in 25 of 40 games and a joint payoff 25.0 below the default pair's ($p = .003$). It is the best response only to \compromising, and even soft partners are better exploited by the default agent (79.8 against an accommodator, 75.3 for \competing), because the rule's one-issue steps and 60-point floor cost it agreements.
+
+\textbf{Accommodating is exploited alone and efficient in pairs.} Alone it loses 12.1 points ($p < .001$) and hands the partner 16.0. Yet two accommodators have the highest joint payoff of the matrix (136.3, $+8.7$ over the default pair, $p = .005$), agree in every game and use the fewest tokens of any agreeing pair: each side takes the other's priorities and the trades happen by default.
+
+\textbf{Compromising and avoiding destroy value.} \compromising{} pairs settle on middle options and end 12.7 points below the default pair ($p = .011$); \avoiding{} loses 18.5 points alone and walks away in a fifth of its games against itself. Of the predictions frozen before the run, the ordering of the pairs by joint payoff held; the prediction that \competing{} would exploit the soft strategies and be the equilibrium did not (\cref{sec:e1}).
+
+\subsection{Which strategy pays in which situation}
+\label{sec:r-map}
+
+\begin{figure*}[t]
+\centering
+\FigReward
+\caption{Reward by situation (E2). Ten conditions, each one knob moved from the core regime; each cell is the own payoff of a strategy minus \neutral's in the same reading (20 instances, seats pooled, 40 paired games). Grey: \neutral's own payoff in that reading. Bold: $p < .05$, exact sign test. Framed: the strategy the textbook prescribes for the situation \citep{thomas1977toward}.}
+\label{fig:reward}
+\end{figure*}
+
+\Cref{fig:reward} shows how the reward of each strategy moves with the situation, in three readings. With 20 instances per condition a 7-point gain is at the edge of significance, so most cells are directions and the significant ones are bold.
+
+\textbf{Both sides soft is the efficient pair almost everywhere.} \accommodating{} pairs are the best symmetric cell in seven conditions (tying the default pair when every issue is contested) and \collaborating{} pairs in the three where there is something to find (everything to trade, unequal power, open information). \competing{} pairs are the worst cell in nine conditions and the second worst in the tenth, 11 to 26 points per agent below the default pair ($p < .05$ in nine of ten); under urgency they never agree.
+
+\textbf{Adopted alone, collaborating or competing pays; the soft strategies do not.} \collaborating{} is the best strategy to adopt in five conditions ($+2$ to $+7$) and \competing{} in four ($+4$ to $+9$; $p = .047$ under open information); \accommodating{} leads only under urgency ($+1.8$), where there is no time to ask and trade. \competing{} pays by taking from the partner, and it pays where the default partner does not push back: when the partner's reply budget is too short to counter, when there is nothing to trade, when the competing side has the better outside option, and when the partner can see the competing side's scores. \avoiding{} loses in every condition, and \compromising{} and \accommodating{} in nine of ten.
+
+\textbf{Against a hard bargainer, collaborate; do not match.} \collaborating{} is the best reply to \competing{} in eight conditions ($+3$ to $+7$ over the default reply; $p = .035$ under open information). Matching it loses up to 10 points, and matching or \avoiding{} is the worst reply in every condition.
+
+\textbf{The textbook's scorecard.} Of the six conditions for which the model names a strategy (the frames in \cref{fig:reward}), that strategy is the best one to adopt in one: with everything to trade, \collaborating{} leads in all three readings. Under urgency \competing{} gains nothing alone and two competitors never agree; under a cost of time or with nothing to trade \compromising{} loses 6 points; under a reply budget \avoiding{} is the worst strategy to adopt, not the best. Under unequal stakes two accommodators are the best pair, but the prescription is addressed to the side the issue matters less to, and that side does worst by \accommodating{} or \avoiding{} (17 of a possible 30 points against 20.5 for the default agent and 23.1 for \competing): the joint gain of its concession goes to the other side (\cref{sec:e2}).
+
+\subsection{What the strategies cost}
+\label{sec:r-cost}
+
+\begin{figure}[t]
+\centering
+\FigCost
+\caption{Net payoff in E1, points minus $\lam$ points per thousand tokens, against the price of tokens. The dot marks where the best strategy changes hands.}
+\label{fig:cost}
+\end{figure}
+
+Cost orders the strategies the other way round from payoff, except for \collaborating. Tokens per agent and game in E1, averaged over partners: \competing{} 2{,}688, \collaborating{} 2{,}366, \neutral{} 2{,}082, \compromising{} 1{,}762, \accommodating{} 1{,}570, \avoiding{} 1{,}109; the order holds in every condition. \competing{} is the most expensive strategy and among the least rewarding. Priced, the talk changes the answer early (\cref{fig:cost}). Among pairs, two accommodators are best at every price. Adopted alone, \collaborating{} is best up to $\lam = 10.6$ and the default agent beyond; for scale, $\lam = 5$ prices a 2{,}000-token game at 10 points, a seventh of an ideal design. Across the conditions the best strategy to adopt leaves \collaborating{} or \competing{} for a cheaper one at $\lam$ between 2 and 10 in six of ten (\cref{sec:cost}). The newer models write two to three times the tokens per game, so their answers change at lower prices still.
+
+\subsection{Who keeps the gain}
+\label{sec:r-transfer}
+The matrix says a \collaborating{} rule creates value and its user keeps it. The remaining experiments ask how far that travels, and the answer has two parts: the value is created almost everywhere, and who keeps it depends on the partner.
+
+\textbf{Framing.} Under three realistic skins of E1's instances the map is unchanged: the pairs keep their order by joint payoff up to swaps within noise, \collaborating{} pairs stay above the default pair ($+4.8$, $+6.3$, $+12.3$; $p \le .047$) and two accommodators are the best pair in every rendering once tokens cost anything. What the names change is who captures \collaborating's gain when one side adopts it. The joint gain is the same ($+5.8$ to $+8.3$ under the skins), but under the skins it goes to the partner ($+2.7$ to $+5.1$) and the user's own gain is no longer significant ($+0.7$ to $+5.3$; \cref{sec:e4}).
+
+\textbf{Real conflicts.} On the grounded instances, where each agent is told both tickets, the default pair is already efficient (on the frontier in 77 of 85 games) and nothing beats the default agent when adopted alone (\collaborating{} $+0.5$, \competing{} $+0.7$). Replaying the same structures under the abstract rendering brings the map back (\collaborating{} alone $+6.7$, $p = .010$; default pair on the frontier in 61 of 85), so the flattening is semantic, not structural: a framing that tells each side what the other needs lets the default agent find the trades. It is also model-specific. \texttt{claude-haiku-5-5}'s default pair, told the same tickets, leaves twice as much on the table, and \collaborating{} pairs gain 8.1 points over it ($p < .001$; \cref{sec:grounded}).
+
+\textbf{Models.} On three further models the default agent is much stronger: default pairs reach 135 to 139 of a maximal 141 and the frontier in 28 to 34 of 40 games (20 for \texttt{gpt-6-luna}), by asking about the partner's priorities in 69 to 80 of 80 games against 37. The signs of the map hold on every model (\collaborating{} pairs above the default pair, $p \le .013$; \competing{} pairs 18 to 34 points below), but \collaborating{} adopted alone no longer pays its user: $+0.9$, $-0.8$ and $-3.1$ ($p = .011$), while the partner gains 1.7 to 3.8. A judge's labels of the transcripts agree: luna's default agent reads as a compromiser or an accommodator that asks about the partner's priorities in at most 44 percent of its games, the other three as accommodating or collaborating agents that ask in 64 to 85 percent (\cref{app:more}). Nor is the stronger default agent exploited: under open information a \competing{} partner takes nothing from sonnet's or sol's (69 points against 68, where luna's kept 50 against 73; \cref{sec:e3}).
+
+\begin{table}[t]
+\caption{Cross-model pairs: own gain of a strategy adopted alone against the other side's default agent, by the adopter's model (rows) and the partner's model (columns), with the partner's change in brackets. Same-model cells from E3 (40 games), mixed cells from the cross-model arms (80). $^{*}p<.05$, $^{**}p<.01$, $^{***}p<.001$.}
+\label{tab:cross}
+\centering\footnotesize\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}ll rr@{}}
+\toprule
+Adopter & Rule & Partner luna & Partner sonnet \\
+\midrule
+luna   & \competing     & $+1.3$ ($-15.1^{*}$) & $+2.8$ ($-2.7$) \\
+sonnet & \competing     & $+3.1$ ($-12.2^{***}$) & $-0.2$ ($+0.5$) \\
+luna   & \collaborating & $+5.7$ ($+1.6$) & $-2.8^{**}$ ($+4.8^{**}$) \\
+sonnet & \collaborating & $+2.0$ ($-0.8$) & $-0.8$ ($+2.6$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{The partner decides.} Two accounts fit these results: the rule stops paying because the partner is strong, or because the adopter is. Pairs of different models separate them (\cref{tab:cross}). \collaborating{} pays against a luna partner whichever model adopts it ($+5.7$, $+2.0$) and costs against a sonnet partner whichever model adopts it ($-2.8$, $p = .009$; $-0.8$), with the gain going to the sonnet partner ($+4.8$, $p = .005$). \competing{} takes 12 to 15 points from luna's default agent and under 3 from sonnet's, and keeps little either way. The adopter's-model account predicts the opposite diagonal and is ruled out.
+
+\textbf{Benchmarks.} On CaSiNo and LLM-Deliberation, played by E1's model, the default pair is within 6 and 8 percent of the maximal joint value and \collaborating{} alone gains nothing ($0.0$ of 36 and $-1.9$ of 100). CaSiNo is the one setting where \competing{} alone clearly pays ($+5.6$ of 36, $p < .001$), and for the reason the condition map gave: with a walk-away worth 5 of 36 the partner cannot refuse (\cref{sec:benchmarks}).
+
+\begin{table}[t]
+\caption{What transfers. For each claim: the settings in which its direction holds, how many of those are significant ($p<.05$, exact sign test), and how many settings are significant against it. 27 settings have symmetric cells, 29 have \competing{} and \collaborating{} adopted alone, 22 every strategy adopted alone.}
+\label{tab:transfer}
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Claim & Holds & Sig. & Against \\
+\midrule
+\TransferRows
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+\centering
+\FigGap
+\caption{Own gain of \collaborating{} adopted alone (percent of the adopter's maximum) against the joint value the default pair leaves on the table, one point per setting. The line is the least-squares fit over the 23 settings with the standard protocol and equal stakes ($r = .81$); open markers are the conditions that restrict talk (urgency, a cost per move, a reply budget) or scale the two sides' stakes differently. Over all 29 settings $r = .32$.}
+\label{fig:gap}
+\end{figure}
+
+\textbf{What transfers.} \Cref{tab:transfer} counts the claims over all settings. The negative ones hold nearly everywhere: \competing, \compromising{} and \avoiding{} pairs are below the default pair in 80 of 81 comparisons, \avoiding, \accommodating{} and \compromising{} adopted alone lose in 63 of 66, and \competing{} alone costs the partner in 26 of 29 settings while paying its user significantly in 3. \collaborating{} pairs are above the default pair in 22 of 27 settings and never significantly below it, and \collaborating{} alone raises the joint payoff in 25 of 29. Whether it pays its user is the claim that does not transfer: significantly so in 3 settings and significantly not in 4. \Cref{fig:gap} relates that gain to the room the default pair leaves. Among the 23 settings that keep the standard protocol and equal stakes the two move together ($r = .81$): the fitted line runs from a loss of 2 points for the rule's user where the default pair leaves 2 percent of the value to a gain of 5 where it leaves 10. The six other settings fall off the line for reasons the conditions name. Under urgency, a cost per move or a reply budget the room is there and the rule cannot reach it, because asking and trading take the moves or tokens the condition removes; under unequal stakes the distance to the maximum is not inefficiency (sol's default pair is Pareto-efficient in 19 of 20 games and 17 percent below the maximum). This last analysis is descriptive: the fit was not among the frozen predictions.
+

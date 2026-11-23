@@ -1,0 +1,28 @@
+\section{Experiments}
+\label{sec:design}
+
+\begin{table*}[t]
+\caption{The studies: 19{,}768 games. A cell is a pair of strategies for the two seats. Models: luna is \texttt{gpt-6-luna}, haiku \texttt{claude-haiku-5-5}, sonnet \texttt{claude-sonnet-5-5}, sol \texttt{gpt-6.1-sol}. Full design in \cref{app:design}.}
+\label{tab:studies}
+\centering\footnotesize\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}l >{\raggedright\arraybackslash}p{7.6cm} l r l@{}}
+\toprule
+Study & What varies & Cells $\times$ instances & Games & Models \\
+\midrule
+E1 strategy matrix & all 36 ordered pairs of six strategies, the prompted diagonal, no guidance & $42 \times 40$ & 1{,}680 & luna \\
+E2 condition map & ten conditions, each one knob moved from the core regime & $24 \times 20$ each & 4{,}800 & luna \\
+E4 framings & E1's instances under three skins & $8 \times 40$ each & 960 & luna \\
+Grounded & 85 ParallACT-derived instances: with tickets, abstract control, rule replays & $24 \times 85$, $8 \times 85$ & 5{,}440 & luna \\
+Grounded, 2nd model & the same instances with tickets & $16 \times 85$ & 1{,}360 & haiku \\
+E3 models & E1's reading cells on four arms & $8 \times 40$ each & 1{,}280 & all four \\
+E3 conditions & open information and unequal stakes & $24 \times 20$ each & 1{,}920 & sonnet, sol \\
+Cross-model pairs & a luna agent against a sonnet agent, both seat orders & $16 \times 40$, $5 \times 40$ & 840 & luna, sonnet \\
+External benchmarks & CaSiNo (36 priority pairs), LLM-Deliberation (57 party pairs) & $16 \times 36$, $16 \times 57$ & 1{,}488 & luna \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\Cref{tab:studies} lists the studies. A manipulation check on a development set (E0, 360 games) preceded them and fixed the rule texts; test instances use other seeds. The reading cells are the rule diagonal and each strategy against \neutral{} (E2 adds each strategy against \competing). All games run with reasoning off and at most 700 output tokens per move (1{,}500 for sonnet where its replies run long); the three other models are served at their default temperature, with \texttt{gpt-6-luna} at its default temperature as the control for that difference. The two benchmarks are reduced to our instance format from their published payoff structures \citep{chawla2021casino,abdelnabi2024cooperation}, so that the same rules, checker and measures run on them unchanged.
+
+Every comparison is paired by instance, or by instance and seat where seats are pooled, with exact sign tests; every game counts whether or not the agent complied. Each configuration and its predictions were frozen before its run. For the transfer analysis a \emph{setting} is one study arm with its own default pair: E1, the ten conditions, three skins, three grounded arms, the eight E3 arms, two cross-model directions and two benchmarks, 29 in all. The study cost \$78 in model calls (\cref{app:design}).
+
