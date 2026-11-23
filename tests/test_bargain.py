@@ -1,3 +1,5 @@
+import contextlib
+import io
 import json
 from pathlib import Path
 import tempfile
@@ -254,6 +256,210 @@ class BargainTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+RULES = {"competing": "Follow these rules: open high; accept only {t60} or more.", "collaborating": "Follow these rules: ask first; trade.",
+         "compromising": "Follow these rules: meet in the middle; accept {t50}.", "accommodating": "Follow these rules: accept the first offer over {outside10}.",
+         "avoiding": "Follow these rules: make one proposal, then accept or walk."}
+CHOICE = {"once": "{prefix}Before the negotiation starts, pick one.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
+          "again": "{prefix}Before you move, pick one.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
+          "once_forced": "{prefix}Before the negotiation starts, pick one of the five.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
+          "again_forced": "{prefix}Before you move, pick one of the five.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
+          "kept": "You chose {letter}. From now on: {rule}"}
+
+
+def chooser_config(*cells):
+    return config(strategies={"shared": {"neutral": "Do as you like."}, "prompted": {}, "rules": RULES}, choice=CHOICE,
+                  cells=[{"name": f"{a}-{b}", "p1": a, "p2": b, "op": "rules"} for a, b in cells])
+
+
+class ChooserTest(unittest.TestCase):
+    """A seat that picks its own strategy: once, once with the pick kept in view, or before every move."""
+
+    def player(self, inst, want, seen, bad=0):
+        """A stand-in for the model: picks the strategies in `want` in turn when shown a menu (after `bad` unreadable
+        replies), proposes on the first move of the game and accepts on the second."""
+        state = {"picks": 0, "bad": bad, "moves": 0}
+
+        def fake(cfg_, messages, agent=None):
+            seen.append((agent, [dict(m) for m in messages]))
+            last = messages[-1]["content"]
+            if '"choice"' in last:
+                if state["bad"]:
+                    state["bad"] -= 1
+                    return "I would rather not say", 0.0005, {"prompt": 100, "completion": 9, "seconds": 0.1}
+                target = want[min(state["picks"], len(want) - 1)]
+                state["picks"] += 1
+                text = "Do as you like." if target == "neutral" else RULES[target].split(";")[0].split("{")[0]
+                menu = next(m["content"] for m in reversed(messages) if m["role"] == "user" and "\nA. " in m["content"])
+                letter = next(line[0] for line in menu.split("\n") if line[1:3] == ". " and text in line)
+                return json.dumps({"choice": letter, "reason": "because"}), 0.0005, {"prompt": 100, "completion": 9, "seconds": 0.1}
+            state["moves"] += 1
+            if state["moves"] == 1:
+                return (json.dumps({"message": "hi", "action": "propose", "proposal": {f"decision {i + 1}": "A" for i in range(inst["k"])}}),
+                        0.001, {"prompt": 10, "completion": 5, "seconds": 0.1})
+            return json.dumps({"message": "ok", "action": "accept"}), 0.001, {"prompt": 10, "completion": 5, "seconds": 0.1}
+        return fake
+
+    def test_menu(self):
+        cfg = chooser_config(("choose", "neutral"))
+        inst = bargain.instances(cfg)[0]
+        order = bargain.menu_order(cfg, inst, "p1")
+        self.assertEqual(sorted(order), sorted(bargain.MENU))
+        self.assertEqual(order, bargain.menu_order(cfg, inst, "p1"))  # fixed by seed, instance, seat and move
+        self.assertEqual(len({tuple(bargain.menu_order(cfg, i, a, n)) for i in bargain.instances(cfg) for a in bargain.AGENTS for n in range(3)}) > 6, True)
+        text = bargain.menu_text(cfg, inst, "p1", order, "once")
+        self.assertTrue(text.startswith("[G] Before the negotiation starts, pick one.\n\nA. "))
+        for letter, s in zip("ABCDEF", order):  # every option word for word as an assigned agent reads it, thresholds filled in
+            self.assertIn(f"{letter}. " + bargain.guidance(dict(cfg, instruction_prefix=""), s, "rules", inst, "p1"), text)
+        self.assertIn("accept only 60 or more", text)
+        self.assertNotIn("{", text.replace('{"choice": "<letter>"}', ""))
+        self.assertEqual(bargain.parse_choice('{"choice": "b", "reason": "x"}', order), {"letter": "B", "strategy": order[1], "reason": "x"})
+        self.assertEqual(bargain.parse_choice('Sure: {"choice": "Option F."}', order)["strategy"], order[5])
+        for bad in ("no json", '{"choice": "G"}', '{"choice": "competing"}', "[1]", '{"choice": ""}'):
+            with self.assertRaises(ValueError):
+                bargain.parse_choice(bad, order)
+
+    def test_a_single_choice_is_played_as_if_assigned(self):
+        from unittest import mock
+        cfg = chooser_config(("choose", "neutral"), ("competing", "neutral"))
+        inst = bargain.instances(cfg)[0]
+        seen = []
+        with mock.patch.object(bargain, "call", self.player(inst, ["competing"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual((record["assigned"], record["strategies"]), ({"p1": "choose", "p2": "neutral"}, {"p1": "competing", "p2": "neutral"}))
+        choice = record["choice"]["p1"][0]
+        self.assertEqual((choice["strategy"], choice["invalid"], choice["usage"]["calls"], choice["when"]), ("competing", 0, 1, "once"))
+        # the choice is asked without guidance, in a conversation of its own
+        agent, asked = seen[0]
+        self.assertEqual((agent, len(asked)), ("p1", 2))
+        self.assertEqual(asked[0]["content"], bargain.system_prompt(cfg, inst, "p1", "default", "rules"))
+        self.assertNotIn("[G]", asked[0]["content"])
+        # and the game is prompted exactly as in the cell where the same rule is assigned
+        seen_assigned = []
+        with mock.patch.object(bargain, "call", self.player(inst, [], seen_assigned)):
+            assigned = bargain.play(cfg, inst, cfg["cells"][1])
+        self.assertEqual([m for a, m in seen[1:]], [m for a, m in seen_assigned])
+        self.assertNotIn("choice", assigned)
+        self.assertIn("opens_high", record["compliance"]["p1"])  # compliance is checked against the rule picked
+        # the cost of the choice is in the game's cost; its tokens are not in the seat's game tokens
+        self.assertAlmostEqual(record["cost_usd"], 0.0005 + 0.002)
+        self.assertEqual(record["usage"]["p1"]["completion"] + record["usage"]["p2"]["completion"], 10)
+        self.assertAlmostEqual(record["usage"]["p1"]["cost_usd"] + record["usage"]["p2"]["cost_usd"], record["cost_usd"])
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = bargain.game_path(cfg, root, cfg["cells"][0], inst)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(record))
+            row = bargain.rows(cfg, root)[0]
+            self.assertEqual((row["p1"], row["p1_choice"], row["p1_choices"], row.get("p2_choice")), ("choose", "competing", "competing", None))
+            self.assertEqual((row["p1_choice_letters"], row["p1_choice_invalid"], row["p1_choice_tokens"]), (choice["letter"], 0, 109))
+            cfg2 = dict(cfg, cells=cfg["cells"][:1], control="choose-neutral")
+            with contextlib.redirect_stdout(io.StringIO()):
+                bargain.report(cfg2, root)
+            header = (root / "results" / "t_rows.csv").read_text().split("\n")[0].split(",")
+            self.assertEqual(header[-len(bargain.CHOICE_COLUMNS):], list(bargain.CHOICE_COLUMNS))
+            self.assertEqual(header[:len(bargain.ROW_COLUMNS)], list(bargain.ROW_COLUMNS))
+
+    def test_a_forced_choice_offers_the_five_rule_sets_only(self):
+        from unittest import mock
+        cfg = chooser_config(("pick", "neutral"), ("neutral", "pick_kept"), ("repick", "competing"))
+        inst = bargain.instances(cfg)[0]
+        order = bargain.menu_order(cfg, inst, "p1", options=bargain.STYLES)
+        self.assertEqual(sorted(order), sorted(bargain.STYLES))
+        text = bargain.menu_text(cfg, inst, "p1", order, "once")
+        self.assertTrue(text.startswith("[G] Before the negotiation starts, pick one of the five.\n\nA. "))
+        self.assertNotIn("Do as you like.", text)
+        self.assertNotIn("\nF. ", text)
+        with self.assertRaises(ValueError):
+            bargain.parse_choice('{"choice": "F"}', order)
+        seen = []
+        with mock.patch.object(bargain, "call", self.player(inst, ["avoiding"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual((record["strategies"]["p1"], record["choice"]["p1"][0]["order"]), ("avoiding", order))
+        self.assertEqual(seen[1][1][0]["content"], bargain.system_prompt(cfg, inst, "p1", "avoiding", "rules"))
+        seen.clear()
+        with mock.patch.object(bargain, "call", self.player(inst, ["compromising"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][1])
+        self.assertEqual(record["strategies"]["p2"], "compromising")
+        self.assertIn("pick one of the five", record["choice"]["p2"][0]["question"])
+        seen.clear()
+        with mock.patch.object(bargain, "call", self.player(inst, ["collaborating"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][2])
+        self.assertEqual((record["strategies"]["p1"], record["moves"][0]["rule"]), ("repick", "collaborating"))
+        self.assertIn("Before you move, pick one of the five.", seen[0][1][-1]["content"])
+        seen.clear()  # a forced choice that cannot be read: the agent plays without rules, and the record says so
+        with mock.patch.object(bargain, "call", self.player(inst, ["avoiding"], seen, bad=2)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual((record["strategies"]["p1"], record["choice"]["p1"][0]["invalid"], record["choice"]["p1"][0]["letter"]), ("neutral", 2, "-"))
+
+    def test_unreadable_choice_falls_back_to_no_rules(self):
+        from unittest import mock
+        cfg = chooser_config(("neutral", "choose"))
+        inst = bargain.instances(cfg)[0]
+        seen = []
+        with mock.patch.object(bargain, "call", self.player(inst, ["avoiding"], seen, bad=2)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        choice = record["choice"]["p2"][0]
+        self.assertEqual((choice["strategy"], choice["invalid"], choice["usage"]["calls"]), ("neutral", 2, 2))
+        self.assertEqual(record["strategies"]["p2"], "neutral")
+        seen.clear()
+        with mock.patch.object(bargain, "call", self.player(inst, ["avoiding"], seen, bad=1)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual((record["choice"]["p2"][0]["strategy"], record["choice"]["p2"][0]["invalid"]), ("avoiding", 1))
+        self.assertIn("could not be used", seen[1][1][-1]["content"])
+
+    def test_a_kept_choice_stays_in_the_conversation(self):
+        from unittest import mock
+        cfg = chooser_config(("choose_kept", "choose_kept"))
+        inst = bargain.instances(cfg)[0]
+        seen = []
+        with mock.patch.object(bargain, "call", self.player(inst, ["collaborating", "neutral"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual(record["strategies"], {"p1": "collaborating", "p2": "neutral"})
+        first, second = inst["first_mover"], "p2" if inst["first_mover"] == "p1" else "p1"
+        for agent, rule in ((first, RULES[record["strategies"][first]] if record["strategies"][first] != "neutral" else "Do as you like."),
+                            (second, RULES[record["strategies"][second]] if record["strategies"][second] != "neutral" else "Do as you like.")):
+            messages = next(m for a, m in seen[2:] if a == agent)  # the seat's first move of the game
+            c = record["choice"][agent][0]
+            self.assertEqual(messages[0]["content"], bargain.system_prompt(cfg, inst, agent, "default", "rules"))
+            self.assertEqual((messages[1]["content"], messages[2]["content"]), (c["question"], c["raw"]))
+            self.assertTrue(messages[3]["content"].startswith(f"You chose {c['letter']}. From now on: {rule}\n\n"))
+            self.assertIn("Move", messages[3]["content"])
+
+    def test_choosing_again_before_every_move(self):
+        from unittest import mock
+        cfg = chooser_config(("rechoose", "neutral"), ("neutral", "rechoose"))
+        inst = bargain.instances(cfg)[0]  # p1 moves first
+        self.assertEqual(inst["first_mover"], "p1")
+        seen = []
+        with mock.patch.object(bargain, "call", self.player(inst, ["competing"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual(record["strategies"]["p1"], "rechoose")
+        self.assertIsNone(record["compliance"]["p1"]["overall"])
+        self.assertEqual([c["n"] for c in record["choice"]["p1"]], [1])
+        self.assertEqual(record["moves"][0]["rule"], "competing")
+        self.assertNotIn("rule", record["moves"][1])
+        self.assertTrue(seen[0][1][-1]["content"].startswith("Move 1 of 10. You move first.\n\n[G] Before you move, pick one."))
+        self.assertEqual(seen[1][1][0]["content"], bargain.system_prompt(cfg, inst, "p1", "competing", "rules"))
+        self.assertEqual(seen[1][1][1]["content"], "Move 1 of 10. You move first.")
+        # in the other seat the chooser sees the first proposal before it picks, and its history carries no menu
+        seen.clear()
+        with mock.patch.object(bargain, "call", self.player(inst, ["accommodating"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][1])
+        self.assertEqual([c["n"] for c in record["choice"]["p2"]], [2])
+        asked = seen[1][1]
+        self.assertEqual(asked[0]["content"], bargain.system_prompt(cfg, inst, "p2", "default", "rules"))
+        self.assertIn("proposed:", asked[-1]["content"])
+        self.assertIn("Before you move, pick one.", asked[-1]["content"])
+        self.assertEqual(record["moves"][1]["rule"], "accommodating")
+        self.assertEqual(seen[2][1][0]["content"], bargain.system_prompt(cfg, inst, "p2", "accommodating", "rules"))
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            path = bargain.game_path(cfg, root, cfg["cells"][1], inst)
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(record))
+            self.assertEqual(bargain.rows(cfg, root)[0]["p2_choices"], "accommodating")
 
 
 class SkinAndGroundTest(unittest.TestCase):

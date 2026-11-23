@@ -7,7 +7,8 @@ generator sets the structure of the conflict (opposition: on how many decisions 
 are reversed; asymmetry: how differently the two weigh the decisions), the outside option,
 whether weights are visible and the number of moves. A cell assigns each agent a strategy in
 one of two operationalizations: a prompted style sentence, or behavioural rules stated on the
-agent's own point scale, whose compliance is checked from the moves. `execute` and `label` need
+agent's own point scale, whose compliance is checked from the moves. A seat can also be a chooser, which
+picks its own strategy from the five rule sets and no rules (the selection study). `execute` and `label` need
 the OpenAI key; `report` needs neither. Design: docs/RESEARCH_PLAN.md, "Strategy payoff study".
 """
 import argparse
@@ -27,6 +28,15 @@ from .negotiation import mean, sign_test
 
 STYLES = ("competing", "collaborating", "compromising", "accommodating", "avoiding")
 AGENTS = ("p1", "p2")
+# A seat whose strategy is one of these picks its own. "choose" and "pick": once before the game, which is then played
+# exactly as if the pick had been assigned; "choose_kept" and "pick_kept": once, with the pick left in its conversation;
+# "rechoose" and "repick": before each of its moves. The choose family picks from MENU (no rules, or one of the five rule
+# sets); the pick family must take one of the five rule sets.
+MENU = ("neutral", *STYLES)
+FORCED = ("pick", "pick_kept", "repick")
+CHOOSERS = ("choose", "choose_kept", "rechoose", *FORCED)
+KEPT, AGAIN = ("choose_kept", "pick_kept"), ("rechoose", "repick")
+CHOICE_COLUMNS = tuple(f"{a}_{k}" for k in ("choice", "choices", "choice_letters", "choice_invalid", "choice_tokens") for a in ("p1", "p2"))
 NAMES = {"p1": "Developer 1", "p2": "Developer 2"}
 SKINS_PATH = Path(__file__).resolve().parents[2] / "configs" / "bargain_skins.json"
 ABSTRACT = {"name": "abstract", "parties": ["Developer 1", "Developer 2"], "party_kind": "developers",
@@ -430,22 +440,116 @@ def parse_reply(text, inst):
     return {"action": action, "message": message, "design": design}
 
 
+# ---------------------------------------------------------------- choosing a strategy
+
+def menu_order(config, inst, agent, n=0, options=MENU):
+    """The order in which a chooser is shown its options: shuffled, and fixed by the instances' seed (or the study's
+    name), the instance, the seat and the move, so that a run can be repeated and an option's place does not go with
+    its content. Conditions that share their instances show the same order to the same seat."""
+    rng = random.Random(f"{config['instances'].get('seed', config['study'])}/{inst['id']}/{agent}/{n}")
+    order = list(options)
+    rng.shuffle(order)
+    return order
+
+
+def menu_text(config, inst, agent, order, when):
+    """The question put to a chooser: config["choice"][when] (when: "once" or "again"; with "_forced" added when no rules
+    is not among the options) with {prefix} replaced by the guidance prefix and {menu} by the lettered options, each
+    word for word what an assigned agent is given (thresholds on the agent's own scale)."""
+    plain = dict(config, instruction_prefix="")
+    menu = "\n".join(f"{letter}. {guidance(plain, s, 'rules', inst, agent)}" for letter, s in zip("ABCDEF", order))
+    text = config["choice"][when if "neutral" in order else f"{when}_forced"].replace("{prefix}", config.get("instruction_prefix", ""))
+    return reskin(text, inst).replace("{menu}", reskin(menu, inst))
+
+
+def parse_choice(text, order):
+    """The option picked in a chooser's reply: its letter, the strategy behind it and the stated reason; raises ValueError."""
+    start, end = text.find("{"), text.rfind("}")
+    if start < 0 or end < start:
+        raise ValueError("no JSON object in the reply")
+    try:
+        data = json.loads(text[start:end + 1])
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"invalid JSON: {exc.msg}")
+    found = re.fullmatch(r"(?:option\s+)?([a-f])[.):]?", str(data.get("choice", "") if isinstance(data, dict) else "").strip().lower())
+    if not found or ord(found.group(1)) - 97 >= len(order):
+        raise ValueError("choice must be one of the letters")
+    letter = found.group(1).upper()
+    return {"letter": letter, "strategy": order[ord(letter) - 65], "reason": str(data.get("reason") or "").strip()[:500]}
+
+
+def choose(config, inst, agent, when, history=(), n=0, before="", options=MENU):
+    """One choice by a chooser. It is asked in a conversation of its own: the game's description without any guidance,
+    what the agent has seen and said so far (`history`; nothing before the game), then `before` (the description of
+    the latest move) and the menu. Returns the strategy picked with the menu's order, the reply, and the cost and
+    tokens of the call, which are counted apart from the game's. A reply that cannot be read is asked for once more;
+    after that the agent plays without rules ("neutral", also where that was not on the menu) with `invalid` 2."""
+    order = menu_order(config, inst, agent, n, options)
+    question = menu_text(config, inst, agent, order, when)
+    messages = [{"role": "system", "content": system_prompt(config, inst, agent, "default", "rules")}, *history,
+                {"role": "user", "content": f"{before}\n\n{question}" if before else question}]
+    out = {"n": n, "when": when, "order": order, "question": question, "invalid": 0, "cost_usd": 0.0,
+           "usage": {"prompt": 0, "completion": 0, "seconds": 0.0, "calls": 0}}
+    for _ in range(2):
+        reply, c, used = call(config, messages, agent)
+        out["cost_usd"] += c
+        for key in ("prompt", "completion", "seconds"):
+            out["usage"][key] += used[key]
+        out["usage"]["calls"] += 1
+        try:
+            return {**out, **parse_choice(reply, order), "raw": reply}
+        except ValueError as exc:
+            out["invalid"] += 1
+            messages += [{"role": "assistant", "content": reply},
+                         {"role": "user", "content": f"Your reply could not be used ({exc}). Reply again with exactly one JSON object "
+                                                     'of the form {"choice": "<letter>", "reason": "<one sentence>"}.'}]
+    return {**out, "letter": "ABCDEF"[order.index("neutral")] if "neutral" in order else "-", "strategy": "neutral", "reason": "", "raw": reply}
+
+
 # ---------------------------------------------------------------- playing
 
 def play(config, inst, cell):
     T = config["environment"]["moves"]
-    strategies = {"p1": cell["p1"], "p2": cell["p2"]}
+    assigned = {"p1": cell["p1"], "p2": cell["p2"]}
+    strategies = dict(assigned)  # what each seat plays: for a chooser that picks once, its pick
     ops = {"p1": cell.get("op", "rules"), "p2": cell.get("p2_op", cell.get("op", "rules"))}
-    conv = {a: [{"role": "system", "content": system_prompt(config, inst, a, strategies[a], ops[a])}] for a in AGENTS}
     usage = {a: {"prompt": 0, "completion": 0, "seconds": 0.0, "calls": 0, "cost_usd": 0.0} for a in AGENTS}
+    standing, last, moves, agreement, ended_by, cost, invalid = None, None, [], None, "moves_exhausted", 0.0, 0
+    choices, conv, told = {}, {}, {}  # told: what a chooser who keeps its choice in view reads before its first move
+
+    def picked(agent, choice):
+        nonlocal cost
+        choices.setdefault(agent, []).append(choice)
+        cost += choice["cost_usd"]
+        usage[agent]["cost_usd"] += choice["cost_usd"]  # the tokens of a choice are kept apart from the game's (a reply budget counts moves only)
+        return choice["strategy"]
+
+    menu = {a: STYLES if assigned[a] in FORCED else MENU for a in AGENTS}
+    for a in AGENTS:
+        if assigned[a] in CHOOSERS:
+            ops[a] = "rules"
+            if assigned[a] not in AGAIN:
+                strategies[a] = picked(a, choose(config, inst, a, "once", options=menu[a]))
+        if assigned[a] in KEPT:
+            c = choices[a][0]
+            rule = reskin(guidance(dict(config, instruction_prefix=""), c["strategy"], "rules", inst, a), inst)
+            conv[a] = [{"role": "system", "content": system_prompt(config, inst, a, "default", "rules")},
+                       {"role": "user", "content": c["question"]}, {"role": "assistant", "content": c["raw"]}]
+            told[a] = config["choice"]["kept"].replace("{letter}", c["letter"]).replace("{rule}", rule)
+        else:  # a chooser that picks again before every move starts without guidance; its prompt is set at each of its moves
+            conv[a] = [{"role": "system", "content": system_prompt(config, inst, a, "default" if assigned[a] in AGAIN else strategies[a], ops[a])}]
     budget = inst.get("output_budget")
     mover = inst["first_mover"]
-    standing, last, moves, agreement, ended_by, cost, invalid = None, None, [], None, "moves_exhausted", 0.0, 0
     rejected = []  # replies that could not be used, kept for diagnosis
     for n in range(1, T + 1):
         other = "p2" if mover == "p1" else "p1"
         left = (budget - usage[mover]["completion"]) if budget else None
-        conv[mover].append({"role": "user", "content": describe(inst, last, mover, n, T, left)})
+        said = describe(inst, last, mover, n, T, left)
+        rule = None
+        if assigned[mover] in AGAIN:
+            rule = picked(mover, choose(config, inst, mover, "again", history=conv[mover][1:], n=n, before=said, options=menu[mover]))
+            conv[mover][0] = {"role": "system", "content": system_prompt(config, inst, mover, rule, "rules")}
+        conv[mover].append({"role": "user", "content": f"{told.pop(mover)}\n\n{said}" if mover in told else said})
         move = None
         for attempt in range(2):
             reply, c, used = call(config, conv[mover], mover)
@@ -472,6 +576,8 @@ def play(config, inst, cell):
         if move is None:
             move = {"action": "pass", "message": "", "design": None, "raw": reply}
         move.update({"n": n, "by": mover})
+        if rule:
+            move["rule"] = rule  # the rule set in force for this move of a chooser that picks again every move
         if move["action"] == "propose":
             move["values"] = {a: value(inst, a, move["design"]) for a in AGENTS}
             standing = {"by": mover, "design": move["design"], "values": move["values"]}
@@ -484,6 +590,7 @@ def play(config, inst, cell):
             break
         last, mover = move, other
     return {"cell": cell["name"], "instance": inst, "strategies": strategies, "ops": ops,
+            **({"assigned": assigned, "choice": choices} if choices else {}),
             "models": {a: seat_settings(config, a)["model"] for a in AGENTS}, "moves": moves,
             "agreement": agreement, "ended_by": ended_by, "invalid_replies": invalid, "rejected": rejected, "cost_usd": cost, "error": None,
             "usage": usage, **outcome(inst, moves, agreement),
@@ -783,6 +890,11 @@ def rows(config, root):
                             f"{a}_logroll": m["logroll"], f"{a}_trade": m.get("trade"), f"{a}_complies": c.get("overall"),
                             f"{a}_tokens": (u.get("prompt", 0) or 0) + (u.get("completion", 0) or 0),
                             f"{a}_out_tokens": u.get("completion"), f"{a}_seconds": u.get("seconds")})
+                picks = (r.get("choice") or {}).get(a)
+                if picks:  # a chooser: its (first) pick, every pick in order with the letter it had in the menu, and what choosing took
+                    row.update({f"{a}_choice": picks[0]["strategy"], f"{a}_choices": ">".join(c["strategy"] for c in picks),
+                                f"{a}_choice_letters": ">".join(c["letter"] for c in picks), f"{a}_choice_invalid": sum(c["invalid"] for c in picks),
+                                f"{a}_choice_tokens": sum(c["usage"]["prompt"] + c["usage"]["completion"] for c in picks)})
         out.append(row)
     return out
 
@@ -1033,10 +1145,11 @@ def report(config, root):
     M = matrix(table)
     prefix = root / config.get("results_prefix", f"results/{config['study']}")
     prefix.parent.mkdir(parents=True, exist_ok=True)
+    columns = ROW_COLUMNS + (CHOICE_COLUMNS if any(r.get("p1_choice") or r.get("p2_choice") for r in table) else ())
     with open(f"{prefix}_rows.csv", "w", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(ROW_COLUMNS))
+        writer = csv.DictWriter(handle, fieldnames=list(columns))
         writer.writeheader()
-        writer.writerows({k: r.get(k) for k in ROW_COLUMNS} for r in table)
+        writer.writerows({k: r.get(k) for k in columns} for r in table)
     out = {"study": config["study"], "question": config["question"], "control": config["control"], "cells": summary,
            "matrix": M, "best_responses": best_responses(M), "replicator": replicator(M),
            "cost_usd": round(sum(r["cost_usd"] for r in table) + sum((rec.get("label") or {}).get("cost_usd", 0.0)

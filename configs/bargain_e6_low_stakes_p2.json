@@ -1,0 +1,103 @@
+{
+ "study": "bargain_e6_low_stakes_p2",
+ "question": "E6, condition low_stakes_p2: an agent that chooses its own strategy, from the five rule sets and no rules (choose) or from the five rule sets alone (pick), against the default agent in either seat. Environment, instances, rule texts, model and sampling are those of E2-R's condition.",
+ "model": "gpt-6-luna",
+ "model_kwargs": {
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "extra_body": {
+   "reasoning_effort": "none"
+  }
+ },
+ "max_tokens": 700,
+ "environment": {
+  "issues": 4,
+  "options": 3,
+  "moves": 10,
+  "outside": [
+   30,
+   30
+  ],
+  "opposition": 0.75,
+  "asymmetry": 0.5,
+  "visible_weights": false,
+  "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total.",
+  "stakes": [
+   1.0,
+   0.3
+  ]
+ },
+ "instances": {
+  "n": 80,
+  "seed": 20261202,
+  "first_mover": "alternate",
+  "note": "fresh instances shared by every condition; a seed used by no earlier study"
+ },
+ "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+ "strategies": {
+  "shared": {
+   "neutral": "Handle this in whatever way you think best."
+  },
+  "prompted": {
+   "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+   "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+   "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+   "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+   "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+  },
+  "rules": {
+   "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+   "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+   "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+   "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+   "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+  },
+  "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+ },
+ "choice": {
+  "once": "{prefix}Before the negotiation starts, decide how you will handle it. Below are five sets of rules and the option of following none, in no particular order. Choose the one you expect to get you the most points in this negotiation. If you choose a set of rules, you must follow it for the whole negotiation.\n\n{menu}\n\nReply with one JSON object and nothing else: {\"choice\": \"<letter>\", \"reason\": \"<one sentence>\"}",
+  "again": "{prefix}Before you move, decide how you will handle the negotiation from here on. Below are five sets of rules and the option of following none, in no particular order. Choose the one you expect to get you the most points. You will be asked again before each of your moves and may choose differently then.\n\n{menu}\n\nReply with one JSON object and nothing else: {\"choice\": \"<letter>\", \"reason\": \"<one sentence>\"}",
+  "once_forced": "{prefix}Before the negotiation starts, decide how you will handle it. Below are five sets of rules, in no particular order. Choose the one you expect to get you the most points in this negotiation. You must follow it for the whole negotiation.\n\n{menu}\n\nReply with one JSON object and nothing else: {\"choice\": \"<letter>\", \"reason\": \"<one sentence>\"}",
+  "again_forced": "{prefix}Before you move, decide how you will handle the negotiation from here on. Below are five sets of rules, in no particular order. Choose the one you expect to get you the most points. You will be asked again before each of your moves and may choose differently then.\n\n{menu}\n\nReply with one JSON object and nothing else: {\"choice\": \"<letter>\", \"reason\": \"<one sentence>\"}",
+  "kept": "You chose {letter}. From now on: {rule}",
+  "note": "{prefix} is the config's instruction_prefix; {menu} is the options lettered from A in an order shuffled per instance and seat (and move), each rule set word for word as an assigned agent reads it. The free menu (once, again) has six options, the sixth being the default agent's sentence; the forced menu (once_forced, again_forced) has the five rule sets only. A choice is asked in a conversation of its own, after the game's description without any guidance."
+ },
+ "cells": [
+  {
+   "name": "choose-neutral",
+   "p1": "choose",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-choose",
+   "p1": "neutral",
+   "p2": "choose",
+   "op": "rules"
+  },
+  {
+   "name": "pick-neutral",
+   "p1": "pick",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-pick",
+   "p1": "neutral",
+   "p2": "pick",
+   "op": "rules"
+  }
+ ],
+ "control": "neutral-neutral",
+ "reference": "configs/bargain_e2r_low_stakes_p2.json: the cells where each rule is assigned, on the same 80 instances (results/bargain_e2r_low_stakes_p2_rows.csv)",
+ "predictions": [
+  [
+   "confirmatory",
+   "see configs/bargain_selection.json"
+  ]
+ ],
+ "budget_usd": 0.7,
+ "output": "runs/bargain/e6/low_stakes_p2",
+ "results_prefix": "results/bargain_e6_low_stakes_p2",
+ "status": "frozen 2026-11-23 and pushed before any game of the study was played; hypotheses, tests and predictions are in configs/bargain_selection.json"
+}

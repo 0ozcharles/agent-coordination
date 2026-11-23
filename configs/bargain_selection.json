@@ -1,0 +1,304 @@
+{
+ "study": "bargain_selection",
+ "question": "What does an agent choose when it picks its own conflict-handling strategy, and does choosing pay? In every earlier study the strategy was assigned. Here the agent is shown the five rule sets and the option of following none, picks one, and plays; the games are compared, instance by instance, with the games of the earlier studies in which each rule was assigned.",
+ "arms": {
+  "base": {
+   "config": "configs/bargain_e6_base.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_base_rows.csv"
+    }
+   ]
+  },
+  "integrative": {
+   "config": "configs/bargain_e6_integrative.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_integrative_rows.csv"
+    }
+   ]
+  },
+  "distributive": {
+   "config": "configs/bargain_e6_distributive.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_distributive_rows.csv"
+    }
+   ]
+  },
+  "all_contested": {
+   "config": "configs/bargain_e6_all_contested.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_all_contested_rows.csv"
+    }
+   ]
+  },
+  "urgent": {
+   "config": "configs/bargain_e6_urgent.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_urgent_rows.csv"
+    }
+   ]
+  },
+  "time_cost": {
+   "config": "configs/bargain_e6_time_cost.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_time_cost_rows.csv"
+    }
+   ]
+  },
+  "tight_budget": {
+   "config": "configs/bargain_e6_tight_budget.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_tight_budget_rows.csv"
+    }
+   ]
+  },
+  "open_info": {
+   "config": "configs/bargain_e6_open_info.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_open_info_rows.csv"
+    }
+   ]
+  },
+  "power_p1": {
+   "config": "configs/bargain_e6_power_p1.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_power_p1_rows.csv"
+    }
+   ]
+  },
+  "low_stakes_p2": {
+   "config": "configs/bargain_e6_low_stakes_p2.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_low_stakes_p2_rows.csv"
+    }
+   ],
+   "scale": {
+    "p1": 100.0,
+    "p2": 30.0
+   }
+  },
+  "core": {
+   "config": "configs/bargain_e6_core.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e1r_rows.csv"
+    }
+   ]
+  },
+  "grounded": {
+   "config": "configs/bargain_e6_grounded.json",
+   "reference": [
+    {
+     "rows": "results/bargain_grounded_rows.csv"
+    },
+    {
+     "rows": "results/bargain_grounded_collab_rows.csv",
+     "cells": [
+      "collaborating-neutral",
+      "neutral-collaborating",
+      "collaborating-collaborating"
+     ]
+    }
+   ]
+  },
+  "casino": {
+   "config": "configs/bargain_e6_casino.json",
+   "reference": [
+    {
+     "rows": "results/bargain_casino_rows.csv"
+    }
+   ]
+  },
+  "deliberation": {
+   "config": "configs/bargain_e6_deliberation.json",
+   "reference": [
+    {
+     "rows": "results/bargain_deliberation_rows.csv"
+    }
+   ]
+  }
+ },
+ "design": {
+  "menus": "free (choose): the five rule sets and the default agent's sentence, six options; forced (pick): the five rule sets only. Options are lettered from A, without the strategies' names, in an order shuffled per instance and seat (per move when the agent picks again); conditions that share their instances show a seat the same order.",
+  "chooser": "choose and pick: one choice before the game, asked in a conversation of its own (the game's description without guidance, then the menu); the game is then prompted exactly as in the cell where the picked option is assigned, so any difference from the assigned cells is the selection alone. pick_kept (base condition): the forced pick left in the agent's conversation, the rule restated after it. repick (base condition): a forced pick before each of the agent's moves, with the game so far in view; the rule picked is in force for that move.",
+  "pilot": "Two pilots on four instances of the development seed and two instances of each external layer (112 games, $0.08, under runs/bargain/e6_smoke; not part of the study). First the free menu alone (base and reply-budget conditions): all 88 choices were 'no rules', the stated reason every time that rules would cost flexibility. The forced menu was added for that reason; the hypotheses and the predictions below were then written, and after that the forced menu was tried (base and urgent conditions): of 36 single picks 12 were accommodating, 10 avoiding, 10 collaborating and 4 competing, the stated reasons mostly that a low acceptance floor avoids the risk of ending without a deal. Nothing was changed after the second pilot: the predictions for the forced menu stand as written before it, and it contradicts them.",
+  "games": "ten conditions x 80 instances x 2 seats x 2 menus = 3,200; base condition: forced pick kept 160, picking again against the default agent 160 and against a competing partner 160; both agents choose on E1-R's 100 instances, free and forced, 200; grounded 340, CaSiNo 144, LLM-Deliberation 228. 4,592 games on gpt-6-luna with E1's sampling."
+ },
+ "unit": "the instance. Where the chooser is played in both seats, the two seat-wise differences of an instance (each against the comparison in the same seat) are averaged into one difference per instance; where a hypothesis names several conditions, the per-instance differences are averaged over them (the conditions share their instances). Own and partner payoffs are in percent of the seat's maximum under unequal stakes, in points elsewhere. The comparison games are those of the reference runs (E2-R, E1-R, the grounded and benchmark runs) on the same instances.",
+ "test": "S2 to S8: two-sided Wilcoxon signed-rank test on the per-instance differences; S1: a permutation test of the chi-square statistic of the condition by choice table, the ten choices of an instance and seat shuffled over the conditions (10,000 permutations). Holm correction over the eight hypotheses at alpha = .05. A hypothesis is confirmed when its Holm-adjusted p is below .05 and the mean difference has the stated direction. The mean difference with a bootstrap 95% interval (10,000 resamples of instances), the exact sign test and d_z are reported beside it.",
+ "inclusion": "every finished game counts, whatever was chosen and whether or not the agent complied with the rule it picked; a choice that cannot be read after one repeat counts as no rules; a game that errors is replayed.",
+ "hypotheses": [
+  {
+   "id": "S1",
+   "kind": "dependence",
+   "chooser": "pick",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "Which rule set the agent picks, when it must pick one, depends on the condition."
+  },
+  {
+   "id": "S2",
+   "kind": "alone",
+   "strategy": "pick",
+   "measure": "own",
+   "direction": "+",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "An agent that must pick one of the five rule sets earns more than the default agent in its seat (ten conditions)."
+  },
+  {
+   "id": "S3",
+   "kind": "contrast",
+   "strategy": "pick",
+   "other": "collaborating",
+   "direction": "-",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "An agent that picks its own rule set earns less than an agent assigned the collaborating rule (ten conditions)."
+  },
+  {
+   "id": "S4",
+   "kind": "alone",
+   "strategy": "pick",
+   "measure": "partner",
+   "direction": "-",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "The partner of an agent that picks its own rule set earns less than the partner of the default agent (ten conditions)."
+  },
+  {
+   "id": "S5",
+   "kind": "skill",
+   "chooser": "pick",
+   "direction": "+",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "Instance by instance the agent picks rule sets that do better there: the assigned-cell payoff of the rule set it picked exceeds the average assigned-cell payoff, on the same instance and seat, of rule sets drawn with the condition's pick frequencies (ten conditions)."
+  },
+  {
+   "id": "S6",
+   "kind": "pair",
+   "strategy": "pick",
+   "direction": "-",
+   "arms": [
+    "core"
+   ],
+   "claim": "Two agents that each pick their own rule set reach a lower joint payoff than the default pair."
+  },
+  {
+   "id": "S7",
+   "kind": "reply",
+   "strategy": "repick",
+   "to": "competing",
+   "direction": "+",
+   "arms": [
+    "base"
+   ],
+   "claim": "Against a competing partner, an agent that picks a rule set again before every move earns more than the default agent does against that partner."
+  },
+  {
+   "id": "S8",
+   "kind": "alone",
+   "strategy": "choose",
+   "measure": "own",
+   "direction": "+",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "An agent that may choose a rule set or none earns more than the default agent in its seat (ten conditions)."
+  }
+ ],
+ "predictions": {
+  "free menu": "written after the pilot: 'no rules' in at least 90 percent of the choices in every condition and on every external layer; so S8 is not confirmed (the difference within 1.5 points of zero), and two agents with the free menu do not differ from the default pair",
+  "forced menu, shares": "written before any forced choice was seen (the second pilot came after, see design.pilot): the collaborating rules are the most frequent pick (45 to 70 percent) and the modal pick in every condition; the competing rules second (20 to 40 percent); compromising 5 to 15 percent; accommodating and avoiding together under 5 percent",
+  "S1": "confirmed, with a small effect (Cramer's V under 0.15): the mix shifts a little, the modal pick does not",
+  "S2": "confirmed, +2 to +5 points",
+  "S3": "between -2 and 0, not expected to be significant: picking does about as well as being assigned the collaborating rule, not better",
+  "S4": "confirmed, -2 to -5 points, through the games in which the competing rules are picked",
+  "S5": "not confirmed: within a condition the picks carry no information about which rule set does better on the instance (within 1 point of zero)",
+  "S6": "negative, about -5: with competing picked in a quarter to a third of the cases, half of the pairs contain a competing agent; significance uncertain",
+  "S7": "positive but small (+1 to +3): the agent does not move to the best reply (collaborating, +5.2 in E2-R) more often than it picks it against the default agent",
+  "kept": "leaving the pick in the conversation changes neither the shares nor the payoffs (within 2 points)",
+  "external": "with the forced menu the shares on the grounded instances, CaSiNo and LLM-Deliberation are as in the core; the picker's own payoff is within 2 points of the default agent's except on CaSiNo, where it is higher through the competing picks (assigned competing: +5.6 of 36)"
+ },
+ "secondary": [
+  "choice shares by menu, condition, seat (the low-stakes side, the side with the better outside option) and the option's place in the menu",
+  "what choosing by condition could earn from the assigned cells alone: each rule fixed, the rule with the largest mean in E2 (discovery) evaluated on E2-R, and the per-game best in hindsight",
+  "the chooser's gain estimated from the assigned cells (the payoff, in the reference run, of the option it picked on that instance and seat) beside the gain in the games it played",
+  "compliance with the rule set picked, against compliance with the same rule set when assigned",
+  "the forced pick kept in the conversation against not kept (base condition): shares, own and partner payoff",
+  "picking again before every move: shares at the first and the last pick, the share of games with a change, by partner and seat",
+  "both agents choose, with each menu: the pairs of picks, joint payoff, and the joint payoff of the same pairs in E1-R's assigned cells",
+  "the grounded instances, CaSiNo and LLM-Deliberation: shares with each menu, own and partner payoff against the default agent, own payoff against the assigned collaborating rule, and the S5 difference",
+  "tokens and cost of choosing"
+ ],
+ "status": "frozen 2026-11-23 and pushed before any game of the study was played; the analysis code is scripts/analysis/selection.py at the same commit."
+}
