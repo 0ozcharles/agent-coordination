@@ -81,7 +81,7 @@ Reports and the paired analyses in [`scripts/analysis/`](scripts/analysis/README
 ```text
 src/agent_coordination/
   bargain.py        the bargaining environment: generator, exact frontier, strategies, play, compliance, reports, maps
-  benchmarks.py     CaSiNo and LLM-Deliberation reduced to the environment's instance format
+  benchmarks.py     CaSiNo, LLM-Deliberation and Deal or No Deal reduced to the environment's instance format
   ground.py         instances extracted from ParallACT's contradictory ticket pairs
   models.py         model routing by provider prefix and per-call cost
   stats.py          instance-level tests: sign test, Wilcoxon, bootstrap intervals, Holm correction
@@ -90,7 +90,7 @@ src/agent_coordination/
   s1.py, s2.py, merge.py, census.py, ...   the diagnosis phase on CooperBench
   parallact.py, conflict_states.py, branch.py, synthesis.py   conflict states and style arms on coding benchmarks
 configs/            one frozen config per study arm, with its predictions
-data/               instance sets: grounded, CaSiNo, LLM-Deliberation (structure only)
+data/               instance sets: grounded, CaSiNo, LLM-Deliberation, Deal or No Deal (structure only)
 results/            rows, summaries, charts and paired statistics (see results/README.md)
 scripts/analysis/   the paired analyses behind results/*_paired.json
 annotation/         the human check of the judge's labels, the compliance checker and the grounded extraction (see annotation/README.md)
@@ -111,4 +111,4 @@ tests/
 
 ## License
 
-MIT. See [LICENSE](LICENSE). CooperBench, which the experiments run on, is a separate project (also MIT) and is not included here; the setup steps clone it.
+MIT. See [LICENSE](LICENSE). CooperBench, which the experiments run on, is a separate project (also MIT) and is not included here; the setup steps clone it. One data file is not under MIT: `data/bargain_dond_instances.json` is derived from the Deal or No Deal dataset (Lewis et al. 2017) and keeps its licence, CC BY-NC 4.0 (non-commercial use, with attribution).

@@ -1,4 +1,4 @@
-"""Reductions of two external negotiation benchmarks to the bargaining environment's instance format.
+"""Reductions of three external negotiation benchmarks to the bargaining environment's instance format.
 
 CaSiNo (Chawla et al., NAACL 2021; CC BY 4.0): two campers split three packages each of food, water and firewood.
 A camper's packages of its high-, medium- and low-priority item are worth 5, 4 and 3 points each (36 at most) and a
@@ -12,10 +12,19 @@ options differ and both parties' scores vary on it, and pairs without a conteste
 options are 30 percent of each party's maximum, as in the core (the original thresholds are kept on the instance for a
 secondary check); the scenario text comes from the game's own description.
 
-Run as a module to write data/bargain_casino_instances.json and data/bargain_deliberation_instances.json.
+Deal or No Deal (Lewis et al., EMNLP 2017; CC BY-NC 4.0): two people divide a pool of five to seven books, hats and
+balls; each has an integer value per item, every pool is worth 10 points to each side, and no deal pays nothing.
+The benchmark's self-play file lists 4,086 distinct scenarios (counts and both sides' values, no dialogue); 80 are
+drawn with a fixed seed. Each kind of item is a decision over how many of it go to Person 1 (two to five options);
+a kind one side values at nothing is not contested. The instance file is derived from the benchmark and carries its
+non-commercial licence.
+
+Run as a module to write data/bargain_casino_instances.json, data/bargain_deliberation_instances.json and
+data/bargain_dond_instances.json (the last two need the benchmarks' files under external/).
 """
 import itertools
 import json
+import random
 import re
 from pathlib import Path
 
@@ -148,6 +157,47 @@ def deliberation_instances(games=DELIBERATION_GAMES):
     return specs
 
 
+# ---------------------------------------------------------------- Deal or No Deal
+
+DOND_FILE = ROOT / "external" / "DealOrNoDeal" / "selfplay.txt"   # src/data/negotiate/selfplay.txt of facebookresearch/end-to-end-negotiator
+DOND_ITEMS = [("Books", "book", "books"), ("Hats", "hat", "hats"), ("Balls", "ball", "balls")]
+DOND_SAMPLE, DOND_SEED = 80, 20261124
+DOND_LICENCE = "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution"
+
+
+def dond_scenarios(path=DOND_FILE):
+    """The scenarios of the benchmark's self-play file: two lines each, one per side, `count value` for books, hats and
+    balls. Returns (counts, values of side 1, values of side 2), in the file's order."""
+    rows = [tuple(map(int, line.split())) for line in Path(path).read_text().split("\n") if line.strip()]
+    out = []
+    for a, b in zip(rows[0::2], rows[1::2]):
+        if len(a) != 6 or len(b) != 6 or a[0::2] != b[0::2]:
+            raise ValueError(f"not a scenario of two sides over the same pool: {a} {b}")
+        out.append((a[0::2], a[1::2], b[1::2]))
+    return out
+
+
+def dond_instance(counts, v1, v2):
+    """One scenario as an instance: each kind of item is a decision over how many of it go to Person 1."""
+    pool = ", ".join(f"{c} {one if c == 1 else many}" for c, (_, one, many) in zip(counts, DOND_ITEMS))
+    skin = {"name": "dond", "parties": ["Person 1", "Person 2"], "party_kind": "people", "other": "the other person",
+            "artifact": "how to split a pool of items", "thing": "split",
+            "intro": (f"The pool holds {pool}. Each decision splits the items of one kind between you; your scores say what your "
+                      f"share of them is worth to you. {MIDDLE_NOTE} A decision with two options has no middle option."),
+            "issues": [{"name": name, "options": [f"{u} to Person 1, {c - u} to Person 2" for u in range(c, -1, -1)]} for c, (name, _, _) in zip(counts, DOND_ITEMS)]}
+    weights = {"p1": [[u * v for u in range(c, -1, -1)] for c, v in zip(counts, v1)],
+               "p2": [[(c - u) * v for u in range(c, -1, -1)] for c, v in zip(counts, v2)]}
+    top = {"p1": sum(c * v for c, v in zip(counts, v1)), "p2": sum(c * v for c, v in zip(counts, v2))}
+    return {"source": "dond/" + "_".join("-".join(map(str, x)) for x in (counts, v1, v2)), "benchmark": "dond", "pool": list(counts),
+            "values": {"p1": list(v1), "p2": list(v2)}, "weights": weights, "outside": [0, 0], "max": top, "licence": DOND_LICENCE, "skin": skin}
+
+
+def dond_instances(scenarios=None, n=DOND_SAMPLE, seed=DOND_SEED):
+    """`n` of the distinct scenarios, drawn with a fixed seed and kept in sorted order."""
+    distinct = sorted(set(scenarios if scenarios is not None else dond_scenarios()))
+    return [dond_instance(*s) for s in sorted(random.Random(seed).sample(distinct, n))]
+
+
 def main():
     out = ROOT / "data"
     casino = casino_instances()
@@ -155,6 +205,12 @@ def main():
     delib = deliberation_instances()
     (out / "bargain_deliberation_instances.json").write_text(json.dumps(delib, indent=1) + "\n")
     print(f"casino: {len(casino)} instances; deliberation: {len(delib)} instances from {len(DELIBERATION_GAMES)} games")
+    if DOND_FILE.is_file():
+        dond = dond_instances()
+        (out / "bargain_dond_instances.json").write_text(json.dumps(dond, indent=1) + "\n")
+        print(f"dond: {len(dond)} instances of {len(set(dond_scenarios()))} scenarios")
+    else:
+        print(f"dond: {DOND_FILE} is not there; data/bargain_dond_instances.json left as it is")
 
 
 if __name__ == "__main__":

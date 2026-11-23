@@ -103,5 +103,50 @@ class DeliberationTest(unittest.TestCase):
         self.assertEqual(bargain.value(inst, "p1", move["design"]), 14 + 0 + 17 + 35 + 23)
 
 
+class DealOrNoDealTest(unittest.TestCase):
+    """Scenarios of the benchmark: (counts of books, hats, balls; values of side 1; values of side 2), each pool worth 10 to each side."""
+    SCENARIOS = [((1, 2, 3), (4, 3, 0), (1, 0, 3)), ((2, 2, 1), (1, 3, 2), (3, 1, 2)), ((1, 1, 4), (2, 4, 1), (2, 0, 2)), ((1, 2, 3), (4, 3, 0), (1, 0, 3))]
+
+    def test_reading_the_scenario_file(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "selfplay.txt"
+            path.write_text("1 4 2 3 3 0\n1 1 2 0 3 3\n2 1 2 3 1 2\n2 3 2 1 1 2\n")
+            self.assertEqual(benchmarks.dond_scenarios(path), self.SCENARIOS[:2])
+            path.write_text("1 4 2 3 3 0\n2 1 2 0 3 3\n")
+            with self.assertRaises(ValueError):
+                benchmarks.dond_scenarios(path)
+
+    def test_a_scenario_as_an_instance(self):
+        specs = benchmarks.dond_instances(self.SCENARIOS, n=3, seed=1)
+        self.assertEqual(len(specs), 3)  # the repeated scenario counts once
+        self.assertEqual(specs, benchmarks.dond_instances(self.SCENARIOS, n=3, seed=1))
+        spec = benchmarks.dond_instance(*self.SCENARIOS[0])
+        self.assertEqual(spec["weights"], {"p1": [[4, 0], [6, 3, 0], [0, 0, 0, 0]], "p2": [[0, 1], [0, 0, 0], [0, 3, 6, 9]]})
+        self.assertEqual((spec["outside"], spec["max"], spec["source"]), ([0, 0], {"p1": 10, "p2": 10}, "dond/1-2-3_4-3-0_1-0-3"))
+        self.assertIn("CC BY-NC 4.0", spec["licence"])
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "dond.json"; path.write_text(json.dumps([spec, benchmarks.dond_instance(*self.SCENARIOS[1])]))
+            cfg = config_for(path)
+            insts = bargain.instances(cfg)
+        inst = insts[0]
+        self.assertEqual((inst["k"], inst["options"]), (3, [2, 3, 4]))
+        self.assertEqual(inst["opposed"], [True, False, False])  # only the book is wanted by both; hats and balls have one taker each
+        self.assertEqual(inst["frontier"]["max_joint"], 4 + 6 + 9)
+        self.assertEqual(insts[1]["opposed"], [True, True, True])
+        t = bargain.thresholds(inst, "p1")
+        self.assertEqual((t["max"], t["t60"], t["t50"], t["outside"], t["outside10"]), (10.0, 6.0, 5.0, 0.0, 1.0))
+        self.assertEqual(bargain.option_labels(inst, 1), ["A (2 to Person 1, 0 to Person 2)", "B (1 to Person 1, 1 to Person 2)", "C (0 to Person 1, 2 to Person 2)"])
+        prompt = bargain.system_prompt(cfg, inst, "p1", "neutral", "rules")
+        self.assertIn("You are Person 1, one of two people who must agree on how to split a pool of items with 3 decisions.", prompt)
+        self.assertIn("The pool holds 1 book, 2 hats, 3 balls.", prompt)
+        self.assertIn("A decision with two options has no middle option.", prompt)
+        self.assertIn("yours is 0 points", prompt)
+        self.assertIn("Books: A (1 to Person 1, 0 to Person 2) = 4, B (0 to Person 1, 1 to Person 2) = 0", prompt)
+        move = bargain.parse_reply(json.dumps({"message": "", "action": "propose", "proposal": {"Books": "A", "Hats": "A (2 to Person 1, 0 to Person 2)", "Balls": "D"}}), inst)
+        self.assertEqual(move["design"], [0, 0, 3])
+        self.assertEqual((bargain.value(inst, "p1", move["design"]), bargain.value(inst, "p2", move["design"])), (10.0, 9.0))
+        self.assertIsNone(bargain.middle_share(inst, move["design"]))
+
+
 if __name__ == "__main__":
     unittest.main()

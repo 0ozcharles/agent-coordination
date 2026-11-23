@@ -12,7 +12,7 @@ for s in e3_models e4_framings e3_conditions e3_vs_competing benchmarks e3_cross
 | `e4_framings.py` | E4: three skins against their abstract twins | `bargain_e4_paired.json` |
 | `e3_conditions.py` | E3 conditions: open information and unequal stakes on sonnet and sol | `bargain_e3_conditions_paired.json` |
 | `e3_vs_competing.py` | E3 conditions: the eight cells against a competing partner (run after `e3_conditions.py`) | adds `vs_competing` to `bargain_e3_conditions_paired.json` |
-| `benchmarks.py` | CaSiNo and LLM-Deliberation | `bargain_benchmarks_paired.json` |
+| `benchmarks.py` | CaSiNo, LLM-Deliberation and Deal or No Deal | `bargain_benchmarks_paired.json` |
 | `e3_cross.py` | Cross-model pairs, luna against sonnet | `bargain_e3_cross_paired.json` |
 | `grounded_haiku.py` | The grounded layer on claude-haiku-5-5 against luna's | `bargain_grounded_haiku_paired.json` |
 | `labels.py` | Style labels per study | `bargain_labels_summary.json` |

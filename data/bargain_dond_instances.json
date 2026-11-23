@@ -1,0 +1,8208 @@
+[
+ {
+  "source": "dond/1-1-3_0-1-3_2-5-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    0,
+    1,
+    3
+   ],
+   "p2": [
+    2,
+    5,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_0-1-3_7-0-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    0,
+    1,
+    3
+   ],
+   "p2": [
+    7,
+    0,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     9,
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_1-6-1_1-6-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    1,
+    6,
+    1
+   ],
+   "p2": [
+    1,
+    6,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     1,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_1-6-1_7-0-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    1,
+    6,
+    1
+   ],
+   "p2": [
+    7,
+    0,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     1,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_2-5-1_4-3-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    2,
+    5,
+    1
+   ],
+   "p2": [
+    4,
+    3,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_2-5-1_5-2-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    2,
+    5,
+    1
+   ],
+   "p2": [
+    5,
+    2,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_3-4-1_2-8-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    3,
+    4,
+    1
+   ],
+   "p2": [
+    2,
+    8,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_4-3-1_4-3-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    4,
+    3,
+    1
+   ],
+   "p2": [
+    4,
+    3,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_4-6-0_1-0-3",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    4,
+    6,
+    0
+   ],
+   "p2": [
+    1,
+    0,
+    3
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-3_4-6-0_1-3-2",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    4,
+    6,
+    0
+   ],
+   "p2": [
+    1,
+    3,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     2,
+     4,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-4_2-4-1_3-7-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   4
+  ],
+  "values": {
+   "p1": [
+    2,
+    4,
+    1
+   ],
+   "p2": [
+    3,
+    7,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-4_2-4-1_8-2-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   4
+  ],
+  "values": {
+   "p1": [
+    2,
+    4,
+    1
+   ],
+   "p2": [
+    8,
+    2,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-4_2-8-0_2-4-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   4
+  ],
+  "values": {
+   "p1": [
+    2,
+    8,
+    0
+   ],
+   "p2": [
+    2,
+    4,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-4_4-2-1_5-1-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   4
+  ],
+  "values": {
+   "p1": [
+    4,
+    2,
+    1
+   ],
+   "p2": [
+    5,
+    1,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-4_6-0-1_2-8-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   4
+  ],
+  "values": {
+   "p1": [
+    6,
+    0,
+    1
+   ],
+   "p2": [
+    2,
+    8,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     6,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-4_6-0-1_5-1-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   4
+  ],
+  "values": {
+   "p1": [
+    6,
+    0,
+    1
+   ],
+   "p2": [
+    5,
+    1,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     6,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-1-4_9-1-0_5-1-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   1,
+   4
+  ],
+  "values": {
+   "p1": [
+    9,
+    1,
+    0
+   ],
+   "p2": [
+    5,
+    1,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 1 hat, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-2-2_6-1-1_2-4-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   2,
+   2
+  ],
+  "values": {
+   "p1": [
+    6,
+    1,
+    1
+   ],
+   "p2": [
+    2,
+    4,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     6,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     4,
+     8
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 2 hats, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-2-3_1-3-1_4-0-2",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   2,
+   3
+  ],
+  "values": {
+   "p1": [
+    1,
+    3,
+    1
+   ],
+   "p2": [
+    4,
+    0,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     1,
+     0
+    ],
+    [
+     6,
+     3,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 2 hats, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-2-3_2-4-0_1-0-3",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   2,
+   3
+  ],
+  "values": {
+   "p1": [
+    2,
+    4,
+    0
+   ],
+   "p2": [
+    1,
+    0,
+    3
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 2 hats, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-2-3_4-0-2_2-1-2",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   2,
+   3
+  ],
+  "values": {
+   "p1": [
+    4,
+    0,
+    2
+   ],
+   "p2": [
+    2,
+    1,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     6,
+     4,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     4,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 2 hats, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-2-3_5-1-1_6-2-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   2,
+   3
+  ],
+  "values": {
+   "p1": [
+    5,
+    1,
+    1
+   ],
+   "p2": [
+    6,
+    2,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     5,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 2 hats, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-2-3_8-1-0_2-1-2",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   2,
+   3
+  ],
+  "values": {
+   "p1": [
+    8,
+    1,
+    0
+   ],
+   "p2": [
+    2,
+    1,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     8,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     4,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 2 hats, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-2-4_0-3-1_8-1-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   2,
+   4
+  ],
+  "values": {
+   "p1": [
+    0,
+    3,
+    1
+   ],
+   "p2": [
+    8,
+    1,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0
+    ],
+    [
+     6,
+     3,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     8
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 2 hats, 4 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-1_0-0-10_1-1-6",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    0,
+    10
+   ],
+   "p2": [
+    1,
+    1,
+    6
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     10,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-1_0-2-4_2-0-8",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    2,
+    4
+   ],
+   "p2": [
+    2,
+    0,
+    8
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0
+    ],
+    [
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     8
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-1_1-0-9_3-1-4",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    0,
+    9
+   ],
+   "p2": [
+    3,
+    1,
+    4
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     9,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-1_2-1-5_1-1-6",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    2,
+    1,
+    5
+   ],
+   "p2": [
+    1,
+    1,
+    6
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-1_3-0-7_4-1-3",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    3,
+    0,
+    7
+   ],
+   "p2": [
+    4,
+    1,
+    3
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     3,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     7,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-1_4-1-3_2-1-5",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    4,
+    1,
+    3
+   ],
+   "p2": [
+    2,
+    1,
+    5
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-1_5-0-5_7-1-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    5,
+    0,
+    5
+   ],
+   "p2": [
+    7,
+    1,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     5,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-3-3_1-2-1_1-0-3",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   3,
+   3
+  ],
+  "values": {
+   "p1": [
+    1,
+    2,
+    1
+   ],
+   "p2": [
+    1,
+    0,
+    3
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     1,
+     0
+    ],
+    [
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     3,
+     6,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 3 hats, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-4-1_0-1-6_3-0-7",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   4,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    1,
+    6
+   ],
+   "p2": [
+    3,
+    0,
+    7
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     7
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 4 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-4-1_1-1-5_6-1-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   4,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    1,
+    5
+   ],
+   "p2": [
+    6,
+    1,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     1,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 4 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-4-1_1-2-1_2-2-0",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   4,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    2,
+    1
+   ],
+   "p2": [
+    2,
+    2,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     1,
+     0
+    ],
+    [
+     8,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     2,
+     4,
+     6,
+     8
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 4 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-4-1_2-2-0_4-1-2",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   4,
+   1
+  ],
+  "values": {
+   "p1": [
+    2,
+    2,
+    0
+   ],
+   "p2": [
+    4,
+    1,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     8,
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 4 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-4-1_6-1-0_4-0-6",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   4,
+   1
+  ],
+  "values": {
+   "p1": [
+    6,
+    1,
+    0
+   ],
+   "p2": [
+    4,
+    0,
+    6
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     6,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 4 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/1-4-2_2-1-2_0-2-1",
+  "benchmark": "dond",
+  "pool": [
+   1,
+   4,
+   2
+  ],
+  "values": {
+   "p1": [
+    2,
+    1,
+    2
+   ],
+   "p2": [
+    0,
+    2,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     0
+    ],
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     4,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     6,
+     8
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 1 book, 4 hats, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-2_0-2-4_1-0-4",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    0,
+    2,
+    4
+   ],
+   "p2": [
+    1,
+    0,
+    4
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     8,
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     4,
+     8
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-2_0-10-0_1-6-1",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    0,
+    10,
+    0
+   ],
+   "p2": [
+    1,
+    6,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-2_1-6-1_1-6-1",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    1,
+    6,
+    1
+   ],
+   "p2": [
+    1,
+    6,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-2_2-0-3_0-4-3",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    2,
+    0,
+    3
+   ],
+   "p2": [
+    0,
+    4,
+    3
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     2,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     6,
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     3,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-2_2-6-0_3-0-2",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    2,
+    6,
+    0
+   ],
+   "p2": [
+    3,
+    0,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     2,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-2_3-2-1_3-0-2",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    3,
+    2,
+    1
+   ],
+   "p2": [
+    3,
+    0,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     6,
+     3,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-2_4-0-1_2-6-0",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    4,
+    0,
+    1
+   ],
+   "p2": [
+    2,
+    6,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-3_0-4-2_3-4-0",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    0,
+    4,
+    2
+   ],
+   "p2": [
+    3,
+    4,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     4,
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-3_1-5-1_0-7-1",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    1,
+    5,
+    1
+   ],
+   "p2": [
+    0,
+    7,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-1-3_4-2-0_0-4-2",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   1,
+   3
+  ],
+  "values": {
+   "p1": [
+    4,
+    2,
+    0
+   ],
+   "p2": [
+    0,
+    4,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     2,
+     4,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 1 hat, 3 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-1_1-2-4_1-0-8",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    2,
+    4
+   ],
+   "p2": [
+    1,
+    0,
+    8
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     4,
+     2,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     8
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-1_1-4-0_0-2-6",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    4,
+    0
+   ],
+   "p2": [
+    0,
+    2,
+    6
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-1_4-0-2_1-2-4",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   1
+  ],
+  "values": {
+   "p1": [
+    4,
+    0,
+    2
+   ],
+   "p2": [
+    1,
+    2,
+    4
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-1_4-0-2_2-2-2",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   1
+  ],
+  "values": {
+   "p1": [
+    4,
+    0,
+    2
+   ],
+   "p2": [
+    2,
+    2,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-1_4-1-0_1-1-6",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   1
+  ],
+  "values": {
+   "p1": [
+    4,
+    1,
+    0
+   ],
+   "p2": [
+    1,
+    1,
+    6
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-2_0-5-0_2-1-2",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   2
+  ],
+  "values": {
+   "p1": [
+    0,
+    5,
+    0
+   ],
+   "p2": [
+    2,
+    1,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     10,
+     5,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-2_1-3-1_0-2-3",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   2
+  ],
+  "values": {
+   "p1": [
+    1,
+    3,
+    1
+   ],
+   "p2": [
+    0,
+    2,
+    3
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     3,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4
+    ],
+    [
+     0,
+     3,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-2_2-3-0_3-0-2",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   2
+  ],
+  "values": {
+   "p1": [
+    2,
+    3,
+    0
+   ],
+   "p2": [
+    3,
+    0,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     2,
+     0
+    ],
+    [
+     6,
+     3,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     3,
+     6
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-2-2_4-1-0_4-0-1",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   2,
+   2
+  ],
+  "values": {
+   "p1": [
+    4,
+    1,
+    0
+   ],
+   "p2": [
+    4,
+    0,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     8,
+     4,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     4,
+     8
+    ],
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 2 hats, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-3-1_1-2-2_1-2-2",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    2,
+    2
+   ],
+   "p2": [
+    1,
+    2,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     4,
+     2,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2
+    ],
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/2-3-1_2-1-3_0-2-4",
+  "benchmark": "dond",
+  "pool": [
+   2,
+   3,
+   1
+  ],
+  "values": {
+   "p1": [
+    2,
+    1,
+    3
+   ],
+   "p2": [
+    0,
+    2,
+    4
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     2,
+     0
+    ],
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 2 books, 3 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_0-2-8_1-0-7",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    2,
+    8
+   ],
+   "p2": [
+    1,
+    0,
+    7
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     8,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     7
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_0-6-4_2-3-1",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    6,
+    4
+   ],
+   "p2": [
+    2,
+    3,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_0-6-4_2-4-0",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    6,
+    4
+   ],
+   "p2": [
+    2,
+    4,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_0-8-2_1-7-0",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    8,
+    2
+   ],
+   "p2": [
+    1,
+    7,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_0-9-1_1-4-3",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    9,
+    1
+   ],
+   "p2": [
+    1,
+    4,
+    3
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     3
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_1-0-7_0-9-1",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    0,
+    7
+   ],
+   "p2": [
+    0,
+    9,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     7,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     9
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_1-4-3_0-1-9",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    4,
+    3
+   ],
+   "p2": [
+    0,
+    1,
+    9
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     9
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_1-4-3_2-4-0",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    4,
+    3
+   ],
+   "p2": [
+    2,
+    4,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_1-6-1_1-0-7",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    6,
+    1
+   ],
+   "p2": [
+    1,
+    0,
+    7
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     7
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_3-1-0_1-2-5",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    3,
+    1,
+    0
+   ],
+   "p2": [
+    1,
+    2,
+    5
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     5
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-1_3-1-0_2-2-2",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    3,
+    1,
+    0
+   ],
+   "p2": [
+    2,
+    2,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-2_0-8-1_2-4-0",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    0,
+    8,
+    1
+   ],
+   "p2": [
+    2,
+    4,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     8,
+     0
+    ],
+    [
+     2,
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-1-2_3-1-0_2-0-2",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   1,
+   2
+  ],
+  "values": {
+   "p1": [
+    3,
+    1,
+    0
+   ],
+   "p2": [
+    2,
+    0,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     9,
+     6,
+     3,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     2,
+     4,
+     6
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     2,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 1 hat, 2 balls. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/3-2-1_1-3-1_0-5-0",
+  "benchmark": "dond",
+  "pool": [
+   3,
+   2,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    3,
+    1
+   ],
+   "p2": [
+    0,
+    5,
+    0
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     3,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     5,
+     10
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 3 books, 2 hats, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "3 to Person 1, 0 to Person 2",
+      "2 to Person 1, 1 to Person 2",
+      "1 to Person 1, 2 to Person 2",
+      "0 to Person 1, 3 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "2 to Person 1, 0 to Person 2",
+      "1 to Person 1, 1 to Person 2",
+      "0 to Person 1, 2 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/4-1-1_0-4-6_1-2-4",
+  "benchmark": "dond",
+  "pool": [
+   4,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    4,
+    6
+   ],
+   "p2": [
+    1,
+    2,
+    4
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     0,
+     4
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 4 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/4-1-1_0-4-6_1-5-1",
+  "benchmark": "dond",
+  "pool": [
+   4,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    4,
+    6
+   ],
+   "p2": [
+    1,
+    5,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     6,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 4 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/4-1-1_0-9-1_1-0-6",
+  "benchmark": "dond",
+  "pool": [
+   4,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    0,
+    9,
+    1
+   ],
+   "p2": [
+    1,
+    0,
+    6
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     9,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 4 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/4-1-1_1-3-3_0-4-6",
+  "benchmark": "dond",
+  "pool": [
+   4,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    3,
+    3
+   ],
+   "p2": [
+    0,
+    4,
+    6
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     6
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 4 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/4-1-1_1-4-2_1-4-2",
+  "benchmark": "dond",
+  "pool": [
+   4,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    4,
+    2
+   ],
+   "p2": [
+    1,
+    4,
+    2
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     2
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 4 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/4-1-1_1-6-0_0-3-7",
+  "benchmark": "dond",
+  "pool": [
+   4,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    6,
+    0
+   ],
+   "p2": [
+    0,
+    3,
+    7
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     0,
+     7
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 4 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "source": "dond/4-1-1_1-6-0_1-5-1",
+  "benchmark": "dond",
+  "pool": [
+   4,
+   1,
+   1
+  ],
+  "values": {
+   "p1": [
+    1,
+    6,
+    0
+   ],
+   "p2": [
+    1,
+    5,
+    1
+   ]
+  },
+  "weights": {
+   "p1": [
+    [
+     4,
+     3,
+     2,
+     1,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "p2": [
+    [
+     0,
+     1,
+     2,
+     3,
+     4
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     0,
+     1
+    ]
+   ]
+  },
+  "outside": [
+   0,
+   0
+  ],
+  "max": {
+   "p1": 10,
+   "p2": 10
+  },
+  "licence": "derived from the Deal or No Deal dataset (Lewis et al. 2017, facebookresearch/end-to-end-negotiator), CC BY-NC 4.0: non-commercial use, with attribution",
+  "skin": {
+   "name": "dond",
+   "parties": [
+    "Person 1",
+    "Person 2"
+   ],
+   "party_kind": "people",
+   "other": "the other person",
+   "artifact": "how to split a pool of items",
+   "thing": "split",
+   "intro": "The pool holds 4 books, 1 hat, 1 ball. Each decision splits the items of one kind between you; your scores say what your share of them is worth to you. Where a decision has more than three options, 'the middle option' in any guidance means an option between the two extremes. A decision with two options has no middle option.",
+   "issues": [
+    {
+     "name": "Books",
+     "options": [
+      "4 to Person 1, 0 to Person 2",
+      "3 to Person 1, 1 to Person 2",
+      "2 to Person 1, 2 to Person 2",
+      "1 to Person 1, 3 to Person 2",
+      "0 to Person 1, 4 to Person 2"
+     ]
+    },
+    {
+     "name": "Hats",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    },
+    {
+     "name": "Balls",
+     "options": [
+      "1 to Person 1, 0 to Person 2",
+      "0 to Person 1, 1 to Person 2"
+     ]
+    }
+   ]
+  }
+ }
+]

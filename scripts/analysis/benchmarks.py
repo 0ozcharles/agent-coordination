@@ -1,4 +1,4 @@
-"""CaSiNo and LLM-Deliberation: symmetric pairs and unilateral deviations against the default pair, by priority structure and number of contested decisions. Writes results/bargain_benchmarks_paired.json.
+"""CaSiNo, LLM-Deliberation and Deal or No Deal: symmetric pairs and unilateral deviations against the default pair, by priority structure and number of contested decisions. Writes results/bargain_benchmarks_paired.json.
 
 Run from the repository root; reads the game records under runs/bargain/ (not in the repository, see scripts/analysis/README.md).
 """
@@ -14,11 +14,12 @@ def paired(d):
     h, l = sum(v > 0 for v in d), sum(v < 0 for v in d); return round(st.mean(d), 1), h, l, round(sign_p(h, l), 3)
 def tokens(r): return sum(r["usage"][a]["prompt"] + r["usage"][a]["completion"] for a in ("p1", "p2"))
 out = {}
-for run in ("casino", "deliberation"):
+for run in ("casino", "deliberation", "dond"):
     recs = {}
     for f in glob.glob(f"runs/bargain/{run}/games/*/*.json"):
         r = json.load(open(f)); recs[(r["cell"], r["instance"]["id"])] = r
     ids = sorted({i for _, i in recs}); n = len(ids)
+    if not ids: continue  # a run that has not been played
     errs = sum(1 for r in recs.values() if r.get("error")); cost = sum(r.get("cost_usd") or 0 for r in recs.values())
     ok = [r for r in recs.values() if not r.get("error")]
     calls = sum(r["usage"][a]["calls"] for r in ok for a in ("p1", "p2"))

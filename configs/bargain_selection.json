@@ -125,6 +125,15 @@
      "rows": "results/bargain_deliberation_rows.csv"
     }
    ]
+  },
+  "dond": {
+   "config": "configs/bargain_e6_dond.json",
+   "reference": [
+    {
+     "rows": "results/bargain_dond_rows.csv"
+    }
+   ],
+   "note": "added 2026-11-23 after the study's results, with its own predictions in its config; in no hypothesis"
   }
  },
  "design": {
@@ -300,5 +309,5 @@
   "the grounded instances, CaSiNo and LLM-Deliberation: shares with each menu, own and partner payoff against the default agent, own payoff against the assigned collaborating rule, and the S5 difference",
   "tokens and cost of choosing"
  ],
- "status": "frozen 2026-11-23 and pushed before any game of the study was played; the analysis code is scripts/analysis/selection.py at the same commit."
+ "status": "frozen 2026-11-23 and pushed before any game of the study was played; the analysis code is scripts/analysis/selection.py at the same commit. The arm dond (Deal or No Deal) was added afterwards, on the advisor's request for more varied data; it is reported with the other data layers and is in no hypothesis."
 }
