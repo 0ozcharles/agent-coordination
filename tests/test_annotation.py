@@ -88,9 +88,9 @@ class WorkbookTest(unittest.TestCase):
         a = (f'<row r="1">{inline("A1", "item")}{inline("B1", "move")}{inline("C1", "text")}{inline("D1", "assertiveness&#10;强硬度")}{inline("E1", "cooperativeness")}'
              f'{inline("F1", "asks_needs")}{inline("G1", "discloses_priorities")}{inline("H1", "note")}</row>'
              f'<row r="3">{inline("A3", "EXAMPLE")}{inline("B3", "agent1")}<c r="D3"><v>2</v></c></row>'
-             f'<row r="5">{inline("A5", "AP1")}{inline("B5", "#1 Agent 1")}{inline("C5", "proposes")}</row>'
-             f'<row r="6">{inline("A6", "AP1")}{inline("B6", "agent1")}<c r="D6"><v>2</v></c><c r="E6"><v>0</v></c>{inline("F6", "no")}{inline("G6", "yes")}</row>'
-             f'<row r="7">{inline("A7", "AP1")}{inline("B7", "agent2")}<c r="D7"><v>1</v></c>{inline("H7", "unsure")}</row>'
+             f'<row r="5">{inline("A5", "A001")}{inline("B5", "#1 Agent 1")}{inline("C5", "proposes")}</row>'
+             f'<row r="6">{inline("A6", "A001")}{inline("B6", "agent1")}<c r="D6"><v>2</v></c><c r="E6"><v>0</v></c>{inline("F6", "no")}{inline("G6", "yes")}</row>'
+             f'<row r="7">{inline("A7", "A001")}{inline("B7", "agent2")}<c r="D7"><v>1</v></c>{inline("H7", "unsure")}</row>'
              f'<row r="9">{inline("A9", "A017")}{inline("B9", "agent2")}{inline("E9", "1")}</row>')
         b = (f'<row r="1">{inline("A1", "item")}{inline("B1", "move")}{inline("C1", "text")}{inline("D1", "worth")}{inline("E1", "followed")}{inline("F1", "broken_clauses")}</row>'
              f'<row r="4">{inline("A4", "B003")}{inline("B4", "rule")}{inline("C4", "the rule")}</row>'
@@ -100,7 +100,7 @@ class WorkbookTest(unittest.TestCase):
             write_xlsx(path, {"README": f'<row r="1">{inline("A1", "annotator: R4")}</row>', "A_style": a, "B_compliance": b})
             who, answers = ann.workbook_answers(path)
         self.assertEqual(who, "R4")
-        self.assertEqual(answers["a"], {"AP1": {"agent1_assertiveness": 2, "agent1_cooperativeness": 0, "agent1_asks_needs": "no", "agent1_discloses_priorities": "yes",
+        self.assertEqual(answers["a"], {"A001": {"agent1_assertiveness": 2, "agent1_cooperativeness": 0, "agent1_asks_needs": "no", "agent1_discloses_priorities": "yes",
                                                 "agent2_assertiveness": 1, "agent2_note": "unsure"}, "A017": {"agent2_cooperativeness": "1"}})
         self.assertEqual(answers["b"], {"B003": {"followed": "no", "broken_clauses": 4}})
         self.assertEqual(answers["c"], {})
@@ -108,15 +108,28 @@ class WorkbookTest(unittest.TestCase):
 
 class WebExportTest(unittest.TestCase):
     def test_export_of_the_annotation_page(self):
-        data = {"format": "bargain-annotation-web/1", "annotator": "R3", "started": True,
-                "answers": {"AP1": {"agent1_assertiveness": 2, "agent1_asks_needs": "no", "agent1_note": "x"}, "B017": {"followed": "no", "broken_clauses": "1,4"},
+        data = {"format": "bargain-annotation-web/1", "annotator": "R3",
+                "answers": {"A001": {"agent1_assertiveness": 2, "agent1_asks_needs": "no", "agent1_note": "x"}, "B017": {"followed": "no", "broken_clauses": "1,4"},
                             "C005": {"q1_decisions": "partly"}, "EXAMPLE": {"followed": "yes"}}}
         who, answers = ann.web_answers(data)
         self.assertEqual(who, "R3")
-        self.assertEqual(answers, {"a": {"AP1": {"agent1_assertiveness": 2, "agent1_asks_needs": "no", "agent1_note": "x"}},
+        self.assertEqual(answers, {"a": {"A001": {"agent1_assertiveness": 2, "agent1_asks_needs": "no", "agent1_note": "x"}},
                                    "b": {"B017": {"followed": "no", "broken_clauses": "1,4"}}, "c": {"C005": {"q1_decisions": "partly"}}})
         self.assertEqual(ann.clause_numbers(answers["b"]["B017"]["broken_clauses"]), [1, 4])
         self.assertEqual(ann.web_answers({"format": "something else", "annotator": "R3", "answers": {}}), (None, {}))
+
+    def test_packed_export_of_the_annotation_page(self):
+        data = {"format": "bargain-annotation-web/2", "annotator": "R5",
+                "answers": {"A001": "21yn10ny", "A002": ["2-y-----", "", "走得太早"], "B017": "n1,4", "B018": "y", "B019": ["n2", "第 2 条"],
+                            "C005": "ypn-", "C006": ["yyyy", "ok"], "EXAMPLE": "y"}}
+        who, answers = ann.web_answers(data)
+        self.assertEqual(who, "R5")
+        self.assertEqual(answers["a"], {"A001": {"agent1_assertiveness": 2, "agent1_cooperativeness": 1, "agent1_asks_needs": "yes", "agent1_discloses_priorities": "no",
+                                                 "agent2_assertiveness": 1, "agent2_cooperativeness": 0, "agent2_asks_needs": "no", "agent2_discloses_priorities": "yes"},
+                                        "A002": {"agent1_assertiveness": 2, "agent1_asks_needs": "yes", "agent2_note": "走得太早"}})
+        self.assertEqual(answers["b"], {"B017": {"followed": "no", "broken_clauses": "1,4"}, "B018": {"followed": "yes"}, "B019": {"followed": "no", "broken_clauses": "2", "note": "第 2 条"}})
+        self.assertEqual(answers["c"], {"C005": {"q1_decisions": "yes", "q2_needed_options": "partly", "q3_middle_option": "no"},
+                                        "C006": {**{f: "yes" for f in ann.C_FIELDS}, "note": "ok"}})
         self.assertEqual(ann.web_answers({"annotator": "nobody", "answers": {}}), (None, {}))
 
 

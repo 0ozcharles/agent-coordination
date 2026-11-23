@@ -14,17 +14,6 @@ Requester key scope  [shared; importance to A 4/5, to B 5/5]
    A. Global key namespace
    B. Authenticated-user-only scope
    C. User or guest-session scope   <- A needs this   <- B needs this"
-CP1,practice,protonmail/webclients,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_protonmail__webclients-b530a3db50cb33e5064464addbcbef1465856ce6.json,applications/mail/src/app/containers/onboardingChecklist/hooks/useCanCheckItem.ts and provider/GetStartedChecklistProvider.tsx — the extracted canMarkItemsAsDone permission rule,"Context told to both developers: The provider decides whether completed onboarding checklist items can be persisted, based on the user's status and subscription-related checklist data. One change makes that rule reusable, while the other needs organization members to persist progress even when their personal subscription does not match the existing plan-based criteria. You are working on ticket A; the other developer on ticket B.
-Ticket A (Developer A), our title: Extract the checklist permission rule
-Ticket B (Developer B), our title: Restore organization members’ checklist progress
-Eligibility criteria  [contested; importance to A 5/5, to B 5/5]
-   A. Free users and matching plan-checklist users   <- A needs this
-   B. Existing criteria plus organization members   <- B needs this
-   C. Organization members with matching checklist flags
-Permission ownership  [shared; importance to A 5/5, to B 4/5]
-   A. Provider uses a shared helper
-   B. Provider keeps its inline rule
-   C. Provider uses the extracted hook   <- A needs this   <- B needs this"
 C001,main,navidrome/navidrome,https://github.com/rm206/ParallACT_data_and_code/blob/main/dataset/v1/generated/contradictory/instance_navidrome__navidrome-b3980532237e57ab15b2b93c49d5cd5b2d050013.json,core/agents/lastfm.go: lastFMConstructor language and credential initialization,"Context told to both developers: The shared constructor initializes the Last.FM client’s credentials and language from configuration. Its handling of missing settings and locale-style language values affects whether requests can be made successfully. You are working on ticket A; the other developer on ticket B.
 Ticket A (Developer A), our title: Provide sensible API key and language defaults
 Ticket B (Developer B), our title: Canonicalize regional locale language values

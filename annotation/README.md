@@ -8,11 +8,11 @@ Three tasks check by hand the three places where the study relies on a model or 
 | B. Compliance | 120 rule-following agents: competing 24, collaborating 36, compromising 24, accommodating 24, avoiding 12; half are games the checker failed (avoiding has two) | the rule split into numbered clauses, the agent's points, the contested decisions, the value of every proposal to that agent | did the agent follow every clause, yes or no; if no, which clauses | 40 agents, about 65 minutes |
 | C. Extraction | 30 of the 85 grounded instances | the decisions, options, needed options and importances the extractor produced, and a link to the ParallACT ticket pair (the ticket text is not copied) | four yes / partly / no judgments against the two tickets | 10 instances, about 55 minutes |
 
-Five, five and one more items are practice items that all six annotators rate before the main items; they are reported apart and are not part of the agreement figures. One worked example per task is shown filled in.
+One worked example per task is shown filled in. There are no practice items and no calibration meeting: the annotators work from the written guide alone.
 
 ## Two ways to answer
 
-- **The annotation page** (`web/`, published as a private artifact from this session; the six annotators pick their number, 01 to 06, and get their own items one at a time). Answers save as they are given. For an annotator who may write to the artifact's database (a member of the owner's organization with Contributor access, or an invited editor) they go to `answers/<viewer id>/items/<item>`, which only the artifact's owner can read; `scripts/annotation_collect.py` turns a dump of those documents into files for the analysis. For everyone else the platform allows no writes, so the page keeps the answers in the annotator's browser and its Export button gives a block of text (or a file) to send back; save each as `returned/<anything>.json`. The page opens the main items only after the practice items are complete and the annotator confirms that the calibration meeting has taken place, and locks the practice answers from then on.
+- **The annotation page** (`web/`, published as a private artifact from this session; the six annotators pick their number, 01 to 06, and get their own items one at a time). Answers save as they are given. For an annotator who may write to the artifact's database (a member of the owner's organization with Contributor access, or an invited editor) they go to `answers/<viewer id>/items/<item>`, which only the artifact's owner can read; `scripts/annotation_collect.py` turns a dump of those documents into files for the analysis. For everyone else the platform allows no writes, so the page keeps the answers in the annotator's browser and its Export button gives a short block of text to copy and send back (about 1,500 characters for a full return: every item is packed into a few characters, which `annotation.unpack` reads; saving it as a file is offered only to signed-in viewers); save each as `returned/<anything>.json`.
 - **The workbooks** (`workbooks/`), one per annotator, for anyone who prefers a spreadsheet. Same items, same guide.
 
 The analysis reads both kinds of return from `returned/`.
@@ -28,10 +28,9 @@ The analysis reads both kinds of return from `returned/`.
 
 ## Procedure
 
-1. Give each person one workbook. Nothing else is needed; the guide is inside.
-2. Everyone rates the practice items and returns the file. Put the files in `returned/` and run the analysis: it prints the practice answers side by side. Discuss the differences once, about the definitions only.
-3. Everyone rates the main items alone, without discussing items and without asking a model, and returns the file.
-4. Run the analysis again. A third person adjudicates the items in `results/annotation_disagreements.csv` if a single human label per item is wanted.
+1. Give each person the link to the page and their number, or one workbook. Nothing else is needed; the guide is inside.
+2. Everyone rates their items alone, without discussing items and without asking a model, and returns the answers (the page's export, or the workbook).
+3. Put what came back in `returned/` and run the analysis. A third person adjudicates the items in `results/annotation_disagreements.csv` if a single human label per item is wanted.
 
 ```
 python3 scripts/make_annotation_pack.py          # needs runs/bargain and, for the workbooks, openpyxl

@@ -176,7 +176,7 @@ def workbook_answers(path):
         answers = {}
         for (row, col), kind in cells.items():
             item = cells.get((row, 1))
-            if col != 2 or kind not in ("agent1", "agent2", "answer") or not re.fullmatch(r"[ABC]P?\d+", str(item)):
+            if col != 2 or kind not in ("agent1", "agent2", "answer") or not re.fullmatch(r"[ABC]\d+", str(item)):
                 continue
             prefix = f"{kind}_" if task == "a" else ""
             for c, key in header.items():
@@ -186,7 +186,30 @@ def workbook_answers(path):
     return (found.group(0) if found else None), out
 
 
-WEB_FORMAT = "bargain-annotation-web/1"
+WEB_FORMAT = "bargain-annotation-web/1"   # every field under its name: the documents of the artifact's database
+WEB_PACKED = "bargain-annotation-web/2"   # the page's export, each item packed into a few characters
+
+
+def unpack(item, packed):
+    """The fields of one item of the page's export. Task A is eight characters, agent 1 then agent 2, each
+    assertiveness, cooperativeness (0 1 2), asks, discloses (y n); task B is y, or n and the clause numbers; task C is
+    four of y p n; "-" is a field left open. With notes it is [packed, note] (task A: [packed, note 1, note 2])."""
+    text, notes = (packed, []) if isinstance(packed, str) else (str(packed[0]), list(packed[1:]))
+    value = lambda c: {"y": "yes", "n": "no", "p": "partly"}.get(c, int(c) if c in ("0", "1", "2") else c)  # noqa: E731
+    if item[0] == "A":
+        names = [f"{agent}_{f}" for agent in ("agent1", "agent2") for f in A_FIELDS]
+        out = {name: value(c) for name, c in zip(names, text) if c != "-"}
+        out.update({f"agent{n}_note": note for n, note in enumerate(notes[:2], 1) if note})
+        return out
+    if item[0] == "B":
+        out = {"followed": value(text[0])} if text[:1] not in ("", "-") else {}
+        if text[1:]:
+            out["broken_clauses"] = text[1:]
+    else:
+        out = {name: value(c) for name, c in zip(C_FIELDS, text) if c != "-"}
+    if notes and notes[0]:
+        out["note"] = notes[0]
+    return out
 
 
 def web_answers(path_or_data):
@@ -194,10 +217,10 @@ def web_answers(path_or_data):
     (annotator id, {"a" | "b" | "c": {item: {field: value}}}). Takes the page's export (a JSON file or its content);
     the documents the page keeps in the artifact's database, gathered into {"annotator", "answers"}, read the same."""
     data = path_or_data if isinstance(path_or_data, dict) else json.loads(open(path_or_data, encoding="utf-8").read())
-    if data.get("format", WEB_FORMAT) != WEB_FORMAT or not re.fullmatch(r"R\d+", str(data.get("annotator"))):
+    if data.get("format", WEB_FORMAT) not in (WEB_FORMAT, WEB_PACKED) or not re.fullmatch(r"R\d+", str(data.get("annotator"))):
         return None, {}
     out = {"a": {}, "b": {}, "c": {}}
     for item, fields in data.get("answers", {}).items():
-        if re.fullmatch(r"[ABC]P?\d+", item) and isinstance(fields, dict):
-            out[item[0].lower()][item] = dict(fields)
+        if re.fullmatch(r"[ABC]\d+", item) and fields and isinstance(fields, (dict, str, list)):
+            out[item[0].lower()][item] = dict(fields) if isinstance(fields, dict) else unpack(item, fields)
     return data["annotator"], out

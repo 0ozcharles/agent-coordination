@@ -192,9 +192,9 @@ const TASKS = ["A", "B", "C"];
 const TAB_NAME = {guide: "说明", A: "A 风格", B: "B 规则", C: "C 抽取"};
 const A_FIELDS = ["assertiveness", "cooperativeness", "asks_needs", "discloses_priorities"];
 const C_FIELDS = ["q1_decisions", "q2_needed_options", "q3_middle_option", "q4_importance"];
-const FORMAT = "bargain-annotation-web/1";
+const FORMAT = "bargain-annotation-web/2", PLAIN = "bargain-annotation-web/1";
 const DATA = {};
-const S = {who: null, tab: "guide", pos: {}, answers: {}, started: false};
+const S = {who: null, tab: "guide", pos: {}, answers: {}};
 const cloud = {db: null, uid: null, mode: "local", taken: {}, failed: false, downloads: null};
 let storageOk = true, loadError = false;
 
@@ -204,11 +204,11 @@ function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return 
 function saveLocal() {
   if (!S.who) return;
   lsSet("anno.who", S.who);
-  lsSet("anno." + S.who, {answers: S.answers, pos: S.pos, tab: S.tab, started: S.started});
+  lsSet("anno." + S.who, {answers: S.answers, pos: S.pos, tab: S.tab});
 }
 function loadLocal(who) {
   const d = lsGet("anno." + who) || {};
-  S.who = who; S.answers = d.answers || {}; S.pos = d.pos || {}; S.started = !!d.started; S.tab = d.tab || "guide";
+  S.who = who; S.answers = d.answers || {}; S.pos = d.pos || {}; S.tab = d.tab || "guide";
 }
 
 /* ---------- items and progress ---------- */
@@ -221,10 +221,7 @@ function done(task, x) {
   if (task === "B") return v.followed === "yes" || (v.followed === "no" && !!v.broken_clauses);
   return C_FIELDS.every(f => !!v[f]);
 }
-function count(task, kind) { const xs = mine(task).filter(x => x.kind === kind); return [xs.filter(x => done(task, x)).length, xs.length]; }
-const practiceDone = () => TASKS.every(t => { const c = count(t, "practice"); return c[0] === c[1]; });
-const readOnly = x => x.kind === "example" || (x.kind === "practice" && S.started);
-const reachable = x => x.kind !== "main" || S.started;
+function count(task) { const xs = mine(task).filter(x => x.kind !== "example"); return [xs.filter(x => done(task, x)).length, xs.length]; }
 
 function setAnswer(id, field, value) {
   const v = Object.assign({}, (S.answers[id] && S.answers[id].v) || {});
@@ -366,18 +363,18 @@ function guideHTML() {
 <li><b>任务 B 规则</b>：一段程序检查 agent 有没有遵守给它的规则。请你独立判断。</li>
 <li><b>任务 C 抽取</b>：一个 LLM 从真实的代码冲突工单（ticket）里抽取出“要谈的设计决策”。请你对照原工单判断抽取得对不对。</li>
 </ul>
-<p>你看不到裁判和程序的结论。每道正式题还有另一位同学在独立标注，我们会比较两个人之间、以及人和裁判、程序之间的一致程度。没有“标准答案”，请按定义和你自己的理解判断。</p>
+<p>你看不到裁判和程序的结论。每道题还有另一位同学在独立标注，我们会比较两个人之间、以及人和裁判、程序之间的一致程度。没有“标准答案”，请按定义和你自己的理解判断。</p>
 <h2>流程</h2>
 <ol>
-<li>先做三个任务里的<b>热身题</b>（A 5 题、B 5 题、C 1 题，约 25 分钟）。六个人的热身题相同。做完后把结果交给负责人，负责人会组织一次 15 分钟的讨论，统一对定义的理解。</li>
-<li>讨论之后开始<b>正式题</b>（A 40 题、B 40 题、C 10 题，约 2.5 到 3 小时，可以分几次做）。正式题请独立完成：不要和别人讨论具体题目，也不要让 AI 代为判断。开始正式题之后，热身题不能再改。</li>
+<li>先读完这一页，再看每个任务最前面那道填好的<b>示范</b>（标着“例”）。</li>
+<li>然后做题：A 40 题、B 40 题、C 10 题，约 3 小时，可以分几次做，三个任务的先后随意。请独立完成：不要和别人讨论具体题目，也不要让 AI 代为判断。</li>
 <li>全部做完后，把结果交给负责人。</li>
 </ol>
 <h2>怎么保存和交回</h2>
 <ul>
 <li>每选一个答案都会自动保存，关掉页面再打开可以接着做。右上角会显示保存状态。</li>
 <li>如果右上角显示“已同步给负责人”，不需要做别的。</li>
-<li>如果显示“已保存在本浏览器”，答案只在你这台设备的这个浏览器里。请用同一个浏览器继续做，不要用无痕窗口；做完热身题和做完全部题目时，各点一次右上角的“导出答案”，把内容发给负责人。中途也建议导出一份留作备份。</li>
+<li>如果显示“已保存在本浏览器”，答案只在你这台设备的这个浏览器里。请用同一个浏览器继续做，不要用无痕窗口；全部做完后，点右上角的“导出答案”，把内容发给负责人。中途也建议导出一份留作备份。</li>
 </ul>
 <h2>通用规则</h2>
 <ul>
@@ -421,8 +418,8 @@ function tabsHTML() {
   return ["guide"].concat(TASKS).map(t => {
     let n = "";
     if (t !== "guide") {
-      const c = count(t, S.started ? "main" : "practice");
-      n = `<span class="n${c[0] === c[1] ? " full" : ""}">${S.started ? "" : "热身 "}${c[0]}/${c[1]}</span>`;
+      const c = count(t);
+      n = `<span class="n${c[0] === c[1] ? " full" : ""}">${c[0]}/${c[1]}</span>`;
     }
     return `<button class="tab" type="button" role="tab" aria-selected="${S.tab === t}" data-act="tab" data-tab="${t}">${TAB_NAME[t]}${n}</button>`;
   }).join("");
@@ -433,21 +430,14 @@ function stripHTML(task, xs, cur) {
     const ys = xs.filter(x => x.kind === kind);
     if (!ys.length) return "";
     return `<div class="group"><span class="group-name">${name}</span>${ys.map((x, i) =>
-      `<button class="dot${kind !== "example" && done(task, x) ? " done" : ""}" type="button" data-act="go" data-id="${x.id}" title="${x.id}" aria-label="${name} ${kind === "example" ? "" : i + 1}" ${x.id === cur.id ? 'aria-current="true"' : ""} ${reachable(x) ? "" : "disabled"}>${kind === "example" ? "例" : i + 1}</button>`).join("")}</div>`;
+      `<button class="dot${kind !== "example" && done(task, x) ? " done" : ""}" type="button" data-act="go" data-id="${x.id}" title="${x.id}" aria-label="${name} ${kind === "example" ? "" : i + 1}" ${x.id === cur.id ? 'aria-current="true"' : ""}>${kind === "example" ? "例" : i + 1}</button>`).join("")}</div>`;
   };
-  return group("示范", "example") + group("热身", "practice") + group("正式", "main");
+  return group("示范", "example") + group("题目", "main");
 }
 
 function gateHTML() {
-  if (S.started) {
-    const left = TASKS.reduce((n, t) => { const c = count(t, "main"); return n + c[1] - c[0]; }, 0);
-    if (left) return "";
-    return `<div class="gate fine"><p><b>全部完成，谢谢。</b>${cloud.mode === "sync" ? "答案已经同步给负责人。" : "请点右上角的“导出答案”，把内容发给负责人。"}</p>${cloud.mode === "sync" ? "" : `<button class="btn primary" type="button" data-act="export">导出答案</button>`}</div>`;
-  }
-  const d = TASKS.reduce((n, t) => n + count(t, "practice")[0], 0), all = TASKS.reduce((n, t) => n + count(t, "practice")[1], 0);
-  if (d < all) return `<div class="gate"><p><b>先做热身题（已完成 ${d}/${all}）。</b>三个任务的热身题都做完后，把结果交给负责人；讨论之后再开始正式题。</p></div>`;
-  return `<div class="gate"><p><b>热身题已完成。</b>${cloud.mode === "sync" ? "答案已经同步给负责人。" : "请点“导出答案”，把内容发给负责人。"}负责人组织讨论之后，再点“开始正式题”；开始后热身题不能再改。</p>
-${cloud.mode === "sync" ? "" : `<button class="btn" type="button" data-act="export">导出答案</button>`}<button class="btn primary" type="button" data-act="start">开始正式题</button></div>`;
+  if (TASKS.some(t => { const c = count(t); return c[0] < c[1]; })) return "";
+  return `<div class="gate fine"><p><b>全部完成，谢谢。</b>${cloud.mode === "sync" ? "答案已经同步给负责人。" : "请点右上角的“导出答案”，把内容发给负责人。"}</p>${cloud.mode === "sync" ? "" : `<button class="btn primary" type="button" data-act="export">导出答案</button>`}</div>`;
 }
 
 function movesHTML(moves, focus) {
@@ -458,8 +448,8 @@ function movesHTML(moves, focus) {
 
 function headHTML(task, xs, x) {
   const same = xs.filter(y => y.kind === x.kind);
-  const name = x.kind === "example" ? "示范" : (x.kind === "practice" ? "热身 " : "正式 ") + (same.indexOf(x) + 1) + " / " + same.length;
-  return `<div class="item-head"><h2>${name}</h2><span class="tag mono">${x.id}</span>${x.kind === "example" ? `<span class="tag">已填好，不用作答</span>` : readOnly(x) ? `<span class="tag">已锁定</span>` : ""}</div>`;
+  const name = x.kind === "example" ? "示范" : "第 " + (same.indexOf(x) + 1) + " / " + same.length + " 题";
+  return `<div class="item-head"><h2>${name}</h2><span class="tag mono">${x.id}</span>${x.kind === "example" ? `<span class="tag">已填好，不用作答</span>` : ""}</div>`;
 }
 
 function recordHTML(task, xs, x) {
@@ -497,7 +487,7 @@ function noteHTML(x, field) {
   return `<div class="q"><label class="q-label" for="i-${x.id}-${field}">备注（可空）</label><textarea id="i-${x.id}-${field}" rows="2" data-item="${x.id}" data-field="${field}">${esc(v[field] || "")}</textarea></div>`;
 }
 function sheetHTML(task, x) {
-  const off = readOnly(x) ? "disabled" : "";
+  const off = x.kind === "example" ? "disabled" : "";
   let body = "";
   if (task === "A") body = [1, 2].map(n => `<fieldset class="card ag${n}" ${off}><legend>给 Agent ${n} 打分</legend>
 ${seg(x, "agent" + n + "_assertiveness", "强硬度", "assertiveness", [0, 1, 2])}
@@ -523,17 +513,17 @@ ${noteHTML(x, "note")}</fieldset>`;
 }
 
 function pagerHTML(task, xs, x) {
-  const open = xs.filter(reachable), i = open.indexOf(x);
-  const next = open.find(y => y.kind !== "example" && !readOnly(y) && !done(task, y) && y !== x);
-  return `<div class="pager"><button class="btn" type="button" data-act="go" data-id="${i > 0 ? open[i - 1].id : ""}" ${i > 0 ? "" : "disabled"}>上一题</button>
-<button class="btn" type="button" data-act="go" data-id="${i < open.length - 1 ? open[i + 1].id : ""}" ${i < open.length - 1 ? "" : "disabled"}>下一题</button>
+  const i = xs.indexOf(x);
+  const next = xs.find(y => y.kind !== "example" && !done(task, y) && y !== x);
+  return `<div class="pager"><button class="btn" type="button" data-act="go" data-id="${i > 0 ? xs[i - 1].id : ""}" ${i > 0 ? "" : "disabled"}>上一题</button>
+<button class="btn" type="button" data-act="go" data-id="${i < xs.length - 1 ? xs[i + 1].id : ""}" ${i < xs.length - 1 ? "" : "disabled"}>下一题</button>
 <span class="spacer"></span>${next ? `<button class="btn primary" type="button" data-act="go" data-id="${next.id}">下一道未完成</button>` : ""}</div>`;
 }
 
 function current(task) {
   const xs = mine(task);
   let cur = xs.find(x => x.id === S.pos[task]);
-  if (!cur || !reachable(cur)) cur = xs.find(x => x.kind !== "example" && !readOnly(x) && reachable(x) && !done(task, x)) || xs[0];
+  if (!cur) cur = xs.find(x => x.kind !== "example" && !done(task, x)) || xs[0];
   S.pos[task] = cur.id;
   return [xs, cur];
 }
@@ -564,15 +554,37 @@ function refresh() {
 }
 
 /* ---------- export, import, dialogs ---------- */
+/* The export packs each item into a few characters, so that a full return is short enough to paste into one chat message.
+   A: eight characters, agent 1 then agent 2, each assertiveness, cooperativeness (0 1 2), asks, discloses (y n).
+   B: y, or n and the clause numbers. C: four of y p n. "-" is a field left open.
+   An item with a note is [packed, note]; in task A, [packed, note on agent 1, note on agent 2]. */
+const SHORT = {yes: "y", no: "n", partly: "p"}, LONG = {y: "yes", n: "no", p: "partly"};
+function pack(id, v) {
+  const one = f => v[f] === undefined || v[f] === "" ? "-" : SHORT[v[f]] || String(v[f]);
+  let s, notes;
+  if (id[0] === "A") { s = ["agent1", "agent2"].map(a => A_FIELDS.map(f => one(a + "_" + f)).join("")).join(""); notes = [v.agent1_note, v.agent2_note]; }
+  else if (id[0] === "B") { s = one("followed") + (v.broken_clauses || ""); notes = [v.note]; }
+  else { s = C_FIELDS.map(one).join(""); notes = [v.note]; }
+  return notes.some(Boolean) ? [s].concat(notes.map(n => n || "")) : s;
+}
+function unpack(id, p) {
+  if (p && typeof p === "object" && !Array.isArray(p)) return p;   // the first export format: every field under its name
+  const s = String(Array.isArray(p) ? p[0] : p), notes = Array.isArray(p) ? p.slice(1) : [], v = {};
+  const put = (f, c) => { if (c && c !== "-") v[f] = LONG[c] || (/^[012]$/.test(c) ? Number(c) : c); };
+  if (id[0] === "A") ["agent1", "agent2"].forEach((a, i) => { A_FIELDS.forEach((f, j) => put(a + "_" + f, s[4 * i + j])); if (notes[i]) v[a + "_note"] = notes[i]; });
+  else if (id[0] === "B") { put("followed", s[0]); if (s.length > 1) v.broken_clauses = s.slice(1); if (notes[0]) v.note = notes[0]; }
+  else { C_FIELDS.forEach((f, j) => put(f, s[j])); if (notes[0]) v.note = notes[0]; }
+  return v;
+}
 function exported() {
   const answers = {};
-  TASKS.forEach(t => mine(t).forEach(x => { if (x.kind !== "example" && S.answers[x.id] && Object.keys(S.answers[x.id].v).length) answers[x.id] = S.answers[x.id].v; }));
-  return JSON.stringify({format: FORMAT, annotator: S.who, exported: new Date().toISOString(), started: S.started, answers: answers});
+  TASKS.forEach(t => mine(t).forEach(x => { if (x.kind !== "example" && S.answers[x.id] && Object.keys(S.answers[x.id].v).length) answers[x.id] = pack(x.id, S.answers[x.id].v); }));
+  return JSON.stringify({format: FORMAT, annotator: S.who, exported: new Date().toISOString(), answers: answers});
 }
 function openDialog(html) { $("#dialog").innerHTML = html; $("#scrim").hidden = false; const f = $("#dialog button, #dialog textarea"); if (f) f.focus(); }
 function closeDialog() { $("#scrim").hidden = true; $("#dialog").innerHTML = ""; }
 function exportDialog() {
-  const lines = TASKS.map(t => { const p = count(t, "practice"), m = count(t, "main"); return `任务 ${t}：热身 ${p[0]}/${p[1]}，正式 ${m[0]}/${m[1]}`; }).join("；");
+  const lines = TASKS.map(t => { const c = count(t); return `任务 ${t}：${c[0]}/${c[1]}`; }).join("；");
   const canFile = !!cloud.downloads || !window.claude;
   openDialog(`<h2>导出答案</h2><p class="note">${lines}</p>
 <p>${cloud.mode === "sync" ? "你的答案已经自动同步给负责人，一般不需要导出。下面的内容可以留作备份。" : "点“复制”，把内容发给负责人（微信、邮件都可以）。每做完一部分也建议复制一份留作备份。"}</p>
@@ -586,14 +598,13 @@ function importText(text) {
   const note = $("#import-note");
   let d;
   try { d = JSON.parse(text); } catch (e) { note.textContent = "内容不完整，请重新复制后再试。"; return; }
-  if (!d || d.format !== FORMAT || !d.answers) { note.textContent = "这不是本页面导出的内容。"; return; }
+  if (!d || (d.format !== FORMAT && d.format !== PLAIN) || !d.answers) { note.textContent = "这不是本页面导出的内容。"; return; }
   if (d.annotator !== S.who) { note.textContent = "这是编号 0" + (RATERS.indexOf(d.annotator) + 1) + " 的答案，和当前编号不一致。"; return; }
   let n = 0;
   Object.keys(d.answers).forEach(id => {
     const have = S.answers[id] && Object.keys(S.answers[id].v).length;
-    if (!have) { S.answers[id] = {v: d.answers[id], t: Date.now()}; queuePush(id, 50); n++; }
+    if (!have) { S.answers[id] = {v: unpack(id, d.answers[id]), t: Date.now()}; queuePush(id, 50); n++; }
   });
-  if (d.started) S.started = true;
   saveLocal(); render();
   note.textContent = "已导入 " + n + " 题。";
 }
@@ -614,9 +625,6 @@ document.addEventListener("click", ev => {
   else if (act === "export") exportDialog();
   else if (act === "close") closeDialog();
   else if (act === "reload") load();
-  else if (act === "start") openDialog(`<h2>开始正式题？</h2><p>请确认负责人组织的讨论已经结束。开始之后，热身题的答案不能再修改。</p><p>正式题请独立完成，不要和别人讨论具体题目，也不要让 AI 代为判断。</p>
-<div class="row"><button class="btn primary" type="button" data-act="start-yes">讨论已结束，开始</button><button class="btn" type="button" data-act="close">再等等</button></div>`);
-  else if (act === "start-yes") { S.started = true; TASKS.forEach(t => { delete S.pos[t]; }); saveLocal(); closeDialog(); render(); window.scrollTo(0, 0); }
   else if (act === "copy") {
     const box = $("#export-text"), note = $("#export-note");
     const fallback = () => { box.focus(); box.select(); note.textContent = "已选中全部内容，请按 Ctrl+C 或 ⌘C 复制。"; };
@@ -664,7 +672,7 @@ document.addEventListener("keydown", ev => {
   if (ev.key === "Escape" && !$("#scrim").hidden) { closeDialog(); return; }
   if (!S.who || S.tab === "guide" || !$("#scrim").hidden || /INPUT|TEXTAREA/.test(ev.target.tagName) || ev.metaKey || ev.ctrlKey || ev.altKey) return;
   if (ev.key !== "ArrowLeft" && ev.key !== "ArrowRight") return;
-  const open = mine(S.tab).filter(reachable), i = open.findIndex(x => x.id === S.pos[S.tab]) + (ev.key === "ArrowRight" ? 1 : -1);
+  const open = mine(S.tab), i = open.findIndex(x => x.id === S.pos[S.tab]) + (ev.key === "ArrowRight" ? 1 : -1);
   if (i >= 0 && i < open.length) { S.pos[S.tab] = open[i].id; saveLocal(); render(); window.scrollTo(0, 0); }
 });
 

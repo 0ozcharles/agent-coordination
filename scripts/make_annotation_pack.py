@@ -9,8 +9,9 @@ Task C (extraction): 30 grounded instances, the decisions, options and importanc
 to the ParallACT ticket pair they came from (the ticket text is not copied).
 
 The six annotators form 15 pairs; every item goes to one pair (8, 8 and 2 items a pair), so each annotator has 40, 40
-and 10 items and every pair of annotators shares some. Five, five and one more items are practice, given to all six.
-One worked example per task is shown filled in and is nobody's item.
+and 10 items and every pair of annotators shares some. One worked example per task is shown filled in and is nobody's
+item. There are no practice items; the pack as first built had eleven, and their games are still drawn and set aside,
+so that the main items are the ones drawn then.
 
 Writes the item files, assignment.csv, keys/ (which game an item is, the judge's labels, the checker's verdicts; kept
 out of the repository until the answers are in, with their hashes in keys.sha256; the games of the first pack, whose
@@ -132,15 +133,14 @@ def build(rng):
     # games of the first pack (commit 7aceb39), whose key is in the repository's history, are not drawn again
     published = {tuple(x) for x in json.loads((OUT / "excluded_games.json").read_text())}
 
-    def number(task, main, practice, example):
+    def number(task, main, example):
         """Deal the main items (in the stratified order they were drawn) to the pairs, then number them in a random order."""
         given = annotation.deal(range(len(main)), pairs, rng)
         order = list(range(len(main)))
         rng.shuffle(order)
         items = [{"item": "EXAMPLE", "kind": "example", "raters": (), "what": example}]
-        items += [{"item": f"{task}P{n}", "kind": "practice", "raters": tuple(RATERS), "what": x} for n, x in enumerate(practice, 1)]
         items += [{"item": f"{task}{n:03d}", "kind": "main", "raters": given[i], "what": main[i]} for n, i in enumerate(order, 1)]
-        assignment.extend([task, x["item"], x["kind"], *(x["raters"] if x["kind"] == "main" else ("all", "all"))] for x in items[1:])
+        assignment.extend([task, x["item"], *x["raters"]] for x in items[1:])
         return items
 
     # ---- Task A
@@ -155,9 +155,11 @@ def build(rng):
     twice = set(e1_cells) - set(rule_cells) | set(rng.sample(rule_cells, 27))
     main = [r for cell in e1_cells for r in take("e1", cell, 2 if cell in twice else 1)]
     main += [r for run in ("e3_claude_haiku_5_5", "e3_claude_sonnet_5_5", "e3_gpt_6_1_sol") for cell, k in E3_FOR_A.items() for r in take(run, cell, k)]
-    practice = [take(*x, 1)[0] for x in (("e1", "collaborating-competing"), ("e1", "accommodating-neutral"), ("e1", "prompted-avoiding-avoiding"),
-                                          ("e3_claude_sonnet_5_5", "neutral-neutral"), ("e3_gpt_6_1_sol", "competing-competing"))]
-    tasks["A"] = number("A", main, practice, by_game[EXAMPLE_A[0]])
+    # set aside (see the module docstring): the five practice games of the pack as first built
+    for x in (("e1", "collaborating-competing"), ("e1", "accommodating-neutral"), ("e1", "prompted-avoiding-avoiding"),
+              ("e3_claude_sonnet_5_5", "neutral-neutral"), ("e3_gpt_6_1_sol", "competing-competing")):
+        take(*x, 1)
+    tasks["A"] = number("A", main, by_game[EXAMPLE_A[0]])
     keys["A"] = {}
     for x in tasks["A"][1:]:
         r = x["what"]
@@ -186,8 +188,9 @@ def build(rng):
     for strategy, quota in QUOTA_B.items():
         failed = draw(strategy, False, quota // 2)
         main += failed + draw(strategy, True, quota - len(failed))
-    practice = [draw(s, v, 1)[0] for s, v in (("competing", False), ("collaborating", True), ("compromising", False), ("accommodating", True), ("avoiding", True))]
-    tasks["B"] = number("B", main, practice, example_b)
+    for s, v in (("competing", False), ("collaborating", True), ("compromising", False), ("accommodating", True), ("avoiding", True)):
+        draw(s, v, 1)   # set aside, as in task A
+    tasks["B"] = number("B", main, example_b)
     keys["B"] = {}
     for x in tasks["B"][1:]:
         r, agent = x["what"]
@@ -197,8 +200,8 @@ def build(rng):
 
     # ---- Task C
     grounded = json.loads(Path("data/bargain_grounded_instances.json").read_text())
-    picked = rng.sample(range(len(grounded)), 32)
-    tasks["C"] = number("C", [grounded[i] for i in picked[:30]], [grounded[picked[30]]], grounded[picked[31]])
+    picked = rng.sample(range(len(grounded)), 32)   # 30 items, one set aside (as in task A), the example
+    tasks["C"] = number("C", [grounded[i] for i in picked[:30]], grounded[picked[31]])
     index = {g["source"]: i for i, g in enumerate(grounded)}
     keys["C"] = {x["item"]: {"index": index[x["what"]["source"]], "source": x["what"]["source"]} for x in tasks["C"][1:]}
     return tasks, keys, assignment, configs
@@ -238,7 +241,7 @@ def write_files(tasks, keys, assignment, configs):
     rows = [[x["item"], x["kind"], x["what"]["repo"], TICKETS.format(source=x["what"]["source"]), x["what"]["artifact"],
              "\n".join(text for _, text in extraction_rows(x["what"]))] for x in tasks["C"]]
     write_csv(OUT / "task_c_extraction_items.csv", ["item", "kind", "repository", "ticket pair", "colliding code", "extracted structure"], rows)
-    write_csv(OUT / "assignment.csv", ["task", "item", "kind", "annotator_1", "annotator_2"], assignment)
+    write_csv(OUT / "assignment.csv", ["task", "item", "annotator_1", "annotator_2"], assignment)
     (OUT / "keys").mkdir(parents=True, exist_ok=True)
     digests = []
     for task in "ABC":
@@ -426,7 +429,7 @@ def write_workbooks(tasks, configs):
             ws.row_dimensions[n].height = (size + 3.5) * lines_of(text, 112) + (8 if size > 10 else 2)
 
         mine = {task: [x for x in items if rater in x["raters"]] for task, items in tasks.items()}
-        count = {task: (sum(x["kind"] == "practice" for x in items), sum(x["kind"] == "main" for x in items)) for task, items in mine.items()}
+        count = {task: len(items) for task, items in mine.items()}
         note = "备注（可空）"
         specs = {"A": ("A_style", [("item", 10, "题号"), ("move", 12, "第几步、谁"), ("text", 100, "谈判记录：方案和留言（英文原文）"), ("assertiveness", 15, "强硬度\n0 / 1 / 2"), ("cooperativeness", 16.5, "合作度\n0 / 1 / 2"),
                                    ("asks_needs", 15, "问过对方需求？\nyes / no"), ("discloses_priorities", 19.5, "说过自己的优先级？\nyes / no"), ("note", 32, note)], block_a, EXAMPLE_A[1]),
@@ -441,14 +444,9 @@ def write_workbooks(tasks, configs):
             sh.check("ypn", ("yes", "partly", "no"), "请填 yes、partly 或 no")
             sh.banner("示范（已经填好，不用动）。只填黄色格子；规则见 README。")
             block(sh, tasks[task][0], example)
-            sh.banner(f"热身题：{count[task][0]} 题，六个人做的是同样的题。先做完三个 sheet 的热身题，把文件发回负责人，讨论之后再做正式题。")
+            sh.banner(f"题目：{count[task]} 题。请独立完成，不要和别人讨论具体题目，也不要让 AI 代为判断。")
             for x in mine[task]:
-                if x["kind"] == "practice":
-                    block(sh, x)
-            sh.banner(f"正式题：{count[task][1]} 题。请独立完成，不要和别人讨论具体题目，也不要让 AI 代为判断。")
-            for x in mine[task]:
-                if x["kind"] == "main":
-                    block(sh, x)
+                block(sh, x)
         wb.save(OUT / "workbooks" / f"annotator_{rater}.xlsx")
     return count
 
@@ -457,10 +455,10 @@ def main():
     tasks, keys, assignment, configs = build(random.Random(SEED))
     write_files(tasks, keys, assignment, configs)
     write_web(tasks, configs)
-    print("items: " + ", ".join(f"task {t} {sum(x['kind'] == 'main' for x in items)} + {sum(x['kind'] == 'practice' for x in items)} practice" for t, items in tasks.items()))
+    print("items: " + ", ".join(f"task {t} {len(items) - 1}" for t, items in tasks.items()))
     try:
         count = write_workbooks(tasks, configs)
-        print(f"wrote {len(RATERS)} workbooks under {OUT / 'workbooks'}: " + ", ".join(f"task {t} {m} + {p} practice" for t, (p, m) in count.items()) + " each")
+        print(f"wrote {len(RATERS)} workbooks under {OUT / 'workbooks'}: " + ", ".join(f"task {t} {n}" for t, n in count.items()) + " each")
     except ImportError:
         print("openpyxl is not installed: item files, assignment and keys written, workbooks skipped (pip install openpyxl)")
 
