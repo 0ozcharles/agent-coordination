@@ -5,7 +5,11 @@ alone ("pick"), is compared, instance by instance, with the games of the referen
 assigned (E2-R for the ten conditions, E1-R where both agents choose, the grounded and benchmark runs). Each hypothesis is a per-instance paired difference (stats.py: the two seats of an instance are averaged and
 matched by seat; conditions that share their instances are averaged); S1 is a permutation test on the choices.
 Reads results/bargain_e6_<arm>_rows.csv and the reference rows; writes results/bargain_selection.json. Run from the
-repository root after the arms have been reported. A different spec and output can be given as two arguments.
+repository root after the arms have been reported. A different spec and output can be given as two arguments: the
+informed-choice study (E7) is `selection.py configs/bargain_informed.json results/bargain_informed.json`. A spec may
+name its own choosers (`menus`), the uninformed chooser each is compared with (`uninformed`), and arms on a subset
+of the reference runs' instances; an arm whose config carries evidence also reports how often the option with the
+highest figure was taken.
 """
 import collections
 import json
@@ -22,6 +26,8 @@ SPEC_PATH = sys.argv[1] if len(sys.argv) > 1 else "configs/bargain_selection.jso
 OUT_PATH = sys.argv[2] if len(sys.argv) > 2 else "results/bargain_selection.json"
 SPEC = json.loads(Path(SPEC_PATH).read_text())
 MENU = ("neutral", *stats.STYLES)
+MENUS = SPEC.get("menus", {"free": "choose", "forced": "pick"})   # menu -> the chooser that is reported for it
+UNINFORMED = SPEC.get("uninformed", {})                            # chooser -> the same menu without evidence, in the reference rows
 DISCOVERY = "results/bargain_e2_{}_rows.csv"   # the 20-instance runs behind the ten conditions, for the choice by condition
 
 
@@ -34,7 +40,10 @@ def load(arm):
     R = {}
     for ref in spec["reference"]:
         R.update({k: v for k, v in stats.load_rows(ref["rows"]).items() if "cells" not in ref or k[0] in ref["cells"]})
-    R.update(stats.load_rows(own))
+    mine = stats.load_rows(own)
+    ids = {i for _, i in mine}
+    R = {k: v for k, v in R.items() if k[1] in ids}  # an arm may use a subset of the reference run's instances
+    R.update(mine)
     return R
 
 
@@ -191,6 +200,29 @@ def arm_report(arm, R, chooser):
     return out
 
 
+def evidence_report(arm, R, chooser):
+    """Where the menu showed what each option earned before: how often the option with the highest figure was taken,
+    the mean rank of the figure of the option taken (1 = highest), and what taking the highest figure every time would
+    have earned, from the assigned cells, against the default agent."""
+    figures = json.loads(Path(SPEC["arms"][arm]["config"]).read_text()).get("choice", {}).get("evidence")
+    P = picks(R, chooser)
+    if not figures or not P:
+        return None
+    options = MENU if chooser == MENUS.get("free") else stats.STYLES
+    scale, best, ranks, gain = SPEC["arms"][arm].get("scale"), 0, [], collections.defaultdict(list)
+    for p in P:
+        f = figures[p["seat"]]
+        order = sorted(options, key=lambda s: -f[s])
+        best += p["choice"] == order[0]
+        ranks.append(order.index(p["choice"]) + 1 if p["choice"] in order else len(order) + 1)
+        top, base = assigned(R, order[0], p["instance"], p["seat"], scale), assigned(R, "neutral", p["instance"], p["seat"], scale)
+        if top is not None and base is not None:
+            gain[p["instance"]].append(top - base)
+    return {"n": len(P), "took_the_highest_figure": round(best / len(P), 4), "mean_rank_of_the_figure_taken": round(st.mean(ranks), 2),
+            "highest_figure_by_seat": {seat: max(options, key=lambda s: figures[seat][s]) for seat in ("p1", "p2")},
+            "the_highest_figure_every_time_from_assigned_cells": effect([st.mean(v) for v in gain.values()])}
+
+
 def clean(o):
     if isinstance(o, dict):
         return {k: clean(v) for k, v in o.items()}
@@ -224,8 +256,16 @@ def main():
     out["complete"] = not missing and len(tested) == len(SPEC["hypotheses"])
 
     ten = SPEC["hypotheses"][0]["arms"]
-    menus = {"free": "choose", "forced": "pick"}
+    menus = MENUS
     out["arms"] = {arm: {menu: arm_report(arm, R, chooser) for menu, chooser in menus.items()} for arm, R in tables.items() if R and arm != "core"}
+    for arm, R in tables.items():
+        for menu, chooser in menus.items():
+            a = out["arms"].get(arm, {}).get(menu)
+            if a and chooser in UNINFORMED:
+                scale = SPEC["arms"][arm].get("scale")
+                a["own_minus_uninformed"] = effect(stats.contrast(R, chooser, UNINFORMED[chooser], "neutral", scale))
+                a["uninformed_shares"] = shares([p["choice"] for p in picks(R, UNINFORMED[chooser])])
+                a["evidence"] = evidence_report(arm, R, chooser)
     if all(tables.get(a) for a in ten):
         out["ten_conditions"] = {}
         for menu, chooser in menus.items():
@@ -234,10 +274,20 @@ def main():
                 "shares": shares([p["choice"] for p in pooled]), "letters": dict(sorted(collections.Counter(p["letters"][0] for p in pooled).items())),
                 "shares_by_letter": {L: shares([p["choice"] for p in pooled if p["letters"][0] == L]) for L in "ABCDEF" if any(p["letters"][0] == L for p in pooled)},
                 "invalid_choices": sum(p["invalid"] for p in pooled), "choice_tokens": round(st.mean(p["tokens"] for p in pooled), 1),
-                "dependence": dependence(tables, ten, chooser, permutations=2000) if chooser == "choose" else "see S1",
+                "dependence": dependence(tables, ten, chooser, permutations=2000) if not any(h["kind"] == "dependence" and h.get("chooser") == chooser for h in SPEC["hypotheses"]) else "see S1",
                 "gain_from_assigned_cells": effect(sample({"kind": "gain", "chooser": chooser, "arms": ten}, tables)),
                 "own_minus_assigned_competing": effect(sample({"kind": "contrast", "strategy": chooser, "other": "competing", "arms": ten}, tables)),
-                "joint": effect(sample({"kind": "alone", "strategy": chooser, "measure": "joint", "arms": ten}, tables))}
+                "joint": effect(sample({"kind": "alone", "strategy": chooser, "measure": "joint", "arms": ten}, tables)),
+                "own_minus_assigned_collaborating": effect(sample({"kind": "contrast", "strategy": chooser, "other": "collaborating", "arms": ten}, tables)),
+                "partner": effect(sample({"kind": "alone", "strategy": chooser, "measure": "partner", "arms": ten}, tables)),
+                "skill": effect(sample({"kind": "skill", "chooser": chooser, "arms": ten}, tables))}
+            if chooser in UNINFORMED:
+                took = [a["evidence"] for a in (out["arms"][x][menu] for x in ten) if a and a.get("evidence")]
+                out["ten_conditions"][menu].update({
+                    "own_minus_uninformed": effect(sample({"kind": "contrast", "strategy": chooser, "other": UNINFORMED[chooser], "arms": ten}, tables)),
+                    "uninformed_shares": shares([p["choice"] for a in ten for p in picks(tables[a], UNINFORMED[chooser])]),
+                    "took_the_highest_figure": round(sum(e["took_the_highest_figure"] * e["n"] for e in took) / sum(e["n"] for e in took), 4) if took else None,
+                    "mean_rank_of_the_figure_taken": round(sum(e["mean_rank_of_the_figure_taken"] * e["n"] for e in took) / sum(e["n"] for e in took), 2) if took else None})
     out["from_assigned_cells"] = by_condition_from_assigned_cells(ten)
     R = tables.get("base")
     if R:

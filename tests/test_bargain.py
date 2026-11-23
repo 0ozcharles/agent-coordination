@@ -265,6 +265,11 @@ CHOICE = {"once": "{prefix}Before the negotiation starts, pick one.\n\n{menu}\n\
           "again": "{prefix}Before you move, pick one.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
           "once_forced": "{prefix}Before the negotiation starts, pick one of the five.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
           "again_forced": "{prefix}Before you move, pick one of the five.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
+          "once_info": "{prefix}Pick one; the points are what each earned before.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
+          "once_forced_info": "{prefix}Pick one of the five; the points are what each earned before.\n\n{menu}\n\nReply with {\"choice\": \"<letter>\"}",
+          "evidence_line": "[Earned {points} points on average.]",
+          "evidence": {"p1": {"neutral": 60, "competing": 62.5, "collaborating": 70, "compromising": 55, "accommodating": 58, "avoiding": 44},
+                       "p2": {"neutral": 61, "competing": 71, "collaborating": 66, "compromising": 50, "accommodating": 52, "avoiding": 40}},
           "kept": "You chose {letter}. From now on: {rule}"}
 
 
@@ -392,6 +397,37 @@ class ChooserTest(unittest.TestCase):
         with mock.patch.object(bargain, "call", self.player(inst, ["avoiding"], seen, bad=2)):
             record = bargain.play(cfg, inst, cfg["cells"][0])
         self.assertEqual((record["strategies"]["p1"], record["choice"]["p1"][0]["invalid"], record["choice"]["p1"][0]["letter"]), ("neutral", 2, "-"))
+
+    def test_an_informed_menu_shows_what_each_option_earned(self):
+        from unittest import mock
+        cfg = chooser_config(("choose_info", "neutral"), ("neutral", "pick_info"), ("collaborating", "neutral"))
+        inst = bargain.instances(cfg)[0]
+        order = bargain.menu_order(cfg, inst, "p1")
+        text = bargain.menu_text(cfg, inst, "p1", order, "once", informed=True)
+        self.assertTrue(text.startswith("[G] Pick one; the points are what each earned before.\n\nA. "))
+        for letter, s in zip("ABCDEF", order):  # the option as on the plain menu, then its evidence for this seat
+            plain = bargain.guidance(dict(cfg, instruction_prefix=""), s, "rules", inst, "p1")
+            self.assertIn(f"{letter}. {plain} [Earned {CHOICE['evidence']['p1'][s]:g} points on average.]", text)
+        self.assertIn("[Earned 62.5 points on average.]", text)
+        self.assertNotIn("Earned", bargain.menu_text(cfg, inst, "p1", order, "once"))
+        forced = bargain.menu_text(cfg, inst, "p2", bargain.menu_order(cfg, inst, "p2", options=bargain.STYLES), "once", informed=True)
+        self.assertTrue(forced.startswith("[G] Pick one of the five; the points are what each earned before."))
+        self.assertIn("[Earned 71 points on average.]", forced)
+        self.assertNotIn("Do as you like.", forced)
+        seen = []
+        with mock.patch.object(bargain, "call", self.player(inst, ["collaborating"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][0])
+        self.assertEqual((record["assigned"]["p1"], record["strategies"]["p1"]), ("choose_info", "collaborating"))
+        self.assertIn("Earned 70 points", record["choice"]["p1"][0]["question"])
+        seen_assigned = []  # the evidence stays in the choice: the game is prompted as where the rule is assigned
+        with mock.patch.object(bargain, "call", self.player(inst, [], seen_assigned)):
+            bargain.play(cfg, inst, cfg["cells"][2])
+        self.assertEqual([m for a, m in seen[1:]], [m for a, m in seen_assigned])
+        seen.clear()
+        with mock.patch.object(bargain, "call", self.player(inst, ["competing"], seen)):
+            record = bargain.play(cfg, inst, cfg["cells"][1])
+        self.assertEqual((record["strategies"]["p2"], len(record["choice"]["p2"][0]["order"])), ("competing", 5))
+        self.assertIn("Earned 71 points", record["choice"]["p2"][0]["question"])
 
     def test_unreadable_choice_falls_back_to_no_rules(self):
         from unittest import mock

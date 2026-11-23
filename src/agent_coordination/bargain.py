@@ -31,10 +31,12 @@ AGENTS = ("p1", "p2")
 # A seat whose strategy is one of these picks its own. "choose" and "pick": once before the game, which is then played
 # exactly as if the pick had been assigned; "choose_kept" and "pick_kept": once, with the pick left in its conversation;
 # "rechoose" and "repick": before each of its moves. The choose family picks from MENU (no rules, or one of the five rule
-# sets); the pick family must take one of the five rule sets.
+# sets); the pick family must take one of the five rule sets. "choose_info" and "pick_info" are "choose" and "pick" with
+# each option followed by what it earned before (config["choice"]["evidence"]).
 MENU = ("neutral", *STYLES)
-FORCED = ("pick", "pick_kept", "repick")
-CHOOSERS = ("choose", "choose_kept", "rechoose", *FORCED)
+FORCED = ("pick", "pick_kept", "repick", "pick_info")
+INFORMED = ("choose_info", "pick_info")
+CHOOSERS = ("choose", "choose_kept", "rechoose", "choose_info", *FORCED)
 KEPT, AGAIN = ("choose_kept", "pick_kept"), ("rechoose", "repick")
 CHOICE_COLUMNS = tuple(f"{a}_{k}" for k in ("choice", "choices", "choice_letters", "choice_invalid", "choice_tokens") for a in ("p1", "p2"))
 NAMES = {"p1": "Developer 1", "p2": "Developer 2"}
@@ -452,13 +454,17 @@ def menu_order(config, inst, agent, n=0, options=MENU):
     return order
 
 
-def menu_text(config, inst, agent, order, when):
+def menu_text(config, inst, agent, order, when, informed=False):
     """The question put to a chooser: config["choice"][when] (when: "once" or "again"; with "_forced" added when no rules
-    is not among the options) with {prefix} replaced by the guidance prefix and {menu} by the lettered options, each
-    word for word what an assigned agent is given (thresholds on the agent's own scale)."""
-    plain = dict(config, instruction_prefix="")
-    menu = "\n".join(f"{letter}. {guidance(plain, s, 'rules', inst, agent)}" for letter, s in zip("ABCDEF", order))
-    text = config["choice"][when if "neutral" in order else f"{when}_forced"].replace("{prefix}", config.get("instruction_prefix", ""))
+    is not among the options, and "_info" for an informed menu) with {prefix} replaced by the guidance prefix and {menu}
+    by the lettered options, each word for word what an assigned agent is given (thresholds on the agent's own scale).
+    On an informed menu every option is followed by config["choice"]["evidence_line"], its {points} filled from
+    config["choice"]["evidence"][seat][option]: what the option earned an agent in this seat before."""
+    plain, choice = dict(config, instruction_prefix=""), config["choice"]
+    after = (lambda s: " " + choice["evidence_line"].replace("{points}", f"{choice['evidence'][agent][s]:g}")) if informed else (lambda s: "")
+    menu = "\n".join(f"{letter}. {guidance(plain, s, 'rules', inst, agent)}{after(s)}" for letter, s in zip("ABCDEF", order))
+    key = when + ("" if "neutral" in order else "_forced") + ("_info" if informed else "")
+    text = choice[key].replace("{prefix}", config.get("instruction_prefix", ""))
     return reskin(text, inst).replace("{menu}", reskin(menu, inst))
 
 
@@ -478,14 +484,14 @@ def parse_choice(text, order):
     return {"letter": letter, "strategy": order[ord(letter) - 65], "reason": str(data.get("reason") or "").strip()[:500]}
 
 
-def choose(config, inst, agent, when, history=(), n=0, before="", options=MENU):
+def choose(config, inst, agent, when, history=(), n=0, before="", options=MENU, informed=False):
     """One choice by a chooser. It is asked in a conversation of its own: the game's description without any guidance,
     what the agent has seen and said so far (`history`; nothing before the game), then `before` (the description of
     the latest move) and the menu. Returns the strategy picked with the menu's order, the reply, and the cost and
     tokens of the call, which are counted apart from the game's. A reply that cannot be read is asked for once more;
     after that the agent plays without rules ("neutral", also where that was not on the menu) with `invalid` 2."""
     order = menu_order(config, inst, agent, n, options)
-    question = menu_text(config, inst, agent, order, when)
+    question = menu_text(config, inst, agent, order, when, informed)
     messages = [{"role": "system", "content": system_prompt(config, inst, agent, "default", "rules")}, *history,
                 {"role": "user", "content": f"{before}\n\n{question}" if before else question}]
     out = {"n": n, "when": when, "order": order, "question": question, "invalid": 0, "cost_usd": 0.0,
@@ -529,7 +535,7 @@ def play(config, inst, cell):
         if assigned[a] in CHOOSERS:
             ops[a] = "rules"
             if assigned[a] not in AGAIN:
-                strategies[a] = picked(a, choose(config, inst, a, "once", options=menu[a]))
+                strategies[a] = picked(a, choose(config, inst, a, "once", options=menu[a], informed=assigned[a] in INFORMED))
         if assigned[a] in KEPT:
             c = choices[a][0]
             rule = reskin(guidance(dict(config, instruction_prefix=""), c["strategy"], "rules", inst, a), inst)

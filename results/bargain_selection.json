@@ -5335,6 +5335,42 @@
     "wins": 43,
     "losses": 37,
     "dz": 0.0764
+   },
+   "own_minus_assigned_collaborating": {
+    "n": 80,
+    "mean": -3.71,
+    "ci95": [
+     -4.9484,
+     -2.4161
+    ],
+    "p_wilcoxon": 0.0,
+    "wins": 18,
+    "losses": 62,
+    "dz": -0.636
+   },
+   "partner": {
+    "n": 80,
+    "mean": 0.2377,
+    "ci95": [
+     -0.8184,
+     1.2907
+    ],
+    "p_wilcoxon": 0.7754,
+    "wins": 41,
+    "losses": 39,
+    "dz": 0.0493
+   },
+   "skill": {
+    "n": 80,
+    "mean": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "p_wilcoxon": 1.0,
+    "wins": 0,
+    "losses": 0,
+    "dz": null
    }
   },
   "forced": {
@@ -5439,6 +5475,42 @@
     "wins": 32,
     "losses": 48,
     "dz": -0.1274
+   },
+   "own_minus_assigned_collaborating": {
+    "n": 80,
+    "mean": -8.8464,
+    "ci95": [
+     -10.1154,
+     -7.605
+    ],
+    "p_wilcoxon": 0.0,
+    "wins": 5,
+    "losses": 75,
+    "dz": -1.525
+   },
+   "partner": {
+    "n": 80,
+    "mean": 3.5036,
+    "ci95": [
+     2.1881,
+     4.866
+    ],
+    "p_wilcoxon": 0.0,
+    "wins": 57,
+    "losses": 23,
+    "dz": 0.569
+   },
+   "skill": {
+    "n": 80,
+    "mean": -0.0522,
+    "ci95": [
+     -1.0387,
+     0.9548
+    ],
+    "p_wilcoxon": 0.9446,
+    "wins": 41,
+    "losses": 39,
+    "dz": -0.0114
    }
   }
  },

@@ -1,0 +1,339 @@
+{
+ "study": "bargain_informed",
+ "question": "E6 found that an agent left to choose takes none of the five rule sets, and made to pick one takes the conceding ones and loses. Is that for want of information? Here every option of E6's menus is followed by what it earned in earlier games of the same condition (E2, the discovery sample, on other instances), and the agent chooses again.",
+ "arms": {
+  "base": {
+   "config": "configs/bargain_e7_base.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_base_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_base_rows.csv"
+    }
+   ]
+  },
+  "integrative": {
+   "config": "configs/bargain_e7_integrative.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_integrative_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_integrative_rows.csv"
+    }
+   ]
+  },
+  "distributive": {
+   "config": "configs/bargain_e7_distributive.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_distributive_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_distributive_rows.csv"
+    }
+   ]
+  },
+  "all_contested": {
+   "config": "configs/bargain_e7_all_contested.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_all_contested_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_all_contested_rows.csv"
+    }
+   ]
+  },
+  "urgent": {
+   "config": "configs/bargain_e7_urgent.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_urgent_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_urgent_rows.csv"
+    }
+   ]
+  },
+  "time_cost": {
+   "config": "configs/bargain_e7_time_cost.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_time_cost_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_time_cost_rows.csv"
+    }
+   ]
+  },
+  "tight_budget": {
+   "config": "configs/bargain_e7_tight_budget.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_tight_budget_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_tight_budget_rows.csv"
+    }
+   ]
+  },
+  "open_info": {
+   "config": "configs/bargain_e7_open_info.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_open_info_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_open_info_rows.csv"
+    }
+   ]
+  },
+  "power_p1": {
+   "config": "configs/bargain_e7_power_p1.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_power_p1_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_power_p1_rows.csv"
+    }
+   ]
+  },
+  "low_stakes_p2": {
+   "config": "configs/bargain_e7_low_stakes_p2.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_low_stakes_p2_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_low_stakes_p2_rows.csv"
+    }
+   ],
+   "scale": {
+    "p1": 100.0,
+    "p2": 30.0
+   }
+  }
+ },
+ "menus": {
+  "free": "choose_info",
+  "forced": "pick_info"
+ },
+ "uninformed": {
+  "choose_info": "choose",
+  "pick_info": "pick"
+ },
+ "design": {
+  "evidence": "for each option the mean own payoff of an agent that took it against the default agent in E2's games of the condition: both seats pooled (40 games an option) in the eight conditions where the seats are alike, the seat's own 20 games under unequal outside options and unequal stakes. The figures are noisy on purpose of realism: 20 instances a condition is what the discovery sample was, and the option that led there is not always the one that leads on fresh instances.",
+  "menus": "E6's free menu (five rule sets and the default agent's sentence) and forced menu (the five rule sets), same wording, order and letters, with one sentence added that says what the figures are and a bracketed figure after every option. The choice is asked in a conversation of its own and the game is then prompted exactly as where the picked option is assigned; the evidence is not in the game's prompt.",
+  "games": "ten conditions x the first 40 of E2-R's 80 instances x 2 seats x 2 menus = 1,600 games on gpt-6-luna with E1's sampling. The remaining 40 instances may be run later as a replication; they would be analysed apart and pooled only as a secondary analysis.",
+  "best by the evidence": {
+   "base": {
+    "p1": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    },
+    "p2": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    }
+   },
+   "integrative": {
+    "p1": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    },
+    "p2": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    }
+   },
+   "distributive": {
+    "p1": {
+     "free": "competing",
+     "forced": "competing"
+    },
+    "p2": {
+     "free": "competing",
+     "forced": "competing"
+    }
+   },
+   "all_contested": {
+    "p1": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    },
+    "p2": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    }
+   },
+   "urgent": {
+    "p1": {
+     "free": "accommodating",
+     "forced": "accommodating"
+    },
+    "p2": {
+     "free": "accommodating",
+     "forced": "accommodating"
+    }
+   },
+   "time_cost": {
+    "p1": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    },
+    "p2": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    }
+   },
+   "tight_budget": {
+    "p1": {
+     "free": "competing",
+     "forced": "competing"
+    },
+    "p2": {
+     "free": "competing",
+     "forced": "competing"
+    }
+   },
+   "open_info": {
+    "p1": {
+     "free": "competing",
+     "forced": "competing"
+    },
+    "p2": {
+     "free": "competing",
+     "forced": "competing"
+    }
+   },
+   "power_p1": {
+    "p1": {
+     "free": "competing",
+     "forced": "competing"
+    },
+    "p2": {
+     "free": "competing",
+     "forced": "competing"
+    }
+   },
+   "low_stakes_p2": {
+    "p1": {
+     "free": "collaborating",
+     "forced": "collaborating"
+    },
+    "p2": {
+     "free": "competing",
+     "forced": "competing"
+    }
+   }
+  },
+  "pilot": "after the hypotheses and predictions below were written, the informed menus were tried on four instances of the development seed in three conditions (base, urgent, unequal stakes; 48 games, $0.03, under runs/bargain/e7_smoke; not part of the study). Forced menu: the option with the highest figure in 24 of 24 picks. Free menu: 'no rules' in 13 of 24 choices, a rule set (the one with the highest figure, except twice) in 11. Nothing was changed after the pilot."
+ },
+ "unit": "the instance, as in E6: the two seats of an instance are averaged (each against the comparison in the same seat), and the ten conditions, which share their 40 instances, are averaged. Own and partner payoffs are in percent of the seat's maximum under unequal stakes, in points elsewhere. The comparison games are E2-R's (each rule assigned, the default pair) and E6's (the same menus without the evidence) on the same instances.",
+ "test": "two-sided Wilcoxon signed-rank test on the per-instance differences, Holm correction over the four hypotheses at alpha = .05; a hypothesis is confirmed when its Holm-adjusted p is below .05 and the mean difference has the stated direction. The mean difference with a bootstrap 95% interval (10,000 resamples of instances), the exact sign test and d_z are reported beside it.",
+ "inclusion": "every finished game counts, whatever was chosen; a choice that cannot be read after one repeat counts as no rules; a game that errors is replayed.",
+ "hypotheses": [
+  {
+   "id": "I1",
+   "kind": "contrast",
+   "strategy": "pick_info",
+   "other": "pick",
+   "direction": "+",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "Made to pick a rule set, the agent earns more when the menu says what each earned before than when it does not (ten conditions)."
+  },
+  {
+   "id": "I2",
+   "kind": "alone",
+   "strategy": "pick_info",
+   "measure": "own",
+   "direction": "+",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "An agent that picks a rule set from the informed menu earns more than the default agent in its seat (ten conditions)."
+  },
+  {
+   "id": "I3",
+   "kind": "alone",
+   "strategy": "choose_info",
+   "measure": "own",
+   "direction": "+",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "An agent that may choose a rule set or none from the informed menu earns more than the default agent in its seat (ten conditions)."
+  },
+  {
+   "id": "I4",
+   "kind": "alone",
+   "strategy": "pick_info",
+   "measure": "partner",
+   "direction": "-",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "The partner of an agent that picks from the informed menu earns less than the partner of the default agent (ten conditions)."
+  }
+ ],
+ "predictions": {
+  "following the evidence": "with the forced menu the agent takes the option with the highest figure in at least 70 percent of its picks; the conceding rules (accommodating, avoiding) fall under 10 percent together, from 64 percent without the evidence",
+  "free menu": "the agent leaves 'no rules' for a rule set in 40 to 90 percent of its choices, mostly where a rule set's figure is clearly above the figure of no rules",
+  "I1": "confirmed, +6 to +10 points",
+  "I2": "confirmed, +2 to +5 points: about what the rule that led in E2 earns on fresh instances (+4.0 from the assigned cells)",
+  "I3": "confirmed, +1 to +4 points",
+  "I4": "confirmed, -2 to -6 points: the competing rules lead in the evidence of several conditions, and competing takes from the partner",
+  "against the collaborating rule assigned": "no difference (within 2 points): an agent that follows the evidence does as well as one told to collaborate, not better",
+  "place in the menu": "the first-place effect shrinks: the option listed first receives under 30 percent of the forced picks (37 percent without the evidence)"
+ },
+ "secondary": [
+  "choice shares by menu and condition; the share of choices that take the option with the highest figure, and the rank of the figure of the option taken",
+  "the informed chooser against the uninformed one of E6 on the same instances, for both menus",
+  "own payoff against an agent assigned the collaborating rule and against one assigned the competing rule; partner and joint payoff",
+  "what taking the option with the highest figure every time would have earned, from the assigned cells of E2-R",
+  "the option's place in the menu; whether the picks follow the instance (as S5 of E6)"
+ ],
+ "status": "frozen 2026-11-23 and pushed before any game of the study was played; the analysis code is scripts/analysis/selection.py at the same commit, run with this file as its spec"
+}
