@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="152" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="152" fill="white"/>
+<text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
+<text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
+<line x1="190.0" y1="36" x2="190.0" y2="92" stroke="#eee"/><text x="190.0" y="104" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="92" stroke="#eee"/><text x="295.0" y="104" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="92" stroke="#eee"/><text x="400.0" y="104" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="92" stroke="#eee"/><text x="505.0" y="104" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="92" stroke="#eee"/><text x="610.0" y="104" text-anchor="middle">100</text>
+<text x="184" y="56" text-anchor="end">choose-choose</text>
+<rect x="190" y="43" width="265.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="53" width="281.4" height="9" fill="#95a5a6"/>
+<text x="624" y="56">100/100</text><text x="674" y="56">n/a</text><text x="734" y="56">13.53</text>
+<text x="184" y="82" text-anchor="end">pick-pick</text>
+<rect x="190" y="69" width="247.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="79" width="263.0" height="9" fill="#95a5a6"/>
+<text x="624" y="82">83/100</text><text x="674" y="82">90/100</text><text x="734" y="82">21.98</text>
+</svg>

@@ -2,7 +2,7 @@
 
 Research code and results for two connected studies of LLM agents that work on the same thing and want different things.
 
-1. **Strategy payoff study** (current; the paper draft in [`paper/`](paper/)): which conflict-handling strategy should an LLM agent use? Two agents bargain over a multi-issue design in a parametric environment with an exact efficiency frontier. Each of the five Thomas-Kilmann strategies (competing, collaborating, compromising, accommodating, avoiding) is given as behavioural rules whose compliance is checked from the moves. 48,268 games, four models, $93: 19,768 in the studies below and 28,500 in a pre-registered replication on fresh instances and in rule variants.
+1. **Strategy payoff study** (current; the paper draft in [`paper/`](paper/)): which conflict-handling strategy should an LLM agent use? Two agents bargain over a multi-issue design in a parametric environment with an exact efficiency frontier. Each of the five Thomas-Kilmann strategies (competing, collaborating, compromising, accommodating, avoiding) is given as behavioural rules whose compliance is checked from the moves. 52,860 games, four models, $96: 19,768 in the studies below, 28,500 in a pre-registered replication on fresh instances and in rule variants, and 4,592 in a pre-registered study in which the agent chooses its strategy itself.
 2. **Diagnosis phase** (earlier): why do two coding agents fail on CooperBench and ParallACT, and does a conflict-handling style help? It does not there, because the conflict is binary (whose change lands). That result is why the first study exists.
 
 ## Strategy payoff study
@@ -18,6 +18,7 @@ The numbers are from the confirmation sample (E1-R and E2-R: fresh instances, 26
 - **The situation moves the map, but not as the textbook prescribes.** Of the six conditions for which the Thomas-Kilmann model names a strategy, that strategy is right in one (everything to trade: collaborate), wrong in four, and makes no difference in one (urgency). Which strategy has the largest mean in a condition changed in five of ten conditions between 20 and 80 instances; the signs of the strategies did not.
 - **Cost orders the strategies the other way round.** Competing is the most expensive strategy in tokens; a modest price on tokens hands the answer to the cheap strategies.
 - **What not to do transfers; who keeps collaborating's gain does not.** Across 29 settings (framings, real-conflict structures, four models, cross-model pairs, two external benchmarks) competing, compromising and avoiding pairs fall below the default pair in 80 of 81 comparisons. A collaborating rule raises the joint payoff in 25 of 29 settings, and its user keeps the gain only against a partner that cannot find the frontier alone: pairs of different models show that the partner's model decides, not the adopter's.
+- **Left to choose, the agent takes none of the strategies; made to choose, it takes the ones that lose** (E6, pre-registered, `gpt-6-luna`). Shown the five rule sets and the option of following none, it chose none in 1,600 of 1,600 choices over the ten conditions, nearly always to stay flexible. Made to pick one, it picked accommodating in 42 percent, collaborating in 28, avoiding in 22 and competing in 6, mostly for the low acceptance floor, and earned 5.0 points less than the default agent [3.7, 6.2] and 8.9 less than an agent assigned the collaborating rule. Its picks did no better on the instances where they were made than its average pick (−0.05 [−1.0, +0.9]) and shifted little with the condition; against a competing partner it drifted toward avoiding, not toward the best reply. Choosing by condition from the measured map would itself add nothing over collaborating everywhere (+0.1 [−0.8, +1.0]).
 
 Caveats that belong next to these: the paper draft and its figures still carry the discovery sample's wording and numbers ([what changes](docs/RESEARCH_PLAN.md#strategy-payoff-study-the-confirmatory-replication-and-the-rule-variants-results-2026-11-22)); the transfer settings below were not replicated and most have 20 to 40 instances; the relation between the room the default pair leaves and collaborating's gain holds among the 23 settings with the standard protocol and equal stakes (r = .81), not over all 29 (r = .32); the strategies are rules we wrote; games are one-shot.
 
@@ -28,6 +29,7 @@ Caveats that belong next to these: the paper draft and its figures still carry t
 | E0 manipulation check | 360 | [`bargain_dev.json`](configs/bargain_dev.json) | `bargain_dev_*` | rules are followed, prompted sentences mostly not; fixed the rule texts |
 | E1-R, E2-R replication | 22,800 | [`bargain_replication.json`](configs/bargain_replication.json), [`bargain_e1r.json`](configs/bargain_e1r.json), [`bargain_e2r.json`](configs/bargain_e2r.json) | `bargain_e1r_*`, `bargain_e2r_*`, `bargain_replication.json` | E1's 36 cells on 100 fresh instances and E2's ten conditions on 80; 22 of 26 pre-registered hypotheses confirmed |
 | E5 rule variants | 5,700 | [`bargain_e5_rules.json`](configs/bargain_e5_rules.json) | `bargain_e5_rules_*` | two paraphrase sets, moved floors, the collaborating rule taken apart; signs hold in 26 of 26 |
+| E6 selection | 4,592 | [`bargain_selection.json`](configs/bargain_selection.json) and fourteen arms `bargain_e6_*.json` | `bargain_e6_*`, `bargain_selection.json` | the agent chooses its own strategy: none when it may, the conceding rules when it must; 2 of 8 pre-registered hypotheses confirmed |
 | E1 strategy matrix | 1,680 | [`bargain_e1.json`](configs/bargain_e1.json) | `bargain_e1_*` | all 36 pairs of six strategies; collaborating dominates, competing does not pay |
 | E2 condition map | 4,800 | [`bargain_e2.json`](configs/bargain_e2.json) and ten arms | `bargain_e2_*` | ten situations, one knob each; the textbook is right in one of six |
 | E4 framings | 960 | [`bargain_e4.json`](configs/bargain_e4.json) | `bargain_e4_*` | three realistic skins; the map is unchanged, collaborating's gain goes to the partner |
@@ -59,7 +61,7 @@ Every config was frozen with its predictions before its run. Models: `gpt-6-luna
 These need Python 3.9+ and no API key or Docker:
 
 ```bash
-python3 -m unittest discover -s tests            # 107 tests
+python3 -m unittest discover -s tests            # 127 tests
 python3 paper/figures/make_figures.py            # redraw the paper's figures and the transfer table from results/
 cd paper && tectonic main.tex                    # build the paper (brew install tectonic)
 ```

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="360" fill="white"/>
+<text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
+<text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
+<line x1="190.0" y1="36" x2="190.0" y2="300" stroke="#eee"/><text x="190.0" y="312" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="300" stroke="#eee"/><text x="295.0" y="312" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="300" stroke="#eee"/><text x="400.0" y="312" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="300" stroke="#eee"/><text x="505.0" y="312" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="300" stroke="#eee"/><text x="610.0" y="312" text-anchor="middle">100</text>
+<text x="184" y="56" text-anchor="end">choose-neutral</text>
+<rect x="190" y="43" width="277.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="53" width="275.2" height="9" fill="#95a5a6"/>
+<text x="624" y="56">80/80</text><text x="674" y="56">n/a</text><text x="734" y="56">11.831</text>
+<text x="184" y="82" text-anchor="end">neutral-choose</text>
+<rect x="190" y="69" width="271.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="79" width="271.7" height="9" fill="#95a5a6"/>
+<text x="624" y="82">80/80</text><text x="674" y="82">n/a</text><text x="734" y="82">14.019</text>
+<text x="184" y="108" text-anchor="end">pick-neutral</text>
+<rect x="190" y="95" width="232.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="105" width="282.3" height="9" fill="#95a5a6"/>
+<text x="624" y="108">70/80</text><text x="674" y="108">66/80</text><text x="734" y="108">20.781</text>
+<text x="184" y="134" text-anchor="end">neutral-pick</text>
+<rect x="190" y="121" width="287.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="131" width="238.3" height="9" fill="#95a5a6"/>
+<text x="624" y="134">72/80</text><text x="674" y="134">n/a</text><text x="734" y="134">18.2</text>
+<text x="184" y="160" text-anchor="end">pick_kept-neutral</text>
+<rect x="190" y="147" width="247.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="157" width="275.7" height="9" fill="#95a5a6"/>
+<text x="624" y="160">69/80</text><text x="674" y="160">72/80</text><text x="734" y="160">18.85</text>
+<text x="184" y="186" text-anchor="end">neutral-pick_kept</text>
+<rect x="190" y="173" width="303.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="183" width="246.1" height="9" fill="#95a5a6"/>
+<text x="624" y="186">75/80</text><text x="674" y="186">n/a</text><text x="734" y="186">12.569</text>
+<text x="184" y="212" text-anchor="end">repick-neutral</text>
+<rect x="190" y="199" width="240.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="209" width="271.4" height="9" fill="#95a5a6"/>
+<text x="624" y="212">65/80</text><text x="674" y="212">n/a</text><text x="734" y="212">21.613</text>
+<text x="184" y="238" text-anchor="end">neutral-repick</text>
+<rect x="190" y="225" width="287.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="235" width="230.2" height="9" fill="#95a5a6"/>
+<text x="624" y="238">68/80</text><text x="674" y="238">n/a</text><text x="734" y="238">20.244</text>
+<text x="184" y="264" text-anchor="end">repick-competing</text>
+<rect x="190" y="251" width="216.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="261" width="302.8" height="9" fill="#95a5a6"/>
+<text x="624" y="264">69/80</text><text x="674" y="264">n/a</text><text x="734" y="264">19.706</text>
+<text x="184" y="290" text-anchor="end">competing-repick</text>
+<rect x="190" y="277" width="303.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="287" width="206.7" height="9" fill="#95a5a6"/>
+<text x="624" y="290">66/80</text><text x="674" y="290">76/80</text><text x="734" y="290">21.988</text>
+</svg>

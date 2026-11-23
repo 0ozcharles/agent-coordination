@@ -1,0 +1,143 @@
+{
+ "study": "bargain_e6_core",
+ "question": "E6, both agents choose: two agents that each choose their own strategy, on E1-R's 100 instances of the core regime, where every pair of rules has been played.",
+ "control": "neutral-neutral",
+ "cells": {
+  "choose-choose": {
+   "p1": "choose",
+   "p2": "choose",
+   "op": "rules",
+   "games": 100,
+   "errors": 0,
+   "agreements": 100,
+   "payoff_p1": 63.1,
+   "payoff_p2": 67.0,
+   "joint": 130.1,
+   "joint_gap": 13.53,
+   "on_frontier": 59,
+   "moves": 4.57,
+   "p1_first": 94.607,
+   "p1_concession": 11.24,
+   "p1_complies": 0,
+   "p1_compliance_known": 0,
+   "p1_asks": 66,
+   "p1_discloses": 73,
+   "p1_logroll": 51,
+   "p1_trade": 37,
+   "middle_share": 0.166,
+   "p1_walked": 0,
+   "p1_tokens": 1754.8,
+   "p2_tokens": 1673.78,
+   "p1_out_tokens": 179.63,
+   "p1_seconds": 3.444,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.071
+  },
+  "pick-pick": {
+   "p1": "pick",
+   "p2": "pick",
+   "op": "rules",
+   "games": 100,
+   "errors": 0,
+   "agreements": 83,
+   "payoff_p1": 59.025,
+   "payoff_p2": 62.625,
+   "joint": 121.65,
+   "joint_gap": 21.98,
+   "on_frontier": 52,
+   "moves": 3.91,
+   "p1_first": 91.618,
+   "p1_concession": 9.263,
+   "p1_complies": 90,
+   "p1_compliance_known": 100,
+   "p1_asks": 77,
+   "p1_discloses": 66,
+   "p1_logroll": 57,
+   "p1_trade": 43,
+   "middle_share": 0.124,
+   "p1_walked": 6,
+   "p1_tokens": 1499.64,
+   "p2_tokens": 1567.76,
+   "p1_out_tokens": 140.55,
+   "p1_seconds": 2.838,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.063
+  }
+ },
+ "matrix": {
+  "neutral": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "competing": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "collaborating": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "compromising": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "accommodating": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "avoiding": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  }
+ },
+ "best_responses": {
+  "neutral": null,
+  "competing": null,
+  "collaborating": null,
+  "compromising": null,
+  "accommodating": null,
+  "avoiding": null
+ },
+ "replicator": {},
+ "cost_usd": 0.134
+}
