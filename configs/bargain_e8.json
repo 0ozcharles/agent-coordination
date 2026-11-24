@@ -1,0 +1,754 @@
+{
+ "study": "bargain_e8",
+ "question": "E8, the rules played by scripts: how much of what the five rule sets earn is already in the rules, and how much is in the model that carries them out? Each rule set is played by a program (src/agent_coordination/scripted.py) that sees what an agent in its seat sees and follows the rule, with fixed conventions where the rule leaves a choice open. Arm A: script against script, the 25 ordered pairs of rules, no model call, compared with the same 25 cells of E1-R played by the model. Arm C: each script against the default agent (the model, as in E1-R) in either seat, compared with E1-R's default pair and with E1-R's model-given-the-rule on the same instances. Arm B: one variant of each script, changing the convention that looked most open, against the five scripts and against the default agent.",
+ "model": "gpt-6-luna",
+ "model_kwargs": {
+  "temperature": 0.7,
+  "top_p": 0.8,
+  "extra_body": {
+   "reasoning_effort": "none"
+  }
+ },
+ "max_tokens": 700,
+ "environment": {
+  "issues": 4,
+  "options": 3,
+  "moves": 10,
+  "outside": [
+   30,
+   30
+  ],
+  "opposition": 0.75,
+  "asymmetry": 0.5,
+  "visible_weights": false,
+  "protocol_note": "You do not have to accept a proposal you consider poor: you can counter-propose, and the other developer can accept your proposal. There are {T} moves in total."
+ },
+ "instances": {
+  "n": 100,
+  "seed": 20261201,
+  "first_mover": "alternate",
+  "note": "fresh instances: a seed used by no earlier study (dev, E1 20261122, E2 20261123)"
+ },
+ "instruction_prefix": "[Guidance] You and the other developer want different things from this design: each of you wants the options that score well for your own side. ",
+ "strategies": {
+  "shared": {
+   "neutral": "Handle this in whatever way you think best."
+  },
+  "prompted": {
+   "competing": "Handle it like this: hold out for the design your side needs. Tell the other developer what you need and ask them to come to you. Do not give ground for their sake.",
+   "collaborating": "Handle it like this: work out with the other developer a design that is good for both of you. Ask which decisions matter most to them and why, say which matter most to you, and look for a design you can both fully accept.",
+   "compromising": "Handle it like this: settle quickly on a middle ground you can both accept. Meet the other developer halfway, give up a little if needed, and do not drag the negotiation out.",
+   "accommodating": "Handle it like this: put the other developer's needs first. Ask what they need, accept a design that works for them, and give ground whenever that helps them.",
+   "avoiding": "Handle it like this: do not haggle over the design. Keep messages to a minimum, make at most one proposal of your own, and if the other developer does not accept it, end the negotiation rather than argue."
+  },
+  "rules": {
+   "competing": "Follow these rules: open with the design worth the most to you; in each later proposal change at most one decision from your previous proposal, and only from your top option to your middle option on that decision; accept only a proposal worth at least {t60} points to you; never accept less, and on your last move walk away rather than accept less than {t60}.",
+   "collaborating": "Follow these rules: in your first message, say which decisions matter most to you and ask which matter most to the other developer. On the decisions where you want different options, give the other developer their preferred option on the decision they say matters most to them, and take your preferred option on the decision that matters most to you; every proposal of yours must give each of you your preferred option on at least one contested decision. Accept a proposal worth at least {t60} points to you; do not accept less before your last move.",
+   "compromising": "Follow these rules: on each decision where you and the other developer want different options, move toward the middle option, one or two decisions per proposal. Each proposal of yours must be worth no more to you than your previous one. Accept any proposal worth at least {t50} points to you, and never accept one worth less than {t50}.",
+   "accommodating": "Follow these rules: in your first message, ask the other developer what they need; accept the first proposal worth at least {outside10} points to you; when you propose, build the design around what they said they need and keep only what you must.",
+   "avoiding": "Follow these rules: make at most one proposal of your own; do not argue about the design; after that, accept the other developer's proposal if it is worth at least {outside} points to you, otherwise walk away."
+  },
+  "note": "{max}, {t60}, {t50}, {outside} and {outside10} in rule texts are replaced by the agent's own scale: its ideal design, 60% and 50% of it, its outside option and that plus 10% of the ideal; with full stakes these are 100, 60, 50, 30 and 40"
+ },
+ "cells": [
+  {
+   "name": "script_competing-script_competing",
+   "p1": "script_competing",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_collaborating",
+   "p1": "script_competing",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_compromising",
+   "p1": "script_competing",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_accommodating",
+   "p1": "script_competing",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_avoiding",
+   "p1": "script_competing",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_competing",
+   "p1": "script_collaborating",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_collaborating",
+   "p1": "script_collaborating",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_compromising",
+   "p1": "script_collaborating",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_accommodating",
+   "p1": "script_collaborating",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_avoiding",
+   "p1": "script_collaborating",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_competing",
+   "p1": "script_compromising",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_collaborating",
+   "p1": "script_compromising",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_compromising",
+   "p1": "script_compromising",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_accommodating",
+   "p1": "script_compromising",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_avoiding",
+   "p1": "script_compromising",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_competing",
+   "p1": "script_accommodating",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_collaborating",
+   "p1": "script_accommodating",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_compromising",
+   "p1": "script_accommodating",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_accommodating",
+   "p1": "script_accommodating",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_avoiding",
+   "p1": "script_accommodating",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_competing",
+   "p1": "script_avoiding",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_collaborating",
+   "p1": "script_avoiding",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_compromising",
+   "p1": "script_avoiding",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_accommodating",
+   "p1": "script_avoiding",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_avoiding",
+   "p1": "script_avoiding",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-neutral",
+   "p1": "script_competing",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_competing",
+   "p1": "neutral",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-neutral",
+   "p1": "script_collaborating",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_collaborating",
+   "p1": "neutral",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-neutral",
+   "p1": "script_compromising",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_compromising",
+   "p1": "neutral",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-neutral",
+   "p1": "script_accommodating",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_accommodating",
+   "p1": "neutral",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-neutral",
+   "p1": "script_avoiding",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_avoiding",
+   "p1": "neutral",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing_firm-script_competing",
+   "p1": "script_competing_firm",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_competing_firm",
+   "p1": "script_competing",
+   "p2": "script_competing_firm",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing_firm-script_collaborating",
+   "p1": "script_competing_firm",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_competing_firm",
+   "p1": "script_collaborating",
+   "p2": "script_competing_firm",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing_firm-script_compromising",
+   "p1": "script_competing_firm",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_competing_firm",
+   "p1": "script_compromising",
+   "p2": "script_competing_firm",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing_firm-script_accommodating",
+   "p1": "script_competing_firm",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_competing_firm",
+   "p1": "script_accommodating",
+   "p2": "script_competing_firm",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing_firm-script_avoiding",
+   "p1": "script_competing_firm",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_competing_firm",
+   "p1": "script_avoiding",
+   "p2": "script_competing_firm",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating_keep-script_competing",
+   "p1": "script_collaborating_keep",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_collaborating_keep",
+   "p1": "script_competing",
+   "p2": "script_collaborating_keep",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating_keep-script_collaborating",
+   "p1": "script_collaborating_keep",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_collaborating_keep",
+   "p1": "script_collaborating",
+   "p2": "script_collaborating_keep",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating_keep-script_compromising",
+   "p1": "script_collaborating_keep",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_collaborating_keep",
+   "p1": "script_compromising",
+   "p2": "script_collaborating_keep",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating_keep-script_accommodating",
+   "p1": "script_collaborating_keep",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_collaborating_keep",
+   "p1": "script_accommodating",
+   "p2": "script_collaborating_keep",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating_keep-script_avoiding",
+   "p1": "script_collaborating_keep",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_collaborating_keep",
+   "p1": "script_avoiding",
+   "p2": "script_collaborating_keep",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising_one-script_competing",
+   "p1": "script_compromising_one",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_compromising_one",
+   "p1": "script_competing",
+   "p2": "script_compromising_one",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising_one-script_collaborating",
+   "p1": "script_compromising_one",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_compromising_one",
+   "p1": "script_collaborating",
+   "p2": "script_compromising_one",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising_one-script_compromising",
+   "p1": "script_compromising_one",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_compromising_one",
+   "p1": "script_compromising",
+   "p2": "script_compromising_one",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising_one-script_accommodating",
+   "p1": "script_compromising_one",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_compromising_one",
+   "p1": "script_accommodating",
+   "p2": "script_compromising_one",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising_one-script_avoiding",
+   "p1": "script_compromising_one",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_compromising_one",
+   "p1": "script_avoiding",
+   "p2": "script_compromising_one",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating_middle-script_competing",
+   "p1": "script_accommodating_middle",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_accommodating_middle",
+   "p1": "script_competing",
+   "p2": "script_accommodating_middle",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating_middle-script_collaborating",
+   "p1": "script_accommodating_middle",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_accommodating_middle",
+   "p1": "script_collaborating",
+   "p2": "script_accommodating_middle",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating_middle-script_compromising",
+   "p1": "script_accommodating_middle",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_accommodating_middle",
+   "p1": "script_compromising",
+   "p2": "script_accommodating_middle",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating_middle-script_accommodating",
+   "p1": "script_accommodating_middle",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_accommodating_middle",
+   "p1": "script_accommodating",
+   "p2": "script_accommodating_middle",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating_middle-script_avoiding",
+   "p1": "script_accommodating_middle",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_accommodating_middle",
+   "p1": "script_avoiding",
+   "p2": "script_accommodating_middle",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding_quiet-script_competing",
+   "p1": "script_avoiding_quiet",
+   "p2": "script_competing",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing-script_avoiding_quiet",
+   "p1": "script_competing",
+   "p2": "script_avoiding_quiet",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding_quiet-script_collaborating",
+   "p1": "script_avoiding_quiet",
+   "p2": "script_collaborating",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating-script_avoiding_quiet",
+   "p1": "script_collaborating",
+   "p2": "script_avoiding_quiet",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding_quiet-script_compromising",
+   "p1": "script_avoiding_quiet",
+   "p2": "script_compromising",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising-script_avoiding_quiet",
+   "p1": "script_compromising",
+   "p2": "script_avoiding_quiet",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding_quiet-script_accommodating",
+   "p1": "script_avoiding_quiet",
+   "p2": "script_accommodating",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating-script_avoiding_quiet",
+   "p1": "script_accommodating",
+   "p2": "script_avoiding_quiet",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding_quiet-script_avoiding",
+   "p1": "script_avoiding_quiet",
+   "p2": "script_avoiding",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding-script_avoiding_quiet",
+   "p1": "script_avoiding",
+   "p2": "script_avoiding_quiet",
+   "op": "rules"
+  },
+  {
+   "name": "script_competing_firm-neutral",
+   "p1": "script_competing_firm",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_competing_firm",
+   "p1": "neutral",
+   "p2": "script_competing_firm",
+   "op": "rules"
+  },
+  {
+   "name": "script_collaborating_keep-neutral",
+   "p1": "script_collaborating_keep",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_collaborating_keep",
+   "p1": "neutral",
+   "p2": "script_collaborating_keep",
+   "op": "rules"
+  },
+  {
+   "name": "script_compromising_one-neutral",
+   "p1": "script_compromising_one",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_compromising_one",
+   "p1": "neutral",
+   "p2": "script_compromising_one",
+   "op": "rules"
+  },
+  {
+   "name": "script_accommodating_middle-neutral",
+   "p1": "script_accommodating_middle",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_accommodating_middle",
+   "p1": "neutral",
+   "p2": "script_accommodating_middle",
+   "op": "rules"
+  },
+  {
+   "name": "script_avoiding_quiet-neutral",
+   "p1": "script_avoiding_quiet",
+   "p2": "neutral",
+   "op": "rules"
+  },
+  {
+   "name": "neutral-script_avoiding_quiet",
+   "p1": "neutral",
+   "p2": "script_avoiding_quiet",
+   "op": "rules"
+  }
+ ],
+ "control": "neutral-neutral",
+ "reference": "results/bargain_e1r_rows.csv: E1-R's 36 cells on the same 100 instances (the default pair, the model given each rule against the default agent, and the 25 rule pairs)",
+ "scripts": {
+  "main": [
+   "script_competing",
+   "script_collaborating",
+   "script_compromising",
+   "script_accommodating",
+   "script_avoiding"
+  ],
+  "variants": [
+   "script_competing_firm",
+   "script_collaborating_keep",
+   "script_compromising_one",
+   "script_accommodating_middle",
+   "script_avoiding_quiet"
+  ],
+  "conventions": "the module docstring of src/agent_coordination/scripted.py, fixed at this commit; developed and tested on development instances only (seed 20261121)"
+ },
+ "unit": "the instance (100 instances; the two seats of an instance averaged; differences matched by seat as in stats.matched)",
+ "test": "two-sided Wilcoxon signed-rank test on the per-instance differences, Holm-corrected over the eleven hypotheses; a hypothesis is confirmed when the adjusted p is below .05 and the mean has the stated sign; means with bootstrap 95% intervals (10,000 resamples of the instances)",
+ "hypotheses": [
+  {
+   "id": "K1",
+   "kind": "alone",
+   "strategy": "script_competing",
+   "measure": "own",
+   "direction": "+",
+   "claim": "Against the default agent, the competing script earns more than the default agent in its seat, as the model given the competing rule does (E1-R: +3.7)."
+  },
+  {
+   "id": "K2",
+   "kind": "alone",
+   "strategy": "script_collaborating",
+   "measure": "own",
+   "direction": "+",
+   "claim": "Against the default agent, the collaborating script earns more than the default agent in its seat, as the model given the collaborating rule does (+6.0)."
+  },
+  {
+   "id": "K3",
+   "kind": "alone",
+   "strategy": "script_compromising",
+   "measure": "own",
+   "direction": "-",
+   "claim": "Against the default agent, the compromising script earns less than the default agent in its seat, as the model given the compromising rule does (-8.1)."
+  },
+  {
+   "id": "K4",
+   "kind": "alone",
+   "strategy": "script_accommodating",
+   "measure": "own",
+   "direction": "-",
+   "claim": "Against the default agent, the accommodating script earns less than the default agent in its seat, as the model given the accommodating rule does (-7.2)."
+  },
+  {
+   "id": "K5",
+   "kind": "alone",
+   "strategy": "script_avoiding",
+   "measure": "own",
+   "direction": "-",
+   "claim": "Against the default agent, the avoiding script earns less than the default agent in its seat, as the model given the avoiding rule does (-16.6)."
+  },
+  {
+   "id": "K6",
+   "kind": "alone",
+   "strategy": "script_competing",
+   "measure": "partner",
+   "direction": "-",
+   "claim": "The competing script's partner earns less than the default agent's partner (E1-R with the model: -11.7)."
+  },
+  {
+   "id": "X1",
+   "kind": "contrast",
+   "strategy": "script_competing",
+   "other": "competing",
+   "direction": "+",
+   "claim": "Against the default agent, the competing script earns more than the model given the competing rule: carrying the rule out by program pays more than the model's carrying out of it."
+  },
+  {
+   "id": "X2",
+   "kind": "contrast",
+   "strategy": "script_collaborating",
+   "other": "collaborating",
+   "direction": "+",
+   "claim": "Against the default agent, the collaborating script earns more than the model given the collaborating rule: carrying the rule out by program pays more than the model's carrying out of it."
+  },
+  {
+   "id": "X3",
+   "kind": "contrast",
+   "strategy": "script_compromising",
+   "other": "compromising",
+   "direction": "+",
+   "claim": "Against the default agent, the compromising script earns more than the model given the compromising rule: carrying the rule out by program pays more than the model's carrying out of it."
+  },
+  {
+   "id": "X4",
+   "kind": "contrast",
+   "strategy": "script_accommodating",
+   "other": "accommodating",
+   "direction": "+",
+   "claim": "Against the default agent, the accommodating script earns more than the model given the accommodating rule: carrying the rule out by program pays more than the model's carrying out of it."
+  },
+  {
+   "id": "X5",
+   "kind": "contrast",
+   "strategy": "script_avoiding",
+   "other": "avoiding",
+   "direction": "+",
+   "claim": "Against the default agent, the avoiding script earns more than the model given the avoiding rule: carrying the rule out by program pays more than the model's carrying out of it."
+  }
+ ],
+ "descriptive": [
+  "Arm A: the 5 x 5 matrix of the row rule's own payoff against the column rule, scripts against the model (E1-R): Pearson and Spearman correlation over the 25 cells with a bootstrap interval over instances, the mean absolute difference, and the same for the agreement rates and for the joint payoff of the 15 unordered pairs.",
+  "The joint payoff of the five symmetric pairs, scripts and model, and their rank order.",
+  "How often the checker passes each script, and each variant.",
+  "Arm B: every figure of arms A and C for the variant in place of the main script."
+ ],
+ "pilot": "2026-11-23, development instances (seed 20261121). Script against script on 40 instances (no model): agreements competing-competing 21 of 40, avoiding-avoiding 8, every pair with a collaborating, compromising or accommodating script 34 to 40; the checker passes every script except the collaborating one (76 percent: its trade clause is judged on the other side's true top options, which a script learns only from their proposals; an opener that proposes its top design and then accepts a trade is failed). Each script against the default agent on 10 instances (110 games, $0.03, no error, no invalid reply): own payoff against the default agent in the same seat, competing +20.4 (partner -12.7), collaborating +7.6 (+6.8), compromising +10.0 (-1.4), accommodating +0.8 (+14.2), avoiding -17.6 (-4.9); the default agent answered the collaborating script's question in the games read, and the script took the first contested decision named as the one that matters most. The first-message convention (the prescribed message also when the first move is an acceptance) was fixed after the first run on development instances; nothing was run on E1-R's instances.",
+ "predictions": [
+  "Arm C, own payoff against the default agent (points of 100): competing +10 to +25 (K1 confirmed), collaborating +3 to +12 (K2 confirmed), compromising +3 to +14 (K3 not confirmed: the opposite sign from the model's), accommodating -6 to +6 (K4 not confirmed), avoiding -12 to -24 (K5 confirmed); the competing script's partner -8 to -18 (K6 confirmed).",
+  "Script minus model given the same rule: competing +8 to +20 (X1 confirmed), collaborating -3 to +6 (X2 not confirmed), compromising +10 to +22 (X3 confirmed), accommodating +3 to +12 (X4 confirmed), avoiding -6 to +6 (X5 not confirmed).",
+  "Arm A: the correlation between the scripts' and the model's 5 x 5 own-payoff matrices is between .5 and .85; the five symmetric pairs keep the model's order except that avoiding pairs fall below competing pairs (Spearman at least .8); competing scripts agree in 40 to 60 of 100 games (the model: 45).",
+  "The checker passes the competing, compromising, accommodating and avoiding scripts in every game and the collaborating script in 65 to 90 percent.",
+  "Arm B: no variant changes the sign of its script's own payoff against the default agent, except possibly accommodating (near zero); the competing script that never gives ground earns less than the one that does."
+ ],
+ "budget_usd": 1.0,
+ "output": "runs/bargain/e8",
+ "results_prefix": "results/bargain_e8",
+ "status": "frozen 2026-11-23 and pushed before any game on E1-R's instances was played, by script or by model"
+}

@@ -515,6 +515,7 @@ def choose(config, inst, agent, when, history=(), n=0, before="", options=MENU, 
 # ---------------------------------------------------------------- playing
 
 def play(config, inst, cell):
+    from .scripted import is_script, move as scripted_move, rule_of  # here, not at the top: scripted imports this module
     T = config["environment"]["moves"]
     assigned = {"p1": cell["p1"], "p2": cell["p2"]}
     strategies = dict(assigned)  # what each seat plays: for a chooser that picks once, its pick
@@ -542,6 +543,8 @@ def play(config, inst, cell):
             conv[a] = [{"role": "system", "content": system_prompt(config, inst, a, "default", "rules")},
                        {"role": "user", "content": c["question"]}, {"role": "assistant", "content": c["raw"]}]
             told[a] = config["choice"]["kept"].replace("{letter}", c["letter"]).replace("{rule}", rule)
+        elif is_script(assigned[a]):  # a scripted policy: its moves come from a program, it has no conversation
+            conv[a] = []
         else:  # a chooser that picks again before every move starts without guidance; its prompt is set at each of its moves
             conv[a] = [{"role": "system", "content": system_prompt(config, inst, a, "default" if assigned[a] in AGAIN else strategies[a], ops[a])}]
     budget = inst.get("output_budget")
@@ -557,7 +560,13 @@ def play(config, inst, cell):
             conv[mover][0] = {"role": "system", "content": system_prompt(config, inst, mover, rule, "rules")}
         conv[mover].append({"role": "user", "content": f"{told.pop(mover)}\n\n{said}" if mover in told else said})
         move = None
-        for attempt in range(2):
+        if is_script(assigned[mover]):
+            parsed = scripted_move(assigned[mover], inst, mover, moves, n, T)
+            if parsed["action"] == "accept" and not (standing and standing["by"] == other):
+                raise RuntimeError(f"{assigned[mover]} accepted where there was nothing to accept")
+            reply = json.dumps(parsed)
+            move = {**parsed, "raw": reply}
+        for attempt in range(0 if move else 2):
             reply, c, used = call(config, conv[mover], mover)
             cost += c
             usage[mover]["cost_usd"] += c
@@ -597,12 +606,14 @@ def play(config, inst, cell):
         last, mover = move, other
     return {"cell": cell["name"], "instance": inst, "strategies": strategies, "ops": ops,
             **({"assigned": assigned, "choice": choices} if choices else {}),
-            "models": {a: seat_settings(config, a)["model"] for a in AGENTS}, "moves": moves,
+            "models": {a: "script" if is_script(assigned[a]) else seat_settings(config, a)["model"] for a in AGENTS}, "moves": moves,
             "agreement": agreement, "ended_by": ended_by, "invalid_replies": invalid, "rejected": rejected, "cost_usd": cost, "error": None,
             "usage": usage, **outcome(inst, moves, agreement),
             "metrics": {a: agent_metrics(inst, moves, agreement, a) for a in AGENTS},
             # a rule variant (a paraphrase of a base rule) is checked with the base rule's checker: config["strategy_base"]
-            "compliance": {a: compliance(config.get("strategy_base", {}).get(strategies[a], strategies[a]), inst, moves, agreement, a)
+            # a scripted policy likewise with the checker of the rule it plays
+            "compliance": {a: compliance(config.get("strategy_base", {}).get(strategies[a], rule_of(strategies[a])[0] if is_script(strategies[a]) else strategies[a]),
+                                         inst, moves, agreement, a)
                            for a in AGENTS}}
 
 
