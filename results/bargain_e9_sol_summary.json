@@ -1,0 +1,143 @@
+{
+ "study": "bargain_e9_sol",
+ "question": "E9, a stronger model: gpt-6.1-sol chooses its strategy from E6's two menus (the choice call with reasoning effort high) and plays against the default agent, itself gpt-6.1-sol, from seat 1. Environment, instances, rule texts and the game's settings are those of E3's run on this model, which holds the comparison games: the default pair and the collaborating and competing rules assigned to seat 1.",
+ "control": "neutral-neutral",
+ "cells": {
+  "choose_reasoned-neutral": {
+   "p1": "choose_reasoned",
+   "p2": "neutral",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 40,
+   "payoff_p1": 69.1,
+   "payoff_p2": 69.425,
+   "joint": 138.525,
+   "joint_gap": 3.075,
+   "on_frontier": 35,
+   "moves": 7.875,
+   "p1_first": 90.987,
+   "p1_concession": 19.012,
+   "p1_complies": 0,
+   "p1_compliance_known": 0,
+   "p1_asks": 40,
+   "p1_discloses": 4,
+   "p1_logroll": 39,
+   "p1_trade": 39,
+   "middle_share": 0.281,
+   "p1_walked": 0,
+   "p1_tokens": 4163.3,
+   "p2_tokens": 4235.275,
+   "p1_out_tokens": 890.55,
+   "p1_seconds": 26.265,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 1.298
+  },
+  "pick_reasoned-neutral": {
+   "p1": "pick_reasoned",
+   "p2": "neutral",
+   "op": "rules",
+   "games": 40,
+   "errors": 0,
+   "agreements": 40,
+   "payoff_p1": 65.2,
+   "payoff_p2": 74.65,
+   "joint": 139.85,
+   "joint_gap": 1.75,
+   "on_frontier": 38,
+   "moves": 5.125,
+   "p1_first": 81.65,
+   "p1_concession": 6.675,
+   "p1_complies": 34,
+   "p1_compliance_known": 40,
+   "p1_asks": 40,
+   "p1_discloses": 11,
+   "p1_logroll": 31,
+   "p1_trade": 34,
+   "middle_share": 0.19,
+   "p1_walked": 0,
+   "p1_tokens": 2706.675,
+   "p2_tokens": 2479.25,
+   "p1_out_tokens": 464.875,
+   "p1_seconds": 13.401,
+   "invalid_replies": 0,
+   "p1_style": {
+    "competing": 0,
+    "collaborating": 0,
+    "compromising": 0,
+    "accommodating": 0,
+    "avoiding": 0
+   },
+   "labeled": 0,
+   "cost_usd": 0.882
+  }
+ },
+ "matrix": {
+  "neutral": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "competing": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "collaborating": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "compromising": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "accommodating": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  },
+  "avoiding": {
+   "neutral": null,
+   "competing": null,
+   "collaborating": null,
+   "compromising": null,
+   "accommodating": null,
+   "avoiding": null
+  }
+ },
+ "best_responses": {
+  "neutral": null,
+  "competing": null,
+  "collaborating": null,
+  "compromising": null,
+  "accommodating": null,
+  "avoiding": null
+ },
+ "replicator": {},
+ "cost_usd": 2.181
+}
