@@ -1,0 +1,5213 @@
+{
+ "study": "bargain_informed",
+ "test": "two-sided Wilcoxon signed-rank test on the per-instance differences, Holm correction over the four hypotheses at alpha = .05; a hypothesis is confirmed when its Holm-adjusted p is below .05 and the mean difference has the stated direction. The mean difference with a bootstrap 95% interval (10,000 resamples of instances), the exact sign test and d_z are reported beside it.",
+ "arms_missing": [],
+ "hypotheses": [
+  {
+   "id": "I1",
+   "claim": "Made to pick a rule set, the agent earns more when the menu says what each earned before than when it does not (ten conditions).",
+   "kind": "contrast",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "direction": "+",
+   "n": 40,
+   "mean": 8.5731,
+   "sd": 5.9162,
+   "dz": 1.4491,
+   "ci95": [
+    6.7558,
+    10.3706
+   ],
+   "wins": 37,
+   "losses": 3,
+   "p_sign": 0.0,
+   "p_wilcoxon": 0.0,
+   "p_test": 0.0,
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "I2",
+   "claim": "An agent that picks a rule set from the informed menu earns more than the default agent in its seat (ten conditions).",
+   "kind": "alone",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "direction": "+",
+   "n": 40,
+   "mean": 3.7435,
+   "sd": 5.8248,
+   "dz": 0.6427,
+   "ci95": [
+    1.9087,
+    5.5344
+   ],
+   "wins": 28,
+   "losses": 12,
+   "p_sign": 0.0166,
+   "p_wilcoxon": 0.0004,
+   "p_test": 0.0004,
+   "p_holm": 0.0009,
+   "confirmed": true
+  },
+  {
+   "id": "I3",
+   "claim": "An agent that may choose a rule set or none from the informed menu earns more than the default agent in its seat (ten conditions).",
+   "kind": "alone",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "direction": "+",
+   "n": 40,
+   "mean": 2.8485,
+   "sd": 4.1466,
+   "dz": 0.687,
+   "ci95": [
+    1.5727,
+    4.1081
+   ],
+   "wins": 30,
+   "losses": 10,
+   "p_sign": 0.0022,
+   "p_wilcoxon": 0.0003,
+   "p_test": 0.0003,
+   "p_holm": 0.0008,
+   "confirmed": true
+  },
+  {
+   "id": "I4",
+   "claim": "The partner of an agent that picks from the informed menu earns less than the partner of the default agent (ten conditions).",
+   "kind": "alone",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "direction": "-",
+   "n": 40,
+   "mean": -1.6875,
+   "sd": 4.9242,
+   "dz": -0.3427,
+   "ci95": [
+    -3.1733,
+    -0.1288
+   ],
+   "wins": 15,
+   "losses": 25,
+   "p_sign": 0.1539,
+   "p_wilcoxon": 0.0372,
+   "p_test": 0.0372,
+   "p_holm": 0.0372,
+   "confirmed": true
+  }
+ ],
+ "complete": true,
+ "arms": {
+  "base": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.225,
+     "competing": 0.0,
+     "collaborating": 0.775,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.15,
+      "competing": 0.0,
+      "collaborating": 0.85,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.3,
+      "competing": 0.0,
+      "collaborating": 0.7,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 13,
+     "B": 18,
+     "C": 21,
+     "D": 15,
+     "E": 6,
+     "F": 7
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1052.3,
+    "own": {
+     "n": 40,
+     "mean": 7.5312,
+     "ci95": [
+      4.1188,
+      11.125
+     ],
+     "p_wilcoxon": 0.0004,
+     "wins": 29,
+     "losses": 8,
+     "dz": 0.6628
+    },
+    "partner": {
+     "n": 40,
+     "mean": 3.7625,
+     "ci95": [
+      -0.6625,
+      8.2438
+     ],
+     "p_wilcoxon": 0.1606,
+     "wins": 23,
+     "losses": 14,
+     "dz": 0.2532
+    },
+    "joint": {
+     "n": 40,
+     "mean": 11.2937,
+     "ci95": [
+      4.9062,
+      18.275
+     ],
+     "p_wilcoxon": 0.0027,
+     "wins": 27,
+     "losses": 10,
+     "dz": 0.5145
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 1.3687,
+     "ci95": [
+      -2.0875,
+      4.9437
+     ],
+     "p_wilcoxon": 0.5472,
+     "wins": 20,
+     "losses": 18,
+     "dz": 0.1176
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -0.2,
+     "ci95": [
+      -4.6875,
+      4.625
+     ],
+     "p_wilcoxon": 0.7063,
+     "wins": 16,
+     "losses": 23,
+     "dz": -0.0132
+    },
+    "skill": {
+     "n": 40,
+     "mean": 0.8303,
+     "ci95": [
+      -1.1155,
+      2.8448
+     ],
+     "p_wilcoxon": 0.4877,
+     "wins": 20,
+     "losses": 17,
+     "dz": 0.1265
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 5.6063,
+     "ci95": [
+      1.925,
+      9.3
+     ],
+     "p_wilcoxon": 0.0092,
+     "wins": 23,
+     "losses": 12,
+     "dz": 0.4623
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       74,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       42,
+       62
+      ],
+      "assigned": [
+       45,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       62,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 4.75,
+     "ci95": [
+      0.8812,
+      8.6813
+     ],
+     "p_wilcoxon": 0.0376,
+     "wins": 27,
+     "losses": 12,
+     "dz": 0.366
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.775,
+     "mean_rank_of_the_figure_taken": 1.45,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 6.1625,
+      "ci95": [
+       2.4062,
+       9.825
+      ],
+      "p_wilcoxon": 0.005,
+      "wins": 24,
+      "losses": 13,
+      "dz": 0.5084
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.0,
+     "collaborating": 0.9875,
+     "compromising": 0.0,
+     "accommodating": 0.0125,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 1.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 0.975,
+      "compromising": 0.0,
+      "accommodating": 0.025,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 25,
+     "B": 15,
+     "C": 10,
+     "D": 16,
+     "E": 14
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1016.4,
+    "own": {
+     "n": 40,
+     "mean": 6.725,
+     "ci95": [
+      2.975,
+      10.425
+     ],
+     "p_wilcoxon": 0.0024,
+     "wins": 27,
+     "losses": 10,
+     "dz": 0.5519
+    },
+    "partner": {
+     "n": 40,
+     "mean": 5.1312,
+     "ci95": [
+      0.3,
+      9.9
+     ],
+     "p_wilcoxon": 0.0563,
+     "wins": 24,
+     "losses": 13,
+     "dz": 0.3268
+    },
+    "joint": {
+     "n": 40,
+     "mean": 11.8562,
+     "ci95": [
+      5.3563,
+      18.8562
+     ],
+     "p_wilcoxon": 0.006,
+     "wins": 25,
+     "losses": 12,
+     "dz": 0.536
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 0.5625,
+     "ci95": [
+      -3.25,
+      4.575
+     ],
+     "p_wilcoxon": 1.0,
+     "wins": 18,
+     "losses": 19,
+     "dz": 0.0445
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -1.0063,
+     "ci95": [
+      -6.2687,
+      4.6125
+     ],
+     "p_wilcoxon": 0.6142,
+     "wins": 17,
+     "losses": 23,
+     "dz": -0.057
+    },
+    "skill": {
+     "n": 40,
+     "mean": 0.1752,
+     "ci95": [
+      0.0861,
+      0.2962
+     ],
+     "p_wilcoxon": 0.0001,
+     "wins": 29,
+     "losses": 10,
+     "dz": 0.4958
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 6.2125,
+     "ci95": [
+      2.525,
+      9.85
+     ],
+     "p_wilcoxon": 0.0044,
+     "wins": 24,
+     "losses": 13,
+     "dz": 0.5168
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       74,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       49,
+       79
+      ],
+      "assigned": [
+       45,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       62,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       1
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 14.3063,
+     "ci95": [
+      10.1562,
+      18.3375
+     ],
+     "p_wilcoxon": 0.0,
+     "wins": 32,
+     "losses": 7,
+     "dz": 1.0509
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.075,
+     "collaborating": 0.275,
+     "compromising": 0.025,
+     "accommodating": 0.4,
+     "avoiding": 0.225
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.9875,
+     "mean_rank_of_the_figure_taken": 1.02,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 6.1625,
+      "ci95": [
+       2.4062,
+       9.825
+      ],
+      "p_wilcoxon": 0.005,
+      "wins": 24,
+      "losses": 13,
+      "dz": 0.5084
+     }
+    }
+   }
+  },
+  "integrative": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.2875,
+     "competing": 0.0,
+     "collaborating": 0.7,
+     "compromising": 0.0,
+     "accommodating": 0.0125,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.25,
+      "competing": 0.0,
+      "collaborating": 0.75,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.325,
+      "competing": 0.0,
+      "collaborating": 0.65,
+      "compromising": 0.0,
+      "accommodating": 0.025,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 16,
+     "B": 19,
+     "C": 17,
+     "D": 15,
+     "E": 5,
+     "F": 8
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1049.6,
+    "own": {
+     "n": 40,
+     "mean": 3.125,
+     "ci95": [
+      -0.6,
+      6.925
+     ],
+     "p_wilcoxon": 0.1296,
+     "wins": 25,
+     "losses": 13,
+     "dz": 0.2536
+    },
+    "partner": {
+     "n": 40,
+     "mean": 6.7562,
+     "ci95": [
+      2.6313,
+      10.9125
+     ],
+     "p_wilcoxon": 0.0056,
+     "wins": 26,
+     "losses": 12,
+     "dz": 0.495
+    },
+    "joint": {
+     "n": 40,
+     "mean": 9.8812,
+     "ci95": [
+      4.025,
+      16.0562
+     ],
+     "p_wilcoxon": 0.0112,
+     "wins": 24,
+     "losses": 12,
+     "dz": 0.5004
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -1.3438,
+     "ci95": [
+      -5.4062,
+      2.575
+     ],
+     "p_wilcoxon": 0.6382,
+     "wins": 17,
+     "losses": 17,
+     "dz": -0.1024
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 1.825,
+     "ci95": [
+      -4.25,
+      8.0125
+     ],
+     "p_wilcoxon": 0.6582,
+     "wins": 21,
+     "losses": 17,
+     "dz": 0.091
+    },
+    "skill": {
+     "n": 40,
+     "mean": 1.9316,
+     "ci95": [
+      -0.2977,
+      4.1763
+     ],
+     "p_wilcoxon": 0.0969,
+     "wins": 25,
+     "losses": 15,
+     "dz": 0.2612
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 5.0563,
+     "ci95": [
+      1.3938,
+      8.8812
+     ],
+     "p_wilcoxon": 0.0187,
+     "wins": 21,
+     "losses": 13,
+     "dz": 0.4141
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       73,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       36,
+       56
+      ],
+      "assigned": [
+       46,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       67,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       1,
+       1
+      ],
+      "assigned": [
+       75,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 4.9313,
+     "ci95": [
+      -0.4125,
+      10.4313
+     ],
+     "p_wilcoxon": 0.1333,
+     "wins": 23,
+     "losses": 14,
+     "dz": 0.2779
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.7,
+     "mean_rank_of_the_figure_taken": 1.62,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 4.4688,
+      "ci95": [
+       0.575,
+       8.4187
+      ],
+      "p_wilcoxon": 0.051,
+      "wins": 23,
+      "losses": 15,
+      "dz": 0.3522
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.0125,
+     "collaborating": 0.9875,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 1.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.025,
+      "collaborating": 0.975,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 25,
+     "B": 16,
+     "C": 10,
+     "D": 15,
+     "E": 14
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1014.4,
+    "own": {
+     "n": 40,
+     "mean": 0.5813,
+     "ci95": [
+      -2.8625,
+      4.2687
+     ],
+     "p_wilcoxon": 0.9277,
+     "wins": 19,
+     "losses": 20,
+     "dz": 0.0496
+    },
+    "partner": {
+     "n": 40,
+     "mean": 8.1438,
+     "ci95": [
+      4.0563,
+      12.3938
+     ],
+     "p_wilcoxon": 0.001,
+     "wins": 31,
+     "losses": 8,
+     "dz": 0.5931
+    },
+    "joint": {
+     "n": 40,
+     "mean": 8.725,
+     "ci95": [
+      2.7812,
+      15.1125
+     ],
+     "p_wilcoxon": 0.0328,
+     "wins": 23,
+     "losses": 14,
+     "dz": 0.4288
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -3.8875,
+     "ci95": [
+      -7.15,
+      -0.675
+     ],
+     "p_wilcoxon": 0.0347,
+     "wins": 11,
+     "losses": 23,
+     "dz": -0.3657
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -0.7188,
+     "ci95": [
+      -6.0125,
+      4.8812
+     ],
+     "p_wilcoxon": 0.6189,
+     "wins": 17,
+     "losses": 23,
+     "dz": -0.0398
+    },
+    "skill": {
+     "n": 40,
+     "mean": 0.1521,
+     "ci95": [
+      -0.0088,
+      0.411
+     ],
+     "p_wilcoxon": 0.2792,
+     "wins": 22,
+     "losses": 18,
+     "dz": 0.2077
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 4.5812,
+     "ci95": [
+      0.6438,
+      8.5625
+     ],
+     "p_wilcoxon": 0.051,
+     "wins": 23,
+     "losses": 15,
+     "dz": 0.3577
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       1,
+       1
+      ],
+      "assigned": [
+       73,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       41,
+       79
+      ],
+      "assigned": [
+       46,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       67,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       75,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 5.625,
+     "ci95": [
+      1.6438,
+      9.7188
+     ],
+     "p_wilcoxon": 0.0197,
+     "wins": 23,
+     "losses": 14,
+     "dz": 0.4222
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.1,
+     "collaborating": 0.2875,
+     "compromising": 0.0,
+     "accommodating": 0.4875,
+     "avoiding": 0.125
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.9875,
+     "mean_rank_of_the_figure_taken": 1.01,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 4.4688,
+      "ci95": [
+       0.575,
+       8.4187
+      ],
+      "p_wilcoxon": 0.051,
+      "wins": 23,
+      "losses": 15,
+      "dz": 0.3522
+     }
+    }
+   }
+  },
+  "distributive": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.3375,
+     "competing": 0.6625,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.25,
+      "competing": 0.75,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.425,
+      "competing": 0.575,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 21,
+     "B": 17,
+     "C": 16,
+     "D": 13,
+     "E": 6,
+     "F": 7
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1051.5,
+    "own": {
+     "n": 40,
+     "mean": 4.7625,
+     "ci95": [
+      0.9062,
+      8.625
+     ],
+     "p_wilcoxon": 0.0378,
+     "wins": 27,
+     "losses": 13,
+     "dz": 0.3789
+    },
+    "partner": {
+     "n": 40,
+     "mean": -9.8,
+     "ci95": [
+      -13.25,
+      -6.3312
+     ],
+     "p_wilcoxon": 0.0,
+     "wins": 7,
+     "losses": 33,
+     "dz": -0.8616
+    },
+    "joint": {
+     "n": 40,
+     "mean": -5.0375,
+     "ci95": [
+      -9.65,
+      -0.625
+     ],
+     "p_wilcoxon": 0.0451,
+     "wins": 4,
+     "losses": 14,
+     "dz": -0.3329
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 4.7375,
+     "ci95": [
+      -0.1938,
+      9.8688
+     ],
+     "p_wilcoxon": 0.1257,
+     "wins": 24,
+     "losses": 13,
+     "dz": 0.2887
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -0.7,
+     "ci95": [
+      -6.1063,
+      4.5938
+     ],
+     "p_wilcoxon": 0.8334,
+     "wins": 20,
+     "losses": 18,
+     "dz": -0.0396
+    },
+    "skill": {
+     "n": 40,
+     "mean": -0.3002,
+     "ci95": [
+      -3.0862,
+      2.2739
+     ],
+     "p_wilcoxon": 0.821,
+     "wins": 21,
+     "losses": 16,
+     "dz": -0.0341
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 3.3188,
+     "ci95": [
+      -1.0875,
+      7.4938
+     ],
+     "p_wilcoxon": 0.0804,
+     "wins": 22,
+     "losses": 10,
+     "dz": 0.2339
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       50,
+       53
+      ],
+      "assigned": [
+       73,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       59,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       64,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       76,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 9.7562,
+     "ci95": [
+      5.05,
+      14.75
+     ],
+     "p_wilcoxon": 0.0009,
+     "wins": 28,
+     "losses": 12,
+     "dz": 0.6139
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.6625,
+     "mean_rank_of_the_figure_taken": 1.68,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 5.4625,
+      "ci95": [
+       1.425,
+       9.3313
+      ],
+      "p_wilcoxon": 0.0069,
+      "wins": 26,
+      "losses": 11,
+      "dz": 0.4178
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.925,
+     "collaborating": 0.075,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.85,
+      "collaborating": 0.15,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 1.0,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 21,
+     "B": 15,
+     "C": 20,
+     "D": 13,
+     "E": 11
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1014.8,
+    "own": {
+     "n": 40,
+     "mean": 7.3563,
+     "ci95": [
+      2.875,
+      11.7937
+     ],
+     "p_wilcoxon": 0.006,
+     "wins": 26,
+     "losses": 11,
+     "dz": 0.5009
+    },
+    "partner": {
+     "n": 40,
+     "mean": -10.9437,
+     "ci95": [
+      -14.2,
+      -7.5687
+     ],
+     "p_wilcoxon": 0.0,
+     "wins": 3,
+     "losses": 34,
+     "dz": -1.0058
+    },
+    "joint": {
+     "n": 40,
+     "mean": -3.5875,
+     "ci95": [
+      -8.2875,
+      0.9875
+     ],
+     "p_wilcoxon": 0.1554,
+     "wins": 5,
+     "losses": 12,
+     "dz": -0.2307
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 7.3312,
+     "ci95": [
+      2.5063,
+      12.4437
+     ],
+     "p_wilcoxon": 0.0124,
+     "wins": 23,
+     "losses": 15,
+     "dz": 0.4421
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 1.8938,
+     "ci95": [
+      -3.1375,
+      7.0375
+     ],
+     "p_wilcoxon": 0.5672,
+     "wins": 22,
+     "losses": 17,
+     "dz": 0.113
+    },
+    "skill": {
+     "n": 40,
+     "mean": -0.1609,
+     "ci95": [
+      -1.1789,
+      0.5448
+     ],
+     "p_wilcoxon": 0.207,
+     "wins": 24,
+     "losses": 14,
+     "dz": -0.0557
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 4.8937,
+     "ci95": [
+      0.8812,
+      8.6375
+     ],
+     "p_wilcoxon": 0.01,
+     "wins": 26,
+     "losses": 10,
+     "dz": 0.3846
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       65,
+       74
+      ],
+      "assigned": [
+       73,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       4,
+       6
+      ],
+      "assigned": [
+       59,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       64,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       76,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 15.15,
+     "ci95": [
+      10.1813,
+      20.1875
+     ],
+     "p_wilcoxon": 0.0,
+     "wins": 29,
+     "losses": 9,
+     "dz": 0.9105
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.0625,
+     "collaborating": 0.2625,
+     "compromising": 0.0,
+     "accommodating": 0.475,
+     "avoiding": 0.2
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.925,
+     "mean_rank_of_the_figure_taken": 1.07,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 5.4625,
+      "ci95": [
+       1.425,
+       9.3313
+      ],
+      "p_wilcoxon": 0.0069,
+      "wins": 26,
+      "losses": 11,
+      "dz": 0.4178
+     }
+    }
+   }
+  },
+  "all_contested": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.8,
+     "competing": 0.0,
+     "collaborating": 0.1375,
+     "compromising": 0.0,
+     "accommodating": 0.0625,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.8,
+      "competing": 0.0,
+      "collaborating": 0.15,
+      "compromising": 0.0,
+      "accommodating": 0.05,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.8,
+      "competing": 0.0,
+      "collaborating": 0.125,
+      "compromising": 0.0,
+      "accommodating": 0.075,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 23,
+     "B": 15,
+     "C": 12,
+     "D": 18,
+     "E": 7,
+     "F": 5
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1051.6,
+    "own": {
+     "n": 40,
+     "mean": -3.1875,
+     "ci95": [
+      -7.6813,
+      1.325
+     ],
+     "p_wilcoxon": 0.2547,
+     "wins": 16,
+     "losses": 21,
+     "dz": -0.2152
+    },
+    "partner": {
+     "n": 40,
+     "mean": -0.4875,
+     "ci95": [
+      -4.7687,
+      4.0875
+     ],
+     "p_wilcoxon": 0.4954,
+     "wins": 17,
+     "losses": 21,
+     "dz": -0.0332
+    },
+    "joint": {
+     "n": 40,
+     "mean": -3.675,
+     "ci95": [
+      -11.0062,
+      4.0625
+     ],
+     "p_wilcoxon": 0.1628,
+     "wins": 15,
+     "losses": 22,
+     "dz": -0.149
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -5.925,
+     "ci95": [
+      -10.1562,
+      -1.5375
+     ],
+     "p_wilcoxon": 0.0161,
+     "wins": 14,
+     "losses": 25,
+     "dz": -0.419
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -2.475,
+     "ci95": [
+      -7.7562,
+      2.7938
+     ],
+     "p_wilcoxon": 0.4888,
+     "wins": 19,
+     "losses": 21,
+     "dz": -0.1451
+    },
+    "skill": {
+     "n": 40,
+     "mean": -1.1131,
+     "ci95": [
+      -2.6617,
+      0.319
+     ],
+     "p_wilcoxon": 0.3102,
+     "wins": 20,
+     "losses": 20,
+     "dz": -0.227
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": -0.9688,
+     "ci95": [
+      -2.6313,
+      0.7188
+     ],
+     "p_wilcoxon": 0.2391,
+     "wins": 4,
+     "losses": 8,
+     "dz": -0.1781
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       61,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       5,
+       11
+      ],
+      "assigned": [
+       53,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       45,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       5,
+       5
+      ],
+      "assigned": [
+       75,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": -3.8,
+     "ci95": [
+      -8.7438,
+      1.1625
+     ],
+     "p_wilcoxon": 0.1608,
+     "wins": 15,
+     "losses": 24,
+     "dz": -0.2356
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.1375,
+     "mean_rank_of_the_figure_taken": 1.93,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 2.7375,
+      "ci95": [
+       -1.4563,
+       6.975
+      ],
+      "p_wilcoxon": 0.4043,
+      "wins": 18,
+      "losses": 20,
+      "dz": 0.1984
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.0,
+     "collaborating": 0.65,
+     "compromising": 0.0,
+     "accommodating": 0.325,
+     "avoiding": 0.025
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 0.725,
+      "compromising": 0.0,
+      "accommodating": 0.225,
+      "avoiding": 0.05
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 0.575,
+      "compromising": 0.0,
+      "accommodating": 0.425,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 37,
+     "B": 16,
+     "C": 11,
+     "D": 11,
+     "E": 5
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1018.4,
+    "own": {
+     "n": 40,
+     "mean": 1.9125,
+     "ci95": [
+      -2.3937,
+      6.3
+     ],
+     "p_wilcoxon": 0.5263,
+     "wins": 22,
+     "losses": 15,
+     "dz": 0.1346
+    },
+    "partner": {
+     "n": 40,
+     "mean": 0.8375,
+     "ci95": [
+      -3.025,
+      4.9813
+     ],
+     "p_wilcoxon": 0.8623,
+     "wins": 19,
+     "losses": 18,
+     "dz": 0.0645
+    },
+    "joint": {
+     "n": 40,
+     "mean": 2.75,
+     "ci95": [
+      -3.8687,
+      9.975
+     ],
+     "p_wilcoxon": 0.6465,
+     "wins": 19,
+     "losses": 16,
+     "dz": 0.1233
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -0.825,
+     "ci95": [
+      -5.3063,
+      3.6688
+     ],
+     "p_wilcoxon": 0.674,
+     "wins": 18,
+     "losses": 20,
+     "dz": -0.0564
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 2.625,
+     "ci95": [
+      -2.1562,
+      7.25
+     ],
+     "p_wilcoxon": 0.2064,
+     "wins": 25,
+     "losses": 15,
+     "dz": 0.1727
+    },
+    "skill": {
+     "n": 40,
+     "mean": 1.7527,
+     "ci95": [
+      -0.5122,
+      4.0286
+     ],
+     "p_wilcoxon": 0.0794,
+     "wins": 26,
+     "losses": 14,
+     "dz": 0.2321
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 1.875,
+     "ci95": [
+      -1.9312,
+      5.8625
+     ],
+     "p_wilcoxon": 0.5281,
+     "wins": 19,
+     "losses": 19,
+     "dz": 0.1472
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       61,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       36,
+       52
+      ],
+      "assigned": [
+       53,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       45,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       25,
+       26
+      ],
+      "assigned": [
+       75,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       2,
+       2
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 6.8937,
+     "ci95": [
+      0.975,
+      12.8
+     ],
+     "p_wilcoxon": 0.0494,
+     "wins": 23,
+     "losses": 15,
+     "dz": 0.3599
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.075,
+     "collaborating": 0.3375,
+     "compromising": 0.0375,
+     "accommodating": 0.425,
+     "avoiding": 0.125
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.65,
+     "mean_rank_of_the_figure_taken": 1.43,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 2.7375,
+      "ci95": [
+       -1.4563,
+       6.975
+      ],
+      "p_wilcoxon": 0.4043,
+      "wins": 18,
+      "losses": 20,
+      "dz": 0.1984
+     }
+    }
+   }
+  },
+  "urgent": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.7875,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.2125,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.7,
+      "competing": 0.0,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.3,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.875,
+      "competing": 0.0,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.125,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 19,
+     "B": 23,
+     "C": 12,
+     "D": 16,
+     "E": 4,
+     "F": 6
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1052.5,
+    "own": {
+     "n": 40,
+     "mean": 0.2437,
+     "ci95": [
+      -6.0938,
+      6.4313
+     ],
+     "p_wilcoxon": 0.9307,
+     "wins": 20,
+     "losses": 18,
+     "dz": 0.0117
+    },
+    "partner": {
+     "n": 40,
+     "mean": 4.175,
+     "ci95": [
+      -1.85,
+      10.4688
+     ],
+     "p_wilcoxon": 0.2674,
+     "wins": 20,
+     "losses": 17,
+     "dz": 0.2072
+    },
+    "joint": {
+     "n": 40,
+     "mean": 4.4188,
+     "ci95": [
+      -6.1188,
+      15.1813
+     ],
+     "p_wilcoxon": 0.5923,
+     "wins": 18,
+     "losses": 19,
+     "dz": 0.1254
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -2.825,
+     "ci95": [
+      -8.4062,
+      2.75
+     ],
+     "p_wilcoxon": 0.324,
+     "wins": 16,
+     "losses": 22,
+     "dz": -0.1545
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -5.75,
+     "ci95": [
+      -12.7,
+      1.3313
+     ],
+     "p_wilcoxon": 0.1511,
+     "wins": 15,
+     "losses": 23,
+     "dz": -0.2464
+    },
+    "skill": {
+     "n": 40,
+     "mean": -1.1574,
+     "ci95": [
+      -4.3691,
+      2.1505
+     ],
+     "p_wilcoxon": 0.5047,
+     "wins": 19,
+     "losses": 19,
+     "dz": -0.1075
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": -0.8187,
+     "ci95": [
+      -4.5938,
+      2.9562
+     ],
+     "p_wilcoxon": 0.7063,
+     "wins": 6,
+     "losses": 8,
+     "dz": -0.0662
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       39,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       71,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       15,
+       17
+      ],
+      "assigned": [
+       71,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": -5.4313,
+     "ci95": [
+      -12.0875,
+      1.0938
+     ],
+     "p_wilcoxon": 0.1628,
+     "wins": 19,
+     "losses": 20,
+     "dz": -0.2521
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.2125,
+     "mean_rank_of_the_figure_taken": 1.79,
+     "highest_figure_by_seat": {
+      "p1": "accommodating",
+      "p2": "accommodating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 1.5938,
+      "ci95": [
+       -6.0125,
+       8.9938
+      ],
+      "p_wilcoxon": 0.6954,
+      "wins": 19,
+      "losses": 19,
+      "dz": 0.0641
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.075,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.925,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.025,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.975,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.125,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.875,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 18,
+     "B": 18,
+     "C": 16,
+     "D": 14,
+     "E": 14
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1019.6,
+    "own": {
+     "n": 40,
+     "mean": -0.5062,
+     "ci95": [
+      -6.6125,
+      5.4813
+     ],
+     "p_wilcoxon": 0.7607,
+     "wins": 18,
+     "losses": 20,
+     "dz": -0.0256
+    },
+    "partner": {
+     "n": 40,
+     "mean": 7.7625,
+     "ci95": [
+      0.975,
+      14.5437
+     ],
+     "p_wilcoxon": 0.0291,
+     "wins": 26,
+     "losses": 12,
+     "dz": 0.3468
+    },
+    "joint": {
+     "n": 40,
+     "mean": 7.2562,
+     "ci95": [
+      -3.55,
+      18.3125
+     ],
+     "p_wilcoxon": 0.4818,
+     "wins": 19,
+     "losses": 19,
+     "dz": 0.1988
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -3.575,
+     "ci95": [
+      -9.0,
+      1.7437
+     ],
+     "p_wilcoxon": 0.2467,
+     "wins": 17,
+     "losses": 22,
+     "dz": -0.203
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -6.5,
+     "ci95": [
+      -12.9625,
+      -0.0187
+     ],
+     "p_wilcoxon": 0.101,
+     "wins": 15,
+     "losses": 24,
+     "dz": -0.3098
+    },
+    "skill": {
+     "n": 40,
+     "mean": 1.0575,
+     "ci95": [
+      -1.0397,
+      3.5231
+     ],
+     "p_wilcoxon": 0.6428,
+     "wins": 18,
+     "losses": 22,
+     "dz": 0.1389
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 2.9813,
+     "ci95": [
+      -4.7313,
+      10.4875
+     ],
+     "p_wilcoxon": 0.5281,
+     "wins": 20,
+     "losses": 18,
+     "dz": 0.1187
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       6,
+       6
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       39,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       71,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       71,
+       74
+      ],
+      "assigned": [
+       71,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 1.1562,
+     "ci95": [
+      -5.4062,
+      7.8812
+     ],
+     "p_wilcoxon": 0.9893,
+     "wins": 19,
+     "losses": 21,
+     "dz": 0.0525
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.1,
+     "collaborating": 0.2625,
+     "compromising": 0.0,
+     "accommodating": 0.375,
+     "avoiding": 0.2625
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.925,
+     "mean_rank_of_the_figure_taken": 1.07,
+     "highest_figure_by_seat": {
+      "p1": "accommodating",
+      "p2": "accommodating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 1.5938,
+      "ci95": [
+       -6.0125,
+       8.9938
+      ],
+      "p_wilcoxon": 0.6954,
+      "wins": 19,
+      "losses": 19,
+      "dz": 0.0641
+     }
+    }
+   }
+  },
+  "time_cost": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.875,
+     "competing": 0.0,
+     "collaborating": 0.1125,
+     "compromising": 0.0,
+     "accommodating": 0.0125,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.95,
+      "competing": 0.0,
+      "collaborating": 0.05,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.8,
+      "competing": 0.0,
+      "collaborating": 0.175,
+      "compromising": 0.0,
+      "accommodating": 0.025,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 16,
+     "B": 14,
+     "C": 15,
+     "D": 19,
+     "E": 9,
+     "F": 7
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1078.5,
+    "own": {
+     "n": 40,
+     "mean": 0.7438,
+     "ci95": [
+      -4.3937,
+      5.9813
+     ],
+     "p_wilcoxon": 0.5587,
+     "wins": 21,
+     "losses": 19,
+     "dz": 0.0435
+    },
+    "partner": {
+     "n": 40,
+     "mean": 0.0625,
+     "ci95": [
+      -4.2625,
+      4.6188
+     ],
+     "p_wilcoxon": 0.7623,
+     "wins": 18,
+     "losses": 22,
+     "dz": 0.0043
+    },
+    "joint": {
+     "n": 40,
+     "mean": 0.8063,
+     "ci95": [
+      -7.1937,
+      8.75
+     ],
+     "p_wilcoxon": 0.7984,
+     "wins": 21,
+     "losses": 19,
+     "dz": 0.0309
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -3.5187,
+     "ci95": [
+      -8.6875,
+      1.5813
+     ],
+     "p_wilcoxon": 0.2411,
+     "wins": 14,
+     "losses": 25,
+     "dz": -0.2073
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 4.8375,
+     "ci95": [
+      -0.4437,
+      10.1438
+     ],
+     "p_wilcoxon": 0.1101,
+     "wins": 25,
+     "losses": 14,
+     "dz": 0.2818
+    },
+    "skill": {
+     "n": 40,
+     "mean": -0.5399,
+     "ci95": [
+      -2.493,
+      1.6045
+     ],
+     "p_wilcoxon": 0.059,
+     "wins": 13,
+     "losses": 27,
+     "dz": -0.0803
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": -0.1187,
+     "ci95": [
+      -2.225,
+      2.2313
+     ],
+     "p_wilcoxon": 0.6462,
+     "wins": 4,
+     "losses": 6,
+     "dz": -0.0163
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       5,
+       9
+      ],
+      "assigned": [
+       43,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       57,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       1,
+       1
+      ],
+      "assigned": [
+       76,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 1.8375,
+     "ci95": [
+      -4.3937,
+      8.1188
+     ],
+     "p_wilcoxon": 0.6818,
+     "wins": 22,
+     "losses": 18,
+     "dz": 0.0888
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.1125,
+     "mean_rank_of_the_figure_taken": 1.9,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 4.2625,
+      "ci95": [
+       0.5813,
+       7.8312
+      ],
+      "p_wilcoxon": 0.0087,
+      "wins": 28,
+      "losses": 11,
+      "dz": 0.3619
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.0,
+     "collaborating": 0.9375,
+     "compromising": 0.0,
+     "accommodating": 0.0625,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 0.95,
+      "compromising": 0.0,
+      "accommodating": 0.05,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 0.925,
+      "compromising": 0.0,
+      "accommodating": 0.075,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 26,
+     "B": 16,
+     "C": 10,
+     "D": 15,
+     "E": 13
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1042.0,
+    "own": {
+     "n": 40,
+     "mean": 2.1,
+     "ci95": [
+      -2.4688,
+      6.7625
+     ],
+     "p_wilcoxon": 0.3069,
+     "wins": 24,
+     "losses": 16,
+     "dz": 0.1399
+    },
+    "partner": {
+     "n": 40,
+     "mean": 6.1,
+     "ci95": [
+      1.3813,
+      11.0625
+     ],
+     "p_wilcoxon": 0.0452,
+     "wins": 24,
+     "losses": 16,
+     "dz": 0.3818
+    },
+    "joint": {
+     "n": 40,
+     "mean": 8.2,
+     "ci95": [
+      0.5062,
+      16.4875
+     ],
+     "p_wilcoxon": 0.0675,
+     "wins": 23,
+     "losses": 17,
+     "dz": 0.3133
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -2.1625,
+     "ci95": [
+      -6.8312,
+      2.3563
+     ],
+     "p_wilcoxon": 0.5667,
+     "wins": 19,
+     "losses": 19,
+     "dz": -0.1447
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 6.1937,
+     "ci95": [
+      0.6375,
+      11.6875
+     ],
+     "p_wilcoxon": 0.0505,
+     "wins": 26,
+     "losses": 14,
+     "dz": 0.3412
+    },
+    "skill": {
+     "n": 40,
+     "mean": -0.0793,
+     "ci95": [
+      -1.5012,
+      1.1473
+     ],
+     "p_wilcoxon": 0.0315,
+     "wins": 29,
+     "losses": 11,
+     "dz": -0.0181
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 3.625,
+     "ci95": [
+      -0.2313,
+      7.3063
+     ],
+     "p_wilcoxon": 0.0345,
+     "wins": 27,
+     "losses": 12,
+     "dz": 0.2972
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       79,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       44,
+       75
+      ],
+      "assigned": [
+       43,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       57,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       5,
+       5
+      ],
+      "assigned": [
+       76,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 7.8125,
+     "ci95": [
+      2.1375,
+      13.2875
+     ],
+     "p_wilcoxon": 0.0122,
+     "wins": 29,
+     "losses": 11,
+     "dz": 0.4311
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.025,
+     "collaborating": 0.2125,
+     "compromising": 0.0125,
+     "accommodating": 0.4375,
+     "avoiding": 0.3125
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.9375,
+     "mean_rank_of_the_figure_taken": 1.06,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "collaborating"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 4.2625,
+      "ci95": [
+       0.5813,
+       7.8312
+      ],
+      "p_wilcoxon": 0.0087,
+      "wins": 28,
+      "losses": 11,
+      "dz": 0.3619
+     }
+    }
+   }
+  },
+  "tight_budget": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.3125,
+     "competing": 0.6875,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.3,
+      "competing": 0.7,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.325,
+      "competing": 0.675,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 14,
+     "B": 15,
+     "C": 19,
+     "D": 16,
+     "E": 10,
+     "F": 6
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1076.8,
+    "own": {
+     "n": 40,
+     "mean": 2.05,
+     "ci95": [
+      -1.9625,
+      6.025
+     ],
+     "p_wilcoxon": 0.3017,
+     "wins": 20,
+     "losses": 19,
+     "dz": 0.1546
+    },
+    "partner": {
+     "n": 40,
+     "mean": -9.9187,
+     "ci95": [
+      -15.1438,
+      -4.825
+     ],
+     "p_wilcoxon": 0.0013,
+     "wins": 13,
+     "losses": 26,
+     "dz": -0.5891
+    },
+    "joint": {
+     "n": 40,
+     "mean": -7.8688,
+     "ci95": [
+      -14.9062,
+      -1.1875
+     ],
+     "p_wilcoxon": 0.0537,
+     "wins": 14,
+     "losses": 24,
+     "dz": -0.3494
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -0.3688,
+     "ci95": [
+      -5.8375,
+      5.4062
+     ],
+     "p_wilcoxon": 0.6917,
+     "wins": 18,
+     "losses": 22,
+     "dz": -0.02
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 3.8875,
+     "ci95": [
+      -2.1,
+      9.9437
+     ],
+     "p_wilcoxon": 0.2764,
+     "wins": 22,
+     "losses": 17,
+     "dz": 0.195
+    },
+    "skill": {
+     "n": 40,
+     "mean": 0.307,
+     "ci95": [
+      -2.6656,
+      3.3355
+     ],
+     "p_wilcoxon": 0.925,
+     "wins": 19,
+     "losses": 21,
+     "dz": 0.0313
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": -0.9563,
+     "ci95": [
+      -6.725,
+      5.0812
+     ],
+     "p_wilcoxon": 0.6615,
+     "wins": 16,
+     "losses": 17,
+     "dz": -0.0495
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       53,
+       55
+      ],
+      "assigned": [
+       74,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       37,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       67,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       71,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 4.8688,
+     "ci95": [
+      -0.425,
+      10.225
+     ],
+     "p_wilcoxon": 0.0848,
+     "wins": 26,
+     "losses": 13,
+     "dz": 0.2752
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.6875,
+     "mean_rank_of_the_figure_taken": 1.62,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": -1.8375,
+      "ci95": [
+       -7.9313,
+       4.4188
+      ],
+      "p_wilcoxon": 0.4597,
+      "wins": 18,
+      "losses": 22,
+      "dz": -0.0901
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.9875,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0125,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.975,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.025,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 1.0,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 18,
+     "B": 13,
+     "C": 23,
+     "D": 14,
+     "E": 12
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1040.7,
+    "own": {
+     "n": 40,
+     "mean": 1.2375,
+     "ci95": [
+      -3.5938,
+      5.9688
+     ],
+     "p_wilcoxon": 0.5908,
+     "wins": 22,
+     "losses": 18,
+     "dz": 0.0789
+    },
+    "partner": {
+     "n": 40,
+     "mean": -13.3625,
+     "ci95": [
+      -18.0063,
+      -8.5687
+     ],
+     "p_wilcoxon": 0.0,
+     "wins": 8,
+     "losses": 32,
+     "dz": -0.8734
+    },
+    "joint": {
+     "n": 40,
+     "mean": -12.125,
+     "ci95": [
+      -20.1125,
+      -4.325
+     ],
+     "p_wilcoxon": 0.0117,
+     "wins": 16,
+     "losses": 24,
+     "dz": -0.4682
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -1.1812,
+     "ci95": [
+      -6.3875,
+      4.3875
+     ],
+     "p_wilcoxon": 0.4063,
+     "wins": 16,
+     "losses": 23,
+     "dz": -0.0671
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 3.075,
+     "ci95": [
+      -3.5625,
+      9.5375
+     ],
+     "p_wilcoxon": 0.4209,
+     "wins": 19,
+     "losses": 19,
+     "dz": 0.1422
+    },
+    "skill": {
+     "n": 40,
+     "mean": 0.5274,
+     "ci95": [
+      -0.0116,
+      1.5199
+     ],
+     "p_wilcoxon": 0.1562,
+     "wins": 24,
+     "losses": 16,
+     "dz": 0.1748
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": -1.35,
+     "ci95": [
+      -7.2562,
+      4.75
+     ],
+     "p_wilcoxon": 0.5015,
+     "wins": 18,
+     "losses": 22,
+     "dz": -0.0683
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       74,
+       79
+      ],
+      "assigned": [
+       74,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       37,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       67,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       1,
+       1
+      ],
+      "assigned": [
+       71,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 4.9,
+     "ci95": [
+      -0.2562,
+      10.05
+     ],
+     "p_wilcoxon": 0.1024,
+     "wins": 25,
+     "losses": 15,
+     "dz": 0.2923
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.15,
+     "collaborating": 0.275,
+     "compromising": 0.0,
+     "accommodating": 0.3,
+     "avoiding": 0.275
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.9875,
+     "mean_rank_of_the_figure_taken": 1.02,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": -1.8375,
+      "ci95": [
+       -7.9313,
+       4.4188
+      ],
+      "p_wilcoxon": 0.4597,
+      "wins": 18,
+      "losses": 22,
+      "dz": -0.0901
+     }
+    }
+   }
+  },
+  "open_info": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.175,
+     "competing": 0.55,
+     "collaborating": 0.275,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.175,
+      "competing": 0.6,
+      "collaborating": 0.225,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.175,
+      "competing": 0.5,
+      "collaborating": 0.325,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 26,
+     "B": 20,
+     "C": 14,
+     "D": 11,
+     "E": 5,
+     "F": 4
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1137.2,
+    "own": {
+     "n": 40,
+     "mean": 6.5625,
+     "ci95": [
+      3.1187,
+      9.9563
+     ],
+     "p_wilcoxon": 0.0007,
+     "wins": 32,
+     "losses": 8,
+     "dz": 0.596
+    },
+    "partner": {
+     "n": 40,
+     "mean": -6.0938,
+     "ci95": [
+      -10.0687,
+      -1.85
+     ],
+     "p_wilcoxon": 0.0044,
+     "wins": 9,
+     "losses": 31,
+     "dz": -0.4558
+    },
+    "joint": {
+     "n": 40,
+     "mean": 0.4688,
+     "ci95": [
+      -4.525,
+      5.2938
+     ],
+     "p_wilcoxon": 0.7695,
+     "wins": 18,
+     "losses": 21,
+     "dz": 0.0299
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 1.3813,
+     "ci95": [
+      -3.075,
+      5.9562
+     ],
+     "p_wilcoxon": 0.696,
+     "wins": 20,
+     "losses": 19,
+     "dz": 0.0937
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -0.0125,
+     "ci95": [
+      -5.5687,
+      5.6688
+     ],
+     "p_wilcoxon": 0.8221,
+     "wins": 19,
+     "losses": 19,
+     "dz": -0.0007
+    },
+    "skill": {
+     "n": 40,
+     "mean": -0.7598,
+     "ci95": [
+      -3.4438,
+      1.6559
+     ],
+     "p_wilcoxon": 0.672,
+     "wins": 27,
+     "losses": 13,
+     "dz": -0.0915
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 4.2812,
+     "ci95": [
+      0.0688,
+      8.1
+     ],
+     "p_wilcoxon": 0.0094,
+     "wins": 29,
+     "losses": 9,
+     "dz": 0.329
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       40,
+       44
+      ],
+      "assigned": [
+       78,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       19,
+       22
+      ],
+      "assigned": [
+       64,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       72,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       64,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 7.0312,
+     "ci95": [
+      0.65,
+      13.35
+     ],
+     "p_wilcoxon": 0.0554,
+     "wins": 25,
+     "losses": 15,
+     "dz": 0.337
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.55,
+     "mean_rank_of_the_figure_taken": 1.8,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 6.575,
+      "ci95": [
+       1.9438,
+       11.1062
+      ],
+      "p_wilcoxon": 0.004,
+      "wins": 29,
+      "losses": 9,
+      "dz": 0.4364
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.5875,
+     "collaborating": 0.4,
+     "compromising": 0.0125,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.575,
+      "collaborating": 0.425,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.6,
+      "collaborating": 0.375,
+      "compromising": 0.025,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 36,
+     "B": 12,
+     "C": 15,
+     "D": 12,
+     "E": 5
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1101.2,
+    "own": {
+     "n": 40,
+     "mean": 5.6,
+     "ci95": [
+      1.725,
+      9.4563
+     ],
+     "p_wilcoxon": 0.0057,
+     "wins": 28,
+     "losses": 10,
+     "dz": 0.4436
+    },
+    "partner": {
+     "n": 40,
+     "mean": -6.675,
+     "ci95": [
+      -10.8125,
+      -2.3687
+     ],
+     "p_wilcoxon": 0.0056,
+     "wins": 12,
+     "losses": 26,
+     "dz": -0.4813
+    },
+    "joint": {
+     "n": 40,
+     "mean": -1.075,
+     "ci95": [
+      -6.3438,
+      4.0812
+     ],
+     "p_wilcoxon": 0.8278,
+     "wins": 22,
+     "losses": 16,
+     "dz": -0.0632
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 0.4188,
+     "ci95": [
+      -3.225,
+      4.2125
+     ],
+     "p_wilcoxon": 0.8824,
+     "wins": 19,
+     "losses": 21,
+     "dz": 0.0348
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -0.975,
+     "ci95": [
+      -6.125,
+      4.1562
+     ],
+     "p_wilcoxon": 0.7607,
+     "wins": 17,
+     "losses": 21,
+     "dz": -0.0576
+    },
+    "skill": {
+     "n": 40,
+     "mean": 0.3847,
+     "ci95": [
+      -2.1214,
+      3.0479
+     ],
+     "p_wilcoxon": 0.814,
+     "wins": 21,
+     "losses": 19,
+     "dz": 0.0449
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 6.325,
+     "ci95": [
+      2.5063,
+      10.0437
+     ],
+     "p_wilcoxon": 0.0009,
+     "wins": 31,
+     "losses": 8,
+     "dz": 0.5215
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       39,
+       47
+      ],
+      "assigned": [
+       78,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       25,
+       32
+      ],
+      "assigned": [
+       64,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       1,
+       1
+      ],
+      "assigned": [
+       72,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       64,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 4.1312,
+     "ci95": [
+      -1.9062,
+      10.275
+     ],
+     "p_wilcoxon": 0.3166,
+     "wins": 21,
+     "losses": 19,
+     "dz": 0.2031
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.0,
+     "collaborating": 0.425,
+     "compromising": 0.05,
+     "accommodating": 0.3375,
+     "avoiding": 0.1875
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.5875,
+     "mean_rank_of_the_figure_taken": 1.43,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 6.575,
+      "ci95": [
+       1.9438,
+       11.1062
+      ],
+      "p_wilcoxon": 0.004,
+      "wins": 29,
+      "losses": 9,
+      "dz": 0.4364
+     }
+    }
+   }
+  },
+  "power_p1": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.45,
+     "competing": 0.5125,
+     "collaborating": 0.0375,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.375,
+      "competing": 0.6,
+      "collaborating": 0.025,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.525,
+      "competing": 0.425,
+      "collaborating": 0.05,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 23,
+     "B": 17,
+     "C": 15,
+     "D": 16,
+     "E": 2,
+     "F": 7
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1051.1,
+    "own": {
+     "n": 40,
+     "mean": 3.4813,
+     "ci95": [
+      -1.3938,
+      8.425
+     ],
+     "p_wilcoxon": 0.2245,
+     "wins": 20,
+     "losses": 17,
+     "dz": 0.216
+    },
+    "partner": {
+     "n": 40,
+     "mean": -3.9625,
+     "ci95": [
+      -7.9688,
+      -0.0437
+     ],
+     "p_wilcoxon": 0.109,
+     "wins": 15,
+     "losses": 23,
+     "dz": -0.3006
+    },
+    "joint": {
+     "n": 40,
+     "mean": -0.4813,
+     "ci95": [
+      -6.7125,
+      5.6562
+     ],
+     "p_wilcoxon": 0.5717,
+     "wins": 16,
+     "losses": 22,
+     "dz": -0.0236
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -1.4438,
+     "ci95": [
+      -5.6188,
+      2.6688
+     ],
+     "p_wilcoxon": 0.5328,
+     "wins": 19,
+     "losses": 19,
+     "dz": -0.1089
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 2.5625,
+     "ci95": [
+      -2.825,
+      7.8625
+     ],
+     "p_wilcoxon": 0.3102,
+     "wins": 21,
+     "losses": 19,
+     "dz": 0.148
+    },
+    "skill": {
+     "n": 40,
+     "mean": -0.518,
+     "ci95": [
+      -4.1974,
+      3.1274
+     ],
+     "p_wilcoxon": 0.8036,
+     "wins": 19,
+     "losses": 21,
+     "dz": -0.0437
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 0.1375,
+     "ci95": [
+      -4.4625,
+      4.8312
+     ],
+     "p_wilcoxon": 0.9909,
+     "wins": 14,
+     "losses": 14,
+     "dz": 0.0091
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       39,
+       41
+      ],
+      "assigned": [
+       78,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       0,
+       3
+      ],
+      "assigned": [
+       49,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       62,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       70,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 1.7125,
+     "ci95": [
+      -3.6437,
+      7.1437
+     ],
+     "p_wilcoxon": 0.6142,
+     "wins": 18,
+     "losses": 22,
+     "dz": 0.097
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.5125,
+     "mean_rank_of_the_figure_taken": 1.94,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 0.9187,
+      "ci95": [
+       -4.9688,
+       6.9938
+      ],
+      "p_wilcoxon": 0.8984,
+      "wins": 23,
+      "losses": 17,
+      "dz": 0.0472
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.9,
+     "collaborating": 0.1,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.925,
+      "collaborating": 0.075,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.875,
+      "collaborating": 0.125,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 24,
+     "B": 10,
+     "C": 22,
+     "D": 14,
+     "E": 10
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1015.9,
+    "own": {
+     "n": 40,
+     "mean": 5.425,
+     "ci95": [
+      0.1437,
+      10.7375
+     ],
+     "p_wilcoxon": 0.0749,
+     "wins": 23,
+     "losses": 17,
+     "dz": 0.3127
+    },
+    "partner": {
+     "n": 40,
+     "mean": -10.4125,
+     "ci95": [
+      -14.6625,
+      -5.8625
+     ],
+     "p_wilcoxon": 0.0002,
+     "wins": 6,
+     "losses": 33,
+     "dz": -0.7217
+    },
+    "joint": {
+     "n": 40,
+     "mean": -4.9875,
+     "ci95": [
+      -12.3187,
+      2.9375
+     ],
+     "p_wilcoxon": 0.0665,
+     "wins": 15,
+     "losses": 23,
+     "dz": -0.2023
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 0.5,
+     "ci95": [
+      -4.0187,
+      4.9875
+     ],
+     "p_wilcoxon": 0.7429,
+     "wins": 21,
+     "losses": 18,
+     "dz": 0.0337
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": 4.5062,
+     "ci95": [
+      -0.6062,
+      9.675
+     ],
+     "p_wilcoxon": 0.1085,
+     "wins": 23,
+     "losses": 16,
+     "dz": 0.2692
+    },
+    "skill": {
+     "n": 40,
+     "mean": -1.0381,
+     "ci95": [
+      -1.8625,
+      -0.3113
+     ],
+     "p_wilcoxon": 0.027,
+     "wins": 14,
+     "losses": 26,
+     "dz": -0.4072
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 0.2812,
+     "ci95": [
+      -5.5438,
+      6.3563
+     ],
+     "p_wilcoxon": 0.8931,
+     "wins": 22,
+     "losses": 18,
+     "dz": 0.0146
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       68,
+       72
+      ],
+      "assigned": [
+       78,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       8,
+       8
+      ],
+      "assigned": [
+       49,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       62,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       70,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 12.1937,
+     "ci95": [
+      5.525,
+      18.6187
+     ],
+     "p_wilcoxon": 0.0022,
+     "wins": 28,
+     "losses": 12,
+     "dz": 0.56
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.075,
+     "collaborating": 0.3375,
+     "compromising": 0.0125,
+     "accommodating": 0.4125,
+     "avoiding": 0.1625
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.9,
+     "mean_rank_of_the_figure_taken": 1.1,
+     "highest_figure_by_seat": {
+      "p1": "competing",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 0.9187,
+      "ci95": [
+       -4.9688,
+       6.9938
+      ],
+      "p_wilcoxon": 0.8984,
+      "wins": 23,
+      "losses": 17,
+      "dz": 0.0472
+     }
+    }
+   }
+  },
+  "low_stakes_p2": {
+   "free": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.3625,
+     "competing": 0.325,
+     "collaborating": 0.3125,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.375,
+      "competing": 0.0,
+      "collaborating": 0.625,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.35,
+      "competing": 0.65,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 19,
+     "B": 18,
+     "C": 15,
+     "D": 15,
+     "E": 6,
+     "F": 7
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1055.3,
+    "own": {
+     "n": 40,
+     "mean": 3.1729,
+     "ci95": [
+      -1.5375,
+      8.05
+     ],
+     "p_wilcoxon": 0.2066,
+     "wins": 24,
+     "losses": 15,
+     "dz": 0.1999
+    },
+    "partner": {
+     "n": 40,
+     "mean": -2.2833,
+     "ci95": [
+      -5.9083,
+      1.7104
+     ],
+     "p_wilcoxon": 0.0954,
+     "wins": 14,
+     "losses": 25,
+     "dz": -0.1854
+    },
+    "joint": {
+     "n": 40,
+     "mean": -1.1813,
+     "ci95": [
+      -7.7863,
+      5.58
+     ],
+     "p_wilcoxon": 0.7641,
+     "wins": 19,
+     "losses": 20,
+     "dz": -0.0542
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": -3.1,
+     "ci95": [
+      -7.5417,
+      1.3125
+     ],
+     "p_wilcoxon": 0.5015,
+     "wins": 23,
+     "losses": 17,
+     "dz": -0.2102
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -3.8854,
+     "ci95": [
+      -9.5583,
+      1.7125
+     ],
+     "p_wilcoxon": 0.2137,
+     "wins": 18,
+     "losses": 22,
+     "dz": -0.2079
+    },
+    "skill": {
+     "n": 40,
+     "mean": 1.3124,
+     "ci95": [
+      -2.0395,
+      4.7558
+     ],
+     "p_wilcoxon": 0.6142,
+     "wins": 21,
+     "losses": 19,
+     "dz": 0.1178
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 5.5667,
+     "ci95": [
+      1.7062,
+      9.8125
+     ],
+     "p_wilcoxon": 0.0122,
+     "wins": 22,
+     "losses": 10,
+     "dz": 0.4192
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       23,
+       26
+      ],
+      "assigned": [
+       70,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       17,
+       25
+      ],
+      "assigned": [
+       53,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       61,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       73,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 1.8208,
+     "ci95": [
+      -4.3688,
+      8.3354
+     ],
+     "p_wilcoxon": 0.7167,
+     "wins": 20,
+     "losses": 19,
+     "dz": 0.0886
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 1.0,
+     "competing": 0.0,
+     "collaborating": 0.0,
+     "compromising": 0.0,
+     "accommodating": 0.0,
+     "avoiding": 0.0
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.6375,
+     "mean_rank_of_the_figure_taken": 1.54,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 8.0396,
+      "ci95": [
+       4.1729,
+       12.1729
+      ],
+      "p_wilcoxon": 0.0003,
+      "wins": 31,
+      "losses": 7,
+      "dz": 0.6155
+     }
+    }
+   },
+   "forced": {
+    "shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.5,
+     "collaborating": 0.4875,
+     "compromising": 0.0,
+     "accommodating": 0.0125,
+     "avoiding": 0.0
+    },
+    "shares_by_seat": {
+     "p1": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 0.0,
+      "collaborating": 0.975,
+      "compromising": 0.0,
+      "accommodating": 0.025,
+      "avoiding": 0.0
+     },
+     "p2": {
+      "n": 40,
+      "neutral": 0.0,
+      "competing": 1.0,
+      "collaborating": 0.0,
+      "compromising": 0.0,
+      "accommodating": 0.0,
+      "avoiding": 0.0
+     }
+    },
+    "letters": {
+     "A": 22,
+     "B": 17,
+     "C": 19,
+     "D": 11,
+     "E": 11
+    },
+    "invalid_choices": 0,
+    "choice_tokens": 1018.5,
+    "own": {
+     "n": 40,
+     "mean": 7.0042,
+     "ci95": [
+      3.6958,
+      10.45
+     ],
+     "p_wilcoxon": 0.0005,
+     "wins": 28,
+     "losses": 10,
+     "dz": 0.6379
+    },
+    "partner": {
+     "n": 40,
+     "mean": -3.4562,
+     "ci95": [
+      -7.4417,
+      0.7479
+     ],
+     "p_wilcoxon": 0.0538,
+     "wins": 13,
+     "losses": 25,
+     "dz": -0.26
+    },
+    "joint": {
+     "n": 40,
+     "mean": -0.2525,
+     "ci95": [
+      -5.7513,
+      5.425
+     ],
+     "p_wilcoxon": 0.9537,
+     "wins": 18,
+     "losses": 20,
+     "dz": -0.0139
+    },
+    "own_minus_assigned_collaborating": {
+     "n": 40,
+     "mean": 0.7313,
+     "ci95": [
+      -3.1375,
+      4.6438
+     ],
+     "p_wilcoxon": 0.696,
+     "wins": 21,
+     "losses": 18,
+     "dz": 0.0563
+    },
+    "own_minus_assigned_competing": {
+     "n": 40,
+     "mean": -0.0542,
+     "ci95": [
+      -4.3604,
+      4.3667
+     ],
+     "p_wilcoxon": 0.7324,
+     "wins": 21,
+     "losses": 18,
+     "dz": -0.0038
+    },
+    "skill": {
+     "n": 40,
+     "mean": 1.1553,
+     "ci95": [
+      -1.6733,
+      3.9243
+     ],
+     "p_wilcoxon": 0.3607,
+     "wins": 21,
+     "losses": 18,
+     "dz": 0.1261
+    },
+    "gain_from_assigned_cells": {
+     "n": 40,
+     "mean": 7.6333,
+     "ci95": [
+      3.8312,
+      11.7292
+     ],
+     "p_wilcoxon": 0.0004,
+     "wins": 31,
+     "losses": 7,
+     "dz": 0.5894
+    },
+    "compliance": {
+     "competing": {
+      "picked": [
+       39,
+       40
+      ],
+      "assigned": [
+       70,
+       80
+      ]
+     },
+     "collaborating": {
+      "picked": [
+       23,
+       39
+      ],
+      "assigned": [
+       53,
+       80
+      ]
+     },
+     "compromising": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       61,
+       80
+      ]
+     },
+     "accommodating": {
+      "picked": [
+       1,
+       1
+      ],
+      "assigned": [
+       73,
+       80
+      ]
+     },
+     "avoiding": {
+      "picked": [
+       0,
+       0
+      ],
+      "assigned": [
+       80,
+       80
+      ]
+     }
+    },
+    "own_minus_uninformed": {
+     "n": 40,
+     "mean": 13.5625,
+     "ci95": [
+      8.3292,
+      18.8021
+     ],
+     "p_wilcoxon": 0.0001,
+     "wins": 30,
+     "losses": 10,
+     "dz": 0.7884
+    },
+    "uninformed_shares": {
+     "n": 80,
+     "neutral": 0.0,
+     "competing": 0.025,
+     "collaborating": 0.2625,
+     "compromising": 0.025,
+     "accommodating": 0.4875,
+     "avoiding": 0.2
+    },
+    "evidence": {
+     "n": 80,
+     "took_the_highest_figure": 0.9875,
+     "mean_rank_of_the_figure_taken": 1.01,
+     "highest_figure_by_seat": {
+      "p1": "collaborating",
+      "p2": "competing"
+     },
+     "the_highest_figure_every_time_from_assigned_cells": {
+      "n": 40,
+      "mean": 8.0396,
+      "ci95": [
+       4.1729,
+       12.1729
+      ],
+      "p_wilcoxon": 0.0003,
+      "wins": 31,
+      "losses": 7,
+      "dz": 0.6155
+     }
+    }
+   }
+  }
+ },
+ "ten_conditions": {
+  "free": {
+   "shares": {
+    "n": 800,
+    "neutral": 0.4612,
+    "competing": 0.2737,
+    "collaborating": 0.235,
+    "compromising": 0.0,
+    "accommodating": 0.03,
+    "avoiding": 0.0
+   },
+   "letters": {
+    "A": 190,
+    "B": 176,
+    "C": 156,
+    "D": 154,
+    "E": 60,
+    "F": 64
+   },
+   "shares_by_letter": {
+    "A": {
+     "n": 190,
+     "neutral": 0.3895,
+     "competing": 0.3421,
+     "collaborating": 0.2316,
+     "compromising": 0.0,
+     "accommodating": 0.0368,
+     "avoiding": 0.0
+    },
+    "B": {
+     "n": 176,
+     "neutral": 0.4148,
+     "competing": 0.2443,
+     "collaborating": 0.267,
+     "compromising": 0.0,
+     "accommodating": 0.0739,
+     "avoiding": 0.0
+    },
+    "C": {
+     "n": 156,
+     "neutral": 0.5256,
+     "competing": 0.25,
+     "collaborating": 0.2179,
+     "compromising": 0.0,
+     "accommodating": 0.0064,
+     "avoiding": 0.0
+    },
+    "D": {
+     "n": 154,
+     "neutral": 0.5909,
+     "competing": 0.2013,
+     "collaborating": 0.2013,
+     "compromising": 0.0,
+     "accommodating": 0.0065,
+     "avoiding": 0.0
+    },
+    "E": {
+     "n": 60,
+     "neutral": 0.4333,
+     "competing": 0.3333,
+     "collaborating": 0.2167,
+     "compromising": 0.0,
+     "accommodating": 0.0167,
+     "avoiding": 0.0
+    },
+    "F": {
+     "n": 64,
+     "neutral": 0.3594,
+     "competing": 0.3281,
+     "collaborating": 0.2969,
+     "compromising": 0.0,
+     "accommodating": 0.0156,
+     "avoiding": 0.0
+    }
+   },
+   "invalid_choices": 0,
+   "choice_tokens": 1065.6,
+   "dependence": {
+    "units": 80,
+    "chi_square": 709.9664,
+    "cramers_v": 0.4213,
+    "p": 0.0005,
+    "permutations": 2000
+   },
+   "gain_from_assigned_cells": {
+    "n": 40,
+    "mean": 2.1104,
+    "ci95": [
+     0.9965,
+     3.2202
+    ],
+    "p_wilcoxon": 0.0012,
+    "wins": 27,
+    "losses": 13,
+    "dz": 0.5865
+   },
+   "own_minus_assigned_competing": {
+    "n": 40,
+    "mean": 0.009,
+    "ci95": [
+     -1.9104,
+     2.0673
+    ],
+    "p_wilcoxon": 0.7217,
+    "wins": 18,
+    "losses": 22,
+    "dz": 0.0014
+   },
+   "joint": {
+    "n": 40,
+    "mean": 0.8625,
+    "ci95": [
+     -1.2449,
+     2.9665
+    ],
+    "p_wilcoxon": 0.4888,
+    "wins": 22,
+    "losses": 18,
+    "dz": 0.1259
+   },
+   "own_minus_assigned_collaborating": {
+    "n": 40,
+    "mean": -1.1038,
+    "ci95": [
+     -2.5817,
+     0.3675
+    ],
+    "p_wilcoxon": 0.2617,
+    "wins": 18,
+    "losses": 22,
+    "dz": -0.2258
+   },
+   "partner": {
+    "n": 40,
+    "mean": -1.779,
+    "ci95": [
+     -3.3065,
+     -0.2373
+    ],
+    "p_wilcoxon": 0.0378,
+    "wins": 15,
+    "losses": 25,
+    "dz": -0.352
+   },
+   "skill": {
+    "n": 40,
+    "mean": -0.0007,
+    "ci95": [
+     -0.6774,
+     0.6913
+    ],
+    "p_wilcoxon": 0.7017,
+    "wins": 18,
+    "losses": 22,
+    "dz": -0.0003
+   },
+   "own_minus_uninformed": {
+    "n": 40,
+    "mean": 2.7477,
+    "ci95": [
+     1.0604,
+     4.376
+    ],
+    "p_wilcoxon": 0.0019,
+    "wins": 27,
+    "losses": 13,
+    "dz": 0.5016
+   },
+   "uninformed_shares": {
+    "n": 800,
+    "neutral": 1.0,
+    "competing": 0.0,
+    "collaborating": 0.0,
+    "compromising": 0.0,
+    "accommodating": 0.0,
+    "avoiding": 0.0
+   },
+   "took_the_highest_figure": 0.4988,
+   "mean_rank_of_the_figure_taken": 1.73
+  },
+  "forced": {
+   "shares": {
+    "n": 800,
+    "neutral": 0.0,
+    "competing": 0.3987,
+    "collaborating": 0.4625,
+    "compromising": 0.0013,
+    "accommodating": 0.135,
+    "avoiding": 0.0025
+   },
+   "letters": {
+    "A": 252,
+    "B": 148,
+    "C": 156,
+    "D": 135,
+    "E": 109
+   },
+   "shares_by_letter": {
+    "A": {
+     "n": 252,
+     "neutral": 0.0,
+     "competing": 0.3214,
+     "collaborating": 0.5357,
+     "compromising": 0.004,
+     "accommodating": 0.131,
+     "avoiding": 0.0079
+    },
+    "B": {
+     "n": 148,
+     "neutral": 0.0,
+     "competing": 0.3378,
+     "collaborating": 0.5,
+     "compromising": 0.0,
+     "accommodating": 0.1622,
+     "avoiding": 0.0
+    },
+    "C": {
+     "n": 156,
+     "neutral": 0.0,
+     "competing": 0.5897,
+     "collaborating": 0.2885,
+     "compromising": 0.0,
+     "accommodating": 0.1218,
+     "avoiding": 0.0
+    },
+    "D": {
+     "n": 135,
+     "neutral": 0.0,
+     "competing": 0.3926,
+     "collaborating": 0.4741,
+     "compromising": 0.0,
+     "accommodating": 0.1333,
+     "avoiding": 0.0
+    },
+    "E": {
+     "n": 109,
+     "neutral": 0.0,
+     "competing": 0.3945,
+     "collaborating": 0.4771,
+     "compromising": 0.0,
+     "accommodating": 0.1284,
+     "avoiding": 0.0
+    }
+   },
+   "invalid_choices": 0,
+   "choice_tokens": 1030.2,
+   "dependence": {
+    "units": 80,
+    "chi_square": 1086.5443,
+    "cramers_v": 0.5212,
+    "p": 0.0005,
+    "permutations": 2000
+   },
+   "gain_from_assigned_cells": {
+    "n": 40,
+    "mean": 3.7058,
+    "ci95": [
+     2.1635,
+     5.3119
+    ],
+    "p_wilcoxon": 0.0001,
+    "wins": 30,
+    "losses": 10,
+    "dz": 0.7201
+   },
+   "own_minus_assigned_competing": {
+    "n": 40,
+    "mean": 0.904,
+    "ci95": [
+     -0.9633,
+     2.8121
+    ],
+    "p_wilcoxon": 0.3232,
+    "wins": 22,
+    "losses": 18,
+    "dz": 0.1449
+   },
+   "joint": {
+    "n": 40,
+    "mean": 1.676,
+    "ci95": [
+     -0.9286,
+     4.3555
+    ],
+    "p_wilcoxon": 0.3643,
+    "wins": 19,
+    "losses": 21,
+    "dz": 0.1989
+   },
+   "own_minus_assigned_collaborating": {
+    "n": 40,
+    "mean": -0.2088,
+    "ci95": [
+     -1.8081,
+     1.4042
+    ],
+    "p_wilcoxon": 0.814,
+    "wins": 20,
+    "losses": 20,
+    "dz": -0.0396
+   },
+   "partner": {
+    "n": 40,
+    "mean": -1.6875,
+    "ci95": [
+     -3.1733,
+     -0.1288
+    ],
+    "p_wilcoxon": 0.0372,
+    "wins": 15,
+    "losses": 25,
+    "dz": -0.3427
+   },
+   "skill": {
+    "n": 40,
+    "mean": 0.3926,
+    "ci95": [
+     -0.2074,
+     0.9793
+    ],
+    "p_wilcoxon": 0.204,
+    "wins": 25,
+    "losses": 15,
+    "dz": 0.1976
+   },
+   "own_minus_uninformed": {
+    "n": 40,
+    "mean": 8.5731,
+    "ci95": [
+     6.7558,
+     10.3706
+    ],
+    "p_wilcoxon": 0.0,
+    "wins": 37,
+    "losses": 3,
+    "dz": 1.4491
+   },
+   "uninformed_shares": {
+    "n": 800,
+    "neutral": 0.0,
+    "competing": 0.0688,
+    "collaborating": 0.2938,
+    "compromising": 0.0163,
+    "accommodating": 0.4138,
+    "avoiding": 0.2075
+   },
+   "took_the_highest_figure": 0.8875,
+   "mean_rank_of_the_figure_taken": 1.12
+  }
+ },
+ "from_assigned_cells": {
+  "always competing": {
+   "n": 80,
+   "mean": 2.9236,
+   "ci95": [
+    1.7151,
+    4.1016
+   ],
+   "p_wilcoxon": 0.0,
+   "wins": 58,
+   "losses": 22,
+   "dz": 0.5338
+  },
+  "always collaborating": {
+   "n": 80,
+   "mean": 3.8895,
+   "ci95": [
+    2.9164,
+    4.8724
+   ],
+   "p_wilcoxon": 0.0,
+   "wins": 65,
+   "losses": 15,
+   "dz": 0.8554
+  },
+  "always compromising": {
+   "n": 80,
+   "mean": -7.9427,
+   "ci95": [
+    -9.2075,
+    -6.6875
+   ],
+   "p_wilcoxon": 0.0,
+   "wins": 6,
+   "losses": 74,
+   "dz": -1.3791
+  },
+  "always accommodating": {
+   "n": 80,
+   "mean": -4.7914,
+   "ci95": [
+    -6.0231,
+    -3.5527
+   ],
+   "p_wilcoxon": 0.0,
+   "wins": 12,
+   "losses": 68,
+   "dz": -0.8495
+  },
+  "always avoiding": {
+   "n": 80,
+   "mean": -14.0962,
+   "ci95": [
+    -15.4705,
+    -12.7001
+   ],
+   "p_wilcoxon": 0.0,
+   "wins": 1,
+   "losses": 79,
+   "dz": -2.2232
+  },
+  "by condition, the rule with the largest mean in the discovery sample": {
+   "n": 80,
+   "mean": 3.9798,
+   "ci95": [
+    2.877,
+    5.0997
+   ],
+   "p_wilcoxon": 0.0,
+   "wins": 63,
+   "losses": 17,
+   "dz": 0.7798
+  },
+  "the same, minus always collaborating": {
+   "n": 80,
+   "mean": 0.0903,
+   "ci95": [
+    -0.8388,
+    1.0322
+   ],
+   "p_wilcoxon": 0.757,
+   "wins": 44,
+   "losses": 36,
+   "dz": 0.021
+  },
+  "the best of the five in each game, in hindsight (an upper bound inflated by noise)": {
+   "n": 80,
+   "mean": 12.5536,
+   "ci95": [
+    11.7248,
+    13.4145
+   ],
+   "p_wilcoxon": 0.0,
+   "wins": 80,
+   "losses": 0,
+   "dz": 3.2039
+  },
+  "picked in the discovery sample": {
+   "base": "collaborating",
+   "integrative": "collaborating",
+   "distributive": "competing",
+   "all_contested": "collaborating",
+   "urgent": "accommodating",
+   "time_cost": "collaborating",
+   "tight_budget": "competing",
+   "open_info": "competing",
+   "power_p1": "competing",
+   "low_stakes_p2": "collaborating"
+  }
+ },
+ "kept": {
+  "shares": {
+   "n": 80,
+   "neutral": 0.0,
+   "competing": 0.0625,
+   "collaborating": 0.275,
+   "compromising": 0.05,
+   "accommodating": 0.45,
+   "avoiding": 0.1625
+  },
+  "own": {
+   "n": 40,
+   "mean": -3.2,
+   "ci95": [
+    -7.9688,
+    1.5625
+   ],
+   "p_wilcoxon": 0.2642,
+   "wins": 17,
+   "losses": 20,
+   "dz": -0.2031
+  },
+  "partner": {
+   "n": 40,
+   "mean": 5.3312,
+   "ci95": [
+    -0.2812,
+    10.9375
+   ],
+   "p_wilcoxon": 0.0868,
+   "wins": 23,
+   "losses": 14,
+   "dz": 0.2849
+  },
+  "own_minus_not_kept": {
+   "n": 40,
+   "mean": 4.3812,
+   "ci95": [
+    -0.425,
+    9.0
+   ],
+   "p_wilcoxon": 0.0394,
+   "wins": 25,
+   "losses": 12,
+   "dz": 0.2835
+  },
+  "compliance": {
+   "competing": [
+    4,
+    5
+   ],
+   "collaborating": [
+    16,
+    22
+   ],
+   "compromising": [
+    4,
+    4
+   ],
+   "accommodating": [
+    35,
+    36
+   ],
+   "avoiding": [
+    13,
+    13
+   ]
+  }
+ },
+ "repick": {
+  "neutral": {
+   "first": {
+    "n": 80,
+    "neutral": 0.0,
+    "competing": 0.0625,
+    "collaborating": 0.3375,
+    "compromising": 0.025,
+    "accommodating": 0.375,
+    "avoiding": 0.2
+   },
+   "last": {
+    "n": 80,
+    "neutral": 0.0,
+    "competing": 0.0125,
+    "collaborating": 0.325,
+    "compromising": 0.025,
+    "accommodating": 0.2875,
+    "avoiding": 0.35
+   },
+   "first_by_seat": {
+    "p1": {
+     "n": 40,
+     "neutral": 0.0,
+     "competing": 0.025,
+     "collaborating": 0.375,
+     "compromising": 0.025,
+     "accommodating": 0.425,
+     "avoiding": 0.15
+    },
+    "p2": {
+     "n": 40,
+     "neutral": 0.0,
+     "competing": 0.1,
+     "collaborating": 0.3,
+     "compromising": 0.025,
+     "accommodating": 0.325,
+     "avoiding": 0.25
+    }
+   },
+   "every_pick": {
+    "n": 163,
+    "neutral": 0.0,
+    "competing": 0.0307,
+    "collaborating": 0.362,
+    "compromising": 0.0184,
+    "accommodating": 0.3497,
+    "avoiding": 0.2393
+   },
+   "picks_per_game": 2.04,
+   "games_with_a_change": 0.425,
+   "own": {
+    "n": 40,
+    "mean": -8.6,
+    "ci95": [
+     -13.5813,
+     -3.6437
+    ],
+    "p_wilcoxon": 0.0024,
+    "wins": 12,
+    "losses": 28,
+    "dz": -0.5308
+   },
+   "partner": {
+    "n": 40,
+    "mean": 5.6875,
+    "ci95": [
+     0.3563,
+     11.1062
+    ],
+    "p_wilcoxon": 0.0665,
+    "wins": 21,
+    "losses": 19,
+    "dz": 0.3205
+   }
+  },
+  "competing": {
+   "first": {
+    "n": 80,
+    "neutral": 0.0,
+    "competing": 0.025,
+    "collaborating": 0.275,
+    "compromising": 0.05,
+    "accommodating": 0.4,
+    "avoiding": 0.25
+   },
+   "last": {
+    "n": 80,
+    "neutral": 0.0,
+    "competing": 0.025,
+    "collaborating": 0.225,
+    "compromising": 0.05,
+    "accommodating": 0.3125,
+    "avoiding": 0.3875
+   },
+   "first_by_seat": {
+    "p1": {
+     "n": 40,
+     "neutral": 0.0,
+     "competing": 0.025,
+     "collaborating": 0.25,
+     "compromising": 0.075,
+     "accommodating": 0.45,
+     "avoiding": 0.2
+    },
+    "p2": {
+     "n": 40,
+     "neutral": 0.0,
+     "competing": 0.025,
+     "collaborating": 0.3,
+     "compromising": 0.025,
+     "accommodating": 0.35,
+     "avoiding": 0.3
+    }
+   },
+   "every_pick": {
+    "n": 200,
+    "neutral": 0.0,
+    "competing": 0.05,
+    "collaborating": 0.25,
+    "compromising": 0.075,
+    "accommodating": 0.39,
+    "avoiding": 0.235
+   },
+   "picks_per_game": 2.5,
+   "games_with_a_change": 0.525,
+   "own": {
+    "n": 40,
+    "mean": -0.8,
+    "ci95": [
+     -5.4437,
+     3.9375
+    ],
+    "p_wilcoxon": 0.5254,
+    "wins": 17,
+    "losses": 22,
+    "dz": -0.0518
+   },
+   "partner": {
+    "n": 40,
+    "mean": 4.8312,
+    "ci95": [
+     -0.1313,
+     9.975
+    ],
+    "p_wilcoxon": 0.0577,
+    "wins": 25,
+    "losses": 14,
+    "dz": 0.2944
+   }
+  }
+ }
+}

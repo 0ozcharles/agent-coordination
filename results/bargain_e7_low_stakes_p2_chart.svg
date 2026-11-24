@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="204" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="204" fill="white"/>
+<text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
+<text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
+<line x1="190.0" y1="36" x2="190.0" y2="144" stroke="#eee"/><text x="190.0" y="156" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="144" stroke="#eee"/><text x="295.0" y="156" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="144" stroke="#eee"/><text x="400.0" y="156" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="144" stroke="#eee"/><text x="505.0" y="156" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="144" stroke="#eee"/><text x="610.0" y="156" text-anchor="middle">100</text>
+<text x="184" y="56" text-anchor="end">choose_info-neutral</text>
+<rect x="190" y="43" width="263.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="53" width="91.3" height="9" fill="#95a5a6"/>
+<text x="624" y="56">40/40</text><text x="674" y="56">17/25</text><text x="734" y="56">22.95</text>
+<text x="184" y="82" text-anchor="end">neutral-choose_info</text>
+<rect x="190" y="69" width="214.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="79" width="90.2" height="9" fill="#95a5a6"/>
+<text x="624" y="82">37/40</text><text x="674" y="82">n/a</text><text x="734" y="82">35.032</text>
+<text x="184" y="108" text-anchor="end">pick_info-neutral</text>
+<rect x="190" y="95" width="279.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="105" width="92.6" height="9" fill="#95a5a6"/>
+<text x="624" y="108">40/40</text><text x="674" y="108">24/40</text><text x="734" y="108">18.94</text>
+<text x="184" y="134" text-anchor="end">neutral-pick_info</text>
+<rect x="190" y="121" width="200.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="131" width="95.2" height="9" fill="#95a5a6"/>
+<text x="624" y="134">37/40</text><text x="674" y="134">n/a</text><text x="734" y="134">37.185</text>
+</svg>
