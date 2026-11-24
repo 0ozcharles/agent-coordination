@@ -325,6 +325,35 @@ class ChooserTest(unittest.TestCase):
             with self.assertRaises(ValueError):
                 bargain.parse_choice(bad, order)
 
+    def test_a_choice_made_with_its_own_model_settings(self):
+        """choose_reasoned and pick_reasoned ask the choice with config["choice"]["reasoned"]; the game uses the config's."""
+        from unittest import mock
+        for chooser, menu in (("choose_reasoned", bargain.MENU), ("pick_reasoned", bargain.STYLES)):
+            cfg = chooser_config((chooser, "neutral"), ("competing", "neutral"))
+            cfg["model_kwargs"], cfg["max_tokens"] = {"temperature": 0.7}, 700
+            cfg["choice"] = dict(cfg["choice"], reasoned={"model_kwargs": {"extra_body": {"reasoning_effort": "high"}}, "max_tokens": 6000})
+            inst = bargain.instances(cfg)[0]
+            seen, settings = [], []
+            player = self.player(inst, ["competing"], seen)
+
+            def fake(cfg_, messages, agent=None):
+                settings.append((cfg_.get("model_kwargs"), cfg_.get("max_tokens"), '"choice"' in messages[-1]["content"]))
+                return player(cfg_, messages, agent)
+            with mock.patch.object(bargain, "call", fake):
+                record = bargain.play(cfg, inst, cfg["cells"][0])
+                assigned = bargain.play(cfg, inst, cfg["cells"][1])
+            self.assertEqual(record["strategies"]["p1"], "competing")
+            self.assertEqual(sorted(record["choice"]["p1"][0]["order"]), sorted(menu))
+            self.assertEqual(settings[0], ({"extra_body": {"reasoning_effort": "high"}}, 6000, True))
+            self.assertTrue(all(x == ({"temperature": 0.7}, 700, False) for x in settings[1:]))
+            # the question is the plain menu's, and the game is prompted as where the rule is assigned
+            plain = chooser.replace("_reasoned", "")
+            self.assertEqual(record["choice"]["p1"][0]["question"],
+                             bargain.menu_text(cfg, inst, "p1", record["choice"]["p1"][0]["order"], "once"))
+            self.assertIn(plain, bargain.CHOOSERS)
+            self.assertEqual(seen[1][1][0]["content"], bargain.system_prompt(cfg, inst, "p1", "competing", "rules"))
+            self.assertEqual(assigned["strategies"]["p1"], "competing")
+
     def test_a_single_choice_is_played_as_if_assigned(self):
         from unittest import mock
         cfg = chooser_config(("choose", "neutral"), ("competing", "neutral"))

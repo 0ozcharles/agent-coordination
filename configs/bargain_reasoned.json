@@ -1,0 +1,237 @@
+{
+ "study": "bargain_reasoned",
+ "question": "E6 found that gpt-6-luna, with reasoning off, takes none of the rule sets when it may and the conceding ones when it must pick, and loses by its pick. Does that hold when the choice is made after reasoning, and for a stronger model? The same menus, the choice call with reasoning effort high: on gpt-6-luna in the ten conditions, and on gpt-6.1-sol in the base condition.",
+ "arms": {
+  "base": {
+   "config": "configs/bargain_e9_base.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_base_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_base_rows.csv"
+    }
+   ]
+  },
+  "integrative": {
+   "config": "configs/bargain_e9_integrative.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_integrative_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_integrative_rows.csv"
+    }
+   ]
+  },
+  "distributive": {
+   "config": "configs/bargain_e9_distributive.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_distributive_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_distributive_rows.csv"
+    }
+   ]
+  },
+  "all_contested": {
+   "config": "configs/bargain_e9_all_contested.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_all_contested_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_all_contested_rows.csv"
+    }
+   ]
+  },
+  "urgent": {
+   "config": "configs/bargain_e9_urgent.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_urgent_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_urgent_rows.csv"
+    }
+   ]
+  },
+  "time_cost": {
+   "config": "configs/bargain_e9_time_cost.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_time_cost_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_time_cost_rows.csv"
+    }
+   ]
+  },
+  "tight_budget": {
+   "config": "configs/bargain_e9_tight_budget.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_tight_budget_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_tight_budget_rows.csv"
+    }
+   ]
+  },
+  "open_info": {
+   "config": "configs/bargain_e9_open_info.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_open_info_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_open_info_rows.csv"
+    }
+   ]
+  },
+  "power_p1": {
+   "config": "configs/bargain_e9_power_p1.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_power_p1_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_power_p1_rows.csv"
+    }
+   ]
+  },
+  "low_stakes_p2": {
+   "scale": {
+    "p1": 100.0,
+    "p2": 30.0
+   },
+   "config": "configs/bargain_e9_low_stakes_p2.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e2r_low_stakes_p2_rows.csv"
+    },
+    {
+     "rows": "results/bargain_e6_low_stakes_p2_rows.csv"
+    }
+   ]
+  },
+  "sol": {
+   "config": "configs/bargain_e9_sol.json",
+   "reference": [
+    {
+     "rows": "results/bargain_e3_gpt_6_1_sol_rows.csv"
+    }
+   ]
+  }
+ },
+ "menus": {
+  "free": "choose_reasoned",
+  "forced": "pick_reasoned"
+ },
+ "uninformed": {
+  "choose_reasoned": "choose",
+  "pick_reasoned": "pick"
+ },
+ "uninformed_note": "the key name is the analysis script's: here it names the chooser each is compared with, E6's same menu chosen without reasoning; in the output 'own_minus_uninformed' and 'uninformed_shares' are therefore 'minus the unreasoned choice' and 'the unreasoned shares'. The arm on gpt-6.1-sol has no such counterpart.",
+ "design": {
+  "choice": "one call with reasoning effort high and no sampling parameters (reply cap 12,000 tokens, reasoning included); the question, menu, order and letters are E6's. The reasoning is not shown to the game: the game starts, as in E6, from the prompt of the option picked.",
+  "gpt-6-luna": "ten conditions, the first 40 of E2-R's instances (those of E7), both menus, the chooser in either seat against the default agent: 1,600 games. Comparison games on the same instances: E2-R (each rule assigned, the default pair), E6 (the same menus without reasoning), E7 (with evidence, in results/bargain_informed.json).",
+  "gpt-6.1-sol": "the base condition on E1's 40 test instances, both menus, the chooser in seat 1 against the default agent on the same model: 80 games. Comparison games: E3's run on this model (the default pair; collaborating and competing assigned to seat 1). Seat 1 only, because E3 assigned the rules to seat 1 only; the instances alternate the first mover."
+ },
+ "unit": "the instance: the two seats of an instance are averaged (each against the comparison in the same seat), and the ten conditions, which share their 40 instances, are averaged. Own and partner payoffs are in percent of the seat's maximum under unequal stakes, in points elsewhere.",
+ "test": "two-sided Wilcoxon signed-rank test on the per-instance differences, Holm correction over the four hypotheses at alpha = .05; a hypothesis is confirmed when its Holm-adjusted p is below .05 and the mean difference has the stated direction. The mean difference with a bootstrap 95% interval (10,000 resamples of instances), the exact sign test and d_z are reported beside it.",
+ "inclusion": "every finished game counts, whatever was chosen; a choice that cannot be read after one repeat counts as no rules; a game that errors is replayed.",
+ "hypotheses": [
+  {
+   "id": "R1",
+   "kind": "contrast",
+   "strategy": "pick_reasoned",
+   "other": "pick",
+   "direction": "+",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "Made to pick a rule set, the agent earns more when it reasons before the choice than when it does not (ten conditions, against E6 on the same instances)."
+  },
+  {
+   "id": "R2",
+   "kind": "alone",
+   "strategy": "pick_reasoned",
+   "measure": "own",
+   "direction": "-",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "E6's finding survives reasoning: an agent that picks a rule set after reasoning still earns less than the default agent in its seat (ten conditions)."
+  },
+  {
+   "id": "R3",
+   "kind": "contrast",
+   "strategy": "pick_reasoned",
+   "other": "collaborating",
+   "direction": "-",
+   "arms": [
+    "base",
+    "integrative",
+    "distributive",
+    "all_contested",
+    "urgent",
+    "time_cost",
+    "tight_budget",
+    "open_info",
+    "power_p1",
+    "low_stakes_p2"
+   ],
+   "claim": "An agent that picks a rule set after reasoning earns less than an agent simply assigned the collaborating rule (ten conditions)."
+  },
+  {
+   "id": "R4",
+   "kind": "alone",
+   "strategy": "pick_reasoned",
+   "measure": "own",
+   "direction": "-",
+   "arms": [
+    "sol"
+   ],
+   "claim": "On the stronger model too, an agent that picks a rule set earns less than the default agent in its seat (gpt-6.1-sol, seat 1, 40 instances)."
+  }
+ ],
+ "secondary": [
+  "choice shares by menu, condition and model, beside E6's unreasoned shares on the same instances",
+  "own payoff against the default agent, against an agent assigned the collaborating rule and against one assigned the competing rule; partner and joint payoff",
+  "whether the picks follow the condition (permutation test) and the instance (the assigned-cell payoff of the option picked against the average pick's)",
+  "the option's place in the menu; the tokens and the cost of a choice",
+  "on gpt-6.1-sol: the picker against the collaborating rule assigned in E3 (where the picks are that rule, the two runs differ only in the route to the model)"
+ ],
+ "pilot": "2026-11-23, development instances (seed 20261121), choices only, no game. gpt-6-luna, base condition, 20 instances and both seats (40 choices a menu): without reasoning the forced pick is accommodating 14, collaborating 12, avoiding 10, competing 3, compromising 1 and the free choice no rules 40 of 40, as in E6; with reasoning effort medium, collaborating 24, compromising 5, accommodating 5, competing 4, avoiding 2 and no rules 38 of 40; with effort high, collaborating 27, accommodating 6, competing 5, compromising 1, avoiding 1 and no rules 37 of 40 (collaborating 3). A choice at effort high takes 1,700 completion tokens on the forced menu (at most 5,600) and 640 on the free one, $0.0009 and $0.0004. gpt-6.1-sol, 8 instances, seat 1: collaborating 8 of 8 and no rules 8 of 8, at effort medium and at effort high ($0.005 and $0.003 a choice). Pilot cost $0.20. Effort high was taken for both models as the stronger test. Reasoning cannot be combined with the game's sampling parameters on gpt-6-luna (the API refuses), so only the choice call reasons.",
+ "predictions": {
+  "forced menu, gpt-6-luna": "collaborating in 55 to 75 percent of the picks over the ten conditions; accommodating and avoiding together under 25 percent (64 percent without reasoning); the option listed first under 30 percent of the picks (37 without reasoning)",
+  "free menu, gpt-6-luna": "no rules in at least 85 percent of the choices",
+  "R1": "confirmed, +3 to +8 points",
+  "R2": "not confirmed: between -2 and +3 points against the default agent, so E6's loss does not survive reasoning",
+  "R3": "confirmed, -1.5 to -4 points: about a third of the picks are still other rules",
+  "R4": "negative, -1 to -5 points, and not confirmed: the picks will be the collaborating rule, which adopted alone on this model earned 3 points less than the default agent in E3",
+  "gpt-6.1-sol": "collaborating in at least 85 percent of the forced picks; no rules in at least 85 percent of the free choices; the picker within 3 points of the collaborating rule assigned in E3",
+  "following the condition and the instance": "the picks depend on the condition weakly (Cramer's V under .15) and carry no information about the instance (the interval of the skill measure includes zero)"
+ },
+ "status": "frozen 2026-11-23 and pushed before any game of the study was played; the analysis code is scripts/analysis/selection.py at the same commit, run with this file as its spec"
+}

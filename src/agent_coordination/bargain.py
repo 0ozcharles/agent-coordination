@@ -34,9 +34,10 @@ AGENTS = ("p1", "p2")
 # sets); the pick family must take one of the five rule sets. "choose_info" and "pick_info" are "choose" and "pick" with
 # each option followed by what it earned before (config["choice"]["evidence"]).
 MENU = ("neutral", *STYLES)
-FORCED = ("pick", "pick_kept", "repick", "pick_info")
+FORCED = ("pick", "pick_kept", "repick", "pick_info", "pick_reasoned")
 INFORMED = ("choose_info", "pick_info")
-CHOOSERS = ("choose", "choose_kept", "rechoose", "choose_info", *FORCED)
+REASONED = ("choose_reasoned", "pick_reasoned")  # the choice is asked with config["choice"]["reasoned"] settings, the game as usual
+CHOOSERS = ("choose", "choose_kept", "rechoose", "choose_info", "choose_reasoned", *FORCED)
 KEPT, AGAIN = ("choose_kept", "pick_kept"), ("rechoose", "repick")
 CHOICE_COLUMNS = tuple(f"{a}_{k}" for k in ("choice", "choices", "choice_letters", "choice_invalid", "choice_tokens") for a in ("p1", "p2"))
 NAMES = {"p1": "Developer 1", "p2": "Developer 2"}
@@ -484,12 +485,15 @@ def parse_choice(text, order):
     return {"letter": letter, "strategy": order[ord(letter) - 65], "reason": str(data.get("reason") or "").strip()[:500]}
 
 
-def choose(config, inst, agent, when, history=(), n=0, before="", options=MENU, informed=False):
+def choose(config, inst, agent, when, history=(), n=0, before="", options=MENU, informed=False, settings=None):
     """One choice by a chooser. It is asked in a conversation of its own: the game's description without any guidance,
     what the agent has seen and said so far (`history`; nothing before the game), then `before` (the description of
     the latest move) and the menu. Returns the strategy picked with the menu's order, the reply, and the cost and
     tokens of the call, which are counted apart from the game's. A reply that cannot be read is asked for once more;
-    after that the agent plays without rules ("neutral", also where that was not on the menu) with `invalid` 2."""
+    after that the agent plays without rules ("neutral", also where that was not on the menu) with `invalid` 2.
+    `settings` (model, model_kwargs, max_tokens) replace the config's for this call alone: a choice made with reasoning
+    switched on, before a game played as everywhere else."""
+    asked = dict(config, **settings) if settings else config
     order = menu_order(config, inst, agent, n, options)
     question = menu_text(config, inst, agent, order, when, informed)
     messages = [{"role": "system", "content": system_prompt(config, inst, agent, "default", "rules")}, *history,
@@ -497,7 +501,7 @@ def choose(config, inst, agent, when, history=(), n=0, before="", options=MENU, 
     out = {"n": n, "when": when, "order": order, "question": question, "invalid": 0, "cost_usd": 0.0,
            "usage": {"prompt": 0, "completion": 0, "seconds": 0.0, "calls": 0}}
     for _ in range(2):
-        reply, c, used = call(config, messages, agent)
+        reply, c, used = call(asked, messages, agent)
         out["cost_usd"] += c
         for key in ("prompt", "completion", "seconds"):
             out["usage"][key] += used[key]
@@ -536,7 +540,8 @@ def play(config, inst, cell):
         if assigned[a] in CHOOSERS:
             ops[a] = "rules"
             if assigned[a] not in AGAIN:
-                strategies[a] = picked(a, choose(config, inst, a, "once", options=menu[a], informed=assigned[a] in INFORMED))
+                strategies[a] = picked(a, choose(config, inst, a, "once", options=menu[a], informed=assigned[a] in INFORMED,
+                                                 settings=config["choice"]["reasoned"] if assigned[a] in REASONED else None))
         if assigned[a] in KEPT:
             c = choices[a][0]
             rule = reskin(guidance(dict(config, instruction_prefix=""), c["strategy"], "rules", inst, a), inst)
