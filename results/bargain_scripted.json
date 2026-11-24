@@ -1,0 +1,1599 @@
+{
+ "study": "bargain_e8",
+ "test": "two-sided Wilcoxon signed-rank test on the per-instance differences, Holm-corrected over the eleven hypotheses; a hypothesis is confirmed when the adjusted p is below .05 and the mean has the stated sign; means with bootstrap 95% intervals (10,000 resamples of the instances)",
+ "instances": 100,
+ "hypotheses": [
+  {
+   "id": "K1",
+   "claim": "Against the default agent, the competing script earns more than the default agent in its seat, as the model given the competing rule does (E1-R: +3.7).",
+   "direction": "+",
+   "n": 100,
+   "mean": 15.8725,
+   "sd": 12.0527,
+   "dz": 1.3169,
+   "ci95": [
+    13.485,
+    18.275
+   ],
+   "wins": 92,
+   "losses": 7,
+   "p_sign": 0.0,
+   "p_wilcoxon": 0.0,
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "K2",
+   "claim": "Against the default agent, the collaborating script earns more than the default agent in its seat, as the model given the collaborating rule does (+6.0).",
+   "direction": "+",
+   "n": 100,
+   "mean": 2.6325,
+   "sd": 11.5946,
+   "dz": 0.227,
+   "ci95": [
+    0.47,
+    4.9
+   ],
+   "wins": 56,
+   "losses": 42,
+   "p_sign": 0.1888,
+   "p_wilcoxon": 0.0478,
+   "p_holm": 0.1434,
+   "confirmed": false
+  },
+  {
+   "id": "K3",
+   "claim": "Against the default agent, the compromising script earns less than the default agent in its seat, as the model given the compromising rule does (-8.1).",
+   "direction": "-",
+   "n": 100,
+   "mean": 5.6425,
+   "sd": 12.2835,
+   "dz": 0.4594,
+   "ci95": [
+    3.2575,
+    8.0825
+   ],
+   "wins": 66,
+   "losses": 30,
+   "p_sign": 0.0003,
+   "p_wilcoxon": 0.0,
+   "p_holm": 0.0002,
+   "confirmed": false
+  },
+  {
+   "id": "K4",
+   "claim": "Against the default agent, the accommodating script earns less than the default agent in its seat, as the model given the accommodating rule does (-7.2).",
+   "direction": "-",
+   "n": 100,
+   "mean": -4.4575,
+   "sd": 11.3766,
+   "dz": -0.3918,
+   "ci95": [
+    -6.6375,
+    -2.1875
+   ],
+   "wins": 27,
+   "losses": 70,
+   "p_sign": 0.0,
+   "p_wilcoxon": 0.0001,
+   "p_holm": 0.0004,
+   "confirmed": true
+  },
+  {
+   "id": "K5",
+   "claim": "Against the default agent, the avoiding script earns less than the default agent in its seat, as the model given the avoiding rule does (-16.6).",
+   "direction": "-",
+   "n": 100,
+   "mean": -18.085,
+   "sd": 15.8142,
+   "dz": -1.1436,
+   "ci95": [
+    -21.1675,
+    -15.0075
+   ],
+   "wins": 14,
+   "losses": 81,
+   "p_sign": 0.0,
+   "p_wilcoxon": 0.0,
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "K6",
+   "claim": "The competing script's partner earns less than the default agent's partner (E1-R with the model: -11.7).",
+   "direction": "-",
+   "n": 100,
+   "mean": -14.325,
+   "sd": 11.4183,
+   "dz": -1.2546,
+   "ci95": [
+    -16.525,
+    -12.065
+   ],
+   "wins": 9,
+   "losses": 91,
+   "p_sign": 0.0,
+   "p_wilcoxon": 0.0,
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "X1",
+   "claim": "Against the default agent, the competing script earns more than the model given the competing rule: carrying the rule out by program pays more than the model's carrying out of it.",
+   "direction": "+",
+   "n": 100,
+   "mean": 12.1275,
+   "sd": 16.2471,
+   "dz": 0.7464,
+   "ci95": [
+    8.915,
+    15.2825
+   ],
+   "wins": 79,
+   "losses": 18,
+   "p_sign": 0.0,
+   "p_wilcoxon": 0.0,
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "X2",
+   "claim": "Against the default agent, the collaborating script earns more than the model given the collaborating rule: carrying the rule out by program pays more than the model's carrying out of it.",
+   "direction": "+",
+   "n": 100,
+   "mean": -3.3225,
+   "sd": 11.3123,
+   "dz": -0.2937,
+   "ci95": [
+    -5.5225,
+    -1.1525
+   ],
+   "wins": 42,
+   "losses": 55,
+   "p_sign": 0.2229,
+   "p_wilcoxon": 0.0045,
+   "p_holm": 0.018,
+   "confirmed": false
+  },
+  {
+   "id": "X3",
+   "claim": "Against the default agent, the compromising script earns more than the model given the compromising rule: carrying the rule out by program pays more than the model's carrying out of it.",
+   "direction": "+",
+   "n": 100,
+   "mean": 13.78,
+   "sd": 12.9076,
+   "dz": 1.0676,
+   "ci95": [
+    11.22,
+    16.3375
+   ],
+   "wins": 85,
+   "losses": 14,
+   "p_sign": 0.0,
+   "p_wilcoxon": 0.0,
+   "p_holm": 0.0,
+   "confirmed": true
+  },
+  {
+   "id": "X4",
+   "claim": "Against the default agent, the accommodating script earns more than the model given the accommodating rule: carrying the rule out by program pays more than the model's carrying out of it.",
+   "direction": "+",
+   "n": 100,
+   "mean": 2.735,
+   "sd": 16.2693,
+   "dz": 0.1681,
+   "ci95": [
+    -0.42,
+    5.9075
+   ],
+   "wins": 57,
+   "losses": 39,
+   "p_sign": 0.0822,
+   "p_wilcoxon": 0.1082,
+   "p_holm": 0.2165,
+   "confirmed": false
+  },
+  {
+   "id": "X5",
+   "claim": "Against the default agent, the avoiding script earns more than the model given the avoiding rule: carrying the rule out by program pays more than the model's carrying out of it.",
+   "direction": "+",
+   "n": 100,
+   "mean": -1.505,
+   "sd": 20.4149,
+   "dz": -0.0737,
+   "ci95": [
+    -5.4375,
+    2.535
+   ],
+   "wins": 42,
+   "losses": 51,
+   "p_sign": 0.4069,
+   "p_wilcoxon": 0.4366,
+   "p_holm": 0.4366,
+   "confirmed": false
+  }
+ ],
+ "evaluated": 11,
+ "confirmed": 6,
+ "against_the_default_agent": {
+  "competing": {
+   "script": {
+    "own": {
+     "n": 100,
+     "mean": 15.8725,
+     "sd": 12.0527,
+     "dz": 1.3169,
+     "ci95": [
+      13.485,
+      18.275
+     ],
+     "wins": 92,
+     "losses": 7,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -14.325,
+     "sd": 11.4183,
+     "dz": -1.2546,
+     "ci95": [
+      -16.525,
+      -12.065
+     ],
+     "wins": 9,
+     "losses": 91,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": 1.5475,
+     "sd": 17.3049,
+     "dz": 0.0894,
+     "ci95": [
+      -1.76,
+      4.95
+     ],
+     "wins": 47,
+     "losses": 48,
+     "p_sign": 1.0,
+     "p_wilcoxon": 1.0
+    },
+    "agreements": 198,
+    "games": 200
+   },
+   "model": {
+    "own": {
+     "n": 100,
+     "mean": 3.745,
+     "sd": 16.3869,
+     "dz": 0.2285,
+     "ci95": [
+      0.535,
+      7.015
+     ],
+     "wins": 56,
+     "losses": 44,
+     "p_sign": 0.2713,
+     "p_wilcoxon": 0.0496
+    },
+    "partner": {
+     "n": 100,
+     "mean": -11.695,
+     "sd": 14.2762,
+     "dz": -0.8192,
+     "ci95": [
+      -14.3775,
+      -8.9425
+     ],
+     "wins": 18,
+     "losses": 82,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": -7.95,
+     "sd": 25.2162,
+     "dz": -0.3153,
+     "ci95": [
+      -12.7875,
+      -3.035
+     ],
+     "wins": 31,
+     "losses": 68,
+     "p_sign": 0.0003,
+     "p_wilcoxon": 0.0004
+    },
+    "agreements": 175,
+    "games": 200
+   },
+   "script_minus_model": {
+    "n": 100,
+    "mean": 12.1275,
+    "sd": 16.2471,
+    "dz": 0.7464,
+    "ci95": [
+     8.915,
+     15.2825
+    ],
+    "wins": 79,
+    "losses": 18,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   }
+  },
+  "collaborating": {
+   "script": {
+    "own": {
+     "n": 100,
+     "mean": 2.6325,
+     "sd": 11.5946,
+     "dz": 0.227,
+     "ci95": [
+      0.47,
+      4.9
+     ],
+     "wins": 56,
+     "losses": 42,
+     "p_sign": 0.1888,
+     "p_wilcoxon": 0.0478
+    },
+    "partner": {
+     "n": 100,
+     "mean": 3.765,
+     "sd": 11.7995,
+     "dz": 0.3191,
+     "ci95": [
+      1.435,
+      6.0625
+     ],
+     "wins": 62,
+     "losses": 36,
+     "p_sign": 0.0112,
+     "p_wilcoxon": 0.0056
+    },
+    "joint": {
+     "n": 100,
+     "mean": 6.3975,
+     "sd": 18.6201,
+     "dz": 0.3436,
+     "ci95": [
+      2.88,
+      10.095
+     ],
+     "wins": 62,
+     "losses": 34,
+     "p_sign": 0.0056,
+     "p_wilcoxon": 0.0039
+    },
+    "agreements": 197,
+    "games": 200
+   },
+   "model": {
+    "own": {
+     "n": 100,
+     "mean": 5.955,
+     "sd": 11.4027,
+     "dz": 0.5222,
+     "ci95": [
+      3.745,
+      8.1625
+     ],
+     "wins": 66,
+     "losses": 25,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": 2.08,
+     "sd": 13.9497,
+     "dz": 0.1491,
+     "ci95": [
+      -0.65,
+      4.8925
+     ],
+     "wins": 53,
+     "losses": 38,
+     "p_sign": 0.1418,
+     "p_wilcoxon": 0.1261
+    },
+    "joint": {
+     "n": 100,
+     "mean": 8.035,
+     "sd": 19.6207,
+     "dz": 0.4095,
+     "ci95": [
+      4.3075,
+      11.935
+     ],
+     "wins": 60,
+     "losses": 31,
+     "p_sign": 0.0031,
+     "p_wilcoxon": 0.0
+    },
+    "agreements": 198,
+    "games": 200
+   },
+   "script_minus_model": {
+    "n": 100,
+    "mean": -3.3225,
+    "sd": 11.3123,
+    "dz": -0.2937,
+    "ci95": [
+     -5.5225,
+     -1.1525
+    ],
+    "wins": 42,
+    "losses": 55,
+    "p_sign": 0.2229,
+    "p_wilcoxon": 0.0045
+   }
+  },
+  "compromising": {
+   "script": {
+    "own": {
+     "n": 100,
+     "mean": 5.6425,
+     "sd": 12.2835,
+     "dz": 0.4594,
+     "ci95": [
+      3.2575,
+      8.0825
+     ],
+     "wins": 66,
+     "losses": 30,
+     "p_sign": 0.0003,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -5.19,
+     "sd": 10.1575,
+     "dz": -0.511,
+     "ci95": [
+      -7.15,
+      -3.2075
+     ],
+     "wins": 28,
+     "losses": 68,
+     "p_sign": 0.0001,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": 0.4525,
+     "sd": 17.04,
+     "dz": 0.0266,
+     "ci95": [
+      -2.8375,
+      3.85
+     ],
+     "wins": 35,
+     "losses": 54,
+     "p_sign": 0.0558,
+     "p_wilcoxon": 0.388
+    },
+    "agreements": 200,
+    "games": 200
+   },
+   "model": {
+    "own": {
+     "n": 100,
+     "mean": -8.1375,
+     "sd": 12.9882,
+     "dz": -0.6265,
+     "ci95": [
+      -10.755,
+      -5.5575
+     ],
+     "wins": 27,
+     "losses": 72,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": 1.625,
+     "sd": 13.9128,
+     "dz": 0.1168,
+     "ci95": [
+      -1.1725,
+      4.2775
+     ],
+     "wins": 56,
+     "losses": 41,
+     "p_sign": 0.1548,
+     "p_wilcoxon": 0.1784
+    },
+    "joint": {
+     "n": 100,
+     "mean": -6.5125,
+     "sd": 19.6657,
+     "dz": -0.3312,
+     "ci95": [
+      -10.345,
+      -2.67
+     ],
+     "wins": 30,
+     "losses": 68,
+     "p_sign": 0.0002,
+     "p_wilcoxon": 0.0002
+    },
+    "agreements": 189,
+    "games": 200
+   },
+   "script_minus_model": {
+    "n": 100,
+    "mean": 13.78,
+    "sd": 12.9076,
+    "dz": 1.0676,
+    "ci95": [
+     11.22,
+     16.3375
+    ],
+    "wins": 85,
+    "losses": 14,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   }
+  },
+  "accommodating": {
+   "script": {
+    "own": {
+     "n": 100,
+     "mean": -4.4575,
+     "sd": 11.3766,
+     "dz": -0.3918,
+     "ci95": [
+      -6.6375,
+      -2.1875
+     ],
+     "wins": 27,
+     "losses": 70,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0001
+    },
+    "partner": {
+     "n": 100,
+     "mean": 12.58,
+     "sd": 12.0467,
+     "dz": 1.0443,
+     "ci95": [
+      10.245,
+      14.9025
+     ],
+     "wins": 85,
+     "losses": 12,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": 8.1225,
+     "sd": 17.7697,
+     "dz": 0.4571,
+     "ci95": [
+      4.74,
+      11.615
+     ],
+     "wins": 62,
+     "losses": 31,
+     "p_sign": 0.0017,
+     "p_wilcoxon": 0.0001
+    },
+    "agreements": 199,
+    "games": 200
+   },
+   "model": {
+    "own": {
+     "n": 100,
+     "mean": -7.1925,
+     "sd": 16.7831,
+     "dz": -0.4286,
+     "ci95": [
+      -10.4625,
+      -3.9375
+     ],
+     "wins": 28,
+     "losses": 70,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": 10.3125,
+     "sd": 12.3689,
+     "dz": 0.8337,
+     "ci95": [
+      7.9375,
+      12.725
+     ],
+     "wins": 77,
+     "losses": 21,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": 3.12,
+     "sd": 17.5626,
+     "dz": 0.1776,
+     "ci95": [
+      -0.19,
+      6.58
+     ],
+     "wins": 44,
+     "losses": 49,
+     "p_sign": 0.6785,
+     "p_wilcoxon": 0.7403
+    },
+    "agreements": 199,
+    "games": 200
+   },
+   "script_minus_model": {
+    "n": 100,
+    "mean": 2.735,
+    "sd": 16.2693,
+    "dz": 0.1681,
+    "ci95": [
+     -0.42,
+     5.9075
+    ],
+    "wins": 57,
+    "losses": 39,
+    "p_sign": 0.0822,
+    "p_wilcoxon": 0.1082
+   }
+  },
+  "avoiding": {
+   "script": {
+    "own": {
+     "n": 100,
+     "mean": -18.085,
+     "sd": 15.8142,
+     "dz": -1.1436,
+     "ci95": [
+      -21.1675,
+      -15.0075
+     ],
+     "wins": 14,
+     "losses": 81,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -9.405,
+     "sd": 18.0617,
+     "dz": -0.5207,
+     "ci95": [
+      -12.8675,
+      -5.8725
+     ],
+     "wins": 26,
+     "losses": 68,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": -27.49,
+     "sd": 27.1514,
+     "dz": -1.0125,
+     "ci95": [
+      -32.76,
+      -22.1475
+     ],
+     "wins": 16,
+     "losses": 79,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "agreements": 114,
+    "games": 200
+   },
+   "model": {
+    "own": {
+     "n": 100,
+     "mean": -16.58,
+     "sd": 16.2499,
+     "dz": -1.0203,
+     "ci95": [
+      -19.7,
+      -13.4425
+     ],
+     "wins": 18,
+     "losses": 77,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -5.8525,
+     "sd": 16.0948,
+     "dz": -0.3636,
+     "ci95": [
+      -9.01,
+      -2.73
+     ],
+     "wins": 30,
+     "losses": 66,
+     "p_sign": 0.0003,
+     "p_wilcoxon": 0.0003
+    },
+    "joint": {
+     "n": 100,
+     "mean": -22.4325,
+     "sd": 23.6252,
+     "dz": -0.9495,
+     "ci95": [
+      -26.9825,
+      -17.9675
+     ],
+     "wins": 17,
+     "losses": 79,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "agreements": 138,
+    "games": 200
+   },
+   "script_minus_model": {
+    "n": 100,
+    "mean": -1.505,
+    "sd": 20.4149,
+    "dz": -0.0737,
+    "ci95": [
+     -5.4375,
+     2.535
+    ],
+    "wins": 42,
+    "losses": 51,
+    "p_sign": 0.4069,
+    "p_wilcoxon": 0.4366
+   }
+  }
+ },
+ "matrix": {
+  "own_payoff": {
+   "scripts": {
+    "competing": {
+     "competing": 53.0575,
+     "collaborating": 66.315,
+     "compromising": 65.1525,
+     "accommodating": 81.835,
+     "avoiding": 65.6725
+    },
+    "collaborating": {
+     "competing": 65.475,
+     "collaborating": 68.65,
+     "compromising": 69.245,
+     "accommodating": 76.665,
+     "avoiding": 71.89
+    },
+    "compromising": {
+     "competing": 58.7275,
+     "collaborating": 67.1575,
+     "compromising": 66.5425,
+     "accommodating": 80.09,
+     "avoiding": 78.9625
+    },
+    "accommodating": {
+     "competing": 58.21,
+     "collaborating": 61.715,
+     "compromising": 57.005,
+     "accommodating": 70.005,
+     "avoiding": 58.21
+    },
+    "avoiding": {
+     "competing": 35.8325,
+     "collaborating": 64.1675,
+     "compromising": 54.055,
+     "accommodating": 81.835,
+     "avoiding": 42.73
+    }
+   },
+   "model": {
+    "competing": {
+     "competing": 45.635,
+     "collaborating": 59.93,
+     "compromising": 68.285,
+     "accommodating": 78.445,
+     "avoiding": 61.3725
+    },
+    "collaborating": {
+     "competing": 57.4925,
+     "collaborating": 67.475,
+     "compromising": 65.875,
+     "accommodating": 75.8825,
+     "avoiding": 69.01
+    },
+    "compromising": {
+     "competing": 48.605,
+     "collaborating": 54.99,
+     "compromising": 58.915,
+     "accommodating": 65.0775,
+     "avoiding": 56.06
+    },
+    "accommodating": {
+     "competing": 51.345,
+     "collaborating": 61.0975,
+     "compromising": 61.005,
+     "accommodating": 68.2,
+     "avoiding": 60.005
+    },
+    "avoiding": {
+     "competing": 35.9375,
+     "collaborating": 48.65,
+     "compromising": 56.2525,
+     "accommodating": 56.5675,
+     "avoiding": 50.7175
+    }
+   },
+   "pearson": 0.7137,
+   "pearson_ci95": [
+    0.6568,
+    0.7548
+   ],
+   "spearman": 0.6175,
+   "mean_abs_difference": 6.9924
+  },
+  "agreement_rate": {
+   "scripts": {
+    "competing": {
+     "competing": 0.62,
+     "collaborating": 0.97,
+     "compromising": 0.87,
+     "accommodating": 1.0,
+     "avoiding": 0.58
+    },
+    "collaborating": {
+     "competing": 0.88,
+     "collaborating": 1.0,
+     "compromising": 1.0,
+     "accommodating": 1.0,
+     "avoiding": 1.0
+    },
+    "compromising": {
+     "competing": 0.89,
+     "collaborating": 1.0,
+     "compromising": 1.0,
+     "accommodating": 1.0,
+     "avoiding": 1.0
+    },
+    "accommodating": {
+     "competing": 1.0,
+     "collaborating": 1.0,
+     "compromising": 1.0,
+     "accommodating": 1.0,
+     "avoiding": 1.0
+    },
+    "avoiding": {
+     "competing": 0.54,
+     "collaborating": 1.0,
+     "compromising": 1.0,
+     "accommodating": 1.0,
+     "avoiding": 0.32
+    }
+   },
+   "model": {
+    "competing": {
+     "competing": 0.45,
+     "collaborating": 0.77,
+     "compromising": 0.86,
+     "accommodating": 0.97,
+     "avoiding": 0.56
+    },
+    "collaborating": {
+     "competing": 0.69,
+     "collaborating": 0.93,
+     "compromising": 0.82,
+     "accommodating": 1.0,
+     "avoiding": 0.75
+    },
+    "compromising": {
+     "competing": 0.86,
+     "collaborating": 0.88,
+     "compromising": 0.94,
+     "accommodating": 0.96,
+     "avoiding": 0.85
+    },
+    "accommodating": {
+     "competing": 0.94,
+     "collaborating": 1.0,
+     "compromising": 0.99,
+     "accommodating": 1.0,
+     "avoiding": 0.77
+    },
+    "avoiding": {
+     "competing": 0.47,
+     "collaborating": 0.78,
+     "compromising": 0.87,
+     "accommodating": 0.77,
+     "avoiding": 0.62
+    }
+   },
+   "pearson": 0.7782,
+   "mean_abs_difference": 0.1108
+  },
+  "joint_of_pairs": {
+   "scripts": {
+    "competing+competing": 106.115,
+    "competing+collaborating": 131.79,
+    "competing+compromising": 123.88,
+    "competing+accommodating": 140.045,
+    "competing+avoiding": 101.505,
+    "collaborating+collaborating": 137.3,
+    "collaborating+compromising": 136.4025,
+    "collaborating+accommodating": 138.38,
+    "collaborating+avoiding": 136.0575,
+    "compromising+compromising": 133.085,
+    "compromising+accommodating": 137.095,
+    "compromising+avoiding": 133.0175,
+    "accommodating+accommodating": 140.01,
+    "accommodating+avoiding": 140.045,
+    "avoiding+avoiding": 85.46
+   },
+   "model": {
+    "competing+competing": 91.27,
+    "competing+collaborating": 117.4225,
+    "competing+compromising": 116.89,
+    "competing+accommodating": 129.79,
+    "competing+avoiding": 97.31,
+    "collaborating+collaborating": 134.95,
+    "collaborating+compromising": 120.865,
+    "collaborating+accommodating": 136.98,
+    "collaborating+avoiding": 117.66,
+    "compromising+compromising": 117.83,
+    "compromising+accommodating": 126.0825,
+    "compromising+avoiding": 112.3125,
+    "accommodating+accommodating": 136.4,
+    "accommodating+avoiding": 116.5725,
+    "avoiding+avoiding": 101.435
+   },
+   "pearson": 0.8085,
+   "spearman": 0.756
+  }
+ },
+ "symmetric_pairs": {
+  "scripts": {
+   "competing": 106.115,
+   "collaborating": 137.3,
+   "compromising": 133.085,
+   "accommodating": 140.01,
+   "avoiding": 85.46
+  },
+  "model": {
+   "competing": 91.27,
+   "collaborating": 134.95,
+   "compromising": 117.83,
+   "accommodating": 136.4,
+   "avoiding": 101.435
+  },
+  "default_pair": 128.85,
+  "spearman": 0.9,
+  "script_minus_model": {
+   "competing": {
+    "n": 100,
+    "mean": 14.845,
+    "sd": 40.7456,
+    "dz": 0.3643,
+    "ci95": [
+     6.975,
+     22.905
+    ],
+    "wins": 41,
+    "losses": 14,
+    "p_sign": 0.0004,
+    "p_wilcoxon": 0.0001
+   },
+   "collaborating": {
+    "n": 100,
+    "mean": 2.35,
+    "sd": 22.4847,
+    "dz": 0.1045,
+    "ci95": [
+     -1.71,
+     6.95
+    ],
+    "wins": 36,
+    "losses": 50,
+    "p_sign": 0.1606,
+    "p_wilcoxon": 0.34
+   },
+   "compromising": {
+    "n": 100,
+    "mean": 15.255,
+    "sd": 22.4487,
+    "dz": 0.6796,
+    "ci95": [
+     11.015,
+     19.805
+    ],
+    "wins": 66,
+    "losses": 24,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "accommodating": {
+    "n": 100,
+    "mean": 3.61,
+    "sd": 10.9077,
+    "dz": 0.331,
+    "ci95": [
+     1.565,
+     5.79
+    ],
+    "wins": 41,
+    "losses": 25,
+    "p_sign": 0.064,
+    "p_wilcoxon": 0.0057
+   },
+   "avoiding": {
+    "n": 100,
+    "mean": -15.975,
+    "sd": 38.7329,
+    "dz": -0.4124,
+    "ci95": [
+     -23.61,
+     -8.47
+    ],
+    "wins": 14,
+    "losses": 33,
+    "p_sign": 0.0079,
+    "p_wilcoxon": 0.0002
+   }
+  }
+ },
+ "checker": {
+  "scripts": {
+   "competing": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   },
+   "collaborating": {
+    "against_scripts": [
+     752,
+     1000
+    ],
+    "against_the_default_agent": [
+     171,
+     200
+    ]
+   },
+   "compromising": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   },
+   "accommodating": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   },
+   "avoiding": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   }
+  },
+  "model": {
+   "competing": {
+    "against_rules": [
+     930,
+     1000
+    ],
+    "against_the_default_agent": [
+     181,
+     200
+    ]
+   },
+   "collaborating": {
+    "against_rules": [
+     558,
+     1000
+    ],
+    "against_the_default_agent": [
+     113,
+     200
+    ]
+   },
+   "compromising": {
+    "against_rules": [
+     884,
+     1000
+    ],
+    "against_the_default_agent": [
+     148,
+     200
+    ]
+   },
+   "accommodating": {
+    "against_rules": [
+     936,
+     1000
+    ],
+    "against_the_default_agent": [
+     182,
+     200
+    ]
+   },
+   "avoiding": {
+    "against_rules": [
+     997,
+     1000
+    ],
+    "against_the_default_agent": [
+     198,
+     200
+    ]
+   }
+  }
+ },
+ "variants": {
+  "script_competing_firm": {
+   "against_the_default_agent": {
+    "own": {
+     "n": 100,
+     "mean": -10.065,
+     "sd": 20.2345,
+     "dz": -0.4974,
+     "ci95": [
+      -13.9975,
+      -6.045
+     ],
+     "wins": 30,
+     "losses": 70,
+     "p_sign": 0.0001,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -25.4725,
+     "sd": 12.8193,
+     "dz": -1.987,
+     "ci95": [
+      -27.9825,
+      -22.91
+     ],
+     "wins": 4,
+     "losses": 96,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": -35.5375,
+     "sd": 30.424,
+     "dz": -1.1681,
+     "ci95": [
+      -41.4625,
+      -29.465
+     ],
+     "wins": 13,
+     "losses": 87,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "agreements": 89,
+    "games": 200
+   },
+   "variant_minus_script": {
+    "n": 100,
+    "mean": -25.9375,
+    "sd": 20.9629,
+    "dz": -1.2373,
+    "ci95": [
+     -29.95,
+     -21.7925
+    ],
+    "wins": 13,
+    "losses": 85,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "own_payoff_against_scripts": {
+    "variant": {
+     "competing": 48.94,
+     "collaborating": 63.365,
+     "compromising": 55.295,
+     "accommodating": 81.835,
+     "avoiding": 50.3
+    },
+    "script": {
+     "competing": 53.0575,
+     "collaborating": 66.315,
+     "compromising": 65.1525,
+     "accommodating": 81.835,
+     "avoiding": 65.6725
+    }
+   },
+   "checker": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   }
+  },
+  "script_collaborating_keep": {
+   "against_the_default_agent": {
+    "own": {
+     "n": 100,
+     "mean": 10.22,
+     "sd": 14.0681,
+     "dz": 0.7265,
+     "ci95": [
+      7.4,
+      12.9275
+     ],
+     "wins": 76,
+     "losses": 17,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -2.0125,
+     "sd": 12.0472,
+     "dz": -0.1671,
+     "ci95": [
+      -4.385,
+      0.32
+     ],
+     "wins": 37,
+     "losses": 56,
+     "p_sign": 0.0614,
+     "p_wilcoxon": 0.0594
+    },
+    "joint": {
+     "n": 100,
+     "mean": 8.2075,
+     "sd": 20.6006,
+     "dz": 0.3984,
+     "ci95": [
+      4.2275,
+      12.28
+     ],
+     "wins": 62,
+     "losses": 30,
+     "p_sign": 0.0011,
+     "p_wilcoxon": 0.0002
+    },
+    "agreements": 199,
+    "games": 200
+   },
+   "variant_minus_script": {
+    "n": 100,
+    "mean": 7.5875,
+    "sd": 10.9365,
+    "dz": 0.6938,
+    "ci95": [
+     5.4075,
+     9.7
+    ],
+    "wins": 75,
+    "losses": 23,
+    "p_sign": 0.0,
+    "p_wilcoxon": 0.0
+   },
+   "own_payoff_against_scripts": {
+    "variant": {
+     "competing": 57.2375,
+     "collaborating": 71.8925,
+     "compromising": 73.4725,
+     "accommodating": 80.42,
+     "avoiding": 79.615
+    },
+    "script": {
+     "competing": 65.475,
+     "collaborating": 68.65,
+     "compromising": 69.245,
+     "accommodating": 76.665,
+     "avoiding": 71.89
+    }
+   },
+   "checker": {
+    "against_scripts": [
+     752,
+     1000
+    ],
+    "against_the_default_agent": [
+     162,
+     200
+    ]
+   }
+  },
+  "script_compromising_one": {
+   "against_the_default_agent": {
+    "own": {
+     "n": 100,
+     "mean": 10.745,
+     "sd": 12.4768,
+     "dz": 0.8612,
+     "ci95": [
+      8.265,
+      13.1075
+     ],
+     "wins": 81,
+     "losses": 19,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -8.63,
+     "sd": 11.7904,
+     "dz": -0.732,
+     "ci95": [
+      -10.9475,
+      -6.32
+     ],
+     "wins": 21,
+     "losses": 79,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": 2.115,
+     "sd": 17.3621,
+     "dz": 0.1218,
+     "ci95": [
+      -1.2425,
+      5.5225
+     ],
+     "wins": 45,
+     "losses": 51,
+     "p_sign": 0.6101,
+     "p_wilcoxon": 0.7408
+    },
+    "agreements": 199,
+    "games": 200
+   },
+   "variant_minus_script": {
+    "n": 100,
+    "mean": 5.1025,
+    "sd": 11.4811,
+    "dz": 0.4444,
+    "ci95": [
+     2.8575,
+     7.3175
+    ],
+    "wins": 61,
+    "losses": 30,
+    "p_sign": 0.0015,
+    "p_wilcoxon": 0.0001
+   },
+   "own_payoff_against_scripts": {
+    "variant": {
+     "competing": 55.59,
+     "collaborating": 67.7225,
+     "compromising": 62.785,
+     "accommodating": 80.755,
+     "avoiding": 80.1425
+    },
+    "script": {
+     "competing": 58.7275,
+     "collaborating": 67.1575,
+     "compromising": 66.5425,
+     "accommodating": 80.09,
+     "avoiding": 78.9625
+    }
+   },
+   "checker": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   }
+  },
+  "script_accommodating_middle": {
+   "against_the_default_agent": {
+    "own": {
+     "n": 100,
+     "mean": -8.155,
+     "sd": 9.9637,
+     "dz": -0.8185,
+     "ci95": [
+      -10.13,
+      -6.1725
+     ],
+     "wins": 19,
+     "losses": 81,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": 8.2325,
+     "sd": 11.2611,
+     "dz": 0.7311,
+     "ci95": [
+      6.0625,
+      10.4475
+     ],
+     "wins": 72,
+     "losses": 27,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "joint": {
+     "n": 100,
+     "mean": 0.0775,
+     "sd": 18.0577,
+     "dz": 0.0043,
+     "ci95": [
+      -3.4575,
+      3.675
+     ],
+     "wins": 48,
+     "losses": 49,
+     "p_sign": 1.0,
+     "p_wilcoxon": 0.5931
+    },
+    "agreements": 198,
+    "games": 200
+   },
+   "variant_minus_script": {
+    "n": 100,
+    "mean": -3.6975,
+    "sd": 9.6837,
+    "dz": -0.3818,
+    "ci95": [
+     -5.6125,
+     -1.8275
+    ],
+    "wins": 26,
+    "losses": 56,
+    "p_sign": 0.0012,
+    "p_wilcoxon": 0.0005
+   },
+   "own_payoff_against_scripts": {
+    "variant": {
+     "competing": 58.21,
+     "collaborating": 55.7675,
+     "compromising": 54.23,
+     "accommodating": 54.23,
+     "avoiding": 58.21
+    },
+    "script": {
+     "competing": 58.21,
+     "collaborating": 61.715,
+     "compromising": 57.005,
+     "accommodating": 70.005,
+     "avoiding": 58.21
+    }
+   },
+   "checker": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   }
+  },
+  "script_avoiding_quiet": {
+   "against_the_default_agent": {
+    "own": {
+     "n": 100,
+     "mean": -21.695,
+     "sd": 15.4115,
+     "dz": -1.4077,
+     "ci95": [
+      -24.62,
+      -18.6375
+     ],
+     "wins": 10,
+     "losses": 85,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "partner": {
+     "n": 100,
+     "mean": -5.4775,
+     "sd": 16.6711,
+     "dz": -0.3286,
+     "ci95": [
+      -8.71,
+      -2.2575
+     ],
+     "wins": 33,
+     "losses": 61,
+     "p_sign": 0.0051,
+     "p_wilcoxon": 0.0024
+    },
+    "joint": {
+     "n": 100,
+     "mean": -27.1725,
+     "sd": 26.6208,
+     "dz": -1.0207,
+     "ci95": [
+      -32.2825,
+      -22.0625
+     ],
+     "wins": 14,
+     "losses": 81,
+     "p_sign": 0.0,
+     "p_wilcoxon": 0.0
+    },
+    "agreements": 121,
+    "games": 200
+   },
+   "variant_minus_script": {
+    "n": 100,
+    "mean": -3.61,
+    "sd": 18.6499,
+    "dz": -0.1936,
+    "ci95": [
+     -7.25,
+     0.0675
+    ],
+    "wins": 36,
+    "losses": 48,
+    "p_sign": 0.2299,
+    "p_wilcoxon": 0.0788
+   },
+   "own_payoff_against_scripts": {
+    "variant": {
+     "competing": 34.215,
+     "collaborating": 59.8,
+     "compromising": 51.32,
+     "accommodating": 76.345,
+     "avoiding": 43.32
+    },
+    "script": {
+     "competing": 35.8325,
+     "collaborating": 64.1675,
+     "compromising": 54.055,
+     "accommodating": 81.835,
+     "avoiding": 42.73
+    }
+   },
+   "checker": {
+    "against_scripts": [
+     1000,
+     1000
+    ],
+    "against_the_default_agent": [
+     200,
+     200
+    ]
+   }
+  }
+ }
+}

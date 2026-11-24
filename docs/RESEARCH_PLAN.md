@@ -1266,6 +1266,58 @@ Found while setting up, and recorded in the sol arm's config: gpt-6.1-sol does n
 
 Pilot (development instances, choices only, $0.20; in the spec). gpt-6-luna, base condition, 40 choices a menu: the forced pick moves from accommodating 14, collaborating 12, avoiding 10 without reasoning to collaborating 27, accommodating 6, competing 5 at effort high; the free choice stays no rules (37 of 40). gpt-6.1-sol, 8 choices a menu: collaborating 8 of 8, no rules 8 of 8. Predictions fixed from it: R1 confirmed (+3 to +8), R2 not confirmed (E6's loss does not survive reasoning), R3 confirmed (-1.5 to -4), R4 negative and not confirmed; no rules in at least 85 percent of the free choices on both models.
 
+### Strategy payoff study: E8, the rules played by scripts, results (2026-11-23)
+
+Config as frozen above (commit 7a1ac53). 9,500 games: 7,500 between two scripts and 2,000 with the default agent played by gpt-6-luna ($0.49); no game errored and no reply was rejected. Results: `results/bargain_e8_*` and [results/bargain_scripted.json](../results/bargain_scripted.json), written by the analysis that was fixed before any game. Differences are per instance over E1-R's 100 instances (the two seats averaged), in points of 100, with bootstrap 95% intervals; "the model" is gpt-6-luna given the same rule in E1-R, on the same instances.
+
+**Six of eleven hypotheses confirmed.**
+
+| | Claim | Mean [95% interval] | Holm p | |
+|---|---|---|---|---|
+| K1 | the competing script earns more than the default agent | +15.9 [+13.5, +18.3] | < .001 | confirmed |
+| K2 | the collaborating script earns more | +2.6 [+0.5, +4.9] | .14 | not confirmed |
+| K3 | the compromising script earns less | +5.6 [+3.3, +8.1] | < .001 | not confirmed: the opposite sign |
+| K4 | the accommodating script earns less | -4.5 [-6.6, -2.2] | < .001 | confirmed |
+| K5 | the avoiding script earns less | -18.1 [-21.2, -15.0] | < .001 | confirmed |
+| K6 | the competing script's partner earns less | -14.3 [-16.5, -12.1] | < .001 | confirmed |
+| X1 | competing: the script earns more than the model given the rule | +12.1 [+8.9, +15.3] | < .001 | confirmed |
+| X2 | collaborating: the same | -3.3 [-5.5, -1.2] | .018 | not confirmed: the script earns less |
+| X3 | compromising: the same | +13.8 [+11.2, +16.3] | < .001 | confirmed |
+| X4 | accommodating: the same | +2.7 [-0.4, +5.9] | .22 | not confirmed |
+| X5 | avoiding: the same | -1.5 [-5.4, +2.5] | .44 | not confirmed |
+
+**Alone against the default agent, the order of the rules changes when a program carries them out.**
+
+| Rule | Script: own | partner | agreements | Model: own | partner | agreements |
+|---|---|---|---|---|---|---|
+| competing | +15.9 | -14.3 | 198 of 200 | +3.7 | -11.7 | 175 |
+| collaborating | +2.6 | +3.8 | 197 | +6.0 | +2.1 | 198 |
+| compromising | +5.6 | -5.2 | 200 | -8.1 | +1.6 | 189 |
+| accommodating | -4.5 | +12.6 | 199 | -7.2 | +10.3 | 199 |
+| avoiding | -18.1 | -9.4 | 114 | -16.6 | -5.9 | 138 |
+
+With the model the order is collaborating, competing, accommodating, compromising, avoiding; with the scripts it is competing, compromising, collaborating, accommodating, avoiding. Where the difference comes from, read from the games: the competing script's proposal is accepted by the default agent in 153 of 200 games, at 80.8 points to the script where a deal is struck; the model given the rule has its proposal accepted in 90, walks away in 18, is walked away from in 7, and gets 73.6 where a deal is struck. The compromising script opens at 90 points for itself and stops at the middle option on the decisions it knows to be contested (70.1 at agreement); the model given the rule opens at 70 and ends at 57.8, going to the middle at once and on toward its floor. The collaborating script gives more than the model does (its last proposal is worth 72 points to itself, the model's 81): the model's way with that rule keeps more for its user, and it satisfies the checker in 113 of 200 games against the script's 171.
+
+**What is in the rules.** The 5 x 5 matrix of the row rule's own payoff against the column rule correlates at r = .71 [.66, .75] between scripts and model (rank correlation .62, mean absolute difference 7.0 points); the agreement rates of the 25 cells at .78; the joint payoff of the 15 unordered pairs at .81. The five symmetric pairs keep their order but for the last two (rank correlation .90), joint payoff against a default pair at 128.8:
+
+| Pair | Scripts | Model | Script minus model |
+|---|---|---|---|
+| accommodating | 140.0 | 136.4 | +3.6 [+1.6, +5.8] |
+| collaborating | 137.3 | 134.9 | +2.4 [-1.7, +7.0] |
+| compromising | 133.1 | 117.8 | +15.3 [+11.0, +19.8] |
+| competing | 106.1 (62 agreements of 100) | 91.3 (45) | +14.8 [+7.0, +22.9] |
+| avoiding | 85.5 (32) | 101.4 (62) | -16.0 [-23.6, -8.5] |
+
+So the losers of the map are already in the rules: avoiding and accommodating adopted alone, competing and avoiding pairs, the partner of a competing agent; and accommodating and collaborating pairs are on top either way. Three results are not in the rules. Compromising: script pairs sit above the default pair and the script gains alone, where the model loses 11 as a pair and 8 alone. Competing against collaborating adopted alone: the rule carried out to the letter makes competing the far better choice for its user (+15.9 against +2.6), where the model's carrying out makes them alike (+3.7 against +6.0). And how often two competing agents agree (62 of 100 by rule, 45 with the model).
+
+**How much a rule leaves open** (arm B, one variant per script against the default agent): competing that never gives ground -10.1 [-14.0, -6.0], with 89 agreements of 200 (25.9 below the script that gives ground one decision at a time); collaborating that keeps its top option on the remaining contested decisions +10.2 [+7.4, +12.9]; compromising one decision per proposal +10.7 [+8.3, +13.1]; accommodating that opens with its middle options -8.2 [-10.1, -6.2]; avoiding that accepts at once -21.7 [-24.6, -18.6]. Within the wording of one rule the user's payoff moves by 4 to 26 points; the sign changes for competing only.
+
+**The checker** passes the competing, compromising, accommodating and avoiding scripts in every game, and the collaborating script in 752 of 1,000 games against scripts and 171 of 200 against the default agent: its trade clause is judged on the other side's true top options, which a script learns only from their proposals, and an opener that proposes its top design and then accepts a trade is failed. The model given the rules passes in 930, 558, 884, 936 and 997 of 1,000 games against rule-following partners.
+
+**Against the predictions.** Right: the competing, compromising, accommodating and avoiding scripts' payoffs against the default agent fell in the predicted ranges, with K1, K5 and K6 confirmed and K3 not; X1 and X3 confirmed, X2 and X5 not; the matrices' correlation (.71, predicted .5 to .85); the order of the symmetric pairs with avoiding pairs below competing pairs; the checker's pass rates; the competing script that never gives ground earning less. Wrong: K2 was to be confirmed (the collaborating script's +2.6 is just under the predicted +3 to +12 and does not survive the correction); K4 was not to be confirmed and is (-4.5); X4 was to be confirmed (+2.7, interval through zero); the collaborating script earns 3.3 less than the model, just outside the predicted -3 to +6; two competing scripts agree in 62 games of 100 (predicted 40 to 60); and no variant was to change the sign of its script's payoff, which the unyielding competing script does.
+
+**Reading.** The review's question has a two-part answer. A good part of the map is fixed before any model acts: the two 5 x 5 matrices correlate at .71, the rules that lose lose by program too, a competing agent's gain is its partner's loss by program too, and the pairs come out in nearly the same order. But the ranking the paper leads with, of competing, collaborating and compromising adopted alone, is the model's doing: given the competing rule, gpt-6-luna gets a quarter of what the rule is worth (+3.7 of +15.9); given the compromising rule it gives up 14 points more than the rule asks; given the collaborating rule it keeps more than the rule's letter would. The object of the paper is therefore the model given a rule, and its claims should be worded so: "collaborating is the best thing to tell this model" stands; "collaborating is the best rule" does not, and "competing does not pay more than collaborating" is true of the model and false of the rule. It also bears on E6 and E7: an agent that picks the competing rule on the evidence of what the model earned with it would be leaving most of that rule's worth unused. Limits: one script per rule and one variant; the conventions are ours (opening with the top design, giving ground where it costs least) and arm B shows that they matter; the scripts say nothing beyond what their rule prescribes, so the default agent's response to a silent partner is part of every script-minus-model difference; one model as the default agent; the core environment only.
+
 ## Next steps
 
 1. **The paper** (ICML 2027: abstracts 14 January, papers 22 January 2027) is a complete draft in `paper/` and on Overleaf (2026-11-22): the body is one storyline in eight pages (the matrix, the reward-by-situation figure the advisor asked for, the cost figure, and who keeps the gain) with five generated figures and a transfer table over 29 settings; the full design and the full results of every experiment are Appendices E and F. Open: the advisor's and co-authors' read; the author block; the bibliography entries marked verify; the two visible TODOs in the appendix (example extractions and the human spot-check); appendix tables for the E3 condition arms and the benchmark cells. One finding to keep in view when revising: the relation between the room the default pair leaves and collaborating's gain holds among the 23 settings with the standard protocol and equal stakes (r = .81) and not over all 29 (r = .32), and the paper says so; it is descriptive, not a frozen prediction.

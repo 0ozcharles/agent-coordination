@@ -1,0 +1,390 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="2570" font-family="Helvetica, Arial, sans-serif" font-size="12">
+<rect width="900" height="2570" fill="white"/>
+<text x="190" y="24" font-size="14" font-weight="bold">Mean payoff in points: Developer 1 (instructed, dark) and Developer 2</text>
+<text x="624" y="24">agree</text><text x="674" y="24">comply</text><text x="734" y="24">gap</text>
+<line x1="190.0" y1="36" x2="190.0" y2="2510" stroke="#eee"/><text x="190.0" y="2522" text-anchor="middle">0</text>
+<line x1="295.0" y1="36" x2="295.0" y2="2510" stroke="#eee"/><text x="295.0" y="2522" text-anchor="middle">25</text>
+<line x1="400.0" y1="36" x2="400.0" y2="2510" stroke="#eee"/><text x="400.0" y="2522" text-anchor="middle">50</text>
+<line x1="505.0" y1="36" x2="505.0" y2="2510" stroke="#eee"/><text x="505.0" y="2522" text-anchor="middle">75</text>
+<line x1="610.0" y1="36" x2="610.0" y2="2510" stroke="#eee"/><text x="610.0" y="2522" text-anchor="middle">100</text>
+<text x="184" y="56" text-anchor="end">script_competing-script_competing</text>
+<rect x="190" y="43" width="221.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="53" width="224.3" height="9" fill="#95a5a6"/>
+<text x="624" y="56">62/100</text><text x="674" y="56">100/100</text><text x="734" y="56">37.515</text>
+<text x="184" y="82" text-anchor="end">script_competing-script_collaborating</text>
+<rect x="190" y="69" width="286.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="79" width="280.0" height="9" fill="#95a5a6"/>
+<text x="624" y="82">97/100</text><text x="674" y="82">100/100</text><text x="734" y="82">8.73</text>
+<text x="184" y="108" text-anchor="end">script_competing-script_compromising</text>
+<rect x="190" y="95" width="268.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="105" width="247.4" height="9" fill="#95a5a6"/>
+<text x="624" y="108">87/100</text><text x="674" y="108">100/100</text><text x="734" y="108">20.765</text>
+<text x="184" y="134" text-anchor="end">script_competing-script_accommodating</text>
+<rect x="190" y="121" width="343.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="131" width="245.0" height="9" fill="#95a5a6"/>
+<text x="624" y="134">100/100</text><text x="674" y="134">100/100</text><text x="734" y="134">3.61</text>
+<text x="184" y="160" text-anchor="end">script_competing-script_avoiding</text>
+<rect x="190" y="147" width="280.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="157" width="150.9" height="9" fill="#95a5a6"/>
+<text x="624" y="160">58/100</text><text x="674" y="160">100/100</text><text x="734" y="160">40.845</text>
+<text x="184" y="186" text-anchor="end">script_collaborating-script_competing</text>
+<rect x="190" y="173" width="270.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="183" width="270.5" height="9" fill="#95a5a6"/>
+<text x="624" y="186">88/100</text><text x="674" y="186">100/100</text><text x="734" y="186">14.95</text>
+<text x="184" y="212" text-anchor="end">script_collaborating-script_collaborating</text>
+<rect x="190" y="199" width="286.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="209" width="290.3" height="9" fill="#95a5a6"/>
+<text x="624" y="212">100/100</text><text x="674" y="212">50/100</text><text x="734" y="212">6.33</text>
+<text x="184" y="238" text-anchor="end">script_collaborating-script_compromising</text>
+<rect x="190" y="225" width="290.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="235" width="279.8" height="9" fill="#95a5a6"/>
+<text x="624" y="238">100/100</text><text x="674" y="238">81/100</text><text x="734" y="238">7.79</text>
+<text x="184" y="264" text-anchor="end">script_collaborating-script_accommodating</text>
+<rect x="190" y="251" width="322.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="261" width="254.7" height="9" fill="#95a5a6"/>
+<text x="624" y="264">100/100</text><text x="674" y="264">50/100</text><text x="734" y="264">6.14</text>
+<text x="184" y="290" text-anchor="end">script_collaborating-script_avoiding</text>
+<rect x="190" y="277" width="302.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="287" width="267.5" height="9" fill="#95a5a6"/>
+<text x="624" y="290">100/100</text><text x="674" y="290">100/100</text><text x="734" y="290">8.005</text>
+<text x="184" y="316" text-anchor="end">script_compromising-script_competing</text>
+<rect x="190" y="303" width="245.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="313" width="278.7" height="9" fill="#95a5a6"/>
+<text x="624" y="316">89/100</text><text x="674" y="316">100/100</text><text x="734" y="316">18.735</text>
+<text x="184" y="342" text-anchor="end">script_compromising-script_collaborating</text>
+<rect x="190" y="329" width="284.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="339" width="290.9" height="9" fill="#95a5a6"/>
+<text x="624" y="342">100/100</text><text x="674" y="342">100/100</text><text x="734" y="342">6.665</text>
+<text x="184" y="368" text-anchor="end">script_compromising-script_compromising</text>
+<rect x="190" y="355" width="270.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="365" width="288.5" height="9" fill="#95a5a6"/>
+<text x="624" y="368">100/100</text><text x="674" y="368">100/100</text><text x="734" y="368">10.545</text>
+<text x="184" y="394" text-anchor="end">script_compromising-script_accommodating</text>
+<rect x="190" y="381" width="334.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="391" width="241.6" height="9" fill="#95a5a6"/>
+<text x="624" y="394">100/100</text><text x="674" y="394">100/100</text><text x="734" y="394">6.435</text>
+<text x="184" y="420" text-anchor="end">script_compromising-script_avoiding</text>
+<rect x="190" y="407" width="331.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="417" width="226.3" height="9" fill="#95a5a6"/>
+<text x="624" y="420">100/100</text><text x="674" y="420">100/100</text><text x="734" y="420">10.705</text>
+<text x="184" y="446" text-anchor="end">script_accommodating-script_competing</text>
+<rect x="190" y="433" width="244.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="443" width="344.3" height="9" fill="#95a5a6"/>
+<text x="624" y="446">100/100</text><text x="674" y="446">100/100</text><text x="734" y="446">3.56</text>
+<text x="184" y="472" text-anchor="end">script_accommodating-script_collaborating</text>
+<rect x="190" y="459" width="263.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="469" width="321.2" height="9" fill="#95a5a6"/>
+<text x="624" y="472">100/100</text><text x="674" y="472">100/100</text><text x="734" y="472">4.36</text>
+<text x="184" y="498" text-anchor="end">script_accommodating-script_compromising</text>
+<rect x="190" y="485" width="237.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="495" width="338.2" height="9" fill="#95a5a6"/>
+<text x="624" y="498">100/100</text><text x="674" y="498">100/100</text><text x="734" y="498">6.635</text>
+<text x="184" y="524" text-anchor="end">script_accommodating-script_accommodating</text>
+<rect x="190" y="511" width="293.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="521" width="295.0" height="9" fill="#95a5a6"/>
+<text x="624" y="524">100/100</text><text x="674" y="524">100/100</text><text x="734" y="524">3.62</text>
+<text x="184" y="550" text-anchor="end">script_accommodating-script_avoiding</text>
+<rect x="190" y="537" width="244.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="547" width="344.3" height="9" fill="#95a5a6"/>
+<text x="624" y="550">100/100</text><text x="674" y="550">100/100</text><text x="734" y="550">3.56</text>
+<text x="184" y="576" text-anchor="end">script_avoiding-script_competing</text>
+<rect x="190" y="563" width="150.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="573" width="270.9" height="9" fill="#95a5a6"/>
+<text x="624" y="576">54/100</text><text x="674" y="576">100/100</text><text x="734" y="576">43.405</text>
+<text x="184" y="602" text-anchor="end">script_avoiding-script_collaborating</text>
+<rect x="190" y="589" width="271.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="599" width="301.7" height="9" fill="#95a5a6"/>
+<text x="624" y="602">100/100</text><text x="674" y="602">100/100</text><text x="734" y="602">7.14</text>
+<text x="184" y="628" text-anchor="end">script_avoiding-script_compromising</text>
+<rect x="190" y="615" width="227.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="625" width="331.3" height="9" fill="#95a5a6"/>
+<text x="624" y="628">100/100</text><text x="674" y="628">100/100</text><text x="734" y="628">10.52</text>
+<text x="184" y="654" text-anchor="end">script_avoiding-script_accommodating</text>
+<rect x="190" y="641" width="343.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="651" width="245.0" height="9" fill="#95a5a6"/>
+<text x="624" y="654">100/100</text><text x="674" y="654">100/100</text><text x="734" y="654">3.61</text>
+<text x="184" y="680" text-anchor="end">script_avoiding-script_avoiding</text>
+<rect x="190" y="667" width="181.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="677" width="177.3" height="9" fill="#95a5a6"/>
+<text x="624" y="680">32/100</text><text x="674" y="680">100/100</text><text x="734" y="680">58.17</text>
+<text x="184" y="706" text-anchor="end">script_competing-neutral</text>
+<rect x="190" y="693" width="334.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="703" width="208.9" height="9" fill="#95a5a6"/>
+<text x="624" y="706">98/100</text><text x="674" y="706">100/100</text><text x="734" y="706">14.215</text>
+<text x="184" y="732" text-anchor="end">neutral-script_competing</text>
+<rect x="190" y="719" width="211.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="729" width="339.9" height="9" fill="#95a5a6"/>
+<text x="624" y="732">100/100</text><text x="674" y="732">n/a</text><text x="734" y="732">12.25</text>
+<text x="184" y="758" text-anchor="end">script_collaborating-neutral</text>
+<rect x="190" y="745" width="281.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="755" width="287.4" height="9" fill="#95a5a6"/>
+<text x="624" y="758">99/100</text><text x="674" y="758">86/100</text><text x="734" y="758">8.265</text>
+<text x="184" y="784" text-anchor="end">neutral-script_collaborating</text>
+<rect x="190" y="771" width="285.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="781" width="282.2" height="9" fill="#95a5a6"/>
+<text x="624" y="784">98/100</text><text x="674" y="784">n/a</text><text x="734" y="784">8.5</text>
+<text x="184" y="810" text-anchor="end">script_compromising-neutral</text>
+<rect x="190" y="797" width="297.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="807" width="247.0" height="9" fill="#95a5a6"/>
+<text x="624" y="810">100/100</text><text x="674" y="810">100/100</text><text x="734" y="810">13.875</text>
+<text x="184" y="836" text-anchor="end">neutral-script_compromising</text>
+<rect x="190" y="823" width="250.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="833" width="290.6" height="9" fill="#95a5a6"/>
+<text x="624" y="836">100/100</text><text x="674" y="836">n/a</text><text x="734" y="836">14.78</text>
+<text x="184" y="862" text-anchor="end">script_accommodating-neutral</text>
+<rect x="190" y="849" width="252.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="859" width="319.8" height="9" fill="#95a5a6"/>
+<text x="624" y="862">99/100</text><text x="674" y="862">100/100</text><text x="734" y="862">7.32</text>
+<text x="184" y="888" text-anchor="end">neutral-script_accommodating</text>
+<rect x="190" y="875" width="327.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="885" width="251.0" height="9" fill="#95a5a6"/>
+<text x="624" y="888">100/100</text><text x="674" y="888">n/a</text><text x="734" y="888">5.995</text>
+<text x="184" y="914" text-anchor="end">script_avoiding-neutral</text>
+<rect x="190" y="901" width="191.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="911" width="223.8" height="9" fill="#95a5a6"/>
+<text x="624" y="914">55/100</text><text x="674" y="914">100/100</text><text x="734" y="914">44.74</text>
+<text x="184" y="940" text-anchor="end">neutral-script_avoiding</text>
+<rect x="190" y="927" width="238.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="937" width="197.7" height="9" fill="#95a5a6"/>
+<text x="624" y="940">59/100</text><text x="674" y="940">n/a</text><text x="734" y="940">39.8</text>
+<text x="184" y="966" text-anchor="end">script_competing_firm-script_competing</text>
+<rect x="190" y="953" width="206.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="963" width="226.7" height="9" fill="#95a5a6"/>
+<text x="624" y="966">60/100</text><text x="674" y="966">100/100</text><text x="734" y="966">40.385</text>
+<text x="184" y="992" text-anchor="end">script_competing-script_competing_firm</text>
+<rect x="190" y="979" width="219.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="989" width="204.2" height="9" fill="#95a5a6"/>
+<text x="624" y="992">57/100</text><text x="674" y="992">100/100</text><text x="734" y="992">42.77</text>
+<text x="184" y="1018" text-anchor="end">script_competing_firm-script_collaborating</text>
+<rect x="190" y="1005" width="272.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1015" width="263.0" height="9" fill="#95a5a6"/>
+<text x="624" y="1018">84/100</text><text x="674" y="1018">100/100</text><text x="734" y="1018">16.195</text>
+<text x="184" y="1044" text-anchor="end">script_collaborating-script_competing_firm</text>
+<rect x="190" y="1031" width="253.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="1041" width="260.1" height="9" fill="#95a5a6"/>
+<text x="624" y="1044">78/100</text><text x="674" y="1044">100/100</text><text x="734" y="1044">21.295</text>
+<text x="184" y="1070" text-anchor="end">script_competing_firm-script_compromising</text>
+<rect x="190" y="1057" width="237.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1067" width="241.1" height="9" fill="#95a5a6"/>
+<text x="624" y="1070">76/100</text><text x="674" y="1070">100/100</text><text x="734" y="1070">29.74</text>
+<text x="184" y="1096" text-anchor="end">script_compromising-script_competing_firm</text>
+<rect x="190" y="1083" width="228.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1093" width="227.2" height="9" fill="#95a5a6"/>
+<text x="624" y="1096">68/100</text><text x="674" y="1096">100/100</text><text x="734" y="1096">35.21</text>
+<text x="184" y="1122" text-anchor="end">script_competing_firm-script_accommodating</text>
+<rect x="190" y="1109" width="343.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1119" width="245.0" height="9" fill="#95a5a6"/>
+<text x="624" y="1122">100/100</text><text x="674" y="1122">100/100</text><text x="734" y="1122">3.61</text>
+<text x="184" y="1148" text-anchor="end">script_accommodating-script_competing_firm</text>
+<rect x="190" y="1135" width="244.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1145" width="344.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1148">100/100</text><text x="674" y="1148">100/100</text><text x="734" y="1148">3.56</text>
+<text x="184" y="1174" text-anchor="end">script_competing_firm-script_avoiding</text>
+<rect x="190" y="1161" width="214.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1171" width="135.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1174">30/100</text><text x="674" y="1174">100/100</text><text x="734" y="1174">60.34</text>
+<text x="184" y="1200" text-anchor="end">script_avoiding-script_competing_firm</text>
+<rect x="190" y="1187" width="137.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1197" width="208.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1200">28/100</text><text x="674" y="1200">100/100</text><text x="734" y="1200">61.38</text>
+<text x="184" y="1226" text-anchor="end">script_collaborating_keep-script_competing</text>
+<rect x="190" y="1213" width="239.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1223" width="249.9" height="9" fill="#95a5a6"/>
+<text x="624" y="1226">73/100</text><text x="674" y="1226">100/100</text><text x="734" y="1226">27.165</text>
+<text x="184" y="1252" text-anchor="end">script_competing-script_collaborating_keep</text>
+<rect x="190" y="1239" width="241.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1249" width="241.5" height="9" fill="#95a5a6"/>
+<text x="624" y="1252">70/100</text><text x="674" y="1252">100/100</text><text x="734" y="1252">28.635</text>
+<text x="184" y="1278" text-anchor="end">script_collaborating_keep-script_collaborating</text>
+<rect x="190" y="1265" width="299.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1275" width="280.2" height="9" fill="#95a5a6"/>
+<text x="624" y="1278">100/100</text><text x="674" y="1278">50/100</text><text x="734" y="1278">5.645</text>
+<text x="184" y="1304" text-anchor="end">script_collaborating-script_collaborating_keep</text>
+<rect x="190" y="1291" width="276.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="1301" width="304.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1304">100/100</text><text x="674" y="1304">78/100</text><text x="734" y="1304">5.205</text>
+<text x="184" y="1330" text-anchor="end">script_collaborating_keep-script_compromising</text>
+<rect x="190" y="1317" width="306.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="1327" width="260.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1330">100/100</text><text x="674" y="1330">81/100</text><text x="734" y="1330">8.685</text>
+<text x="184" y="1356" text-anchor="end">script_compromising-script_collaborating_keep</text>
+<rect x="190" y="1343" width="264.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1353" width="310.7" height="9" fill="#95a5a6"/>
+<text x="624" y="1356">100/100</text><text x="674" y="1356">100/100</text><text x="734" y="1356">6.74</text>
+<text x="184" y="1382" text-anchor="end">script_collaborating_keep-script_accommodating</text>
+<rect x="190" y="1369" width="333.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="1379" width="252.9" height="9" fill="#95a5a6"/>
+<text x="624" y="1382">100/100</text><text x="674" y="1382">50/100</text><text x="734" y="1382">4</text>
+<text x="184" y="1408" text-anchor="end">script_accommodating-script_collaborating_keep</text>
+<rect x="190" y="1395" width="246.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="1405" width="342.0" height="9" fill="#95a5a6"/>
+<text x="624" y="1408">100/100</text><text x="674" y="1408">100/100</text><text x="734" y="1408">3.48</text>
+<text x="184" y="1434" text-anchor="end">script_collaborating_keep-script_avoiding</text>
+<rect x="190" y="1421" width="334.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1431" width="212.9" height="9" fill="#95a5a6"/>
+<text x="624" y="1434">94/100</text><text x="674" y="1434">100/100</text><text x="734" y="1434">13.38</text>
+<text x="184" y="1460" text-anchor="end">script_avoiding-script_collaborating_keep</text>
+<rect x="190" y="1447" width="220.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="1457" width="334.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1460">94/100</text><text x="674" y="1460">100/100</text><text x="734" y="1460">11.48</text>
+<text x="184" y="1486" text-anchor="end">script_compromising_one-script_competing</text>
+<rect x="190" y="1473" width="232.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="1483" width="300.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1486">89/100</text><text x="674" y="1486">100/100</text><text x="734" y="1486">16.755</text>
+<text x="184" y="1512" text-anchor="end">script_competing-script_compromising_one</text>
+<rect x="190" y="1499" width="290.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1509" width="234.4" height="9" fill="#95a5a6"/>
+<text x="624" y="1512">87/100</text><text x="674" y="1512">100/100</text><text x="734" y="1512">18.74</text>
+<text x="184" y="1538" text-anchor="end">script_compromising_one-script_collaborating</text>
+<rect x="190" y="1525" width="287.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1535" width="289.5" height="9" fill="#95a5a6"/>
+<text x="624" y="1538">100/100</text><text x="674" y="1538">100/100</text><text x="734" y="1538">6.34</text>
+<text x="184" y="1564" text-anchor="end">script_collaborating-script_compromising_one</text>
+<rect x="190" y="1551" width="291.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="1561" width="281.8" height="9" fill="#95a5a6"/>
+<text x="624" y="1564">100/100</text><text x="674" y="1564">94/100</text><text x="734" y="1564">7.075</text>
+<text x="184" y="1590" text-anchor="end">script_compromising_one-script_compromising</text>
+<rect x="190" y="1577" width="259.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="1587" width="299.5" height="9" fill="#95a5a6"/>
+<text x="624" y="1590">100/100</text><text x="674" y="1590">100/100</text><text x="734" y="1590">10.5</text>
+<text x="184" y="1616" text-anchor="end">script_compromising-script_compromising_one</text>
+<rect x="190" y="1603" width="290.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1613" width="267.8" height="9" fill="#95a5a6"/>
+<text x="624" y="1616">100/100</text><text x="674" y="1616">100/100</text><text x="734" y="1616">10.795</text>
+<text x="184" y="1642" text-anchor="end">script_compromising_one-script_accommodating</text>
+<rect x="190" y="1629" width="335.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1639" width="252.4" height="9" fill="#95a5a6"/>
+<text x="624" y="1642">100/100</text><text x="674" y="1642">100/100</text><text x="734" y="1642">3.745</text>
+<text x="184" y="1668" text-anchor="end">script_accommodating-script_compromising_one</text>
+<rect x="190" y="1655" width="241.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="1665" width="343.2" height="9" fill="#95a5a6"/>
+<text x="624" y="1668">100/100</text><text x="674" y="1668">100/100</text><text x="734" y="1668">4.49</text>
+<text x="184" y="1694" text-anchor="end">script_compromising_one-script_avoiding</text>
+<rect x="190" y="1681" width="330.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1691" width="175.9" height="9" fill="#95a5a6"/>
+<text x="624" y="1694">82/100</text><text x="674" y="1694">100/100</text><text x="734" y="1694">23.16</text>
+<text x="184" y="1720" text-anchor="end">script_avoiding-script_compromising_one</text>
+<rect x="190" y="1707" width="180.3" height="9" fill="#2c3e50"/>
+<rect x="190" y="1717" width="343.2" height="9" fill="#95a5a6"/>
+<text x="624" y="1720">87/100</text><text x="674" y="1720">100/100</text><text x="734" y="1720">19.005</text>
+<text x="184" y="1746" text-anchor="end">script_accommodating_middle-script_competing</text>
+<rect x="190" y="1733" width="244.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1743" width="344.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1746">100/100</text><text x="674" y="1746">100/100</text><text x="734" y="1746">3.56</text>
+<text x="184" y="1772" text-anchor="end">script_competing-script_accommodating_middle</text>
+<rect x="190" y="1759" width="343.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1769" width="245.0" height="9" fill="#95a5a6"/>
+<text x="624" y="1772">100/100</text><text x="674" y="1772">100/100</text><text x="734" y="1772">3.61</text>
+<text x="184" y="1798" text-anchor="end">script_accommodating_middle-script_collaborating</text>
+<rect x="190" y="1785" width="232.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1795" width="306.8" height="9" fill="#95a5a6"/>
+<text x="624" y="1798">100/100</text><text x="674" y="1798">100/100</text><text x="734" y="1798">15.32</text>
+<text x="184" y="1824" text-anchor="end">script_collaborating-script_accommodating_middle</text>
+<rect x="190" y="1811" width="306.5" height="9" fill="#2c3e50"/>
+<rect x="190" y="1821" width="236.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1824">100/100</text><text x="674" y="1824">0/100</text><text x="734" y="1824">14.375</text>
+<text x="184" y="1850" text-anchor="end">script_accommodating_middle-script_compromising</text>
+<rect x="190" y="1837" width="228.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1847" width="277.5" height="9" fill="#95a5a6"/>
+<text x="624" y="1850">100/100</text><text x="674" y="1850">100/100</text><text x="734" y="1850">23.29</text>
+<text x="184" y="1876" text-anchor="end">script_compromising-script_accommodating_middle</text>
+<rect x="190" y="1863" width="275.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1873" width="227.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1876">100/100</text><text x="674" y="1876">100/100</text><text x="734" y="1876">23.96</text>
+<text x="184" y="1902" text-anchor="end">script_accommodating_middle-script_accommodating</text>
+<rect x="190" y="1889" width="228.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1899" width="277.5" height="9" fill="#95a5a6"/>
+<text x="624" y="1902">100/100</text><text x="674" y="1902">100/100</text><text x="734" y="1902">23.29</text>
+<text x="184" y="1928" text-anchor="end">script_accommodating-script_accommodating_middle</text>
+<rect x="190" y="1915" width="275.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1925" width="227.6" height="9" fill="#95a5a6"/>
+<text x="624" y="1928">100/100</text><text x="674" y="1928">100/100</text><text x="734" y="1928">23.96</text>
+<text x="184" y="1954" text-anchor="end">script_accommodating_middle-script_avoiding</text>
+<rect x="190" y="1941" width="244.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="1951" width="344.3" height="9" fill="#95a5a6"/>
+<text x="624" y="1954">100/100</text><text x="674" y="1954">100/100</text><text x="734" y="1954">3.56</text>
+<text x="184" y="1980" text-anchor="end">script_avoiding-script_accommodating_middle</text>
+<rect x="190" y="1967" width="343.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="1977" width="245.0" height="9" fill="#95a5a6"/>
+<text x="624" y="1980">100/100</text><text x="674" y="1980">100/100</text><text x="734" y="1980">3.61</text>
+<text x="184" y="2006" text-anchor="end">script_avoiding_quiet-script_competing</text>
+<rect x="190" y="1993" width="143.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="2003" width="275.2" height="9" fill="#95a5a6"/>
+<text x="624" y="2006">54/100</text><text x="674" y="2006">100/100</text><text x="734" y="2006">43.875</text>
+<text x="184" y="2032" text-anchor="end">script_competing-script_avoiding_quiet</text>
+<rect x="190" y="2019" width="286.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="2029" width="143.7" height="9" fill="#95a5a6"/>
+<text x="624" y="2032">58/100</text><text x="674" y="2032">100/100</text><text x="734" y="2032">41.335</text>
+<text x="184" y="2058" text-anchor="end">script_avoiding_quiet-script_collaborating</text>
+<rect x="190" y="2045" width="254.6" height="9" fill="#2c3e50"/>
+<rect x="190" y="2055" width="316.7" height="9" fill="#95a5a6"/>
+<text x="624" y="2058">100/100</text><text x="674" y="2058">100/100</text><text x="734" y="2058">7.59</text>
+<text x="184" y="2084" text-anchor="end">script_collaborating-script_avoiding_quiet</text>
+<rect x="190" y="2071" width="319.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="2081" width="247.7" height="9" fill="#95a5a6"/>
+<text x="624" y="2084">100/100</text><text x="674" y="2084">87/100</text><text x="734" y="2084">8.505</text>
+<text x="184" y="2110" text-anchor="end">script_avoiding_quiet-script_compromising</text>
+<rect x="190" y="2097" width="217.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="2107" width="342.0" height="9" fill="#95a5a6"/>
+<text x="624" y="2110">100/100</text><text x="674" y="2110">100/100</text><text x="734" y="2110">10.5</text>
+<text x="184" y="2136" text-anchor="end">script_compromising-script_avoiding_quiet</text>
+<rect x="190" y="2123" width="344.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="2133" width="213.9" height="9" fill="#95a5a6"/>
+<text x="624" y="2136">100/100</text><text x="674" y="2136">100/100</text><text x="734" y="2136">10.685</text>
+<text x="184" y="2162" text-anchor="end">script_avoiding_quiet-script_accommodating</text>
+<rect x="190" y="2149" width="322.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="2159" width="266.3" height="9" fill="#95a5a6"/>
+<text x="624" y="2162">100/100</text><text x="674" y="2162">100/100</text><text x="734" y="2162">3.57</text>
+<text x="184" y="2188" text-anchor="end">script_accommodating-script_avoiding_quiet</text>
+<rect x="190" y="2175" width="269.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="2185" width="319.3" height="9" fill="#95a5a6"/>
+<text x="624" y="2188">100/100</text><text x="674" y="2188">100/100</text><text x="734" y="2188">3.56</text>
+<text x="184" y="2214" text-anchor="end">script_avoiding_quiet-script_avoiding</text>
+<rect x="190" y="2201" width="184.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="2211" width="215.5" height="9" fill="#95a5a6"/>
+<text x="624" y="2214">44/100</text><text x="674" y="2214">100/100</text><text x="734" y="2214">48.48</text>
+<text x="184" y="2240" text-anchor="end">script_avoiding-script_avoiding_quiet</text>
+<rect x="190" y="2227" width="219.9" height="9" fill="#2c3e50"/>
+<rect x="190" y="2237" width="179.7" height="9" fill="#95a5a6"/>
+<text x="624" y="2240">45/100</text><text x="674" y="2240">100/100</text><text x="734" y="2240">48.49</text>
+<text x="184" y="2266" text-anchor="end">script_competing_firm-neutral</text>
+<rect x="190" y="2253" width="232.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="2263" width="162.4" height="9" fill="#95a5a6"/>
+<text x="624" y="2266">46/100</text><text x="674" y="2266">100/100</text><text x="734" y="2266">49.695</text>
+<text x="184" y="2292" text-anchor="end">neutral-script_competing_firm</text>
+<rect x="190" y="2279" width="164.8" height="9" fill="#2c3e50"/>
+<rect x="190" y="2289" width="224.5" height="9" fill="#95a5a6"/>
+<text x="624" y="2292">43/100</text><text x="674" y="2292">n/a</text><text x="734" y="2292">50.94</text>
+<text x="184" y="2318" text-anchor="end">script_collaborating_keep-neutral</text>
+<rect x="190" y="2305" width="316.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="2315" width="262.5" height="9" fill="#95a5a6"/>
+<text x="624" y="2318">100/100</text><text x="674" y="2318">85/100</text><text x="734" y="2318">5.705</text>
+<text x="184" y="2344" text-anchor="end">neutral-script_collaborating_keep</text>
+<rect x="190" y="2331" width="261.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="2341" width="310.3" height="9" fill="#95a5a6"/>
+<text x="624" y="2344">99/100</text><text x="674" y="2344">n/a</text><text x="734" y="2344">7.44</text>
+<text x="184" y="2370" text-anchor="end">script_compromising_one-neutral</text>
+<rect x="190" y="2357" width="314.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="2367" width="236.6" height="9" fill="#95a5a6"/>
+<text x="624" y="2370">100/100</text><text x="674" y="2370">100/100</text><text x="734" y="2370">12.385</text>
+<text x="184" y="2396" text-anchor="end">neutral-script_compromising_one</text>
+<rect x="190" y="2383" width="232.1" height="9" fill="#2c3e50"/>
+<rect x="190" y="2393" width="316.8" height="9" fill="#95a5a6"/>
+<text x="624" y="2396">99/100</text><text x="674" y="2396">n/a</text><text x="734" y="2396">12.945</text>
+<text x="184" y="2422" text-anchor="end">script_accommodating_middle-neutral</text>
+<rect x="190" y="2409" width="236.7" height="9" fill="#2c3e50"/>
+<rect x="190" y="2419" width="306.4" height="9" fill="#95a5a6"/>
+<text x="624" y="2422">99/100</text><text x="674" y="2422">100/100</text><text x="734" y="2422">14.33</text>
+<text x="184" y="2448" text-anchor="end">neutral-script_accommodating_middle</text>
+<rect x="190" y="2435" width="304.0" height="9" fill="#2c3e50"/>
+<rect x="190" y="2445" width="236.0" height="9" fill="#95a5a6"/>
+<text x="624" y="2448">99/100</text><text x="674" y="2448">n/a</text><text x="734" y="2448">15.075</text>
+<text x="184" y="2474" text-anchor="end">script_avoiding_quiet-neutral</text>
+<rect x="190" y="2461" width="189.4" height="9" fill="#2c3e50"/>
+<rect x="190" y="2471" width="252.0" height="9" fill="#95a5a6"/>
+<text x="624" y="2474">65/100</text><text x="674" y="2474">100/100</text><text x="734" y="2474">38.545</text>
+<text x="184" y="2500" text-anchor="end">neutral-script_avoiding_quiet</text>
+<rect x="190" y="2487" width="243.2" height="9" fill="#2c3e50"/>
+<rect x="190" y="2497" width="169.6" height="9" fill="#95a5a6"/>
+<text x="624" y="2500">56/100</text><text x="674" y="2500">n/a</text><text x="734" y="2500">45.36</text>
+</svg>
