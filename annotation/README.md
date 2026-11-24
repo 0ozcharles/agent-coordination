@@ -1,5 +1,7 @@
 # Human annotation study
 
+Status (2026-11-23): shelved by the user's decision. Nothing has been sent to the annotators and no answers exist; everything below describes the study as built, ready to run.
+
 Three tasks check by hand the three places where the study relies on a model or a program: the judge model's style labels, the compliance checker, and the extraction of the grounded instances. Six annotators (R1 to R6) form 15 pairs and every item is rated independently by one pair, so each annotator's load is the same and every pair of annotators shares items. Built by `scripts/make_annotation_pack.py` with a fixed seed; analysed by `scripts/analysis/annotation_agreement.py`.
 
 | Task | Items | What the annotator sees | What the annotator decides | Each annotator |
